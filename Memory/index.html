@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Consolidated Master Version</title>
+    <title>Consolidated Master Version - Imperial Academy of Education</title>
 
     <style>
         body {
@@ -17,29 +16,37 @@
 
         .container {
             max-width: 900px;
-            margin: auto;
+            margin: 0 auto;
             background: #ffffff;
             padding: 35px;
             border-radius: 14px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
         }
 
         h1 {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            color: #111827;
         }
 
-        h2 {
+        .subtitle {
             color: #315b7d;
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-top: 0;
+            margin-bottom: 15px;
         }
 
         p {
             line-height: 1.7;
+            color: #4b5563;
         }
 
-        /* دونوں links لازماً الگ الگ لائنوں میں */
+        /* Enforce vertical stacking for link buttons */
         .links {
             margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
         .link-button {
@@ -47,52 +54,48 @@
             width: 100%;
             box-sizing: border-box;
             padding: 18px 20px;
-            margin-bottom: 24px;
             background: #315b7d;
             color: #ffffff;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
             text-align: center;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
         }
 
-        .link-button:last-child {
-            margin-bottom: 0;
-        }
-
-        .link-button:hover {
-            opacity: 0.9;
+        .link-button:hover, 
+        .link-button:focus-visible {
+            background: #24445e;
+            outline: 2px solid #24445e;
+            outline-offset: 2px;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<main class="container">
 
     <h1>Consolidated Master Version</h1>
-
-    <h2>Imperial Academy of Education</h2>
+    <div class="subtitle">Imperial Academy of Education</div>
 
     <p>
         Master Workflow and Reference
     </p>
 
-    <div class="links">
+    <nav class="links" aria-label="Master Navigation">
 
-        <a class="link-button"
-           href="./Consolidated-Master-Version.html">
+        <a class="link-button" href="./Consolidated-Master-Version.html">
             Open Consolidated Master Version
         </a>
 
-        <a class="link-button"
-           href="./Chapter-Development-Master-Workflow.html">
+        <a class="link-button" href="./Chapter-Development-Master-Workflow.html">
             Open Chapter Development Master Workflow
         </a>
 
-    </div>
+    </nav>
 
-</div>
+</main>
 
 </body>
 </html>
