@@ -1,2 +1,731 @@
 <!DOCTYPE html>
-<html> Coming Soon </html> 
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Academy | Biology — Chapter 06 (Lecture 03)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #1b4d3e;
+            --primary-light: #2c7a63;
+            --accent-color: #d97706;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --font-urdu: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', serif;
+            --font-en: 'Roboto', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-urdu);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 2.2;
+            direction: rtl;
+        }
+
+        /* Linguistic & Term Isolation */
+        .en, .term {
+            font-family: var(--font-en);
+            direction: ltr;
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0 4px;
+        }
+
+        /* Layout Structure */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Controls / Search Bar */
+        .controls-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-family: var(--font-urdu);
+            font-size: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-family: var(--font-urdu);
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+
+        .btn-accent:hover {
+            background-color: #b45309;
+        }
+
+        .btn-svg {
+            background-color: #0284c7;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .btn-svg:hover {
+            background-color: #0369a1;
+        }
+
+        /* View Containers */
+        .view-section {
+            display: block;
+        }
+
+        .view-section.hidden {
+            display: none;
+        }
+
+        /* Topics Grid System */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .topic-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-card h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .topic-card ul {
+            list-style: none;
+        }
+
+        .topic-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-right: 1.2rem;
+        }
+
+        .topic-card ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+
+        /* Focus Mode / Reading Layout */
+        .lecture-focus-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .lecture-focus-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Interactive Quiz Styles */
+        .quiz-card {
+            background-color: #f8fafc;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-option:hover {
+            background-color: #e2e8f0;
+        }
+
+        .quiz-option.correct {
+            background-color: #dcfce7 !important;
+            border-color: #16a34a !important;
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .quiz-option.incorrect {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c;
+        }
+
+        .explanation {
+            margin-top: 0.8rem;
+            padding: 0.8rem;
+            background-color: #e0f2fe;
+            border-radius: 6px;
+            color: #0369a1;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .score-board {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        /* Modal / Dynamic Popups */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 750px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .svg-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            background-color: #fafafa;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            .controls-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Imperial Academy</h1>
+        <p>Biology — Chapter 06 (Lecture 03): <span class="en">Prokaryotes & Microbial Control</span></p>
+    </header>
+
+    <div class="container">
+
+        <!-- Top Controls & Search -->
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="globalSearch()" placeholder="اصطلاحات، بیماری، یا موضوعات تلاش کریں...">
+            </div>
+            <button class="btn" onclick="toggleView('topic-view')">موضوعات دیکھیں</button>
+            <button class="btn btn-accent" onclick="toggleView('quiz-view')">انٹرایکٹو کوئز (Quiz) 📝</button>
+            <button class="btn" style="background-color: #64748b;" onclick="openDictionary()">چیپٹر لغت</button>
+        </div>
+
+        <!-- Home / Overview View -->
+        <div id="homeView" class="view-section">
+            <div class="lecture-focus-container">
+                <h2>لیکچر 03: تعارف اور بنیادی نکات</h2>
+                <p>اس لیکچر میں ہم بیکٹیریا کی وجہ سے انسانوں اور پودوں میں پیدا ہونے والی مختلف بیماریوں، انسانی نارمل فلورا (<span class="term">Human Microbiota</span>)، اور مائیکرو ارگنزمز کے اثرات کو کنٹرول کرنے کے سائنسی طریقوں (Pasteurization, Sterilization وغیرہ) کا تفصیل سے مطالعہ کریں گے۔</p>
+                <br>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn" onclick="toggleView('topic-view')">موضوعات کی طرف جائیں ←</button>
+                    <button class="btn btn-accent" onclick="toggleView('quiz-view')">کوئز شروع کریں 📝</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic View (Grid Layout) -->
+        <div id="topicView" class="view-section hidden">
+            <div class="topics-grid" id="topicsGrid">
+                
+                <!-- Card 1: Human Pathogenesis -->
+                <div class="topic-card">
+                    <div onclick="openFocusMode(1)">
+                        <h3>1. انسانی بیماریاں (<span class="en">Human Pathogenesis</span>)</h3>
+                        <ul>
+                            <li><strong>ہضہ (<span class="en">Cholera</span>):</strong> <span class="term">Vibrio cholerae</span> کے باعث شدت کا اسہال۔</li>
+                            <li><strong>ٹائیفائیڈ (<span class="en">Typhoid</span>):</strong> <span class="term">Salmonella Typhi</span> سے تیز بخار۔</li>
+                            <li><strong>ٹی بی (<span class="en">Tuberculosis</span>):</strong> <span class="term">Mycobacterium tuberculosis</span> کے ذریعے پھیپھڑوں کا انفیکشن۔</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-svg" onclick="openFocusMode(1)">تفصیلات اور پڑھائی</button>
+                </div>
+
+                <!-- Card 2: Plant Pathogenesis -->
+                <div class="topic-card">
+                    <div onclick="openFocusMode(2)">
+                        <h3>2. پودوں کی بیماریاں (<span class="en">Plant Pathogenesis</span>)</h3>
+                        <ul>
+                            <li><span class="term">Leaf Spots</span> — پتوں پر دھبے بننا</li>
+                            <li><span class="term">Blights</span> — پودے کا تیزی سے مرجھانا اور سیاہ ہونا</li>
+                            <li><span class="term">Soft Rots</span> — بافتوں اور خلیات کی توڑ پھوڑ</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-svg" onclick="openFocusMode(2)">تفصیلات اور پڑھائی</button>
+                </div>
+
+                <!-- Card 3: Human Microbiota (SVG Supported) -->
+                <div class="topic-card">
+                    <div>
+                        <h3>3. انسانی فلورا (<span class="en">Human Microbiota</span>)</h3>
+                        <ul>
+                            <li><strong>نارمل فلورا:</strong> جسم میں موجود مفید بیکٹیریا کا ماحولیاتی نظام۔</li>
+                            <li><strong><span class="term">Colonization Resistance</span>:</strong> مضر جراثیموں کو جسم پر جگہ بنانے سے روکنے کا دفاعی نظام۔</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-svg" onclick="showFloraSVG()">SVG چارٹ دیکھیں (Human Flora Map) 📊</button>
+                </div>
+
+                <!-- Card 4: Control Methods (SVG Supported) -->
+                <div class="topic-card">
+                    <div>
+                        <h3>4. مائیکروبیل کنٹرول (<span class="en">Microbial Control</span>)</h3>
+                        <ul>
+                            <li><strong><span class="term">Sterilization</span>:</strong> بیکٹیریا اور سپورز کا مکمل خاتمہ۔</li>
+                            <li><strong><span class="term">Pasteurization</span>:</strong> مائعات کو مخصوص درجہ حرارت پر پاک کرنا۔</li>
+                            <li><strong><span class="term">Antisepsis & Disinfection</span>:</strong> صفائی کے طریقے اور کیمیکلز۔</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-svg" onclick="showControlSVG()">SVG چارٹ دیکھیں (Control Methods) 📊</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Lecture Focus Mode View -->
+        <div id="focusView" class="view-section hidden">
+            <div class="lecture-focus-container">
+                <button class="btn" style="margin-bottom: 1rem;" onclick="toggleView('topic-view')">→ واپس موضوعات پر جائیں</button>
+                <div id="focusContent">
+                    <!-- Dynamic Focus Text Injected Here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Quiz Section View -->
+        <div id="quizView" class="view-section hidden">
+            <div class="lecture-focus-container">
+                <h2>انٹرایکٹو کوئز کٹ — Chapter 06 (Lecture 03)</h2>
+                <p style="margin-bottom: 1.5rem;">اپنے علم کی جانچ کے لیے درج ذیل سوالات کے صحیح جوابات منتخب کریں:</p>
+
+                <div id="quizContainer">
+                    <!-- Dynamic Quiz Questions Injected Here -->
+                </div>
+
+                <div id="scoreBoard" class="score-board">
+                    <h3 id="scoreText">آپ کا اسکور: 0/5</h3>
+                    <p id="feedbackText" style="margin-top: 0.5rem;"></p>
+                    <button class="btn btn-accent" style="margin-top: 1rem;" onclick="initQuiz()">کوئز دوبارہ دیں 🔄</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal for SVG Visuals & Dictionary -->
+    <div class="modal" id="infoModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="color: var(--primary-color); margin-bottom: 1rem;">معلومات</h2>
+            <div id="modalBody">تفصیلات یہاں ظاہر ہوں گی...</div>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript Framework -->
+    <script>
+        // Quiz Questions Data
+        const quizData = [
+            {
+                question: "1. بیماری 'ہضہ' (Cholera) کس بیکٹیریا کی وجہ سے لاحق ہوتی ہے؟",
+                options: ["Salmonella Typhi", "Vibrio cholerae", "Mycobacterium tuberculosis", "Escherichia coli"],
+                answer: 1,
+                explanation: "ہضہ Vibrio cholerae نامی بیکٹیریا کی وجہ سے ہوتا ہے جو بنیادی طور پر آلودہ پانی سے پھیلتا ہے۔"
+            },
+            {
+                question: "2. مائیکرو ارگنزمز اور ان کے اسپورز (Spores) کا 100% مکمل خاتمہ کس عمل سے ہوتا ہے؟",
+                options: ["Pasteurization", "Disinfection", "Sterilization", "Antisepsis"],
+                answer: 2,
+                explanation: "Sterilization واحد طریقہ ہے جس میں تمام قسم کے جراثیم اور ان کے سخت اسپورز کا مکمل خاتمہ ہو جاتا ہے۔"
+            },
+            {
+                question: "3. 'Colonization Resistance' کا کیا مطلب ہے؟",
+                options: ["مضر جراثیم کا حملہ کرنا", "نارمل فلورا کا بیرونی جراثیم کی کالونی بننے سے روکنا", "اینٹی بائیوٹک کی مقاومت", "پودوں میں رسولی بننا"],
+                answer: 1,
+                explanation: "جسم میں موجود مفید بیکٹیریا (نارمل فلورا) بیرونی بیماری پیدا کرنے والے جراثیم کو جگہ اور خوراک نہ دے کر ان کا قبضہ روکتے ہیں۔"
+            },
+            {
+                question: "4. لوئس پاسچر کا ایجاد کردہ طریقہ 'Pasteurization' عام طور پر کس کے لیے استعمال ہوتا ہے؟",
+                options: ["جراحی کے آلات کے لیے", "دودھ اور مائع اشیاء کی پاکیزگی کے لیے", "پودوں کے علاج کے لیے", "مٹی کی صفائی کے لیے"],
+                answer: 1,
+                explanation: "پاسچرائزیشن مائع اشیاء (خصوصاً دودھ) کو خراب کیے بغیر بیماری پیدا کرنے والے جراثیم سے پاک کرنے کے لیے استعمال ہوتی ہے۔"
+            },
+            {
+                question: "5. پودوں میں بافتوں (Tissues) کی توڑ پھوڑ اور ان کا نرم ہو کر گلنا کیا کہلاتا ہے؟",
+                options: ["Leaf Spot", "Soft Rot", "Wilt", "Gall"],
+                answer: 1,
+                explanation: "Soft Rot میں بیکٹیریل اینزائمز پودے کے خلیات کی دیواروں کو توڑ کر بافتوں کو گلا دیتے ہیں۔"
+            }
+        ];
+
+        let userAnswers = {};
+
+        // Render Quiz Questions
+        function initQuiz() {
+            userAnswers = {};
+            const container = document.getElementById('quizContainer');
+            document.getElementById('scoreBoard').style.display = 'none';
+            container.innerHTML = '';
+
+            quizData.forEach((q, qIndex) => {
+                let optionsHTML = '';
+                q.options.forEach((opt, oIndex) => {
+                    optionsHTML += `<div class="quiz-option" id="q${qIndex}_o${oIndex}" onclick="selectAnswer(${qIndex}, ${oIndex})">${opt}</div>`;
+                });
+
+                container.innerHTML += `
+                    <div class="quiz-card">
+                        <h3>${q.question}</h3>
+                        <div>${optionsHTML}</div>
+                        <div class="explanation" id="exp_${qIndex}">${q.explanation}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // Handle Answer Selection
+        function selectAnswer(qIndex, selectedOpt) {
+            if (userAnswers[qIndex] !== undefined) return; // Prevent changing answer
+
+            userAnswers[qIndex] = selectedOpt;
+            const q = quizData[qIndex];
+            const correctOpt = q.answer;
+
+            const selectedElem = document.getElementById(`q${qIndex}_o${selectedOpt}`);
+            const correctElem = document.getElementById(`q${qIndex}_o${correctOpt}`);
+
+            if (selectedOpt === correctOpt) {
+                selectedElem.classList.add('correct');
+            } else {
+                selectedElem.classList.add('incorrect');
+                correctElem.classList.add('correct');
+            }
+
+            document.getElementById(`exp_${qIndex}`).style.display = 'block';
+
+            // Check if all answered
+            if (Object.keys(userAnswers).length === quizData.length) {
+                showQuizResults();
+            }
+        }
+
+        // Calculate & Show Results
+        function showQuizResults() {
+            let score = 0;
+            quizData.forEach((q, index) => {
+                if (userAnswers[index] === q.answer) {
+                    score++;
+                }
+            });
+
+            const percentage = (score / quizData.length) * 100;
+            const scoreBoard = document.getElementById('scoreBoard');
+            const scoreText = document.getElementById('scoreText');
+            const feedbackText = document.getElementById('feedbackText');
+
+            scoreText.innerText = `آپ کا اسکور: ${score} / ${quizData.length} (${percentage}%)`;
+            
+            if (percentage === 100) {
+                feedbackText.innerText = "شاباش! آپ نے تمام سوالات کے درست جوابات دیے۔ 🌟";
+            } else if (percentage >= 60) {
+                feedbackText.innerText = "بہت خوب! آپ کی کارکردگی بہتر ہے۔ کچھ نکات پر مزید توجہ دیں۔ 👍";
+            } else {
+                feedbackText.innerText = "آپ کو دوبارہ لیسن پڑھنے کی ضرورت ہے۔ موضوعات کا مطالعہ کریں! 📚";
+            }
+
+            scoreBoard.style.display = 'block';
+        }
+
+        // Lecture Focus Data Storage
+        const focusData = {
+            1: {
+                title: "انسانی بیماریاں (Human Pathogenesis)",
+                content: `
+                    <p>بیکٹیریا انسانوں میں مختلف قسم کے انفیکشنز کا باعث بنتے ہیں۔ اہم بیماریوں کی تفصیل درج ذیل ہے:</p>
+                    <br>
+                    <ul>
+                        <li><strong>ہضہ (Cholera):</strong> یہ بیماری <i>Vibrio cholerae</i> کی وجہ سے ہوتی ہے جو آلودہ پانی سے پھیلتی ہے۔</li>
+                        <li><strong>ٹائیفائیڈ (Typhoid):</strong> <i>Salmonella Typhi</i> بیکٹیریا کی وجہ سے انتڑیوں کا شدید بخار ہوتا ہے۔</li>
+                        <li><strong>ٹی بی (Tuberculosis):</strong> <i>Mycobacterium tuberculosis</i> کی وجہ سے ہوتی ہے، جو زیادہ تر پھیپھڑوں کو متاثر کرتی ہے۔</li>
+                    </ul>
+                `
+            },
+            2: {
+                title: "پودوں کی بیماریاں (Plant Pathogenesis)",
+                content: `
+                    <p>بیکٹیریا زرعی فصلوں اور پودوں میں سنگین بیماریاں پیدا کرتے ہیں:</p>
+                    <br>
+                    <ul>
+                        <li><strong>Leaf Spots:</strong> پودوں کے پتوں پر سیاہ یا بھورے دھبے پڑ جاتے ہیں۔</li>
+                        <li><strong>Blights:</strong> پودے کا کوئی حصہ تیزی سے خشک ہو کر مرجھا جاتا ہے۔</li>
+                        <li><strong>Soft Rots:</strong> سبزیوں اور پھلوں میں گلاؤ پیدا ہوتا ہے۔</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Navigation Switcher
+        function toggleView(viewName) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
+            if(viewName === 'topic-view') {
+                document.getElementById('topicView').classList.remove('hidden');
+            } else if(viewName === 'home-view') {
+                document.getElementById('homeView').classList.remove('hidden');
+            } else if(viewName === 'focus-view') {
+                document.getElementById('focusView').classList.remove('hidden');
+            } else if(viewName === 'quiz-view') {
+                document.getElementById('quizView').classList.remove('hidden');
+                initQuiz();
+            }
+        }
+
+        // Open Focus Mode
+        function openFocusMode(id) {
+            const topic = focusData[id];
+            if(topic) {
+                document.getElementById('focusContent').innerHTML = `
+                    <h2>${topic.title}</h2>
+                    <div>${topic.content}</div>
+                `;
+                toggleView('focus-view');
+            }
+        }
+
+        // SVG Renderers
+        function showFloraSVG() {
+            const svgCode = `
+                <div class="svg-container">
+                    <svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                        <text x="300" y="30" text-anchor="middle" font-size="18" fill="#1b4d3e" font-weight="bold">Human Microbiota & Defense (انسانی فلورا)</text>
+                        <rect x="50" y="70" width="220" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                        <text x="160" y="100" text-anchor="middle" font-size="14" font-weight="bold" fill="#0369a1">جلد کی سطح (Skin Flora)</text>
+                        <text x="160" y="130" text-anchor="middle" font-size="12" fill="#334155">Staphylococcus epidermidis</text>
+                        <text x="160" y="150" text-anchor="middle" font-size="11" fill="#64748b">محافظ فلورا: بیرونی جراثیم کی روک تھام</text>
+
+                        <rect x="330" y="70" width="220" height="100" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+                        <text x="440" y="100" text-anchor="middle" font-size="14" font-weight="bold" fill="#b45309">آنتوں کا فلورا (Gut Flora)</text>
+                        <text x="440" y="130" text-anchor="middle" font-size="12" fill="#334155">E. coli & Lactobacilli</text>
+                        <text x="440" y="150" text-anchor="middle" font-size="11" fill="#64748b">وٹامن K اور ہاضمے میں معاونت</text>
+
+                        <rect x="150" y="210" width="300" height="90" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+                        <text x="300" y="240" text-anchor="middle" font-size="15" font-weight="bold" fill="#15803d">Colonization Resistance</text>
+                        <text x="300" y="270" text-anchor="middle" font-size="12" fill="#166534">مفید بیکٹیریا بیماری پیدا کرنے والے جراثیموں کو</text>
+                        <text x="300" y="288" text-anchor="middle" font-size="12" fill="#166534">جگہ اور خوراک حاصل کرنے سے روکتے ہیں۔</text>
+                    </svg>
+                </div>
+            `;
+            openModal("انسانی فلورا (Human Microbiota Chart)", svgCode);
+        }
+
+        function showControlSVG() {
+            const svgCode = `
+                <div class="svg-container">
+                    <svg width="600" height="360" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+                        <text x="300" y="30" text-anchor="middle" font-size="18" fill="#1b4d3e" font-weight="bold">مائیکروبیل کنٹرول کی درجہ بندی (Microbial Control)</text>
+                        <rect x="200" y="60" width="200" height="40" rx="6" fill="#1b4d3e" />
+                        <text x="300" y="85" text-anchor="middle" font-size="14" fill="#ffffff" font-weight="bold">Microbial Control Methods</text>
+                        
+                        <line x1="300" y1="100" x2="100" y2="150" stroke="#64748b" stroke-width="2" />
+                        <line x1="300" y1="100" x2="300" y2="150" stroke="#64748b" stroke-width="2" />
+                        <line x1="300" y1="100" x2="500" y2="150" stroke="#64748b" stroke-width="2" />
+
+                        <rect x="20" y="150" width="160" height="60" rx="8" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+                        <text x="100" y="175" text-anchor="middle" font-size="13" font-weight="bold" fill="#991b1b">Sterilization</text>
+                        <text x="100" y="195" text-anchor="middle" font-size="11" fill="#7f1d1d">100% مائیکروبس + اسپورز خاتمہ</text>
+
+                        <rect x="220" y="150" width="160" height="60" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+                        <text x="300" y="175" text-anchor="middle" font-size="13" font-weight="bold" fill="#3730a3">Pasteurization</text>
+                        <text x="300" y="195" text-anchor="middle" font-size="11" fill="#312e81">مائعات (دودھ) کی جراثیم کشی</text>
+
+                        <rect x="420" y="150" width="160" height="60" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="500" y="175" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">Surface Control</text>
+                        <text x="500" y="195" text-anchor="middle" font-size="11" fill="#78350f">Disinfection / Antisepsis</text>
+
+                        <rect x="50" y="260" width="500" height="70" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <text x="300" y="288" text-anchor="middle" font-size="12" fill="#334155"><strong>Sterilization:</strong> Autoclave (حرارت + دباؤ) یا فلٹریشن سے ممکن ہے۔</text>
+                        <text x="300" y="310" text-anchor="middle" font-size="12" fill="#334155"><strong>Antisepsis:</strong> جاندار جلد پر کیمیکل (Spirit, Iodine) کا استعمال۔</text>
+                    </svg>
+                </div>
+            `;
+            openModal("مائیکروبیل کنٹرول (Microbial Control Flowchart)", svgCode);
+        }
+
+        // Global Search
+        function globalSearch() {
+            let input = document.getElementById('searchInput').value.toLowerCase().trim();
+            let cards = document.getElementsByClassName('topic-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let cardText = cards[i].innerText.toLowerCase();
+                if (cardText.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Modal Controls & Dictionary Integration
+        function openDictionary() {
+            const dictContent = `
+                <ul>
+                    <li><strong>Prokaryote:</strong> وہ خلیات جن میں باقاعدہ نیوکلیئس نہیں ہوتا۔</li>
+                    <li><strong>Pasteurization:</strong> مائع اشیاء کو جراثیم سے پاک کرنے کا عمل۔</li>
+                    <li><strong>Sterilization:</strong> تمام قسم کے مائیکروبس کا 100% خاتمہ۔</li>
+                    <li><strong>Pathogen:</strong> بیماری پیدا کرنے والا جراثیم۔</li>
+                </ul>
+            `;
+            openModal("چیپٹر 06 اصطلاحات (Dictionary)", dictContent);
+        }
+
+        function openModal(title, text) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerHTML = text;
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('infoModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
