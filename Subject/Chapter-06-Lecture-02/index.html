@@ -1,366 +1,463 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- AUDIT WORKING COPY: 228-checkpoint repair/re-check cycle applied; not final until all mandatory gates verify PASS. -->
+
+<html dir="rtl" lang="ur">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bacteria — Ecology, Structure & Diversity</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>Imperial Academy | Biology | Chapter 06 — Lecture 02</title>
 <style>
-  :root {
-    --bg: #0d1117;
-    --card: #161b22;
-    --border: #30363d;
-    --text: #c9d1d9;
-    --heading: #f0f6fc;
-    --green: #2ea043;
-    --red: #da3633;
-    --gold: #d29922;
-    --blue: #58a6ff;
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Nastaliq Urdu","Noto Sans Arabic",Arial,sans-serif;line-height:1.9}.en,.term{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:Arial,sans-serif}.term{color:#92701f;font-weight:700;cursor:pointer;border-bottom:1px dotted #92701f}
+header{min-height:68px;padding:7px 14px;background:linear-gradient(135deg,#123c32,#285b4b);color:#fff;display:flex;align-items:center;gap:11px;direction:ltr;box-shadow:0 3px 13px #0002}.logo{width:53px;height:53px;flex:0 0 53px}.brand{flex:1;text-align:left}.brand h1{margin:0;color:var(--gold2);font:700 17px/1.15 Arial}.brand p{margin:2px 0 0;font:9px Arial;opacity:.9}.level-nav{display:flex;justify-content:center;gap:4px;padding:4px 7px;background:#fffdf8;border-bottom:1px solid var(--line);direction:ltr}.level-nav span{padding:2px 7px;border-radius:5px;background:#ebe6d8;color:var(--green);font:700 8px Arial}.level-nav .active{background:var(--green);color:#fff}
+.layout{width:100%;max-width:1500px;margin:auto;padding:9px;display:grid;grid-template-columns:minmax(0,1fr) 235px;gap:10px;direction:ltr}.main{direction:rtl;background:var(--paper);border-radius:13px;padding:17px 21px;min-height:750px;box-shadow:0 5px 20px #0000000f}.chapter-header{text-align:center;padding-bottom:7px;margin-bottom:14px;border-bottom:1px solid var(--line)}.chapter-number{color:#9a7623;font:700 8px Arial;direction:ltr}.chapter-header h2{margin:1px 0;color:var(--green);font-size:21px;line-height:1.35}.chapter-header p{margin:0;color:var(--muted);font-size:10px}.lesson{display:none;animation:fade .2s}.lesson.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}.step-label{color:#9a7623;font:700 8px Arial;direction:ltr;text-align:left}.lesson h3{color:var(--green);font-size:21px;margin:4px 0 11px;padding-right:9px;border-right:4px solid var(--gold);line-height:1.45}.lesson h4{color:var(--green2);margin:13px 0 5px;font-size:16px}.lesson p{font-size:14px;margin:8px 0}.lesson ul{padding-right:25px}.lesson li{font-size:13px;margin:4px 0}.box,.definition,.example,.question-box{padding:11px 13px;margin:11px 0;border-radius:9px}.box{background:#f8f2df;border-right:4px solid var(--gold)}.definition{background:#fff;border:1px solid #ded5c0}.example{background:var(--soft);border-right:4px solid #4d7867}.question-box{background:var(--warn);border:1px dashed var(--gold)}.visual-btn,.nav-btn,.submit{border:0;background:var(--green);color:#fff;padding:7px 11px;border-radius:7px;cursor:pointer;font:700 9px Arial}.visual-btn:hover,.nav-btn:hover,.submit:hover{background:var(--green2)}.topic-tools{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}.step-navigation{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px;margin-top:28px;padding-top:12px;border-top:1px solid var(--line);direction:ltr}.step-navigation button{border:0;background:var(--green);color:#fff;padding:7px 11px;border-radius:7px;cursor:pointer;font:700 9px Arial}.step-navigation button:disabled{background:#c9c4b7;color:#817b6d;cursor:not-allowed;opacity:.7}.step-count{font:700 9px Arial;color:var(--muted)}.sidebar{direction:rtl;background:#fffdf8;border:1px solid var(--line);border-radius:13px;padding:10px;align-self:start;position:sticky;top:8px}.sidebar-title{font:700 10px Arial;color:var(--green);text-align:center;margin-bottom:7px}.chapter-card{background:var(--green);color:#fff;padding:8px;border-radius:8px;text-align:center;font-size:11px;margin-bottom:8px}.side-tab{display:block;width:100%;border:0;background:#eee9dc;color:var(--green);padding:10px 10px;margin:6px 0;border-radius:9px;text-align:right;cursor:pointer;font:700 13.5px Arial;line-height:1.45}.side-tab.active{background:var(--gold);color:#173e34}.modal-overlay{display:none;position:fixed;inset:0;background:#0008;z-index:50;align-items:center;justify-content:center;padding:12px}.modal-overlay.show{display:flex}.modal{background:var(--paper);width:min(760px,100%);max-height:92vh;overflow:auto;border-radius:14px;padding:16px;position:relative;box-shadow:0 12px 45px #0005}.modal-close{position:absolute;left:10px;top:7px;border:0;background:transparent;font-size:25px;color:var(--green);cursor:pointer}.modal h3{color:var(--green);margin-top:4px}.search{width:100%;padding:9px;border:1px solid var(--line);border-radius:7px;font-size:14px}.atlas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}.atlas-card{border:1px solid var(--line);border-radius:9px;padding:8px;background:#fff;cursor:pointer}.atlas-card strong{color:var(--green)}.svg-wrap{background:#fffaf0;border:1px solid var(--line);border-radius:9px;padding:5px}.q{border:1px solid var(--line);border-radius:9px;padding:10px;margin:9px 0;background:#fff}.q label{display:block;padding:5px;border-radius:5px}.result{margin-top:10px;padding:10px;border-radius:8px;background:var(--soft)}.wrong{background:#fff0ed}.kbd{font:700 9px Arial;background:#ebe6d8;padding:2px 5px;border-radius:4px;direction:ltr;display:inline-block}.footer-note{text-align:center;color:var(--muted);font-size:9px;margin-top:14px}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr) 175px;gap:7px}.sidebar{position:sticky;top:8px;align-self:start}.main{min-height:0;padding:13px}.chapter-header h2{font-size:19px}.lesson h3{font-size:19px}.lesson p{font-size:13px}.lesson li{font-size:12px}.side-tab{font-size:13.5px;padding:9px 8px}}
+@media(max-width:560px){.layout{grid-template-columns:minmax(0,1fr) 142px}.main{padding:10px}.sidebar{padding:7px}.chapter-card{font-size:9px}.side-tab{font-size:13px;padding:8px 7px}.step-navigation button{padding:6px 8px;font-size:8px}.step-count{font-size:8px}}
+
+/* Lecture focus mode */
+body.lecture-focus{overflow:hidden}body.lecture-focus .layout{grid-template-columns:1fr;max-width:none;padding:0;gap:0;height:calc(100vh - 68px);}body.lecture-focus .layout .sidebar{display:none}body.lecture-focus .layout .main{border-radius:0;min-height:100%;height:100%;overflow-y:auto;overflow-x:hidden;padding:24px clamp(18px,4vw,70px) 88px;}.lecture-focus .sidebar .side-tab{transition:.15s}.sidebar .side-tab.active{box-shadow:inset 4px 0 0 #fff8,0 2px 6px #0001}
+@media(max-width:700px){body.lecture-focus .layout .main{padding:16px 13px 82px}body:not(.lecture-focus) .layout{grid-template-columns:1fr 190px}body:not(.lecture-focus) .layout .main{grid-column:1}body:not(.lecture-focus) .layout .sidebar{grid-column:2}}
+
+/* HOME = TOPIC SELECTION ONLY */
+body.home-view .layout{display:block;width:100%;max-width:none;margin:0;padding:0;min-height:calc(100vh - 68px)}
+body.home-view .main{display:none}
+body.home-view .sidebar{display:block;position:relative;top:auto;width:100%;max-width:none;min-height:calc(100vh - 68px);margin:0;border:0;border-radius:0;background:transparent;padding:clamp(22px,5vw,60px)}
+body.home-view .sidebar-title{font-size:22px;margin:0 auto 22px;text-align:center}
+body.home-view .chapter-card{display:none}
+body.home-view .sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px;align-content:center;overflow:hidden}
+body.home-view .sidebar-title{grid-column:1/-1}
+body.home-view .side-tab{display:block;width:100%;margin:0;padding:18px 16px;border-radius:10px;text-align:center;font:700 22px/1.35 Arial,sans-serif;box-shadow:0 4px 14px #0002;min-width:0;overflow-wrap:anywhere}
+body.home-view .side-tab.utility-tab{display:none}
+body.home-view .side-tab.active{background:var(--gold);color:var(--green)}
+@media(max-width:700px){body.home-view .sidebar{padding:18px 10px;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}body.home-view .sidebar-title{font-size:19px;margin-bottom:16px}body.home-view .side-tab{width:100%;font-size:19px;padding:15px 10px;margin:0}}
+@media(max-width:420px){body.home-view .sidebar{grid-template-columns:1fr}body.home-view .side-tab{font-size:19px}}
+/* TOPICS NAVIGATION — visible at the bottom of every learning page */
+.topics-bottom-wrap{display:flex;justify-content:center;align-items:center;margin:18px 0 8px;padding:0 8px;}
+.topics-bottom-tab{border:0;background:var(--green);color:#fff;padding:10px 20px;border-radius:9px;cursor:pointer;font:700 13px Arial,sans-serif;box-shadow:0 4px 12px #0002;}
+.topics-bottom-tab:hover{background:var(--green2);}
+@media(max-width:700px){.topics-bottom-wrap{margin:16px 0 6px}.topics-bottom-tab{width:100%;max-width:420px;padding:11px 14px;font-size:13px;}}
+
+.modal{padding-bottom:58px}
+.modal-close-bottom{position:fixed;left:14px;bottom:14px;z-index:70;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:0;background:#fffdf8eF;border-radius:50%;font-size:27px;color:var(--green);cursor:pointer;line-height:1;box-shadow:0 4px 14px #0003}.modal-close-bottom:hover{transform:scale(1.06);background:#fff}
+@media(max-width:700px){.modal-close-bottom{left:10px;bottom:10px;width:40px;height:40px;font-size:25px}.side-tab{font-size:13px;padding:8px 7px}.modal{max-height:94vh}}
+/* RESPONSIVE MODAL SAFETY PATCH — preserve approved architecture */
+.modal{width:min(760px,calc(100vw - 24px));max-height:min(92vh,calc(100dvh - 24px));overflow:auto;overscroll-behavior:contain}
+.modal img{max-width:100%;height:auto}
+.atlas-figure{max-width:100%;overflow:hidden}.atlas-figure img{max-width:100%;max-height:min(68vh,68dvh);height:auto}
+@media(max-width:560px){.modal{width:calc(100vw - 16px);max-height:calc(100dvh - 16px);padding:13px}.modal h3{font-size:18px}.atlas-grid{grid-template-columns:1fr}.atlas-card img{height:130px}}
+.practice-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0}.practice-feedback{margin-top:10px}.practice-feedback .definition{margin:7px 0}.answer-correct{background:#edf7ee;border-right:4px solid #4d7867}.answer-wrong{background:#fff0ed;border-right:4px solid #b45b4c}.answer-unanswered{background:#fff8df;border-right:4px solid var(--gold)}
+
+
+/* FINAL HOME / LECTURE STATE */
+.home-intro{display:flex;align-items:center;justify-content:center;width:100%;min-height:calc(100vh - 118px);padding:24px;overflow:auto}
+.home-intro-card{width:min(900px,94vw);max-height:calc(100vh - 150px);overflow:auto;background:var(--paper);border-radius:14px;padding:clamp(22px,4vw,48px);box-shadow:0 8px 28px #00000012;text-align:right;direction:rtl}
+.home-intro-card h2{color:var(--green);font-size:clamp(24px,4vw,34px);margin:6px 0 8px;text-align:center}.home-intro-card>p{text-align:center;color:var(--muted);margin:0 0 18px;font-size:14px}.home-intro-card li{font-size:14px;margin:7px 0}.start-topics{display:block;margin:22px auto 0;border:0;background:var(--green);color:#fff;padding:13px 24px;border-radius:9px;font:700 15px Arial;cursor:pointer;box-shadow:0 4px 12px #0002}.start-topics:hover{background:var(--green2)}
+body.topic-view .home-intro,body.lecture-focus .home-intro{display:none}
+body.home-view .layout{display:none!important}
+body.topic-view .layout{display:grid!important}
+body.topic-view .main{display:none!important}
+body.topic-view .sidebar{display:block!important;width:100%;max-width:none;grid-column:1 / -1;min-height:calc(100vh - 118px);border:0;border-radius:0;background:transparent;padding:clamp(28px,6vh,70px) 18px}
+body.topic-view .sidebar-title,body.topic-view .chapter-card{display:none!important}
+body.topic-view .side-tab{display:block!important;width:min(820px,92vw);margin:10px auto;padding:18px 26px;border:1px solid var(--line);border-radius:12px;text-align:center;font:700 22px/1.45 Arial,sans-serif;box-shadow:0 4px 14px #0002}
+body.topic-view .side-tab.utility-tab{display:none!important}
+body.home-view .layout{display:block!important;width:100%!important;max-width:none!important;min-height:calc(100vh - 68px)!important;margin:0!important;padding:0!important}
+body.home-view .main{display:none!important}
+body.home-view .sidebar{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;width:100%!important;max-width:none!important;min-height:calc(100vh - 68px)!important;margin:0!important;padding:clamp(28px,6vh,70px) 18px!important;border:0!important;border-radius:0!important;background:transparent!important;position:relative!important;top:auto!important}
+body.home-view .sidebar-title,body.home-view .chapter-card{display:none!important}
+body.home-view .side-tab{display:block!important;width:min(820px,92vw)!important;margin:10px auto!important;padding:18px 26px!important;border:1px solid var(--line)!important;border-radius:12px!important;text-align:center!important;font:700 22px/1.45 Arial,sans-serif!important;box-shadow:0 4px 14px #0002!important}
+body.home-view .side-tab.utility-tab{display:none!important}
+body.home-view .side-tab.active{background:var(--gold)!important;color:var(--green)!important}
+@media(max-width:700px){body.home-view .sidebar{padding:24px 10px!important}body.home-view .side-tab{width:96vw!important;font-size:19px!important;padding:15px 14px!important;margin:8px auto!important}}
+
+/* FINAL TOPIC-TAB FIT: keep all topic tabs inside the screen; use two columns when one column is too tall */
+body.home-view .sidebar, body.topic-view .sidebar{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-content:start;
+  align-items:stretch;
+  gap:12px;
+  width:100%!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  box-sizing:border-box;
+  overflow-x:hidden;
+}
+body.home-view .side-tab, body.topic-view .side-tab{
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin:0!important;
+  box-sizing:border-box;
+  overflow-wrap:anywhere;
+}
+body.home-view .sidebar-title, body.home-view .chapter-card,
+body.topic-view .sidebar-title, body.topic-view .chapter-card{
+  grid-column:1/-1;
+}
+@media(max-width:700px){
+  body.home-view .sidebar, body.topic-view .sidebar{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+    padding:18px 10px!important;
   }
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    gap: 20px;
+  body.home-view .side-tab, body.topic-view .side-tab{
+    font-size:18px!important;
+    line-height:1.35!important;
+    padding:14px 10px!important;
   }
-  .sidebar {
-    width: 260px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 15px;
-    height: fit-content;
-  }
-  .sidebar h3 { color: var(--heading); margin-top: 0; }
-  .nav-item {
-    padding: 10px;
-    margin: 5px 0;
-    background: #21262d;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-  }
-  .nav-item:hover { background: var(--border); }
-  .main-content {
-    flex: 1;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 25px;
-  }
-  h1, h2, h3 { color: var(--heading); }
-  
-  /* Quiz Styling */
-  .quiz-card {
-    background: #0d1117;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  .quiz-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  .timer-badge {
-    background: #21262d;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  .timer-badge.warning {
-    border-color: var(--red);
-    color: var(--red);
-    animation: pulse 1s infinite;
-  }
-  @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-  }
-  .option-btn {
-    display: block;
-    width: 100%;
-    text-align: left;
-    background: #21262d;
-    color: var(--text);
-    border: 1px solid var(--border);
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: 0.2s;
-  }
-  .option-btn:hover { background: var(--border); }
-  .option-btn.selected { border-color: var(--blue); background: #1f2937; }
-  .option-btn.correct { background: #13381e !important; border-color: var(--green) !important; color: #85e89d; }
-  .option-btn.incorrect { background: #4c1d1d !important; border-color: var(--red) !important; color: #f97583; }
-  
-  .btn {
-    background: var(--green);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 15px;
-  }
-  .btn:hover { opacity: 0.9; }
-  .btn:disabled { background: #30363d; cursor: not-allowed; }
-  
-  .result-box {
-    margin-top: 15px;
-    padding: 15px;
-    border-radius: 6px;
-    display: none;
-  }
-  .result-box.active { display: block; }
+}
+@media(max-width:430px){
+  body.home-view .sidebar, body.topic-view .sidebar{gap:7px;padding:12px 7px!important}
+  body.home-view .side-tab, body.topic-view .side-tab{font-size:15px!important;padding:11px 7px!important}
+}
+
+
+/* FINAL TOPIC GRID: full-screen two-column rectangular tabs */
+body.topic-view .sidebar{
+  width:100vw!important;max-width:none!important;min-height:calc(100vh - 118px)!important;
+  margin:0!important;padding:clamp(20px,4vh,44px) clamp(14px,2.5vw,36px)!important;
+  display:grid!important;grid-template-columns:1fr 1fr!important;
+  gap:clamp(14px,2vw,24px)!important;align-content:center!important;
+  box-sizing:border-box!important;overflow-x:hidden!important;
+}
+body.topic-view .side-tab{
+  width:100%!important;max-width:none!important;min-width:0!important;
+  margin:0!important;padding:clamp(20px,2.8vh,34px) clamp(18px,2vw,34px)!important;
+  border:2px solid var(--line)!important;border-radius:14px!important;
+  min-height:78px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  text-align:center!important;overflow-wrap:anywhere!important;
+  font:700 clamp(20px,2.1vw,28px)/1.35 Arial,sans-serif!important;
+  box-shadow:0 5px 16px #0002!important;
+}
+body.topic-view .side-tab.active{background:var(--gold)!important;color:var(--green)!important;border-color:var(--gold)!important}
+body.topic-view .sidebar-title,body.topic-view .chapter-card{display:none!important}
+@media(max-width:600px){
+ body.topic-view .sidebar{grid-template-columns:1fr 1fr!important;padding:14px 9px!important;gap:9px!important}
+ body.topic-view .side-tab{font-size:17px!important;padding:15px 9px!important;min-height:64px!important;border-radius:10px!important}
+}
+
+/* FINAL EXISTING TOPIC TABS — full-width two-column layout */
+body.topic-view .layout{
+  display:block!important; width:100%!important; max-width:none!important;
+  margin:0!important; padding:0!important; min-height:calc(100vh - 118px)!important;
+}
+body.topic-view .main{display:none!important}
+body.topic-view .sidebar{
+  display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  width:100%!important; max-width:none!important; min-height:calc(100vh - 118px)!important;
+  margin:0!important; padding:clamp(18px,3.5vh,42px) clamp(14px,2.5vw,36px)!important;
+  box-sizing:border-box!important; border:0!important; border-radius:0!important;
+  background:transparent!important; gap:clamp(12px,1.8vw,22px)!important;
+  align-content:center!important; overflow-x:hidden!important;
+}
+body.topic-view .sidebar-title, body.topic-view .chapter-card{display:none!important}
+body.topic-view .side-tab{
+  display:flex!important; width:100%!important; max-width:none!important; min-width:0!important;
+  min-height:76px!important; margin:0!important; padding:clamp(16px,2.2vh,28px) 18px!important;
+  box-sizing:border-box!important; border:2px solid var(--line)!important;
+  border-radius:14px!important; background:#eee9dc!important; color:var(--green)!important;
+  align-items:center!important; justify-content:center!important; text-align:center!important;
+  font:700 clamp(20px,2vw,28px)/1.35 Arial,sans-serif!important;
+  box-shadow:0 5px 16px #0002!important; overflow-wrap:anywhere!important;
+}
+body.topic-view .side-tab.active{background:var(--gold)!important;color:var(--green)!important;border-color:var(--gold)!important}
+body.topic-view .side-tab.utility-tab{display:none!important}
+@media(max-width:600px){
+  body.topic-view .sidebar{grid-template-columns:repeat(2,minmax(0,1fr))!important; gap:9px!important; padding:14px 9px!important}
+  body.topic-view .side-tab{min-height:64px!important; padding:14px 8px!important; font-size:17px!important; border-radius:10px!important}
+}
+@media(max-width:380px){
+  body.topic-view .sidebar{grid-template-columns:1fr!important}
+}
+
+.atlas-card{overflow:hidden}.atlas-card img{display:block;width:100%;height:150px;object-fit:contain;background:#fffdf8;border-bottom:1px solid var(--line);padding:8px}.atlas-card strong,.atlas-card small{display:block;padding:7px 12px 0}.atlas-card small{padding-top:0;padding-bottom:12px}.atlas-figure{margin:0;background:#fffdf8;border:1px solid var(--line);border-radius:16px;padding:10px}.atlas-figure img{display:block;width:100%;max-height:68vh;object-fit:contain;background:#fffdf8;border-radius:10px}.atlas-figure figcaption{padding:10px 6px 4px;text-align:center;color:var(--muted);font-family:Arial,"Noto Sans Arabic",sans-serif}.atlas-figure figcaption strong{color:var(--green);font-size:16px}.atlas-figure figcaption small{font-size:11px}
+
+/* FINAL AUDIT PATCH — overflow and topic-grid containment */
+html,body{max-width:100%;overflow-x:hidden!important}
+.layout,.main,.sidebar,.lesson,.modal,.modal-overlay{box-sizing:border-box;max-width:100%}
+body.topic-view .sidebar{width:100%!important;max-width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;overflow-x:hidden!important}
+body.topic-view .side-tab{min-width:0!important;max-width:100%!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important}
+@media(max-width:430px){body.topic-view .sidebar{grid-template-columns:1fr!important}}
+
+/* FINAL AUDITED CONTROLS */
+.topics-bottom-wrap{display:flex;justify-content:center;margin:22px 0 4px;padding-top:10px;border-top:1px solid var(--line)}
+.topics-bottom-tab{border:0;background:var(--green);color:#fff;padding:10px 18px;border-radius:9px;cursor:pointer;font:700 13px Arial,sans-serif;box-shadow:0 4px 12px #0002}
+.topics-bottom-tab:hover{background:var(--green2)}
+.final-nav{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px;margin-top:12px;padding:12px 0 4px;border-top:1px solid var(--line);direction:ltr}
+.final-nav button{border:0;background:var(--green);color:#fff;padding:7px 10px;border-radius:7px;cursor:pointer;font:700 9px Arial,sans-serif}
+.final-nav button:hover{background:var(--green2)}
+.final-nav button:disabled{background:#c9c4b7;color:#817b6d;cursor:not-allowed}
+.final-nav .current{font:700 9px Arial;color:var(--muted);padding:0 3px}
+.search-results{display:grid;gap:8px;margin-top:12px}.search-result{border:1px solid var(--line);border-radius:9px;padding:10px;background:#fff;cursor:pointer}.search-result strong{color:var(--green)}.search-result small{display:block;color:var(--muted);margin-top:3px}
+
+/* TOPIC NAVIGATION FIX — requested behavior */
+/* 1. Home page shows only the introduction and the “Go to Topics” button. */
+body.home-view .layout{display:none!important;}
+
+/* 2. After “Go to Topics”, show all lesson-topic tabs in a two-column grid. */
+body.topic-view .layout{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;}
+body.topic-view .main{display:none!important;}
+body.topic-view .sidebar{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  width:100%!important;max-width:none!important;min-height:calc(100vh - 118px)!important;
+  margin:0!important;padding:clamp(18px,3.5vh,42px) clamp(14px,2.5vw,36px)!important;
+  gap:clamp(12px,1.8vw,22px)!important;align-content:center!important;
+}
+body.topic-view .side-tab{
+  display:flex!important;width:100%!important;min-width:0!important;max-width:none!important;
+  min-height:76px!important;margin:0!important;padding:clamp(16px,2.2vh,28px) 18px!important;
+  align-items:center!important;justify-content:center!important;text-align:center!important;
+}
+body.topic-view .side-tab.utility-tab{display:flex!important;}
+
+/* 3. A topic click returns to the lesson screen; the lesson keeps its bottom Topics button. */
+body.lecture-focus .layout{display:grid!important;}
+body.lecture-focus .main{display:block!important;}
+body.lecture-focus .sidebar{display:block!important;}
+body.lecture-focus .home-intro{display:none!important;}
+
+/* Keep two columns on ordinary mobile widths; only very narrow screens fall back to one. */
+@media(max-width:430px){
+  body.topic-view .sidebar{grid-template-columns:1fr!important;}
+}
+
+
+/* TOPIC TAB LAYOUT — REFINED REQUEST */
+/* Topic chooser only: three clean rectangular columns on wide screens. */
+body.topic-view .sidebar{
+  width:99vw!important;
+  max-width:99vw!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+  grid-template-columns:repeat(3,33.333333%)!important;
+  gap:0!important;
+  padding:0!important;
+  align-content:start!important;
+  overflow-x:hidden!important;
+}
+body.topic-view .side-tab{
+  min-height:72px!important;
+  border-radius:10px!important;
+  border:1px solid var(--line)!important;
+  box-shadow:0 3px 10px #00000010!important;
+  transition:transform .16s ease,box-shadow .16s ease,background .16s ease!important;
+}
+body.topic-view .side-tab:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 8px 18px #0000001a!important;
+  background:#f7f1df!important;
+}
+/* When one topic is open, all topic tabs disappear completely. */
+body.lecture-focus .layout{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;}
+body.lecture-focus .sidebar{display:none!important;}
+body.lecture-focus .main{display:block!important;width:100%!important;max-width:none!important;min-height:calc(100vh - 118px)!important;margin:0!important;border-radius:0!important;padding:24px clamp(16px,4vw,70px) 88px!important;}
+/* Open-topic screen keeps only its own learning content and normal navigation. */
+body.lecture-focus .topics-bottom-wrap{display:none!important;}
+body.lecture-focus .home-intro{display:none!important;}
+@media(max-width:900px){body.topic-view .sidebar{grid-template-columns:repeat(3,33.333333%)!important;width:99vw!important;max-width:99vw!important;gap:0!important;padding:0!important;}}
+@media(max-width:560px){body.topic-view .sidebar{grid-template-columns:repeat(3,33.333333%)!important;width:99vw!important;max-width:99vw!important;gap:0!important;padding:0!important;}}
+
+
+/* TOPIC TABS — UNIFORM 3-COLUMN FINAL LAYOUT */
+body.topic-view .sidebar{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-auto-rows:minmax(64px,1fr)!important;
+  width:99vw!important;
+  max-width:99vw!important;
+  min-height:calc(100vh - 118px)!important;
+  margin:0 auto!important;
+  padding:clamp(20px,4vh,42px) 0!important;
+  gap:10px!important;
+  box-sizing:border-box!important;
+  align-content:center!important;
+  direction:rtl!important;
+}
+body.topic-view .side-tab{
+  display:flex!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:64px!important;
+  margin:0!important;
+  padding:10px 12px!important;
+  box-sizing:border-box!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border:1px solid var(--line)!important;
+  border-radius:10px!important;
+  text-align:center!important;
+  font:700 17px/1.35 Arial,sans-serif!important;
+  box-shadow:0 4px 12px #0002!important;
+  overflow-wrap:anywhere!important;
+}
+@media(max-width:700px){
+  body.topic-view .sidebar{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;}
+  body.topic-view .side-tab{font-size:15px!important;min-height:58px!important;}
+}
+@media(max-width:430px){
+  body.topic-view .sidebar{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;}
+  body.topic-view .side-tab{font-size:12px!important;min-height:52px!important;padding:8px 5px!important;}
+}
+
+/* FOOTER NAV — exactly two equal navigation controls on every lesson page. */
+body.lecture-focus .topics-bottom-wrap{display:none!important;}
+body.lecture-focus .final-nav{display:flex!important;align-items:stretch!important;justify-content:stretch!important;gap:10px!important;margin:24px 0 0!important;padding:12px 0 6px!important;border-top:1px solid var(--line)!important;direction:rtl!important;}
+body.lecture-focus .final-nav button{display:flex!important;flex:1 1 0!important;width:50%!important;min-width:0!important;min-height:44px!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:10px 12px!important;border:0!important;border-radius:9px!important;background:var(--green)!important;color:#fff!important;font:700 13px/1.25 Arial,sans-serif!important;box-sizing:border-box!important;}
+body.lecture-focus .final-nav button:hover{background:var(--green2)!important;}
+body.lecture-focus .final-nav .footer-topics-nav{order:1!important;}
+body.lecture-focus .final-nav .footer-search-nav{order:2!important;}
+body.topic-view .final-nav, body.home-view .final-nav{display:none!important;}
+@media(max-width:560px){
+  body.lecture-focus .final-nav{gap:8px!important;padding-top:10px!important;}
+  body.lecture-focus .final-nav button{min-height:42px!important;padding:9px 7px!important;font-size:12px!important;}
+}
 </style>
-</head>
-<body>
-
-<div class="sidebar">
-  <h3>Navigation</h3>
-  <div class="nav-item" onclick="scrollToSection('sec-intro')">1. Introduction</div>
-  <div class="nav-item" onclick="scrollToSection('sec-structure')">2. Structure & Wall</div>
-  <div class="nav-item" onclick="scrollToSection('sec-quiz')">3. Timed Quiz</div>
+<style id="topic-number-background-refinement">
+.topic-tab{position:relative;overflow:hidden;}
+.topic-tab .topic-number{position:absolute;inset:10%;display:flex;align-items:center;justify-content:center;font-size:clamp(3.5rem,9vw,7rem)!important;font-weight:800;line-height:1;color:rgba(100,190,170,.13);pointer-events:none;z-index:0;}
+.topic-tab > *:not(.topic-number){position:relative;z-index:1;}
+</style>
+<style id="final-tab-numbering-25">.side-tab{position:relative;overflow:hidden}.side-tab .topic-number{position:absolute!important;left:10%!important;top:10%!important;width:80%!important;height:80%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:24px!important;line-height:1!important;font-weight:700!important;color:rgba(64,150,130,.14)!important;z-index:0!important;pointer-events:none!important}.side-tab>*:not(.topic-number){position:relative;z-index:1}</style></head>
+<body class="home-view">
+<header>
+<svg aria-label="Imperial Academy logo" class="logo" viewbox="0 0 60 60"><circle cx="30" cy="30" fill="none" r="27" stroke="#f2d46f" stroke-width="2"></circle><path d="M16 40h28M20 37V24l10-7 10 7v13M24 37V27h12v10" fill="none" stroke="#f2d46f" stroke-width="2"></path><path d="M30 10l3 6-3 5-3-5z" fill="#f2d46f"></path></svg>
+<div class="brand"><h1>IMPERIAL ACADEMY OF EDUCATION</h1><p>BIOLOGY • CHAPTER 06 — LECTURE 02</p></div>
+</header>
+<nav class="level-nav"><span>HOME</span><span class="active">BIOLOGY</span><span>CHAPTER 06</span><span>LECTURE 02</span></nav>
+<div class="home-intro" id="homeIntro">
+<div class="home-intro-card">
+<div class="chapter-number">CHAPTER 06 — LECTURE 02</div>
+<h2>Bacteria — Ecology, Structure &amp; Diversity</h2>
+<p>Bacteria • Ecology • Diversity • Structure • Nutrition • Growth • Importance</p>
+<div class="box"><strong>Lecture Introduction</strong><br/>اس lecture میں ہم Bacteria کی diversity، occurrence، classification، cell structure، nutrition، respiration، growth، genetics اور ecological و medical importance کو مرحلہ وار سمجھیں گے۔</div>
+<ul><li>Prokaryotic organization سمجھنا</li><li>Historical Monera اور modern domain system کو جوڑنا</li><li>Taxonomy اور Phylogeny میں فرق کرنا</li><li>Bacteria اور Archaea کے بنیادی differences سمجھنا</li><li>Archaea کے extreme-environment adaptations سمجھنا</li></ul>
+<div class="question-box"><strong>Central Question:</strong> اگر Bacteria اور Archaea دونوں prokaryotes ہیں تو انہیں الگ domains میں کیوں رکھا جاتا ہے؟</div>
+<button class="start-topics" onclick="showTopics()">موضوعات کی طرف جائیں →</button>
 </div>
-
-<div class="main-content">
-  <h1>Bacteria — Ecology, Structure & Diversity</h1>
-  
-  <div id="sec-intro">
-    <h2>1. Introduction to Bacteria</h2>
-    <p>Bacteria are single-celled prokaryotic microorganisms lacking a membrane-bound nucleus.</p>
-  </div>
-
-  <div id="sec-structure">
-    <h2>2. Cell Structure</h2>
-    <p>Gram-positive bacteria feature a thick layer of peptidoglycan, while Gram-negative bacteria have a thin layer enclosed by an outer membrane.</p>
-  </div>
-
-  <!-- Interactive Quiz Section -->
-  <div id="sec-quiz" class="quiz-card">
-    <div class="quiz-header">
-      <h2 style="margin: 0;">3. Knowledge Check & Quiz</h2>
-      <div id="timer" class="timer-badge">Time Left: 30s</div>
-    </div>
-    
-    <div id="quiz-container">
-      <div id="question-text" style="font-size: 18px; font-weight: bold; margin-bottom: 15px;"></div>
-      <div id="options-container"></div>
-      
-      <button id="submit-btn" class="btn" onclick="checkAnswer()" disabled>Submit Answer</button>
-      <button id="next-btn" class="btn" onclick="nextQuestion()" style="display:none; background: var(--blue);">Next Question</button>
-      
-      <div id="result-box" class="result-box"></div>
-    </div>
-  </div>
 </div>
-
+<div class="layout">
+<main class="main"><section class="lesson active"><div class="step-label">STEP 01 — LECTURE OPENING</div><h3>Chapter 06 — Lecture 02</h3><div class="box"><strong>Learning Roadmap</strong><br/>اس lecture میں ہم Bacteria کی diversity، occurrence، classification، cell structure، nutrition، respiration، growth، genetics اور ecological و medical importance کو مرحلہ وار سمجھیں گے.</div><ul><li>Bacterial diversity اور occurrence سمجھنا</li><li>Bacterial classification اور cyanobacteria explain کرنا</li><li>Major bacterial cell structures identify کرنا</li><li>Gram-positive اور Gram-negative bacteria compare کرنا</li><li>Nutrition، respiration، growth اور genetic transfer explain کرنا</li></ul><div class="question-box"><strong>Central Question:</strong> اگر Bacteria اور Archaea دونوں prokaryotes ہیں تو انہیں الگ domains میں کیوں رکھا جاتا ہے؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 02 — TOPIC</div><h3>Bacteria: Ecology &amp; Diversity</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(2)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacteria ایک بہت متنوع prokaryotic domain ہے۔ یہ microscopic unicellular organisms ہیں اور تقریباً ہر قابلِ تصور habitat میں پائے جا سکتے ہیں۔ ان کی diversity ان کے metabolism، cell structure، genetic variation اور environmental adaptations سے پیدا ہوتی ہے۔</p><div class="question-box">Bacteria کو صرف “disease-causing organisms” سمجھنا درست نہیں؛ بہت سے bacteria ماحول، صنعت، زراعت اور انسانی جسم کے لیے مفید ہیں۔</div><div class="question-box">Why it matters: bacterial diversity کو سمجھنا ecology، medicine، biotechnology اور public health کے لیے بنیادی اہمیت رکھتا ہے.</div><h3>Discovery &amp; Recognition of Bacteria</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(3)">🖼️ Topic Visual</button></div><p>Bacteria کی microscopic دنیا کا مطالعہ simple microscopes کی ترقی کے ساتھ ممکن ہوا۔ ابتدائی microscopists نے پانی، dental plaque اور مختلف samples میں microscopic organisms observe کیے۔ بعد میں staining، culturing اور molecular techniques نے bacterial diversity کو زیادہ واضح کیا۔</p><div class="question-box">Scientific progress نے bacteria کو صرف “germs” کے تصور سے نکال کر ایک وسیع اور متنوع biological domain کے طور پر سمجھنے میں مدد دی۔</div><div class="question-box">Learning Check: microscopy نے bacterial biology کے مطالعے کو کیسے ممکن بنایا؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 03 — TOPIC</div><h3>Occurrence: Bacteria Everywhere</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(4)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacteria soil، freshwater، oceans، sediments، food، plants، animals اور human body میں پائے جاتے ہیں۔ کچھ species oxygen-rich environments پسند کرتی ہیں، کچھ oxygen سے متاثر ہوتی ہیں، جبکہ کچھ anaerobic conditions میں بہتر grow کرتی ہیں۔</p><div class="question-box">Wide distribution کی بنیادی وجوہات میں metabolic diversity، rapid reproduction، small size، resistant structures اور مختلف environmental conditions کے ساتھ adaptation شامل ہیں۔</div><div class="question-box">Application: اگر کسی نئے habitat میں organic material، water اور مناسب energy source موجود ہو تو وہاں bacterial life کے امکانات کیوں بڑھ جاتے ہیں؟</div><h3>Classification of Bacteria</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(5)">🖼️ Topic Visual</button></div><p>Bacteria کو مختلف بنیادوں پر classify کیا جا سکتا ہے، مثلاً cell shape، staining characteristics، metabolism، genetic relationships اور ecological roles۔ Modern classification میں molecular evidence خاص اہمیت رکھتا ہے۔</p><div class="question-box">Common shapes میں cocci (spherical)، bacilli (rod-shaped)، vibrios (comma-shaped) اور spirilla/spirochetes (spiral forms) شامل ہیں۔ Shape alone کسی bacterium کی مکمل identification کے لیے کافی نہیں۔</div><div class="question-box">Comparison: morphology + staining + metabolism + molecular evidence کو ملا کر identification زیادہ reliable بنتی ہے۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 04 — TOPIC</div><h3>Cyanobacteria</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(6)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p><span class="term" onclick="openDictionary('Cyanobacteria')">Cyanobacteria</span> photosynthetic bacteria ہیں جو light energy استعمال کرکے organic compounds بناتے ہیں۔ ان میں oxygenic photosynthesis کی صلاحیت ہوتی ہے، اس لیے یہ aquatic اور terrestrial ecosystems میں اہم primary producers ہیں۔</p><div class="question-box">Cyanobacteria کو “blue-green algae” کے تاریخی نام سے بھی پکارا گیا، لیکن وہ true algae نہیں بلکہ bacteria ہیں۔ ان کی photosynthetic machinery اور ecological role بہت اہم ہیں۔</div><div class="question-box">Learning Check: cyanobacteria کو photosynthetic bacteria کیوں کہا جاتا ہے؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 05 — TOPIC</div><h3>Bacterial Cell: Overall Organization</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(7)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacterial cell میں membrane-bound nucleus نہیں ہوتا۔ Chromosomal DNA nucleoid region میں ہوتا ہے، جبکہ ribosomes protein synthesis کے لیے موجود ہوتے ہیں۔ Plasma membrane transport اور cellular boundary کے لیے اہم ہے؛ بہت سے bacteria میں cell wall بھی ہوتی ہے۔</p><div class="question-box">بعض bacteria میں <span class="term" onclick="openDictionary('Capsule')">capsule</span>/slime layer، pili/fimbriae، flagella، <span class="term" onclick="openDictionary('Plasmid')">plasmid</span>s اور storage inclusions اضافی structures کے طور پر موجود ہو سکتے ہیں۔</div><div class="question-box">Key idea: ہر bacterial species میں تمام external structures لازماً موجود نہیں ہوتے۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 06 — TOPIC</div><h3>Cell Wall &amp; Gram Characteristics</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(8)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>بہت سے bacteria کی cell wall انہیں shape دیتی اور osmotic pressure سے تحفظ فراہم کرتی ہے۔ Bacterial cell wall کا اہم structural polymer <span class="term" onclick="openDictionary('Peptidoglycan')">peptidoglycan</span> ہے۔ <span class="term" onclick="openDictionary('Gram-positive')">Gram-positive</span> اور <span class="term" onclick="openDictionary('Gram-negative')">Gram-negative</span> bacteria کی wall organization مختلف ہوتی ہے، اسی لیے Gram staining میں ان کا response مختلف ہوتا ہے۔</p><div class="question-box">Gram-positive bacteria میں thick peptidoglycan layer نمایاں ہوتی ہے؛ Gram-negative bacteria میں thin peptidoglycan کے ساتھ outer membrane بھی ہوتی ہے۔</div><div class="question-box">Exam Link: Gram reaction کو صرف رنگ یاد کرنے کے بجائے cell-wall architecture سے relate کریں۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 07 — TOPIC</div><h3>Cell Membrane &amp; Cytoplasmic Matrix</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(9)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacterial plasma membrane selective barrier کے طور پر کام کرتی ہے اور transport، energy generation اور کئی metabolic processes میں حصہ لیتی ہے۔ Cytoplasm/cytoplasmic matrix میں enzymes، metabolites، ribosomes اور genetic material کے ساتھ مختلف cellular components موجود ہوتے ہیں۔</p><div class="question-box">Bacteria میں mitochondria نہیں ہوتے؛ aerobic respiration کی electron-transport machinery plasma membrane سے associated ہو سکتی ہے۔</div><div class="question-box">Concept Check: bacterial energy production اور eukaryotic mitochondrial respiration میں بنیادی organizational فرق کیا ہے؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 08 — TOPIC</div><h3>Flagella, Pili &amp; Capsule</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(10)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Flagella bacterial movement میں مدد دیتے ہیں۔ Pili/fimbriae attachment اور بعض species میں DNA transfer سے متعلق structures ہو سکتے ہیں۔ Capsule یا slime layer surface protection، adhesion اور بعض حالات میں host defence سے بچاؤ میں مدد دے سکتی ہے۔</p><div class="question-box">ان structures کی موجودگی، تعداد اور arrangement species کے مطابق مختلف ہوتی ہے۔</div><div class="question-box">Misconception: ہر bacterium کے پاس <span class="term" onclick="openDictionary('Flagellum')">flagellum</span> ہونا ضروری نہیں۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 09 — TOPIC</div><h3>Genomic Organization &amp; Plasmids</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(11)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacterial chromosome عموماً ایک circular DNA molecule پر مشتمل ہوتا ہے، جو nucleoid region میں موجود ہوتا ہے۔ اس کے علاوہ بعض bacteria میں plasmids ہوتے ہیں، جو چھوٹے extrachromosomal DNA molecules ہیں اور مخصوص traits، مثلاً بعض antibiotic-resistance genes، لے جا سکتے ہیں۔</p><div class="question-box">Rapid cell division اور horizontal gene transfer bacterial populations میں genetic variation کو تیزی سے بڑھا سکتے ہیں۔</div><div class="question-box">Learning Check: plasmid اور bacterial chromosome میں بنیادی فرق کیا ہے؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 10 — TOPIC</div><h3>Modes of Nutrition</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(12)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacteria مختلف nutritional strategies اختیار کرتے ہیں۔ Photoautotrophs light energy استعمال کرتے ہیں؛ chemoautotrophs inorganic chemicals سے energy حاصل کر سکتے ہیں؛ heterotrophs organic compounds استعمال کرتے ہیں۔ کچھ bacteria decomposers، parasites یا mutualistic partners کے طور پر زندگی گزارتے ہیں۔</p><div class="question-box">Nutrition کو energy source اور carbon source دونوں کے لحاظ سے سمجھنا زیادہ درست ہے۔</div><div class="question-box">Application: ایک bacterium organic molecules کو carbon کے لیے اور chemical oxidation کو energy کے لیے استعمال کرے تو اس کی nutrition کو کیسے describe کریں گے؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 11 — TOPIC</div><h3>Respiration &amp; Oxygen Relationships</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(13)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacteria میں aerobic respiration، anaerobic respiration اور fermentation جیسی metabolic strategies پائی جا سکتی ہیں۔ <span class="term" onclick="openDictionary('Obligate aerobe')">Obligate aerobe</span>s کو oxygen درکار ہوتی ہے، <span class="term" onclick="openDictionary('Obligate anaerobe')">obligate anaerobe</span>s oxygen کے بغیر grow کرتے ہیں، جبکہ <span class="term" onclick="openDictionary('Facultative anaerobe')">facultative anaerobe</span>s available conditions کے مطابق metabolism بدل سکتے ہیں۔</p><div class="question-box">Different electron acceptors اور metabolic pathways bacteria کو مختلف habitats میں survive کرنے کی صلاحیت دیتے ہیں۔</div><div class="question-box">Key Link: metabolic flexibility bacterial ecological distribution کی ایک بڑی وجہ ہے۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 12 — TOPIC</div><h3>Growth &amp; Binary Fission</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(14)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>مناسب conditions میں bacteria عموماً <span class="term" onclick="openDictionary('Binary fission')">binary fission</span> کے ذریعے reproduce کرتے ہیں۔ DNA replication کے بعد cell elongates، duplicated chromosomes الگ ہوتے ہیں اور septum formation کے ذریعے ایک cell دو daughter cells میں تقسیم ہو جاتا ہے۔</p><div class="question-box">Population growth بہت تیز ہو سکتی ہے کیونکہ generation time بعض bacteria میں مختصر ہوتا ہے۔</div><div class="question-box">Learning Check: binary fission میں genetic material کی duplication division سے پہلے کیوں ضروری ہے؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 13 — TOPIC</div><h3>Bacterial Growth Curve</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(15)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Closed culture میں bacterial population عموماً lag، log/exponential، stationary اور death phases سے گزرتی ہے۔ Lag phase میں cells نئی conditions کے مطابق adjust کرتے ہیں؛ log phase میں rapid division ہوتی ہے؛ stationary phase میں growth اور death rates تقریباً balance کر سکتے ہیں؛ death phase میں viable cells کی تعداد کم ہوتی ہے۔</p><div class="question-box">Nutrient depletion اور toxic waste accumulation stationary/death phases کے اہم factors ہیں۔</div><div class="question-box">Application: antibiotics بعض cases میں rapidly dividing cells پر زیادہ مؤثر کیوں ہو سکتے ہیں؟</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 14 — TOPIC</div><h3>Genetic Recombination in Bacteria</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(16)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacteria sexual reproduction نہیں کرتے، لیکن genetic variation horizontal gene transfer سے پیدا ہو سکتی ہے۔ <span class="term" onclick="openDictionary('Transformation')">Transformation</span> میں environmental DNA uptake، <span class="term" onclick="openDictionary('Transduction')">transduction</span> میں bacteriophage-mediated transfer، اور <span class="term" onclick="openDictionary('Conjugation')">conjugation</span> میں direct cell-to-cell DNA transfer شامل ہے۔</p><div class="question-box">Horizontal gene transfer bacterial adaptation اور <span class="term" onclick="openDictionary('Antibiotic resistance')">antibiotic resistance</span> کے پھیلاؤ میں اہم کردار ادا کر سکتا ہے۔</div><div class="question-box">Comparison: transformation = naked DNA uptake؛ transduction = phage-mediated transfer؛ conjugation = direct cellular contact۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 15 — TOPIC</div><h3>Beneficial Bacteria</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(17)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Bacteria decomposition، nutrient cycling، nitrogen transformations، food production، biotechnology اور environmental cleanup میں اہم کردار ادا کرتے ہیں۔ کچھ bacteria plants کے ساتھ mutualistic associations بناتے ہیں، جبکہ بعض صنعتی processes میں enzymes یا useful metabolites پیدا کرتے ہیں۔</p><div class="question-box">Human gut <span class="term" onclick="openDictionary('Microbiota')">microbiota</span> بھی digestion، metabolism اور host health کے ساتھ complex interactions رکھتی ہے۔</div><div class="question-box">Key idea: “bacteria = disease” ایک incomplete biological picture ہے۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 16 — TOPIC</div><h3>Harmful Bacteria &amp; Human Flora</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(18)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>کچھ bacteria pathogenic ہوتے ہیں اور toxins، tissue invasion یا harmful immune responses کے ذریعے disease پیدا کر سکتے ہیں۔ اس کے برعکس normal human flora/microbiota کے بہت سے members harmless یا beneficial associations قائم کرتے ہیں۔</p><div class="question-box">Microbiota اور pathogen کے فرق کو context، species، site، host condition اور interaction کے لحاظ سے سمجھنا چاہیے۔</div><div class="question-box">Health Link: antibiotics کے غیر ضروری استعمال سے beneficial microbiota بھی متاثر ہو سکتی ہے۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 17 — TOPIC</div><h3>Control of Harmful Bacteria</h3><div class="topic-tools"><button class="visual-btn" onclick="openAtlas(19)">🖼️ Topic Visual</button></div><div class="example"><strong>Learning Check:</strong> اس topic کے مرکزی concept کو define، explain اور apply کریں۔</div><p>Harmful bacteria کو control کرنے کے لیے sterilization، disinfection، antisepsis، مناسب hygiene، food safety، vaccination جہاں applicable ہو، اور antimicrobial therapy جیسے approaches استعمال ہوتے ہیں۔ Antibiotics bacterial targets پر اثر انداز ہوتے ہیں، لیکن viruses پر عام طور پر کام نہیں کرتے۔</p><div class="question-box">Antibiotic resistance کے خلاف responsible prescribing، correct dose/duration اور infection-control practices اہم ہیں۔</div><div class="question-box">Practice Prompt: sterilization اور disinfection میں بنیادی فرق بیان کریں۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 18 — CONCEPT MAP &amp; LEARNING OUTCOMES</div><h3>Lecture Concept Map &amp; Learning Outcomes</h3><div class="svg-wrap"><svg aria-label="Lecture 02 concept map" role="img" viewBox="0 0 760 360"><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="280" y="13"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="380" y="40">BACTERIA</text><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="40" y="98"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="140" y="125">ECOLOGY &amp; DIVERSITY</text><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="280" y="98"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="380" y="125">CLASSIFICATION</text><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="520" y="98"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="620" y="125">CELL STRUCTURE</text><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="40" y="198"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="140" y="225">NUTRITION &amp; RESPIRATION</text><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="280" y="198"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="380" y="225">GROWTH &amp; REPRODUCTION</text><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="520" y="198"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="620" y="225">GENETIC RECOMBINATION</text><rect fill="#f8f2df" height="44" rx="9" stroke="#c59b35" stroke-width="2" width="200" x="280" y="293"></rect><text fill="#173e34" font-family="Arial" font-size="14" font-weight="700" text-anchor="middle" x="380" y="320">BENEFICIAL / HARMFUL</text><line stroke="#285b4b" stroke-width="2" x1="380" x2="140" y1="57" y2="98"></line><line stroke="#285b4b" stroke-width="2" x1="380" x2="380" y1="57" y2="98"></line><line stroke="#285b4b" stroke-width="2" x1="380" x2="620" y1="57" y2="98"></line><line stroke="#285b4b" stroke-width="2" x1="140" x2="140" y1="142" y2="198"></line><line stroke="#285b4b" stroke-width="2" x1="380" x2="380" y1="142" y2="198"></line><line stroke="#285b4b" stroke-width="2" x1="620" x2="620" y1="142" y2="198"></line><line stroke="#285b4b" stroke-width="2" x1="140" x2="280" y1="242" y2="293"></line><line stroke="#285b4b" stroke-width="2" x1="380" x2="380" y1="242" y2="293"></line><line stroke="#285b4b" stroke-width="2" x1="620" x2="480" y1="242" y2="293"></line></svg></div><div class="box"><strong>Concept Map</strong><br/>Ecology &amp; Diversity → Classification → Cell Structure → Nutrition &amp; Respiration → Growth → Genetics → Beneficial/Harmful Roles → Control</div><div class="box"><strong>Learning Outcomes</strong><ul><li>Bacterial diversity, occurrence and classification explain کر سکوں۔</li><li>Cyanobacteria اور bacterial cell structures identify کر سکوں۔</li><li>Gram-positive اور Gram-negative bacteria compare کر سکوں۔</li><li>Nutrition، respiration، growth اور growth curve explain کر سکوں۔</li><li>Transformation، transduction اور conjugation distinguish کر سکوں۔</li><li>Beneficial، harmful اور human-flora roles evaluate کر سکوں۔</li></ul></div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 19 — PRACTICE</div><h3>Lecture Practice</h3><div class="box"><strong>Practice Sequence</strong><br/>Foundation → Conceptual → Comparison → Application</div><div id="practiceContent"></div><div class="practice-actions"><button class="submit" onclick="checkPractice()" type="button">Check Practice</button><button class="nav-btn" onclick="resetPractice()" type="button">Reset Practice</button></div><div class="practice-feedback" id="practiceResult"></div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 20 — REVISION</div><h3>Targeted Revision</h3><div class="box"><strong>Revision Loop</strong><br/>Review → Visual → Dictionary → Practice → Re-test</div><ul><li><strong>Ecology:</strong> Steps 02–06 review کریں۔</li><li><strong>Structure:</strong> Steps 07–11 review کریں۔</li><li><strong>Nutrition &amp; Respiration:</strong> Steps 12–13 review کریں۔</li><li><strong>Growth &amp; Genetics:</strong> Steps 14–16 review کریں۔</li><li><strong>Importance &amp; Control:</strong> Steps 17–19 review کریں۔</li></ul><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><section class="lesson"><div class="step-label">STEP 21 — MASTERY</div><h3>Lecture Mastery</h3><div class="box"><strong>Mastery Checklist</strong><ul><li>Bacterial diversity اور classification explain کر سکتا ہوں۔</li><li>Major bacterial cell structures identify کر سکتا ہوں۔</li><li>Gram-positive/negative فرق explain کر سکتا ہوں۔</li><li>Nutrition، respiration اور growth curve interpret کر سکتا ہوں۔</li><li>Binary fission اور horizontal gene transfer explain کر سکتا ہوں۔</li><li>Beneficial/harmful bacteria اور control strategies apply کر سکتا ہوں۔</li></ul></div><div class="result"><strong>Lecture 02 Complete ✓</strong><br/>Targeted Revision اور Mastery کے بعد learner chapter-level assessment کے لیے تیار ہے۔</div><div class="topics-bottom-wrap"><button aria-label="موضوعات کی طرف جائیں" class="topics-bottom-tab" onclick="showTopics()" type="button">📚 موضوعات کی طرف جائیں</button></div></section><div aria-label="Learning navigation" class="final-nav"><button class="footer-topics-nav" onclick="showTopics()" type="button">📚 موضوعات پر جائیں</button><button class="footer-search-nav" onclick="openGlobalSearch()" type="button">🔎 Search</button></div></main>
+<aside class="sidebar"><div class="sidebar-title">🧠 CHAPTER LEARNING SYSTEM</div><div class="chapter-card"><span class="en">CHAPTER 06 — LECTURE 02</span>Bacterial Diversity &amp; Structure</div><button class="side-tab" data-step="1" onclick="openLecture(1,this)"><span class="topic-number" aria-hidden="true">1</span>📘 Lecture Opening</button><button class="side-tab" data-step="2" onclick="openLecture(2,this)"><span class="topic-number" aria-hidden="true">2</span>🦠 Bacterial Ecology &amp; Diversity</button><button class="side-tab" data-step="3" onclick="openLecture(3,this)"><span class="topic-number" aria-hidden="true">3</span>🔬 Discovery &amp; Occurrence</button><button class="side-tab" data-step="4" onclick="openLecture(4,this)"><span class="topic-number" aria-hidden="true">4</span>🧬 Classification &amp; Cyanobacteria</button><button class="side-tab" data-step="5" onclick="openLecture(5,this)"><span class="topic-number" aria-hidden="true">5</span>🧫 Cell Structure</button><button class="side-tab" data-step="6" onclick="openLecture(6,this)"><span class="topic-number" aria-hidden="true">6</span>🧱 Cell Wall &amp; Gram</button><button class="side-tab" data-step="7" onclick="openLecture(7,this)"><span class="topic-number" aria-hidden="true">7</span>⚙️ Membrane &amp; Cytoplasm</button><button class="side-tab" data-step="8" onclick="openLecture(8,this)"><span class="topic-number" aria-hidden="true">8</span>🏃 Flagella &amp; Pili</button><button class="side-tab" data-step="9" onclick="openLecture(9,this)"><span class="topic-number" aria-hidden="true">9</span>🧬 Genome &amp; Plasmids</button><button class="side-tab" data-step="10" onclick="openLecture(10,this)"><span class="topic-number" aria-hidden="true">10</span>🍽️ Modes of Nutrition</button><button class="side-tab" data-step="11" onclick="openLecture(11,this)"><span class="topic-number" aria-hidden="true">11</span>🫁 Respiration &amp; Oxygen</button><button class="side-tab" data-step="12" onclick="openLecture(12,this)"><span class="topic-number" aria-hidden="true">12</span>➗ Growth &amp; Binary Fission</button><button class="side-tab" data-step="13" onclick="openLecture(13,this)"><span class="topic-number" aria-hidden="true">13</span>📈 Growth Curve</button><button class="side-tab" data-step="14" onclick="openLecture(14,this)"><span class="topic-number" aria-hidden="true">14</span>🧬 Genetic Recombination</button><button class="side-tab" data-step="15" onclick="openLecture(15,this)"><span class="topic-number" aria-hidden="true">15</span>🌱 Beneficial Bacteria</button><button class="side-tab" data-step="16" onclick="openLecture(16,this)"><span class="topic-number" aria-hidden="true">16</span>⚠️ Harmful Bacteria</button><button class="side-tab" data-step="17" onclick="openLecture(17,this)"><span class="topic-number" aria-hidden="true">17</span>🧼 Bacterial Control</button><button class="side-tab" data-step="18" onclick="openLecture(18,this)"><span class="topic-number" aria-hidden="true">18</span>🗺️ Concept Map</button><button class="side-tab" data-step="19" onclick="openLecture(19,this)"><span class="topic-number" aria-hidden="true">19</span>❓ Practice</button><button class="side-tab" data-step="20" onclick="openLecture(20,this)"><span class="topic-number" aria-hidden="true">20</span>🔄 Revision</button><button class="side-tab" data-step="21" onclick="openLecture(21,this)"><span class="topic-number" aria-hidden="true">21</span>🏆 Mastery</button><button class="side-tab utility-tab" onclick="openDictionary()"><span class="topic-number" aria-hidden="true">22</span>📖 Chapter Dictionary</button><button class="side-tab utility-tab" onclick="openAtlas()"><span class="topic-number" aria-hidden="true">23</span>🔬 Visual Atlas</button><button class="side-tab utility-tab" onclick="openTest()"><span class="topic-number" aria-hidden="true">24</span>🧑‍🎓 Readiness Test</button><button class="side-tab utility-tab" onclick="openExam()"><span class="topic-number" aria-hidden="true">25</span>🏛️ Examination System</button></aside>
+</div>
+<div class="modal-overlay" id="dictionaryModal"><div class="modal" role="dialog" aria-modal="true"><button aria-label="Close dialog" class="modal-close" onclick="closeModal('dictionaryModal')">×</button><button aria-label="Close dialog" class="modal-close-bottom" onclick="closeModal('dictionaryModal')">×</button><h3>📖 Chapter 06-A Dictionary</h3><input class="search" id="dictSearch" aria-label="Search dictionary" oninput="renderDict()" placeholder="Search scientific term..."/><div id="dictContent"></div></div></div>
+<div class="modal-overlay" id="atlasModal"><div class="modal" role="dialog" aria-modal="true"><button aria-label="Close dialog" class="modal-close" onclick="closeModal('atlasModal')">×</button><button aria-label="Close dialog" class="modal-close-bottom" onclick="closeModal('atlasModal')">×</button><h3>🔬 Chapter 06-A Visual Atlas</h3><p>ہر visual اپنے متعلقہ topic سے linked ہے۔</p><div class="atlas-grid" id="atlasGrid"></div></div></div>
+<div class="modal-overlay" id="diagramModal"><div class="modal" role="dialog" aria-modal="true"><button aria-label="Close dialog" class="modal-close" onclick="closeModal('diagramModal')">×</button><button aria-label="Close dialog" class="modal-close-bottom" onclick="closeModal('diagramModal')">×</button><h3 id="diagramTitle"></h3><div class="svg-wrap" id="diagramBody"></div><p id="diagramDesc"></p></div></div>
+<div class="modal-overlay" id="testModal"><div class="modal" role="dialog" aria-modal="true"><button aria-label="Close dialog" class="modal-close" onclick="closeModal('testModal')">×</button><button aria-label="Close dialog" class="modal-close-bottom" onclick="closeModal('testModal')">×</button><h3>🧑‍🎓 Chapter 06-A Readiness Test</h3><div id="testContent"></div><button class="submit" onclick="submitTest()">Submit Test</button><div id="testResult"></div></div></div>
+<div class="modal-overlay" id="examModal"><div class="modal" role="dialog" aria-modal="true"><button aria-label="Close dialog" class="modal-close" onclick="closeModal('examModal')">×</button><button aria-label="Close dialog" class="modal-close-bottom" onclick="closeModal('examModal')">×</button><h3>🏛️ Chapter 06-A Examination System</h3><div class="box">یہ examination Practice سے الگ ہے۔ ہر attempt کے بعد score، answer feedback اور revision recommendation دکھائی جائے گی۔</div><div id="examContent"></div><button class="submit" onclick="submitExam()">Submit Examination</button><div id="examResult"></div></div></div>
+<div class="modal-overlay" id="globalSearchModal"><div class="modal" role="dialog" aria-modal="true"><button aria-label="Close dialog" class="modal-close" onclick="closeModal('globalSearchModal')">×</button><button aria-label="Close dialog" class="modal-close-bottom" onclick="closeModal('globalSearchModal')">×</button><h3>🔎 Chapter 06 Search</h3><input class="search" id="globalSearchInput" aria-label="Search lecture" oninput="renderGlobalSearch()" placeholder="Search topic, concept or term..."/><div class="search-results" id="globalSearchResults"></div></div></div>
 <script>
-  // Course-aligned Quiz Questions Data
-  const quizData = [
-    {
-      question: "Which component is thick in Gram-positive bacteria cell walls?",
-      options: ["Lipopolysaccharide", "Peptidoglycan", "Flagella", "Chitin"],
-      correct: 1,
-      explanation: "Gram-positive cell walls have a thick peptidoglycan layer that retains crystal violet stain."
-    },
-    {
-      question: "What is the primary mode of asexual reproduction in bacteria?",
-      options: ["Mitosis", "Binary Fission", "Budding", "Conjugation"],
-      correct: 1,
-      explanation: "Bacteria reproduce primarily via Binary Fission, splitting into two identical daughter cells."
-    },
-    {
-      question: "Which process involves DNA transfer between bacteria via a bacteriophage virus?",
-      options: ["Transformation", "Conjugation", "Transduction", "Translation"],
-      correct: 2,
-      explanation: "Transduction is the viral (bacteriophage) mediated transfer of bacterial DNA."
-    },
-    {
-      question: "Extra-chromosomal circular DNA molecules found in bacteria that often carry antibiotic resistance genes are called:",
-      options: ["Nucleoids", "Plasmids", "Ribosomes", "Endospores"],
-      correct: 1,
-      explanation: "Plasmids are extra-chromosomal DNA fragments that replicate independently and carry resistance genes."
-    },
-    {
-      question: "Bacteria that require oxygen for survival and cellular respiration are classified as:",
-      options: ["Obligate Anaerobes", "Facultative Anaerobes", "Obligate Aerobes", "Microaerophiles"],
-      correct: 2,
-      explanation: "Obligate Aerobes strictly require oxygen to carry out cellular respiration and survive."
-    },
-    {
-      question: "During which phase of the bacterial growth curve is the population growth rate highest and constant?",
-      options: ["Lag Phase", "Log (Exponential) Phase", "Stationary Phase", "Death Phase"],
-      correct: 1,
-      explanation: "During the Log/Exponential Phase, cells divide at a constant and maximum rate."
-    },
-    {
-      question: "The uptake of free 'naked' DNA from the surrounding environment by a competent bacterial cell is known as:",
-      options: ["Transformation", "Conjugation", "Transduction", "Transposition"],
-      correct: 0,
-      explanation: "Transformation involves absorbing extracellular naked DNA directly into the recipient bacterium."
-    },
-    {
-      question: "Which bacterial surface appendage is primarily used for attachment to surfaces and genetic exchange (Conjugation)?",
-      options: ["Flagella", "Pili (Fimbriae)", "Capsule", "Teichoic Acid"],
-      correct: 1,
-      explanation: "Pili facilitate attachment to host surfaces and form conjugation bridges for DNA transfer."
-    }
-  ];
+const lessons=[...document.querySelectorAll('.lesson')];let current=0;
+function showStep(n){if(n<1)n=1;if(n>lessons.length)n=lessons.length;current=n-1;lessons.forEach((x,i)=>x.classList.toggle('active',i===current));const stepNo=document.getElementById('stepNo');if(stepNo)stepNo.textContent=n;const totalSteps=document.getElementById('totalSteps');if(totalSteps)totalSteps.textContent=lessons.length;document.querySelectorAll('.side-tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.side-tab[data-step]').forEach(x=>{if(Number(x.dataset.step)===n)x.classList.add('active')});const prev=document.querySelector('.final-nav button[data-nav="prev"]');const next=document.querySelector('.final-nav button[data-nav="next"]');if(prev)prev.disabled=(current===0);if(next)next.disabled=(current===lessons.length-1);const main=document.querySelector('.main');if(main)main.scrollTop=0;if(n===19&&typeof buildPractice==='function'&&document.getElementById('practiceContent')&&!document.getElementById('practiceContent').children.length)buildPractice();}
+function goToStep(n,b){showStep(n);if(b)b.classList.add('active')}
+function showTopics(){document.body.classList.remove('home-view','lecture-focus');document.body.classList.add('topic-view');window.scrollTo({top:0,behavior:'smooth'})}
+function openLecture(n,b){const step=Number(n);if(!Number.isInteger(step)||step<1||step>lessons.length)return;showStep(step);document.body.classList.remove('home-view','topic-view');document.body.classList.add('lecture-focus');document.querySelectorAll('.side-tab[data-step]').forEach(x=>x.classList.toggle('active',Number(x.dataset.step)===step));if(b)b.classList.add('active');const main=document.querySelector('.main');if(main)main.scrollTop=0;window.scrollTo(0,0);}
+function closeLecture(){showTopics();}
+function goHome(){document.body.classList.remove('topic-view','lecture-focus');document.body.classList.add('home-view');const main=document.querySelector('.main');if(main)main.scrollTop=0;window.scrollTo({top:0,behavior:'smooth'});}
+function openGlobalSearch(){const m=document.getElementById('globalSearchModal');m.classList.add('show');document.body.style.overflow='hidden';document.getElementById('globalSearchInput').value='';renderGlobalSearch();setTimeout(()=>document.getElementById('globalSearchInput').focus(),50)}
+function normalizeSearch(s){return (s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[\u064b-\u065f\u0670]/g,'').replace(/[\u064a]/g,'ی').replace(/[\u0643]/g,'ک').replace(/[^a-z0-9\u0600-\u06ff]+/g,' ').trim()}
+function levenshtein(a,b){const m=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){let prev=m[0];m[0]=i;for(let j=1;j<=b.length;j++){const cur=m[j];m[j]=Math.min(m[j]+1,prev+1,m[j-1]+1);prev=cur}}return m[b.length]}
+function searchMatch(text,q){const hay=normalizeSearch(text),needle=normalizeSearch(q);if(!needle)return true;if(hay.includes(needle))return true;return needle.split(' ').filter(Boolean).every(tok=>hay.split(' ').some(w=>w.includes(tok)||tok.includes(w)||levenshtein(w,tok)<=Math.max(1,Math.floor(tok.length/4))))}
+function renderGlobalSearch(){const q=(document.getElementById('globalSearchInput').value||'').trim();const rows=[];lessons.forEach((el,i)=>{const text=el.innerText.replace(/\s+/g,' ').trim();const title=(el.querySelector('h3')||{}).innerText||('Step '+(i+1));if(searchMatch(text,q))rows.push(`<div class="search-result" onclick="closeModal('globalSearchModal');openLecture(${i+1})"><strong>Step ${i+1}: ${title}</strong><small>${q?highlightSearch(text,q):text.slice(0,180)+'…'}</small></div>`)});Object.entries(dictionary).forEach(([k,v])=>{if(searchMatch(k+' '+v,q))rows.push(`<div class="search-result" onclick="closeModal('globalSearchModal');openDictionary('${k.replace(/'/g,"\\'")}')"><strong>Dictionary: ${k}</strong><small>${v}</small></div>`)});document.getElementById('globalSearchResults').innerHTML=rows.slice(0,30).join('')||'<div class="definition">No matching result.</div>'}
+function highlightSearch(text,q){const safe=text.replace(/</g,'&lt;').replace(/>/g,'&gt;');return safe.length>220?safe.slice(0,220)+'…':safe}
+function changeStep(d){showStep(current+1+d)}
+const dictionary={
+'Bacteria':'Domain Bacteria کے prokaryotic microorganisms۔','Cyanobacteria':'Photosynthetic bacteria جو oxygenic photosynthesis کر سکتے ہیں۔','Coccus':'گول یا spherical bacterial cell shape۔','Bacillus':'Rod-shaped bacterial cell۔','Vibrio':'Comma-shaped bacterial cell۔','Spirillum':'Spiral-shaped bacterium۔','Peptidoglycan':'Bacterial cell wall کا اہم structural polymer۔','Gram-positive':'عموماً thick peptidoglycan wall رکھنے والے bacteria جو Gram stain میں violet/purple دکھائی دیتے ہیں۔','Gram-negative':'Thin peptidoglycan اور outer membrane رکھنے والے bacteria جو Gram stain میں pink/red دکھائی دیتے ہیں۔','Plasmid':'چھوٹا extrachromosomal DNA molecule جو بعض اضافی genes لے جا سکتا ہے۔','Capsule':'بعض bacteria کی بیرونی protective polysaccharide/protein-rich layer۔','Flagellum':'Bacterial locomotion سے متعلق filamentous structure۔','Pilus':'Attachment یا بعض حالات میں DNA transfer سے متعلق surface appendage۔','Binary fission':'Bacterial asexual reproduction جس میں ایک cell دو daughter cells میں تقسیم ہوتا ہے۔','Transformation':'Environmental DNA کو bacterial cell میں uptake کرنے کا طریقہ۔','Transduction':'Bacteriophage کے ذریعے bacterial DNA transfer۔','Conjugation':'Direct cell-to-cell contact کے ذریعے genetic material transfer۔','Obligate aerobe':'ایسا bacterium جسے growth کے لیے oxygen درکار ہو۔','Obligate anaerobe':'ایسا bacterium جو oxygen کے بغیر grow کرتا ہے اور oxygen سے نقصان اٹھا سکتا ہے۔','Facultative anaerobe':'ایسا bacterium جو oxygen کی موجودگی یا عدم موجودگی دونوں میں grow کر سکتا ہے۔','Microbiota':'کسی مخصوص environment، خصوصاً انسانی جسم، میں رہنے والے microorganisms کی community۔','Antibiotic resistance':'Bacteria کی antimicrobial drugs کے خلاف survive کرنے کی صلاحیت۔'};
+function openDictionary(term){const m=document.getElementById('dictionaryModal');m.classList.add('show');document.body.style.overflow='hidden';document.getElementById('dictSearch').value=term||'';renderDict();setTimeout(()=>document.getElementById('dictSearch').focus(),50)}
+function renderDict(){const q=(document.getElementById('dictSearch').value||'').toLowerCase();document.getElementById('dictContent').innerHTML=Object.entries(dictionary).filter(([k,v])=>(k+' '+v).toLowerCase().includes(q)).map(([k,v])=>`<div class="definition"><strong>${k}</strong><br>${v}</div>`).join('')||'<div class="definition">No matching term.</div>'}
+const visuals={
+V01:['V01','Bacterial Cell — Overall Organization','Labeled bacterial cell showing nucleoid, ribosomes, cell membrane, cell wall, capsule and surface structures.','data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fffdf8"/><ellipse cx="400" cy="250" rx="280" ry="150" fill="#edf5ef" stroke="#173e34" stroke-width="8"/><ellipse cx="400" cy="250" rx="105" ry="55" fill="#f2d46f" stroke="#92701f" stroke-width="5"/><text x="400" y="257" text-anchor="middle" font-size="28">Nucleoid</text><text x="400" y="80" text-anchor="middle" font-size="30">Bacterial Cell</text><text x="400" y="445" text-anchor="middle" font-size="22">Cell wall • membrane • cytoplasm • ribosomes</text></svg>`),'Internal SVG'],
+V02:['V02','Bacterial Cell Wall &amp; Gram Characteristics','Conceptual comparison of Gram-positive and Gram-negative envelope organization.','data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fffdf8"/><text x="200" y="55" text-anchor="middle" font-size="30">Gram-positive</text><text x="600" y="55" text-anchor="middle" font-size="30">Gram-negative</text><rect x="80" y="130" width="240" height="240" rx="120" fill="#f2d46f" stroke="#173e34" stroke-width="18"/><rect x="480" y="130" width="240" height="240" rx="120" fill="#edf5ef" stroke="#173e34" stroke-width="10"/><text x="200" y="410" text-anchor="middle" font-size="20">Thick peptidoglycan</text><text x="600" y="410" text-anchor="middle" font-size="20">Outer membrane + thin peptidoglycan</text></svg>`),'Internal SVG'],
+V03:['V03','Bacterial Surface Structures','Conceptual diagram of flagella, pili and capsule as bacterial surface structures.','data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fffdf8"/><ellipse cx="360" cy="250" rx="180" ry="100" fill="#edf5ef" stroke="#173e34" stroke-width="8"/><path d="M520 250 C650 150 690 320 760 220" fill="none" stroke="#376b8a" stroke-width="7"/><path d="M200 160 C100 80 80 140 50 90 M200 340 C100 420 80 360 50 410" fill="none" stroke="#92701f" stroke-width="5"/><text x="400" y="460" text-anchor="middle" font-size="24">Flagellum • Pili • Capsule</text></svg>`),'Internal SVG'],
+V04:['V04','Bacterial Genome &amp; Plasmids','Conceptual view of nucleoid DNA and small circular plasmids.','data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fffdf8"/><ellipse cx="400" cy="250" rx="250" ry="140" fill="#edf5ef" stroke="#173e34" stroke-width="8"/><path d="M280 250 C330 140 470 360 520 250 C470 140 330 360 280 250" fill="none" stroke="#92701f" stroke-width="9"/><circle cx="590" cy="170" r="45" fill="none" stroke="#376b8a" stroke-width="8"/><text x="400" y="445" text-anchor="middle" font-size="24">Chromosomal DNA + plasmid</text></svg>`),'Internal SVG'],
+V05:['V05','Bacterial Growth Curve','Four-phase bacterial growth curve: lag, log, stationary and death.','data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fffdf8"/><line x1="90" y1="410" x2="740" y2="410" stroke="#173e34" stroke-width="4"/><line x1="90" y1="410" x2="90" y2="70" stroke="#173e34" stroke-width="4"/><path d="M100 390 C190 385 240 370 300 180 C360 80 470 80 560 180 C620 260 680 350 730 390" fill="none" stroke="#92701f" stroke-width="7"/><text x="165" y="440" font-size="22">Lag</text><text x="330" y="120" font-size="22">Log</text><text x="490" y="150" font-size="22">Stationary</text><text x="650" y="380" font-size="22">Death</text></svg>`),'Internal SVG'],
+V06:['V06','Binary Fission','Sequence showing bacterial DNA replication and division into two daughter cells.','data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fffdf8"/><circle cx="180" cy="250" r="100" fill="#edf5ef" stroke="#173e34" stroke-width="7"/><circle cx="400" cy="250" r="130" fill="#edf5ef" stroke="#173e34" stroke-width="7"/><circle cx="620" cy="190" r="85" fill="#edf5ef" stroke="#173e34" stroke-width="7"/><circle cx="620" cy="310" r="85" fill="#edf5ef" stroke="#173e34" stroke-width="7"/><path d="M280 250 H330 M530 250 H575" stroke="#92701f" stroke-width="8"/><text x="400" y="470" text-anchor="middle" font-size="24">Binary fission</text></svg>`),'Internal SVG'],
+V07:['V07','Cyanobacteria','Conceptual representation of photosynthetic cyanobacteria and primary production.','data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#fffdf8"/><circle cx="300" cy="250" r="100" fill="#edf5ef" stroke="#173e34" stroke-width="7"/><circle cx="500" cy="250" r="100" fill="#edf5ef" stroke="#173e34" stroke-width="7"/><path d="M300 140 L300 360 M240 190 L360 310 M240 310 L360 190 M500 140 L500 360 M440 190 L560 310 M440 310 L560 190" stroke="#376b8a" stroke-width="5"/><text x="400" y="450" text-anchor="middle" font-size="24">Photosynthetic cyanobacteria</text></svg>`),'Internal SVG']
+};
+function svgFor(id){const v=visuals[id];if(!v)return '';return `<figure class="atlas-figure"><img src="${v[3]}" alt="${v[1]}" loading="eager"><figcaption><strong>${v[0]} — ${v[1]}</strong><br><span>${v[2]}</span><br><small>Source: Imperial Academy internal SVG • ${v[4]}</small></figcaption></figure>`}
+const topicVisuals={1:['V01'],2:['V07'],3:['V07'],4:['V01'],5:['V02'],6:['V02'],7:['V03'],8:['V04'],9:['V04'],10:['V05'],11:['V06'],12:['V05'],13:['V04'],14:['V01'],15:['V01'],16:['V01'],17:['V04'],18:['V06'],19:['V05'],20:['V04']};
+function openAtlas(id){const m=document.getElementById('atlasModal');m.classList.add('show');document.body.style.overflow='hidden';const keys=id&&topicVisuals[id]?topicVisuals[id]:Object.keys(visuals);document.getElementById('atlasGrid').innerHTML=keys.map(k=>{const v=visuals[k];return `<div class="atlas-card" onclick="openDiagram('${k}')"><img src="${v[3]}" alt="${v[1]}" loading="lazy"><strong>${v[0]} — ${v[1]}</strong><small>${v[2]}</small></div>`}).join('')}
+function openDiagram(id){const m=document.getElementById('diagramModal');m.classList.add('show');document.body.style.overflow='hidden';document.getElementById('diagramTitle').textContent=visuals[id][0]+' — '+visuals[id][1];document.getElementById('diagramBody').innerHTML=svgFor(id);document.getElementById('diagramDesc').textContent=visuals[id][2]+' | Source: Imperial Academy internal SVG • '+visuals[id][4]}
+function closeModal(id){document.getElementById(id).classList.remove('show');if(!document.querySelector('.modal-overlay.show'))document.body.style.overflow=''}
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeModal(o.id)}));
+const practiceQs=[
+['Bacterial chromosome عموماً کہاں موجود ہوتا ہے؟',['Nucleus','Nucleoid region','Mitochondrion','Golgi body'],1,'Bacteria میں membrane-bound nucleus نہیں ہوتا؛ chromosome nucleoid region میں موجود ہوتا ہے۔'],
+['Gram-negative bacteria کی نمایاں خصوصیت کیا ہے؟',['Thick peptidoglycan only','Outer membrane کے ساتھ thin peptidoglycan','No cell membrane','Membrane-bound nucleus'],1,'Gram-negative bacteria میں outer membrane اور relatively thin peptidoglycan layer ہوتی ہے۔'],
+['Binary fission کس process کو بیان کرتی ہے؟',['Sexual reproduction','Bacterial cell division','Photosynthesis','DNA digestion'],1,'Binary fission میں bacterial cell DNA replicate کرنے کے بعد دو daughter cells میں تقسیم ہوتا ہے۔'],
+['Conjugation میں کیا ہوتا ہے؟',['Phage کے ذریعے DNA transfer','Environmental DNA uptake','Direct cell-to-cell genetic transfer','Protein synthesis'],2,'Conjugation direct cellular contact کے ذریعے genetic material transfer کرتی ہے۔'],
+['Cyanobacteria کی اہم ecological خصوصیت کیا ہے؟',['صرف parasitic lifestyle','Photosynthesis اور primary production','صرف anaerobic growth','صرف disease causation'],1,'Cyanobacteria photosynthetic bacteria ہیں اور ecosystems میں primary producers کے طور پر اہم ہیں۔']
+];
+function buildPractice(){buildQuestions('practiceContent',practiceQs);document.getElementById('practiceResult').innerHTML=''}
+function resetPractice(){buildPractice()}
+function checkPractice(){const g=grade(practiceQs,'practiceContent','practiceResult');const pct=Math.round(g.score/practiceQs.length*100);document.getElementById('practiceResult').innerHTML=`<div class="result"><strong>Practice Score: ${g.score}/${practiceQs.length} (${pct}%)</strong><br>${pct>=80?'Good work — continue to Revision and Mastery.':'Revision recommended — review the feedback below, then retry.'}</div>${g.feedback.join('')}`}
 
-  let currentQuestionIndex = 0;
-  let selectedOption = null;
-  let score = 0;
-  let timeLeft = 30;
-  let timerInterval = null;
-
-  // Start Timer Function
-  function startTimer() {
-    timeLeft = 30;
-    const timerDisplay = document.getElementById("timer");
-    timerDisplay.classList.remove("warning");
-    timerDisplay.innerText = `Time Left: ${timeLeft}s`;
-
-    clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-      timeLeft--;
-      timerDisplay.innerText = `Time Left: ${timeLeft}s`;
-
-      if (timeLeft <= 5) {
-        timerDisplay.classList.add("warning");
-      }
-
-      if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        handleTimeOut();
-      }
-    }, 1000);
-  }
-
-  // Handle Timeout
-  function handleTimeOut() {
-    const q = quizData[currentQuestionIndex];
-    const buttons = document.querySelectorAll(".option-btn");
-    const resultBox = document.getElementById("result-box");
-
-    buttons.forEach(b => b.disabled = true);
-    buttons[q.correct].classList.add("correct");
-
-    resultBox.style.background = "#4c1d1d";
-    resultBox.style.color = "#f97583";
-    resultBox.innerText = `Time's up! ${q.explanation}`;
-    resultBox.classList.add("active");
-
-    document.getElementById("submit-btn").style.display = "none";
-    document.getElementById("next-btn").style.display = "inline-block";
-  }
-
-  // Load Question
-  function loadQuestion() {
-    const q = quizData[currentQuestionIndex];
-    document.getElementById("question-text").innerText = `Question ${currentQuestionIndex + 1} of ${quizData.length}: ${q.question}`;
-    
-    const optionsContainer = document.getElementById("options-container");
-    optionsContainer.innerHTML = "";
-    
-    selectedOption = null;
-    document.getElementById("submit-btn").disabled = true;
-    document.getElementById("submit-btn").style.display = "inline-block";
-    document.getElementById("next-btn").style.display = "none";
-    document.getElementById("result-box").className = "result-box";
-
-    q.options.forEach((opt, index) => {
-      const btn = document.createElement("button");
-      btn.className = "option-btn";
-      btn.innerText = opt;
-      btn.onclick = () => selectOption(index, btn);
-      optionsContainer.appendChild(btn);
-    });
-
-    startTimer();
-  }
-
-  function selectOption(index, element) {
-    const buttons = document.querySelectorAll(".option-btn");
-    buttons.forEach(b => b.classList.remove("selected"));
-    
-    element.classList.add("selected");
-    selectedOption = index;
-    document.getElementById("submit-btn").disabled = false;
-  }
-
-  function checkAnswer() {
-    clearInterval(timerInterval);
-    const q = quizData[currentQuestionIndex];
-    const buttons = document.querySelectorAll(".option-btn");
-    const resultBox = document.getElementById("result-box");
-
-    buttons.forEach(b => b.disabled = true);
-
-    if (selectedOption === q.correct) {
-      score++;
-      buttons[selectedOption].classList.add("correct");
-      resultBox.style.background = "#13381e";
-      resultBox.style.color = "#85e89d";
-      resultBox.innerText = `Correct! ${q.explanation}`;
-    } else {
-      buttons[selectedOption].classList.add("incorrect");
-      buttons[q.correct].classList.add("correct");
-      resultBox.style.background = "#4c1d1d";
-      resultBox.style.color = "#f97583";
-      resultBox.innerText = `Incorrect. ${q.explanation}`;
-    }
-
-    resultBox.classList.add("active");
-    document.getElementById("submit-btn").style.display = "none";
-    document.getElementById("next-btn").style.display = "inline-block";
-  }
-
-  function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < quizData.length) {
-      loadQuestion();
-    } else {
-      showFinalResults();
-    }
-  }
-
-  function showFinalResults() {
-    clearInterval(timerInterval);
-    const container = document.getElementById("quiz-card");
-    document.getElementById("timer").style.display = "none";
-    
-    const percentage = Math.round((score / quizData.length) * 100);
-    
-    document.getElementById("quiz-container").innerHTML = `
-      <h3>Quiz Completed!</h3>
-      <p style="font-size: 18px;">Your Final Score: <strong>${score} / ${quizData.length}</strong> (${percentage}%)</p>
-      <button class="btn" onclick="restartQuiz()">Restart Quiz</button>
-    `;
-  }
-
-  function restartQuiz() {
-    location.reload();
-  }
-
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  }
-
-  window.onload = loadQuestion;
+const testQs=[
+['Which structure contains the main chromosomal DNA in a typical bacterium?',['Nucleus','Nucleoid region','Golgi apparatus','Mitochondrion'],1,'Bacteria lack a membrane-bound nucleus; the chromosome occupies the nucleoid region.'],
+['Which statement best describes Gram-negative bacteria?',['They have no membrane','They have an outer membrane and relatively thin peptidoglycan','They always lack a cell wall','They have a membrane-bound nucleus'],1,'Gram-negative bacteria have an outer membrane and a relatively thin peptidoglycan layer.'],
+['Which structure is primarily associated with bacterial movement?',['Flagellum','Ribosome','Plasmid','Capsule'],0,'Flagella can provide motility.'],
+['What is a plasmid?',['A membrane-bound organelle','A small extra-chromosomal DNA molecule','A protein coat','A type of ribosome'],1,'Plasmids are small DNA molecules separate from the main bacterial chromosome.'],
+['Binary fission is:',['A form of bacterial cell division','A type of photosynthesis','Protein digestion','A form of viral infection'],0,'Binary fission produces two daughter cells after chromosome replication and cell division.'],
+['Which phase of the bacterial growth curve normally shows the fastest population increase?',['Lag','Log/exponential','Stationary','Death'],1,'The log phase is characterized by rapid exponential population increase.'],
+['Cyanobacteria are important because many are:',['Photosynthetic primary producers','Obligate animal parasites','Non-living particles','Only anaerobic pathogens'],0,'Cyanobacteria carry out photosynthesis and can contribute substantially to primary production.'],
+['Which process transfers bacterial DNA by direct cell-to-cell contact?',['Conjugation','Translation','Respiration','Binary fission'],0,'Conjugation involves direct cell-to-cell transfer of genetic material.']
+];
+function buildQuestions(id,qs){document.getElementById(id).innerHTML=qs.map((q,i)=>`<div class="q"><strong>${i+1}. ${q[0]}</strong>${q[1].map((o,j)=>`<label><input type="radio" name="${id}${i}" value="${j}"> ${o}</label>`).join('')}</div>`).join('')}
+function openTest(){document.getElementById('testModal').classList.add('show');document.body.style.overflow='hidden';document.getElementById('testResult').innerHTML='';buildQuestions('testContent',testQs)}
+function grade(qs,id,res){let score=0,feedback=[],wrong=[];qs.forEach((q,i)=>{const a=document.querySelector(`input[name="${id}${i}"]:checked`);const got=a?Number(a.value):-1;if(got===q[2]){score++;feedback.push(`<div class="definition answer-correct"><strong>Q${i+1}: Correct ✓</strong><br>Answer: ${q[1][q[2]]}<br>${q[3]}</div>`)}else{wrong.push(i);const selected=got>=0?`Your answer: ${q[1][got]}<br>`:'Your answer: Not answered<br>';feedback.push(`<div class="definition ${got<0?'answer-unanswered':'answer-wrong'}"><strong>Q${i+1}: ${got<0?'Not answered':'Incorrect ✗'}</strong><br>${selected}Correct answer: ${q[1][q[2]]}<br>Explanation: ${q[3]}</div>`)}});return {score,feedback,wrong}}
+function targetedRecommendation(qs,wrong){if(!wrong.length)return 'Excellent — no weak concept was identified in this attempt.';return 'Review: '+wrong.map(i=>qs[i][0]).join(' • ')}
+function submitTest(){const g=grade(testQs,'testContent','testResult');const pct=Math.round(g.score/testQs.length*100);document.getElementById('testResult').innerHTML=`<div class="result"><strong>Score: ${g.score}/${testQs.length} (${pct}%)</strong><br>${pct>=80?'Ready — continue to Examination.':'Needs Revision — review the highlighted concepts before re-test.'}<br><strong>Revision recommendation:</strong> ${targetedRecommendation(testQs,g.wrong)}</div>${g.feedback.join('')}`}
+const examQs=[
+['Which feature is characteristic of the bacterial nucleoid?',['It is a membrane-bound nucleus','It contains the main chromosome without a nuclear membrane','It is made only of protein','It is a mitochondrion'],1,'The bacterial nucleoid contains the main chromosome and is not enclosed by a nuclear membrane.'],
+['Which comparison of bacterial cell walls is correct?',['Gram-positive bacteria generally have thicker peptidoglycan than Gram-negative bacteria','Gram-negative bacteria have no membrane','Gram-positive bacteria always lack peptidoglycan','Both groups have identical envelopes'],0,'Gram-positive bacteria generally have a thicker peptidoglycan layer, while Gram-negative bacteria have an outer membrane and thinner peptidoglycan.'],
+['What is the main role of a bacterial capsule when present?',['It can aid protection and attachment','It replaces DNA','It performs nuclear division','It is the site of translation only'],0,'A capsule can contribute to protection, adhesion and interaction with the environment.'],
+['Which statement about plasmids is correct?',['They are extra-chromosomal DNA molecules that may carry useful genes','They are membrane-bound organelles','They are always essential for survival','They are made of RNA only'],0,'Plasmids are extra-chromosomal DNA molecules and can carry genes such as resistance determinants.'],
+['Which sequence best represents the bacterial growth curve?',['Lag → log → stationary → death','Death → lag → log → stationary','Log → death → lag → stationary','Stationary → log → lag → death'],0,'The standard growth curve proceeds through lag, log/exponential, stationary and death phases.'],
+['Which statement about bacterial nutrition is most accurate?',['Bacteria show diverse nutritional strategies','All bacteria are photosynthetic','All bacteria are parasites','All bacteria use only one carbon source'],0,'Bacteria exhibit diverse nutritional strategies, including autotrophic and heterotrophic modes.'],
+['Which process is a form of horizontal gene transfer?',['Conjugation','Binary fission','Cell respiration','Protein folding'],0,'Conjugation transfers genetic material between bacterial cells and is a form of horizontal gene transfer.'],
+['Why are bacteria ecologically important?',['They participate in decomposition, nutrient cycling and many symbioses','They occur only in disease','They cannot live outside hosts','They have no role in ecosystems'],0,'Bacteria are widespread and contribute to decomposition, nutrient cycling and beneficial symbioses as well as disease in some cases.'],
+['Which statement about beneficial and harmful bacteria is most appropriate?',['Some bacteria are beneficial while others cause disease','All bacteria are harmful','All bacteria are beneficial','Bacterial effects never depend on context'],0,'Bacterial impacts vary: many are beneficial, while some are pathogenic.'],
+['What is an appropriate strategy for controlling harmful bacteria?',['Use suitable physical or chemical control according to the context','Remove all bacteria from every environment','Use antibiotics for every bacterial presence','Ignore hygiene and sterilization'],0,'Control depends on context and may involve appropriate hygiene, heat, disinfectants, antiseptics or antimicrobial therapy.']
+];
+function openExam(){document.getElementById('examModal').classList.add('show');document.body.style.overflow='hidden';document.getElementById('examResult').innerHTML='';buildQuestions('examContent',examQs)}
+function submitExam(){const g=grade(examQs,'examContent','examResult');const pct=Math.round(g.score/examQs.length*100);document.getElementById('examResult').innerHTML=`<div class="result"><strong>Examination Score: ${g.score}/${examQs.length} (${pct}%)</strong><br>${pct>=80?'Lecture 02 Examination: Ready for Mastery.':'Revision recommended. Weak concepts have been identified below.'}<br><strong>Revision recommendation:</strong> ${targetedRecommendation(examQs,g.wrong)}</div>${g.feedback.join('')}`}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const o=document.querySelector('.modal-overlay.show');if(o)closeModal(o.id)}if(e.target.matches('input,textarea'))return;if(!document.querySelector('.modal-overlay.show')){if(e.key==='ArrowRight')changeStep(1);if(e.key==='ArrowLeft')changeStep(-1)}});
+showStep(1);
 </script>
 
-</body>
-</html>
+
+<style id="topic-tab-numbering">
+/* Topic-tab numbering only: large, very light numerals; topic text remains clear. */
+body.home-view .side-tab[data-step], body.topic-view .side-tab[data-step]{
+  position:relative!important;
+  overflow:hidden!important;
+}
+body.home-view .side-tab[data-step]::before, body.topic-view .side-tab[data-step]::before{
+  content:attr(data-step);
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  font:800 1.35em/1 Arial,sans-serif;
+  color:rgba(42,130,105,.16);
+  pointer-events:none;
+  z-index:0;
+}
+body.home-view .side-tab[data-step] > *, body.topic-view .side-tab[data-step] > *{position:relative;z-index:1}
+@media(max-width:600px){
+ body.home-view .side-tab[data-step]::before, body.topic-view .side-tab[data-step]::before{left:8px;color:rgba(45,125,170,.15)}
+}
+</style>
+</body></html>
+<style id="topic-tabs-font-10pct">
+/* Topic tabs only: 10% larger font, layout unchanged */
+.topic-tabs button, .topic-tabs .topic-tab, .topic-grid button, .topic-grid .topic-tab { font-size: 110% !important; }
+/* Actual lecture topic tabs: increase only their text size by 10%; no functional selectors changed. */
+body.topic-view .side-tab{font-size:clamp(22px,2.2vw,30.8px)!important;}
+@media(max-width:600px){body.topic-view .side-tab{font-size:18.7px!important;}}
+@media(max-width:430px){body.topic-view .side-tab{font-size:16.5px!important;}}
+</style>
+</bod>
+</head>
+
+<html>
