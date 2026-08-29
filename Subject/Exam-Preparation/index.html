@@ -1,61 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Imperial Academy — MCQs Chapter & Topic Master</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Imperial Academy of Education — MCQ Master</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f8fbff,#fff7fc);color:#172033;font-family:"Noto Naskh Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif;line-height:1.85}header{padding:28px 15px;text-align:center;color:#fff;background:linear-gradient(120deg,#4c1d95,#7c3aed,#db2777,#2563eb)}header h1{margin:0;font-size:29px}header p{margin:4px 0}.wrap{max-width:1200px;margin:auto;padding:16px}.bar{position:sticky;top:0;z-index:10;background:#fffffff2;backdrop-filter:blur(10px);padding:13px;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 7px 24px #00000012}.controls{display:grid;grid-template-columns:1fr 260px 260px;gap:9px}input,select{width:100%;padding:11px 13px;border:2px solid #e5e7eb;border-radius:11px;font-size:15px;outline:0;background:#fff}input:focus,select:focus{border-color:#7c3aed}.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.badge{background:#ede9fe;color:#5b21b6;border-radius:999px;padding:4px 10px;font-weight:700;font-size:13px}.status{margin:13px 0;padding:12px;border-radius:12px;background:#fff;border:1px solid #e5e7eb}.chapter{margin:24px 0}.chapterTitle{padding:14px 17px;border-radius:15px;background:linear-gradient(90deg,#ede9fe,#fce7f3);color:#4c1d95;font-size:21px;font-weight:900;border-right:7px solid #7c3aed}.topic{margin:14px 0}.topicTitle{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,#dbeafe,#ecfeff);color:#164e63;font-size:18px;font-weight:900;border-right:5px solid #0891b2}.mcq{margin:9px 0;padding:14px;background:#fff;border:1px solid #e5e7eb;border-right:6px solid #7c3aed;border-radius:14px;box-shadow:0 4px 16px #00000009}.mcq:nth-child(4n){border-right-color:#ec4899}.mcq:nth-child(4n+1){border-right-color:#2563eb}.mcq:nth-child(4n+2){border-right-color:#059669}.q{font-weight:900;font-size:16px}.id{display:inline-block;direction:ltr;background:#ede9fe;color:#5b21b6;border-radius:8px;padding:1px 8px;margin-left:8px;font:900 12px Arial}.opts{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}.op{padding:8px 10px;border:1px solid #edf0f5;border-radius:9px;background:#f8fafc}.correct{background:#ecfdf5;border-color:#86efac;color:#065f46;font-weight:900}.ans{margin-top:8px;padding:8px 10px;background:#fff7ed;color:#9a3412;border-radius:9px;font-weight:900}.empty{text-align:center;padding:30px;background:#fff;border-radius:14px}@media(max-width:800px){.controls,.opts{grid-template-columns:1fr}}
-</style>
-</head><body>
-<header><h1>🌈 Imperial Academy — MCQs Master</h1><p>Chapter-wise → Topic-wise → IAE Numbering</p></header>
-<div class="wrap"><div class="bar"><div class="controls"><input id="search" placeholder="🔎 MCQ، Chapter یا Topic تلاش کریں…"><select id="chapter"><option value="">📚 تمام Chapters</option></select><select id="topic"><option value="">📖 تمام Topics</option></select></div><div class="badges"><span class="badge" id="count">MCQs: 0</span><span class="badge" id="shown">Shown: 0</span><span class="badge">IAE Pattern: IAE11010001</span></div></div><div id="status" class="status">⏳ اصل MQB repository پڑھ رہی ہے…</div><main id="out"></main></div>
+*{box-sizing:border-box}body{margin:0;font-family:"Noto Naskh Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#f8fbff,#fff7fc,#f8f6ff);color:#172033;line-height:1.9}header{background:linear-gradient(120deg,#4c1d95,#7c3aed,#db2777,#2563eb);color:#fff;text-align:center;padding:25px 14px;box-shadow:0 5px 20px #0002}header h1{margin:0;font-size:28px}header p{margin:4px 0}.container{max-width:1200px;margin:auto;padding:16px}.toolbar{position:sticky;top:0;z-index:20;background:#fffffff2;backdrop-filter:blur(12px);border:1px solid #e5e7eb;border-radius:18px;padding:12px;margin-bottom:18px;box-shadow:0 8px 25px #00000012}.controls{display:grid;grid-template-columns:1fr 230px 230px;gap:9px}input,select{width:100%;padding:11px 13px;border:2px solid #e5e7eb;border-radius:12px;background:#fff;font-size:15px;outline:0}input:focus,select:focus{border-color:#7c3aed}.modebar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}button{border:0;border-radius:12px;padding:10px 15px;font-weight:800;cursor:pointer;font-size:14px}.mode{background:#ede9fe;color:#5b21b6}.mode.active{background:linear-gradient(90deg,#7c3aed,#db2777);color:#fff}.timer{background:#ecfeff;color:#155e75}.stats{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.badge{background:#ede9fe;color:#5b21b6;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:800}.status{background:#fff;border:1px solid #e5e7eb;padding:12px 14px;border-radius:14px;margin-bottom:15px}.chapter{margin:25px 0}.chapter-title{padding:14px 17px;border-radius:16px;background:linear-gradient(90deg,#ede9fe,#fce7f3);color:#4c1d95;font-size:21px;font-weight:900;border-right:7px solid #7c3aed}.topic{margin:15px 0}.topic-title{padding:10px 14px;border-radius:13px;background:linear-gradient(90deg,#dbeafe,#ecfeff);color:#164e63;font-size:18px;font-weight:900;border-right:5px solid #0891b2}.mcq{background:#fff;margin:9px 0;padding:15px;border-radius:15px;border:1px solid #e5e7eb;border-right:6px solid #7c3aed;box-shadow:0 5px 18px #0000000d}.question{font-size:17px;font-weight:900}.iae{direction:ltr;display:inline-block;background:#ede9fe;color:#5b21b6;padding:1px 8px;margin-left:7px;border-radius:8px;font-family:Arial,sans-serif;font-size:12px;font-weight:900}.answer{margin-top:9px;padding:10px 13px;border-radius:11px;font-size:16px;font-weight:900}.answer.c1{background:#f3e8ff;color:#6b21a8;border:1px solid #d8b4fe}.answer.c2{background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd}.answer.c3{background:#fce7f3;color:#be185d;border:1px solid #f9a8d4}.answer.c4{background:#ccfbf1;color:#0f766e;border:1px solid #5eead4}.answer.c5{background:#ffedd5;color:#c2410c;border:1px solid #fdba74}.answer.c6{background:#fef3c7;color:#a16207;border:1px solid #fcd34d}.practice-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.practice-option{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:13px;border:2px solid transparent;font-size:16px;font-weight:800;transition:.2s;box-shadow:0 3px 9px #0000000b}.practice-option:hover{transform:translateY(-1px)}.option-color-1{background:#f3e8ff;color:#6b21a8;border-color:#d8b4fe}.option-color-2{background:#dbeafe;color:#1d4ed8;border-color:#93c5fd}.option-color-3{background:#fce7f3;color:#be185d;border-color:#f9a8d4}.option-color-4{background:#ccfbf1;color:#0f766e;border-color:#5eead4}.option-letter{min-width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#ffffffcc;font-family:Arial,sans-serif;font-weight:1000}.practice-option.correct-option{border-color:#16a34a;box-shadow:0 0 0 3px #22c55e55,0 7px 18px #22c55e30;transform:scale(1.015);font-weight:1000}.practice-option.correct-option .option-letter{background:#16a34a;color:#fff;box-shadow:0 3px 8px #16a34a55}.empty{text-align:center;padding:30px;background:#fff;border-radius:14px;color:#667085}footer{text-align:center;padding:25px;color:#667085}
+#breakOverlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at center,#ffffffdd,#f3e8ffef 45%,#dbeafeef);backdrop-filter:blur(8px)}.breakCard{position:relative;z-index:3;width:min(560px,92vw);text-align:center;background:#fffffff5;border-radius:28px;padding:30px 22px;box-shadow:0 20px 70px #4c1d9533}.breakCard h2{margin:0;color:#6b21a8;font-size:30px}.breakCard p{font-size:17px}.breakBrand,.brandWord{font-weight:1000;background:linear-gradient(90deg,#7c3aed,#2563eb,#db2777,#f59e0b,#0d9488);-webkit-background-clip:text;background-clip:text;color:transparent}.breakBrand{font-size:22px}.breakButtons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.continue{background:linear-gradient(90deg,#7c3aed,#db2777);color:#fff}.stay{background:#f1f5f9;color:#475569}.butterflies{position:absolute;inset:0;overflow:hidden;pointer-events:none}.butterfly{position:absolute;font-size:28px;animation:fly linear infinite;opacity:.92}@keyframes fly{0%{transform:translate(-10vw,110vh) rotate(-10deg)}50%{transform:translate(50vw,35vh) rotate(12deg)}100%{transform:translate(110vw,-15vh) rotate(-8deg)}}#brandFlight{position:absolute;inset:0;z-index:5;display:none;align-items:center;justify-content:center;pointer-events:none}.brandWord{font-size:clamp(24px,5vw,48px);animation:brandIn 1.3s ease both}.brandWord.exit{animation:brandOut 1s ease forwards}@keyframes brandIn{0%{opacity:0;transform:scale(.4);filter:blur(8px)}70%{opacity:1;transform:scale(1.04);filter:blur(0)}100%{opacity:1;transform:scale(1)}}@keyframes brandOut{0%{opacity:1;transform:scale(1);letter-spacing:1px}50%{opacity:.8;transform:scale(1.08);letter-spacing:5px}100%{opacity:0;transform:scale(1.35);filter:blur(10px);letter-spacing:18px}}
+@media(max-width:800px){.controls{grid-template-columns:1fr}.practice-options{grid-template-columns:1fr}.toolbar{position:relative}header h1{font-size:24px}}
+.search-results-overlay{position:fixed;inset:0;z-index:5000;display:none;align-items:flex-start;justify-content:center;padding:6vh 16px;background:#17203366;backdrop-filter:blur(6px)}
+.search-results-overlay.open{display:flex}
+.search-results-card{width:min(900px,96vw);max-height:88vh;overflow:hidden;background:#fff;border-radius:22px;box-shadow:0 25px 80px #0005;direction:rtl}
+.search-results-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;background:linear-gradient(90deg,#ede9fe,#fce7f3);border-bottom:1px solid #e5e7eb}
+.search-results-title{font-size:21px;font-weight:1000;color:#4c1d95}.search-results-meta{font-size:13px;color:#64748b}.search-results-close{background:#fff;color:#7c3aed;border:1px solid #ddd6fe;padding:7px 11px}
+.search-results-body{padding:14px;overflow:auto;max-height:calc(88vh - 78px)}
+.search-result-group{margin-bottom:14px;border:1px solid #e5e7eb;border-radius:15px;overflow:hidden}.search-result-topic{padding:10px 13px;background:linear-gradient(90deg,#dbeafe,#ecfeff);font-weight:900;color:#164e63}.search-result-item{padding:12px 13px;border-top:1px solid #eef2f7;background:#fff}.search-result-question{font-weight:900}.search-result-answer{display:inline-block;margin-top:7px;padding:5px 10px;border-radius:9px;background:#ecfdf5;color:#047857;font-weight:900}.search-result-empty{text-align:center;padding:35px 15px;color:#64748b;font-weight:800}
+@media(max-width:800px){.search-results-overlay{padding:2vh 8px}.search-results-card{width:98vw;max-height:94vh}.search-results-body{max-height:calc(94vh - 78px)}}
+
+.search-wrap{position:relative;display:flex;gap:7px;align-items:center}.search-wrap input{flex:1;min-width:0}.search-btn{background:linear-gradient(90deg,#7c3aed,#db2777);color:#fff;white-space:nowrap}.clear-search{position:absolute;left:94px;background:transparent;color:#64748b;padding:6px 8px;display:none}.search-wrap.has-value .clear-search{display:block}@media(max-width:800px){.search-wrap{width:100%}.search-btn{min-width:82px}.clear-search{left:88px}}</style>
+</head>
+<body>
+<header><h1>Imperial Academy of Education</h1><p>IAE MCQ Master — Study & Practice</p></header>
+<div class="container"><div class="toolbar"><div class="controls"><div class="search-wrap"><input id="search" type="search" enterkeyhint="search" autocomplete="off" placeholder="🔎 IAE نمبر، Chapter، Topic، سوال، جواب یا Option تلاش کریں..."><button id="searchBtn" type="button" class="search-btn">🔎 تلاش</button><button id="clearSearch" type="button" class="clear-search" aria-label="Clear search">✕</button></div><select id="chapterFilter"><option value="">📚 تمام Chapters</option></select><select id="topicFilter"><option value="">📖 تمام Topics</option></select></div><div class="modebar"><button id="answerMode" class="mode active">📖 Answer Mode</button><button id="practiceMode" class="mode">📝 MCQ Practice</button><button id="timerBtn" class="timer">⏱️ Study Timer: 25:00</button></div><div class="stats"><span id="total" class="badge">Total MCQs: 0</span><span id="shown" class="badge">Shown: 0</span><span id="timerState" class="badge">Study session active</span></div></div><div id="status" class="status">⏳ MCQs repository لوڈ ہو رہی ہے...</div><main id="content"></main></div>
+<div id="searchResultsOverlay" class="search-results-overlay" aria-hidden="true">
+  <div class="search-results-card" role="dialog" aria-modal="true" aria-label="Search Results">
+    <div class="search-results-head">
+      <div><div class="search-results-title">🔎 Search Results</div><div id="searchResultsMeta" class="search-results-meta"></div></div>
+      <button id="closeSearchResults" class="search-results-close" type="button" aria-label="Close search results">✕</button>
+    </div>
+    <div id="searchResultsBody" class="search-results-body"></div>
+  </div>
+</div>
+
+<div id="breakOverlay"><div class="butterflies" id="butterflies"></div><div id="brandFlight"><div class="brandWord">Imperial Academy of Education</div></div><div class="breakCard"><h2>🌿 Take a Light Break</h2><p>آپ نے 25 منٹ توجہ سے پڑھائی کی ہے۔ آنکھوں کو آرام دیں، تھوڑا پانی پیئیں اور چند لمحے تازہ دم ہو جائیں۔</p><div class="breakBrand">Imperial Academy of Education</div><div class="breakButtons"><button id="continueBtn" class="continue">📚 Continue Studying</button><button id="stayBtn" class="stay">🦋 Stay on Break</button></div></div></div>
+<footer>Imperial Academy of Education — IAE MCQ Master</footer>
 <script>
-const SOURCE='https://raw.githubusercontent.com/nooribabajan/Structure-Coding-Test/cb506a22f8afb0ff6c2721b767588b6aa0c71807/Memory/MQB.html';
-let all=[];
-const $=id=>document.getElementById(id);
-const clean=s=>String(s).replace(/\u00a0/g,' ').replace(/[ \t]+/g,' ').trim();
-const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function parse(text){
- const lines=text.split(/\r?\n/).map(clean).filter(Boolean); let ch={n:0,t:'Unclassified'}, topic='Unclassified', q=null, out=[]; let topicOrder=0, questionOrder=0;
- const save=()=>{if(q&&q.question)out.push(q);q=null};
- for(const line of lines){
-  let m=line.match(/^Chapter\s+(\d+)\s*:\s*(.+?)(?:\s*\(\d+\s*MCQs?\))?$/i);
-  if(m){save();ch={n:+m[1],t:m[2].trim()};topic='Unclassified';topicOrder=0;continue}
-  m=line.match(/^Section\s+(\d+)\s*:\s*(.+?)(?:\s*\(\d+\s*[–-]\s*\d+\))?$/i);
-  if(m){save();topic=m[2].trim();topicOrder=+m[1];continue}
-  m=line.match(/^(\d+)\.\s+(.+)$/);
-  if(m){save();q={chN:ch.n,chT:ch.t,topic,topicOrder,old:+m[1],order:questionOrder++,question:m[2].trim(),options:[],answer:''};continue}
-  if(!q)continue;
-  m=line.match(/^([A-D])\)\s*(.+)$/i);
-  if(m){q.options.push({l:m[1].toUpperCase(),t:m[2].trim()});continue}
-  m=line.match(/^درست جواب\s*:\s*([A-D])/i);
-  if(m){q.answer=m[1].toUpperCase();continue}
- }
- save();
- // Chapter first, then ORIGINAL Section order, then original MCQ order.
- out.sort((a,b)=>a.chN-b.chN||a.topicOrder-b.topicOrder||a.order-b.order);
- out.forEach((x,i)=>x.iae='IAE1101'+String(i+1).padStart(4,'0'));
- return out;
+const SOURCE='https://raw.githubusercontent.com/nooribabajan/Structure-Coding-Test/cb506a22f8afb0ff6c2721b767588b6aa0c71807/Memory/MQB.html';const TIMER_KEY='IAE_MCQ_TIMER_V2';
+function saveTimer(){try{localStorage.setItem(TIMER_KEY,JSON.stringify({seconds,running,savedAt:Date.now()}));}catch(e){}}
+function restoreTimer(){try{const x=JSON.parse(localStorage.getItem(TIMER_KEY));if(!x)return;seconds=Math.max(0,Math.min(1500,Math.floor(x.seconds)));running=!!x.running;if(running&&x.savedAt)seconds=Math.max(0,seconds-Math.floor((Date.now()-x.savedAt)/1000));}catch(e){}}
+function clearTimer(){try{localStorage.removeItem(TIMER_KEY);}catch(e){}}
+let MCQS=[],mode='answer',color=1,seconds=1500,running=true,breakOpen=false;restoreTimer();
+window.addEventListener('beforeunload',saveTimer);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveTimer()});const $=id=>document.getElementById(id),esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'),clean=t=>String(t).replace(/\u00a0/g,' ').replace(/\r/g,'').replace(/[ \t]+/g,' ').trim();
+function chapterOf(t){let m=t.match(/^Chapter\s+(\d+)\s*:\s*(.+)$/i)||t.match(/^Chapter\s+(\d+)\s*[-–—]\s*(.+)$/i);return m?{number:+m[1],title:m[2].trim()}:null}function topicOf(t){let m=t.match(/^Section\s+\d+\s*:\s*(.+)$/i)||t.match(/^Topic\s+\d*\s*:\s*(.+)$/i);return m?m[1].replace(/\(\s*\d+\s*[-–—]\s*\d+\s*\)\s*$/,'').trim():null}function qOf(t){let m=t.match(/^(\d+)\.\s+(.+)$/);return m?{n:+m[1],q:m[2].trim()}:null}function oOf(t){let m=t.match(/^\(?([A-D])\)?[\.\):\-]\s*(.+)$/i);return m?{letter:m[1].toUpperCase(),text:m[2].trim()}:null}function aOf(t){let m=t.match(/^(?:درست جواب|جواب|Answer|Correct Answer)\s*:\s*([A-D])/i);return m?m[1].toUpperCase():null}
+function parse(text){let lines=text.split('\n').map(clean).filter(Boolean),out=[],ch={number:0,title:'Unclassified'},topic='Unclassified',cur=null,save=()=>{if(cur&&cur.q)out.push(cur);cur=null};for(const line of lines){let c=chapterOf(line);if(c){save();ch=c;topic='Unclassified';continue}let t=topicOf(line);if(t){save();topic=t;continue}let q=qOf(line);if(q){save();cur={chapterNumber:ch.number,chapterTitle:ch.title,topic,oldNumber:q.n,q:q.q,options:[],answer:''};continue}if(!cur)continue;let o=oOf(line);if(o){cur.options.push(o);continue}let a=aOf(line);if(a)cur.answer=a}save();return out}
+function organize(){let order=new Map(),n=0;MCQS.forEach(x=>{let k=x.chapterNumber+'||'+x.topic;if(!order.has(k))order.set(k,n++)});MCQS.sort((a,b)=>a.chapterNumber-b.chapterNumber||(order.get(a.chapterNumber+'||'+a.topic)-order.get(b.chapterNumber+'||'+b.topic))||a.oldNumber-b.oldNumber);MCQS.forEach((x,i)=>x.iaeNumber='IAE1101'+String(i+1).padStart(4,'0'))}
+function filters(){let cf=$('chapterFilter'),chs=[];MCQS.forEach(x=>{let k=x.chapterNumber+' — '+x.chapterTitle;if(!chs.includes(k))chs.push(k)});cf.innerHTML='<option value="">📚 تمام Chapters</option>';chs.forEach(k=>{let o=document.createElement('option');o.value=k;o.textContent=k;cf.appendChild(o)});topics()}
+function topics(){let s=$('chapterFilter').value,tf=$('topicFilter'),ts=[];MCQS.forEach(x=>{let k=x.chapterNumber+' — '+x.chapterTitle;if(!s||s===k)if(!ts.includes(x.topic))ts.push(x.topic)});tf.innerHTML='<option value="">📖 تمام Topics</option>';ts.forEach(t=>{let o=document.createElement('option');o.value=t;o.textContent=t;tf.appendChild(o)})}
+function normalizeSearch(v){return clean(v).toLowerCase().replace(/[^a-z0-9؀-ۿ]+/g,'')}
+function data(){
+    const raw=clean($('search').value);
+    const query=raw.toLowerCase();
+    const normalized=normalizeSearch(raw);
+    const digits=raw.replace(/\D/g,'');
+    const chapter=$('chapterFilter').value;
+    const topic=$('topicFilter').value;
+
+    return MCQS.filter(x=>{
+        const chapterName=x.chapterNumber+' — '+x.chapterTitle;
+        const correct=x.options.find(o=>o.letter===x.answer);
+        const correctText=correct?correct.text:'';
+
+        const fields=[
+            x.iaeNumber,
+            x.iaeNumber.replace(/^iae/i,''),
+            x.q,
+            x.topic,
+            x.chapterTitle,
+            x.answer,
+            correctText,
+            ...x.options.map(o=>o.letter+' '+o.text)
+        ];
+
+        const hay=fields.join(' ').toLowerCase();
+        const hayNormalized=normalizeSearch(hay);
+        const iaeDigits=x.iaeNumber.replace(/\D/g,'');
+
+        const match=!query ||
+            hay.includes(query) ||
+            (normalized && hayNormalized.includes(normalized)) ||
+            (digits && iaeDigits.includes(digits));
+
+        return (!chapter || chapter===chapterName) &&
+               (!topic || topic===x.topic) &&
+               match;
+    });
 }
-function build(){
- $('count').textContent='MCQs: '+all.length;
- const cf=$('chapter'),tf=$('topic');
- const chapters=[]; for(const x of all){const k=x.chN+' — '+x.chT;if(!chapters.includes(k))chapters.push(k)}
- chapters.forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=k;cf.appendChild(o)}); updateTopics(); render();
+
+function render(){let d=data();$('total').textContent='Total MCQs: '+MCQS.length;$('shown').textContent='Shown: '+d.length;let root=$('content');root.innerHTML='';
+if(clean($('search').value)){let q=clean($('search').value).toLowerCase();let hit=d.find(x=>x.iaeNumber.toLowerCase()===q||x.iaeNumber.toLowerCase().replace(/^iae/,'')===q.replace(/^iae/,''));if(hit){let info=document.createElement('div');info.className='status';info.innerHTML=`🔎 <strong>${esc(hit.iaeNumber)}</strong> — Chapter ${hit.chapterNumber}: <strong>${esc(hit.chapterTitle)}</strong> → Topic: <strong>${esc(hit.topic)}</strong>`;root.appendChild(info)}}
+if(!d.length){root.innerHTML='<div class="empty">کوئی MCQ نہیں ملا۔</div>';return}let groups=[];d.forEach(x=>{let g=groups.find(g=>g.n===x.chapterNumber);if(!g){g={n:x.chapterNumber,t:x.chapterTitle,topics:[]};groups.push(g)}let z=g.topics.find(z=>z.n===x.topic);if(!z){z={n:x.topic,items:[]};g.topics.push(z)}z.items.push(x)});color=1;groups.forEach(g=>{let sec=document.createElement('section');sec.className='chapter';sec.innerHTML=`<div class="chapter-title">📚 Chapter ${g.n} — ${esc(g.t)}</div>`;g.topics.forEach(z=>{let box=document.createElement('div');box.className='topic';box.innerHTML=`<div class="topic-title">📖 ${esc(z.n)} <span class="badge">${z.items.length} MCQs</span></div>`;z.items.forEach(x=>{let card=document.createElement('article');card.className='mcq';let correct=x.options.find(o=>o.letter===x.answer);if(mode==='answer'){card.innerHTML=`<div class="question"><span class="iae">${x.iaeNumber}</span>${esc(x.q)}</div><div class="answer c${color}">${esc(correct?correct.text:'Answer not available')}</div>`;color=color===6?1:color+1}else{let opts=x.options.map((o,i)=>`<div class="practice-option option-color-${(i%4)+1}${o.letter===x.answer?' correct-option':''}"><span class="option-letter">${o.letter}</span><span class="option-text">${esc(o.text)}</span></div>`).join('');card.innerHTML=`<div class="question"><span class="iae">${x.iaeNumber}</span>${esc(x.q)}</div><div class="practice-options">${opts}</div>`}box.appendChild(card)});sec.appendChild(box)});root.appendChild(sec)})}
+$('answerMode').onclick=()=>{mode='answer';$('answerMode').classList.add('active');$('practiceMode').classList.remove('active');render()};$('practiceMode').onclick=()=>{mode='practice';$('practiceMode').classList.add('active');$('answerMode').classList.remove('active');render()};
+let searchReturnScrollY=0;
+let searchOverlayOpen=false;
+let lastSearch='';
+
+function searchMatches(query){
+    const raw=clean(query);
+    if(!raw) return [];
+    const q=raw.toLowerCase();
+    const qNorm=normalizeSearch(raw);
+    const qDigits=raw.replace(/\D/g,'');
+    return MCQS.filter(x=>{
+        const correct=x.options.find(o=>o.letter===x.answer);
+        const fields=[
+            x.iaeNumber,
+            x.iaeNumber.replace(/^IAE/i,''),
+            String(x.chapterNumber),
+            x.chapterTitle,
+            x.topic,
+            x.q,
+            x.answer,
+            correct?correct.text:'',
+            ...x.options.map(o=>o.letter+' '+o.text)
+        ];
+        const hay=fields.join(' ').toLowerCase();
+        const norm=normalizeSearch(hay);
+        const iaeDigits=x.iaeNumber.replace(/\D/g,'');
+        return hay.includes(q) || (qNorm && norm.includes(qNorm)) || (qDigits.length>=3 && iaeDigits.includes(qDigits));
+    });
 }
-function updateTopics(){
- const c=$('chapter').value, tf=$('topic'); tf.innerHTML='<option value="">📖 تمام Topics</option>'; const seen=[];
- for(const x of all){const k=x.chN+' — '+x.chT;if((!c||c===k)&&!seen.includes(x.topic)){seen.push(x.topic);const o=document.createElement('option');o.value=x.topic;o.textContent=x.topic;tf.appendChild(o)}}
+
+function executeSearch(){
+    const query=clean($('search').value);
+    if(!query){ closeSearchResults(); return; }
+    if(!searchOverlayOpen) searchReturnScrollY=window.scrollY;
+    lastSearch=query;
+    openSearchResults(query);
 }
-function render(){
- const s=clean($('search').value).toLowerCase(), c=$('chapter').value, t=$('topic').value;
- const arr=all.filter(x=>{const ck=x.chN+' — '+x.chT;const hay=[x.iae,x.question,x.topic,x.chT,...x.options.map(o=>o.t)].join(' ').toLowerCase();return(!c||ck===c)&&(!t||x.topic===t)&&(!s||hay.includes(s))}); $('shown').textContent='Shown: '+arr.length;
- const groups=[];
- for(const x of arr){let g=groups.find(a=>a.n===x.chN);if(!g){g={n:x.chN,t:x.chT,topics:[]};groups.push(g)}let z=g.topics.find(a=>a.name===x.topic);if(!z){z={name:x.topic,questions:[]};g.topics.push(z)}z.questions.push(x)}
- let html=''; for(const g of groups){html+=`<section class="chapter"><div class="chapterTitle">📚 Chapter ${g.n} — ${esc(g.t)}</div>`;for(const z of g.topics){html+=`<div class="topic"><div class="topicTitle">📖 ${esc(z.name)} <span class="badge">${z.questions.length} MCQs</span></div>`;for(const x of z.questions){html+=`<article class="mcq"><div class="q"><span class="id">${x.iae}</span>${esc(x.question)}</div><div class="opts">${x.options.map(o=>`<div class="op ${o.l===x.answer?'correct':''}"><b>${o.l}.</b> ${esc(o.t)}</div>`).join('')}</div>${x.answer?`<div class="ans">✅ درست جواب: ${esc(x.answer)}</div>`:''}</article>`}html+='</div>'}html+='</section>'} $('out').innerHTML=html||'<div class="empty">کوئی MCQ نہیں ملا۔</div>';
+
+function syncSearch(){
+    $('search').parentElement.classList.toggle('has-value',!!$('search').value.trim());
 }
-async function start(){
- try{const r=await fetch(SOURCE+'?v='+Date.now());if(!r.ok)throw Error('Source unavailable');const html=await r.text();const d=new DOMParser().parseFromString(html,'text/html');const repo=d.querySelector('#mcq-repository');if(!repo)throw Error('MCQ repository not found');all=parse(repo.innerText||repo.textContent||'');build();$('status').innerHTML=`✅ مکمل repository process ہوگئی۔ <b>Chapter-wise → Topic-wise → IAE numbering</b><br>Total MCQs: <b>${all.length}</b> — First ID: <b>IAE11010001</b>`}catch(e){$('status').innerHTML='❌ اصل MQB repository load نہیں ہو سکی۔ Internet connection چیک کریں۔'}
+
+function openSearchResults(query){
+    const overlay=$('searchResultsOverlay');
+    const body=$('searchResultsBody');
+    const meta=$('searchResultsMeta');
+    const results=searchMatches(query);
+    meta.textContent=`${results.length} نتیجہ — “${query}”`;
+    body.innerHTML='';
+    if(!results.length){
+        body.innerHTML='<div class="search-result-empty">🔍 کوئی MCQ نہیں ملا۔<br>IAE نمبر، Chapter، Topic، سوال، جواب یا Option دوبارہ تلاش کریں۔</div>';
+    } else {
+        const groups=[];
+        results.forEach(item=>{
+            const key=item.chapterNumber+'||'+item.topic;
+            let group=groups.find(g=>g.key===key);
+            if(!group){group={key,chapter:item.chapterNumber,title:item.chapterTitle,topic:item.topic,items:[]};groups.push(group)}
+            group.items.push(item);
+        });
+        groups.forEach(group=>{
+            const box=document.createElement('div'); box.className='search-result-group';
+            box.innerHTML=`<div class="search-result-topic">📚 Chapter ${group.chapter} — ${esc(group.title)} &nbsp;→&nbsp; 📖 ${esc(group.topic)}</div>`;
+            group.items.forEach(item=>{
+                const correct=item.options.find(o=>o.letter===item.answer);
+                const row=document.createElement('div'); row.className='search-result-item';
+                row.innerHTML=`<div class="search-result-question"><span class="iae">${esc(item.iaeNumber)}</span>${esc(item.q)}</div>${correct?`<div class="search-result-answer">${esc(correct.text)}</div>`:''}`;
+                box.appendChild(row);
+            });
+            body.appendChild(box);
+        });
+    }
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); searchOverlayOpen=true;
 }
-$('search').addEventListener('input',render);$('chapter').addEventListener('change',()=>{updateTopics();render()});$('topic').addEventListener('change',render);start();
-</script></body></html>
+
+function closeSearchResults(){
+    const overlay=$('searchResultsOverlay');
+    overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+    $('search').value='';
+    syncSearch();
+    if(searchOverlayOpen){
+        searchOverlayOpen=false;
+        requestAnimationFrame(()=>window.scrollTo(0,searchReturnScrollY));
+    }
+}
+
+/* Any click anywhere on the Search popup resets/closes it. */
+$('searchResultsOverlay').addEventListener('click',()=>{
+    if(searchOverlayOpen) closeSearchResults();
+});
+
+$('search').addEventListener('input',syncSearch);
+$('search').addEventListener('keydown',e=>{
+    if(e.key==='Enter' || e.key==='Search' || e.key==='Go' || e.keyCode===13){e.preventDefault();executeSearch();}
+});
+$('search').addEventListener('search',executeSearch);
+$('searchBtn').addEventListener('click',executeSearch);
+$('clearSearch').addEventListener('click',()=>{$('search').value='';syncSearch();closeSearchResults();$('search').focus({preventScroll:true});});
+$('closeSearchResults').addEventListener('click',closeSearchResults);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&searchOverlayOpen)closeSearchResults();});
+
+$('chapterFilter').onchange=()=>{topics();render()};$('topicFilter').onchange=render;syncSearch();
+function butterflies(){let b=$('butterflies');b.innerHTML='';for(let i=0;i<24;i++){let e=document.createElement('span');e.className='butterfly';e.textContent='🦋';e.style.left=Math.random()*100+'%';e.style.animationDuration=6+Math.random()*8+'s';e.style.animationDelay=-Math.random()*10+'s';e.style.fontSize=20+Math.random()*25+'px';b.appendChild(e)}}function brand(){let f=$('brandFlight'),w=f.querySelector('.brandWord');w.classList.remove('exit');f.style.display='flex';setTimeout(()=>w.classList.add('exit'),1250);setTimeout(()=>{f.style.display='none';w.classList.remove('exit')},2250)}function openBreak(){breakOpen=true;running=false;$('breakOverlay').style.display='flex';butterflies();brand();$('timerState').textContent='🌿 Light Break'}function cont(){brand();setTimeout(()=>{$('breakOverlay').style.display='none';breakOpen=false;seconds=1500;running=true;saveTimer();$('timerState').textContent='Study session active';timer()},2250)}$('continueBtn').onclick=cont;$('stayBtn').onclick=()=>{butterflies();brand()};function timer(){let m=Math.floor(seconds/60),s=seconds%60;$('timerBtn').textContent='⏱️ Study Timer: '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}$('timerBtn').onclick=()=>{if(breakOpen)return;running=!running;saveTimer();$('timerState').textContent=running?'Study session active':'⏸️ Timer paused';timer()};setInterval(()=>{if(running&&!breakOpen){seconds--;if(seconds<=0){seconds=0;clearTimer();openBreak()}else{saveTimer()}timer()}},1000);
+(async()=>{try{let r=await fetch(SOURCE+'?v='+Date.now());if(!r.ok)throw Error('MQB source unavailable');let html=await r.text(),doc=new DOMParser().parseFromString(html,'text/html'),repo=doc.querySelector('#mcq-repository')||doc.body;MCQS=parse(repo.innerText||repo.textContent||'');organize();filters();render();$('status').innerHTML=`✅ MCQ Master تیار ہے — <strong>${MCQS.length}</strong> MCQs loaded۔ Answer Mode اور colored Correct-Choice Practice Mode دونوں موجود ہیں۔`}catch(e){$('status').textContent='❌ MCQs load نہیں ہو سکے: '+e.message}})();timer();
+</script>
+</body></html>
