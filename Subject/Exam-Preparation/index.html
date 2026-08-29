@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Imperial Academy — MCQs Chapter & Topic Master</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f8fbff,#fff7fc);color:#172033;font-family:"Noto Naskh Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif;line-height:1.85}header{padding:28px 15px;text-align:center;color:#fff;background:linear-gradient(120deg,#4c1d95,#7c3aed,#db2777,#2563eb)}header h1{margin:0;font-size:29px}header p{margin:4px 0}.wrap{max-width:1200px;margin:auto;padding:16px}.bar{position:sticky;top:0;z-index:10;background:#fffffff2;backdrop-filter:blur(10px);padding:13px;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 7px 24px #00000012}.controls{display:grid;grid-template-columns:1fr 260px 260px;gap:9px}input,select{width:100%;padding:11px 13px;border:2px solid #e5e7eb;border-radius:11px;font-size:15px;outline:0;background:#fff}input:focus,select:focus{border-color:#7c3aed}.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.badge{background:#ede9fe;color:#5b21b6;border-radius:999px;padding:4px 10px;font-weight:700;font-size:13px}.status{margin:13px 0;padding:12px;border-radius:12px;background:#fff;border:1px solid #e5e7eb}.chapter{margin:24px 0}.chapterTitle{padding:14px 17px;border-radius:15px;background:linear-gradient(90deg,#ede9fe,#fce7f3);color:#4c1d95;font-size:21px;font-weight:900;border-right:7px solid #7c3aed}.topic{margin:14px 0}.topicTitle{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,#dbeafe,#ecfeff);color:#164e63;font-size:18px;font-weight:900;border-right:5px solid #0891b2}.mcq{margin:9px 0;padding:14px;background:#fff;border:1px solid #e5e7eb;border-right:6px solid #7c3aed;border-radius:14px;box-shadow:0 4px 16px #00000009}.mcq:nth-child(4n){border-right-color:#ec4899}.mcq:nth-child(4n+1){border-right-color:#2563eb}.mcq:nth-child(4n+2){border-right-color:#059669}.q{font-weight:900;font-size:16px}.id{display:inline-block;direction:ltr;background:#ede9fe;color:#5b21b6;border-radius:8px;padding:1px 8px;margin-left:8px;font:900 12px Arial}.opts{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}.op{padding:8px 10px;border:1px solid #edf0f5;border-radius:9px;background:#f8fafc}.correct{background:#ecfdf5;border-color:#86efac;color:#065f46;font-weight:900}.ans{margin-top:8px;padding:8px 10px;background:#fff7ed;color:#9a3412;border-radius:9px;font-weight:900}.empty{text-align:center;padding:30px;background:#fff;border-radius:14px}@media(max-width:800px){.controls,.opts{grid-template-columns:1fr}}
+</style>
+</head><body>
+<header><h1>🌈 Imperial Academy — MCQs Master</h1><p>Chapter-wise → Topic-wise → IAE Numbering</p></header>
+<div class="wrap"><div class="bar"><div class="controls"><input id="search" placeholder="🔎 MCQ، Chapter یا Topic تلاش کریں…"><select id="chapter"><option value="">📚 تمام Chapters</option></select><select id="topic"><option value="">📖 تمام Topics</option></select></div><div class="badges"><span class="badge" id="count">MCQs: 0</span><span class="badge" id="shown">Shown: 0</span><span class="badge">IAE Pattern: IAE11010001</span></div></div><div id="status" class="status">⏳ اصل MQB repository پڑھ رہی ہے…</div><main id="out"></main></div>
+<script>
+const SOURCE='https://raw.githubusercontent.com/nooribabajan/Structure-Coding-Test/cb506a22f8afb0ff6c2721b767588b6aa0c71807/Memory/MQB.html';
+let all=[];
+const $=id=>document.getElementById(id);
+const clean=s=>String(s).replace(/\u00a0/g,' ').replace(/[ \t]+/g,' ').trim();
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function parse(text){
+ const lines=text.split(/\r?\n/).map(clean).filter(Boolean); let ch={n:0,t:'Unclassified'}, topic='Unclassified', q=null, out=[]; let topicOrder=0, questionOrder=0;
+ const save=()=>{if(q&&q.question)out.push(q);q=null};
+ for(const line of lines){
+  let m=line.match(/^Chapter\s+(\d+)\s*:\s*(.+?)(?:\s*\(\d+\s*MCQs?\))?$/i);
+  if(m){save();ch={n:+m[1],t:m[2].trim()};topic='Unclassified';topicOrder=0;continue}
+  m=line.match(/^Section\s+(\d+)\s*:\s*(.+?)(?:\s*\(\d+\s*[–-]\s*\d+\))?$/i);
+  if(m){save();topic=m[2].trim();topicOrder=+m[1];continue}
+  m=line.match(/^(\d+)\.\s+(.+)$/);
+  if(m){save();q={chN:ch.n,chT:ch.t,topic,topicOrder,old:+m[1],order:questionOrder++,question:m[2].trim(),options:[],answer:''};continue}
+  if(!q)continue;
+  m=line.match(/^([A-D])\)\s*(.+)$/i);
+  if(m){q.options.push({l:m[1].toUpperCase(),t:m[2].trim()});continue}
+  m=line.match(/^درست جواب\s*:\s*([A-D])/i);
+  if(m){q.answer=m[1].toUpperCase();continue}
+ }
+ save();
+ // Chapter first, then ORIGINAL Section order, then original MCQ order.
+ out.sort((a,b)=>a.chN-b.chN||a.topicOrder-b.topicOrder||a.order-b.order);
+ out.forEach((x,i)=>x.iae='IAE1101'+String(i+1).padStart(4,'0'));
+ return out;
+}
+function build(){
+ $('count').textContent='MCQs: '+all.length;
+ const cf=$('chapter'),tf=$('topic');
+ const chapters=[]; for(const x of all){const k=x.chN+' — '+x.chT;if(!chapters.includes(k))chapters.push(k)}
+ chapters.forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=k;cf.appendChild(o)}); updateTopics(); render();
+}
+function updateTopics(){
+ const c=$('chapter').value, tf=$('topic'); tf.innerHTML='<option value="">📖 تمام Topics</option>'; const seen=[];
+ for(const x of all){const k=x.chN+' — '+x.chT;if((!c||c===k)&&!seen.includes(x.topic)){seen.push(x.topic);const o=document.createElement('option');o.value=x.topic;o.textContent=x.topic;tf.appendChild(o)}}
+}
+function render(){
+ const s=clean($('search').value).toLowerCase(), c=$('chapter').value, t=$('topic').value;
+ const arr=all.filter(x=>{const ck=x.chN+' — '+x.chT;const hay=[x.iae,x.question,x.topic,x.chT,...x.options.map(o=>o.t)].join(' ').toLowerCase();return(!c||ck===c)&&(!t||x.topic===t)&&(!s||hay.includes(s))}); $('shown').textContent='Shown: '+arr.length;
+ const groups=[];
+ for(const x of arr){let g=groups.find(a=>a.n===x.chN);if(!g){g={n:x.chN,t:x.chT,topics:[]};groups.push(g)}let z=g.topics.find(a=>a.name===x.topic);if(!z){z={name:x.topic,questions:[]};g.topics.push(z)}z.questions.push(x)}
+ let html=''; for(const g of groups){html+=`<section class="chapter"><div class="chapterTitle">📚 Chapter ${g.n} — ${esc(g.t)}</div>`;for(const z of g.topics){html+=`<div class="topic"><div class="topicTitle">📖 ${esc(z.name)} <span class="badge">${z.questions.length} MCQs</span></div>`;for(const x of z.questions){html+=`<article class="mcq"><div class="q"><span class="id">${x.iae}</span>${esc(x.question)}</div><div class="opts">${x.options.map(o=>`<div class="op ${o.l===x.answer?'correct':''}"><b>${o.l}.</b> ${esc(o.t)}</div>`).join('')}</div>${x.answer?`<div class="ans">✅ درست جواب: ${esc(x.answer)}</div>`:''}</article>`}html+='</div>'}html+='</section>'} $('out').innerHTML=html||'<div class="empty">کوئی MCQ نہیں ملا۔</div>';
+}
+async function start(){
+ try{const r=await fetch(SOURCE+'?v='+Date.now());if(!r.ok)throw Error('Source unavailable');const html=await r.text();const d=new DOMParser().parseFromString(html,'text/html');const repo=d.querySelector('#mcq-repository');if(!repo)throw Error('MCQ repository not found');all=parse(repo.innerText||repo.textContent||'');build();$('status').innerHTML=`✅ مکمل repository process ہوگئی۔ <b>Chapter-wise → Topic-wise → IAE numbering</b><br>Total MCQs: <b>${all.length}</b> — First ID: <b>IAE11010001</b>`}catch(e){$('status').innerHTML='❌ اصل MQB repository load نہیں ہو سکی۔ Internet connection چیک کریں۔'}
+}
+$('search').addEventListener('input',render);$('chapter').addEventListener('change',()=>{updateTopics();render()});$('topic').addEventListener('change',render);start();
+</script></body></html>
