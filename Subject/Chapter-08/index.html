@@ -148,6 +148,32 @@ body.topic-view .sidebar .utility-tab:first-of-type{display:flex!important}
 .dictionary-page .dictionary-entry:hover{background:#fffaf0!important;transform:translateY(-1px)}
 .dictionary-page .dictionary-topics{border:0!important;padding-top:18px!important;margin:24px auto 8px!important;max-width:920px}
 .dictionary-page .dictionary-topics button{min-width:220px!important;font-size:14px!important}
+</style><style id="dictionary-left-topics-final">
+/* Dictionary page only: one persistent topics button at bottom-left */
+.dictionary-page .dictionary-topics,
+.dictionary-page .dictionary-single-topics{display:none!important;}
+.dictionary-page .dictionary-single-topics{
+  display:block!important;
+  position:fixed!important;
+  left:14px!important;
+  bottom:14px!important;
+  z-index:99999!important;
+  margin:0!important;
+  padding:0!important;
+  pointer-events:auto!important;
+}
+.dictionary-page .dictionary-single-topics button{
+  display:block!important;
+  border:0!important;
+  border-radius:14px!important;
+  padding:11px 16px!important;
+  background:#173e34!important;
+  color:#fff!important;
+  font-weight:800!important;
+  font-size:14px!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.18)!important;
+  cursor:pointer!important;
+}
 </style></head><body class="home-view">
 <header class="head"><svg aria-label="Imperial Academy logo" class="logo" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="#f2d46f" stroke-width="2"/><path d="M16 40h28M20 37V24l10-7 10 7v13M24 37V27h12v10" fill="none" stroke="#f2d46f" stroke-width="2"/><path d="M30 10l3 6-3 5-3-5z" fill="#f2d46f"/></svg><div class="brand"><h1>IMPERIAL ACADEMY OF EDUCATION</h1><p>BIOLOGY • CHAPTER 08 — LECTURE</p></div></header>
 <nav class="level-nav"><span>HOME</span><span class="active">BIOLOGY</span><span>CHAPTER 08</span><span>LECTURE</span></nav>
@@ -665,4 +691,513 @@ buildDictionary();
   },true);
 })();
 </script>
+
+<style id="dictionary-final-single-tab-fix">
+.dictionary-page .dictionary-topics{display:none!important;border:0!important}
+.dictionary-page .dictionary-single-topics{display:flex!important;justify-content:center!important;margin:26px 0 8px!important;padding:0!important}
+.dictionary-page .dictionary-single-topics button{border:0!important;border-radius:14px!important;padding:13px 22px!important;background:#173e34!important;color:#fff!important;font-weight:800!important;font-size:15px!important;box-shadow:0 4px 14px #00000018!important;cursor:pointer!important}
+</style>
+<script id="dictionary-final-behavior-fix">
+(function(){
+  const l=document.querySelectorAll('.lesson')[14];
+  if(!l || typeof DICT==='undefined') return;
+  l.classList.add('dictionary-page');
+  // Remove every previous dictionary navigation and any duplicate topic-navigation
+  // injected by earlier repair layers. We create exactly one below.
+  l.querySelectorAll('.dictionary-topics,.dictionary-single-topics,.topics-bottom-wrap,.final-nav').forEach(x=>x.remove());
+  const input=l.querySelector('input[aria-label="Dictionary search"]');
+  const gloss=l.querySelector('#gloss');
+  if(!input || !gloss) return;
+  const keys=Object.keys(DICT).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:'base'}));
+  const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const norm=s=>String(s||'').trim().toLowerCase();
+  const status=l.querySelector('.dictionary-status');
+  let browse=l.querySelector('.dictionary-browse-title');
+  if(!browse){browse=document.createElement('div');browse.className='dictionary-browse-title';gloss.parentNode.insertBefore(browse,gloss)}
+  let detail=l.querySelector('.dictionary-detail');
+  if(!detail){detail=document.createElement('div');detail.className='dictionary-detail';gloss.parentNode.insertBefore(detail,gloss)}
+  let nextTitle=l.querySelector('.dictionary-next-title');
+  if(!nextTitle){nextTitle=document.createElement('div');nextTitle.className='dictionary-next-title';nextTitle.textContent='اگلے الفاظ';gloss.parentNode.insertBefore(nextTitle,gloss)}
+  let next=l.querySelector('.dictionary-next');
+  if(!next){next=document.createElement('div');next.className='dictionary-next';gloss.parentNode.insertBefore(next,gloss)}
+  function showTerm(k){
+    if(!DICT[k]) return;
+    detail.classList.add('active');
+    detail.innerHTML='<div class="dd-en">'+esc(k)+'</div><div class="dd-ur">'+esc(DICT[k][0])+'</div><div class="dd-def">'+esc(DICT[k][1])+'</div>';
+    const i=keys.indexOf(k), following=keys.slice(i+1,i+4);
+    nextTitle.style.display='block';
+    next.innerHTML=following.map(x=>'<button type="button" data-next="'+esc(x)+'">'+esc(x)+'</button>').join('') || '<div>یہ آخری entry ہے۔</div>';
+    next.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>showTerm(b.getAttribute('data-next')));
+    detail.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function render(q){
+    const f=norm(q);
+    detail.classList.remove('active'); next.innerHTML=''; nextTitle.style.display='none';
+    if(!f){
+      browse.textContent='Chapter Dictionary — Alphabetical Browse';
+      const first=keys.slice(0,3);
+      gloss.innerHTML=first.map(k=>'<button type="button" class="dictionary-entry" data-k="'+esc(k)+'"><span class="de-en">'+esc(k)+'</span></button>').join('');
+      gloss.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>showTerm(b.getAttribute('data-k')));
+      if(status)status.textContent='124 dictionary entries • پہلے 3 الفاظ';
+      return;
+    }
+    // True prefix search: B -> B*, Bo -> Bo*, Bot -> Bot*.
+    browse.textContent='Search Results';
+    const hits=keys.filter(k=>norm(k).startsWith(f));
+    gloss.innerHTML=hits.map(k=>'<button type="button" class="dictionary-entry" data-k="'+esc(k)+'"><span class="de-en">'+esc(k)+'</span></button>').join('') || '<div class="dictionary-empty">کوئی matching dictionary entry نہیں ملی۔</div>';
+    if(status)status.textContent=hits.length+' matching terms • '+f;
+    gloss.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{
+      // Use the existing dictionary popup for search-result clicks.
+      if(typeof openDict==='function') openDict(b.getAttribute('data-k'),b);
+      else showTerm(b.getAttribute('data-k'));
+    });
+  }
+  input.oninput=function(){render(this.value)};
+  input.onsearch=function(){render(this.value)};
+  // Keep alphabetical browsing independent of search; focus never changes the query.
+  input.onclick=function(){window.requestAnimationFrame(()=>window.scrollTo({top:l.offsetTop-8,behavior:'smooth'}));};
+  render(input.value||'');
+  // Exactly one bottom navigation tab.
+  const nav=document.createElement('div');
+  nav.className='dictionary-single-topics';
+  nav.innerHTML='<button type="button">← موضوعات پر واپس جائیں</button>';
+  nav.querySelector('button').onclick=()=>{if(typeof window.showTopics==='function')window.showTopics();};
+  l.appendChild(nav);
+  // Search-result dictionary popup: click outside closes it, click inside does not.
+  document.addEventListener('pointerdown',function(e){
+    const pop=document.querySelector('.dictionary-pop');
+    if(pop && !pop.contains(e.target) && !e.target.closest('.dictionary-entry')){
+      if(typeof closeDict==='function') closeDict(); else pop.remove();
+    }
+  },true);
+})();
+</script>
+<script id="dictionary-left-topics-final-js">
+(function(){
+  function fixDictionaryNav(){
+    var page=document.querySelector('.dictionary-page');
+    if(!page) return;
+    var tabs=page.querySelectorAll('.dictionary-single-topics');
+    var nav=tabs[0];
+    if(!nav){
+      nav=document.createElement('div');
+      nav.className='dictionary-single-topics';
+      nav.innerHTML='<button type="button">← موضوعات پر جائیں</button>';
+      page.appendChild(nav);
+    }
+    for(var i=1;i<tabs.length;i++) tabs[i].remove();
+    var btn=nav.querySelector('button');
+    if(btn) btn.onclick=function(){
+      if(typeof window.showTopics==='function') window.showTopics();
+    };
+  }
+  fixDictionaryNav();
+  document.addEventListener('click',function(){
+    setTimeout(fixDictionaryNav,0);
+  });
+})();
+</script>
+
+<style id="chapter08-international-atlas-v2-css">
+/* Chapter 08 — self-authored, copyright-safe scientific atlas */
+.atlas-v2{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px;margin-top:14px}
+.atlas-v2 .vcard-v2{appearance:none;border:1px solid #d9d5c8;background:#fff;border-radius:18px;padding:10px;text-align:left;cursor:pointer;box-shadow:0 5px 18px #0000000b;transition:transform .15s ease,box-shadow .15s ease}
+.atlas-v2 .vcard-v2:hover{transform:translateY(-2px);box-shadow:0 9px 24px #00000014}
+.atlas-v2 .vcard-v2:focus-visible{outline:3px solid #b48a2d;outline-offset:3px}
+.atlas-v2 .vthumb{display:block;width:100%;height:145px;background:#faf9f4;border-radius:13px;margin-bottom:9px}
+.atlas-v2 .vtitle{display:block;font-weight:900;font-size:16px;color:#173e34}
+.atlas-v2 .vsub{display:block;margin-top:4px;font-size:12px;color:#665f52;line-height:1.45}
+.atlas-v2-note{margin-top:10px;font-size:12px;color:#665f52;line-height:1.65}
+.scientific-plate{font-family:Arial,Helvetica,sans-serif;min-width:760px}
+.scientific-plate .plate-title{font-weight:900;font-size:22px;fill:#173e34}
+.scientific-plate .label{font-size:16px;fill:#222}
+.scientific-plate .small{font-size:13px;fill:#514d44}
+.scientific-plate .tiny{font-size:11px;fill:#514d44}
+.scientific-plate .box{fill:#fff;stroke:#c8c2b2;stroke-width:1.5}
+.scientific-plate .accent{fill:#eef5ef;stroke:#285b4b;stroke-width:2}
+.scientific-plate .accent2{fill:#fff7dc;stroke:#b48a2d;stroke-width:2}
+.scientific-plate .line{stroke:#285b4b;stroke-width:3;fill:none}
+.scientific-plate .arrow{stroke:#b48a2d;stroke-width:3;fill:none;marker-end:url(#a)}
+.scientific-plate .dash{stroke:#777;stroke-width:2;stroke-dasharray:6 5;fill:none}
+.scientific-plate .legend{font-size:12px;fill:#4e4a42}
+@media(max-width:760px){.scientific-plate{min-width:680px}.atlas-v2{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.atlas-v2{grid-template-columns:1fr}}
+</style>
+<script id="chapter08-international-atlas-v2-js">
+(function(){
+  const modal=document.getElementById('visualModal'); if(!modal) return;
+  const A='#285b4b', G='#b48a2d', L='#eef5ef', Y='#fff7dc', N='#f7f5ee';
+  const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  function svg(title,content,w=1200,h=680){return `<svg class="scientific-plate" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(title)}"><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="${G}"/></marker></defs><rect x="0" y="0" width="${w}" height="${h}" rx="18" fill="#fff"/><text x="40" y="48" class="plate-title">${esc(title)}</text>${content}</svg>`}
+  const txt=(x,y,t,c='label',anchor='start')=>`<text x="${x}" y="${y}" class="${c}" text-anchor="${anchor}">${esc(t)}</text>`;
+  const box=(x,y,w,h,t,cls='box')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" class="${cls}"/>${txt(x+w/2,y+h/2+6,t,'label','middle')}`;
+  const arrow=(x1,y1,x2,y2,label='')=>`<path d="M${x1} ${y1} L${x2} ${y2}" class="arrow"/>${label?txt((x1+x2)/2,(y1+y2)/2-8,label,'small','middle'):''}`;
+  const cards={
+    phyletic:{title:'Phyletic lineage of major land-plant groups',desc:'A schematic evolutionary overview; branching indicates diversification, not a literal time scale.',svg:svg('Phyletic lineage of major land-plant groups',`
+      ${box(55,270,185,76,'Green algal ancestors','accent')}
+      ${arrow(240,308,345,308,'land transition')}
+      ${box(345,185,210,76,'Bryophytes','accent2')}${txt(450,282,'non-vascular • seedless','small','middle')}
+      ${box(345,385,210,76,'Tracheophytes','accent')}${txt(450,482,'vascular plants','small','middle')}
+      <path d="M345 308H305V223H345M305 308V423H345" class="line"/>
+      ${arrow(555,423,675,423,'diversification')}
+      ${box(675,335,215,76,'Seedless vascular plants','accent')}
+      ${box(675,470,215,76,'Seed plants','accent2')}
+      <path d="M675 423H635V373H675M635 423V508H675" class="line"/>
+      ${arrow(890,508,1015,508,'seed enclosed')}${box(1015,470,135,76,'Angiosperms','accent')}
+      ${txt(782,290,'Evolutionary relationships are simplified for teaching','small','middle')}
+      ${txt(782,585,'Key innovations: vascular tissue → seeds → flowers/fruits','legend','middle')}
+    `)},
+    alt:{title:'Alternation of generations — complete teaching cycle',desc:'Shows ploidy, the defining processes, and the direction of the two generations.',svg:svg('Alternation of generations',`
+      ${box(70,250,190,82,'Sporophyte (2n)','accent')}
+      ${arrow(260,291,375,291,'meiosis')}${box(375,250,145,82,'Spores (n)','accent2')}
+      ${arrow(520,291,635,291,'mitosis')}${box(635,250,195,82,'Gametophyte (n)','accent')}
+      ${arrow(830,291,945,291,'gametes')}${box(945,250,165,82,'Fertilization','accent2')}
+      ${arrow(1027,332,1027,455,'')}${box(935,455,185,82,'Zygote (2n)','accent')}
+      ${arrow(935,496,820,496,'mitosis')}${box(610,455,210,82,'Young sporophyte (2n)','accent')}
+      ${arrow(610,496,260,332,'growth')}
+      ${txt(165,390,'Diploid phase','small','middle')}${txt(735,390,'Haploid phase','small','middle')}
+      ${txt(600,610,'Core rule: meiosis reduces 2n → n; fertilization restores n + n → 2n.','legend','middle')}
+    `)},
+    bryophyta:{title:'Bryophyta — body plan and diagnostic features',desc:'A generalized bryophyte plate linking the visible gametophyte with the dependent sporophyte.',svg:svg('Bryophyta — diagnostic body plan',`
+      <path d="M245 500 L245 250 M245 300 L180 235 M245 345 L315 270 M245 395 L175 335 M245 440 L315 375" class="line" stroke-width="8"/>
+      <ellipse cx="245" cy="220" rx="48" ry="23" fill="${Y}" stroke="${G}" stroke-width="3"/>
+      ${txt(245,545,'Leafy gametophyte (dominant)','label','middle')}
+      <path d="M245 500 L210 570 M245 500 L280 570" class="line"/><text x="160" y="602" class="small">rhizoids</text>
+      <path d="M700 500V230" class="line"/><rect x="660" y="170" width="80" height="65" rx="15" fill="${Y}" stroke="${G}" stroke-width="3"/>
+      ${txt(700,545,'Sporophyte (dependent)','label','middle')}${txt(700,125,'capsule','small','middle')}
+      ${arrow(320,270,590,235,'attached')}
+      ${box(900,190,230,64,'No true xylem/phloem','accent2')}${box(900,285,230,64,'Seeds absent','accent2')}${box(900,380,230,64,'Water important for fertilization','accent2')}
+      ${txt(900,505,'Diagnostic focus','label')}${txt(900,535,'gametophyte dominant • rhizoids • spores','small')}
+    `)},
+    moss:{title:'Moss life cycle — Funaria-type pattern',desc:'A complete simplified life cycle with protonema, gametophyte and sporophyte.',svg:svg('Moss life cycle',`
+      ${box(60,270,135,70,'Spore (n)','accent2')}${arrow(195,305,300,305,'germination')}${box(300,270,160,70,'Protonema (n)','accent')}
+      ${arrow(460,305,565,305,'budding')}${box(565,270,175,70,'Leafy gametophyte (n)','accent')}
+      ${arrow(740,305,845,305,'gametes')}${box(845,270,145,70,'Fertilization','accent2')}
+      ${arrow(990,340,990,445,'')}${box(910,445,160,70,'Sporophyte (2n)','accent')}
+      ${arrow(910,485,770,485,'meiosis')}${box(580,445,190,70,'Capsule → spores (n)','accent2')}
+      ${arrow(580,445,125,340,'release')}
+      ${txt(650,170,'Gametophyte generation','label','middle')}${txt(965,570,'Sporophyte generation','label','middle')}
+      ${txt(600,620,'Key structures: protonema • leafy shoots • antheridia/archegonia • seta • capsule','legend','middle')}
+    `)},
+    'bryo-adapt':{title:'Bryophyte adaptations and limitations on land',desc:'Functional map connecting each feature to its benefit and its limitation.',svg:svg('Bryophyte adaptations',`
+      ${box(70,145,220,65,'Rhizoids','accent')}${arrow(290,178,470,178,'anchorage')}${box(470,145,260,65,'Hold plant to substrate','accent2')}
+      ${box(70,255,220,65,'Moist surfaces','accent')}${arrow(290,288,470,288,'water film')}${box(470,255,260,65,'Enables sperm movement','accent2')}
+      ${box(70,365,220,65,'Protected sex organs','accent')}${arrow(290,398,470,398,'protection')}${box(470,365,260,65,'Keeps gametes/embryo safer','accent2')}
+      ${box(70,475,220,65,'Spores + capsule','accent')}${arrow(290,508,470,508,'dispersal')}${box(470,475,260,65,'Aids reproduction/dispersal','accent2')}
+      ${box(825,175,290,75,'Main limitation','accent2')}${txt(970,285,'No efficient long-distance','small','middle')}${txt(970,310,'vascular transport','small','middle')}${txt(970,355,'→ usually small, moisture-dependent bodies','small','middle')}
+      ${txt(600,610,'Adaptation does not remove the need for water during fertilization.','legend','middle')}
+    `)},
+    tracheophyta:{title:'Tracheophyta — vascular transport system',desc:'Xylem and phloem, plus roots, stems and leaves, form the transport framework of vascular plants.',svg:svg('Tracheophyta — vascular system',`
+      <path d="M225 535V200" class="line" stroke-width="12"/><path d="M225 280L105 190 M225 330L345 235 M225 395L105 330 M225 440L355 355" class="line" stroke-width="8"/>
+      ${txt(225,165,'stem','label','middle')}${txt(225,570,'root system','label','middle')}${txt(90,175,'leaf','small')}${txt(355,225,'leaf','small')}
+      <path d="M195 535V210" stroke="${G}" stroke-width="6" fill="none" marker-end="url(#a)"/>${txt(120,520,'xylem: water + minerals','small')}
+      <path d="M255 215V525" stroke="${A}" stroke-width="6" fill="none" marker-end="url(#a)"/>${txt(300,520,'phloem: organic food','small')}
+      ${box(570,170,250,72,'Xylem','accent')}${txt(695,270,'main direction: root → shoot','small','middle')}
+      ${box(570,330,250,72,'Phloem','accent2')}${txt(695,430,'source → sink transport','small','middle')}
+      ${box(890,235,235,72,'True roots','accent')}${box(890,345,235,72,'True stems','accent')}${box(890,455,235,72,'True leaves','accent')}
+    `)},
+    'vascular-groups':{title:'Major seedless vascular plant groups',desc:'Comparison of classic textbook groups with representative examples and key characters.',svg:svg('Seedless vascular plant groups',`
+      ${box(55,150,235,75,'Psilopsida','accent')}${txt(172,252,'Psilotum • simple axes','small','middle')}${txt(172,274,'true roots absent/reduced','small','middle')}
+      ${box(345,150,235,75,'Lycopsida','accent')}${txt(462,252,'Lycopodium • microphylls','small','middle')}${txt(462,274,'single vascular trace','small','middle')}
+      ${box(635,150,235,75,'Sphenopsida','accent')}${txt(752,252,'Equisetum • jointed stems','small','middle')}${txt(752,274,'microphyll-like leaves','small','middle')}
+      ${box(925,150,220,75,'Ferns','accent2')}${txt(1035,252,'Adiantum • fronds','small','middle')}${txt(1035,274,'sori/sporangia','small','middle')}
+      ${box(145,365,250,72,'Common to all','accent2')}${txt(270,468,'vascular tissue • sporophyte dominant','small','middle')}
+      ${box(510,365,250,72,'Reproduction','accent2')}${txt(635,468,'spores; seeds absent','small','middle')}
+      ${box(875,365,250,72,'Water for fertilization','accent2')}${txt(1000,468,'still important in these groups','small','middle')}
+      ${txt(600,590,'Historical group names are retained where used in school-level classification.','legend','middle')}
+    `)},
+    adiantum:{title:'Adiantum / fern — structure and life cycle',desc:'Connects the diploid fern plant, sori/sporangia, spores and haploid prothallus.',svg:svg('Adiantum / fern',`
+      <path d="M230 525V180" class="line" stroke-width="9"/><path d="M230 235L125 175 M230 280L335 205 M230 330L115 270 M230 380L345 300 M230 430L120 370" class="line" stroke-width="7"/>
+      ${txt(230,560,'Sporophyte / frond','label','middle')}${txt(130,160,'pinnae','small')}${txt(350,195,'pinnae','small')}
+      ${box(485,145,210,65,'Sori','accent2')}${arrow(695,178,805,178,'contain')}${box(805,145,220,65,'Sporangia','accent')}
+      ${arrow(1025,178,1115,178,'meiosis')}${box(1010,260,135,65,'Spores (n)','accent2')}
+      ${arrow(1075,325,930,425,'germination')}${box(755,405,235,72,'Prothallus (n)','accent')}
+      ${arrow(755,441,600,540,'gametes')}${box(405,500,195,65,'Fertilization','accent2')}${arrow(600,540,730,540,'new sporophyte')}
+      ${txt(910,575,'Sori are clusters of sporangia on the frond.','legend','middle')}
+    `)},
+    'seed-evolution':{title:'Evolution of the seed habit',desc:'A functional sequence showing heterospory, pollen, ovule protection and the seed.',svg:svg('Evolution of seed habit',`
+      ${box(55,220,205,82,'Heterospory','accent')}${arrow(260,261,370,261,'')}${box(370,220,205,82,'Microspore + megaspore','accent2')}
+      ${arrow(575,261,685,261,'')}${box(685,220,205,82,'Pollen / reduced male stage','accent')}
+      ${arrow(890,261,1000,261,'')}${box(1000,220,145,82,'Ovule','accent2')}
+      ${arrow(1072,302,1072,410,'protection')}${box(920,410,305,82,'Seed = embryo + reserve + protective coat','accent')}
+      ${txt(160,380,'spores of two sizes','small','middle')}${txt(472,380,'division of reproductive roles','small','middle')}${txt(785,380,'male transfer less water-dependent','small','middle')}
+      ${txt(600,585,'Major advantage: embryo protection, dormancy and dispersal improve reproduction on land.','legend','middle')}
+    `)},
+    pinus:{title:'Pinus / gymnosperm — cones and seed formation',desc:'A generalized Pinus diagram showing male and female cones and naked ovules/seeds.',svg:svg('Pinus / gymnosperm',`
+      <path d="M220 520V190" class="line" stroke-width="11"/><path d="M220 260L100 200 M220 330L350 245 M220 400L95 325 M220 455L365 365" class="line" stroke-width="8"/>
+      ${txt(220,560,'Pinus sporophyte','label','middle')}${txt(95,190,'needle leaves','small')}${txt(365,240,'needle leaves','small')}
+      ${box(515,145,250,80,'Male cone','accent')}${txt(640,255,'microsporangia → pollen','small','middle')}
+      ${box(515,330,250,80,'Female cone','accent2')}${txt(640,440,'ovules exposed on cone scales','small','middle')}
+      ${arrow(765,185,900,185,'pollen')}${box(900,145,220,80,'Pollen grain','accent')}
+      ${arrow(765,370,900,370,'fertilization')}${box(900,330,220,80,'Naked seed','accent2')}
+      ${txt(1020,455,'gymnosperm','small','middle')}${txt(620,585,'Gymnosperms have seeds not enclosed within an ovary.','legend','middle')}
+    `)},
+    angiosperm:{title:'Angiosperm reproduction — flower to seed and fruit',desc:'Shows flower organs, pollen tube, double fertilization and the ovary-to-fruit relationship.',svg:svg('Angiosperm reproduction',`
+      <ellipse cx="250" cy="300" rx="95" ry="120" fill="${Y}" stroke="${G}" stroke-width="3"/><ellipse cx="250" cy="300" rx="35" ry="55" fill="${L}" stroke="${A}" stroke-width="3"/>
+      ${txt(250,175,'stigma','small','middle')}${txt(250,430,'ovary','small','middle')}${txt(365,300,'petals','small')}${txt(105,300,'stamens','small')}
+      <path d="M250 245V390" class="line" stroke-width="4"/><circle cx="235" cy="350" r="8" fill="${G}"/><circle cx="265" cy="365" r="8" fill="${G}"/>
+      ${arrow(350,210,525,210,'pollination')}${box(525,165,230,75,'Pollen grain','accent2')}${arrow(755,202,900,202,'pollen tube')}${box(900,165,230,75,'Ovule / embryo sac','accent')}
+      ${box(525,320,255,80,'Double fertilization','accent2')}${txt(652,430,'zygote + endosperm','small','middle')}
+      ${arrow(780,360,920,360,'development')}${box(920,320,210,80,'Seed','accent')}
+      ${arrow(780,400,920,500,'ovary develops')}${box(920,460,210,80,'Fruit','accent2')}
+      ${txt(620,595,'Flowering plants: ovules are enclosed in an ovary; after fertilization seeds develop and the ovary may form fruit.','legend','middle')}
+    `)},
+    inflorescence:{title:'Inflorescence — racemose and cymose patterns',desc:'A clean comparison of the two major school-level patterns and their growth direction.',svg:svg('Inflorescence types',`
+      ${txt(300,125,'Racemose','plate-title','middle')}${txt(900,125,'Cymose','plate-title','middle')}
+      <path d="M300 520V180" class="line" stroke-width="8"/><path d="M300 250L215 205 M300 310L385 260 M300 370L210 320 M300 430L395 375" class="line" stroke-width="5"/>
+      <circle cx="215" cy="205" r="18" fill="${Y}" stroke="${G}" stroke-width="3"/><circle cx="385" cy="260" r="22" fill="${Y}" stroke="${G}" stroke-width="3"/><circle cx="210" cy="320" r="27" fill="${Y}" stroke="${G}" stroke-width="3"/><circle cx="395" cy="375" r="31" fill="${Y}" stroke="${G}" stroke-width="3"/>
+      <path d="M900 520V260 M900 260L810 205 M900 260L990 205 M900 260L900 165" class="line" stroke-width="7"/><circle cx="900" cy="150" r="30" fill="${Y}" stroke="${G}" stroke-width="3"/><circle cx="810" cy="205" r="22" fill="${Y}" stroke="${G}" stroke-width="3"/><circle cx="990" cy="205" r="22" fill="${Y}" stroke="${G}" stroke-width="3"/>
+      ${txt(300,575,'Main axis continues; younger flowers toward apex','small','middle')}${txt(900,575,'Terminal flower limits main-axis growth','small','middle')}
+      ${box(105,605,390,42,'Racemose: indeterminate axis','accent')}${box(705,605,390,42,'Cymose: determinate axis','accent2')}
+    `)},
+    'land-success':{title:'Successful land plants — key innovations',desc:'A synthesis map linking structures and reproductive innovations to their land-living advantages.',svg:svg('Successful land plants — key innovations',`
+      ${box(55,140,190,68,'Cuticle','accent')}${arrow(245,174,365,174,'')}${txt(455,180,'reduces water loss','label')}
+      ${box(55,245,190,68,'Stomata','accent')}${arrow(245,279,365,279,'')}${txt(455,285,'regulated gas exchange','label')}
+      ${box(55,350,190,68,'Vascular tissue','accent')}${arrow(245,384,365,384,'')}${txt(455,390,'long-distance transport','label')}
+      ${box(55,455,190,68,'Roots + leaves','accent')}${arrow(245,489,365,489,'')}${txt(455,495,'anchorage + absorption + photosynthesis','label')}
+      ${box(755,170,205,68,'Pollen','accent2')}${arrow(960,204,1075,204,'')}${txt(1140,210,'male transfer less dependent on free water','small','end')}
+      ${box(755,300,205,68,'Seeds','accent2')}${arrow(960,334,1075,334,'')}${txt(1140,340,'embryo protection + dormancy + dispersal','small','end')}
+      ${box(755,430,205,68,'Flowers + fruits','accent2')}${arrow(960,464,1075,464,'')}${txt(1140,470,'pollination + seed protection/dispersal','small','end')}
+      ${txt(600,600,'Integrated innovations allowed plants to become larger, better transported, and more reproductively independent on land.','legend','middle')}
+    `)}
+  };
+  const order=[
+    ['phyletic','1. Phyletic Lineage','Evolutionary relationship + classification'],['alt','2. Alternation of Generations','Ploidy + meiosis + fertilization'],['bryophyta','3. Bryophyta','Body plan + diagnostic characters'],['moss','4. Liverworts, Hornworts & Moss','Moss life cycle + structures'],['bryo-adapt','5. Bryophyte Adaptations','Functions + limitations'],['tracheophyta','6. Tracheophyta','Xylem + phloem + body plan'],['vascular-groups','7. Vascular Plant Groups','Psilotum → ferns comparison'],['adiantum','8. Leaves & Adiantum','Frond + sori + prothallus'],['seed-evolution','9. Seed Plants','Evolution of seed habit'],['pinus','10. Gymnosperms & Pinus','Cones + naked seeds'],['angiosperm','11. Angiosperms','Flower + double fertilization + fruit'],['inflorescence','12. Seed, Fruit & Inflorescence','Racemose + cymose'],['land-success','13. Successful Land Plants','Integrated land adaptations']
+  ];
+  function openAtlas(type,source){const d=cards[type]||cards.alt;window.__atlasReturn={el:source||document.activeElement,top:window.scrollY};document.getElementById('visualTitle').textContent=d.title;document.getElementById('visualBody').innerHTML='<div class="graphic-scroll">'+d.svg+'<div class="atlas-v2-note">'+esc(d.desc)+' <b>Scientific note:</b> Diagram is a self-authored teaching schematic; it is not drawn to scale.</div></div>';modal.hidden=false;document.body.classList.add('visual-open');modal.querySelector('.close')?.focus({preventScroll:true});}
+  window.openChapter08AtlasV2=openAtlas;
+  // Capture-phase interception prevents the earlier simple visual handler from opening first.
+  document.addEventListener('click',function(e){const b=e.target.closest('.topic-visual-trigger');if(b){e.preventDefault();e.stopImmediatePropagation();const h=b.closest('.ch')?.querySelector('h2')?.childNodes[0]?.textContent?.trim()||'';const map={
+    'Phyletic Lineage':'phyletic','Alternation of Generations':'alt','Bryophyta':'bryophyta','Liverworts, Hornworts & Moss':'moss','Bryophyte Adaptations':'bryo-adapt','Tracheophyta':'tracheophyta','Vascular Plant Groups':'vascular-groups','Leaves & Adiantum':'adiantum','Seed Plants':'seed-evolution','Gymnosperms & Pinus':'pinus','Angiosperms':'angiosperm','Seed, Fruit & Inflorescence':'inflorescence','Successful Land Plants':'land-success'};openAtlas(map[h]||'alt',b);}},true);
+  const atlas=document.querySelector('.atlas');if(atlas){atlas.className='atlas atlas-v2';atlas.innerHTML=order.map(([k,t,s])=>`<button type="button" class="vcard-v2" data-atlas="${k}"><span class="vthumb">${cards[k].svg.replace(/<svg class="scientific-plate"/,'<svg class="scientific-plate"').replace('min-width:760px','')}</span><span class="vtitle">${esc(t)}</span><span class="vsub">${esc(s)}</span></button>`).join('');atlas.querySelectorAll('[data-atlas]').forEach(b=>b.addEventListener('click',()=>openAtlas(b.dataset.atlas,b)));}
+  // Update the Atlas intro to reflect the expanded, chapter-complete set.
+  const intro=document.querySelector('.lesson:nth-of-type(14) .box');if(intro)intro.innerHTML='<b>Complete Practical Identification Checklist:</b> Marchantia, Anthoceros, Funaria, Adiantum/fern, Psilotum, Lycopodium, Equisetum, Pinus male/female cones, flower organs, seed/fruit relationships, and racemose/cymose inflorescences — each supported by a self-authored labelled teaching plate.';
+})();
+</script>
+
+
+<style id="chapter08-lecture-integrated-tools">
+/* ===== Lecture Integrated Learning Workflow ===== */
+body.lecture-integrated .lecture-tools{position:fixed;right:14px;bottom:14px;z-index:10040;display:flex;gap:7px;direction:rtl;align-items:center}
+body.lecture-integrated .lecture-tools button{min-height:42px;border:1px solid #c59b35;border-radius:11px;padding:7px 11px;background:#fffdf8;color:#173e34;box-shadow:0 5px 18px #0002;font-weight:800;cursor:pointer}
+body.lecture-integrated .lecture-tools button.primary{background:#173e34;color:#fff}
+body.lecture-integrated .lecture-tools button:hover{transform:translateY(-1px)}
+#lectureDictionaryModal{position:fixed;inset:0;z-index:10050;background:#0006;display:flex;align-items:center;justify-content:center;padding:12px}
+#lectureDictionaryModal[hidden]{display:none}
+#lectureDictionaryModal .ld-box{width:min(560px,96vw);max-height:88vh;overflow:auto;background:#fffdf8;border:2px solid #c59b35;border-radius:16px;box-shadow:0 18px 55px #0005;padding:48px 16px 16px;position:relative;direction:rtl}
+#lectureDictionaryModal .ld-close{position:absolute;left:10px;top:10px;width:38px;height:38px;padding:0;background:#8a3d32;color:#fff;font:700 23px/38px Arial}
+#lectureDictionaryModal h3{margin:0 0 8px;text-align:center;color:#173e34;border:0;padding:0}
+#lectureDictionaryModal .ld-search{width:100%;box-sizing:border-box;padding:12px;border:2px solid #c59b35;border-radius:11px;font-size:16px;background:#fff}
+#lectureDictionaryModal .ld-status{text-align:center;font-size:11px;color:#756b56;margin:7px}
+#lectureDictionaryModal .ld-results{display:flex;flex-direction:column;gap:7px}
+#lectureDictionaryModal .ld-result{width:100%;text-align:right;border:1px solid #d9d0b9;border-right:4px solid #c59b35;border-radius:10px;background:#fff;padding:9px 12px;color:#202522;cursor:pointer}
+#lectureDictionaryModal .ld-result b{display:block;direction:ltr;text-align:left;font:700 15px Arial;color:#173e34}
+#lectureDictionaryModal .ld-result small{display:block;color:#896b1d;font-weight:800}
+#lectureDictionaryModal .ld-result span{display:block;font-size:11px;color:#4e544f}
+.dictionary-modal-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.dictionary-modal-actions button{background:#173e34;color:#fff}
+.dictionary-modal-actions button.alt{background:#fff8df;color:#173e34;border:1px solid #c59b35}
+@media(max-width:600px){body.lecture-integrated .lecture-tools{right:8px;bottom:8px;left:8px;justify-content:center}body.lecture-integrated .lecture-tools button{flex:1;max-width:180px;font-size:12px}.dictionary-modal-actions button{font-size:12px}}
+</style>
+<script id="chapter08-lecture-integrated-tools-js">
+(function(){
+  const lessons=[...document.querySelectorAll('.lesson')].slice(0,13);
+  if(!lessons.length)return;
+  const VIS={1:'phyletic',2:'alt',3:'bryophyta',4:'moss',5:'bryo-adapt',6:'tracheophyta',7:'vascular-groups',8:'adiantum',9:'seed-evolution',10:'pinus',11:'angiosperm',12:'inflorescence',13:'land-success'};
+  const VIS_TITLE={phyletic:'Phyletic Lineage',alt:'Alternation of Generations',bryophyta:'Bryophyta',moss:'Moss Life Cycle','bryo-adapt':'Bryophyte Adaptations',tracheophyta:'Tracheophyta','vascular-groups':'Vascular Plant Groups',adiantum:'Adiantum / Fern','seed-evolution':'Evolution of Seed Habit',pinus:'Pinus / Gymnosperm',angiosperm:'Angiosperms',inflorescence:'Inflorescence','land-success':'Successful Land Plants'};
+  const termMap=(typeof TERM_MAP!=='undefined')?TERM_MAP:{};
+  const subMap=(typeof SUBTOPIC_VISUALS!=='undefined')?SUBTOPIC_VISUALS:{};
+  const norm=x=>String(x||'').trim().toLowerCase();
+  const esc=x=>String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  let current=0;
+  function ensureToolbar(){
+    document.body.classList.add('lecture-integrated');
+    let bar=document.querySelector('.lecture-tools');
+    if(!bar){
+      bar=document.createElement('div');bar.className='lecture-tools';bar.setAttribute('aria-label','Lecture learning tools');
+      bar.innerHTML='<button type="button" class="primary" data-dict>📖 Dictionary</button><button type="button" data-vis>🔬 Topic Visual</button>';
+      document.body.appendChild(bar);
+      bar.querySelector('[data-dict]').onclick=()=>openLD();
+      bar.querySelector('[data-vis]').onclick=()=>openTopicVisual();
+    }
+    bar.querySelector('[data-vis]').title='Current topic: '+(document.querySelectorAll('.lesson')[current]?.querySelector('.ch h2')?.textContent||'Topic');
+  }
+  function openTopicVisual(){
+    const id=VIS[current+1];
+    if(id && typeof window.openVisualEnhanced==='function'){window.openVisualEnhanced(id)}
+  }
+  function closeLD(){const m=document.getElementById('lectureDictionaryModal');if(m)m.hidden=true}
+  function openLD(){
+    let m=document.getElementById('lectureDictionaryModal');
+    if(!m){
+      m=document.createElement('div');m.id='lectureDictionaryModal';m.hidden=true;m.innerHTML='<div class="ld-box"><button class="ld-close" type="button" aria-label="Close">×</button><h3>📖 Chapter Dictionary</h3><input class="ld-search" type="search" placeholder="اصطلاح تلاش کریں…" autocomplete="off"><div class="ld-status"></div><div class="ld-results"></div></div>';
+      document.body.appendChild(m);m.querySelector('.ld-close').onclick=closeLD;m.onclick=e=>{if(e.target===m)closeLD()};
+      m.querySelector('.ld-search').oninput=()=>renderLD(m.querySelector('.ld-search').value);
+      m.querySelector('.ld-search').onkeydown=e=>{if(e.key==='Escape')closeLD()};
+    }
+    m.hidden=false;renderLD('');setTimeout(()=>m.querySelector('.ld-search').focus(),20);
+  }
+  function visualForTerm(term){
+    const n=norm(term);
+    const pairs={
+      'embryophytes':1,'land plants':1,'lineage':1,'ancestry':1,
+      'alternation of generations':2,'gametophyte':2,'sporophyte':2,'haploid':2,'diploid':2,'meiosis':2,'spore':2,'gamete':2,'zygote':2,'fertilization':2,
+      'bryophyta':3,'non-vascular':3,'rhizoids':3,'antheridium':3,'archegonium':3,'sporangium':3,
+      'liverwort':4,'marchantia':4,'hornwort':4,'anthoceros':4,'moss':4,'funaria':4,'protonema':4,'capsule':4,
+      'adaptation':5,'water dependence':5,'peat':5,'bioindication':5,
+      'tracheophyta':6,'vascular tissue':6,'xylem':6,'phloem':6,'roots':6,'stems':6,'leaves':6,
+      'psilopsida':7,'psilotum':7,'lycopsida':7,'lycopodium':7,'sphenopsida':7,'equisetum':7,'pteropsida':7,
+      'adiantum':8,'prothallus':8,'microphyll':8,'megaphyll':8,'frond':8,'sori':8,
+      'seed':9,'seed evolution':9,'heterospory':9,'pollen':9,'ovule':9,
+      'gymnosperm':10,'pinus':10,'conifers':10,'cycads':10,'cycas':10,'naked seeds':10,'cone':10,
+      'angiosperm':11,'monocot':11,'dicot':11,'cotyledon':11,'pollination':11,'pollen tube':11,'double fertilization':11,'ovary':11,'fruit':11,
+      'inflorescence':12,'racemose':12,'cymose':12,
+      'cuticle':13,'stomata':13,'gas exchange':13,'success of vascular plants':13
+    };
+    return pairs[n]||null;
+  }
+  function renderLD(q){
+    const m=document.getElementById('lectureDictionaryModal');if(!m)return;
+    const f=norm(q);const keys=Object.keys(termMap).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:'base'}));
+    const hits=keys.filter(k=>!f||norm(k).includes(f)||norm(termMap[k][0]).includes(f)||norm(termMap[k][1]).includes(f));
+    m.querySelector('.ld-status').textContent=(f?hits.length+' نتائج':'124 dictionary entries');
+    m.querySelector('.ld-results').innerHTML=hits.slice(0,40).map(k=>'<button type="button" class="ld-result" data-k="'+esc(k)+'"><b>'+esc(k)+'</b><small>'+esc(termMap[k][0])+'</small><span>'+esc(termMap[k][1])+'</span></button>').join('')||'<div class="dictionary-empty">کوئی matching entry نہیں ملی۔</div>';
+    m.querySelectorAll('.ld-result').forEach(b=>b.onclick=()=>{closeLD();if(typeof window.openDictionaryTerm==='function')window.openDictionaryTerm(b.dataset.k)});
+  }
+  // Keep the current lecture index in sync with the existing navigation.
+  const observer=new MutationObserver(()=>{lessons.forEach((l,i)=>{if(l.classList.contains('active'))current=i});ensureToolbar()});
+  lessons.forEach(l=>observer.observe(l,{attributes:true,attributeFilter:['class']}));
+  lessons.forEach((l,i)=>{if(l.classList.contains('active'))current=i});
+  ensureToolbar();
+
+  // Upgrade dictionary popups with a direct route to the most relevant visual.
+  const oldOpen=window.openDictionaryTerm;
+  window.openDictionaryTerm=function(term){
+    if(typeof oldOpen==='function')oldOpen(term);
+    setTimeout(()=>{
+      const body=document.getElementById('visualBody');if(!body)return;
+      if(body.querySelector('.dictionary-modal-actions'))return;
+      const v=visualForTerm(term);if(!v)return;
+      const id=VIS[v];const actions=document.createElement('div');actions.className='dictionary-modal-actions';
+      const btn=document.createElement('button');btn.type='button';btn.className='alt';btn.textContent='🔬 متعلقہ Visual کھولیں';
+      btn.onclick=()=>{if(typeof window.openVisualEnhanced==='function')window.openVisualEnhanced(id)};
+      actions.appendChild(btn);body.appendChild(actions);
+    },0);
+  };
+})();
+</script>
+
+<style id="chapter08-clean-interactions">
+.inline-visual-trigger{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:34px!important;height:30px!important;margin-inline-start:8px!important;
+  padding:0!important;border:1px solid var(--gold,#c9a227)!important;border-radius:8px!important;
+  background:#fff8df!important;color:var(--g,#245c3a)!important;
+  font:700 18px/1 Arial,sans-serif!important;vertical-align:middle!important;
+  cursor:pointer!important;box-shadow:0 2px 6px #0001!important
+}
+.inline-visual-trigger:hover{background:#f3e9c7!important}
+.lecture-dict-term{cursor:pointer;text-decoration:underline dotted;text-decoration-thickness:1px}
+</style>
+<script id="chapter08-clean-interactions-js">
+(function(){
+  'use strict';
+  const VIS = {
+    1:'phyletic',2:'alt',3:'bryophyta',4:'moss',5:'bryo-adapt',
+    6:'tracheophyta',7:'vascular-groups',8:'adiantum',9:'seed-evolution',
+    10:'pinus',11:'angiosperm',12:'inflorescence',13:'land-success'
+  };
+
+  function activeLessonIndex(){
+    const lessons=[...document.querySelectorAll('.lesson')].slice(0,13);
+    const i=lessons.findIndex(x=>x.classList.contains('active'));
+    return i>=0?i:0;
+  }
+
+  function openVisual(id, heading){
+    if(typeof window.openVisualEnhanced!=='function') return;
+    const y=window.scrollY;
+    window.__chapter08VisualReturnY=y;
+    if(typeof window.closeVisual==='function') window.closeVisual();
+    window.openVisualEnhanced(id);
+    const title=document.getElementById('visualTitle');
+    if(title && heading){
+      const clean=heading.textContent.replace(/\s*🔬\s*$/,'').trim();
+      title.textContent=clean;
+    }
+  }
+
+  function addExactlyOneVisualToHeading(h, id){
+    if(!h || !id) return;
+    h.querySelectorAll('.inline-visual-trigger').forEach((x,i)=>{ if(i>0) x.remove(); });
+    const existing=h.querySelector('.inline-visual-trigger');
+    if(existing){
+      existing.onclick=(e)=>{e.preventDefault();e.stopPropagation();openVisual(id,h);};
+      return;
+    }
+    const b=document.createElement('button');
+    b.type='button';
+    b.className='inline-visual-trigger';
+    b.setAttribute('aria-label','متعلقہ گرافکس کھولیں');
+    b.title='متعلقہ گرافکس کھولیں';
+    b.textContent='🔬';
+    b.onclick=(e)=>{e.preventDefault();e.stopPropagation();openVisual(id,h);};
+    h.appendChild(b);
+  }
+
+  function installVisuals(){
+    const lessons=[...document.querySelectorAll('.lesson')].slice(0,13);
+    lessons.forEach((lesson,i)=>{
+      const id=VIS[i+1];
+      if(!id) return;
+      lesson.querySelectorAll('.ch h2').forEach(h=>addExactlyOneVisualToHeading(h,id));
+      lesson.querySelectorAll('.ch h3,.ch h4').forEach(h=>addExactlyOneVisualToHeading(h,id));
+    });
+  }
+
+  // Remove only the obsolete floating controls, never the actual heading trigger.
+  function removeExtraTabs(){
+    document.querySelectorAll('.lecture-tools,.utility-tab').forEach(el=>{
+      const t=(el.textContent||'').replace(/\s+/g,' ').trim();
+      if(el.classList.contains('lecture-tools') || /Chapter Dictionary|Visual Atlas/.test(t)) el.remove();
+    });
+  }
+
+  function closeOnBackdrop(){
+    document.addEventListener('click',(e)=>{
+      const m=document.getElementById('visualModal');
+      if(m && !m.hidden && e.target===m && typeof window.closeVisual==='function'){
+        window.closeVisual();
+        if(Number.isFinite(window.__chapter08VisualReturnY)) window.scrollTo(0,window.__chapter08VisualReturnY);
+      }
+    }, true);
+  }
+
+  function patchVisualClose(){
+    const old=window.closeVisual;
+    if(typeof old!=='function') return;
+    if(old.__chapter08Patched) return;
+    const wrapped=function(){
+      old();
+      if(Number.isFinite(window.__chapter08VisualReturnY)){
+        requestAnimationFrame(()=>window.scrollTo(0,window.__chapter08VisualReturnY));
+      }
+    };
+    wrapped.__chapter08Patched=true;
+    window.closeVisual=wrapped;
+  }
+
+  function boot(){
+    removeExtraTabs();
+    installVisuals();
+    patchVisualClose();
+  }
+
+  boot();
+  const mo=new MutationObserver(()=>boot());
+  mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','hidden']});
+  closeOnBackdrop();
+})();
+</script>
+
 </body></html>
