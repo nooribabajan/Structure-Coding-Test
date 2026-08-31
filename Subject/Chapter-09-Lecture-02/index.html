@@ -548,80 +548,1183 @@ document.addEventListener("keydown",e=>{
   if(e.key==="Escape"){closeModal("visualModal");closeModal("dictionaryModal")}
 });
 
-function showTopics(){
-  document.getElementById("homePage").style.display="none";
-  document.getElementById("subtopicPage").style.display="none";
-  document.getElementById("topicsPage").style.display="block";
-  window.scrollTo(0,0);
+<script>
+/* =========================================================
+   CHAPTER 09 — LECTURE 02
+   Diversity Among Animals
+   Corrected Functional Script
+   ========================================================= */
+
+const dictionary = {
+  Structural:{
+    term:"Structural",
+    synonym:"Anatomical / Morphological",
+    urdu:"ساختی / شکلی"
+  },
+  Functional:{
+    term:"Functional",
+    synonym:"Physiological",
+    urdu:"فعلی / افعالی"
+  },
+  Adaptation:{
+    term:"Adaptation",
+    synonym:"Adaptive characteristic",
+    urdu:"موافقت"
+  },
+  Multicellular:{
+    term:"Multicellular",
+    synonym:"Many-celled",
+    urdu:"کثیر خلوی"
+  },
+  Eukaryotic:{
+    term:"Eukaryotic",
+    synonym:"Eukaryote",
+    urdu:"حقیقی مرکزہ رکھنے والا"
+  },
+  Heterotrophic:{
+    term:"Heterotrophic",
+    synonym:"Non-autotrophic",
+    urdu:"غیر خودغذا"
+  },
+  Classification:{
+    term:"Classification",
+    synonym:"Taxonomic grouping",
+    urdu:"درجہ بندی"
+  },
+  Symmetry:{
+    term:"Symmetry",
+    synonym:"Body symmetry",
+    urdu:"تماثل"
+  },
+  "Germ layer":{
+    term:"Germ layer",
+    synonym:"Embryonic tissue layer",
+    urdu:"جنینی خلوی تہہ"
+  },
+  Porifera:{
+    term:"Porifera",
+    synonym:"Sponges",
+    urdu:"سوراخ دار جانوروں کا شاخہ"
+  },
+  Ostia:{
+    term:"Ostia",
+    synonym:"Incurrent pores",
+    urdu:"پانی کے داخل ہونے والے سوراخ"
+  },
+  Choanocyte:{
+    term:"Choanocyte",
+    synonym:"Collar cell",
+    urdu:"کالر خلیہ"
+  },
+  Osculum:{
+    term:"Osculum",
+    synonym:"Sponge outlet",
+    urdu:"پانی کے اخراج کا سوراخ"
+  },
+  Invertebrate:{
+    term:"Invertebrate",
+    synonym:"Non-vertebrate animal",
+    urdu:"مہرہ دار ستون سے خالی جانور"
+  },
+  Radial:{
+    term:"Radial symmetry",
+    synonym:"Radial body symmetry",
+    urdu:"شعاعی تماثل"
+  },
+  Bilateral:{
+    term:"Bilateral symmetry",
+    synonym:"Two-sided symmetry",
+    urdu:"دو طرفہ تماثل"
+  },
+  Diploblastic:{
+    term:"Diploblastic",
+    synonym:"Two germ layers",
+    urdu:"دو جنینی تہوں والا"
+  },
+  Triploblastic:{
+    term:"Triploblastic",
+    synonym:"Three germ layers",
+    urdu:"تین جنینی تہوں والا"
+  },
+  Mesoderm:{
+    term:"Mesoderm",
+    synonym:"Middle germ layer",
+    urdu:"درمیانی جنینی تہہ"
+  },
+  Cnidaria:{
+    term:"Cnidaria",
+    synonym:"Cnidarians",
+    urdu:"ڈنک والے آبی جانوروں کا شاخہ"
+  },
+  Polyp:{
+    term:"Polyp",
+    synonym:"Sessile body form",
+    urdu:"چپکی ہوئی جسمانی شکل"
+  },
+  Medusa:{
+    term:"Medusa",
+    synonym:"Free-swimming body form",
+    urdu:"آزاد تیرنے والی جسمانی شکل"
+  },
+  Cnidocyte:{
+    term:"Cnidocyte",
+    synonym:"Stinging cell",
+    urdu:"ڈنک دار خصوصی خلیہ"
+  },
+  Metamorphosis:{
+    term:"Metamorphosis",
+    synonym:"Developmental transformation",
+    urdu:"نشوونمائی تبدیلی"
+  },
+  Exoskeleton:{
+    term:"Exoskeleton",
+    synonym:"External skeleton",
+    urdu:"بیرونی ڈھانچہ"
+  }
+};
+
+
+/* =========================================================
+   DICTIONARY
+   ========================================================= */
+
+function openDictionary(term){
+  let html = "";
+
+  if(term && dictionary[term]){
+    const d = dictionary[term];
+
+    html = `
+      <table class="dictionary-table dictionary-mini">
+        <tr>
+          <th>English Term</th>
+          <th>English Synonym / Equivalent</th>
+          <th>اردو معنی</th>
+        </tr>
+        <tr>
+          <td>${d.term}</td>
+          <td>${d.synonym}</td>
+          <td>${d.urdu}</td>
+        </tr>
+      </table>
+    `;
+  }else{
+    html = `
+      <table class="dictionary-table">
+        <tr>
+          <th>English Term</th>
+          <th>English Synonym / Equivalent</th>
+          <th>اردو معنی</th>
+        </tr>
+        ${Object.values(dictionary).map(d => `
+          <tr>
+            <td>${d.term}</td>
+            <td>${d.synonym}</td>
+            <td>${d.urdu}</td>
+          </tr>
+        `).join("")}
+      </table>
+    `;
+  }
+
+  document.getElementById("dictionaryContent").innerHTML = html;
+  openModal("dictionaryModal");
 }
-function showHome(){
-  document.getElementById("topicsPage").style.display="none";
-  document.getElementById("subtopicPage").style.display="none";
-  document.getElementById("homePage").style.display="block";
+
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+function openModal(id){
+  const el = document.getElementById(id);
+
+  if(el){
+    el.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeModal(id){
+  const el = document.getElementById(id);
+
+  if(el){
+    el.style.display = "none";
+  }
+
+  const anyOpen = [...document.querySelectorAll(".modal")]
+    .some(modal => getComputedStyle(modal).display === "flex");
+
+  if(!anyOpen){
+    document.body.style.overflow = "";
+  }
+}
+
+function outsideClose(event,id){
+  if(event.target === event.currentTarget){
+    closeModal(id);
+  }
+}
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    closeModal("visualModal");
+    closeModal("assessmentModal");
+    closeModal("dictionaryModal");
+  }
+});
+
+
+/* =========================================================
+   PAGE NAVIGATION
+   ========================================================= */
+
+function showTopics(){
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("subtopicPage").style.display = "none";
+  document.getElementById("topicsPage").style.display = "block";
+
   window.scrollTo(0,0);
 }
 
-const subtopics={1:{code:"IAE1101090301",title:"Invertebrates",intro:"Invertebrates کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Invertebrates کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Invertebrates کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},2:{code:"IAE1101090302",title:"Protozoa",intro:"Protozoa کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Protozoa کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Protozoa کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},3:{code:"IAE1101090303",title:"Phylum Porifera",intro:"Phylum Porifera کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Porifera کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Porifera کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},4:{code:"IAE1101090304",title:"Generalized Sponge Anatomy",intro:"Generalized Sponge Anatomy کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Generalized Sponge Anatomy کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Generalized Sponge Anatomy کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},5:{code:"IAE1101090305",title:"Phylum Cnidaria (Coelenterata)",intro:"Phylum Cnidaria (Coelenterata) کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Cnidaria (Coelenterata) کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Cnidaria (Coelenterata) کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},6:{code:"IAE1101090306",title:"Advanced Phylum Cnidaria (Coelenterata)",intro:"Advanced Phylum Cnidaria (Coelenterata) کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Advanced Phylum Cnidaria (Coelenterata) کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Advanced Phylum Cnidaria (Coelenterata) کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},7:{code:"IAE1101090307",title:"Hydra and Jellyfish",intro:"Hydra and Jellyfish کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Hydra and Jellyfish کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Hydra and Jellyfish کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},8:{code:"IAE1101090308",title:"Phylum Platyhelminthes",intro:"Phylum Platyhelminthes کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Platyhelminthes کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Platyhelminthes کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},9:{code:"IAE1101090309",title:"Parasitic Adaptations in Platyhelminthes",intro:"Parasitic Adaptations in Platyhelminthes کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Parasitic Adaptations in Platyhelminthes کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Parasitic Adaptations in Platyhelminthes کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},10:{code:"IAE1101090310",title:"Phylum Nematoda (Aschelminthes)",intro:"Phylum Nematoda (Aschelminthes) کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Nematoda (Aschelminthes) کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Nematoda (Aschelminthes) کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},11:{code:"IAE1101090311",title:"General Characteristics of Nematodes",intro:"General Characteristics of Nematodes کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"General Characteristics of Nematodes کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"General Characteristics of Nematodes کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},12:{code:"IAE1101090312",title:"Phylum Mollusca",intro:"Phylum Mollusca کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Mollusca کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Mollusca کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},13:{code:"IAE1101090313",title:"Major Molluscan Groups",intro:"Major Molluscan Groups کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Major Molluscan Groups کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Major Molluscan Groups کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},14:{code:"IAE1101090314",title:"Phylum Annelida",intro:"Phylum Annelida کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Annelida کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Annelida کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},15:{code:"IAE1101090315",title:"General Characteristics of Annelids",intro:"General Characteristics of Annelids کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"General Characteristics of Annelids کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"General Characteristics of Annelids کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},16:{code:"IAE1101090316",title:"Phylum Arthropoda",intro:"Phylum Arthropoda کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Arthropoda کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Arthropoda کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},17:{code:"IAE1101090317",title:"General Characteristics of Arthropods",intro:"General Characteristics of Arthropods کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"General Characteristics of Arthropods کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"General Characteristics of Arthropods کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},18:{code:"IAE1101090318",title:"Insect Body Plan and Metamorphosis",intro:"Insect Body Plan and Metamorphosis کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Insect Body Plan and Metamorphosis کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Insect Body Plan and Metamorphosis کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},19:{code:"IAE1101090319",title:"Economic Importance of Insects",intro:"Economic Importance of Insects کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Economic Importance of Insects کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Economic Importance of Insects کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},20:{code:"IAE1101090320",title:"Phylum Echinodermata",intro:"Phylum Echinodermata کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Phylum Echinodermata کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Phylum Echinodermata کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},21:{code:"IAE1101090321",title:"Echinoderm Body Plan and Water Vascular System",intro:"Echinoderm Body Plan and Water Vascular System کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Echinoderm Body Plan and Water Vascular System کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Echinoderm Body Plan and Water Vascular System کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},22:{code:"IAE1101090322",title:"Evolutionary Adaptations of Invertebrates",intro:"Evolutionary Adaptations of Invertebrates کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Evolutionary Adaptations of Invertebrates کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Evolutionary Adaptations of Invertebrates کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},23:{code:"IAE1101090323",title:"Comparative Invertebrate Diversity",intro:"Comparative Invertebrate Diversity کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Comparative Invertebrate Diversity کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Comparative Invertebrate Diversity کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"},24:{code:"IAE1101090324",title:"Economic Importance of Invertebrate Phyla",intro:"Economic Importance of Invertebrate Phyla کا مطالعہ Chapter 09 کے animal diversity framework میں اس گروہ یا concept کی بنیادی ساخت، خصوصیات اور حیاتیاتی اہمیت کو واضح کرتا ہے۔",basic:"Economic Importance of Invertebrate Phyla کی بنیادی شناخت، نمایاں body-plan features اور اہم biological characteristics کو سمجھا جاتا ہے۔",standard:"اس subtopic میں structure، function، habitat، reproduction یا adaptation سے متعلق اہم نکات کو comparative انداز میں دیکھا جاتا ہے، تاکہ مختلف animal groups کے درمیان similarities اور differences واضح ہوں۔",mastery:"Economic Importance of Invertebrate Phyla کو animal diversity کے broader pattern سے جوڑتے ہوئے body organization، evolutionary significance اور adaptive value کو conceptually سمجھا جاتا ہے۔"}};
+function showHome(){
+  document.getElementById("topicsPage").style.display = "none";
+  document.getElementById("subtopicPage").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
+
+  window.scrollTo(0,0);
+}
+
+
+/* =========================================================
+   SUBTOPICS
+   ========================================================= */
+
+const subtopics = {
+
+1:{
+code:"IAE1101090301",
+title:"Invertebrates",
+intro:"Invertebrates جانوروں کا وہ وسیع گروہ ہے جن میں vertebral column موجود نہیں ہوتا۔ اس topic میں invertebrate diversity، body organization اور بنیادی خصوصیات کا تعارف دیا جاتا ہے۔",
+basic:"Invertebrates میں vertebral column موجود نہیں ہوتی۔ اس گروہ میں جسمانی ساخت اور organization کی بہت سی مختلف صورتیں پائی جاتی ہیں۔",
+standard:"مختلف invertebrate groups میں symmetry، body plan، tissue organization، habitat اور adaptations میں نمایاں فرق پایا جاتا ہے۔",
+mastery:"Invertebrate diversity کو comparative اور evolutionary framework میں سمجھنے سے animal body plans اور specialization کے ارتقائی pattern کو واضح کیا جا سکتا ہے۔"
+},
+
+2:{
+code:"IAE1101090302",
+title:"Protozoa",
+intro:"Protozoa کو روایتی حیاتیاتی درجہ بندی میں single-celled animal-like organisms کے طور پر بیان کیا جاتا ہے۔ یہ topic ان کی بنیادی organization اور characteristics پر مرکوز ہے۔",
+basic:"Protozoa عموماً unicellular اور microscopic organisms ہوتے ہیں۔",
+standard:"ان میں locomotion، nutrition اور reproduction کے مختلف طریقے پائے جاتے ہیں۔",
+mastery:"Protozoan organization کو multicellular animal organization کے مقابلے میں دیکھنے سے biological complexity کے بنیادی مراحل کو سمجھنے میں مدد ملتی ہے۔"
+},
+
+3:{
+code:"IAE1101090303",
+title:"Phylum Porifera",
+intro:"Porifera میں sponges شامل ہیں۔ یہ سادہ multicellular animals ہیں جن کی body میں متعدد pores اور water-flow system پایا جاتا ہے۔",
+basic:"Sponges aquatic animals ہیں اور ان کے جسم میں متعدد pores موجود ہوتے ہیں۔",
+standard:"Water ostia کے ذریعے داخل ہوتا ہے اور osculum کے ذریعے باہر نکلتا ہے۔",
+mastery:"Poriferan body plan میں cellular specialization اور water-current system feeding اور respiration دونوں میں اہم کردار ادا کرتے ہیں۔"
+},
+
+4:{
+code:"IAE1101090304",
+title:"Generalized Sponge Anatomy",
+intro:"Generalized sponge anatomy میں sponge کے بنیادی body structures اور water-current pathway کا مطالعہ کیا جاتا ہے۔",
+basic:"اہم structures میں ostia، internal canal system اور osculum شامل ہیں۔",
+standard:"Choanocytes پانی کی حرکت پیدا کرنے اور food particles کو capture کرنے میں مدد دیتے ہیں۔",
+mastery:"Sponge anatomy کو water-flow system کے طور پر سمجھنے سے اس کی feeding، gas exchange اور waste removal کو ایک مربوط نظام میں دیکھا جا سکتا ہے۔"
+},
+
+5:{
+code:"IAE1101090305",
+title:"Phylum Cnidaria (Coelenterata)",
+intro:"Cnidaria میں aquatic animals شامل ہیں جن میں radial symmetry اور specialized stinging cells پائی جاتی ہیں۔",
+basic:"Cnidarians عموماً aquatic، diploblastic اور radially symmetrical animals ہوتے ہیں۔",
+standard:"ان کے جسم میں cnidocytes پائے جاتے ہیں جو defense اور prey capture میں کام آتے ہیں۔",
+mastery:"Cnidarian body organization اور polyp-medusa forms animal body-plan diversity کی اہم مثال ہیں۔"
+},
+
+6:{
+code:"IAE1101090306",
+title:"Advanced Phylum Cnidaria (Coelenterata)",
+intro:"Advanced Cnidaria میں body forms، tissue organization، feeding اور life-cycle patterns کا مزید تفصیلی مطالعہ کیا جاتا ہے۔",
+basic:"Cnidarians میں polyp اور medusa بنیادی body forms ہیں۔",
+standard:"کچھ groups میں دونوں forms life cycle کے مختلف مراحل میں ظاہر ہو سکتی ہیں۔",
+mastery:"Polyp اور medusa کے درمیان functional differentiation Cnidarian adaptation اور life-cycle diversity کو سمجھنے میں اہم ہے۔"
+},
+
+7:{
+code:"IAE1101090307",
+title:"Hydra and Jellyfish",
+intro:"Hydra اور jellyfish Cnidaria کی مختلف body forms کی نمائندگی کرتے ہیں اور ان کے structure اور lifestyle کا تقابلی مطالعہ کیا جاتا ہے۔",
+basic:"Hydra بنیادی طور پر polyp form جبکہ jellyfish medusa form کی نمائندگی کرتی ہے۔",
+standard:"Hydra attached lifestyle رکھتی ہے جبکہ jellyfish آزادانہ طور پر پانی میں حرکت کرتی ہے۔",
+mastery:"دونوں forms کا تقابل Cnidarian body-plan flexibility اور functional adaptation کو واضح کرتا ہے۔"
+},
+
+8:{
+code:"IAE1101090308",
+title:"Phylum Platyhelminthes",
+intro:"Platyhelminthes میں flatworms شامل ہیں۔ ان میں bilateral symmetry اور نسبتاً زیادہ منظم body organization پائی جاتی ہے۔",
+basic:"Platyhelminths flattened اور bilaterally symmetrical animals ہیں۔",
+standard:"یہ triploblastic animals ہیں اور ان میں organ-level organization پائی جاتی ہے۔",
+mastery:"Flat body form اور bilateral organization ان کے movement، feeding اور environmental interaction سے مربوط ہیں۔"
+},
+
+9:{
+code:"IAE1101090309",
+title:"Parasitic Adaptations in Platyhelminthes",
+intro:"کئی platyhelminths parasitic lifestyle اختیار کرتے ہیں۔ اس topic میں host-dependent life اور اس سے متعلق adaptations کا مطالعہ کیا جاتا ہے۔",
+basic:"Parasitic flatworms host کے جسم میں رہ کر nutrients حاصل کر سکتے ہیں۔",
+standard:"Attachment structures، protective coverings اور reproductive adaptations parasitic success میں مدد دیتے ہیں۔",
+mastery:"Parasitism میں structural، physiological اور reproductive adaptations ایک دوسرے کے ساتھ مل کر survival اور transmission کو support کرتی ہیں۔"
+},
+
+10:{
+code:"IAE1101090310",
+title:"Phylum Nematoda (Aschelminthes)",
+intro:"Nematoda میں roundworms شامل ہیں۔ ان کا جسم عموماً cylindrical، elongated اور unsegmented ہوتا ہے۔",
+basic:"Nematodes cylindrical اور unsegmented animals ہوتے ہیں۔",
+standard:"ان کا جسم outer covering رکھتا ہے اور ان میں مکمل digestive tract پایا جاتا ہے۔",
+mastery:"Nematode body plan ان کی movement، feeding اور مختلف habitats میں کامیابی کے لیے اہم adaptive features فراہم کرتا ہے۔"
+},
+
+11:{
+code:"IAE1101090311",
+title:"General Characteristics of Nematodes",
+intro:"Nematodes کی عمومی خصوصیات میں cylindrical body، bilateral symmetry اور مخصوص body organization شامل ہیں۔",
+basic:"Nematodes عموماً elongated، cylindrical اور unsegmented ہوتے ہیں۔",
+standard:"ان میں separate mouth اور anus کے ساتھ complete digestive system پایا جاتا ہے۔",
+mastery:"Nematode organization کو flatworms کے مقابلے میں دیکھنے سے digestive specialization اور body-plan diversification واضح ہوتی ہے۔"
+},
+
+12:{
+code:"IAE1101090312",
+title:"Phylum Mollusca",
+intro:"Mollusca ایک بڑا invertebrate phylum ہے جس میں snails، clams، mussels، oysters اور cephalopods شامل ہیں۔",
+basic:"Molluscs عموماً soft-bodied animals ہوتے ہیں۔",
+standard:"عام molluscan body plan میں muscular foot، visceral mass اور mantle شامل ہوتے ہیں۔",
+mastery:"Molluscan groups میں body-plan modification مختلف habitats اور modes of life کے مطابق واضح adaptive diversity پیدا کرتی ہے۔"
+},
+
+13:{
+code:"IAE1101090313",
+title:"Major Molluscan Groups",
+intro:"Mollusca کے اہم groups میں Gastropoda، Bivalvia اور Cephalopoda شامل ہیں۔",
+basic:"Gastropods میں snails اور slugs، Bivalves میں clams اور mussels جبکہ Cephalopods میں squid اور octopus شامل ہیں۔",
+standard:"ان groups میں foot، shell اور feeding structures کی specialization مختلف ہوتی ہے۔",
+mastery:"Major molluscan groups کا تقابل body-plan modification اور ecological adaptation کو واضح کرتا ہے۔"
+},
+
+14:{
+code:"IAE1101090314",
+title:"Phylum Annelida",
+intro:"Annelida میں segmented worms شامل ہیں۔ ان کے جسم کی segmentation ان کی نمایاں خصوصیت ہے۔",
+basic:"Annelids segmented worms ہوتے ہیں۔",
+standard:"ان کے جسم میں repeated segments اور زیادہ منظم organ systems پائے جاتے ہیں۔",
+mastery:"Segmentation movement اور body specialization میں functional advantages فراہم کر سکتی ہے۔"
+},
+
+15:{
+code:"IAE1101090315",
+title:"General Characteristics of Annelids",
+intro:"Annelids کی عمومی خصوصیات میں segmentation، bilateral symmetry اور organ-system level organization شامل ہیں۔",
+basic:"Annelids bilaterally symmetrical اور segmented animals ہیں۔",
+standard:"Earthworms اور leeches annelid diversity کی معروف مثالیں ہیں۔",
+mastery:"Segmentation کو movement اور functional specialization کے ساتھ جوڑ کر annelid organization کو بہتر طور پر سمجھا جا سکتا ہے۔"
+},
+
+16:{
+code:"IAE1101090316",
+title:"Phylum Arthropoda",
+intro:"Arthropoda جانوروں کا ایک انتہائی diverse phylum ہے جس میں insects، arachnids، crustaceans اور دیگر groups شامل ہیں۔",
+basic:"Arthropods میں jointed appendages اور exoskeleton نمایاں خصوصیات ہیں۔",
+standard:"Exoskeleton protection اور body support فراہم کرتا ہے جبکہ jointed appendages مختلف functions کے لیے specialized ہو سکتے ہیں۔",
+mastery:"Arthropod success کا تعلق exoskeleton، segmentation اور appendage specialization کے امتزاج سے ہے۔"
+},
+
+17:{
+code:"IAE1101090317",
+title:"General Characteristics of Arthropods",
+intro:"Arthropods کی عمومی خصوصیات میں exoskeleton، segmented body اور jointed appendages شامل ہیں۔",
+basic:"Arthropods کے جسم کے باہر سخت exoskeleton ہوتا ہے۔",
+standard:"Growth کے دوران exoskeleton کو shed کرنے کا عمل moulting کہلاتا ہے۔",
+mastery:"Exoskeleton protection فراہم کرتا ہے لیکن growth کے لیے moulting جیسے specialized process کی ضرورت پیدا کرتا ہے۔"
+},
+
+18:{
+code:"IAE1101090318",
+title:"Insect Body Plan and Metamorphosis",
+intro:"Insects arthropods کا ایک اہم group ہیں۔ ان کا body plan head، thorax اور abdomen پر مشتمل ہوتا ہے۔",
+basic:"Adult insect body تین بنیادی regions رکھتا ہے: head، thorax اور abdomen۔",
+standard:"Thorax پر legs اور اکثر wings attached ہوتے ہیں۔ Metamorphosis development کے دوران body form کی تبدیلی ہے۔",
+mastery:"Metamorphosis مختلف life stages کو الگ ecological roles اختیار کرنے کی اجازت دے سکتی ہے، جس سے competition کم ہو سکتی ہے۔"
+},
+
+19:{
+code:"IAE1101090319",
+title:"Economic Importance of Insects",
+intro:"Insects ecosystem اور human economy دونوں میں اہم کردار ادا کرتے ہیں۔",
+basic:"Insects pollination، decomposition اور food webs میں اہم کردار ادا کرتے ہیں۔",
+standard:"کچھ insects agriculture کے لیے beneficial جبکہ کچھ pests اور disease vectors ہو سکتے ہیں۔",
+mastery:"Insect diversity کو ecological services اور economic impact دونوں کے تناظر میں سمجھنا ضروری ہے۔"
+},
+
+20:{
+code:"IAE1101090320",
+title:"Phylum Echinodermata",
+intro:"Echinodermata میں starfish، sea urchins اور related marine animals شامل ہیں۔",
+basic:"Echinoderms exclusively marine animals ہیں۔",
+standard:"Adults میں عموماً radial organization جبکہ larvae میں bilateral symmetry پائی جاتی ہے۔",
+mastery:"Adult radial organization اور larval bilateral symmetry echinoderm development اور evolutionary relationships کے اہم clues فراہم کرتے ہیں۔"
+},
+
+21:{
+code:"IAE1101090321",
+title:"Echinoderm Body Plan and Water Vascular System",
+intro:"Echinoderms میں water vascular system ایک اہم hydraulic system ہے جو locomotion اور دیگر functions میں مدد دیتا ہے۔",
+basic:"Water vascular system tube feet سے مربوط ہوتا ہے۔",
+standard:"Tube feet movement، attachment اور feeding میں استعمال ہو سکتے ہیں۔",
+mastery:"Water vascular system hydraulic pressure کے ذریعے tube feet کے coordinated operation کو ممکن بناتا ہے۔"
+},
+
+22:{
+code:"IAE1101090322",
+title:"Evolutionary Adaptations of Invertebrates",
+intro:"Invertebrates میں مختلف environments کے مطابق متعدد structural، physiological اور behavioural adaptations پیدا ہوئی ہیں۔",
+basic:"Adaptations organisms کو اپنے environment میں survival اور reproduction میں مدد دیتی ہیں۔",
+standard:"Exoskeleton، segmentation، body symmetry اور specialized feeding structures مختلف invertebrate groups میں adaptive significance رکھتے ہیں۔",
+mastery:"Comparative adaptations سے معلوم ہوتا ہے کہ مختلف body plans ecological challenges کے جواب میں کس طرح functional specialization پیدا کرتے ہیں۔"
+},
+
+23:{
+code:"IAE1101090323",
+title:"Comparative Invertebrate Diversity",
+intro:"مختلف invertebrate phyla کا comparative study body organization اور evolutionary diversification کو واضح کرتا ہے۔",
+basic:"مختلف phyla میں body symmetry، tissue organization اور body plans مختلف ہوتے ہیں۔",
+standard:"Porifera، Cnidaria، Platyhelminthes، Nematoda، Mollusca، Annelida، Arthropoda اور Echinodermata اہم comparative groups ہیں۔",
+mastery:"ان groups کا تقابل complexity، specialization اور adaptation کے مختلف evolutionary patterns کو واضح کرتا ہے۔"
+},
+
+24:{
+code:"IAE1101090324",
+title:"Economic Importance of Invertebrate Phyla",
+intro:"Invertebrates ecological systems اور human activities میں اہم economic اور biological roles ادا کرتے ہیں۔",
+basic:"Invertebrates pollination، decomposition، food chains اور nutrient cycling میں حصہ لیتے ہیں۔",
+standard:"کچھ groups food، fisheries، agriculture اور other resources کے لیے اہم ہیں جبکہ کچھ pests یا parasites ہو سکتے ہیں۔",
+mastery:"Invertebrate economic importance کو ecosystem services، agriculture، fisheries، medicine اور human health کے وسیع تناظر میں سمجھا جاتا ہے۔"
+}
+
+};
+
+
+/* =========================================================
+   SUBTOPIC VIEW
+   ========================================================= */
 
 function openSubtopic(id){
-  const s=subtopics[id];
-  if(!s)return;
-  document.getElementById("topicsPage").style.display="none";
-  document.getElementById("homePage").style.display="none";
-  document.getElementById("subtopicPage").style.display="block";
 
-  document.getElementById("subtopicContent").innerHTML=`
+  const s = subtopics[id];
+
+  if(!s) return;
+
+  document.getElementById("topicsPage").style.display = "none";
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("subtopicPage").style.display = "block";
+
+  document.getElementById("subtopicContent").innerHTML = `
     <div class="subtopic-code">${s.code}</div>
+
     <div class="subtopic-intro">
-      <h2 class="subtopic-title">${String(id).padStart(2,"0")} — ${s.title}</h2>
+
+      <h2 class="subtopic-title">
+        ${String(id).padStart(2,"0")} — ${s.title}
+      </h2>
+
       <h3>تعارف</h3>
       <p>${s.intro}</p>
+
     </div>
+
     <div class="lecture-section">
-      <div class="level basic"><h3>🟥 بنیادی</h3><p>${s.basic}</p></div>
-      <div class="level standard"><h3>🟩 معیاری</h3><p>${s.standard}</p></div>
-      <div class="level mastery"><h3>🟦 Mastery</h3><p>${s.mastery}</p></div>
-    </div>`;
+
+      <div class="level basic">
+        <h3>🟥 بنیادی</h3>
+        <p>${s.basic}</p>
+      </div>
+
+      <div class="level standard">
+        <h3>🟩 معیاری</h3>
+        <p>${s.standard}</p>
+      </div>
+
+      <div class="level mastery">
+        <h3>🟦 Mastery</h3>
+        <p>${s.mastery}</p>
+      </div>
+
+    </div>
+  `;
+
   window.scrollTo(0,0);
 }
 
-function utilityMessage(name){
-  alert(name+" module — اس baseline میں navigation فعال ہے؛ مکمل examination/test module بعد کے academic data کے ساتھ منسلک کیا جائے گا۔");
+
+/* =========================================================
+   VISUAL ATLAS
+   All 24 Lecture 02 topics
+   ========================================================= */
+
+function visualSvg(i){
+
+  const d = subtopics[i];
+
+  return `
+  <svg
+    viewBox="0 0 760 340"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="${d.title}"
+  >
+
+    <rect
+      x="25"
+      y="20"
+      width="710"
+      height="300"
+      rx="18"
+      fill="#eef7f2"
+      stroke="#6f9d89"
+      stroke-width="3"
+    />
+
+    <text
+      x="380"
+      y="58"
+      text-anchor="middle"
+      font-size="24"
+      font-weight="700"
+    >${d.title}</text>
+
+    <circle
+      cx="145"
+      cy="165"
+      r="70"
+      fill="#fff"
+      stroke="#6f9d89"
+      stroke-width="3"
+    />
+
+    <circle
+      cx="380"
+      cy="165"
+      r="70"
+      fill="#fff"
+      stroke="#c59b35"
+      stroke-width="3"
+    />
+
+    <circle
+      cx="615"
+      cy="165"
+      r="70"
+      fill="#fff"
+      stroke="#75aec2"
+      stroke-width="3"
+    />
+
+    <text
+      x="145"
+      y="160"
+      text-anchor="middle"
+      font-size="17"
+    >Structure</text>
+
+    <text
+      x="145"
+      y="185"
+      text-anchor="middle"
+      font-size="13"
+    >01</text>
+
+    <text
+      x="380"
+      y="160"
+      text-anchor="middle"
+      font-size="17"
+    >Function</text>
+
+    <text
+      x="380"
+      y="185"
+      text-anchor="middle"
+      font-size="13"
+    >02</text>
+
+    <text
+      x="615"
+      y="160"
+      text-anchor="middle"
+      font-size="17"
+    >Adaptation</text>
+
+    <text
+      x="615"
+      y="185"
+      text-anchor="middle"
+      font-size="13"
+    >03</text>
+
+    <path
+      d="M215 165H305 M450 165H540"
+      stroke="#6f7f77"
+      stroke-width="4"
+    />
+
+    <path
+      d="M295 155l15 10-15 10
+         M530 155l15 10-15 10"
+      fill="none"
+      stroke="#6f7f77"
+      stroke-width="4"
+    />
+
+    <text
+      x="380"
+      y="270"
+      text-anchor="middle"
+      font-size="17"
+    >Concept → Structure → Function → Adaptation</text>
+
+  </svg>
+  `;
 }
 
-/* ===== Visual Atlas: one teaching schematic for each of the 12 subtopics ===== */
-function visualSvg(i){
- const d=subtopics[i], labels=[
- "Structure","Body plan","Function","Adaptation"
- ];
- return `<svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg">
- <rect x="25" y="20" width="710" height="300" rx="18" fill="#eef7f2" stroke="#6f9d89" stroke-width="3"/>
- <text x="380" y="58" text-anchor="middle" font-size="24" font-weight="700">${d.title}</text>
- <circle cx="145" cy="165" r="70" fill="#fff" stroke="#6f9d89" stroke-width="3"/>
- <circle cx="380" cy="165" r="70" fill="#fff" stroke="#c59b35" stroke-width="3"/>
- <circle cx="615" cy="165" r="70" fill="#fff" stroke="#75aec2" stroke-width="3"/>
- <text x="145" y="160" text-anchor="middle" font-size="17">Structure</text><text x="145" y="185" text-anchor="middle" font-size="13">01</text>
- <text x="380" y="160" text-anchor="middle" font-size="17">Function</text><text x="380" y="185" text-anchor="middle" font-size="13">02</text>
- <text x="615" y="160" text-anchor="middle" font-size="17">Adaptation</text><text x="615" y="185" text-anchor="middle" font-size="13">03</text>
- <path d="M215 165H305 M450 165H540" stroke="#6f7f77" stroke-width="4"/>
- <path d="M295 155l15 10-15 10 M530 155l15 10-15 10" fill="none" stroke="#6f7f77" stroke-width="4"/>
- <text x="380" y="270" text-anchor="middle" font-size="17">Concept → Structure → Function → Adaptation</text>
- </svg>`;
+
+function buildAtlasIndex(){
+
+  document.getElementById("atlasIndex").innerHTML =
+    Object.keys(subtopics).map(i => `
+
+      <button
+        type="button"
+        class="atlas-card"
+        onclick="openAtlasItem(${i})"
+      >
+
+        <span class="atlas-no">
+          ${String(i).padStart(2,"0")}
+        </span>
+
+        <span class="atlas-thumb">
+          ${visualSvg(i)}
+        </span>
+
+        <span class="atlas-name">
+          ${subtopics[i].title}
+        </span>
+
+        <span class="atlas-sub">
+          Teaching schematic
+        </span>
+
+      </button>
+
+    `).join("");
 }
-const atlasData=Object.keys(subtopics).map(i=>({title:subtopics[i].title,sub:"Teaching schematic",note:"Self-authored concept visual.",svg:visualSvg(i)}));
-function openVisual(){buildAtlasIndex();document.getElementById('atlasIndex').style.display='grid';document.getElementById('atlasView').classList.remove('active');document.getElementById('visualTitle').textContent='🔬 Visual Atlas — Chapter 09 Lecture 02';openModal('visualModal')}
-function buildAtlasIndex(){document.getElementById('atlasIndex').innerHTML=Object.keys(subtopics).map(i=>`<button type="button" class="atlas-card" onclick="openAtlasItem(${i})"><span class="atlas-no">${String(i).padStart(2,'0')}</span><span class="atlas-thumb">${visualSvg(i)}</span><span class="atlas-name">${subtopics[i].title}</span><span class="atlas-sub">Teaching schematic</span></button>`).join('')}
-function showAtlasIndex(){openVisual()}
-function openAtlasItem(i){document.getElementById('atlasIndex').style.display='none';document.getElementById('atlasView').classList.add('active');document.getElementById('atlasViewTitle').textContent=String(i).padStart(2,'0')+' — '+subtopics[i].title;document.getElementById('atlasViewBody').innerHTML=visualSvg(i);document.getElementById('atlasViewNote').innerHTML='Self-authored teaching schematic for concept visualization; not drawn to anatomical scale.'}
-/* ===== Chapter-specific Examination + Test Readiness ===== */
-const examQuestions=[["Which group lacks a vertebral column?", ["Invertebrates", "Mammals", "Birds", "Fishes"], 0], ["Water enters a sponge through:", ["Osculum", "Ostia", "Mantle", "Tube feet"], 1], ["Choanocytes help with:", ["Water currents and food capture", "Flight", "Vertebral support", "Amniotic eggs"], 0], ["Cnidocytes are:", ["Stinging cells", "Sponge pores", "Germ layers", "Bones"], 0], ["The polyp form is mainly:", ["Attached", "Free-swimming", "Vertebrate", "Segmented"], 0], ["Nematodes are typically:", ["Cylindrical and unsegmented", "Feathered", "Radially symmetrical vertebrates", "Shell-bearing"], 0], ["Annelids are notable for:", ["Segmentation", "Feathers", "Cartilage", "Tube feet"], 0], ["Arthropods possess:", ["Jointed appendages and exoskeleton", "Notochord", "Mantle", "Tube feet"], 0], ["Echinoderms are mainly:", ["Marine", "Terrestrial", "Freshwater insects", "Mammals"], 0], ["Hemichordates include body regions called:", ["Proboscis, collar and trunk", "Head, thorax and abdomen", "Mantle, foot and visceral mass", "Cephalothorax and abdomen"], 0], ["A characteristic chordate structure is:", ["Notochord", "Exoskeleton", "Shell", "Tube foot"], 0], ["Vertebrates are characterized by:", ["Vertebral column and cranium", "Ostia and osculum", "Mantle and foot", "Cnidocytes"], 0], ["Chondrichthyes have a skeleton mainly of:", ["Cartilage", "Bone", "Chitin", "Shell"], 0], ["Osteichthyes are:", ["Bony fishes", "Cartilaginous fishes", "Amphibians", "Mammals"], 0], ["A major reptilian terrestrial adaptation is:", ["Amniotic egg and dry skin", "Gills", "Moist skin only", "Tube feet"], 0], ["Birds characteristically have:", ["Feathers", "Cnidocytes", "Ostia", "Mantle"], 0], ["Archaeopteryx is important because it shows:", ["A mix of bird-like and reptile-like traits", "Modern mammalian traits", "Sponge anatomy", "Fish gills"], 0], ["Mammals characteristically have:", ["Hair and mammary glands", "Feathers and air sacs", "Tube feet", "Cnidocytes"], 0], ["Prototheria are:", ["Monotremes", "Marsupials", "Placental mammals", "Birds"], 0], ["Eutheria are:", ["Placental mammals", "Jawless fishes", "Marsupials only", "Monotremes"], 0]];
-const readinessQuestions=[["The sponge inlet pores are:", ["Ostia", "Osculum", "Mantle"], 0], ["The sponge outlet is:", ["Osculum", "Ostia", "Polyp"], 0], ["Cnidarian stinging cells are:", ["Cnidocytes", "Choanocytes", "Nephridia"], 0], ["Annelids show:", ["Segmentation", "Feathers", "Cartilage"], 0], ["Arthropods have:", ["Jointed appendages", "Notochord", "Tube feet"], 0], ["Echinoderms are:", ["Marine", "Terrestrial", "Freshwater only"], 0], ["A chordate diagnostic structure is:", ["Notochord", "Exoskeleton", "Shell"], 0], ["Chondrichthyes are:", ["Cartilaginous fishes", "Bony fishes", "Mammals"], 0], ["Amphibians commonly have:", ["Moist skin and lungs", "Feathers", "Hair"], 0], ["Reptiles have:", ["Amniotic eggs", "Gills as adults", "Tube feet"], 0], ["Birds have:", ["Feathers", "Hair", "Cnidocytes"], 0], ["Mammals have:", ["Mammary glands", "Ostia", "Tube feet"], 0]];
-let assessState={mode:'',index:0,score:0,answered:false,questions:[]};
-function openAssessment(mode){assessState={mode,index:0,score:0,answered:false,questions:mode==='exam'?examQuestions:readinessQuestions};document.getElementById('assessmentTitle').textContent=mode==='exam'?'🏛️ Examination Mode':'🧑‍🎓 Test Readiness';document.getElementById('assessmentIntro').innerHTML=mode==='exam'?'<p>Chapter 09 Lecture 02 کے موجودہ درسی مواد پر مبنی مکمل practice examination۔ ہر سوال کے بعد جواب اور score دکھایا جائے گا۔</p>':'<p>Chapter 09 Lecture 02 کے concepts پر chapter-specific readiness check۔ سوالات اسی lecture material سے لیے گئے ہیں۔</p>';openModal('assessmentModal');renderAssessmentQuestion()}
-function renderAssessmentQuestion(){const q=assessState.questions[assessState.index];document.getElementById('assessmentBody').innerHTML=`<div class="assess-top"><span class="assess-progress">Question ${assessState.index+1} / ${assessState.questions.length}</span><span class="assess-score">Score: ${assessState.score}</span></div><div class="question-card"><h4>${q[0]}</h4>${q[1].map((o,i)=>`<button type="button" class="option" onclick="answerAssessment(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div><div id="answerFeedback"></div>`}
-function answerAssessment(choice){if(assessState.answered)return;assessState.answered=true;const q=assessState.questions[assessState.index];document.querySelectorAll('#assessmentBody .option').forEach((b,i)=>{b.classList.add('disabled');if(i===q[2])b.classList.add('correct');if(i===choice&&choice!==q[2])b.classList.add('wrong')});if(choice===q[2])assessState.score++;const done=assessState.index===assessState.questions.length-1;document.getElementById('answerFeedback').innerHTML=`<div class="assess-result">${choice===q[2]?'✓ درست جواب':'✗ درست جواب: '+String.fromCharCode(65+q[2])}${done?`<br>Final Score: ${assessState.score} / ${assessState.questions.length}`:''}</div><div class="assess-actions"><button class="assess-btn" onclick="${done?'restartAssessment()':'nextAssessment()'}">${done?'دوبارہ شروع کریں':'اگلا سوال →'}</button></div>`}
-function nextAssessment(){assessState.index++;assessState.answered=false;renderAssessmentQuestion()}
-function restartAssessment(){openAssessment(assessState.mode)}
+
+
+function openVisual(){
+
+  buildAtlasIndex();
+
+  document.getElementById("atlasIndex").style.display = "grid";
+
+  document.getElementById("atlasView").classList.remove("active");
+
+  document.getElementById("visualTitle").textContent =
+    "🔬 Visual Atlas — Chapter 09 Lecture 02";
+
+  openModal("visualModal");
+}
+
+
+function showAtlasIndex(){
+  openVisual();
+}
+
+
+function openAtlasItem(i){
+
+  if(!subtopics[i]) return;
+
+  document.getElementById("atlasIndex").style.display = "none";
+
+  document.getElementById("atlasView").classList.add("active");
+
+  document.getElementById("atlasViewTitle").textContent =
+    String(i).padStart(2,"0") +
+    " — " +
+    subtopics[i].title;
+
+  document.getElementById("atlasViewBody").innerHTML =
+    visualSvg(i);
+
+  document.getElementById("atlasViewNote").textContent =
+    "Self-authored teaching schematic for concept visualization; not drawn to anatomical scale.";
+}
+
+
+/* =========================================================
+   ASSESSMENT
+   IMPORTANT:
+   Only Chapter 09 Lecture 02 Invertebrate material
+   ========================================================= */
+
+const examQuestions = [
+
+[
+ "Which group lacks a vertebral column?",
+ ["Invertebrates","Vertebrates","Mammals","Birds"],
+ 0
+],
+
+[
+ "Water enters a sponge mainly through:",
+ ["Osculum","Ostia","Mantle","Tube feet"],
+ 1
+],
+
+[
+ "Choanocytes are also called:",
+ ["Collar cells","Stinging cells","Muscle cells","Nerve cells"],
+ 0
+],
+
+[
+ "The main outlet of water from a sponge is the:",
+ ["Ostium","Osculum","Mantle","Foot"],
+ 1
+],
+
+[
+ "Cnidocytes are specialized:",
+ ["Stinging cells","Collar cells","Digestive cells","Blood cells"],
+ 0
+],
+
+[
+ "The polyp form of a cnidarian is generally:",
+ ["Attached","Free-swimming","Segmented","Shell-bearing"],
+ 0
+],
+
+[
+ "The medusa form is generally:",
+ ["Free-swimming","Permanently attached","Segmented","Terrestrial"],
+ 0
+],
+
+[
+ "Platyhelminths are generally:",
+ ["Flat and bilaterally symmetrical","Radially symmetrical vertebrates","Shell-bearing","Jointed"],
+ 0
+],
+
+[
+ "Nematodes are typically:",
+ ["Cylindrical and unsegmented","Flat and segmented","Radial and shell-bearing","Jointed"],
+ 0
+],
+
+[
+ "A complete digestive tract has:",
+ ["A mouth and an anus","Only a mouth","Only an anus","No openings"],
+ 0
+],
+
+[
+ "A major characteristic of annelids is:",
+ ["Segmentation","Feathers","Exoskeleton only","Tube feet"],
+ 0
+],
+
+[
+ "Arthropods possess:",
+ ["Jointed appendages and exoskeleton","Notochord","Mantle only","Tube feet only"],
+ 0
+],
+
+[
+ "The arthropod exoskeleton is primarily important for:",
+ ["Protection and support","Photosynthesis","Milk production","Gas storage"],
+ 0
+],
+
+[
+ "Insects typically have:",
+ ["Head, thorax and abdomen","Head and tail only","Mantle and foot","Proboscis and trunk"],
+ 0
+],
+
+[
+ "Metamorphosis refers to:",
+ ["Developmental transformation","Body segmentation","Water intake","Shell formation"],
+ 0
+],
+
+[
+ "Pollination is an important ecological role of many:",
+ ["Insects","Sponges","Flatworms","Jellyfish"],
+ 0
+],
+
+[
+ "Echinoderms are primarily:",
+ ["Marine animals","Terrestrial mammals","Freshwater insects","Flying animals"],
+ 0
+],
+
+[
+ "Adult echinoderms commonly show:",
+ ["Radial symmetry","Bilateral symmetry only","No symmetry","Jointed symmetry"],
+ 0
+],
+
+[
+ "The echinoderm water vascular system is associated with:",
+ ["Tube feet","Feathers","Cnidocytes","Ostia"],
+ 0
+],
+
+[
+ "Major molluscan groups include:",
+ ["Gastropoda, Bivalvia and Cephalopoda",
+  "Insecta, Arachnida and Crustacea",
+  "Porifera, Cnidaria and Annelida",
+  "Mammalia, Aves and Reptilia"],
+ 0
+],
+
+[
+ "Which phylum includes snails?",
+ ["Mollusca","Annelida","Cnidaria","Porifera"],
+ 0
+],
+
+[
+ "Which phylum includes earthworms?",
+ ["Annelida","Mollusca","Arthropoda","Echinodermata"],
+ 0
+],
+
+[
+ "Which phylum includes starfish?",
+ ["Echinodermata","Porifera","Nematoda","Platyhelminthes"],
+ 0
+],
+
+[
+ "Which feature is characteristic of arthropods?",
+ ["Jointed appendages","Notochord","Choanocytes","Cnidocytes"],
+ 0
+]
+
+];
+
+
+const readinessQuestions = [
+
+[
+ "Sponge inlet pores are called:",
+ ["Ostia","Osculum","Mantle"],
+ 0
+],
+
+[
+ "The sponge outlet is called:",
+ ["Osculum","Ostia","Polyp"],
+ 0
+],
+
+[
+ "Sponge collar cells are called:",
+ ["Choanocytes","Cnidocytes","Nephridia"],
+ 0
+],
+
+[
+ "Cnidarian stinging cells are:",
+ ["Cnidocytes","Choanocytes","Tube feet"],
+ 0
+],
+
+[
+ "The attached cnidarian body form is:",
+ ["Polyp","Medusa","Larva only"],
+ 0
+],
+
+[
+ "The free-swimming cnidarian body form is:",
+ ["Medusa","Polyp","Sponge"],
+ 0
+],
+
+[
+ "Platyhelminths are generally:",
+ ["Flatworms","Roundworms","Segmented worms"],
+ 0
+],
+
+[
+ "Nematodes are usually:",
+ ["Cylindrical and unsegmented","Flat and segmented","Shell-bearing"],
+ 0
+],
+
+[
+ "Annelids are characterized by:",
+ ["Segmentation","Cnidocytes","Exoskeleton only"],
+ 0
+],
+
+[
+ "Arthropods have:",
+ ["Jointed appendages","Tube feet only","Ostia"],
+ 0
+],
+
+[
+ "Adult insects have:",
+ ["Head, thorax and abdomen","Mantle, foot and visceral mass","Polyp and medusa"],
+ 0
+],
+
+[
+ "Echinoderms are mainly:",
+ ["Marine","Terrestrial","Freshwater only"],
+ 0
+]
+
+];
+
+
+let assessState = {
+  mode:"",
+  index:0,
+  score:0,
+  answered:false,
+  questions:[]
+};
+
+
+function openAssessment(mode){
+
+  assessState = {
+    mode:mode,
+    index:0,
+    score:0,
+    answered:false,
+    questions:
+      mode === "exam"
+      ? examQuestions
+      : readinessQuestions
+  };
+
+  document.getElementById("assessmentTitle").textContent =
+    mode === "exam"
+    ? "🏛️ Examination Mode"
+    : "🧑‍🎓 Test Readiness";
+
+  document.getElementById("assessmentIntro").innerHTML =
+    mode === "exam"
+    ? `
+      <p>
+        Chapter 09 Lecture 02 کے
+        <strong>Invertebrate Diversity</strong>
+        material پر مبنی practice examination۔
+      </p>
+    `
+    : `
+      <p>
+        Chapter 09 Lecture 02 کے بنیادی
+        invertebrate concepts پر chapter-specific readiness check۔
+      </p>
+    `;
+
+  openModal("assessmentModal");
+
+  renderAssessmentQuestion();
+}
+
+
+function renderAssessmentQuestion(){
+
+  const q = assessState.questions[assessState.index];
+
+  if(!q) return;
+
+  document.getElementById("assessmentBody").innerHTML = `
+
+    <div class="assess-top">
+
+      <span class="assess-progress">
+        Question ${assessState.index + 1}
+        /
+        ${assessState.questions.length}
+      </span>
+
+      <span class="assess-score">
+        Score: ${assessState.score}
+      </span>
+
+    </div>
+
+    <div class="question-card">
+
+      <h4>${q[0]}</h4>
+
+      ${q[1].map((option,index) => `
+
+        <button
+          type="button"
+          class="option"
+          onclick="answerAssessment(${index})"
+        >
+          ${String.fromCharCode(65 + index)}.
+          ${option}
+        </button>
+
+      `).join("")}
+
+    </div>
+
+    <div id="answerFeedback"></div>
+  `;
+}
+
+
+function answerAssessment(choice){
+
+  if(assessState.answered) return;
+
+  assessState.answered = true;
+
+  const q = assessState.questions[assessState.index];
+
+  const buttons =
+    document.querySelectorAll("#assessmentBody .option");
+
+  buttons.forEach((button,index) => {
+
+    button.classList.add("disabled");
+
+    if(index === q[2]){
+      button.classList.add("correct");
+    }
+
+    if(index === choice && choice !== q[2]){
+      button.classList.add("wrong");
+    }
+
+  });
+
+  if(choice === q[2]){
+    assessState.score++;
+  }
+
+  const done =
+    assessState.index ===
+    assessState.questions.length - 1;
+
+  const feedback =
+    choice === q[2]
+    ? "✓ درست جواب"
+    : "✗ درست جواب: " +
+      String.fromCharCode(65 + q[2]);
+
+  document.getElementById("answerFeedback").innerHTML = `
+
+    <div class="assess-result">
+
+      ${feedback}
+
+      ${
+        done
+        ? `
+          <br>
+          Final Score:
+          ${assessState.score}
+          /
+          ${assessState.questions.length}
+        `
+        : ""
+      }
+
+    </div>
+
+    <div class="assess-actions">
+
+      <button
+        class="assess-btn"
+        onclick="${done
+          ? "restartAssessment()"
+          : "nextAssessment()"}"
+      >
+        ${
+          done
+          ? "دوبارہ شروع کریں"
+          : "اگلا سوال →"
+        }
+      </button>
+
+    </div>
+  `;
+}
+
+
+function nextAssessment(){
+
+  if(
+    assessState.index >=
+    assessState.questions.length - 1
+  ){
+    return;
+  }
+
+  assessState.index++;
+
+  assessState.answered = false;
+
+  renderAssessmentQuestion();
+}
+
+
+function restartAssessment(){
+
+  const mode = assessState.mode;
+
+  openAssessment(mode);
+}
+
+
+/* =========================================================
+   UTILITY FALLBACK
+   ========================================================= */
+
+function utilityMessage(name){
+
+  alert(
+    name +
+    " module — اس baseline میں navigation فعال ہے؛ " +
+    "مکمل module کو approved academic data کے ساتھ منسلک کیا جائے گا۔"
+  );
+
+}
 </script>
 </body>
 </html>
