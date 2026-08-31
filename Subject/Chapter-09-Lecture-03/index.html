@@ -1,54 +1,126 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IAE Message</title>
+    <title>Imperial Academy of Education - Welcome Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            background: #0f172a;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: #0f172a;
-            font-family: 'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, sans-serif;
-            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu', serif;
+            overflow: hidden;
+            position: relative;
         }
 
+        /* پس منظر کا چمکتا ہوا گراڈیئنٹ */
+        .bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(236, 72, 153, 0.15) 40%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.9; }
+        }
+
+        /* کارڈ کا ڈیزائن (Glassmorphism) */
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
+            position: relative;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 45px 40px;
+            max-width: 650px;
+            width: 90%;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            max-width: 400px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                        0 0 30px rgba(168, 85, 247, 0.2);
+            z-index: 10;
         }
 
-        .gradient-text {
-            font-size: 2rem;
-            font-weight: bold;
-            line-height: 1.8;
-            background: linear-gradient(45deg, #ff7eb3, #ff758c, #7afcff, #feff9c);
-            background-size: 300% 300%;
+        /* تتلیوں کے اینیمیشن کینوس */
+        #particleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        /* تحریر کا انضمام اور غائب ہونا */
+        .content-wrap {
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .fade-out {
+            opacity: 0 !important;
+        }
+
+        .heading-badge {
+            display: inline-block;
+            padding: 6px 20px;
+            background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(139,92,246,0.2));
+            border: 1px solid rgba(236,72,153,0.4);
+            border-radius: 50px;
+            color: #f472b6;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(236,72,153,0.3);
+        }
+
+        /* ملٹی کلر ٹیکسٹ اینیمیشن */
+        .message-body {
+            font-size: 1.35rem;
+            line-height: 2.3;
+            font-weight: 400;
+            background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 30%, #fbcfe8 60%, #bae6fd 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: multicolor 6s ease infinite;
+            animation: gradientShift 6s ease infinite;
+            margin-bottom: 30px;
         }
 
-        .signature {
+        .footer-wrap {
             margin-top: 20px;
-            font-size: 1.4rem;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: block;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
         }
 
-        @keyframes multicolor {
+        .wisher {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -57,12 +129,172 @@
 </head>
 <body>
 
-    <div class="card">
-        <div class="gradient-text">
-            پریشان مت ہوں۔ میں بہت جلد آپ کے سامنے ہوں گی۔
+    <div class="bg-glow"></div>
+
+    <div class="card" id="cardContainer">
+        <canvas id="particleCanvas"></canvas>
+        
+        <div class="content-wrap" id="textContent">
+            <div class="heading-badge">✨ خوش آمدید!</div>
+            
+            <p class="message-body">
+                آپ کا سفر محض لفظوں اور کتابوں کا نہیں، بلکہ اپنے خوابوں کو حقیقت کا روپ دینے کا ہے۔ آپ کے اندر وہ تمام صلاحیت، عزم اور طاقت موجود ہے جو آپ کو ہر بلندی تک پہنچا سکتی ہے۔<br><br>
+                یاد رکھیں، ہر نیا دن ایک نیا موقع ہے—کچھ نیا سیکھنے کا، ایک قدم اور آگے بڑھنے کا، اور خود کو کل سے بہتر بنانے کا۔ ماضی کی رکاوٹوں کو بھول جائیں اور پوری توانائی کے ساتھ اپنے مقصد پر توجہ مرکوز کریں۔<br><br>
+                <strong>آج ہی سے، پورے دل اور جذبے کے ساتھ شروعات کریں۔ کامیابی آپ کی منتظر ہے!</strong>
+            </p>
+
+            <div class="footer-wrap">
+                <div class="wisher">آپ کی خیر خواہ</div>
+                <div class="brand-name">امپیریل اکیڈمی آف ایجوکیشن</div>
+            </div>
         </div>
-        <span class="signature">آپ کی اپنی IAE</span>
     </div>
 
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        const textContent = document.getElementById('textContent');
+        const cardContainer = document.getElementById('cardContainer');
+
+        function resizeCanvas() {
+            canvas.width = cardContainer.clientWidth;
+            canvas.height = cardContainer.clientHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        let butterflies = [];
+        let state = 'READING';
+
+        class Butterfly {
+            constructor(x, y, targetX, targetY, isReconstructing = false) {
+                this.x = x;
+                this.y = y;
+                this.startX = x;
+                this.startY = y;
+                this.targetX = targetX;
+                this.targetY = targetY;
+                this.size = Math.random() * 8 + 6;
+                this.color = `hsl(${Math.random() * 60 + 280}, 90%, 75%)`;
+                this.wingAngle = 0;
+                this.wingSpeed = 0.15 + Math.random() * 0.1;
+                this.progress = 0;
+                this.isReconstructing = isReconstructing;
+                
+                this.cp1x = x + (Math.random() - 0.5) * 200;
+                this.cp1y = y + (Math.random() - 0.5) * 200;
+                this.speed = 0.015 + Math.random() * 0.01;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(Math.sin(this.progress * Math.PI * 4) * 0.2);
+
+                this.wingAngle += this.wingSpeed;
+                const wingScale = Math.abs(Math.sin(this.wingAngle));
+
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+
+                ctx.beginPath();
+                ctx.ellipse(-this.size / 2 * wingScale, 0, this.size / 2 * wingScale, this.size / 3, Math.PI / 4, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.ellipse(this.size / 2 * wingScale, 0, this.size / 2 * wingScale, this.size / 3, -Math.PI / 4, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(0, 0, 1.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            update() {
+                this.progress += this.speed;
+                if (this.progress > 1) this.progress = 1;
+
+                const t = this.progress;
+                if (!this.isReconstructing) {
+                    this.x = (1-t)*(1-t)*this.startX + 2*(1-t)*t*this.cp1x + t*t*this.targetX;
+                    this.y = (1-t)*(1-t)*this.startY + 2*(1-t)*t*this.cp1y + t*t*this.targetY;
+                } else {
+                    this.x = (1-t)*this.startX + t*this.targetX;
+                    this.y = (1-t)*this.startY + t*this.targetY;
+                }
+            }
+        }
+
+        function triggerDissolve() {
+            state = 'DISSOLVING';
+            butterflies = [];
+
+            textContent.classList.add('fade-out');
+
+            const numButterflies = 60;
+            for (let i = 0; i < numButterflies; i++) {
+                const startX = Math.random() * canvas.width;
+                const startY = Math.random() * canvas.height;
+                const targetX = startX + (Math.random() - 0.5) * 500;
+                const targetY = startY - Math.random() * 400 - 100;
+
+                butterflies.push(new Butterfly(startX, startY, targetX, targetY, false));
+            }
+
+            setTimeout(triggerReconstruct, 1000);
+        }
+
+        function triggerReconstruct() {
+            state = 'RECONSTRUCTING';
+            butterflies = [];
+
+            const numButterflies = 60;
+            for (let i = 0; i < numButterflies; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const dist = Math.max(canvas.width, canvas.height);
+                
+                const startX = canvas.width / 2 + Math.cos(angle) * dist;
+                const startY = canvas.height / 2 + Math.sin(angle) * dist;
+                
+                const targetX = Math.random() * (canvas.width * 0.8) + (canvas.width * 0.1);
+                const targetY = Math.random() * (canvas.height * 0.8) + (canvas.height * 0.1);
+
+                butterflies.push(new Butterfly(startX, startY, targetX, targetY, true));
+            }
+
+            setTimeout(() => {
+                textContent.classList.remove('fade-out');
+            }, 800);
+
+            setTimeout(() => {
+                state = 'READING';
+                butterflies = [];
+            }, 1200);
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            butterflies.forEach(b => {
+                b.update();
+                b.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // 5 سیکنڈ تک تحریر دکھائی دے گی، پھر تحلیل اور بحالی کا عمل شروع ہوگا
+        setInterval(() => {
+            if (state === 'READING') {
+                triggerDissolve();
+            }
+        }, 6500);
+    </script>
 </body>
 </html>
