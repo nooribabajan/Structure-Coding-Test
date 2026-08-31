@@ -187,7 +187,7 @@ ul{padding-right:28px}
 }
 .utility{
   position:relative;
-  border:1px solid var(--line);
+  border:5px solid #f3b6b6;
   background:var(--paper);color:#000;
   border-radius:9px;padding:10px 6px;
   font:700 16px Arial,sans-serif;
@@ -252,10 +252,13 @@ ul{padding-right:28px}
   margin-bottom:15px;color:var(--g);
 }
 .close{
-  position:absolute;left:14px;bottom:12px;
+  position:fixed;
+  left:calc(50% - min(425px,47.5vw) + 14px);
+  bottom:12px;
   width:38px;height:38px;border:0;border-radius:50%;
   background:#eee9db;color:var(--g);
   font:800 22px Arial,sans-serif;cursor:pointer;
+  z-index:2100;
 }
 .close:hover{background:#e3dccb}
 .dictionary-table{width:100%;border-collapse:collapse;direction:rtl}
@@ -292,6 +295,7 @@ ul{padding-right:28px}
 @media(max-width:700px){.atlas-grid{grid-template-columns:1fr 1fr}.atlas-name{font-size:13px}.atlas-no{font-size:30px}}
 
 @media(max-width:700px){
+  .close{left:12px;bottom:12px}
   .container{padding:15px 10px 95px}
   .academic-title{font-size:22px}
   .topic-columns{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7px}
@@ -385,8 +389,8 @@ ul{padding-right:28px}
   <div class="topic-columns">
     <!-- RIGHT COLUMN = TOPIC 1 = LIGHT SKY -->
     <div class="topic-column right-column topic1">
-      <div class="topic-card topic-heading" aria-label="Topic 1">
-        <span class="topic-heading-title">Topic 1</span>
+      <div class="topic-card topic-heading" aria-label="Characteristics of Animals">
+        <span class="topic-heading-title">Characteristics of Animals</span>
       </div>
       <button class="topic-card" onclick="openSubtopic(1)"><span class="number">01</span><span class="title">Characteristics of Animals</span></button>
       <button class="topic-card" onclick="openSubtopic(2)"><span class="number">02</span><span class="title">More on Characteristics of Animals</span></button>
@@ -398,8 +402,8 @@ ul{padding-right:28px}
 
     <!-- LEFT COLUMN = TOPIC 2 = DIM LIGHT GREEN -->
     <div class="topic-column left-column topic2">
-      <div class="topic-card topic-heading" aria-label="Topic 2">
-        <span class="topic-heading-title">Topic 2</span>
+      <div class="topic-card topic-heading" aria-label="Invertebrata">
+        <span class="topic-heading-title">Invertebrata</span>
       </div>
       <button class="topic-card" onclick="openSubtopic(7)"><span class="number">07</span><span class="title">Invertebrates</span></button>
       <button class="topic-card" onclick="openSubtopic(8)"><span class="number">08</span><span class="title">Protozoa</span></button>
