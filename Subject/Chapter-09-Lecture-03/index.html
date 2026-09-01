@@ -1,318 +1,477 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+
+<html dir="rtl" lang="ur">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IAE Welcome Animation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>IAE110109 — Chapter 09 Lecture 03 — <span class="iae-dict-word" data-term="Chordates">Chordates</span> &amp; <span class="iae-dict-word" data-term="vertebrates">Vertebrates</span></title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--card:#fffdf8;--bg:#f3f0e7;--shadow:0 8px 24px rgba(23,62,52,.10)}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic',serif;line-height:1.9}.wrap{max-width:1180px;margin:auto;padding:18px}.top{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:22px;margin-bottom:18px;text-align:center}.brand{font:700 13px Inter,sans-serif;letter-spacing:.08em;color:#475569}.title{font-size:30px;font-weight:700;margin:5px 0;color:#2563eb}.intro{max-width:900px;margin:10px auto 0;font-size:18px;line-height:1.9;color:#334155}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.column{display:flex;flex-direction:column;gap:12px}.page{display:none}.page.active{display:block}.tab{position:relative;min-height:118px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05);transition:.2s}.tab:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(15,23,42,.1)}.topic1{border:2px solid var(--sky)}.topic2{border:2px solid var(--green)}.functional{border:2px solid var(--red)}.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 64px/1 Inter,sans-serif;color:var(--sky);opacity:.9;direction:ltr}.topic2 .num{color:#b9e9c3}.functional .num{color:var(--red)}.label{position:relative;z-index:2;font-size:16px;font-weight:700;color:#000;max-width:86%;line-height:1.55}.functional .label{font-family:Inter,'Noto Naskh Arabic',sans-serif}.topic-intro{min-height:130px}.topic-intro .num{font-size:64px}.functional-row{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.functional-row .tab{min-height:118px}.section-heading{text-align:center;margin:8px 0 14px;font-size:24px;color:#2563eb}.section-note{text-align:center;color:#475569;font-size:16px;margin:0 auto 16px;line-height:1.8}.footer-nav{position:sticky;bottom:0;z-index:30;margin:24px -18px -18px;padding:10px 14px;background:rgba(255,255,255,.96);border-top:1px solid #dbe4ee;box-shadow:0 -5px 18px rgba(15,23,42,.08);display:flex;justify-content:center}.footer-nav button{border:2px solid var(--sky);background:#fff;padding:10px 22px;border-radius:12px;cursor:pointer;font-family:inherit;font-size:16px;font-weight:700;color:#000}.footer-nav button:hover{background:var(--sky2)}.modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.modal.show{display:flex}.dialog{width:min(760px,96vw);max-height:86vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 25px 70px rgba(0,0,0,.25);position:relative;padding:28px 28px 70px;text-align:right}.close{position:fixed;left:16px;bottom:14px;width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483000;box-shadow:0 4px 14px rgba(0,0,0,.16);position:fixed!important;left:16px!important;bottom:14px!important}.dialog h2{margin:0 0 12px;font-size:25px;color:#0f172a}.lesson-title{font-size:27px;font-weight:700;margin:0 0 14px;text-align:center}.lesson-subtitle{font-size:15px;color:#64748b;text-align:center;margin:-6px 0 16px}.level-heading{display:block;font-size:18px;font-weight:800;margin-bottom:6px}.level-heading.basic-h{color:#dc2626}.level-heading.standard-h{color:#16a34a}.level-heading.mastery-h{color:#2563eb}.linked-word{color:#111;text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:#f59e0b;cursor:pointer;font-weight:700}.visual-link{margin-top:10px;padding:8px 12px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-weight:700}.visual-link:hover{background:#f8fafc}.dialog p,.dialog li{font-size:17px;line-height:1.9}.section{padding:14px;border-radius:14px;background:#f8fafc;margin:12px 0}.basic{border-right:5px solid #ef4444}.standard{border-right:5px solid #22c55e}.mastery{border-right:5px solid #3b82f6}.pill{display:inline-block;font:600 12px Inter;background:#eef2ff;border-radius:999px;padding:5px 9px;margin:2px}.search{width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}.dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover{background:#f8fafc}.visual-card{padding:16px;border:1px solid #e2e8f0;border-radius:14px;margin:10px 0}.diagram{font-family:Inter,sans-serif;direction:ltr;text-align:center;letter-spacing:.02em;background:#f8fafc;padding:20px;border-radius:12px;font-weight:700}.answer{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#f1f5f9}.choice{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit}.choice:hover{background:#f8fafc}.score{font-weight:700;margin-top:12px}.nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}.nav button{border:1px solid #cbd5e1;background:#fff;padding:9px 13px;border-radius:10px;cursor:pointer;font-family:inherit}.foot{text-align:center;color:#64748b;font-size:13px;margin:22px 0}
+@media(max-width:800px){.topic-grid{grid-template-columns:1fr}.functional-row{grid-template-columns:1fr 1fr}.title{font-size:25px}.intro{font-size:16px}.tab{min-height:108px}}
+@media(max-width:480px){.functional-row{grid-template-columns:1fr}.num{font-size:58px}.tab{min-height:104px}.label{font-size:16px}}
+</style>
+<style id="baseline-color-and-topic-layout-final">
+/* IMPERIAL ACADEMY — Chapter 06 Lecture 02 SOURCE-OF-TRUTH COLOR SYSTEM
+   Applied to Chapter 09 Lecture 03 while preserving the approved Topic-tab accents. */
+.top{background:var(--paper)!important;box-shadow:0 5px 20px #0000000f!important}
+.brand{color:var(--green)!important}
+.title{color:var(--green)!important}
+.intro{color:var(--ink)!important}
+.section-heading{color:var(--green)!important}
+.section-note{color:var(--muted)!important}
+.section-heading span:first-child{color:var(--sky)!important}
+.section-heading span:last-child{color:var(--topic-green)!important}
+.tab{background:var(--paper)!important;box-shadow:0 5px 15px #0000000d!important}
+.topic1{border-color:var(--sky)!important}
+.topic2{border-color:var(--topic-green)!important}
+.topic2 .num{color:var(--topic-green)!important}
+.functional{border-color:var(--red)!important}
+.functional .num{color:var(--red)!important}
+.label{color:#000!important}
+.top.section{background:#f8f2df!important;border-right:4px solid var(--gold)!important}
+.footer-nav{background:rgba(255,253,248,.97)!important;border-top-color:var(--line)!important;box-shadow:0 -5px 18px #00000010!important}
+.footer-nav button{border-color:var(--gold)!important;background:var(--paper)!important;color:var(--green)!important}
+.footer-nav button:hover{background:#f8f2df!important}
+.dialog{background:var(--paper)!important}
+.dialog h2,.lesson-title{color:var(--green)!important}
+.lesson-subtitle{color:var(--muted)!important}
+.section{background:#fff!important;border-color:var(--line)!important}
+.basic{border-right-color:#b45b4c!important;background:#fff7f4!important}
+.standard{border-right-color:#4d7867!important;background:var(--soft)!important}
+.mastery{border-right-color:var(--blue)!important;background:#f2f7fa!important}
+.level-heading.basic-h{color:#a4493d!important}
+.level-heading.standard-h{color:#356b58!important}
+.level-heading.mastery-h{color:var(--blue)!important}
+.search{border-color:var(--line)!important;background:var(--paper)!important}
+.dict-item,.visual-card{border-color:var(--line)!important;background:var(--paper)!important}
+.dict-item:hover,.visual-link:hover,.choice:hover{background:#f8f2df!important}
+.visual-link{border-color:var(--line)!important;background:var(--paper)!important}
+.diagram{background:#f8f2df!important}
+.choice{border-color:var(--line)!important;background:var(--paper)!important}
+.score{color:var(--green)!important}
+.foot{color:var(--muted)!important}
 
-        body {
-            background: #0f172a;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Noto Nastaliq Urdu', serif;
-            overflow: hidden;
-            position: relative;
-        }
+/* FINAL TOPIC TABS PAGE: two permanent parallel 50/50 columns. */
+body #topicsPage.active .topic-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  width:100%!important;
+  max-width:none!important;
+  gap:14px!important;
+  align-items:stretch!important;
+}
+body #topicsPage.active .topic-grid .column{min-width:0!important;width:100%!important}
+body #topicsPage.active .topic-grid .tab{width:100%!important;min-width:0!important}
+@media(max-width:800px){
+  body #topicsPage.active .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
 
-        /* Ambient Glow Background */
-        .bg-glow {
-            position: absolute;
-            width: 650px;
-            height: 650px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, rgba(236, 72, 153, 0.18) 40%, transparent 70%);
-            border-radius: 50%;
-            animation: pulse 8s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
+}
+@media(max-width:480px){
+  body #topicsPage.active .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:5px!important}
 
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 0.9; }
-        }
-
-        /* سکرین کے بالکل سینٹر کے لیے پوزیشننگ */
-        .card-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 650px;
-            background: rgba(30, 41, 59, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 45px 35px;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                        0 0 30px rgba(168, 85, 247, 0.2);
-            z-index: 10;
-        }
-
-        #butterflyCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 25;
-        }
-
-        .heading-badge {
-            display: inline-block;
-            padding: 6px 22px;
-            background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(139,92,246,0.2));
-            border: 1px solid rgba(236,72,153,0.4);
-            border-radius: 50px;
-            color: #f472b6;
-            font-size: 1.15rem;
-            margin-bottom: 25px;
-            box-shadow: 0 0 15px rgba(236,72,153,0.3);
-        }
-
-        .message-body {
-            font-size: 1.35rem;
-            line-height: 2.3;
-            font-weight: 400;
-            margin-bottom: 30px;
-            direction: rtl;
-        }
-
-        /* الفاظ پر اینیمیشن کا اثر */
-        .word {
-            display: inline-block;
-            white-space: pre;
-            background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 35%, #fbcfe8 70%, #bae6fd 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease infinite;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .word.hidden {
-            opacity: 0;
-            transform: scale(0.6);
-        }
-
-        .footer-wrap {
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-        }
-
-        .wisher {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            margin-bottom: 5px;
-        }
-
-        .brand-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #38bdf8, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
+}
+</style><style id="fixed-page-close-final">.dialog > .close{position:fixed!important;left:16px!important;bottom:14px!important;z-index:2147483000!important;}</style><style>.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.functional-row{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:760px){.topic-grid,.functional-row{grid-template-columns:1fr}}</style><meta name="assessment-architecture" content="Chapter 01 baseline-inspired readiness and examination system: randomized readiness bank, submit/result/review/weak-area flow, formal examination system.">
 </head>
 <body>
+<div class="wrap">
+<section class="page active" id="homePage">
+<header class="top"><div class="brand">IMPERIAL ACADEMY OF EDUCATION</div><div class="title">IAE110109 — Chapter 09 · Lecture 03</div><div class="intro">یہ لیکچر دو بڑے موضوعات کو ایک مربوط تسلسل میں کور کرتا ہے۔ پہلے موضوع میں <span class="iae-dict-word" data-term="Chordates">Chordates</span> اور Non-Vertebrate <span class="iae-dict-word" data-term="Chordates">Chordates</span> کی بنیادی <span class="iae-dict-word" data-term="body plan">body plan</span>، اہم structures اور متعلقہ groups شامل ہیں، جبکہ دوسرے موضوع میں <span class="iae-dict-word" data-term="Vertebrata">Vertebrata</span> سے شروع ہو کر fishes، <span class="iae-dict-word" data-term="amphibians">amphibians</span>، <span class="iae-dict-word" data-term="reptiles">reptiles</span>، birds اور <span class="iae-dict-word" data-term="mammals">mammals</span> تک vertebrate groups اور ان کی اہم adaptations کا مطالعہ کیا جائے گا۔</div></header>
+<div class="top section"><strong>Lecture 03 کا تعلیمی نقشہ</strong><p>یہ لیکچر دو Major Topics پر مشتمل ہے۔ Topics Page پر دونوں Topics الگ الگ columns میں دیے گئے ہیں، جہاں ہر Topic کے اندر اس کے تمام subtopics sequential tabs کی صورت میں موجود ہیں۔</p></div>
+<div class="footer-nav"><button onclick="showPage('topicsPage')">موضوعات پر جائیں</button></div>
+</section>
+<!-- Topic 2 green-tab numbering corrected: 1-13; positions, sizes, colors unchanged. -->
+<section class="page" id="topicsPage">
+<header class="top"><div class="brand">IMPERIAL ACADEMY OF EDUCATION</div><div class="title">Lecture 03 — Topics</div><h1 class="section-heading"><span style="color:#60a5fa"><span class="iae-dict-word" data-term="Chordates">Chordates</span> and Non-Vertebrate <span class="iae-dict-word" data-term="Chordates">Chordates</span></span>   |   <span style="color:#4ade80"><span class="iae-dict-word" data-term="Vertebrata">Vertebrata</span> and Major Vertebrate Groups</span></h1><p class="section-note">دونوں بڑے موضوعات دو columns میں منظم ہیں۔ subtopics مسلسل numbering کے ساتھ متوازن انداز میں تقسیم کیے گئے ہیں، جبکہ Dictionary، Visual Atlas، Test Readiness اور Exam کے چار functional tabs دو دو کر کے دونوں طرف رکھے گئے ہیں۔</p></header>
+<div class="topic-grid">
+<section class="column"><div class="tab topic1 topic-intro" onclick="openTopic('t1')"><div class="label">Chordates and Non-Vertebrate Chordates</div></div><div class="tab topic1" onclick="openSub('c1')"><div class="num">1</div><div class="label">Chordates</div></div><div class="tab topic1" onclick="openSub('c2')"><div class="num">2</div><div class="label">Phylum Hemichordata</div></div><div class="tab topic1" onclick="openSub('c3')"><div class="num">3</div><div class="label">Notochord and Pharyngeal Structures</div></div><div class="tab topic1" onclick="openSub('c4')"><div class="num">4</div><div class="label">Subphyla Urochordata and Cephalochordata</div></div><div class="tab topic2" onclick="openSub('v1')"><div class="num">1</div><div class="label">Subphylum Vertebrata (Craniata) and Jawless Fish</div></div><div class="tab topic2" onclick="openSub('v2')"><div class="num">2</div><div class="label">Class Pisces</div></div><div class="tab topic2" onclick="openSub('v3')"><div class="num">3</div><div class="label">Class Chondrichthyes</div></div><div class="tab topic2" onclick="openSub('v4')"><div class="num">4</div><div class="label">Class Osteichthyes</div></div><div class="tab topic2" onclick="openSub('v5')"><div class="num">5</div><div class="label">Adaptations of Fishes to Aquatic Life</div></div></section>
+<section class="column"><div class="tab topic2 topic-intro" onclick="openTopic('t2')"><div class="label">Vertebrata and Major Vertebrate Groups</div></div><div class="tab topic2" onclick="openSub('v6')"><div class="num">6</div><div class="label">Class Amphibia</div></div><div class="tab topic2" onclick="openSub('v7')"><div class="num">7</div><div class="label">Class Reptilia</div></div><div class="tab topic2" onclick="openSub('v8')"><div class="num">8</div><div class="label">Class Aves</div></div><div class="tab topic2" onclick="openSub('v9')"><div class="num">9</div><div class="label">Flying Birds and Running Birds</div></div><div class="tab topic2" onclick="openSub('v10')"><div class="num">10</div><div class="label">Archaeopteryx</div></div><div class="tab topic2" onclick="openSub('v11')"><div class="num">11</div><div class="label">Class Mammalia</div></div><div class="tab topic2" onclick="openSub('v12')"><div class="num">12</div><div class="label">Subclasses Prototheria and Metatheria</div></div><div class="tab topic2" onclick="openSub('v13')"><div class="num">13</div><div class="label">Subclass Eutheria</div></div></section></div>
+<div class="functional-row" style="grid-template-columns:repeat(2,minmax(0,1fr));"><div class="tab functional" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional" onclick="openFunctional('readiness')"><div class="num">T</div><div class="label">Test Readiness</div></div><div class="tab functional" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Exam</div></div></div>
+<div class="functional-row extended-tools" style="grid-template-columns:repeat(2,minmax(0,1fr));"><div class="tab functional" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div><div class="tab functional" onclick="openFunctional('practice')"><div class="num">Q</div><div class="label">Practice</div></div><div class="tab functional" onclick="openFunctional('revision')"><div class="num">R</div><div class="label">Revision</div></div><div class="tab functional" onclick="openFunctional('mastery')"><div class="num">M</div><div class="label">Mastery</div></div></div>
+<div class="footer-nav"><button onclick="showPage('homePage')">← لیکچر ہوم</button></div>
+</section>
+<div class="modal" id="modal" onclick="backdropClose(event)"><div class="dialog" id="dialog"><button class="close" onclick="closeModal()">×</button><div id="content"></div></div></div>
+</div>
+<script>
+const data={
+t1:{title:'Topic 1 — Chordates and Non-Vertebrate Chordates',intro:'اس topic میں chordate body plan کی چار بنیادی خصوصیات، Hemichordata، notochord اور pharyngeal structures، اور Urochordata/Cephalochordata کا تقابلی مطالعہ شامل ہے۔'},
+t2:{title:'Topic 2 — Vertebrata and Major Vertebrate Groups',intro:'اس topic میں Vertebrata/Craniata سے شروع ہو کر jawless fishes، fishes کی major groups، amphibians، reptiles، birds اور mammals تک vertebrate organization اور adaptations کا تسلسل شامل ہے۔'},
+c1:{title:'Chordates',basic:'Chordates ایسے animals ہیں جن میں زندگی کے کسی مرحلے پر notochord، dorsal hollow nerve cord، pharyngeal structures اور post-anal tail جیسی بنیادی خصوصیات پائی جاتی ہیں۔',standard:'Notochord body axis کو support کرتا ہے۔ Dorsal hollow nerve cord nervous system کی بنیادی axial structure ہے۔ Pharyngeal structures مختلف chordates میں مختلف functions سے وابستہ ہو سکتی ہیں۔',mastery:'Chordate identity کو adult appearance سے نہیں بلکہ developmental body plan سے پہچاننا زیادہ درست ہے، کیونکہ بعض chordates میں adult stage تک تمام classical features واضح طور پر برقرار نہیں رہتے۔'},
+c2:{title:'Phylum Hemichordata',basic:'Hemichordates عموماً marine animals ہیں۔ ان کے جسم کے تین بنیادی حصے Proboscis + Collar + Trunk ہیں۔',standard:'Hemichordates میں pharyngeal slits موجود ہو سکتی ہیں۔ ان میں stomochord موجود ہوتا ہے، لیکن یہ chordate کا true notochord نہیں ہے۔',mastery:'Hemichordates کو chordates کے ساتھ کچھ developmental اور structural similarities کی وجہ سے evolutionary studies میں اہم سمجھا جاتا ہے، مگر modern classification میں انہیں true chordates سے الگ رکھا جاتا ہے۔'},
+c3:{title:'Notochord and Pharyngeal Structures',basic:'Notochord ایک flexible rod-like structure ہے جو جسم کے longitudinal axis کو support کرتا ہے۔ Pharyngeal structures pharyngeal region میں development کے دوران بننے والی structures ہیں۔',standard:'Chordate body plan میں Notochord + Dorsal hollow nerve cord + Pharyngeal structures + Post-anal tail بنیادی شناختی خصوصیات ہیں۔ Vertebrates میں notochord embryonic development کے دوران اہم supporting structure ہوتا ہے اور vertebral column کی development سے اس کا گہرا تعلق ہے۔',mastery:'Notochord کو صرف skeletal support سمجھنا کافی نہیں؛ یہ chordate development میں body axis اور associated developmental patterning سے بھی اہم طور پر متعلق ہے۔'},
+c4:{title:'Subphyla Urochordata and Cephalochordata',basic:'Urochordata/Tunicata میں notochord بنیادی طور پر larval tail میں موجود ہوتا ہے۔ Cephalochordata میں notochord جسم کی length کے ساتھ برقرار رہتا ہے۔',standard:'Urochordate larva میں chordate characteristics زیادہ واضح ہوتی ہیں، جبکہ adult form میں body organization کافی modify ہو سکتی ہے۔ Cephalochordates، مثلاً lancelets، میں chordate body plan زیادہ واضح طور پر برقرار رہتا ہے۔',mastery:'یہ دونوں groups chordate evolution کو سمجھنے کے لیے اہم ہیں کیونکہ یہ دکھاتے ہیں کہ ایک بنیادی chordate body plan مختلف evolutionary trajectories میں کس طرح modify ہو سکتا ہے۔'},
+v1:{title:'Subphylum Vertebrata (Craniata) and Jawless Fish',basic:'Vertebrates میں cranium موجود ہوتا ہے اور vertebral column یا اس سے متعلق vertebral elements پائے جاتے ہیں۔ Jawless fishes میں true jaws absent ہوتی ہیں۔',standard:'Lampreys jawless vertebrates کی معروف مثال ہیں۔ Jawless condition کے ساتھ ان کے feeding structures jawed fishes سے مختلف ہوتے ہیں۔',mastery:'Vertebrate evolution میں jaw development ایک اہم innovation تھا کیونکہ jaws نے feeding، prey capture اور ecological specialization کے امکانات کو وسیع کیا۔'},
+v2:{title:'Class Pisces',basic:'Fish عموماً Gills + Fins + Streamlined body رکھتی ہیں۔ Gills respiration کے لیے اور fins locomotion اور balance کے لیے اہم ہیں۔',standard:'Fish میں lateral line system پانی میں vibrations اور pressure changes detect کرنے میں مدد دیتا ہے۔ بہت سی bony fishes میں swim bladder buoyancy regulation میں مدد دیتی ہے۔',mastery:'Fish body plan aquatic environment کے لیے integrated adaptation ہے: Streamlined shape → reduced drag؛ Gills → efficient gas exchange؛ Fins → propulsion/control؛ Lateral line → environmental sensing۔'},
+v3:{title:'Class Chondrichthyes',basic:'Chondrichthyes cartilaginous fishes ہیں۔ ان کا internal skeleton بنیادی طور پر cartilage کا ہوتا ہے۔ Examples: Sharks + Rays + Skates۔',standard:'ان میں paired fins، gills، jaws اور streamlined body جیسی aquatic adaptations پائی جاتی ہیں۔ Sharks میں highly developed sensory systems prey اور environmental signals detect کرنے میں مدد دیتے ہیں۔',mastery:'Chondrichthyans میں jaws، paired fins، sensory systems اور efficient swimming adaptations مل کر active aquatic lifestyles کو support کرتے ہیں۔'},
+v4:{title:'Class Osteichthyes',basic:'Osteichthyes bony fishes کا group ہے۔ ان کا internal skeleton بنیادی طور پر bone کا ہوتا ہے۔',standard:'Operculum gills کو protect کرتا ہے اور water movement across the gills میں مدد دیتا ہے۔ بہت سی bony fishes میں swim bladder buoyancy regulation کے لیے اہم ہے۔',mastery:'Chondrichthyes → predominantly cartilaginous skeleton؛ Osteichthyes → predominantly bony skeleton۔ یہ دونوں major fish groups کے درمیان ایک بنیادی structural distinction ہے۔'},
+v5:{title:'Adaptations of Fishes to Aquatic Life',basic:'اہم aquatic adaptations: Streamlined body → water resistance کم؛ Gills → dissolved oxygen کا حصول؛ Fins → locomotion، steering اور balance۔',standard:'Lateral line system water movements اور vibrations detect کرنے میں مدد دیتا ہے۔ Mucus-covered skin protection اور swimming efficiency میں مدد کر سکتی ہے۔ Bony fishes میں swim bladder buoyancy maintain کرنے میں اہم کردار ادا کر سکتی ہے۔',mastery:'Fish adaptations کو integrated system کے طور پر سمجھیں: Shape → hydrodynamics؛ Gills → respiration؛ Fins → propulsion/control؛ Lateral line → mechanosensation؛ Buoyancy mechanisms → energy-efficient movement۔'},
+v6:{title:'Class Amphibia',basic:'Amphibians عموماً aquatic اور terrestrial دونوں environments سے تعلق رکھتے ہیں۔ اہم خصوصیات: Moist skin + Lungs + Cutaneous respiration۔',standard:'Amphibian skin gas exchange میں اہم کردار ادا کر سکتی ہے، اس لیے اس کا moist رہنا ضروری ہے۔ بہت سے amphibians کی life cycle میں aquatic larval stage اور terrestrial adult stage پائی جاتی ہے۔ Metamorphosis میں larval body adult form میں تبدیل ہوتی ہے۔',mastery:'Amphibians aquatic اور terrestrial life کے درمیان evolutionary transition کو سمجھنے کے لیے اہم ہیں کیونکہ ان میں دونوں environments سے متعلق adaptations کا امتزاج موجود ہے۔'},
+v7:{title:'Class Reptilia',basic:'Reptiles عموماً terrestrial vertebrates ہیں۔ اہم خصوصیات: Dry keratinized skin + Lungs + Internal fertilization۔',standard:'Keratinized skin water loss کم کرنے میں مدد دیتی ہے۔ Amniotic egg embryo کو aquatic environment سے نسبتاً آزاد development کی اجازت دیتا ہے۔ Internal fertilization بھی terrestrial reproduction کے لیے اہم adaptation ہے۔',mastery:'Reptilian organization terrestrial life کے لیے اہم evolutionary advances ظاہر کرتی ہے: Water-resistant covering + Internal fertilization + Amniotic reproduction + Efficient lungs۔'},
+v8:{title:'Class Aves',basic:'Birds کی سب سے نمایاں خصوصیت feathers ہیں۔ دیگر اہم خصوصیات: Wings + Beak + Endothermy + Four-chambered heart۔',standard:'Bird respiratory system high metabolic demand کو support کرنے کے لیے highly efficient ہے۔ Feathers flight کے ساتھ ساتھ insulation اور دیگر functions میں بھی کردار ادا کرتے ہیں۔ Wings modified forelimbs ہیں۔',mastery:'Flight ایک single adaptation کا نتیجہ نہیں بلکہ coordinated adaptations کا نتیجہ ہے: Wings + Feathers + Flight muscles + Lightweight skeletal adaptations + Efficient respiration + High metabolic capacity۔'},
+v9:{title:'Flying Birds and Running Birds',basic:'Flying birds میں wings، feathers اور flight muscles flight کے لیے اہم ہیں۔ Running birds میں strong hind limbs اور specialized feet زمین پر movement کے لیے اہم ہیں۔',standard:'Flying birds میں pectoral muscles wings کی movement کے لیے اہم ہیں۔ Running birds میں body balance اور rapid terrestrial movement کے لیے hind limbs زیادہ developed ہو سکتے ہیں۔',mastery:'Flying اور running birds کا comparison adaptive radiation کا ایک واضح تصور دیتا ہے: Same fundamental vertebrate plan → different environmental demands → specialized locomotion۔'},
+v10:{title:'Archaeopteryx',basic:'Archaeopteryx ایک extinct fossil organism تھا۔ اس میں Feathers + Wings کے ساتھ بعض ancestral skeletal features بھی موجود تھے۔',standard:'Archaeopteryx کے fossils نے early bird-like organisms کی morphology کو سمجھنے میں اہم evidence فراہم کیا۔ اس میں modern birds کی طرح feathers موجود تھے، لیکن اس کے skeleton میں کچھ ancestral characteristics بھی retained تھیں۔',mastery:'Archaeopteryx کو صرف “missing link” کہنا oversimplification ہے۔ اس کی اصل scientific اہمیت اس کے mosaic of characteristics میں ہے، جو evolutionary transitions کو سمجھنے کے لیے fossil evidence فراہم کرتی ہے۔'},
+v11:{title:'Class Mammalia',basic:'Mammals کی دو نمایاں خصوصیات Hair + Mammary glands ہیں۔ Mammals عموماً endothermic ہوتے ہیں۔',standard:'Mammals میں Lungs، Four-chambered heart، Differentiated teeth اور Well-developed nervous system پائے جاتے ہیں۔ Mammary glands young offspring کو milk فراہم کرتی ہیں۔ Hair insulation، sensory functions اور protection میں بھی کردار ادا کر سکتے ہیں۔',mastery:'Mammalian success کسی ایک feature کی وجہ سے نہیں بلکہ integrated adaptations کے مجموعے سے وابستہ ہے: Endothermy + Efficient circulation + Lungs + Specialized dentition + Nervous coordination + Parental care۔'},
+v12:{title:'Subclasses Prototheria and Metatheria',basic:'Prototheria میں monotremes شامل ہیں: Platypus + Echidna۔ یہ mammals ہونے کے باوجود eggs lay کرتے ہیں۔ Metatheria میں marsupial mammals شامل ہیں، مثال: Kangaroo۔',standard:'Monotremes میں mammary glands موجود ہوتی ہیں لیکن milk delivery کا طریقہ زیادہ typical placental mammals سے مختلف ہے۔ Marsupials میں offspring relatively early developmental stage پر پیدا ہوتا ہے اور birth کے بعد further development maternal pouch یا اس سے متعلق reproductive structures سے وابستہ ہوتی ہے۔',mastery:'Prototheria → egg-laying mammals؛ Metatheria → marsupial reproduction۔ یہ diversity mammalian evolutionary history کو سمجھنے میں اہم ہے۔'},
+v13:{title:'Subclass Eutheria',basic:'Eutheria میں placental mammals شامل ہیں۔ Embryo uterus کے اندر develop کرتا ہے اور placenta developing offspring کو nutrients اور oxygen کی supply اور wastes کے exchange میں اہم کردار ادا کرتی ہے۔',standard:'Placenta prolonged internal development کو support کرتی ہے۔ Maternal blood اور embryonic blood کے درمیان direct mixing کے بغیر exchange mechanisms کے ذریعے Nutrients + Oxygen → Embryo اور Metabolic wastes → Maternal circulation کی طرف منتقل ہو سکتے ہیں۔ Examples: Human + Elephant + Cow + Dog۔',mastery:'Eutherian mammals نے reproductive framework کے ساتھ مختلف ecological niches کے لیے بے شمار adaptations develop کی ہیں؛ اسی لیے placental mammals میں Aquatic + Terrestrial + Arboreal + Aerial lifestyles تک وسیع diversity دیکھی جاتی ہے۔'}
+};
+const dict={"Notochord":"flexible rod-like supporting structure of chordates","Dorsal hollow nerve cord":"chordate axial nervous structure located dorsally","Pharyngeal structures":"structures associated with the pharyngeal region during development","Post-anal tail":"body extension posterior to the anus","Hemichordata":"marine deuterostome animal group with proboscis, collar and trunk","Stomochord":"structure in hemichordates that is not a true notochord","Urochordata":"tunicates; chordate features are especially clear in the larva","Cephalochordata":"lancelet group retaining the notochord along much of the body","Vertebrata":"فقاریہ؛ وہ chordates جن میں cranium اور vertebral elements پائے جاتے ہیں۔","Craniata":"group emphasizing the presence of a cranium","Jawless":"lacking true jaws","Chondrichthyes":"cartilaginous fishes","Osteichthyes":"bony fishes","Operculum":"اوپِرکیولم؛ بہت سی bony fishes میں gills کو ڈھانپنے والا ہڈی نما cover۔","Lateral line":"sensory system detecting water movement and vibration","Swim bladder":"buoyancy-related organ in many bony fishes","Cutaneous respiration":"gas exchange through the skin","Metamorphosis":"major developmental transformation from larval to adult form","Keratinized":"containing keratin; forms a more water-resistant covering","Amniotic egg":"egg with extraembryonic membranes supporting development on land","Endothermy":"physiological production/regulation of body heat","Archaeopteryx":"آرکیوپٹیرکس؛ extinct fossil organism جس میں bird-like اور ancestral خصوصیات کا mosaic تھا۔","Mammary glands":"glands producing milk for offspring","Prototheria":"egg-laying mammals, including monotremes","Metatheria":"marsupial mammal group","Eutheria":"placental mammals","Placenta":"organ enabling exchange between maternal and embryonic systems during development","Adaptive radiation":"diversification into different ecological roles from a common basic plan","animals":"multicellular organisms of the animal kingdom","body plan":"the overall structural organization of an animal body","developmental":"related to growth and formation during development","identity":"the features used to recognize a biological group","adult stage":"the mature stage of an organism","classical features":"traditional characteristic features used to identify a group","marine":"living in or associated with the sea","bilaterally symmetrical":"having corresponding left and right body halves","deuterostome":"ڈیوٹروسٹوم؛ ایسا embryological group جس میں blastopore کا fate protostomes سے مختلف ہوتا ہے۔","proboscis":"خرطوم؛ جسم کا اگلا ابھرا ہوا حصہ، خاص طور پر hemichordates میں۔","collar":"کالر؛ hemichordate body کا درمیانی حصہ۔","trunk":"دھڑ؛ hemichordate body کا پچھلا بڑا حصہ۔","pharyngeal slits":"openings or structures in the pharyngeal region","evolutionary":"ارتقائی؛ نسلوں میں وقت کے ساتھ ہونے والی حیاتی تبدیلی سے متعلق۔","classification":"the systematic grouping of organisms","true notochord":"the characteristic axial supporting structure of chordates","flexible":"لچک دار؛ آسانی سے خم لینے والی خاصیت۔","rod-like":"سلاخ نما؛ چھڑی جیسی شکل رکھنے والا۔","longitudinal axis":"the main lengthwise axis of the body","embryonic":"relating to an embryo or early development","vertebral column":"فقاری ستون/ریڑھ کی ہڈی؛ vertebrae پر مشتمل axial support structure۔","larval":"لاروی؛ larva سے متعلق۔","larva":"لاروا؛ کئی animals میں ابتدائی developmental stage۔","tail":"a posterior extension of the body","persistence":"continued presence of a feature through development","distribution":"the location or extent of a feature in an organism","non-vertebrate":"not belonging to the vertebrate group","cranium":"جمجمہ؛ سر کا skeletal structure جو brain کو protect کرتا ہے۔","vertebral elements":"فقاری عناصر؛ vertebral column سے متعلق skeletal elements۔","jawless fishes":"بے جبڑا مچھلیاں؛ ایسی fishes جن میں true jaws نہیں ہوتیں۔","lampreys":"لیمپریز؛ jawless vertebrates کی ایک معروف group۔","feeding structures":"غذا حاصل کرنے والی ساختیں؛ feeding کے لیے مخصوص anatomical parts۔","innovation":"a newly evolved feature that can provide an adaptive advantage","prey capture":"the process of catching food organisms","ecological specialization":"adaptation to a particular ecological role or niche","aquatic":"آبی؛ پانی میں رہنے یا پانی سے متعلق۔","gills":"respiratory organs specialized for gas exchange in water","fins":"appendages used for propulsion, steering or balance in fishes","streamlined":"shaped to reduce resistance during movement through water","locomotion":"حرکتِ مکانی؛ ایک جگہ سے دوسری جگہ حرکت۔","lateral line system":"sensory system detecting water movement and pressure changes","vibrations":"ارتعاشات؛ بار بار ہونے والی حرکات یا oscillations۔","pressure changes":"دباؤ میں تبدیلیاں؛ surrounding water pressure میں فرق۔","swim bladder":"an internal buoyancy organ found in many bony fishes","buoyancy":"مائعات میں تیرنے کی قوت؛ پانی میں جسم کے float یا suspended رہنے کا رجحان۔","cartilaginous":"غضروفی؛ بنیادی طور پر cartilage پر مشتمل۔","cartilage":"غضروف؛ مضبوط مگر لچک دار connective tissue۔","paired fins":"fins occurring as corresponding left and right pairs","sensory systems":"systems that detect and process environmental stimuli","predation":"feeding on other organisms","bony":"composed primarily of bone","bone":"hard mineralized connective tissue forming the skeleton","operculum":"a bony covering over the gills in many bony fishes","gill ventilation":"movement of water across the gills for gas exchange","dissolved oxygen":"oxygen present in water and available for respiration","mucus":"مخاط؛ حفاظتی پھسلن دار secretion۔","hydrodynamics":"آبی حرکیات؛ پانی جیسے fluids میں حرکت اور قوتوں کا مطالعہ۔","mechanosensation":"میکانوحسیت؛ movement یا pressure جیسے mechanical stimuli کو محسوس کرنا۔","energy-efficient":"توانائی مؤثر؛ نسبتاً کم energy میں مؤثر کارکردگی دینے والا۔","terrestrial":"living primarily on land","moist skin":"skin that remains wet enough to support gas exchange","lungs":"organs specialized for gas exchange with air","cutaneous respiration":"جلدی تنفس؛ جلد کے ذریعے gas exchange۔","life cycle":"the sequence of developmental stages in an organism","metamorphosis":"کایا پلٹ/دگرگونی؛ larval سے adult form میں بڑی developmental تبدیلی۔","keratinized skin":"کیراٹِن زدہ جلد؛ keratin والی نسبتاً water-resistant covering۔","keratin":"کیراٹن؛ مضبوط structural protein جو skin اور body coverings میں پایا جاتا ہے۔","water loss":"پانی کا ضیاع؛ جسم سے ماحول میں water کا خارج ہونا۔","amniotic reproduction":"ایمنیوٹک تولید؛ ایسی reproduction جس میں amniotic membranes development کو سہارا دیتی ہیں۔","amniotic egg":"ایمنیوٹک انڈا؛ extraembryonic membranes رکھنے والا egg جو land development کو support کرتا ہے۔","internal fertilization":"اندرونی بارآوری؛ gametes کا fusion جسم کے اندر ہونا۔","endothermic":"درون حرارتی؛ substantial internal body heat پیدا اور regulate کرنے والا۔","endothermy":"درون حرارتی؛ جسم کے اندر heat پیدا اور regulate کرنے کی صلاحیت۔","feathers":"پر؛ birds کی keratinized structures جو flight، insulation اور دیگر functions میں مدد دیتی ہیں۔","wings":"پَر/بازو؛ birds کے modified forelimbs جو flight میں استعمال ہوتے ہیں۔","beak":"the hard external mouth structure of birds","four-chambered heart":"چار خانوں والا دل؛ دو atria اور دو ventricles پر مشتمل heart۔","respiratory system":"organs and structures responsible for gas exchange","metabolic demand":"استحالتی تقاضا؛ جسم کے processes کی energy اور oxygen requirements۔","pectoral muscles":"صدری عضلات؛ chest muscles جو wing movement میں اہم کردار ادا کرتے ہیں۔","hind limbs":"پچھلے اعضا؛ جسم کے posterior limbs، support اور locomotion میں اہم۔","terrestrial locomotion":"movement across land","flight muscles":"پروازی عضلات؛ wings کی movement کے لیے مخصوص muscles۔","lightweight skeletal adaptations":"skeletal features that reduce mass while maintaining functional support","fossil organism":"organism known from preserved remains or traces in geological material","mosaic of characteristics":"خصوصیات کا موزائیک؛ مختلف anatomical/evolutionary traits کا مجموعہ۔","ancestral":"آبائی؛ کسی سابقہ evolutionary form سے متعلق۔","retained":"continued to be present from an earlier condition","morphology":"شکل و ساخت؛ organism کی external اور structural features کا مطالعہ۔","missing link":"an informal and often oversimplified term for an intermediate fossil form","hair":"بال؛ mammalian keratinized body covering جو insulation اور protection میں مدد دیتی ہے۔","mammary glands":"غدودِ شیریں؛ milk پیدا کرنے والی glands۔","differentiated teeth":"متخصص دانت؛ مختلف functions کے لیے مختلف شکل و ساخت رکھنے والے teeth۔","nervous system":"اعصابی نظام؛ sensing، processing اور responses کو coordinate کرنے والا نظام۔","parental care":"والدینی نگہداشت؛ offspring کی دیکھ بھال اور پرورش۔","reproductive strategy":"a pattern of reproduction and investment in offspring","monotremes":"مونوٹریمز؛ egg-laying mammals، جیسے platypus اور echidna۔","milk delivery":"the mechanism by which milk reaches mammalian offspring","marsupial":"مارسوپیئل؛ marsupial mammal۔","maternal pouch":"مادری تھیلی؛ کئی marsupials میں young کے مزید development کی pouch۔","offspring":"اولاد؛ organism سے پیدا ہونے والی نئی نسل۔","placental":"relating to mammals in which a placenta supports embryonic development","embryo":"جنین؛ ابتدائی developing organism۔","uterus":"رحم؛ placental mammals میں وہ reproductive organ جہاں embryo develop کرتا ہے۔","placental mammals":"جفتی/placental ممالیہ؛ mammals جن میں placenta embryonic development کو support کرتی ہے۔","maternal":"relating to the mother","embryonic tissues":"tissues belonging to the developing embryo","nutrients":"غذائی اجزا؛ growth اور metabolism کے لیے ضروری substances۔","metabolic wastes":"استحالتی فضلات؛ metabolism سے پیدا ہونے والے waste substances۔","ecological niche":"ماحولیاتی مقام/کردار؛ ecosystem میں organism کا مخصوص role اور position۔","arboreal":"living mainly in trees","aerial":"relating to movement or life in the air","Chordates":"کورڈیٹس؛ ایسے جانور جن میں زندگی کے کسی مرحلے پر notochord وغیرہ بنیادی chordate خصوصیات پائی جاتی ہیں۔","notochord":"جسم کے طولی محور کو سہارا دینے والی لچک دار سلاخ نما ساخت۔","dorsal hollow nerve cord":"جسم کی پشت کی طرف موجود کھوکھلی عصبی نالی۔","pharyngeal structures":"حلق کے حصے میں نشوونما پانے والی ساختیں۔","post-anal tail":"مقعد کے بعد جسم کا دم نما ابھار۔","vertebrates":"فقاری جانور؛ ریڑھ کی ہڈی/فقاری ساخت رکھنے والے جانور۔","stomochord":"ہیمی کورڈیٹس میں پائی جانے والی ساخت؛ یہ true notochord نہیں ہے۔","Tunicata":"ٹونیکیٹا؛ urochordates کا گروہ۔","lancelets":"لینسلیٹس؛ cephalochordates کی معروف مثالیں۔","jawless":"بغیر جبڑوں کے۔","Lampreys":"لیمپریز؛ معروف jawless vertebrates۔","jaws":"جبڑے؛ خوراک پکڑنے اور چبانے میں مدد دینے والی ساختیں۔","Pisces":"پائسز؛ روایتی طور پر مچھلیوں کے لیے استعمال ہونے والی grouping۔","streamlined body":"ایسا ہموار جسم جو پانی میں مزاحمت کم کرے۔","sharks":"شارکس؛ غضروفی مچھلیوں کا معروف گروہ۔","rays":"ریز؛ غضروفی مچھلیوں کا گروہ۔","skates":"اسکیٹس؛ rays سے متعلق غضروفی مچھلیاں۔","prey":"شکار؛ وہ جاندار جسے predator غذا کے طور پر پکڑتا ہے۔","bony fishes":"ہڈیوں والی مچھلیاں؛ Osteichthyes، جن کا skeleton بنیادی طور پر bone کا ہوتا ہے۔","Amphibia":"ایمفیبیا؛ amphibians کا taxonomic class۔","amphibians":"دوغلے حیات والے فقاری؛ aquatic اور terrestrial زندگی سے وابستہ vertebrates۔","larval stage":"لاروا کا نشوونمایی مرحلہ۔","Reptilia":"ریپٹائلِیا؛ reptiles کا taxonomic class۔","reptiles":"رینگنے والے فقاری؛ عموماً terrestrial vertebrates جن میں keratinized skin اور amniotic reproduction پائی جاتی ہے۔","Aves":"ایوِس؛ birds کا taxonomic class۔","thermoregulation":"جسمانی درجہ حرارت کو منظم رکھنے کا عمل۔","metabolic activity":"جسم کے metabolism کی کیمیائی سرگرمیاں۔","adaptive radiation":"تطبیقی تنوع؛ ایک بنیادی ancestor سے مختلف ecological roles کے لیے diversification۔","extinct":"معدوم؛ جس کی کوئی زندہ نسل باقی نہ رہی ہو۔","fossil":"حیاتی فوسل؛ geological material میں محفوظ قدیم organism یا اس کے آثار۔","Mammalia":"ممالیہ؛ mammals کا taxonomic class۔","mammals":"ممالیہ؛ mammals، جن کی نمایاں خصوصیات hair اور mammary glands ہیں۔","Platypus":"پلاٹی پس؛ egg-laying mammal۔","Echidna":"ایکیڈنا؛ egg-laying mammal۔","Kangaroo":"کینگرو؛ معروف marsupial mammal۔","placenta":"جفتہ/placenta؛ maternal اور embryonic systems کے درمیان nutrients، oxygen اور waste exchange میں مدد دینے والا organ۔","ecological niches":"ماحولیاتی مقامات/کردار؛ مختلف organisms کے environmental roles اور positions۔","specialized":"متخصص؛ کسی خاص function یا environment کے لیے مخصوص۔","respiration":"تنفس؛ توانائی کے حصول سے متعلق gas-exchange اور metabolic عمل۔","gas exchange":"گیسی تبادلہ؛ oxygen اور carbon dioxide کا تبادلہ۔","propulsion":"آگے بڑھانے والی قوت؛ حرکت پیدا کرنے کا عمل۔","steering":"سمت بندی؛ حرکت کی سمت کو قابو کرنا۔","balance":"توازن؛ جسم کی stable حالت برقرار رکھنے کی صلاحیت۔","vertebral":"فقاری ستون/vertebrae سے متعلق۔","Chordate":"کورڈیٹ؛ ایسا جانور جس میں زندگی کے کسی مرحلے پر chordate body-plan کی بنیادی خصوصیات پائی جاتی ہیں۔","Non-Vertebrate Chordates":"غیر فقاری کورڈیٹس؛ chordates جن میں vertebral column موجود نہیں ہوتا۔","Vertebrate":"فقاری جانور؛ cranium اور vertebral elements رکھنے والا chordate۔","Phylum":"شعبہ؛ حیاتیاتی درجہ بندی کی ایک بڑی taxonomic سطح۔","Class":"طبقہ؛ taxonomic classification کی ایک سطح۔","Subphylum":"ذیلی شعبہ؛ phylum کے اندر درجہ بندی کی سطح۔","Subclass":"ذیلی طبقہ؛ class کے اندر درجہ بندی کی سطح۔","taxonomy":"درجہ بندیِ حیاتیات؛ جانداروں کو منظم اور نام دینے کا نظام۔","phylogeny":"ارتقائی نسب؛ جانداروں کے evolutionary relationships کی تاریخ۔","body axis":"جسمانی محور؛ جسم کی طولی بنیادی سمت جس کے گرد ساخت منظم ہوتی ہے۔","axial":"محوری؛ جسم کے مرکزی محور سے متعلق۔","dorsal":"پشتی؛ جسم کی پشت کی طرف۔","ventral":"بطنی؛ جسم کے پیٹ یا نچلی جانب۔","pharyngeal":"حلقی؛ pharynx یا حلق کے حصے سے متعلق۔","pharynx":"حلق؛ digestive اور respiratory pathways سے متعلق جسم کا حصہ۔","longitudinal":"طولی؛ لمبائی کے رخ میں پھیلا ہوا۔","support":"سہارا؛ ساخت کو قائم رکھنے والی مدد۔","development":"نشوونما؛ organism کی تشکیل اور تبدیلی کا عمل۔","developmental biology":"نشوونمایی حیاتیات؛ جاندار کی development کا مطالعہ۔","adult":"بالغ؛ organism کی mature stage۔","marine animals":"سمندری جانور؛ وہ animals جو marine environment میں رہتے ہیں۔","echinoderm":"ایکائنوڈرم؛ marine deuterostome animal group، جیسے starfish۔","feeding":"غذا حاصل کرنے کا عمل۔","jawed":"جبڑوں والا؛ true jaws رکھنے والا۔","fishes":"مچھلیاں؛ بنیادی طور پر aquatic vertebrates جن میں gills اور fins عام ہیں۔","fish":"مچھلی؛ aquatic vertebrate جس میں عموماً gills اور fins ہوتے ہیں۔","aquatic adaptations":"آبی موافقتیں؛ پانی میں زندگی کے لیے جسمانی یا فعلی adaptations۔","oxygen":"آکسیجن؛ aerobic respiration کے لیے ضروری گیس۔","carbon dioxide":"کاربن ڈائی آکسائیڈ؛ respiration میں بننے والی اہم گیس۔","skeleton":"اسکلٹن/ڈھانچہ؛ جسم کو سہارا دینے والا structural framework۔","internal skeleton":"اندرونی ڈھانچہ؛ جسم کے اندر موجود skeletal framework۔","bony skeleton":"ہڈیوں کا ڈھانچہ؛ bone پر مشتمل internal skeleton۔","buoyancy regulation":"تیرنے کی قوت کا نظم؛ پانی میں جسم کی معلق یا floating حالت کو قابو کرنا۔","drag":"مزاحمتی قوت؛ حرکت کے مخالف fluid resistance۔","sensory":"حسی؛ ماحول سے stimuli محسوس کرنے سے متعلق۔","stimuli":"محرکات؛ ایسی environmental signals جو response پیدا کریں۔","birds":"پرندے؛ Aves کے endothermic vertebrates جن کی نمایاں خصوصیت feathers ہیں۔","forelimbs":"اگلے اعضا؛ جسم کے anterior limbs، birds میں wings کی بنیاد۔","adaptation":"موافقت؛ ماحول میں بقا اور reproduction کو بہتر بنانے والی trait یا functional adjustment۔","platypus":"پلیٹی پس؛ egg-laying mammal اور monotreme۔","echidna":"ایکیڈنا؛ egg-laying mammal اور monotreme۔","marsupials":"مارسوپیئلز؛ mammals جن کے young نسبتاً ابتدائی stage پر پیدا ہوتے ہیں اور بعد میں further development کرتے ہیں۔","embryonic development":"جنینی نشوونما؛ embryo کی تشکیل اور بڑھوتری کا عمل۔","oxygen supply":"آکسیجن کی فراہمی؛ developing tissues کو oxygen پہنچانا۔","gas exchange mechanisms":"گیسی تبادلے کے mechanisms؛ oxygen/CO2 کے transfer کے حیاتی طریقے۔","integrated adaptations":"مربوط موافقتیں؛ کئی adaptations کا مل کر ایک functional system بنانا۔","well-developed":"خوب نشوونما یافتہ؛ نسبتاً مکمل اور مضبوط طور پر developed۔","specialized dentition":"متخصص دندانی ساخت؛ مختلف feeding functions کے لیے مختلف قسم کے teeth۔"};
 
-    <div class="bg-glow"></div>
 
-    <div class="card-container" id="cardContainer">
-        <canvas id="butterflyCanvas"></canvas>
 
-        <div class="heading-badge" id="badge">✨ خوش آمدید!</div>
+const visuals=[
+{title:'Chordate Body Plan',diagram:'Notochord → Dorsal hollow nerve cord → Pharyngeal structures → Post-anal tail',related:'Chordates',key:'c1'},
+{title:'Hemichordate Body Regions',diagram:'Proboscis → Collar → Trunk',related:'Phylum Hemichordata',key:'c2'},
+{title:'Notochord & Pharyngeal Plan',diagram:'Notochord + Pharyngeal structures',related:'Notochord and Pharyngeal Structures',key:'c3'},
+{title:'Fish Adaptation System',diagram:'Streamlined body + Gills + Fins + Lateral line + Buoyancy',related:'Adaptations of Fishes to Aquatic Life',key:'v5'},
+{title:'Vertebrate Comparison',diagram:'Chondrichthyes → cartilage  |  Osteichthyes → bone',related:'Class Chondrichthyes / Class Osteichthyes',key:'v3'},
+{title:'Amniote Transition',diagram:'Reptilia → Aves → Mammalia',related:'Class Reptilia / Class Aves / Class Mammalia',key:'v7'},
+{title:'Mammalian Reproduction',diagram:'Prototheria → Metatheria → Eutheria',related:'Subclasses Prototheria and Metatheria',key:'v12'}];
 
-        <div class="message-body" id="textContainer"></div>
+const questions=[
+{q:'Which feature is a fundamental chordate characteristic?',o:["Notochord", "Exoskeleton", "Radula", "Shell"],a:0},
+{q:'Which chordate structure is a hollow nerve cord located dorsally?',o:["Ventral solid nerve cord", "Stomochord", "Lateral line", "Dorsal hollow nerve cord"],a:3},
+{q:'Which chordate feature occurs behind the anus in the classical body plan?',o:["Placenta", "Swim bladder", "Post-anal tail", "Operculum"],a:2},
+{q:'Which phylum has a body divided into proboscis, collar, and trunk?',o:["Annelida", "Hemichordata", "Mollusca", "Arthropoda"],a:1},
+{q:'The stomochord of hemichordates should not be confused with the:',o:["True notochord", "Pharyngeal slit", "Dorsal nerve cord", "Post-anal tail"],a:0},
+{q:'Hemichordates are primarily:',o:["Freshwater fishes", "Terrestrial mammals", "Flying vertebrates", "Marine animals"],a:3},
+{q:'The notochord mainly provides:',o:["External protection only", "Water filtration", "Flexible axial support", "Milk production"],a:2},
+{q:'Pharyngeal structures are located in the:',o:["Kidney", "Pharyngeal region", "Pelvic girdle", "Tail tip only"],a:1},
+{q:'In Urochordata, the notochord is most evident in the:',o:["Larval tail", "Adult trunk only", "Adult head", "Gills only"],a:0},
+{q:'In Cephalochordata, the notochord extends:',o:["Only through the larval tail", "Only in the head", "Only in the pharynx", "Along much of the body length"],a:3},
+{q:'Which group is also called Craniata in many treatments?',o:["Urochordata", "Cephalochordata", "Vertebrata", "Hemichordata"],a:2},
+{q:'A cranium primarily protects the:',o:["Gills", "Brain", "Heart", "Kidney"],a:1},
+{q:'Jawless fishes are characterized by the absence of:',o:["Jaws", "Notochord", "Pharyngeal structures", "A body axis"],a:0},
+{q:'Which group is traditionally associated with jawless fishes?',o:["Mammalia", "Aves", "Reptilia", "Agnatha"],a:3},
+{q:'Which feature is especially useful for reducing drag in many fishes?',o:["Feathers", "Four-chambered heart", "Streamlined body", "Keratinized scales only"],a:2},
+{q:'The lateral line system helps many fishes detect:',o:["Eggshell thickness", "Water movement and vibration", "Air pressure in lungs only", "Milk secretion"],a:1},
+{q:'Fins primarily assist fishes with:',o:["Locomotion and stability", "Milk production", "Flight feathers", "Internal fertilization only"],a:0},
+{q:'Gills are specialized mainly for:',o:["Digestion of bone", "Sound production", "Protection of the brain", "Gas exchange in water"],a:3},
+{q:'A swim bladder in many bony fishes contributes to:',o:["Eggshell formation", "Keratin production", "Buoyancy control", "Mammary secretion"],a:2},
+{q:'Which class has a predominantly cartilaginous internal skeleton?',o:["Aves", "Chondrichthyes", "Osteichthyes", "Amphibia"],a:1},
+{q:'Sharks and rays belong to:',o:["Chondrichthyes", "Osteichthyes", "Aves", "Mammalia"],a:0},
+{q:'Which class is characterized by a predominantly bony skeleton?',o:["Chondrichthyes", "Hemichordata", "Amphibia", "Osteichthyes"],a:3},
+{q:'The operculum in many bony fishes functions mainly as a:',o:["Fin joint", "Swim bladder", "Gill cover", "Brain case"],a:2},
+{q:'A key aquatic adaptation is the combination of gills, fins, and a:',o:["Placenta", "Streamlined body", "Feathered wing", "Keratinized shell"],a:1},
+{q:'Amphibians commonly have life cycles involving:',o:["Aquatic and terrestrial stages", "Only aerial stages", "Only marine stages", "Only underground adult stages"],a:0},
+{q:'A typical amphibian larval stage is commonly called a:',o:["Nymph", "Pupa", "Calf", "Tadpole"],a:3},
+{q:'Amphibian skin can contribute to:',o:["Milk production", "Bone formation only", "Gas exchange", "Flight"],a:2},
+{q:'Which class includes frogs and salamanders?',o:["Mammalia", "Amphibia", "Reptilia", "Aves"],a:1},
+{q:'A major terrestrial adaptation of reptiles is:',o:["Keratinized skin", "Lateral line", "Gills throughout life", "Swim bladder"],a:0},
+{q:'The amniotic egg is important because it:',o:["Requires permanent aquatic larval life", "Produces feathers", "Eliminates all embryonic membranes", "Supports reproduction away from open water"],a:3},
+{q:'Which class includes snakes, lizards, turtles, and crocodilians?',o:["Aves", "Mammalia", "Reptilia", "Amphibia"],a:2},
+{q:'Birds belong to the class:',o:["Mammalia", "Aves", "Reptilia", "Amphibia"],a:1},
+{q:'Bird wings are modified:',o:["Forelimbs", "Hind limbs", "Jaws", "Gills"],a:0},
+{q:'Feathers are a defining integumentary feature strongly associated with:',o:["Fishes", "Hemichordates", "Mammals only", "Birds"],a:3},
+{q:'Flying birds are specialized primarily for:',o:["Permanent aquatic respiration", "Milk secretion", "Powered aerial locomotion", "Burrowing"],a:2},
+{q:'Running birds are also described as birds specialized for:',o:["Permanent gliding", "Terrestrial locomotion", "Filter feeding in water", "Tree climbing only"],a:1},
+{q:'Archaeopteryx is important because it shows:',o:["A mosaic of bird-like and ancestral traits", "Only mammalian traits", "Only modern bird traits", "Only fish traits"],a:0},
+{q:'Which class includes mammals?',o:["Aves", "Reptilia", "Amphibia", "Mammalia"],a:3},
+{q:'A characteristic mammalian feature is the presence of:',o:["Feathers", "Swim bladder", "Mammary glands", "Gills"],a:2},
+{q:'Mammals are generally characterized by:',o:["Tunic and siphons", "Hair and milk production", "Scales and gills", "Feathers and beaks only"],a:1},
+{q:'Prototheria includes mammals that:',o:["Lay eggs", "Have feathers", "Have gills as adults", "Are all placental"],a:0},
+{q:'Metatheria is associated with:',o:["Monotremes", "Placental mammals only", "Birds", "Marsupial mammals"],a:3},
+{q:'Eutheria is commonly associated with:',o:["Marsupials only", "Jawless fishes", "Placental mammals", "Monotremes"],a:2},
+{q:'The placenta supports:',o:["Aquatic locomotion", "Maternal-fetal exchange during development", "Gill ventilation", "Feather formation"],a:1},
+{q:'Which sequence represents increasing specialization among the mammalian reproductive groups discussed?',o:["Prototheria → Metatheria → Eutheria", "Eutheria → Aves → Pisces", "Amphibia → Reptilia → Hemichordata", "Chondrichthyes → Pisces → Aves"],a:0},
+{q:'Which pair is correctly matched?',o:["Aves — mammary glands", "Amphibia — feathers", "Eutheria — egg-laying only", "Chondrichthyes — cartilage-dominant skeleton"],a:3},
+{q:'Which pair is correctly matched?',o:["Hemichordata — true notochord", "Aves — lateral line system", "Cephalochordata — notochord along much of body length", "Urochordata — adult vertebral column"],a:2},
+{q:'Which structure best links chordate identity with axial support?',o:["Mammary gland", "Notochord", "Operculum", "Placenta"],a:1},
+{q:'Which transition best illustrates increasing adaptation to terrestrial reproduction?',o:["Amphibians → reptiles", "Reptiles → fishes", "Mammals → hemichordates", "Birds → jawless fishes"],a:0},
+{q:'A student sees a vertebrate with a cartilaginous skeleton, paired fins, and no operculum. Which group is most likely?',o:["Osteichthyes", "Amphibia", "Aves", "Chondrichthyes"],a:3}
+] ;
 
-        <div class="footer-wrap" id="footer">
-            <div class="wisher">آپ کی خیر خواہ</div>
-            <div class="brand-name">امپیریل اکیڈمی آف ایجوکیشن</div>
-        </div>
-    </div>
+const exam=[
+{q:'A chordate is best identified by its developmental body plan because:',o:["Adult appearance may not retain every classical feature", "All chordates have jaws", "All chordates are vertebrates", "All chordates live in water"],a:0},
+{q:'A specimen has proboscis, collar, trunk, and pharyngeal slits but no true notochord. It most likely belongs to:',o:["Aves", "Hemichordata", "Cephalochordata", "Mammalia"],a:1},
+{q:'Which comparison is most accurate?',o:["Both have feathers as adults", "Both are jawed fishes", "Urochordates show a prominent larval tail; cephalochordates retain the notochord along the body", "Both groups are placental mammals"],a:2},
+{q:'A fish remains stable in water while reducing drag. Which combination best explains this?',o:["Feathers, placenta, and mammary glands", "Keratinized skin and amniotic egg", "Wings and hollow bones", "Streamlined body, fins, and buoyancy adaptations"],a:3},
+{q:'A fish with cartilage-dominant internal skeleton is most consistent with:',o:["Chondrichthyes", "Osteichthyes", "Amphibia", "Mammalia"],a:0},
+{q:'Which feature most directly distinguishes many bony fishes from sharks and rays?',o:["Amniotic egg", "A predominantly bony skeleton and, commonly, an operculum", "Feathers and wings", "Mammary glands"],a:1},
+{q:'An organism begins life in water and later occupies land, while retaining dependence on moist skin and/or aquatic reproduction. This best fits:',o:["Aves", "Eutheria", "Amphibia", "Reptilia"],a:2},
+{q:'The amniotic egg represents a major terrestrial reproductive adaptation because it:',o:["Requires a tadpole stage", "Depends on external gills", "Produces milk for the embryo", "Provides embryonic protection and fluid environment outside open water"],a:3},
+{q:'A fossil has feathers and bird-like traits but also retains several ancestral reptile-like features. The classic example is:',o:["Archaeopteryx", "Pisces", "Eutheria", "Hemichordata"],a:0},
+{q:'Which statement best explains why Archaeopteryx is important in evolutionary study?',o:["It is a jawless fish", "It illustrates a mosaic of traits and helps connect major body-plan features", "It proves all birds are mammals", "It is a modern placental mammal"],a:1},
+{q:'A mammal lays eggs rather than giving birth to live young. Which group is most appropriate?',o:["Eutheria", "Aves", "Prototheria", "Metatheria"],a:2},
+{q:'A mammal completes much of early development in a pouch. Which group is most appropriate?',o:["Prototheria", "Eutheria", "Reptilia", "Metatheria"],a:3},
+{q:'A mammal has prolonged internal development supported by a placenta. Which group is most appropriate?',o:["Eutheria", "Prototheria", "Metatheria", "Amphibia"],a:0},
+{q:'Which sequence correctly summarizes the major vertebrate groups emphasized in this lecture?',o:["Reptiles → hemichordates → mammals → fishes", "Jawless fishes → fishes → amphibians → reptiles → birds → mammals", "Mammals → birds → hemichordates → fishes", "Birds → amphibians → jawless fishes → hemichordates"],a:1},
+{q:'A student says “all vertebrates are fishes because they have a vertebral body plan.” What is the best correction?',o:["Birds are invertebrates", "Hemichordates are all vertebrates", "Vertebrata includes multiple major groups beyond fishes, including amphibians, reptiles, birds, and mammals", "Only mammals are vertebrates"],a:2},
+{q:'Which pair represents the strongest contrast in reproductive adaptation?',o:["Birds have gills; fishes have feathers", "Mammals have swim bladders; fishes have mammary glands", "Hemichordates have placentas; mammals have pharyngeal slits", "Amphibians often retain aquatic dependence; reptiles have the amniotic egg"],a:3},
+{q:'A structure detects nearby water movement and vibration in a fish. The best answer is:',o:["Lateral line", "Operculum", "Placenta", "Mammary gland"],a:0},
+{q:'A structure covers the gills of many bony fishes. The best answer is:',o:["Post-anal tail", "Operculum", "Lateral line", "Notochord"],a:1},
+{q:'Which statement about the notochord is most accurate?',o:["It is a mammary gland", "It is a feather-producing organ", "It is a flexible axial support structure central to the chordate body plan", "It is the same as the vertebral column in every chordate"],a:2},
+{q:'Which is the strongest evidence that a vertebrate group is adapted for powered flight?',o:["Presence of a lateral line", "Presence of a placenta", "Presence of a tadpole stage", "Wings as modified forelimbs together with flight-specialized anatomy"],a:3},
+{q:'Which statement best distinguishes topic-level learning from rote memorization?',o:["Students should connect structures with functions, adaptations, and evolutionary context", "Students only memorize class names", "Students ignore comparisons", "Students avoid applying concepts to specimens"],a:0},
+{q:'Which classification is correctly paired with its major characteristic?',o:["Chondrichthyes — feathers", "Amphibia — aquatic/terrestrial life history", "Aves — mammary glands", "Mammalia — gills throughout adulthood"],a:1},
+{q:'Which classification is correctly paired with its major characteristic?',o:["Reptilia — tadpole larva", "Osteichthyes — cartilage-dominant skeleton", "Mammalia — hair and mammary glands", "Aves — lateral line as defining feature"],a:2},
+{q:'If a learner can explain why a feature improves survival in a particular habitat, that learner is demonstrating:',o:["Simple term recognition only", "Dictionary lookup only", "Tab navigation only", "Application of adaptation concepts"],a:3},
+{q:'Which statement best integrates the lecture as a whole?',o:["Vertebrate diversity can be understood through body-plan structures, classification, adaptations, and evolutionary relationships", "All vertebrates share identical habitats and reproduction", "Classification is unrelated to anatomy", "Evolutionary context is irrelevant to structure and function"],a:0}
+];
 
-    <script>
-        const fullMessage = "آپ کا سفر محض لفظوں اور کتابوں کا نہیں، بلکہ اپنے خوابوں کو حقیقت کا روپ دینے کا ہے۔ آپ کے اندر وہ تمام صلاحیت، عزم اور طاقت موجود ہے جو آپ کو ہر بلندی تک پہنچا سکتی ہے۔\n\nیاد رکھیں، ہر نیا دن ایک نیا موقع ہے—کچھ نیا سیکھنے کا، ایک قدم اور آگے بڑھنے کا، اور خود کو کل سے بہتر بنانے کا۔ ماضی کی رکاوٹوں کو بھول جائیں اور پوری توانائی کے ساتھ اپنے مقصد پر توجہ مرکوز کریں۔\n\nآج ہی سے، پورے دل اور جذبے کے ساتھ شروعات کریں۔ کامیابی آپ کی منتظر ہے!";
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');closeModal();window.scrollTo({top:0,behavior:'smooth'})}
+function show(html){document.getElementById('content').innerHTML=html;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function backdropClose(e){if(e.target===e.currentTarget)closeModal()}
+function openTopic(k){const d=data[k];show(`<div class="lesson-title">${linkDictionaryTerms(d.title)}</div><p>${linkDictionaryTerms(d.intro)}</p><div class="section"><span class="level-heading basic-h">بنیادی</span><p>اس Topic کی بنیادی شناخت اور مرکزی concepts۔</p></div><div class="section"><span class="level-heading standard-h">معیاری</span><p>اہم structures، functions اور relationships کو منظم انداز میں سمجھیں۔</p></div><div class="section"><span class="level-heading mastery-h">Mastery</span><p>Topic کو developmental، structural اور evolutionary context میں جوڑ کر سمجھیں۔</p></div><div class="content-navigation"><button onclick="showPage('topicsPage')">← Topics</button></div>`) }
+function linkDictionaryTerms(text){
+  const source=String(text ?? '');
+  const terms=Object.keys(dict).sort((a,b)=>b.length-a.length);
+  const byLower=new Map(terms.map(t=>[t.toLowerCase(),t]));
+  const escaped=terms.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');
+  if(!escaped) return source;
+  const re=new RegExp('(?<![A-Za-z0-9-])(' + escaped + ')(?![A-Za-z0-9-])','gi');
+  return source.replace(re,(match)=>{
+    const key=byLower.get(match.toLowerCase()) || match;
+    const safe=key.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return '<span class="linked-word" data-term="'+safe+'" role="button" tabindex="0" title="Dictionary: '+safe+'">'+match+'</span>';
+  });
+}
+function openSub(k){const d=data[k];show(wrapContent(`<div class="lesson-title">${d.title}</div><div class="lesson-subtitle">درسی مواد — بنیادی → معیاری → Mastery</div><div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>${linkDictionaryTerms(d.basic)}</p></div><div class="section standard"><span class="level-heading standard-h">معیاری</span><p>${linkDictionaryTerms(d.standard)}</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>`,k))}
+function openFunctional(k){
+if(k==='dictionary'){show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Lecture کے مشکل الفاظ — لفظ پر click کریں اور اسی وقت اس کا مفہوم دیکھیں۔</p><input class="search" id="ds" placeholder="Search difficult word…" oninput="renderDict(this.value)"><div id="dictList"></div>`);renderDict('');return}
+if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">ہر Visual اپنے متعلقہ subtopic سے functional طور پر linked ہے۔</p>${visuals.map((v,i)=>`<div class="visual-card"><b>${v.title}</b><div class="diagram">${v.diagram}</div><small>متعلقہ: ${v.related}</small><br><button class="visual-link" onclick="showVisual(${i})">متعلقہ درسی مواد کھولیں</button></div>`).join('')}`);return}
+if(k==='practical'){show(`<div class="lesson-title">🧪 Practical Work</div><p class="lesson-subtitle">Lecture 03 کے practical classification اور observation tasks۔</p><div class="section"><b>Task 1 — Specimen Classification</b><p>دی گئی خصوصیات کی بنیاد پر specimen کو Hemichordata، Chondrichthyes، Osteichthyes، Amphibia، Reptilia، Aves یا Mammalia میں classify کریں۔</p></div><div class="section"><b>Task 2 — Structure → Function</b><p>Notochord، gills، fins، lateral line، operculum، amniotic egg، feathers اور placenta میں سے ہر structure کا بنیادی function لکھیں۔</p></div><div class="section"><b>Task 3 — Comparative Observation</b><p>Cartilaginous fish، bony fish، amphibian، reptile، bird اور mammal کے اہم adaptations کا comparison table خود مکمل کریں۔</p></div><div class="section"><b>Task 4 — Evolutionary Reasoning</b><p>Amphibia → Reptilia اور Reptilia → Aves کے درمیان terrestrial reproduction، locomotion اور body covering کی adaptations identify کریں۔</p></div>`);return}
+if(k==='practice'){show(`<div class="lesson-title">❓ Practice</div><p class="lesson-subtitle">Test سے پہلے concept practice — answer خود سوچیں، پھر reveal کریں۔</p>${[questions[0],questions[4],questions[14],questions[27],questions[35],questions[47]].map((q,i)=>`<div class="section"><b>${i+1}. ${linkDictionaryTerms(q.q)}</b><button class="visual-link" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block'">Answer</button><div class="answer"><b>Correct:</b> ${linkDictionaryTerms(q.o[q.a])}</div></div>`).join('')}`);return}
+if(k==='revision'){show(`<div class="lesson-title">🔄 Revision</div><p class="lesson-subtitle">Lecture 03 کی high-yield revision map۔ ہر item پر click کرکے متعلقہ lesson کھولیں۔</p>${subtopicOrder.map((key,i)=>`<div class="revision-item" onclick="openSub('${key}')"><span>${i+1}</span><b>${data[key].title}</b></div>`).join('')}`);return}
+if(k==='mastery'){show(`<div class="lesson-title">🏆 Mastery</div><p class="lesson-subtitle">Chapter 01 کے Mastery concept کی طرح: طالب علم کو صرف terms نہیں بلکہ concepts، comparisons اور applications demonstrate کرنے چاہئیں۔</p><div class="section mastery"><b>Mastery Checklist</b><ul><li>Chordate body plan کی بنیادی خصوصیات explain کر سکتا ہوں۔</li><li>Hemichordata اور true chordates میں فرق کر سکتا ہوں۔</li><li>Urochordata اور Cephalochordata compare کر سکتا ہوں۔</li><li>Chondrichthyes اور Osteichthyes distinguish کر سکتا ہوں۔</li><li>Fish adaptations کو structure → function کے ساتھ explain کر سکتا ہوں۔</li><li>Amphibia، Reptilia، Aves اور Mammalia کی adaptations compare کر سکتا ہوں۔</li><li>Archaeopteryx کی mosaic characteristics explain کر سکتا ہوں۔</li><li>Prototheria، Metatheria اور Eutheria compare کر سکتا ہوں۔</li><li>Adaptive radiation اور evolutionary context کو lecture examples سے explain کر سکتا ہوں۔</li><li>Readiness Test میں کم از کم 80% score حاصل کرنے کے لیے weak areas revise کر سکتا ہوں۔</li></ul><button class="submit-test" onclick="openReadinessTest()">🧑‍🎓 Start Readiness Test</button></div>`);return}
+if(k==='search'){openGlobalLectureSearch();return}
+if(k==='readiness'){openReadinessTest();return}
+openExamSystem();
+}
+function renderDict(term){const list=Object.entries(dict).filter(([w,d])=>(w+' '+d).toLowerCase().includes(term.toLowerCase()));document.getElementById('dictList').innerHTML=list.map(([w,d])=>`<div class="dict-item" onclick="showDictWord(${JSON.stringify(w)},${JSON.stringify(d)})"><b>${w}</b><br><span>${d}</span></div>`).join('')||'<p>کوئی matching term نہیں ملا۔</p>'}
+function showDictWord(w,d){document.getElementById('iaeDictionaryTerm').textContent=w;document.getElementById('iaeDictionaryMeaning').textContent=d;document.getElementById('iaeDictionaryOverlay').style.display='flex';document.getElementById('iaeDictionaryOverlay').setAttribute('aria-hidden','false')}
+function showVisual(i){const v=visuals[i];show(`<div class="lesson-title">${v.title}</div><div class="diagram">${linkDictionaryTerms(v.diagram)}</div><div class="section"><span class="level-heading standard-h">Related Lesson</span><p>${linkDictionaryTerms(v.related)}</p><button class="visual-link" onclick="openSub('${v.key}')">متعلقہ درسی مواد کھولیں</button></div>`)}
+let testAttempt=[], testAnswers={}, examAttempt=[], examAnswers={};
+const TEST_SIZE=50;
 
-        const textContainer = document.getElementById('textContainer');
-        const cardContainer = document.getElementById('cardContainer');
-        const canvas = document.getElementById('butterflyCanvas');
-        const ctx = canvas.getContext('2d');
+function escapeAssessmentText(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function shuffleAssessment(a){return [...a].sort(()=>Math.random()-0.5)}
 
-        function resizeCanvas() {
-            canvas.width = cardContainer.clientWidth;
-            canvas.height = cardContainer.clientHeight;
-        }
+function openGlobalLectureSearch(){show(`<div class="lesson-title">🔎 Lecture Search</div><p class="lesson-subtitle">Topic titles، lecture concepts اور dictionary terms میں search کریں۔</p><input class="search" id="lectureSearchInput" placeholder="Search…" oninput="renderLectureSearch(this.value)"><div id="lectureSearchResults"></div>`);renderLectureSearch('');}
+function renderLectureSearch(q){const box=document.getElementById('lectureSearchResults');if(!box)return;const term=String(q||'').toLowerCase().trim();const rows=[];subtopicOrder.forEach((k,i)=>{const d=data[k];const hay=(d.title+' '+d.basic+' '+d.standard+' '+d.mastery).toLowerCase();if(!term||hay.includes(term))rows.push(`<div class="revision-item" onclick="openSub('${k}')"><span>${i+1}</span><b>${d.title}</b></div>`)});Object.entries(dict).forEach(([w,m])=>{if(term&&(w+' '+m).toLowerCase().includes(term))rows.push(`<div class="revision-item" onclick="openInlineDictionary(${JSON.stringify(w)},this)"><span>📖</span><b>${w}</b></div>`)});box.innerHTML=rows.slice(0,60).join('')||'<p>کوئی matching result نہیں ملا۔</p>';}
+function openReadinessTest(){
+  testAttempt=shuffleAssessment(questions).slice(0,Math.min(TEST_SIZE,questions.length));
+  testAnswers={};
+  show(`<div class="assessment-head readiness-peak">
+    <div class="assessment-badge">🧑‍🎓 CHAPTER READINESS SYSTEM</div>
+    <div class="lesson-title">Lecture 03 — Readiness Test</div>
+    <p>یہ test Chapter 01 کے approved readiness architecture کی روح کے مطابق بنایا گیا ہے: پہلے مکمل test attempt کریں، پھر Submit کے بعد score، performance band، weak areas، correct answers اور detailed review حاصل کریں۔</p>
+    <div class="assessment-meta"><b>${testAttempt.length} Questions</b><span>Randomized Bank: ${questions.length}</span><span>Concept + Comparison + Application</span><span>Final Result after Submit</span></div>
+  </div>
+  <div class="assessment-instructions"><strong>Test instructions:</strong> ہر سوال کا ایک بہترین جواب منتخب کریں۔ آپ answers بدل سکتے ہیں۔ Submit کے بعد detailed result اور revision recommendations ظاہر ہوں گی۔</div>
+  <div id="readinessQuestions">${renderAssessmentQuestions(testAttempt,'readiness')}</div>
+  <div class="assessment-actions"><button class="submit-test" onclick="submitReadinessTest()">📝 Submit Readiness Test</button><button class="new-test" onclick="openReadinessTest()">🔄 New Random Test</button></div>
+  <div id="readinessResult" class="assessment-result"></div>`);
+}
 
-        // الفاظ کو الگ الگ ٹکڑوں میں تقسیم کرنا
-        const paragraphs = fullMessage.split('\n\n');
-        paragraphs.forEach((paragraphText) => {
-            const pElem = document.createElement('p');
-            pElem.style.marginBottom = '15px';
-            
-            const words = paragraphText.split(' ');
-            words.forEach((wordText) => {
-                const wordSpan = document.createElement('span');
-                wordSpan.className = 'word';
-                wordSpan.textContent = wordText + ' ';
-                pElem.appendChild(wordSpan);
-            });
-            textContainer.appendChild(pElem);
-        });
+function renderAssessmentQuestions(bank,type){
+  return bank.map((q,i)=>`<div class="section question-card ${type==='exam'?'exam-card':''}">
+    <div class="question-meta"><span>${type==='exam'?'EXAM':'READINESS'} Q${i+1}</span><span>${escapeAssessmentText(q.topic||'Core Concept')}</span></div>
+    <b>${i+1}. ${linkDictionaryTerms(q.q||q.question)}</b>
+    ${(q.o||q.options).map((x,j)=>`<label class="assessment-option"><input type="radio" name="${type}-${i}" value="${j}" onchange="recordAssessmentAnswer('${type}',${i},${j})"><span>${String.fromCharCode(65+j)}. ${linkDictionaryTerms(x)}</span></label>`).join('')}
+  </div>`).join('');
+}
 
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
+function recordAssessmentAnswer(type,i,j){
+  (type==='exam'?examAnswers:testAnswers)[i]=j;
+}
 
-        const wordSpans = Array.from(document.querySelectorAll('.word'));
-        let butterflies = [];
+function scoreAssessment(bank,answers){
+  let score=0,correct=0,wrong=0,unanswered=0;const weak={};const review=[];
+  bank.forEach((q,i)=>{
+    const selected=answers[i]??null; const answer=q.a??q.answer; const ok=selected===answer;
+    if(ok){score++;correct++} else {if(selected===null)unanswered++;else {wrong++;weak[q.topic||'Core Concept']=(weak[q.topic||'Core Concept']||0)+1}}
+    review.push({q,selected,answer,ok});
+  });
+  const pct=Math.round(score/bank.length*100);
+  return {score,correct,wrong,unanswered,pct,weak,review};
+}
 
-        class Butterfly {
-            constructor(startX, startY, targetX, targetY, mode) {
-                this.x = startX;
-                this.y = startY;
-                this.startX = startX;
-                this.startY = startY;
-                this.targetX = targetX;
-                this.targetY = targetY;
-                this.mode = mode;
-                this.progress = 0;
+function performanceBand(pct){
+  if(pct>=90)return ['🏆 Outstanding','آپ کی conceptual mastery بہت مضبوط ہے۔'];
+  if(pct>=80)return ['🌟 Excellent','آپ examination-level preparation کے بہت قریب ہیں۔'];
+  if(pct>=70)return ['✅ Good','بنیادی understanding مضبوط ہے؛ چند weak areas revise کریں۔'];
+  if(pct>=50)return ['📚 Needs Revision','اہم topics دوبارہ پڑھ کر test repeat کریں۔'];
+  return ['🔁 Foundation Revision Required','Lecture کے weak areas دوبارہ پڑھیں اور پھر readiness test دیں۔'];
+}
 
-                this.size = Math.random() * 7 + 5;
-                this.color = `hsl(${Math.random() * 70 + 270}, 95%, 75%)`;
-                this.wingAngle = Math.random() * Math.PI;
-                this.wingSpeed = 0.2 + Math.random() * 0.1;
-                
-                this.cpX = startX + (Math.random() - 0.5) * 180;
-                this.cpY = startY + (Math.random() - 0.5) * 180;
-                this.speed = 0.02 + Math.random() * 0.015;
-            }
+function renderAssessmentResult(result,type){
+  const band=performanceBand(result.pct); const title=type==='exam'?'Examination Result':'Readiness Result';
+  const weakEntries=Object.entries(result.weak).sort((a,b)=>b[1]-a[1]);
+  let html=`<div class="result-hero"><div class="result-title">${title}</div><div class="result-score">${result.score} / ${result.review.length}</div><div class="result-percent">${result.pct}%</div><div class="result-band">${band[0]} — ${band[1]}</div><div class="test-summary"><span>✅ درست: ${result.correct}</span><span>❌ غلط: ${result.wrong}</span><span>⚪ Unanswered: ${result.unanswered}</span></div></div>`;
+  if(weakEntries.length){html+='<div class="recommendation-title">🎯 Weak Areas & Revision Path</div>'+weakEntries.map(([topic,n])=>`<div class="recommendation-card"><strong>${escapeAssessmentText(topic)}</strong><span>${n} question(s) need revision</span><p>اس topic کا متعلقہ lecture material دوبارہ پڑھیں، پھر readiness test دوبارہ دیں۔</p></div>`).join('')}else html+='<div class="recommendation-card success"><strong>🎉 No weak area detected</strong><p>تمام attempted questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>';
+  html+='<div class="recommendation-title">📝 Detailed Answer Review</div>'+result.review.map((r,i)=>{const opts=r.q.o||r.q.options;const selected=r.selected===null?'جواب نہیں دیا':opts[r.selected];const correct=opts[r.answer];return `<div class="answer-review ${r.ok?'review-correct':'review-wrong'}"><div class="review-head"><strong>Q${i+1}. ${linkDictionaryTerms(r.q.q||r.q.question)}</strong><span>${r.ok?'✓ درست':'✕ Review'}</span></div><div class="review-line"><b>آپ کا جواب:</b> ${linkDictionaryTerms(selected)}</div><div class="review-line correct-answer"><b>صحیح جواب:</b> ${linkDictionaryTerms(correct)}</div><div class="review-explanation"><b>Concept:</b> ${r.q.explanation||'اس سوال کے concept کو متعلقہ lecture section کے ساتھ دوبارہ جوڑیں۔'}</div></div>`}).join('');
+  return html;
+}
 
-            draw() {
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                
-                this.wingAngle += this.wingSpeed;
-                const wingScale = Math.abs(Math.sin(this.wingAngle));
+function submitReadinessTest(){
+  const result=scoreAssessment(testAttempt,testAnswers);
+  document.getElementById('readinessResult').innerHTML=renderAssessmentResult(result,'readiness');
+  document.getElementById('readinessResult').classList.add('show');
+  document.getElementById('readinessResult').scrollIntoView({behavior:'smooth',block:'start'});
+}
 
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = this.color;
+function openExamSystem(){
+  examAttempt=[...exam]; examAnswers={};
+  show(`<div class="assessment-head exam-system-head">
+    <div class="assessment-badge">🏛️ EXAMINATION SYSTEM</div>
+    <div class="lesson-title">Lecture 03 — Examination</div>
+    <p>یہ formal examination Lecture 03 کے classification، structure-function relationships، adaptations، comparisons اور evolutionary context کو assess کرتا ہے۔ Result صرف score نہیں بلکہ detailed performance review بھی دیتا ہے۔</p>
+    <div class="assessment-meta"><b>${examAttempt.length} Questions</b><span>Formal Assessment</span><span>Conceptual</span><span>Application</span><span>Exam-level</span></div>
+  </div>
+  <div class="exam-rules"><strong>Examination protocol:</strong> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد result lock ہوگا اور complete answer review دکھایا جائے گا۔</div>
+  <div id="examQuestions">${renderAssessmentQuestions(examAttempt,'exam')}</div>
+  <div class="assessment-actions"><button class="submit-test exam-submit" onclick="submitExam()">🏛️ Submit Examination</button><button class="new-test" onclick="openExamSystem()">↻ Reset Examination</button></div>
+  <div id="examResult" class="assessment-result"></div>`);
+}
 
-                ctx.beginPath();
-                ctx.ellipse(-this.size / 2 * wingScale, 0, this.size / 2 * wingScale, this.size / 3, Math.PI / 4, 0, Math.PI * 2);
-                ctx.fill();
+function submitExam(){
+  const result=scoreAssessment(examAttempt,examAnswers);
+  document.getElementById('examResult').innerHTML=renderAssessmentResult(result,'exam');
+  document.getElementById('examResult').classList.add('show');
+  document.getElementById('examResult').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
 
-                ctx.beginPath();
-                ctx.ellipse(this.size / 2 * wingScale, 0, this.size / 2 * wingScale, this.size / 3, -Math.PI / 4, 0, Math.PI * 2);
-                ctx.fill();
+<style id="assessment-quality-style">
+.assessment-head{padding:22px 22px 18px;border-radius:16px;background:#f8fafc;border:1px solid #dbe4ee;margin-bottom:18px;text-align:center}.assessment-head .lesson-title{margin-bottom:8px}.assessment-head p{line-height:1.9;margin:8px auto;max-width:900px}.assessment-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}.assessment-meta span,.assessment-meta b{padding:7px 12px;border-radius:999px;background:#fff;border:1px solid #dbe4ee;font-size:13px}.question-card{scroll-margin-top:20px}.question-card>b{display:block;line-height:1.8;margin-bottom:10px}.exam-head{border-color:#c7d2fe}.exam-card{border-left:4px solid #94a3b8}.sticky-score{position:sticky;bottom:12px;z-index:20;box-shadow:0 8px 22px rgba(0,0,0,.12)}
 
-                ctx.fillStyle = '#ffffff';
-                ctx.beginPath();
-                ctx.arc(0, 0, 1.2, 0, Math.PI * 2);
-                ctx.fill();
+.content-navigation{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:20px 0 4px;padding-top:12px;border-top:1px solid var(--line);direction:ltr}.content-navigation button{border:0;background:var(--green);color:#fff;padding:7px 10px;border-radius:7px;cursor:pointer;font:700 9px Arial}.content-navigation button:disabled{opacity:.35;cursor:not-allowed}.content-navigation span{color:#876821;font:700 10px Arial}.goto-mini{display:flex;gap:4px;align-items:center}.goto-mini input{width:52px;padding:6px;border:1px solid var(--line);border-radius:6px;text-align:center}.revision-item{display:flex;gap:12px;align-items:center;padding:11px 12px;margin:7px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer}.revision-item:hover{background:#f8f2df}.revision-item span{font:800 13px Arial;color:var(--gold)}.extended-tools{margin-top:12px}
+</style>
+<style id="iae-inline-dictionary-style">
+.iae-dict-word{
+  cursor:pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  position:relative;
+}
+#iaeDictionaryOverlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.18);
+  padding:18px;box-sizing:border-box;
+}
+#iaeDictionaryPopup{
+  position:relative;
+  width:min(560px,92vw);
+  max-height:min(72vh,620px);
+  overflow:auto;
+  background:#fff;
+  border:2px solid #f3b6b6;
+  border-radius:16px;
+  box-shadow:0 18px 55px rgba(0,0,0,.22);
+  padding:28px 24px 58px;box-sizing:border-box;
+  text-align:center;
+  direction:rtl;
+}
+#iaeDictionaryClose{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#fbe1e1;
+  color:#111;
+  font-size:25px;
+  line-height:38px;
+  cursor:pointer;
+}
+#iaeDictionaryTerm{
+  font-size:26px;
+  font-weight:800;
+  direction:ltr;
+  margin:0 0 14px;
+}
+#iaeDictionaryMeaning{
+  font-size:18px;
+  line-height:1.9;
+  color:#222;
+}
+@media(max-width:600px){
+  #iaeDictionaryPopup{width:calc(100vw - 28px);padding:25px 18px 58px}
+  #iaeDictionaryTerm{font-size:23px}
+  #iaeDictionaryMeaning{font-size:17px}
+}
+</style>
+<div aria-hidden="true" id="iaeDictionaryOverlay">
+<div aria-labelledby="iaeDictionaryTerm" aria-modal="true" id="iaeDictionaryPopup" role="dialog">
+<button aria-label="Close dictionary" id="iaeDictionaryClose" type="button">×</button>
+<div id="iaeDictionaryTerm"></div>
+<div id="iaeDictionaryMeaning"></div>
+</div>
+</div>
+<script id="iae-inline-dictionary-script">
+(function(){
+  const DICT = dict;
+  const overlay = document.getElementById('iaeDictionaryOverlay');
+  const popup = document.getElementById('iaeDictionaryPopup');
+  const term = document.getElementById('iaeDictionaryTerm');
+  const meaning = document.getElementById('iaeDictionaryMeaning');
+  const closeBtn = document.getElementById('iaeDictionaryClose');
+  let lastTrigger = null;
 
-                ctx.restore();
-            }
+  function openInlineDictionary(key, trigger){
+    lastTrigger = trigger || null;
+    term.textContent = key;
+    meaning.textContent = DICT[key] || 'اس لفظ کی لغت میں وضاحت موجود نہیں۔';
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(()=>closeBtn.focus());
+  }
+  function closeInlineDictionary(){
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastTrigger && document.contains(lastTrigger)) lastTrigger.focus();
+    lastTrigger = null;
+  }
 
-            update() {
-                this.progress += this.speed;
-                if (this.progress > 1) this.progress = 1;
+  window.openInlineDictionary = openInlineDictionary;
+  window.closeInlineDictionary = closeInlineDictionary;
 
-                const t = this.progress;
-                if (this.mode === 'FLY_OUT') {
-                    this.x = (1-t)*(1-t)*this.startX + 2*(1-t)*t*this.cpX + t*t*this.targetX;
-                    this.y = (1-t)*(1-t)*this.startY + 2*(1-t)*t*this.cpY + t*t*this.targetY;
-                } else {
-                    this.x = (1-t)*this.startX + t*this.targetX;
-                    this.y = (1-t)*(1-t)*this.startY + 2*(1-t)*t*this.cpX + t*t*this.targetY;
-                }
-            }
-        }
+  document.addEventListener('click', function(e){
+    const word = e.target.closest('.linked-word,.iae-dict-word');
+    if(word){
+      e.preventDefault();
+      e.stopPropagation();
+      const key = word.dataset.term || word.textContent.trim();
+      openInlineDictionary(key, word);
+      return;
+    }
+    if(overlay.style.display === 'flex' && !popup.contains(e.target)){
+      closeInlineDictionary();
+    }
+  }, true);
 
-        function startAnimationCycle() {
-            // 1. لفظ بہ لفظ تتلیوں میں بدل کر غائب ہونا
-            wordSpans.forEach((span, index) => {
-                setTimeout(() => {
-                    const rect = span.getBoundingClientRect();
-                    const cardRect = cardContainer.getBoundingClientRect();
+  closeBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    closeInlineDictionary();
+  });
 
-                    const wordX = rect.left - cardRect.left + rect.width / 2;
-                    const wordY = rect.top - cardRect.top + rect.height / 2;
-
-                    for(let i = 0; i < 2; i++) {
-                        const targetX = wordX + (Math.random() - 0.5) * 400;
-                        const targetY = wordY - Math.random() * 300 - 50;
-                        butterflies.push(new Butterfly(wordX, wordY, targetX, targetY, 'FLY_OUT'));
-                    }
-
-                    span.classList.add('hidden');
-                }, index * 45);
-            });
-
-            const totalOutTime = wordSpans.length * 45 + 1000;
-
-            // 2. تتلیوں کا واپس آکر دوبارہ لفظ بننا
-            setTimeout(() => {
-                butterflies = [];
-
-                wordSpans.forEach((span, index) => {
-                    const rect = span.getBoundingClientRect();
-                    const cardRect = cardContainer.getBoundingClientRect();
-
-                    const wordX = rect.left - cardRect.left + rect.width / 2;
-                    const wordY = rect.top - cardRect.top + rect.height / 2;
-
-                    const angle = Math.random() * Math.PI * 2;
-                    const distance = 400;
-                    const startX = canvas.width / 2 + Math.cos(angle) * distance;
-                    const startY = canvas.height / 2 + Math.sin(angle) * distance;
-
-                    butterflies.push(new Butterfly(startX, startY, wordX, wordY, 'FLY_IN'));
-
-                    setTimeout(() => {
-                        span.classList.remove('hidden');
-                    }, index * 45);
-                });
-            }, totalOutTime);
-        }
-
-        function renderLoop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            butterflies.forEach(b => {
-                b.update();
-                b.draw();
-            });
-            requestAnimationFrame(renderLoop);
-        }
-
-        renderLoop();
-
-        // 5 سیکنڈ کے وقفے کے بعد اینیمیشن سائیکل شروع کرنا
-        setTimeout(() => {
-            startAnimationCycle();
-            setInterval(startAnimationCycle, wordSpans.length * 90 + 5000);
-        }, 5000);
-    </script>
-</body>
-</html>
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && overlay.style.display === 'flex'){
+      e.preventDefault();
+      closeInlineDictionary();
+    }
+  });
+})();
+</script>
+<style id="topic-heading-hierarchy-final">
+.topic-intro{min-height:130px!important;cursor:pointer!important;display:flex;align-items:center;justify-content:center!important;padding:26px!important;}
+.topic-intro .label{font-size:25px!important;font-weight:800!important;line-height:1.35!important;text-align:center!important;}
+@media(max-width:800px){.topic-intro .label{font-size:22px!important;}}
+@media(max-width:480px){.topic-intro{min-height:120px!important;padding:22px!important;}.topic-intro .label{font-size:20px!important;}}
+</style>
+<style id="chapter01-assessment-architecture">
+.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial;margin-bottom:8px}.readiness-peak{border-color:#b7d7c6}.exam-system-head{border-color:#c9c1a8;background:#fffdf8}.assessment-instructions,.exam-rules{padding:12px 14px;border-radius:9px;background:#f8f4e8;border-right:4px solid #c59b35;margin:12px 0;line-height:1.8}.assessment-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0}.assessment-actions button{min-width:180px}.question-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:7px;font:700 10px Arial;color:#876821}.assessment-option{display:flex;gap:8px;align-items:flex-start;width:100%;text-align:right;margin:7px 0;padding:11px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer;line-height:1.7}.assessment-option:hover{background:#f8fafc;border-color:#94a3b8}.assessment-option input{margin-top:5px;accent-color:#285b4b}.assessment-option span{flex:1}.assessment-result{display:none;margin-top:20px}.assessment-result.show{display:block}.result-hero{padding:20px;border-radius:16px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}.result-title{font-weight:800;color:#285b4b;font-size:20px}.result-score{font:800 38px Arial;color:#173e34;margin-top:4px}.result-percent{font:700 16px Arial;color:#876821}.result-band{margin:9px auto;max-width:760px;font-size:15px;line-height:1.8}.result-band::first-line{font-weight:800}.exam-submit{background:#173e34!important}.assessment-result .answer-review{scroll-margin-top:20px}.assessment-result .recommendation-card p{line-height:1.7}.assessment-result .recommendation-card span{font-family:Arial}.assessment-result .correct-answer{color:#28634f}.assessment-result .review-wrong{border-right-color:#b94a48}.assessment-result .review-correct{border-right-color:#4d7867}
+</style>
+</body></html>
