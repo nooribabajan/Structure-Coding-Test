@@ -41,6 +41,14 @@
 .basic{border-right-color:#b45b4c!important;background:#fff7f4!important}
 .standard{border-right-color:#4d7867!important;background:var(--soft)!important}
 .mastery{border-right-color:var(--blue)!important;background:#f2f7fa!important}
+/* Chapter 01-style academic color coding — SUBTOPIC READING PAGES ONLY */
+.subtopic-reading .basic{border-right-color:#dc2626!important;background:#fff1f1!important}
+.subtopic-reading .standard{border-right-color:#16a34a!important;background:#effcf2!important}
+.subtopic-reading .mastery{border-right-color:#2563eb!important;background:#eff6ff!important}
+.subtopic-reading .level-heading.basic-h{color:#dc2626!important}
+.subtopic-reading .level-heading.standard-h{color:#16a34a!important}
+.subtopic-reading .level-heading.mastery-h{color:#2563eb!important}
+
 .level-heading.basic-h{color:#a4493d!important}
 .level-heading.standard-h{color:#356b58!important}
 .level-heading.mastery-h{color:var(--blue)!important}
@@ -251,7 +259,8 @@ function linkDictionaryTerms(text){
     return '<span class="linked-word" data-term="'+safe+'" role="button" tabindex="0" title="Dictionary: '+safe+'">'+match+'</span>';
   });
 }
-function openSub(k){const d=data[k];show(wrapContent(`<div class="lesson-title">${d.title}</div><div class="lesson-subtitle">درسی مواد — بنیادی → معیاری → Mastery</div><div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>${linkDictionaryTerms(d.basic)}</p></div><div class="section standard"><span class="level-heading standard-h">معیاری</span><p>${linkDictionaryTerms(d.standard)}</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>`,k))}
+function wrapContent(html,k){return html+`<div class="content-navigation"><button onclick="showPage('topicsPage')">← Topics</button></div>`;}
+function openSub(k){const d=data[k];show(wrapContent(`<div class="subtopic-reading"><div class="lesson-title">${d.title}</div><div class="lesson-subtitle">درسی مواد — بنیادی → معیاری → Mastery</div><div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>${linkDictionaryTerms(d.basic)}</p></div><div class="section standard"><span class="level-heading standard-h">معیاری</span><p>${linkDictionaryTerms(d.standard)}</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div></div>`,k))}
 function openFunctional(k){
 if(k==='dictionary'){show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Lecture کے مشکل الفاظ — لفظ پر click کریں اور اسی وقت اس کا مفہوم دیکھیں۔</p><input class="search" id="ds" placeholder="Search difficult word…" oninput="renderDict(this.value)"><div id="dictList"></div>`);renderDict('');return}
 if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">ہر Visual اپنے متعلقہ subtopic سے functional طور پر linked ہے۔</p>${visuals.map((v,i)=>`<div class="visual-card"><b>${v.title}</b><div class="diagram">${v.diagram}</div><small>متعلقہ: ${v.related}</small><br><button class="visual-link" onclick="showVisual(${i})">متعلقہ درسی مواد کھولیں</button></div>`).join('')}`);return}
