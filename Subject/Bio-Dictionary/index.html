@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IAE110301 — KPK Class 11 Biology Dictionary</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap');
+:root{--g:#075e3f;--g2:#0b7a52;--gold:#c79a32;--bg:#f7f4ec;--paper:#fff;--ink:#17221d;--muted:#68736d;--line:#dce4df;--soft:#edf7f2;--blue:#2563eb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Naskh Arabic',sans-serif}
+header{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;text-align:center;padding:28px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+/* Brand Vector Logo Style */
+.brand-icon{width:130px;height:130px;margin-bottom:6px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.25))}
+
+h1{font-family:'Noto Naskh Arabic';margin:6px 0 0;font-size:clamp(24px,4.5vw,36px)}
+header p{margin:6px 0 0;font-size:14px;opacity:0.9}
+.wrap{max-width:1000px;margin:auto;padding:18px}
+.search{display:flex;gap:8px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:9px;position:sticky;top:6px;z-index:10;box-shadow:0 8px 25px #0001}
+.search input{flex:1;border:0;outline:0;font:18px 'Inter','Noto Naskh Arabic';padding:11px}
+.icon{min-width:58px;width:58px;height:58px;border:0;background:transparent;color:#38bdf8;display:grid;place-items:center;cursor:pointer;padding:5px}
+.icon svg{width:42px;height:42px;stroke:currentColor;stroke-width:2.7;fill:none}
+.suggestions{margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.suggestion{display:block;width:100%;border:0;border-bottom:1px solid var(--line);background:#fff;text-align:right;padding:12px 15px;cursor:pointer;font-family:inherit}
+.suggestion:last-child{border-bottom:0}
+.suggestion:hover,.suggestion:focus{background:var(--soft);outline:none}
+.suggestion strong{font-size:18px}
+.suggestion small{display:block;color:var(--muted);margin-top:3px}
+.hint{color:var(--muted);font-size:13px;margin:10px 3px}
+.detail{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 25px #0000000b}
+.detail.hidden{display:none}
+.detail h2{margin:4px 0;font-size:30px}
+.urdu{font:24px 'Noto Naskh Arabic'}
+.id{font-size:13px;color:var(--muted)}
+.badge{display:inline-block;border-radius:99px;padding:4px 9px;font-size:12px;background:#edf3ff;margin:8px 0}
+.section{border-top:1px solid var(--line);padding-top:12px;margin-top:14px;line-height:1.8}
+.visual{margin-top:16px;border:1px dashed var(--line);border-radius:16px;padding:18px;text-align:center;background:#fafcfb}
+.visual img,.visual svg{max-width:100%;height:auto}
+.no-visual{color:var(--muted)}
+.empty{padding:25px;text-align:center;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:16px;margin-top:12px}
+.results-title{font-weight:700;color:var(--g);margin:15px 3px 7px}
+.footer{text-align:center;color:var(--muted);padding:25px}
+@media(max-width:650px){.search input{font-size:16px}.detail h2{font-size:26px}.brand-icon{width:110px;height:110px}}
+</style>
+</head>
+<body>
+<header>
+  <!-- World Class IAE Vector Logo -->
+  <svg class="brand-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Imperial Academy of Education Logo">
+    <defs>
+      <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFE082"/>
+        <stop offset="50%" stop-color="#C79A32"/>
+        <stop offset="100%" stop-color="#A2751B"/>
+      </linearGradient>
+      
+      <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#FF6D00"/>
+        <stop offset="50%" stop-color="#FFAB00"/>
+        <stop offset="100%" stop-color="#FFD600"/>
+      </linearGradient>
+
+      <linearGradient id="whiteSilver" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF"/>
+        <stop offset="100%" stop-color="#E2E8F0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Sun Raysburst Background -->
+    <g stroke="url(#goldGlow)" stroke-linecap="round" stroke-width="1.6" opacity="0.85">
+      <line x1="50" y1="16" x2="50" y2="3"/>
+      <line x1="42" y1="18" x2="35" y2="6"/>
+      <line x1="58" y1="18" x2="65" y2="6"/>
+      <line x1="34" y1="22" x2="23" y2="12"/>
+      <line x1="28" y1="28" x2="15" y2="20"/>
+      <line x1="24" y1="36" x2="9" y2="32"/>
+      <line x1="23" y1="45" x2="7" y2="45"/>
+      <line x1="66" y1="22" x2="77" y2="12"/>
+      <line x1="72" y1="28" x2="85" y2="20"/>
+      <line x1="76" y1="36" x2="91" y2="32"/>
+      <line x1="77" y1="45" x2="93" y2="45"/>
+    </g>
+
+    <!-- Glowing Torch Flame -->
+    <path d="M50 12 C46 20, 42 23, 46 30 C48 33, 52 33, 54 30 C58 23, 54 20, 50 12 Z" fill="url(#flameGrad)" />
+    <path d="M50 18 C48 22, 46 24, 48 28 C49 30, 51 30, 52 28 C54 24, 52 22, 50 18 Z" fill="#FFFFFF" opacity="0.9"/>
+    
+    <!-- Torch Holder / Cup -->
+    <path d="M44 31 L56 31 L54 36 L46 36 Z" fill="url(#goldGlow)"/>
+    <rect x="47" y="36" width="6" height="4" rx="1" fill="url(#goldGlow)"/>
+
+    <!-- Triangular Pediment (Roof) -->
+    <polygon points="50,40 16,55 84,55" fill="url(#whiteSilver)"/>
+    <polygon points="50,42 20,55 80,55" fill="#075e3f" opacity="0.15"/>
+
+    <!-- IAE Text Inside Pediment -->
+    <text x="50" y="52" font-family="Inter, sans-serif" font-weight="900" font-size="8" fill="url(#goldGlow)" text-anchor="middle" letter-spacing="1.5">IAE</text>
+
+    <!-- Entablature / Upper Beam -->
+    <rect x="18" y="55" width="64" height="4" rx="1" fill="url(#goldGlow)"/>
+
+    <!-- Classical Pillars -->
+    <g fill="url(#whiteSilver)">
+      <rect x="22" y="59" width="6" height="23" rx="1"/>
+      <rect x="34" y="59" width="6" height="23" rx="1"/>
+      <rect x="47" y="59" width="6" height="23" rx="1"/>
+      <rect x="60" y="59" width="6" height="23" rx="1"/>
+      <rect x="72" y="59" width="6" height="23" rx="1"/>
+    </g>
+
+    <!-- Central Arch Entrance -->
+    <path d="M47 82 V71 A3 3 0 0 1 53 71 V82 Z" fill="url(#goldGlow)"/>
+
+    <!-- Building Base & Plinth Steps -->
+    <rect x="16" y="82" width="68" height="4" rx="1" fill="url(#goldGlow)"/>
+    <rect x="12" y="86" width="76" height="5" rx="1" fill="url(#whiteSilver)"/>
+    
+    <!-- Full Brand Name at the Bottom Base -->
+    <rect x="8" y="91" width="84" height="7" rx="1.5" fill="url(#goldGlow)"/>
+    <text x="50" y="96" font-family="Inter, sans-serif" font-weight="800" font-size="3.8" fill="#17221d" text-anchor="middle" letter-spacing="0.4">IMPERIAL ACADEMY OF EDUCATION</text>
+  </svg>
+
+  <h1>First Year Biology Dictionary</h1>
+  <p>Imperial Academy of Education · KPK Textbook Board Syllabus (Chapters 1–13)</p>
+</header>
+
+<div class="wrap">
+  <div class="search">
+    <input id="q" autocomplete="off" placeholder="Biology کا لفظ، اردو، یا Dictionary ID لکھیں…" aria-label="Search Dictionary">
+    <button class="icon" id="go" title="Search" aria-label="Search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.8"></circle><path d="M15.7 15.7L21 21"></path></svg>
+    </button>
+  </div>
+  <div id="hint" class="hint">حروف لکھتے جائیں تو تمام ملتے جلتے الفاظ ظاہر ہوں گے۔ کسی لفظ پر کلک کرنے سے اس کی تفصیل کھلے گی۔</div>
+  <div id="suggestions"></div>
+  <section id="detail" class="detail hidden"></section>
+</div>
+
+<div class="footer">IAE110301 · Imperial Academy of Education · KPK Board Biology Master Dictionary</div>
+
+<script>
+// Dataset
+const D=[
+// Ch 1: Cell Structure and Function
+['IAE1103010001','Cell (Cellula)','خلیہ (سیل)','جانداروں کی ساختی اور افعالی کی بنیادی اکائی۔ یہ لاطینی لفظ Cellula سے ماخوذ ہے جس کے معنی چھوٹا کمرہ ہیں۔','Basic structural, functional, and biological unit of all known organisms derived from Latin Cellula (small room).','1','Cell Structure and Function','basic'],
+['IAE1103010002','Cell Processing','خلیاتی پروسیسنگ','خلیے کے اندر مادوں کی تیاری، تبدیلی اور ترسیل کا عمل۔','Substance synthesis, modification, and intracellular transport within a cell.','1','Cell Structure and Function','basic'],
+['IAE1103010003','Cell Wall','سیل وال (خلیاتی دیوار)','پودوں، فنجائی اور بیکٹیریا کے خلیوں کے باہر پائے جانے والی سخت حفاظتی تہہ۔','Non-living rigid outer layer found in plants, fungi, and bacteria outside plasma membrane.','1','Cell Structure and Function','basic'],
+['IAE1103010004','Cellular Respiration','خلیاتی تنفس','خلیے کے اندر گلوکوز کی آکسیڈیشن کے ذریعے اے ٹی پی (توانائی) حاصل کرنے کا عمل۔','Biochemical process where cells convert nutrients into ATP and release waste products.','1','Cell Structure and Function','standard'],
+['IAE1103010005','Plasma membrane','پلازما ممبرین','خلیے کی بیرونی باریک لچکدار اور نیم نفوذ پذیر جھلی۔','Selectively permeable phospholipid bilayer surrounding the cell.','1','Cell Structure and Function','basic'],
+['IAE1103010006','Fluid Mosaic Model','فلوئڈ موزیک ماڈل','پلازما ممبرین کی ساخت کی وضاحت کرنے والا تسلیم شدہ ماڈل۔','Model describing membrane structure with floating proteins in a lipid bilayer.','1','Cell Structure and Function','standard'],
+['IAE1103010007','Mitochondria','مائٹوکونڈریا','خلیے کا پاور ہاؤس جہاں اے ٹی پی تیار ہوتی ہے۔','Organelle responsible for cellular respiration and ATP generation.','1','Cell Structure and Function','basic'],
+['IAE1103010008','Endoplasmic Reticulum','اینڈوپلازمک ریٹیکیولم','نالیوں کا نظام جو خلوی نقل و حمل میں معاون ہے۔','Network of membranous tubules involved in protein and lipid transport.','1','Cell Structure and Function','standard'],
+['IAE1103010009','Golgi Complex','گولجی کامپلیکس','مادوں کی پیکنگ اور سیکیریشن کرنے والا عضیہ۔','Organelle that modifies, sorts, and packages molecules for secretion.','1','Cell Structure and Function','standard'],
+['IAE1103010010','Lysosome','لائسوسوم','ہاضم خامروں سے بھری جھلی دار تھیلی۔','Membrane-bound sac containing hydrolytic enzymes for intracellular digestion.','1','Cell Structure and Function','standard'],
+['IAE1103010011','Peroxisome','پیروکسیسوم','ہائیڈروجن پیروکسائیڈ کو تحلیل کرنے والا مائیکرو باڈی۔','Organelle involved in fatty acid oxidation and detoxification.','1','Cell Structure and Function','mastery'],
+
+// Ch 2: Biological Molecules
+['IAE1103010012','Carbohydrate','کاربوہائیڈریٹ','پولی ہائیڈروکسی ایلڈیہائیڈ یا کیٹون مرکبات۔','Polyhydroxy aldehydes or ketones providing cellular energy.','2','Biological Molecules','basic'],
+['IAE1103010013','Monosaccharide','مونو سیکرائیڈ','سادہ ترین کاربوہائیڈریٹ کی اکائی جیسے گلوکوز۔','Single sugar unit that cannot be hydrolyzed into simpler sugars.','2','Biological Molecules','basic'],
+['IAE1103010014','Peptide Bond','پیپٹائڈ بانڈ','دو امینو ایسڈز کے درمیان قائم ہونے والا کیمیائی بندھن۔','Covalent bond formed between two amino acids in a protein chain.','2','Biological Molecules','standard'],
+['IAE1103010015','Triglyceride','ٹرائی گلیسرائیڈ','گلیسرول اور تین فیٹی ایسڈز سے مل کر بننے والی چربی۔','Ester derived from glycerol and three fatty acids.','2','Biological Molecules','standard'],
+['IAE1103010016','Phospholipid','فاسفولیپڈ','پلازما ممبرین کی ساخت بنانے والا اہم لیپڈ۔','Lipid with a phosphate group forming the cell membrane bilayer.','2','Biological Molecules','standard'],
+['IAE1103010017','Nucleotide','نیوکلیک ایسڈ کی اکائی','نائٹروجنس بیس، پینٹوز شوگر اور فاسفیٹ گروپ کا مجموعہ۔','Monomer of nucleic acids consisting of sugar, phosphate, and nitrogen base.','2','Biological Molecules','standard'],
+
+// Ch 3: Enzymes
+['IAE1103010018','Enzyme','انزائم','حیاتیاتی کیٹالسٹ جو کیمیائی تعاملات کو تیز کرتا ہے۔','Biological protein catalyst that speeds up biochemical reactions.','3','Enzymes','basic'],
+['IAE1103010019','Active Site','ایکٹیو سائٹ','انزائم کا وہ حصہ جہاں سبسٹریٹ جڑتا ہے۔','Specific region of an enzyme where the substrate binds and reacts.','3','Enzymes','basic'],
+['IAE1103010020','Activation Energy','ایکٹیویشن انرجی','کسی کیمیائی تعامل کو شروع کرنے کے لیے درکار کم سے کم توانائی۔','Minimum energy required to initiate a chemical reaction.','3','Enzymes','standard'],
+['IAE1103010021','Competitive Inhibitor','رقابتی انہبیٹر','وہ مالیکیول جو سبسٹریٹ سے ملتا جلتا ہو اور ایکٹیو سائٹ پر بلاکنگ کرے۔','Inhibitor that competes with substrate for the enzyme active site.','3','Enzymes','mastery'],
+['IAE1103010022','Coenzyme','کو-انزائم','غیر پروٹینی نامیاتی مالیکیول جو انزائم کی مدد کرتا ہے۔','Non-protein organic molecule assisting enzyme activity.','3','Enzymes','standard'],
+
+// Ch 4: Bioenergetics
+['IAE1103010023','Bioenergetics','بائیو انرجیٹکس','جانداروں میں توانائی کی تبدیلیوں کا مطالعہ۔','Study of energy transformations and flows in biological systems.','4','Bioenergetics','basic'],
+['IAE1103010024','Photosynthesis','ضوئی تالیف','سورج کی روشنی کی مدد سے گلوکوز بنانے کا عمل۔','Process converting light energy into chemical energy stored in glucose.','4','Bioenergetics','basic'],
+['IAE1103010025','Glycolysis','گلائیکولائسز','گلوکوز کی پائرُویٹ میں تبدیلی کا بنیادی مرحلہ۔','Breakdown of glucose into pyruvate in the cytoplasm.','4','Bioenergetics','standard'],
+['IAE1103010026','Krebs Cycle','کریبس سائیکل','ایروبک تنفس کا دائرہ نما مرحلہ جو مائٹوکونڈریا میں ہوتا ہے۔','Cyclic metabolic pathway producing NADH, FADH2, and ATP.','4','Bioenergetics','mastery'],
+['IAE1103010027','Photophosphorylation','فوٹو فاسفوریلیشن','روشنی کے ذریعے ADP سے ATP بنانے کا عمل۔','Synthesis of ATP from ADP using light energy during photosynthesis.','4','Bioenergetics','mastery'],
+
+// Ch 5: Acellular Life
+['IAE1103010028','Virus','وائرس','غیر خلوی متعدی ذرّہ جو صرف ميزبان خلیے میں افزائش کرتا ہے۔','Acellular infectious particle replicating only inside a host cell.','5','Acellular Life','basic'],
+['IAE1103010029','Bacteriophage','بیکٹیریوفیج','وہ وائرس جو صرف بیکٹیریا پر حملہ آور ہوتا ہے۔','Virus that infects and replicates within bacteria.','5','Acellular Life','standard'],
+['IAE1103010030','Prion','پرائین','حسّاس پروٹین پر مشتمل متعدی عامل۔','Infectious agent composed solely of misfolded protein material.','5','Acellular Life','mastery'],
+['IAE1103010031','Viroid','وائرائڈ','صرف ننگے RNA پر مشتمل متعدی پودوں کا وائرس۔','Infectious agent consisting solely of a short strand of circular RNA.','5','Acellular Life','mastery'],
+
+// Ch 6: Prokaryotes
+['IAE1103010032','Bacteria','بیکٹیریا','بغیر واضح مرکزے کے یک خلوی پروکیریوٹک جاندار۔','Unicellular prokaryotic microorganisms lacking a nuclear membrane.','6','Prokaryotes','basic'],
+['IAE1103010033','Peptidoglycan','پیپٹیڈو گلائیکن','بیکٹیریا کی سیل وال بنانے والا مرکب۔','Polymer forming the cell wall of most bacteria.','6','Prokaryotes','standard'],
+['IAE1103010034','Gram Staining','گرام سٹیننگ','بیکٹیریا کو دو بڑے گروہوں میں تقسیم کرنے کا طریقہ۔','Differential staining method dividing bacteria into Gram-positive and Negative.','6','Prokaryotes','standard'],
+['IAE1103010035','Binary Fission','بائنری فشن','بیکٹیریا میں غیر جنسی تولید کا عام طریقہ۔','Asexual reproduction method where a bacterial cell divides into two.','6','Prokaryotes','basic'],
+
+// Ch 7: Protoctists and Fungi
+['IAE1103010036','Protoctista','پروٹوکٹسٹا','یوکیریوٹک جانداروں کا متنوع کنگڈم جس میں الجی اور پروٹوزوا شامل ہیں۔','Kingdom of diverse eukaryotic organisms not fitting plants, animals, or fungi.','7','Protoctists and Fungi','basic'],
+['IAE1103010037','Slime Mold','سلائم مولڈ','فنجائی جیسے پروٹسٹس کی ایک اہم قسم۔','Fungus-like protists with plasmodial or cellular feeding stages.','7','Protoctists and Fungi','standard'],
+['IAE1103010038','Late Blight of Potato','آئرش آلو کا قحط','فا ئٹوف تھورا کی وجہ سے آلو میں لگنے والی تباہ کن بیماری۔','Potato disease caused by Phytophthora infestans causing Irish Famine.','7','Protoctists and Fungi','standard'],
+['IAE1103010039','Hypha','ہائیفی','فنجائی کے جسم کی باریک دھاگے نما ساخت۔','Filamentous thread forming the vegetative body (mycelium) of fungi.','7','Protoctists and Fungi','basic'],
+['IAE1103010040','Mycelium','مائیسیلیم','فنجائی کے تمام ہائیفی کا مجموعہ۔','Mass of hyphae forming the vegetative body of a fungus.','7','Protoctists and Fungi','standard'],
+
+// Ch 8: Diversity Among Plants
+['IAE1103010041','Bryophyte','برائیو فائٹ','بغیر ویسکولر ٹشو کے غیر وہائیکی پودے جیسے ماسز۔','Non-vascular land plants lacking xylem and phloem tissues.','8','Diversity Among Plants','basic'],
+['IAE1103010042','Xylem','ائزائلم','پودوں میں پانی کی ترسیل کرنے والا ویسکولر ٹشو۔','Vascular tissue that conducts water and minerals from roots to leaves.','8','Diversity Among Plants','basic'],
+['IAE1103010043','Phloem','فلائم','پودوں میں خوراک کی ترسیل کرنے والا ویسکولر ٹشو۔','Vascular tissue that transports synthesized food throughout the plant.','8','Diversity Among Plants','basic'],
+['IAE1103010044','Gymnosperm','جمنوسپرم','بغیر پھل والے ننگے بیج پیدا کرنے والے پودے۔','Vascular plants with naked seeds not enclosed in an ovary or fruit.','8','Diversity Among Plants','standard'],
+['IAE1103010045','Angiosperm','اینجیوسپرم','پھولدار اور بیج کو پھل کے اندر محفوظ رکھنے والے پودے۔','Flowering plants that produce seeds enclosed within a fruit.','8','Diversity Among Plants','standard'],
+
+// Ch 9: Diversity Among Animals
+['IAE1103010046','Symmetry','مماثلت (سیمیٹری)','جاندار کے جسم کی ساختی ترتیب اور یکسانیت۔','Balanced arrangement of body parts along an axis.','9','Diversity Among Animals','basic'],
+['IAE1103010047','Coelom','سیلوم','جاندار کے جسم کے اندر کی سچی جوف یا کیویٹی۔','True fluid-filled body cavity lined with mesoderm tissue.','9','Diversity Among Animals','standard'],
+['IAE1103010048','Arthropoda','آرتھروپوڈا','جوڑ دار ٹانگوں والے جانوروں کا سب سے بڑا فائلم۔','Largest animal phylum characterized by jointed appendages and exoskeleton.','9','Diversity Among Animals','basic'],
+['IAE1103010049','Notochord','نوٹوکارڈ','کارڈیٹس میں لچکدار سپورٹنگ راڈ۔','Flexible rod-like structure providing support in chordate embryos.','9','Diversity Among Animals','standard'],
+
+// Ch 10: Forms and Functions in Plants
+['IAE1103010050','Transpiration','ٹرانسپائریشن','پودے کی سطح سے پانی کا بھاپ بن کر اڑنے کا عمل۔','Evaporative loss of water vapor from aerial plant surfaces.','10','Forms and Functions in Plants','basic'],
+['IAE1103010051','Guttation','گٹیشن','پودوں کے پتوں کے کناروں سے قطرے بن کر پانی کا نکلنا۔','Exudation of liquid water drops from hydathodes at leaf margins.','10','Forms and Functions in Plants','standard'],
+['IAE1103010052','Photoperiodism','فوٹوپیریوڈزم','روشنی اور اندھیرے کے دورانیے پر پھول کھلنے کا انحصار۔','Plant reaction to the relative length of day and night for flowering.','10','Forms and Functions in Plants','mastery'],
+
+// Ch 11: Digestion
+['IAE1103010053','Digestion','ہاضمہ','خوراک کی پیچیدہ شکل کو سادہ مالیکیولز میں توڑنے کا عمل۔','Breakdown of complex food molecules into absorbable units.','11','Digestion','basic'],
+['IAE1103010054','Peristalsis','پیریسٹالسس','خوراک کی نالی میں لہروں کی صورت میں ملائم حرکت۔','Rhythmic muscular contractions propelling food along the digestive tract.','11','Digestion','standard'],
+['IAE1103010055','Villi','ولائی','چھوٹی انتڑیاں میں جذب کرنے کے رقبے کو بڑھانے والے ابھار۔','Finger-like projections in the small intestine increasing absorption area.','11','Digestion','standard'],
+
+// Ch 12: Circulation
+['IAE1103010056','Hemoglobin','ہیموگلوبن','سرخ خلیات میں آکسیجن منتقل کرنے والی پروٹین۔','Iron-containing oxygen-transport protein in red blood cells.','12','Circulation','basic'],
+['IAE1103010057','Systole','سسٹول','دل کے پٹھوں کے سکڑنے اور خون پمپ کرنے کا مرحلہ۔','Phase of cardiac contraction where blood is pumped into arteries.','12','Circulation','standard'],
+['IAE1103010058','Diastole','ڈائیاسٹول','دل کے پٹھوں کے پھیلنے اور خون بھرنے کا مرحلہ۔','Phase of cardiac relaxation where chambers fill with blood.','12','Circulation','standard'],
+
+// Ch 13: Immunity
+['IAE1103010059','Immunity','مدافعت','بیماریوں اور متعدی عوامل کے خلاف جسم کا دفاعی نظام۔','Ability of an organism to resist pathogens or infection.','13','Immunity','basic'],
+['IAE1103010060','Antigen','اینٹی جن','وہ غیر مادہ جو جسم میں اینٹی باڈی بنانے کا عمل شروع کرے۔','Foreign substance that triggers an immune response in the body.','13','Immunity','standard'],
+['IAE1103010061','Antibody','اینٹی باڈی','اینٹی جن کے خلاف مدافعتی نظام کی بنائی ہوئی خاص پروٹین۔','Protective protein produced by immune system in response to antigens.','13','Immunity','standard'],
+['IAE1103010062','Vaccine','ویکسین','کمزور یا مردہ پیتھوجن پر مشتمل مدافعتی ڈوز۔','Biological preparation providing active acquired immunity to diseases.','13','Immunity','basic']
+];
+
+const q = document.getElementById('q'), 
+      suggestions = document.getElementById('suggestions'), 
+      detail = document.getElementById('detail');
+
+let selected = null;
+
+const norm = v => String(v ?? '').toLocaleLowerCase().normalize('NFKC').replace(/[ًٌٍَُِّْـ]/g, '').trim();
+
+function getEditDistance(a, b) {
+  if (a.length === 0) return b.length;
+  if (b.length === 0) return a.length;
+  const matrix = [];
+  for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+  for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+      }
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+function matches(row, term) {
+  const n = norm(term);
+  if (!n) return false;
+  const eng = norm(row[1]);
+  const urdu = norm(row[2]);
+  const id = norm(row[0]);
+  const engDesc = norm(row[4]);
+  return eng.includes(n) || urdu.includes(n) || id.includes(n) || engDesc.includes(n);
+}
+
+function renderSuggestions() {
+  const term = q.value;
+  if (!term.trim()) { suggestions.innerHTML = ''; return; }
+  
+  let rows = D.filter(r => matches(r, term));
+
+  if (rows.length === 0 && norm(term).length >= 3) {
+    rows = D.filter(r => getEditDistance(norm(term), norm(r[1])) <= 3 || getEditDistance(norm(term), norm(r[2])) <= 3);
+  }
+
+  suggestions.innerHTML = rows.length ? 
+    '<div class="results-title">Filtered Results (' + rows.length + ')</div><div class="suggestions">' + 
+    rows.map(r => `<button type="button" class="suggestion" data-i="${D.indexOf(r)}"><strong>${esc(r[1])}</strong> — <span class="urdu">${esc(r[2])}</span><small>Ch ${r[5]} · ${esc(r[0])}</small></button>`).join('') + 
+    '</div>' : 
+    '<div class="empty">اس آغاز یا املا سے کوئی لفظ نہیں ملا۔</div>';
+}
+
+function selectSuggestion(e) {
+  const b = e.target.closest('.suggestion');
+  if (!b || !suggestions.contains(b)) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const i = Number(b.dataset.i);
+  if (Number.isInteger(i) && D[i]) {
+    openEntry(i);
+    q.value = '';
+    suggestions.innerHTML = '';
+  }
+}
+
+suggestions.addEventListener('click', selectSuggestion);
+
+function esc(v) {
+  return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function openEntry(i) {
+  const r = D[i];
+  if (!r) return;
+  selected = i;
+  suggestions.innerHTML = '';
+  detail.classList.remove('hidden');
+  
+  const visual = r[8] || ''; 
+  const badgeClass = r[7] === 'basic' ? '🟥 Basic' : r[7] === 'standard' ? '🟩 Standard' : '🟦 Mastery';
+
+  detail.innerHTML = `
+    <div class="id">Dictionary ID: ${esc(r[0])} | Chapter ${esc(r[5])}: ${esc(r[6])}</div>
+    <h2>${esc(r[1])}</h2>
+    <div class="urdu">${esc(r[2])}</div>
+    <span class="badge">${badgeClass}</span>
+    <div class="section"><strong>تعریف (Urdu Definition)</strong><br>${esc(r[3])}</div>
+    <div class="section"><strong>Conceptual Explanation (English)</strong><br>${esc(r[4])}</div>
+    ${visual ? `<div class="visual">${visual}</div>` : `<div class="visual"><div class="no-visual">اس اصطلاح کے لیے Imperial Academy Visual Library میں ابھی کوئی linked visual موجود نہیں۔ Visual دستیاب ہوتے ہی یہاں ظاہر ہوگا۔</div></div>`}
+  `;
+  
+  detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function exactSearch() {
+  const term = norm(q.value);
+  if (!term) return;
+  
+  const exact = D.find(r => [r[0], r[1], r[2]].some(v => norm(v) === term));
+  if (exact) {
+    openEntry(D.indexOf(exact));
+    q.value = '';
+    return;
+  }
+
+  const matchesList = D.filter(r => matches(r, term));
+  if (matchesList.length > 0) {
+    openEntry(D.indexOf(matchesList[0]));
+    q.value = '';
+    return;
+  }
+
+  let bestMatch = null;
+  let minDistance = Infinity;
+
+  D.forEach(r => {
+    const engDist = getEditDistance(term, norm(r[1]));
+    const urduDist = getEditDistance(term, norm(r[2]));
+    const dist = Math.min(engDist, urduDist);
+    if (dist < minDistance) {
+      minDistance = dist;
+      bestMatch = r;
+    }
+  });
+
+  if (bestMatch && minDistance <= 3) {
+    openEntry(D.indexOf(bestMatch));
+    q.value = '';
+  } else {
+    suggestions.innerHTML = '<div class="empty">کوئی ملتا جلتا لفظ نہیں ملا۔</div>';
+  }
+}
+
+q.addEventListener('input', () => { selected = null; renderSuggestions(); });
+q.addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); exactSearch(); }
+  if (e.key === 'Escape') { q.value = ''; suggestions.innerHTML = ''; detail.classList.add('hidden'); q.focus(); }
+});
+
+document.getElementById('go').onclick = () => { exactSearch(); };
+</script>
+</body>
+</html>
