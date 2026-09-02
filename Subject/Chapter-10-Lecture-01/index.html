@@ -1,318 +1,207 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html dir="rtl" lang="ur">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IAE Welcome Animation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>IAE110110 — Chapter 10 Lecture 01 — Nutrition in Plants &amp; Gaseous Exchange in Plants</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--card:#fffdf8;--bg:#f3f0e7;--shadow:0 8px 24px rgba(23,62,52,.10)}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic',serif;line-height:1.9}.wrap{width:100%;max-width:none;margin:0;padding:0}.top{background:linear-gradient(135deg,#123c32,#285b4b);color:#fff;border-radius:0;border-bottom:0;box-shadow:0 3px 13px #0002;padding:9px 16px 14px;margin:0;text-align:center}.top-inner{width:100%;max-width:none;margin:auto;display:flex;align-items:center;gap:12px;direction:ltr}.top-brand{flex:1;text-align:left}.top-brand h1{margin:0;color:var(--gold2);font-size:clamp(18px,3vw,28px);line-height:1.15;font-family:Arial,sans-serif;font-weight:800}.top-brand p{margin:3px 0 0;font:9px Arial,sans-serif;opacity:.9;letter-spacing:.5px}.top-logo{width:105px;height:75px;flex:0 0 105px}.top-logo img{width:100%;height:100%;object-fit:contain}.top .title{font-size:clamp(22px,3.5vw,32px);font-weight:700;margin:10px 0 5px;color:#fff}.top .intro{width:min(1100px,94vw);max-width:none;margin:6px auto 0;font-size:15px;line-height:1.8;color:#f5f7f5}.section-card{background:#fff;border-radius:0;box-shadow:none;padding:22px clamp(16px,4vw,48px);margin-bottom:0;border-bottom:1px solid var(--line);text-align:right}.section-card>strong{display:block;color:var(--green);font-size:20px;margin-bottom:8px}.section-card p{margin:0;color:#334155;font-size:16px;line-height:1.9}.section-card ol{margin:8px 0 0;padding-right:28px}.section-card li{margin:5px 0;font-size:15px}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.column{display:flex;flex-direction:column;gap:12px}.page{display:none;min-height:100vh;width:100%}.page.active{display:block}.tab{position:relative;min-height:118px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05);transition:.2s}.tab:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(15,23,42,.1)}.topic1{border:2px solid var(--sky)}.topic2{border:2px solid var(--green)}.functional{border:2px solid var(--red)}.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 64px/1 Inter,sans-serif;color:var(--sky);opacity:.9;direction:ltr}.topic2 .num{color:#b9e9c3}.functional .num{color:var(--red)}.label{position:relative;z-index:2;font-size:16px;font-weight:700;color:#000;max-width:86%;line-height:1.55}.functional .label{font-family:Inter,'Noto Naskh Arabic',sans-serif}.topic-intro{min-height:130px}.topic-intro .num{font-size:64px}.functional-row{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.functional-row .tab{min-height:118px}.section-heading{text-align:center;margin:8px 0 14px;font-size:24px;color:#2563eb}.section-note{text-align:center;color:#475569;font-size:16px;margin:0 auto 16px;line-height:1.8}.footer-nav{position:sticky;bottom:0;z-index:30;margin:24px -18px -18px;padding:10px 14px;background:rgba(255,255,255,.96);border-top:1px solid #dbe4ee;box-shadow:0 -5px 18px rgba(15,23,42,.08);display:flex;justify-content:center}.footer-nav button{border:2px solid var(--sky);background:#fff;padding:10px 22px;border-radius:12px;cursor:pointer;font-family:inherit;font-size:16px;font-weight:700;color:#000}.footer-nav button:hover{background:var(--sky2)}.modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.modal.show{display:flex}.dialog{width:min(760px,96vw);max-height:86vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 25px 70px rgba(0,0,0,.25);position:relative;padding:28px 28px 70px;text-align:right}.close{position:fixed!important;left:16px!important;bottom:14px!important;width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483000;box-shadow:0 4px 14px rgba(0,0,0,.16)}.dialog h2{margin:0 0 12px;font-size:25px;color:#0f172a}.lesson-title{font-size:27px;font-weight:700;margin:0 0 14px;text-align:center}.lesson-subtitle{font-size:15px;color:#64748b;text-align:center;margin:-6px 0 16px}.level-heading{display:block;font-size:18px;font-weight:800;margin-bottom:6px}.level-heading.basic-h{color:#dc2626}.level-heading.standard-h{color:#16a34a}.level-heading.mastery-h{color:#2563eb}.linked-word{color:#111;text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:#f59e0b;cursor:pointer;font-weight:700}.visual-link{margin-top:10px;padding:8px 12px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-weight:700}.visual-link:hover{background:#f8fafc}.dialog p,.dialog li{font-size:17px;line-height:1.9}.section{padding:14px;border-radius:14px;background:#f8fafc;margin:12px 0}.basic{border-right:5px solid #ef4444}.standard{border-right:5px solid #22c55e}.mastery{border-right:5px solid #3b82f6}.pill{display:inline-block;font:600 12px Inter;background:#eef2ff;border-radius:999px;padding:5px 9px;margin:2px}.search{width:100%;padding:12px 14px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}.dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover{background:#f8fafc}.visual-card{padding:16px;border:1px solid #e2e8f0;border-radius:14px;margin:10px 0}.diagram{font-family:Inter,sans-serif;direction:ltr;text-align:center;letter-spacing:.02em;background:#f8fafc;padding:20px;border-radius:12px;font-weight:700}.answer{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#f1f5f9}.choice{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit}.choice:hover{background:#f8fafc}.score{font-weight:700;margin-top:12px}.nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}.nav button{border:1px solid #cbd5e1;background:#fff;padding:9px 13px;border-radius:10px;cursor:pointer;font-family:inherit}.foot{text-align:center;color:#64748b;font-size:13px;margin:22px 0}.assessment-head{padding:22px 22px 18px;border-radius:16px;background:#f8fafc;border:1px solid #dbe4ee;margin-bottom:18px;text-align:center}.assessment-head p{line-height:1.9;margin:8px auto;max-width:900px}.assessment-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}.assessment-meta span,.assessment-meta b{padding:7px 12px;border-radius:999px;background:#fff;border:1px solid #dbe4ee;font-size:13px}.question-card{scroll-margin-top:20px;padding:14px;border-radius:14px;background:#fff;border:1px solid #e2e8f0;margin:10px 0}.question-card>b{display:block;line-height:1.8;margin-bottom:10px}.assessment-option{display:flex;gap:8px;align-items:flex-start;width:100%;text-align:right;margin:7px 0;padding:11px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer;line-height:1.7}.assessment-option:hover{background:#f8fafc;border-color:#94a3b8}.assessment-option input{margin-top:5px;accent-color:#285b4b}.assessment-option span{flex:1}.assessment-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0}.assessment-actions button{min-width:180px;border:1px solid #cbd5e1;background:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-family:inherit;font-weight:700}.exam-submit{background:#173e34!important;color:#fff}.assessment-result{display:none;margin-top:20px}.assessment-result.show{display:block}.result-hero{padding:20px;border-radius:16px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}.result-title{font-weight:800;color:#285b4b;font-size:20px}.result-score{font:800 38px Arial;color:#173e34;margin-top:4px}.result-percent{font:700 16px Arial;color:#876821}.result-band{margin:9px auto;max-width:760px;font-size:15px;line-height:1.8}.recommendation-title{font-weight:800;color:#285b4b;margin:18px 0 8px}.recommendation-card{padding:13px;border:1px solid #dbe4ee;border-radius:12px;background:#fff;margin:8px 0}.answer-review{padding:13px;border-right:4px solid #4d7867;border-radius:10px;background:#fff;border-top:1px solid #e2e8f0;border-left:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;margin:8px 0}.review-wrong{border-right-color:#b94a48}.correct-answer{color:#28634f}.content-navigation{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:20px 0 4px;padding-top:12px;border-top:1px solid var(--line);direction:ltr}.content-navigation button{border:0;background:var(--green);color:#fff;padding:7px 10px;border-radius:7px;cursor:pointer;font:700 10px Arial}.revision-item{display:flex;gap:12px;align-items:center;padding:11px 12px;margin:7px 0;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer}.revision-item:hover{background:#f8f2df}.revision-item span{font:800 13px Arial;color:var(--gold)}.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial;margin-bottom:8px}.exam-rules{padding:12px 14px;border-radius:9px;background:#f8f4e8;border-right:4px solid #c59b35;margin:12px 0;line-height:1.8}.inline-note{padding:10px 12px;border-radius:10px;background:#fff8df;border-right:4px solid var(--gold);margin:10px 0}.visual-id{font:700 11px Inter;color:#876821;display:block;margin-top:4px;direction:ltr}.atlas-img{display:block;max-width:100%;height:auto;border-radius:12px;margin:10px auto;border:1px solid #e2e8f0}.search-result{padding:12px;border:1px solid #e2e8f0;border-radius:12px;margin:8px 0;cursor:pointer;background:#fff}.search-result:hover{background:#f8fafc}
+@media(max-width:760px){.functional-row{grid-template-columns:1fr}.wrap{width:100%;max-width:none;padding:0}.title{font-size:26px}.intro{font-size:16px}.dialog{width:calc(100vw - 20px);padding:22px 18px 68px}.tab{min-height:105px}body #topicsPage.active .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}}
+@media(max-width:480px){body #topicsPage.active .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:5px!important}.topic-intro{min-height:120px;padding:22px}.topic-intro .label{font-size:20px}.num{font-size:52px}.dialog p,.dialog li{font-size:16px}.lesson-title{font-size:23px}}
+.linked-word:focus,.visual-link:focus,.nav button:focus,.choice:focus,.assessment-option:focus{outline:3px solid #87cde1;outline-offset:2px}
 
-        body {
-            background: #0f172a;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Noto Nastaliq Urdu', serif;
-            overflow: hidden;
-            position: relative;
-        }
+/* IAE FULL-SCREEN FUNCTIONAL PAGE LOCK */
+html,body{width:100%;height:100%;min-height:100%;margin:0;padding:0;overflow:hidden;}
+.wrap,.page{width:100%;max-width:none;min-width:0;height:100dvh;min-height:100dvh;max-height:100dvh;margin:0;padding:0;box-sizing:border-box;}
+.page{position:relative;overflow:hidden;}
+.modal,.overlay,.topic-modal,.module-modal{box-sizing:border-box;max-width:100vw;max-height:100dvh;overflow:hidden;}
+.modal-content,.overlay-content,.topic-modal-content,.module-modal-content{max-height:calc(100dvh - 24px);overflow-y:auto;overflow-x:hidden;box-sizing:border-box;}
+.close,.close-btn,.modal-close,.overlay-close,.x-close{position:fixed!important;left:max(12px,env(safe-area-inset-left))!important;bottom:max(12px,env(safe-area-inset-bottom))!important;right:auto!important;top:auto!important;z-index:99999!important;}
+@media(max-width:800px){.wrap,.page{height:100dvh;min-height:100dvh;max-height:100dvh;}}
 
-        /* Ambient Glow Background */
-        .bg-glow {
-            position: absolute;
-            width: 650px;
-            height: 650px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, rgba(236, 72, 153, 0.18) 40%, transparent 70%);
-            border-radius: 50%;
-            animation: pulse 8s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 0.9; }
-        }
-
-        /* سکرین کے بالکل سینٹر کے لیے پوزیشننگ */
-        .card-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 650px;
-            background: rgba(30, 41, 59, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 45px 35px;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                        0 0 30px rgba(168, 85, 247, 0.2);
-            z-index: 10;
-        }
-
-        #butterflyCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 25;
-        }
-
-        .heading-badge {
-            display: inline-block;
-            padding: 6px 22px;
-            background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(139,92,246,0.2));
-            border: 1px solid rgba(236,72,153,0.4);
-            border-radius: 50px;
-            color: #f472b6;
-            font-size: 1.15rem;
-            margin-bottom: 25px;
-            box-shadow: 0 0 15px rgba(236,72,153,0.3);
-        }
-
-        .message-body {
-            font-size: 1.35rem;
-            line-height: 2.3;
-            font-weight: 400;
-            margin-bottom: 30px;
-            direction: rtl;
-        }
-
-        /* الفاظ پر اینیمیشن کا اثر */
-        .word {
-            display: inline-block;
-            white-space: pre;
-            background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 35%, #fbcfe8 70%, #bae6fd 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientShift 6s ease infinite;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .word.hidden {
-            opacity: 0;
-            transform: scale(0.6);
-        }
-
-        .footer-wrap {
-            margin-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-        }
-
-        .wisher {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            margin-bottom: 5px;
-        }
-
-        .brand-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #38bdf8, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
+</style>
 </head>
 <body>
+<div class="wrap">
+<section class="page active" id="homePage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div><div class="title">IAE110110 — Chapter 10 · Lecture 01</div><div class="intro">Nutrition in Plants &amp; Gaseous Exchange in Plants — اس لیکچر میں پودوں کی معدنی غذائیت، Macronutrients، Micronutrients، Nitrogen، Magnesium، Carnivorous Plants، gaseous exchange، stomata، guard cells، palisade tissue، transpiration اور controlled experimental investigation کا مربوط مطالعہ شامل ہے۔</div></header>
+<div class="section-card"><strong>Lecture 01 کا تعلیمی نقشہ</strong><p>یہ لیکچر دو Major Topics پر مشتمل ہے۔ پہلے Topic میں mineral nutrition اور essential nutrient elements سے plant growth اور metabolism تک کا تعلق، جبکہ دوسرے Topic میں leaf gas exchange، stomatal regulation، transpiration اور Hydrogen Carbonate Indicator investigation کو structure → function → evidence کے تسلسل میں سمجھا جاتا ہے۔</p></div><div class="section-card"><strong>Learning Outcomes</strong><ol><li>معدنی غذائیت (Mineral Nutrition) کی تعریف بیان کر سکے اور پودوں میں اس کی اہمیت سمجھا سکے۔</li><li>Macronutrients اور Micronutrients میں فرق بیان کر سکے اور مثالیں دے سکے۔</li><li>اہم Macronutrients کے نام لکھ سکے اور ان کے بنیادی افعال بیان کر سکے۔</li><li>Nitrogen کے amino acids اور proteins کی تشکیل میں کردار کو سمجھا سکے۔</li><li>Magnesium کے chlorophyll کی تشکیل اور photosynthesis میں کردار کو بیان کر سکے۔</li><li>Micronutrients کی اہمیت اور ان کی کم مطلوبہ مقدار کا مفہوم واضح کر سکے۔</li><li>Carnivorous Plants میں mineral nutrition کی اہمیت بیان کر سکے۔</li><li>پودوں میں Gaseous Exchange کا مفہوم بیان کر سکے۔</li><li>Stomata اور Guard Cells کی ساخت اور کردار بیان کر سکے۔</li><li>Palisade Mesophyll اور intercellular air spaces کا gaseous exchange میں کردار سمجھا سکے۔</li><li>Transpiration کی تعریف اور gaseous exchange کے ساتھ اس کا تعلق بیان کر سکے۔</li><li>Temperature، Wind اور Humidity کے transpiration پر اثرات کی وضاحت کر سکے۔</li><li>Stomatal opening میں CO₂ uptake اور water loss کے درمیان تعلق سمجھا سکے۔</li><li>Hydrogen Carbonate Indicator کے ذریعے light اور dark conditions میں CO₂ کے net exchange کی experimental investigation کی تشریح کر سکے۔</li><li>کسی experimental observation سے مناسب comparison اور conclusion اخذ کر سکے۔</li></ol></div>
+<div class="footer-nav"><button onclick="showPage('topicsPage')">موضوعات پر جائیں</button></div>
+</section>
+<section class="page" id="topicsPage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div><div class="title">Lecture 01 — Topics</div><h1 class="section-heading"><span style="color:#f2d46f">Nutrition in Plants</span> &nbsp; | &nbsp; <span style="color:#e3f5e8">Gaseous Exchange in Plants</span></h1><p class="section-note">دونوں Major Topics دو columns میں منظم ہیں۔ ہر subtopic کے لیے بنیادی، معیاری اور Mastery learning layers موجود ہیں، جبکہ Dictionary، Visual Atlas، Practice، Exam، Practical Work، Revision اور Mastery الگ functional modules کے طور پر دستیاب ہیں۔</p></header>
+<div class="topic-grid"><section class="column">
+<div class="tab topic1 topic-intro" onclick="openTopic('t1')"><div class="label">Nutrition in Plants</div></div>
+<div class="tab topic1" onclick="openSub('n1')"><div class="num">1</div><div class="label">معدنی غذائیت<br><small>Mineral Nutrition</small></div></div>
+<div class="tab topic1" onclick="openSub('n2')"><div class="num">2</div><div class="label">بڑے غذائی عناصر<br><small>Macronutrients</small></div></div>
+<div class="tab topic1" onclick="openSub('n3')"><div class="num">3</div><div class="label">Macronutrients کے افعال</div></div>
+<div class="tab topic1" onclick="openSub('n4')"><div class="num">4</div><div class="label">چھوٹے غذائی عناصر<br><small>Micronutrients</small></div></div>
+<div class="tab topic1" onclick="openSub('n5')"><div class="num">5</div><div class="label">Nitrogen، Magnesium &amp; Carnivorous Plants</div></div>
+<div class="tab functional" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div>
+<div class="tab functional" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div>
+<div class="tab functional" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div>
+<div class="tab functional" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Exam</div></div>
+</section><section class="column">
+<div class="tab topic2 topic-intro" onclick="openTopic('t2')"><div class="label">Gaseous Exchange in Plants</div></div>
+<div class="tab topic2" onclick="openSub('g1')"><div class="num">1</div><div class="label">پودوں میں گیسوں کا تبادلہ<br><small>Gaseous Exchange</small></div></div>
+<div class="tab topic2" onclick="openSub('g2')"><div class="num">2</div><div class="label">Stomata</div></div>
+<div class="tab topic2" onclick="openSub('g3')"><div class="num">3</div><div class="label">محافظ خلیات<br><small>Guard Cells</small></div></div>
+<div class="tab topic2" onclick="openSub('g4')"><div class="num">4</div><div class="label">Palisade Tissue &amp; Gaseous Exchange</div></div>
+<div class="tab topic2" onclick="openSub('g5')"><div class="num">5</div><div class="label">تبخیرِ نباتاتی<br><small>Transpiration</small></div></div>
+<div class="tab topic2" onclick="openSub('g6')"><div class="num">6</div><div class="label">Transpiration کو متاثر کرنے والے عوامل</div></div>
+<div class="tab topic2" onclick="openSub('g7')"><div class="num">7</div><div class="label">Gaseous Exchange — Experimental Investigation</div></div>
+<div class="tab functional" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div>
+<div class="tab functional" onclick="openFunctional('revision')"><div class="num">R</div><div class="label">Revision</div></div>
+<div class="tab functional" onclick="openFunctional('mastery')"><div class="num">M</div><div class="label">Mastery</div></div>
+</section></div>
+<div class="footer-nav"><button onclick="showPage('homePage')">← لیکچر ہوم</button></div>
+</section>
+<section class="page" id="searchPage"></section>
+<div class="modal" id="modal" onclick="backdropClose(event)"><div class="dialog" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><button class="close" onclick="closeModal()" aria-label="Close">×</button><div id="content"></div></div></div>
+</div>
+<script>
+const data={
+t1:{title:'Topic 01 — Nutrition in Plants',intro:'اس Topic میں Mineral Nutrition، Macronutrients، Micronutrients، Nitrogen، Magnesium اور Carnivorous Plants کو plant growth، metabolism اور nutrient availability کے مربوط تصور کے طور پر سمجھا جاتا ہے۔'},
+t2:{title:'Topic 02 — Gaseous Exchange in Plants',intro:'اس Topic میں gaseous exchange، stomata، guard cells، palisade tissue، transpiration، environmental factors اور Hydrogen Carbonate Indicator پر مبنی controlled investigation شامل ہے۔'},
+n1:{title:'1.1 معدنی غذائیت (Mineral Nutrition)',basic:'پودوں کو اپنی نشوونما، جسم کی ساخت اور مختلف حیاتیاتی افعال کے لیے ضروری غذائی عناصر درکار ہوتے ہیں۔ معدنی غذائیت سے مراد پودے کا ضروری معدنی عناصر کو حاصل کرنا اور انہیں اپنی نشوونما اور حیاتیاتی سرگرمیوں میں استعمال کرنا ہے۔ مقدارِ ضرورت کی بنیاد پر mineral nutrients کو Macronutrients اور Micronutrients میں تقسیم کیا جاتا ہے۔',standard:'Macronutrients نسبتاً زیادہ مقدار میں درکار ہوتے ہیں، جبکہ Micronutrients بہت کم مقدار میں درکار ہوتے ہیں۔ دونوں essential nutrients ہیں۔ مثال کے طور پر Nitrogen ایک Macronutrient اور Iron ایک Micronutrient ہے۔',mastery:'Mineral nutrition کو صرف مٹی سے mineral ions لینے تک محدود نہیں کرنا چاہیے۔ کسی عنصر کی biological effectiveness ایک مسلسل سلسلہ ہے: Availability → Uptake → Transport → Cellular Use → Biological Function۔ مٹی میں موجودگی خود بخود plant nutrition کی ضمانت نہیں دیتی۔'},
+n2:{title:'1.2 بڑے غذائی عناصر (Macronutrients)',basic:'Macronutrients وہ essential mineral elements ہیں جن کی پودے کو نسبتاً زیادہ مقدار میں ضرورت ہوتی ہے۔ اہم Macronutrients میں Nitrogen، Phosphorus، Potassium، Calcium، Magnesium اور Sulfur شامل ہیں۔',standard:'یہ عناصر plant structure، growth، metabolism اور مختلف biological processes میں مخصوص کردار ادا کرتے ہیں۔ طالب علم کو صرف نام یاد کرنے کے بجائے ہر nutrient کے بنیادی function کو پہچاننا چاہیے۔',mastery:'Macronutrient کی اصطلاح biological importance نہیں بلکہ required quantity کو ظاہر کرتی ہے۔ کسی عنصر کی زیادہ مقدار میں ضرورت ہونا اسے لازماً زیادہ important نہیں بناتا؛ importance کا تعلق physiological necessity سے ہے۔'},
+n3:{title:'1.3 بڑے غذائی عناصر کے افعال (Functions of Macronutrients)',basic:'Nitrogen amino acids، proteins اور nucleic acids کی تشکیل میں اہم ہے۔ Phosphorus ATP، nucleic acids اور phospholipids اور energy transfer میں اہم ہے۔ Potassium enzyme activation، water balance اور stomatal regulation میں کردار ادا کرتا ہے۔ Calcium cell wall strength اور cellular processes میں اہم ہے۔ Magnesium chlorophyll کا مرکزی جزو ہے اور photosynthesis میں بنیادی کردار ادا کرتا ہے۔ Sulfur بعض amino acids اور proteins کی تشکیل میں استعمال ہوتا ہے۔',standard:'اہم relationships کو یوں سمجھیں: Nitrogen → Amino acids → Proteins؛ Magnesium → Chlorophyll → Light absorption → Photosynthesis۔ Phosphorus energy transfer اور nucleic-acid chemistry سے، جبکہ Potassium enzyme activity اور water regulation سے مربوط ہے۔',mastery:'Nutrient function کو isolated facts کے بجائے biochemical pathways سے جوڑنا زیادہ مضبوط learning دیتا ہے۔ Nitrogen کی availability protein synthesis کو، جبکہ Magnesium کی availability chlorophyll-dependent light capture کو متاثر کر سکتی ہے؛ یوں mineral nutrition براہِ راست plant metabolism سے جڑ جاتی ہے۔'},
+n4:{title:'1.4 چھوٹے غذائی عناصر (Micronutrients)',basic:'Micronutrients وہ essential mineral elements ہیں جن کی پودے کو بہت کم مقدار میں ضرورت ہوتی ہے۔ اہم Micronutrients میں Iron (Fe)، Manganese (Mn)، Zinc (Zn)، Copper (Cu)، Boron (B)، Molybdenum (Mo)، Chlorine (Cl) اور Nickel (Ni) شامل ہیں۔',standard:'Micronutrients اور Macronutrients کے درمیان بنیادی فرق required amount ہے، نہ کہ essentiality۔ Micronutrients مختلف enzymes اور biochemical processes میں اہم کردار ادا کر سکتے ہیں۔',mastery:'Trace requirement کو low biological importance نہ سمجھیں۔ بعض micronutrients cofactors یا biochemical functions میں شامل ہونے کی وجہ سے بہت کم مقدار میں بھی plant metabolism پر نمایاں اثر ڈال سکتے ہیں۔'},
+n5:{title:'1.5 Nitrogen، Magnesium اور Carnivorous Plants',basic:'Nitrogen amino acids اور proteins کی تشکیل کے لیے اہم mineral nutrient ہے۔ Magnesium chlorophyll کی تشکیل کے لیے ضروری ہے، اور chlorophyll photosynthesis میں light energy کے absorption میں بنیادی کردار ادا کرتا ہے۔ Carnivorous Plants photosynthesis کے ذریعے organic food بناتے ہیں، لیکن nutrient-poor environments میں insects یا دوسرے چھوٹے جانداروں سے اضافی mineral nutrients حاصل کر سکتے ہیں۔',standard:'Carnivorous plants کو صرف “کیڑے کھانے والے پودے” کہنا نامکمل ہے۔ ان کا carbon-based organic food بنیادی طور پر photosynthesis سے بنتا ہے، جبکہ prey سے ملنے والے nutrients mineral nutrition میں اضافی مدد دیتے ہیں۔ مثالیں Pitcher Plant، Venus Flytrap اور Sundew ہیں۔',mastery:'Carnivory کو nutrient-poor soil کے لیے adaptation کے طور پر سمجھیں: Nutrient-poor soil → nutrient limitation → prey capture → additional nutrients → improved nutrient supply/growth۔ اس adaptation سے photosynthetic carbon acquisition ختم نہیں ہوتا۔'},
+g1:{title:'2.1 پودوں میں گیسوں کا تبادلہ (Gaseous Exchange)',basic:'Photosynthesis کے دوران پودا Carbon dioxide (CO₂) حاصل کرتا ہے، جبکہ respiration کے لیے Oxygen (O₂) استعمال ہوتی ہے۔ پودوں میں gases کا تبادلہ بنیادی طور پر diffusion کے ذریعے concentration gradient کے مطابق ہوتا ہے۔ Leaves کے stomata gaseous exchange کے اہم راستوں میں شامل ہیں۔',standard:'Leaf کی gas-exchange efficiency میں بڑا surface area، مختصر diffusion distance، intercellular air spaces اور stomata اہم ہیں۔ Stomata کے ذریعے ماحول اور leaf interior کے درمیان gas movement کا راستہ بنتا ہے۔',mastery:'Gas exchange کو structure → diffusion pathway → cellular use کے طور پر دیکھیں: Atmosphere → Stoma → Intercellular air spaces → Mesophyll cell → Chloroplast، جبکہ respiration کے لیے O₂ کا movement بھی diffusion gradients کے مطابق ہوتا ہے۔'},
+g2:{title:'2.2 اسٹومیٹا (Stomata)',basic:'Stomata leaf epidermis میں موجود microscopic pores ہیں۔ ان کے ذریعے CO₂ leaf میں داخل ہوتی ہے، O₂ کا تبادلہ ہوتا ہے اور water vapour خارج ہو سکتا ہے۔ اس لیے stomata gaseous exchange اور transpiration دونوں میں اہم ہیں۔',standard:'Stomatal opening اور closing plant gas exchange اور water loss دونوں کو متاثر کرتے ہیں۔ Stomata کی regulation plant اور atmosphere کے درمیان physiological exchange کو control کرنے کا ذریعہ ہے۔',mastery:'Stomatal opening ایک trade-off پیدا کرتی ہے: open stomata → CO₂ uptake بڑھ سکتا ہے → photosynthesis کے لیے فائدہ؛ لیکن open stomata → water-vapour loss بھی بڑھ سکتا ہے۔ یوں stomatal regulation carbon gain اور water conservation کے درمیان balance قائم کرنے میں مدد دیتی ہے۔'},
+g3:{title:'2.3 محافظ خلیات (Guard Cells)',basic:'ہر stoma کے گرد دو specialized Guard Cells موجود ہوتے ہیں۔ یہ stomatal pore کے کھلنے اور بند ہونے کو control کرتے ہیں۔ Guard-cell turgidity میں تبدیلی stomatal movement کا سبب بن سکتی ہے۔',standard:'Guard cells میں solute concentration اور water movement بدلنے سے turgor pressure تبدیل ہوتا ہے، اور یہی stomatal pore کے opening/closing کو متاثر کرتا ہے۔',mastery:'Functional sequence کو یوں سمجھیں: Solute changes → Water movement → Guard-cell turgor → Stomatal movement۔ اس mechanism کے ذریعے gas exchange اور water loss کو بدلتی environmental conditions کے مطابق regulate کیا جا سکتا ہے۔'},
+g4:{title:'2.4 Palisade Tissue اور Gaseous Exchange',basic:'Palisade Mesophyll leaf کے اندر موجود photosynthetic tissue ہے جس کی cells میں chloroplasts زیادہ ہوتے ہیں۔ Stomata سے داخل ہونے والی CO₂ intercellular air spaces کے ذریعے photosynthetic cells تک پہنچتی ہے۔',standard:'Palisade tissue gaseous-exchange pathway کا functional حصہ ہے کیونکہ یہاں photosynthetic cells موجود ہیں۔ CO₂ کے لیے pathway Atmosphere → Stoma → Intercellular air spaces → Mesophyll cell → Chloroplast سمجھا جا سکتا ہے۔',mastery:'Leaf anatomy کو gas exchange کے ساتھ مربوط کریں: stomata entry point، intercellular air spaces diffusion pathway، اور chloroplast photosynthetic site فراہم کرتے ہیں۔ یوں structure diffusion distance اور cellular demand کے ساتھ functional طور پر مربوط ہے۔'},
+g5:{title:'2.5 تبخیرِ نباتاتی (Transpiration)',basic:'Transpiration پودے کے aerial parts، خصوصاً leaves، سے water vapour کے اخراج کا عمل ہے۔ Stomata اس عمل میں اہم کردار ادا کرتے ہیں، اس لیے transpiration اور gaseous exchange closely related ہیں۔',standard:'Stomata کھلنے سے CO₂ uptake ممکن ہوتا ہے، لیکن اسی کے ساتھ water vapour loss بڑھ سکتا ہے۔ اس لیے transpiration stomatal regulation کے ساتھ براہِ راست مربوط ہے۔',mastery:'Transpiration کو stomatal trade-off کے طور پر سمجھیں: CO₂ uptake اور photosynthesis کے لیے stomatal opening فائدہ مند ہے، مگر water loss اور dehydration risk بھی بڑھا سکتی ہے۔'},
+g6:{title:'2.6 Transpiration کو متاثر کرنے والے عوامل',basic:'Transpiration کی شرح environmental conditions سے متاثر ہوتی ہے۔ Temperature، Wind اور Humidity اہم عوامل ہیں۔',standard:'Temperature بڑھنے سے عموماً evaporation potential بڑھتا ہے۔ Wind leaf کے قریب moist boundary layer کو کم کرکے water-vapour loss بڑھا سکتی ہے۔ زیادہ Humidity میں leaf اور atmosphere کے درمیان water-vapour gradient کم ہوتا ہے، اس لیے transpiration عموماً کم ہوتی ہے۔',mastery:'Factors کو water-vapour gradient سے سمجھیں: Temperature ↑ → evaporation potential ↑؛ Wind ↑ → boundary layer ↓ → diffusion برقرار؛ Humidity ↑ → water-vapour gradient ↓ → transpiration ↓۔ حقیقی شرح stomatal state سمیت متعدد factors کے مجموعی اثر سے طے ہوتی ہے۔'},
+g7:{title:'2.7 Gaseous Exchange — Experimental Investigation',basic:'Hydrogen Carbonate Indicator CO₂ میں تبدیلی کے نتیجے میں pH change کے لیے حساس ہے اور اس کا colour response استعمال کیا جا سکتا ہے۔ Light اور dark conditions میں leaf discs کا CO₂ exchange compare کیا جاتا ہے۔ Light میں photosynthesis اور respiration دونوں ہو سکتے ہیں، جبکہ dark میں photosynthesis نہیں ہوتی اور respiration جاری رہتی ہے۔',standard:'Investigation میں leaf discs کی مقدار/سائز، indicator کی مقدار، temperature اور duration جیسے relevant controls یکساں رکھے جاتے ہیں۔ Observation → Comparison → Conclusion کے ذریعے evidence سے نتیجہ اخذ کیا جاتا ہے۔',mastery:'Indicator کا colour change براہِ راست “photosynthesis کی مقدار” نہیں دکھاتا؛ یہ CO₂/pH change کا evidence ہے۔ Biological interpretation میں photosynthesis اور respiration دونوں کے net effect کو مدنظر رکھنا ضروری ہے۔ Light availability independent variable ہو سکتی ہے جبکہ دوسری اہم conditions controlled رکھی جاتی ہیں۔'}
+};
+const dict={
+'Transpiration':{id:'IAE1103010050',urdu:'ٹرانسپائریشن',meaning:'پودے کی سطح سے water vapour کے اخراج کا عمل۔',english:'Evaporative loss of water vapor from aerial plant surfaces.'},
+'Guttation':{id:'IAE1103010051',urdu:'گٹیشن',meaning:'پودوں کے پتوں کے کناروں سے hydathodes کے ذریعے liquid water drops کے اخراج کا عمل۔',english:'Exudation of liquid water drops from hydathodes at leaf margins.'},
+'Photoperiodism':{id:'IAE1103010052',urdu:'فوٹوپیریوڈزم',meaning:'روشنی اور اندھیرے کے relative دورانیے کے جواب میں پودوں کا physiological response، خصوصاً flowering کے حوالے سے۔',english:'Plant reaction to the relative length of day and night for flowering.'}
+};
+const visuals=[
+{id:'IAE110110010100V',title:'Nutrition in Plants — Main Topic Visual',key:'t1',sub:'Mineral nutrition and plant growth relations.'},
+{id:'IAE1101100101V',title:'Mineral Nutrition',key:'n1',sub:'Essential mineral element uptake and utilization.'},
+{id:'IAE1101100102V',title:'Macronutrients',key:'n2',sub:'Nitrogen, Phosphorus, Potassium, Calcium, Magnesium and Sulfur.'},
+{id:'IAE1101100103V',title:'Functions of Macronutrients',key:'n3',sub:'Nutrient → function relationships.'},
+{id:'IAE1101100104V',title:'Micronutrients',key:'n4',sub:'Essential elements needed in trace amounts.'},
+{id:'IAE1101100105V',title:'Nitrogen, Magnesium & Carnivorous Plants',key:'n5',sub:'Nitrogen, chlorophyll and carnivorous adaptations.'},
+{id:'IAE1101100200V',title:'Gaseous Exchange in Plants — Main Topic Visual',key:'t2',sub:'Stomata, guard cells, diffusion and transpiration.'},
+{id:'IAE1101100201V',title:'Gaseous Exchange',key:'g1',sub:'CO₂ and O₂ exchange via diffusion.'},
+{id:'IAE1101100202V',title:'Stomata',key:'g2',sub:'Microscopic pores regulating gas exchange and transpiration.'},
+{id:'IAE1101100203V',title:'Guard Cells',key:'g3',sub:'Control of stomatal opening and closing.'},
+{id:'IAE1101100204V',title:'Palisade Tissue & Gaseous Exchange',key:'g4',sub:'Chloroplast-rich mesophyll and CO₂ pathway.'},
+{id:'IAE1101100205V',title:'Transpiration',key:'g5',sub:'Loss of water vapour from aerial plant parts.'},
+{id:'IAE1101100206V',title:'Factors Affecting Transpiration',key:'g6',sub:'Temperature, wind and humidity.'},
+{id:'IAE1101100207V',title:'Gaseous Exchange — Experimental Investigation',key:'g7',sub:'Controlled investigation using Hydrogen Carbonate Indicator.'}
+];
+const subtopicOrder=['n1','n2','n3','n4','n5','g1','g2','g3','g4','g5','g6','g7'];
+const learningOutcomes=["معدنی غذائیت (Mineral Nutrition) کی تعریف بیان کر سکے اور پودوں میں اس کی اہمیت سمجھا سکے۔", "Macronutrients اور Micronutrients میں فرق بیان کر سکے اور مثالیں دے سکے۔", "اہم Macronutrients کے نام لکھ سکے اور ان کے بنیادی افعال بیان کر سکے۔", "Nitrogen کے amino acids اور proteins کی تشکیل میں کردار کو سمجھا سکے۔", "Magnesium کے chlorophyll کی تشکیل اور photosynthesis میں کردار کو بیان کر سکے۔", "Micronutrients کی اہمیت اور ان کی کم مطلوبہ مقدار کا مفہوم واضح کر سکے۔", "Carnivorous Plants میں mineral nutrition کی اہمیت بیان کر سکے۔", "پودوں میں Gaseous Exchange کا مفہوم بیان کر سکے۔", "Stomata اور Guard Cells کی ساخت اور کردار بیان کر سکے۔", "Palisade Mesophyll اور intercellular air spaces کا gaseous exchange میں کردار سمجھا سکے۔", "Transpiration کی تعریف اور gaseous exchange کے ساتھ اس کا تعلق بیان کر سکے۔", "Temperature، Wind اور Humidity کے transpiration پر اثرات کی وضاحت کر سکے۔", "Stomatal opening میں CO₂ uptake اور water loss کے درمیان تعلق سمجھا سکے۔", "Hydrogen Carbonate Indicator کے ذریعے light اور dark conditions میں CO₂ کے net exchange کی experimental investigation کی تشریح کر سکے۔", "کسی experimental observation سے مناسب comparison اور conclusion اخذ کر سکے۔"];
+const questions=[
+{q:'معدنی غذائیت سے کیا مراد ہے؟',o:['صرف photosynthesis','ضروری معدنی عناصر کا حصول اور استعمال','صرف پانی کا جذب','صرف oxygen کا اخراج'],a:1,topic:'Mineral Nutrition',explanation:'Mineral nutrition essential mineral elements کے acquisition اور use سے متعلق ہے۔'},
+{q:'Macronutrients اور Micronutrients میں بنیادی فرق کیا ہے؟',o:['اہمیت','رنگ','مطلوبہ مقدار','cell size'],a:2,topic:'Mineral Nutrition',explanation:'بنیادی فرق پودے کو درکار مقدار کا ہے؛ دونوں essential ہو سکتے ہیں۔'},
+{q:'Nitrogen کس category میں آتا ہے؟',o:['Micronutrient','Macronutrient','غیر ضروری عنصر','صرف water nutrient'],a:1,topic:'Macronutrients',explanation:'Nitrogen plant کے لیے ایک essential macronutrient ہے۔'},
+{q:'مندرجہ ذیل میں کون سا Macronutrient ہے؟',o:['Iron','Zinc','Magnesium','Nickel'],a:2,topic:'Macronutrients',explanation:'Magnesium listed macronutrients میں شامل ہے۔'},
+{q:'Nitrogen کا اہم biochemical تعلق کیا ہے؟',o:['Nitrogen → Amino acids → Proteins','Nitrogen → Chlorophyll only','Nitrogen → Water vapour','Nitrogen → Cell wall only'],a:0,topic:'Functions of Macronutrients',explanation:'Nitrogen amino acids اور proteins کی formation میں اہم ہے۔'},
+{q:'Magnesium کا photosynthesis سے بنیادی تعلق کیا ہے؟',o:['یہ chlorophyll کی formation سے متعلق ہے','یہ stomatal pore بناتا ہے','یہ water vapour ہے','یہ cellulose ہے'],a:0,topic:'Functions of Macronutrients',explanation:'Magnesium chlorophyll کے لیے ضروری ہے۔'},
+{q:'Micronutrient کی کم مطلوبہ مقدار کا مطلب کیا ہے؟',o:['وہ غیر ضروری ہے','وہ صرف جانوروں کے لیے ہے','وہ essential ہو سکتا ہے مگر trace amount میں درکار ہے','وہ photosynthesis کو روکتا ہے'],a:2,topic:'Micronutrients',explanation:'Micronutrients کم مقدار میں required ہوتے ہیں مگر essential ہو سکتے ہیں۔'},
+{q:'Carnivorous plants prey سے بنیادی طور پر کیا حاصل کرتے ہیں؟',o:['اپنا تمام carbon','اضافی mineral nutrients','صرف oxygen','صرف chlorophyll'],a:1,topic:'Carnivorous Plants',explanation:'Carnivory nutrient-poor environments میں اضافی nutrients فراہم کرتی ہے؛ organic carbon کی بنیادی فراہمی photosynthesis سے ہے۔'},
+{q:'Photosynthesis کے دوران plant کون سی gas حاصل کرتا ہے؟',o:['CO₂','N₂ only','H₂','He'],a:0,topic:'Gaseous Exchange',explanation:'Photosynthesis کے لیے CO₂ درکار ہے۔'},
+{q:'Gases کا plant tissues میں movement بنیادی طور پر کس عمل سے ہوتا ہے؟',o:['Diffusion','Digestion','Filtration','Contraction'],a:0,topic:'Gaseous Exchange',explanation:'Gas exchange concentration gradients کے مطابق diffusion سے ہوتا ہے۔'},
+{q:'Stomata کہاں پائے جاتے ہیں؟',o:['Leaf epidermis میں microscopic pores کے طور پر','صرف roots میں','صرف xylem کے اندر','صرف chloroplast میں'],a:0,topic:'Stomata',explanation:'Stomata epidermis میں pores ہیں۔'},
+{q:'Stomata کے کھلنے سے کون سا trade-off پیدا ہو سکتا ہے؟',o:['CO₂ uptake اور water loss دونوں بڑھ سکتے ہیں','صرف water uptake بڑھتا ہے','CO₂ uptake ہمیشہ صفر ہو جاتا ہے','respiration ختم ہو جاتی ہے'],a:0,topic:'Stomata',explanation:'Open stomata CO₂ entry کو facilitate کرتے ہیں مگر water vapour loss بھی بڑھا سکتے ہیں۔'},
+{q:'Stoma کے گرد کون سے cells ہوتے ہیں؟',o:['Guard cells','Red blood cells','Sieve cells only','Root hairs'],a:0,topic:'Guard Cells',explanation:'ہر stoma کے گرد دو specialized guard cells ہوتے ہیں۔'},
+{q:'Guard-cell turgor میں تبدیلی کس چیز کو متاثر کرتی ہے؟',o:['Stomatal pore movement','DNA sequence','Seed number only','Fruit colour only'],a:0,topic:'Guard Cells',explanation:'Guard-cell turgor stomatal opening/closing سے متعلق ہے۔'},
+{q:'Palisade mesophyll کی cells میں کس organelle کی کثرت ہوتی ہے؟',o:['Chloroplasts','Lysosomes only','Centrioles only','Ribosomes only'],a:0,topic:'Palisade Tissue',explanation:'Palisade cells photosynthetic اور chloroplast-rich ہوتی ہیں۔'},
+{q:'CO₂ کا leaf میں ایک مناسب pathway کیا ہے؟',o:['Atmosphere → Stoma → Intercellular air spaces → Mesophyll cell → Chloroplast','Chloroplast → Stoma → Atmosphere only','Root → Xylem → Stoma','Nucleus → Stoma → Soil'],a:0,topic:'Palisade Tissue',explanation:'یہ visual atlas میں دیا گیا functional pathway ہے۔'},
+{q:'Transpiration کیا ہے؟',o:['Water vapour کا aerial plant parts سے loss','CO₂ کا glucose بننا','Protein digestion','Mineral synthesis only'],a:0,topic:'Transpiration',explanation:'Transpiration evaporative water loss ہے۔'},
+{q:'Temperature بڑھنے سے transpiration عموماً کیوں بڑھ سکتی ہے؟',o:['Evaporation potential بڑھتا ہے','Humidity ہمیشہ بڑھتی ہے','Stomata لازماً ختم ہو جاتے ہیں','CO₂ ہمیشہ صفر ہو جاتی ہے'],a:0,topic:'Transpiration Factors',explanation:'Higher temperature generally increases evaporation potential۔'},
+{q:'Wind transpiration کو کیسے متاثر کر سکتی ہے؟',o:['Leaf boundary layer کو کم کرکے water-vapour loss بڑھا سکتی ہے','ہمیشہ stomata بند کر دیتی ہے','Water vapour کو leaf میں داخل کرتی ہے','Diffusion روک دیتی ہے'],a:0,topic:'Transpiration Factors',explanation:'Wind moist boundary layer کو ہٹا سکتی ہے۔'},
+{q:'High humidity میں transpiration عموماً کیوں کم ہوتی ہے؟',o:['Water-vapour gradient کم ہوتا ہے','Photosynthesis لازماً بند ہوتی ہے','Leaf area صفر ہوتا ہے','Temperature لازماً صفر ہوتی ہے'],a:0,topic:'Transpiration Factors',explanation:'High humidity leaf اور atmosphere کے درمیان vapour gradient کم کرتی ہے۔'},
+{q:'Hydrogen Carbonate Indicator کس تبدیلی کے لیے sensitive ہے؟',o:['CO₂-related pH change','DNA mutation','Protein folding','Light intensity directly'],a:0,topic:'Experimental Investigation',explanation:'Indicator CO₂ change سے متعلق pH response دکھاتا ہے۔'},
+{q:'Dark condition میں leaf discs میں کیا جاری رہتا ہے؟',o:['Respiration','Photosynthesis only','Both absent','Only mineral uptake'],a:0,topic:'Experimental Investigation',explanation:'Darkness میں photosynthesis نہیں ہوتی، respiration جاری رہتی ہے۔'},
+{q:'Light condition میں leaf discs میں کیا ہو سکتا ہے؟',o:['Photosynthesis اور respiration دونوں','صرف respiration','صرف transpiration','کوئی gas exchange نہیں'],a:0,topic:'Experimental Investigation',explanation:'Light میں دونوں processes ہو سکتے ہیں۔'},
+{q:'Indicator کا colour change براہِ راست کیا دکھاتا ہے؟',o:['CO₂/pH change کا evidence','Photosynthesis کی exact مقدار','ATP کی exact مقدار','Chlorophyll کی mass'],a:0,topic:'Experimental Investigation',explanation:'Colour response CO₂/pH change کا evidence ہے، direct photosynthesis measurement نہیں۔'},
+{q:'Controlled experiment میں کون سی چیزیں control کرنا ضروری ہو سکتی ہیں؟',o:['Leaf-disc size/amount، indicator amount، temperature اور duration','صرف leaf colour','صرف student name','صرف room number'],a:0,topic:'Experimental Investigation',explanation:'Relevant control variables کو یکساں رکھنا comparison کی validity بڑھاتا ہے۔'},
+{q:'“مٹی میں Nitrogen موجود ہے” سے nutrition مکمل ثابت کیوں نہیں ہوتی؟',o:['Availability کے ساتھ uptake، transport اور cellular use بھی ضروری ہیں','Nitrogen کبھی plant استعمال نہیں کرتا','Soil کا کوئی کردار نہیں','Nitrogen صرف animals لیتے ہیں'],a:0,topic:'Mineral Nutrition',explanation:'Availability سے biological use تک مسلسل process ضروری ہے۔'},
+{q:'Stomata کو balance point کیوں کہا جا سکتا ہے؟',o:['CO₂ uptake اور water conservation کے درمیان trade-off regulate کرتے ہیں','وہ صرف roots کو control کرتے ہیں','وہ صرف respiration بند کرتے ہیں','وہ minerals بناتے ہیں'],a:0,topic:'Stomata',explanation:'Stomatal state carbon gain اور water loss دونوں کو متاثر کرتی ہے۔'},
+{q:'Light اور dark میں CO₂ exchange مختلف کیوں ہو سکتا ہے؟',o:['Light میں photosynthesis respiration کے ساتھ net CO₂ balance بدل سکتی ہے','Dark میں respiration نہیں ہوتی','Light میں diffusion ختم ہو جاتی ہے','Indicator صرف temperature دکھاتا ہے'],a:0,topic:'Experimental Investigation',explanation:'Light photosynthesis کو enable کرتی ہے جبکہ respiration دونوں conditions میں ہو سکتی ہے۔'},
+{q:'اگر indicator کا colour بدل جائے تو مناسب conclusion کیا ہوگا؟',o:['CO₂/pH میں تبدیلی کا evidence ملا؛ biological meaning کو photosynthesis اور respiration کے net effect سے interpret کریں','Photosynthesis کی exact rate معلوم ہوگئی','صرف temperature تبدیل ہوئی','کوئی biological evidence نہیں'],a:0,topic:'Experimental Investigation',explanation:'Colour change کو direct photosynthesis quantity نہ سمجھیں۔'}
+];
+const exam=questions.slice(0,14).concat([
+{q:'Mineral nutrition کی بہترین conceptual chain کون سی ہے؟',o:['Availability → Uptake → Transport → Cellular Use → Biological Function','Transport → Soil → Light → Digestion','Photosynthesis → Soil → Uptake only','Water → Protein → Soil → Respiration'],a:0,topic:'Mineral Nutrition',explanation:'یہ mineral effectiveness کا integrated pathway ہے۔'},
+{q:'Carnivorous plants کے بارے میں درست statement کون سا ہے؟',o:['وہ photosynthesis بھی کرتے ہیں اور nutrient-poor soil میں prey سے اضافی nutrients حاصل کر سکتے ہیں','وہ photosynthesis نہیں کرتے','وہ prey سے اپنا تمام carbon حاصل کرتے ہیں','وہ صرف water vapour absorb کرتے ہیں'],a:0,topic:'Carnivorous Plants',explanation:'Carnivory mineral nutrient supplementation کی adaptation ہے۔'},
+{q:'Guard-cell mechanism کو درست ترتیب میں کون بیان کرتا ہے؟',o:['Solute changes → Water movement → Turgor → Stomatal movement','Stomatal movement → DNA replication → Solute changes','Water movement → Cell wall digestion → Stoma loss','CO₂ → Protein digestion → Root growth'],a:0,topic:'Guard Cells',explanation:'Guard-cell solute and water changes alter turgor and stomatal aperture۔'},
+{q:'Leaf gas exchange کے لیے کون سا structural combination مؤثر ہے؟',o:['Large surface area + short diffusion distance + intercellular air spaces + stomata','Thick impermeable surface + no air spaces','Only xylem + only roots','Only chlorophyll without pores'],a:0,topic:'Gaseous Exchange',explanation:'یہ features efficient gas exchange support کرتے ہیں۔'},
+{q:'High humidity میں vapour gradient کے بارے میں کیا توقع ہے؟',o:['Gradient کم ہوگا اور transpiration عموماً کم ہوگی','Gradient ہمیشہ زیادہ ہوگا','Gradient کا transpiration سے کوئی تعلق نہیں','Humidity بڑھنے سے leaf لازماً dry ہوگی'],a:0,topic:'Transpiration Factors',explanation:'Higher ambient humidity reduces the vapour-pressure/concentration gradient۔'},
+{q:'Hydrogen Carbonate Indicator experiment میں light کو بدلنے والا factor رکھنے کی بہترین وجہ کیا ہے؟',o:['Photosynthesis کی availability بدل کر CO₂ balance پر اثر کا evidence compare کرنا','Indicator کو رنگین بنانا','Temperature کو لازماً بدلنا','Respiration ختم کرنا'],a:0,topic:'Experimental Investigation',explanation:'Light availability photosynthesis کے لیے relevant variable ہے۔'}
+]);
+function esc(s){return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+function norm(s){return String(s??'').toLocaleLowerCase().normalize('NFKC').replace(/[ًٌٍَُِّْـ]/g,'').trim()}
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function show(html){document.getElementById('content').innerHTML=html;const h=document.querySelector('#content .lesson-title');if(h)h.id='dialogTitle';document.getElementById('modal').classList.add('show');window.scrollTo({top:0,behavior:'smooth'})}
+function closeModal(){document.getElementById('modal').classList.remove('show');document.getElementById('content').innerHTML=''}
+function backdropClose(e){if(e.target.id==='modal')closeModal()}
+function linkDictionaryTerms(text){let source=String(text??'');const terms=Object.keys(dict).sort((a,b)=>b.length-a.length);if(!terms.length)return esc(source);const byLower=new Map(terms.map(t=>[t.toLowerCase(),t]));const escaped=terms.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');const re=new RegExp('(?<![A-Za-z0-9-])('+escaped+')(?![A-Za-z0-9-])','gi');return esc(source).replace(re,(match)=>{const key=byLower.get(match.toLowerCase())||match;return '<span class="linked-word" data-term="'+esc(key)+'" role="button" tabindex="0" title="Dictionary: '+esc(key)+'">'+match+'</span>'})}
+function wrapContent(html){return html+'<div class="content-navigation"><button onclick="closeModal()">← Topics</button></div>'}
+function openTopic(k){const d=data[k];const v=atlasByKey(k)[0];const subs=subtopicOrder.filter(x=>(k==='t1'?x[0]==='n':x[0]==='g')).map(x=>'<button class="visual-link" onclick="openSub(\''+x+'\')">'+esc(data[x].title)+'</button>').join('');const visual=v?'<div class="section"><span class="level-heading standard-h">Visual Atlas Connection</span><p><b>'+esc(v.title)+'</b><br><span class="visual-id">'+esc(v.id)+'</span></p><button class="visual-link" onclick="showVisualById(\''+v.id+'\')">🔬 Topic Visual کھولیں</button></div>':'';show(wrapContent('<div class="lesson-title">'+linkDictionaryTerms(d.title)+'</div><p>'+linkDictionaryTerms(d.intro)+'</p><div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>اس Major Topic کے مرکزی concepts اور learning direction۔</p></div><div class="section standard"><span class="level-heading standard-h">معیاری</span><p>اہم structures، functions، relationships اور examination-relevant connections۔</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>Concepts کو mechanism، evidence اور structure → function relationships کے ساتھ integrate کریں۔</p></div>'+visual+'<div class="section"><span class="level-heading standard-h">Related Subtopics</span>'+subs+'</div>'))}
+function atlasByKey(k){return visuals.filter(v=>v.key===k)}
+function openSub(k){const d=data[k];const v=atlasByKey(k)[0];let vh=v?'<button class="visual-link" onclick="showVisualById(\''+v.id+'\')">Visual Atlas: '+esc(v.id)+'</button>':'';show(wrapContent('<div class="subtopic-reading"><div class="lesson-title">'+linkDictionaryTerms(d.title)+'</div><div class="lesson-subtitle">درسی مواد — بنیادی → معیاری → Mastery</div><div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>'+linkDictionaryTerms(d.basic)+'</p></div><div class="section standard"><span class="level-heading standard-h">معیاری</span><p>'+linkDictionaryTerms(d.standard)+'</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>'+linkDictionaryTerms(d.mastery)+'</p></div><div class="inline-note">Academic code: <span class="pill">IAE110110'+(k[0]==='n'?'01':'02')+String(subtopicOrder.indexOf(k)+1).padStart(2,'0')+'</span></div>'+vh+'</div>'))}
+function openFunctional(k){
+if(k==='dictionary'){show('<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Lecture کے لیے authoritative central Dictionary سے موجود entries۔</p><input class="search" id="ds" placeholder="Search Dictionary term…" oninput="renderDict(this.value)"><div id="dictList"></div>');renderDict('');return}
+if(k==='visual'){show('<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">Chapter 10 کے authoritative Visual Atlas IDs؛ images central Visual-Atlas asset bank سے load ہوتی ہیں۔</p>'+visuals.map(v=>'<div class="visual-card"><b>'+esc(v.title)+'</b><span class="visual-id">'+esc(v.id)+'</span><p>'+esc(v.sub)+'</p><button class="visual-link" onclick="showVisualById(\''+v.id+'\')">Visual کھولیں</button></div>').join(''));return}
+if(k==='practical'){show('<div class="lesson-title">🧪 Practical Work</div><p class="lesson-subtitle">Lecture 01 کی observation اور controlled-investigation activities۔</p><div class="section"><b>Task 1 — Nutrient Classification</b><p>Macronutrients اور Micronutrients کی فہرست کو required amount اور essentiality کے لحاظ سے compare کریں۔ Nitrogen، Magnesium اور Iron کی category اور function لکھیں۔</p></div><div class="section"><b>Task 2 — Structure → Function</b><p>Stoma، guard cells، intercellular air spaces اور palisade mesophyll کے functions کو CO₂ pathway کے ساتھ جوڑیں۔</p></div><div class="section"><b>Task 3 — Transpiration Factors</b><p>Temperature، Wind اور Humidity کو بدلتے ہوئے predicted effect لکھیں اور water-vapour gradient کی بنیاد پر وجہ بیان کریں۔</p></div><div class="section"><b>Task 4 — Hydrogen Carbonate Indicator Investigation</b><p>Light اور dark leaf-disc conditions کا comparison بنائیں۔ Independent factor، controls، observation، evidence اور conclusion الگ identify کریں۔</p></div>');return}
+if(k==='practice'){show('<div class="lesson-title">❓ Practice &amp; Test Strategies</div><p class="lesson-subtitle">پہلے concept recall، پھر relationship/application، پھر readiness assessment۔</p><div class="section standard"><b>Practice Strategy</b><ul><li>ہر سوال پہلے خود حل کریں؛ جواب فوراً نہ دیکھیں۔</li><li>غلطی کی وجہ identify کریں: terminology، concept، comparison یا evidence interpretation۔</li><li>Weak topic کو متعلقہ subtopic اور Visual ID کے ساتھ دوبارہ جوڑیں۔</li></ul></div><div class="section basic"><b>Test Strategy</b><ul><li>Question stem کے key biological terms identify کریں۔</li><li>“direct observation” اور “biological interpretation” میں فرق رکھیں۔</li><li>MCQ میں غیر متعلق options eliminate کرکے best answer منتخب کریں۔</li><li>Experimental questions میں variable، control، observation اور conclusion الگ رکھیں۔</li></ul></div><div class="section"><b>Discussion Questions</b><div class="section"><strong>Topic 01 — Nutrition in Plants</strong><ol><li>معدنی غذائیت (Mineral Nutrition) سے کیا مراد ہے، اور پودے کے لیے یہ کیوں ضروری ہے؟</li><li>Macronutrients اور Micronutrients میں بنیادی فرق کیا ہے؟</li><li>اگر Micronutrients بہت کم مقدار میں درکار ہوتے ہیں تو پھر انہیں essential کیوں کہا جاتا ہے؟</li><li>Nitrogen کو Macronutrient کیوں کہا جاتا ہے؟</li><li>Nitrogen کی کمی پودے کی نشوونما کو کیسے متاثر کر سکتی ہے؟</li><li>Nitrogen → Amino acids → Proteins کا تعلق اپنے الفاظ میں بیان کریں۔</li><li>Magnesium کی کمی photosynthesis کو کیوں متاثر کر سکتی ہے؟</li><li>Magnesium اور chlorophyll کے درمیان کیا تعلق ہے؟</li><li>Carnivorous plants کیڑوں کو کیوں پکڑتے ہیں، جبکہ وہ photosynthesis بھی کر سکتے ہیں؟</li><li>کیا کسی nutrient کی کم مقدار میں ضرورت کا مطلب یہ ہے کہ وہ nutrient کم اہم ہے؟ وضاحت کریں۔</li></ol></div><div class="section"><strong>Topic 02 — Gaseous Exchange in Plants</strong><ol><li>پودے کو photosynthesis اور respiration کے لیے کن gases کی ضرورت یا استعمال ہوتا ہے؟</li><li>Stomata پودے میں کیا کردار ادا کرتے ہیں؟</li><li>Guard cells stomatal pore کو کیسے control کرتے ہیں؟</li><li>اگر stomata زیادہ دیر تک کھلے رہیں تو پودے کو ایک فائدہ اور ایک نقصان کیا ہو سکتا ہے؟</li><li>Palisade mesophyll تک CO₂ کس راستے سے پہنچتی ہے؟</li><li>Transpiration اور gaseous exchange کے درمیان کیا تعلق ہے؟</li><li>Temperature بڑھنے سے transpiration عموماً کیوں بڑھتی ہے؟</li><li>زیادہ humidity میں transpiration عموماً کیوں کم ہوتی ہے؟</li><li>ہوا (Wind) transpiration کی شرح کو کیسے متاثر کرتی ہے؟</li><li>اگر پتے کے stomata بند ہوں تو photosynthesis اور water loss دونوں پر کیا اثر پڑ سکتا ہے؟</li></ol></div><div class="section"><strong>Conceptual Discussion</strong><ol><li>“پودا غذا مٹی سے نہیں لیتا، بلکہ مٹی سے mineral nutrients لیتا ہے۔” اس بیان کی وضاحت کریں۔</li><li>اگر مٹی میں Nitrogen موجود ہو لیکن پودا اسے حاصل نہ کر سکے تو صرف مٹی میں Nitrogen کی موجودگی کافی کیوں نہیں؟</li><li>Stomata کو پودے کا “gas exchange اور water conservation کے درمیان balance point” کیوں کہا جا سکتا ہے؟</li><li>Light اور dark conditions میں leaf discs کے CO₂ exchange میں فرق کیوں پیدا ہو سکتا ہے؟</li><li>Hydrogen Carbonate Indicator کے colour change سے ہم براہِ راست کیا observe کرتے ہیں، اور اس observation سے biological conclusion کیسے اخذ کرتے ہیں؟</li></ol></div></div><div class="section"><b>Quick Practice</b>'+questions.slice(0,6).map((q,i)=>'<div class="section"><b>'+(i+1)+'. '+linkDictionaryTerms(q.q)+'</b><button class="visual-link" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'block\'?\'none\':\'block\'">Answer</button><div class="answer"><b>Correct:</b> '+linkDictionaryTerms(q.o[q.a])+'</div></div>').join('')+'</div><button class="visual-link" onclick="openReadinessTest()">🧑‍🎓 Start Readiness Test</button>');return}
+if(k==='revision'){show('<div class="lesson-title">🔄 Revision</div><p class="lesson-subtitle">Lecture 01 high-yield revision map۔ ہر item پر click کرکے متعلقہ lesson کھولیں۔</p>'+subtopicOrder.map((key,i)=>'<div class="revision-item" onclick="openSub(\''+key+'\')"><span>'+String(i+1).padStart(2,'0')+'</span><b>'+esc(data[key].title)+'</b></div>').join(''));return}
+if(k==='mastery'){show('<div class="lesson-title">🏆 Mastery</div><p class="lesson-subtitle">Mastery میں student terms نہیں بلکہ mechanisms، relationships، evidence اور application demonstrate کرتا ہے۔</p><div class="section mastery"><b>Mastery Checklist</b><ul><li>Mineral nutrition کو availability → uptake → transport → cellular use → biological function کے سلسلے میں explain کر سکتا ہوں۔</li><li>Macronutrients اور Micronutrients کو required amount کی بنیاد پر distinguish کر سکتا ہوں۔</li><li>اہم macronutrients اور ان کے functions explain کر سکتا ہوں۔</li><li>Nitrogen → amino acids → proteins اور Magnesium → chlorophyll → photosynthesis relationships explain کر سکتا ہوں۔</li><li>Carnivorous plants میں carnivory کو nutrient adaptation کے طور پر explain کر سکتا ہوں۔</li><li>Gaseous exchange، stomata اور guard cells کو structure → function کے ساتھ explain کر سکتا ہوں۔</li><li>CO₂ کا atmosphere → stoma → intercellular air spaces → mesophyll → chloroplast pathway explain کر سکتا ہوں۔</li><li>Transpiration اور stomatal trade-off explain کر سکتا ہوں۔</li><li>Temperature، Wind اور Humidity کے effects کو water-vapour gradient سے justify کر سکتا ہوں۔</li><li>Hydrogen Carbonate Indicator experiment میں observation اور biological conclusion کا فرق واضح کر سکتا ہوں۔</li><li>Readiness Test میں کم از کم 80% score حاصل کرنے کے لیے weak areas revise کر سکتا ہوں۔</li></ul><button class="visual-link" onclick="openReadinessTest()">🧑‍🎓 Start Readiness Test</button></div>');return}
+if(k==='search'){openGlobalLectureSearch();return} if(k==='readiness'){openReadinessTest();return} openExamSystem();
+}
+function renderDict(term){const n=norm(term);const list=Object.entries(dict).filter(([w,d])=>!n||norm(w+' '+d.urdu+' '+d.meaning+' '+d.english+' '+d.id).includes(n));document.getElementById('dictList').innerHTML=list.map(([w,d])=>'<div class="dict-item" onclick="showDictWord('+JSON.stringify(w)+','+JSON.stringify(d.meaning)+','+JSON.stringify(d.id)+')"><b>'+esc(w)+'</b><br><span>'+esc(d.urdu)+' · '+esc(d.meaning)+'</span><small class="visual-id">'+esc(d.id)+'</small></div>').join('')||'<p>کوئی matching term نہیں ملا۔</p>'}
+function showDictWord(w,d,id){const links={Transpiration:'g5'};const k=links[w];const v=k?atlasByKey(k)[0]:null;let rel='';if(k&&v)rel='<div class="section"><span class="level-heading standard-h">Lecture Connection</span><p>Topic 02 → 2.5 Transpiration</p><span class="visual-id">'+esc(v.id)+'</span><div class="nav"><button onclick="openSub(\''+k+'\')">متعلقہ Subtopic کھولیں</button><button onclick="showVisualById(\''+v.id+'\')">🔬 متعلقہ Visual کھولیں</button></div></div>';show('<div class="lesson-title">'+esc(w)+'</div><div class="section"><p>'+esc(d)+'</p><span class="visual-id">'+esc(id||'')+' · Authoritative Dictionary entry</span></div>'+rel)}
+function showVisualById(id){const v=visuals.find(x=>x.id===id);if(!v)return;const src='../Visual-Atlas/'+id+'.webp';const d=data[v.key];const topicKey=v.key[0]==='n'?'t1':v.key[0]==='g'?'t2':v.key;const topic= data[topicKey];const dictTerms=Object.keys(dict).filter(t=>norm((d.basic||'')+' '+(d.standard||'')+' '+(d.mastery||'')).includes(norm(t)));const dictLinks=dictTerms.length?'<div class="section"><span class="level-heading standard-h">Related Dictionary</span>'+dictTerms.map(t=>'<button class="visual-link" onclick="showDictWord('+JSON.stringify(t)+','+JSON.stringify(dict[t].meaning)+','+JSON.stringify(dict[t].id)+')">📖 '+esc(t)+'</button>').join('')+'</div>':'';show('<div class="lesson-title">'+esc(v.title)+'</div><span class="visual-id">'+esc(id)+'</span><img class="atlas-img" src="'+src+'" alt="'+esc(id)+' — '+esc(v.title)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"><div class="empty" style="display:none">Visual asset '+esc(src)+' load نہیں ہو سکا۔</div><div class="section"><span class="level-heading standard-h">Related Topic / Subtopic</span><p>'+esc(topic?topic.title:v.sub)+'</p><button class="visual-link" onclick="'+(v.key==='t1'||v.key==='t2'?'openTopic(\''+v.key+'\')':'openSub(\''+v.key+'\')')+'">متعلقہ درسی مواد کھولیں</button></div>'+dictLinks+'<div class="section"><span class="level-heading mastery-h">Visual Reading</span><p>'+linkDictionaryTerms(d.basic)+'</p></div>')}
+function escapeAssessmentText(s){return esc(s)}
+function renderAssessmentQuestions(bank,type){return bank.map((q,i)=>'<div class="question-card '+(type==='exam'?'exam-card':'')+'" id="'+type+'Q'+i+'"><div class="question-meta"><span>Q'+(i+1)+'</span><span>'+esc(q.topic||'Core Concept')+'</span></div><b>'+linkDictionaryTerms(q.q)+'</b>'+q.o.map((x,j)=>'<label class="assessment-option"><input type="radio" name="'+type+'-'+i+'" value="'+j+'" onchange="recordAssessmentAnswer(\''+type+'\','+i+','+j+')"><span>'+String.fromCharCode(65+j)+'. '+linkDictionaryTerms(x)+'</span></label>').join('')+'</div>').join('')}
+let testAttempt=[],testAnswers={},examAttempt=[],examAnswers={};
+function recordAssessmentAnswer(type,i,j){(type==='exam'?examAnswers:testAnswers)[i]=j}
+function scoreAssessment(bank,answers){let score=0,correct=0,wrong=0,unanswered=0;const weak={},review=[];bank.forEach((q,i)=>{const selected=answers[i]??null;const answer=q.a;const ok=selected===answer;if(ok){score++;correct++}else if(selected===null)unanswered++;else{wrong++;weak[q.topic||'Core Concept']=(weak[q.topic||'Core Concept']||0)+1}review.push({q,selected,answer,ok})});const pct=bank.length?Math.round(score/bank.length*100):0;return{score,correct,wrong,unanswered,pct,weak,review}}
+function performanceBand(pct){if(pct>=90)return['🏆 Outstanding','آپ کی conceptual mastery بہت مضبوط ہے۔'];if(pct>=80)return['🌟 Excellent','آپ examination-level preparation کے بہت قریب ہیں۔'];if(pct>=70)return['✅ Good','بنیادی understanding مضبوط ہے؛ چند weak areas revise کریں۔'];if(pct>=50)return['📚 Needs Revision','اہم topics دوبارہ پڑھ کر test repeat کریں۔'];return['🔁 Foundation Revision Required','Lecture کے weak areas دوبارہ پڑھیں اور پھر readiness test دیں۔']}
+function renderAssessmentResult(result,type){const band=performanceBand(result.pct);const title=type==='exam'?'Examination Result':'Readiness Result';const weakEntries=Object.entries(result.weak).sort((a,b)=>b[1]-a[1]);let html='<div class="result-hero"><div class="result-title">'+title+'</div><div class="result-score">'+result.score+' / '+result.review.length+'</div><div class="result-percent">'+result.pct+'%</div><div class="result-band">'+band[0]+' — '+band[1]+'</div><div class="test-summary"><span>✅ درست: '+result.correct+'</span> &nbsp; <span>❌ غلط: '+result.wrong+'</span> &nbsp; <span>⚪ Unanswered: '+result.unanswered+'</span></div></div>';if(weakEntries.length)html+='<div class="recommendation-title">🎯 Weak Areas &amp; Revision Path</div>'+weakEntries.map(([topic,n])=>'<div class="recommendation-card"><strong>'+escapeAssessmentText(topic)+'</strong><p>'+n+' question(s) need revision۔ متعلقہ lecture material دوبارہ پڑھیں، پھر readiness test repeat کریں۔</p></div>').join('');else html+='<div class="recommendation-card"><strong>🎉 No weak area detected</strong><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>';html+='<div class="recommendation-title">📝 Detailed Answer Review</div>'+result.review.map((r,i)=>{const selected=r.selected===null?'جواب نہیں دیا':r.q.o[r.selected];const correct=r.q.o[r.answer];return '<div class="answer-review '+(r.ok?'review-correct':'review-wrong')+'"><div><strong>Q'+(i+1)+'. '+linkDictionaryTerms(r.q.q)+'</strong> — '+(r.ok?'✓ درست':'✕ Review')+'</div><div><b>آپ کا جواب:</b> '+linkDictionaryTerms(selected)+'</div><div class="correct-answer"><b>صحیح جواب:</b> '+linkDictionaryTerms(correct)+'</div><div><b>Concept:</b> '+linkDictionaryTerms(r.q.explanation||'متعلقہ lecture section کے ساتھ دوبارہ جوڑیں۔')+'</div></div>'}).join('');return html}
+function shuffleAssessment(a){return [...a].sort(()=>Math.random()-0.5)}
+function openReadinessTest(){testAttempt=shuffleAssessment(questions);testAnswers={};show('<div class="assessment-head readiness-peak"><div class="assessment-badge">🧑‍🎓 READINESS TEST</div><div class="lesson-title">Lecture 01 — Readiness Test</div><p>یہ test lecture کے دونوں Topics، core concepts، structure-function relationships اور experimental interpretation کو assess کرتا ہے۔</p><div class="assessment-meta"><b>'+testAttempt.length+' Questions</b><span>Conceptual</span><span>Application</span><span>Evidence</span></div></div><div class="exam-rules"><strong>Protocol:</strong> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div><div id="readinessQuestions">'+renderAssessmentQuestions(testAttempt,'readiness')+'</div><div class="assessment-actions"><button class="exam-submit" onclick="submitReadinessTest()">Submit Readiness Test</button><button onclick="openReadinessTest()">↻ Reset</button></div><div id="readinessResult" class="assessment-result"></div>')}
+function submitReadinessTest(){const result=scoreAssessment(testAttempt,testAnswers);document.getElementById('readinessResult').innerHTML=renderAssessmentResult(result,'readiness');document.getElementById('readinessResult').classList.add('show');document.getElementById('readinessResult').scrollIntoView({behavior:'smooth',block:'start'})}
+function openExamSystem(){examAttempt=[...exam];examAnswers={};show('<div class="assessment-head exam-system-head"><div class="assessment-badge">🏛️ EXAMINATION SYSTEM</div><div class="lesson-title">Lecture 01 — Examination</div><p>Formal examination Mineral Nutrition، Gaseous Exchange، stomatal regulation، transpiration اور experimental interpretation کو assess کرتا ہے۔</p><div class="assessment-meta"><b>'+examAttempt.length+' Questions</b><span>Formal Assessment</span><span>Conceptual</span><span>Application</span><span>Exam-level</span></div></div><div class="exam-rules"><strong>Examination protocol:</strong> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد complete result اور answer review دکھایا جائے گا۔</div><div id="examQuestions">'+renderAssessmentQuestions(examAttempt,'exam')+'</div><div class="assessment-actions"><button class="exam-submit" onclick="submitExam()">🏛️ Submit Examination</button><button onclick="openExamSystem()">↻ Reset Examination</button></div><div id="examResult" class="assessment-result"></div>')}
+function submitExam(){const result=scoreAssessment(examAttempt,examAnswers);document.getElementById('examResult').innerHTML=renderAssessmentResult(result,'exam');document.getElementById('examResult').classList.add('show');document.getElementById('examResult').scrollIntoView({behavior:'smooth',block:'start'})}
+function openGlobalLectureSearch(){const items=[...subtopicOrder.map(k=>({type:'Lesson',title:data[k].title,text:data[k].basic+' '+data[k].standard+' '+data[k].mastery,key:k})),...visuals.map(v=>({type:'Visual',title:v.title,text:v.sub+' '+v.id,id:v.id})),...Object.entries(dict).map(([w,d])=>({type:'Dictionary',title:w,text:d.meaning+' '+d.english,id:d.id}))];show('<div class="lesson-title">🔎 Lecture Search</div><p class="lesson-subtitle">Topics، subtopics، academic levels، Visual IDs اور authoritative Dictionary entries میں search۔</p><input class="search" id="globalSearch" placeholder="Search lecture content…" oninput="renderGlobalSearch(this.value)"><div id="globalResults"></div>');window._globalItems=items;renderGlobalSearch('')}
+function renderGlobalSearch(term){const root=document.getElementById('globalResults');if(!root)return;const n=norm(term);const rows=window._globalItems.filter(x=>!n||norm(x.title+' '+x.text).includes(n));root.innerHTML='<div class="results-title">Results ('+rows.length+')</div>'+rows.map(x=>'<div class="search-result" onclick="'+(x.type==='Lesson'?'openSub(\''+x.key+'\')':x.type==='Visual'?'showVisualById(\''+x.id+'\')':'showDictWord('+JSON.stringify(x.title)+','+JSON.stringify(x.text)+','+JSON.stringify(x.id||'')+')')+'"><b>'+esc(x.type)+' — '+esc(x.title)+'</b><p>'+esc(x.text.slice(0,260))+'</p></div>').join('')||'<div class="empty">کوئی matching result نہیں ملا۔</div>'}
+document.addEventListener('click',function(e){const word=e.target.closest('.linked-word');if(word){e.preventDefault();showDictWord(word.dataset.term,dict[word.dataset.term]?.meaning||'Authoritative Dictionary میں اس term کی entry موجود نہیں۔',dict[word.dataset.term]?.id||'')}} ,true);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+</script>
+<style>
+.topic-intro{min-height:130px!important;cursor:pointer!important;display:flex;align-items:center;justify-content:center!important;padding:26px!important}.topic-intro .label{font-size:25px!important;font-weight:800!important;line-height:1.35!important;text-align:center!important}@media(max-width:800px){.topic-intro .label{font-size:22px!important}}@media(max-width:480px){.topic-intro .label{font-size:20px!important}}
+</style>
 
-    <div class="bg-glow"></div>
+<style>
+.top .section-heading{color:#fff;margin:8px 0 12px;font-size:clamp(20px,3vw,28px)}
+.top .section-note{color:#f5f7f5;font-size:15px;margin:0 auto;line-height:1.8}
+@media(max-width:700px){.top{padding:7px 10px 12px}.top-logo{width:82px;height:60px;flex-basis:82px}.top-brand h1{font-size:14px}.top-brand p{font-size:7px}.top .title{font-size:21px}.top .intro{font-size:13px;line-height:1.75}.top{padding:14px 10px;border-bottom-width:3px}.top-inner{gap:10px}.top-logo{width:88px;height:62px}.top-brand h1{font-size:clamp(18px,5vw,25px)}.top-brand p{font-size:10px}.top .title{font-size:clamp(21px,6vw,28px)}.top .intro{font-size:15px}.top .section-heading{font-size:19px}.top .section-note{font-size:13px}}
 
-    <div class="card-container" id="cardContainer">
-        <canvas id="butterflyCanvas"></canvas>
-
-        <div class="heading-badge" id="badge">✨ خوش آمدید!</div>
-
-        <div class="message-body" id="textContainer"></div>
-
-        <div class="footer-wrap" id="footer">
-            <div class="wisher">آپ کی خیر خواہ</div>
-            <div class="brand-name">امپیریل اکیڈمی آف ایجوکیشن</div>
-        </div>
-    </div>
-
-    <script>
-        const fullMessage = "آپ کا سفر محض لفظوں اور کتابوں کا نہیں، بلکہ اپنے خوابوں کو حقیقت کا روپ دینے کا ہے۔ آپ کے اندر وہ تمام صلاحیت، عزم اور طاقت موجود ہے جو آپ کو ہر بلندی تک پہنچا سکتی ہے۔\n\nیاد رکھیں، ہر نیا دن ایک نیا موقع ہے—کچھ نیا سیکھنے کا، ایک قدم اور آگے بڑھنے کا، اور خود کو کل سے بہتر بنانے کا۔ ماضی کی رکاوٹوں کو بھول جائیں اور پوری توانائی کے ساتھ اپنے مقصد پر توجہ مرکوز کریں۔\n\nآج ہی سے، پورے دل اور جذبے کے ساتھ شروعات کریں۔ کامیابی آپ کی منتظر ہے!";
-
-        const textContainer = document.getElementById('textContainer');
-        const cardContainer = document.getElementById('cardContainer');
-        const canvas = document.getElementById('butterflyCanvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = cardContainer.clientWidth;
-            canvas.height = cardContainer.clientHeight;
-        }
-
-        // الفاظ کو الگ الگ ٹکڑوں میں تقسیم کرنا
-        const paragraphs = fullMessage.split('\n\n');
-        paragraphs.forEach((paragraphText) => {
-            const pElem = document.createElement('p');
-            pElem.style.marginBottom = '15px';
-            
-            const words = paragraphText.split(' ');
-            words.forEach((wordText) => {
-                const wordSpan = document.createElement('span');
-                wordSpan.className = 'word';
-                wordSpan.textContent = wordText + ' ';
-                pElem.appendChild(wordSpan);
-            });
-            textContainer.appendChild(pElem);
-        });
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const wordSpans = Array.from(document.querySelectorAll('.word'));
-        let butterflies = [];
-
-        class Butterfly {
-            constructor(startX, startY, targetX, targetY, mode) {
-                this.x = startX;
-                this.y = startY;
-                this.startX = startX;
-                this.startY = startY;
-                this.targetX = targetX;
-                this.targetY = targetY;
-                this.mode = mode;
-                this.progress = 0;
-
-                this.size = Math.random() * 7 + 5;
-                this.color = `hsl(${Math.random() * 70 + 270}, 95%, 75%)`;
-                this.wingAngle = Math.random() * Math.PI;
-                this.wingSpeed = 0.2 + Math.random() * 0.1;
-                
-                this.cpX = startX + (Math.random() - 0.5) * 180;
-                this.cpY = startY + (Math.random() - 0.5) * 180;
-                this.speed = 0.02 + Math.random() * 0.015;
-            }
-
-            draw() {
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                
-                this.wingAngle += this.wingSpeed;
-                const wingScale = Math.abs(Math.sin(this.wingAngle));
-
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = this.color;
-
-                ctx.beginPath();
-                ctx.ellipse(-this.size / 2 * wingScale, 0, this.size / 2 * wingScale, this.size / 3, Math.PI / 4, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.beginPath();
-                ctx.ellipse(this.size / 2 * wingScale, 0, this.size / 2 * wingScale, this.size / 3, -Math.PI / 4, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.fillStyle = '#ffffff';
-                ctx.beginPath();
-                ctx.arc(0, 0, 1.2, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.restore();
-            }
-
-            update() {
-                this.progress += this.speed;
-                if (this.progress > 1) this.progress = 1;
-
-                const t = this.progress;
-                if (this.mode === 'FLY_OUT') {
-                    this.x = (1-t)*(1-t)*this.startX + 2*(1-t)*t*this.cpX + t*t*this.targetX;
-                    this.y = (1-t)*(1-t)*this.startY + 2*(1-t)*t*this.cpY + t*t*this.targetY;
-                } else {
-                    this.x = (1-t)*this.startX + t*this.targetX;
-                    this.y = (1-t)*(1-t)*this.startY + 2*(1-t)*t*this.cpX + t*t*this.targetY;
-                }
-            }
-        }
-
-        function startAnimationCycle() {
-            // 1. لفظ بہ لفظ تتلیوں میں بدل کر غائب ہونا
-            wordSpans.forEach((span, index) => {
-                setTimeout(() => {
-                    const rect = span.getBoundingClientRect();
-                    const cardRect = cardContainer.getBoundingClientRect();
-
-                    const wordX = rect.left - cardRect.left + rect.width / 2;
-                    const wordY = rect.top - cardRect.top + rect.height / 2;
-
-                    for(let i = 0; i < 2; i++) {
-                        const targetX = wordX + (Math.random() - 0.5) * 400;
-                        const targetY = wordY - Math.random() * 300 - 50;
-                        butterflies.push(new Butterfly(wordX, wordY, targetX, targetY, 'FLY_OUT'));
-                    }
-
-                    span.classList.add('hidden');
-                }, index * 45);
-            });
-
-            const totalOutTime = wordSpans.length * 45 + 1000;
-
-            // 2. تتلیوں کا واپس آکر دوبارہ لفظ بننا
-            setTimeout(() => {
-                butterflies = [];
-
-                wordSpans.forEach((span, index) => {
-                    const rect = span.getBoundingClientRect();
-                    const cardRect = cardContainer.getBoundingClientRect();
-
-                    const wordX = rect.left - cardRect.left + rect.width / 2;
-                    const wordY = rect.top - cardRect.top + rect.height / 2;
-
-                    const angle = Math.random() * Math.PI * 2;
-                    const distance = 400;
-                    const startX = canvas.width / 2 + Math.cos(angle) * distance;
-                    const startY = canvas.height / 2 + Math.sin(angle) * distance;
-
-                    butterflies.push(new Butterfly(startX, startY, wordX, wordY, 'FLY_IN'));
-
-                    setTimeout(() => {
-                        span.classList.remove('hidden');
-                    }, index * 45);
-                });
-            }, totalOutTime);
-        }
-
-        function renderLoop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            butterflies.forEach(b => {
-                b.update();
-                b.draw();
-            });
-            requestAnimationFrame(renderLoop);
-        }
-
-        renderLoop();
-
-        // 5 سیکنڈ کے وقفے کے بعد اینیمیشن سائیکل شروع کرنا
-        setTimeout(() => {
-            startAnimationCycle();
-            setInterval(startAnimationCycle, wordSpans.length * 90 + 5000);
-        }, 5000);
-    </script>
-</body>
-</html>
+/* === IAE FULL-SCREEN PAGE LOCK === */
+html,body{width:100%;height:100%;min-width:100%;min-height:100%;margin:0;padding:0;overflow:hidden;}
+body{min-height:100dvh;}
+.wrap{width:100vw;height:100dvh;min-width:100vw;max-width:none;margin:0;padding:0;overflow:hidden;}
+.page{display:none;width:100vw;height:100dvh;min-width:100vw;min-height:100dvh;margin:0;padding:0;overflow-y:auto;overflow-x:hidden;position:relative;box-sizing:border-box;}
+.page.active{display:block;}
+.top{width:100%;box-sizing:border-box;border-radius:0;margin:0;}
+.top-inner{width:100%;max-width:none;box-sizing:border-box;margin:0;}
+/* Every in-page close control stays at the lower-left viewport corner. */
+.close-btn,.close-button,.modal-close,[aria-label="Close"],[aria-label="close"]{position:fixed;left:12px;bottom:12px;z-index:10000;}
+@media(max-width:800px){
+  .page{width:100vw;min-width:100vw;}
+  .close-btn,.close-button,.modal-close,[aria-label="Close"],[aria-label="close"]{left:10px;bottom:10px;}
+}
+</style>
+</body></html>
