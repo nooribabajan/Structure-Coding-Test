@@ -62,9 +62,9 @@ body {
 }
 .hero { padding: 22px; text-align: center; }
 .panel { padding: 20px; }
-.eyebrow { color: #8a712e; font-weight: 900; font-size: 14px; letter-spacing: .4px; }
-.title { font-size: clamp(27px, 5vw, 43px); color: var(--green); margin: 6px 0; }
-.intro { font-size: 18px; color: var(--muted); margin: 0; }
+.eyebrow { color: #8a712e; font-weight: 900; font-size: 14px; letter-spacing: .4px; text-align: center; }
+.title { font-size: clamp(27px, 5vw, 43px); color: var(--green); margin: 6px 0; text-align: center; }
+.intro { font-size: 18px; color: var(--muted); margin: 0; text-align: center; }
 .directory { margin-top: 20px; }
 .landing-hero { padding: 28px 20px; }
 
@@ -102,6 +102,8 @@ body {
 /* Grids & Cards */
 .chapter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
 .column { display: grid; gap: 12px; }
+
+/* Perfect Centering for Chapter Cards */
 .chapter-card {
   width: 100%;
   height: 160px;
@@ -110,7 +112,7 @@ body {
   background: var(--sky);
   border-radius: 18px;
   cursor: pointer;
-  padding: 14px 18px;
+  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,46 +123,38 @@ body {
 }
 .column:nth-child(2) .chapter-card { background: var(--lightgreen); border-color: var(--greenBorder); }
 
-/* بیک گراؤنڈ نمبر کی الائنمنٹ اور رنگت */
 .chapter-card .chapter-num { 
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  font-family: Arial, sans-serif !important; 
-  font-size: 100px !important; 
-  line-height: .9 !important; 
-  font-weight: 900 !important; 
-  color: #a3d2ee !important; /* لائٹ سکائی کلر */
-  direction: ltr !important; 
-  z-index: 1 !important;
-  opacity: 0.8 !important;
+  position: absolute;
+  font-family: Arial, sans-serif; 
+  font-size: 100px; 
+  line-height: 1; 
+  font-weight: 900; 
+  color: #a3d2ee;
+  z-index: 1;
+  opacity: 0.7;
   pointer-events: none;
+  text-align: center;
 }
 
-/* گرین کالم کے کارڈز کے نمبر کا کلر */
 .column:nth-child(2) .chapter-card .chapter-num {
-  color: #a8d5ba !important; /* لائٹ گرین-سکائی ٹون */
+  color: #a8d5ba;
 }
 
-/* ٹاپکس اور ٹیکسٹ جو نمبر کے عین اوپر سنٹر میں Overlap کرے گا */
 .chapter-card .chapter-title { 
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 90% !important;
-  font-size: 16px !important; 
-  font-weight: 900 !important; 
-  color: var(--green) !important; 
-  margin: 0 !important; 
-  line-height: 1.25 !important; 
-  z-index: 2 !important;
-  text-align: center !important;
+  position: relative;
+  width: 100%;
+  font-size: 16px; 
+  font-weight: 900; 
+  color: var(--green); 
+  margin: 0; 
+  line-height: 1.3; 
+  z-index: 2;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 .chapter-card.exam { background: var(--red); border-color: var(--redBorder); }
-.chapter-card.exam .chapter-num { font-size: 48px !important; color: #f2a8a8 !important; }
+.chapter-card.exam .chapter-num { font-size: 48px; color: #f2a8a8; }
 
 .chapter-card:hover, .topic-card:hover, .visual-card:hover {
   transform: translateY(-2px);
@@ -169,18 +163,19 @@ body {
 
 .view { display: none; }
 .view.show { display: block; }
-.section-head { margin-bottom: 18px; }
+.section-head { margin-bottom: 18px; text-align: center; }
 .backline { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 15px; }
 
 .topic-section { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
 .topic-section:first-child { margin-top: 0; border-top: 0; }
-.topic-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.topic-heading { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; text-align: center; }
 .topic-heading-num { font-family: Arial, sans-serif; font-size: 42px; font-weight: 900; color: #d22; direction: ltr; }
 .topic-heading-title { font-size: 22px; font-weight: 900; color: var(--green); }
 .topic-heading-intro { font-size: 15px; color: var(--muted); }
 
-/* Visual Cards */
+/* Visual Cards Alignment Fix */
 .visual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+
 .visual-card {
   min-height: 120px;
   border: 1px solid var(--line);
@@ -188,26 +183,28 @@ body {
   border-radius: 14px;
   cursor: pointer;
   padding: 12px;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   transition: .18s;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
+
 .visual-card.main { background: #fffaf0; border: 2px solid var(--gold); margin-bottom: 12px; min-height: 110px; width: 100%; }
 
 .chapter1-graphics-grid, .chapter10-graphics-grid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 8px !important;
+  gap: 12px !important;
   width: 100%;
   direction: rtl;
 }
 .chapter1-graphics-grid .graphics-column, .chapter10-graphics-grid .graphics-column {
   display: grid !important;
-  gap: 6px !important;
+  gap: 10px !important;
   min-width: 0 !important;
   width: 100% !important;
 }
@@ -215,57 +212,55 @@ body {
 .chapter1-graphics-grid .graphics-column.green .visual-card, .chapter10-graphics-grid .graphics-column.green .visual-card { background: var(--lightgreen) !important; border-color: #bfe8c8 !important; }
 .chapter1-graphics-grid .graphics-column.red .visual-card, .chapter10-graphics-grid .graphics-column.red .visual-card { background: var(--red) !important; border-color: #f2b9b9 !important; }
 
-.visual-card > span { position: relative !important; width: 100% !important; height: 100% !important; display: block !important; text-align: center !important; }
+.card-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
 .visual-card .vnum {
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  margin: 0 !important;
-  display: block !important;
-  z-index: 1 !important;
-  font-family: Arial, sans-serif !important;
-  font-size: clamp(55px, 7.2vw, 95px) !important;
-  line-height: .8 !important;
-  font-weight: 900 !important;
-  text-align: center !important;
-  opacity: .45 !important;
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  font-family: Arial, sans-serif;
+  font-size: clamp(45px, 6vw, 75px);
+  line-height: 1;
+  font-weight: 900;
+  text-align: center;
+  opacity: .35;
   color: var(--green);
+  pointer-events: none;
 }
+
 .visual-card .vtitle {
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 94% !important;
-  margin: 0 !important;
-  padding: 0 2px !important;
-  display: block !important;
-  z-index: 2 !important;
-  color: #000 !important;
-  font-size: 16px !important; /* فانٹ 16px سیٹ کیا گیا ہے */
-  line-height: 1.2 !important;
-  font-weight: 800 !important;
-  text-align: center !important;
-  white-space: normal !important;
-  word-break: normal !important;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0 4px;
+  z-index: 2;
+  color: #000;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 800;
+  text-align: center;
+  word-wrap: break-word;
 }
-.tab14-three-line { font-size: 16px !important; line-height: 1.1 !important; }
 
 .chapter1-main .chapter1-stars, .chapter10-main .chapter10-main-graphic {
   width: min(620px, 100%);
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .chapter1-main .chapter1-stars svg, .chapter10-main .chapter10-main-graphic svg {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 auto !important;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 /* Detail View */
@@ -314,22 +309,21 @@ body {
 }
 
 @media(max-width: 800px) {
-  .chapter-grid, .topic-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .chapter-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .chapter-card { height: 140px; min-height: 140px; }
-  .visual-grid { grid-template-columns: repeat(3, 1fr); }
+  .visual-grid { grid-template-columns: repeat(2, 1fr); }
   .learning { grid-template-columns: 1fr; }
   .seal { width: 105px; height: 75px; }
 }
 @media(max-width: 480px) {
   .container { padding: 0 10px; }
-  .chapter1-graphics-grid, .chapter10-graphics-grid { gap: 4px !important; }
-  .visual-card .vnum { font-size: clamp(42px, 12vw, 60px) !important; }
-  .visual-card .vtitle { font-size: 16px !important; line-height: 1.1 !important; } /* موبائل پر بھی 16px */
+  .chapter1-graphics-grid, .chapter10-graphics-grid { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .visual-card .vnum { font-size: 50px !important; }
+  .visual-card .vtitle { font-size: 15px !important; line-height: 1.2 !important; }
   .hero { padding: 15px; }
   .chapter-card { height: 120px; min-height: 120px; padding: 8px; }
-  .chapter-title { font-size: 16px !important; }
+  .chapter-title { font-size: 15px !important; }
   .chapter-num { font-size: 64px !important; }
-  .visual-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
   .back { padding: 7px 10px; font-size: 12px; }
   .floating-home-btn { bottom: 15px; left: 15px; padding: 8px 16px; font-size: 14px; }
 }
@@ -527,12 +521,12 @@ function chapterButton(n, exam) {
   const b = document.createElement('button');
   b.className = 'chapter-card' + (exam ? ' exam' : '');
   if (exam) {
-    b.innerHTML = '<span class="chapter-title">Visual Atlas</span><span class="chapter-num">EXAM</span>';
+    b.innerHTML = '<span class="chapter-num">EXAM</span><span class="chapter-title">Visual Atlas</span>';
     b.onclick = () => showExam();
     return b;
   }
   const c = chapters[n];
-  b.innerHTML = '<span class="chapter-title">' + c.title + '</span><span class="chapter-num">' + String(n).padStart(2, '0') + '</span>';
+  b.innerHTML = '<span class="chapter-num">' + String(n).padStart(2, '0') + '</span><span class="chapter-title">' + c.title + '</span>';
   b.onclick = () => openChapter(n);
   return b;
 }
@@ -620,7 +614,7 @@ function openChapter(n) {
       if (t.main) {
         const mainBtn = document.createElement('button');
         mainBtn.className = 'visual-card main';
-        mainBtn.innerHTML = `<span><span class="vnum">00</span><span class="vtitle">${titles[t.main] || records[t.main]?.[0] || t.main}</span></span>`;
+        mainBtn.innerHTML = `<div class="card-wrapper"><span class="vnum">00</span><span class="vtitle">${titles[t.main] || records[t.main]?.[0] || t.main}</span></div>`;
         mainBtn.onclick = () => openDetail(t.main);
         sec.appendChild(mainBtn);
       }
@@ -630,7 +624,7 @@ function openChapter(n) {
       t.ids.forEach((id, j) => {
         const b = document.createElement('button');
         b.className = 'visual-card';
-        b.innerHTML = `<span><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle">${titles[id] || records[id]?.[0] || id}</span></span>`;
+        b.innerHTML = `<div class="card-wrapper"><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle">${titles[id] || records[id]?.[0] || id}</span></div>`;
         b.onclick = () => openDetail(id);
         g.appendChild(b);
       });
@@ -662,7 +656,7 @@ function openChapterGraphics(n) {
         const j = col.start + k;
         const b = document.createElement('button');
         b.className = 'visual-card';
-        b.innerHTML = `<span><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle">${titles[id] || records[id]?.[0] || id}</span></span>`;
+        b.innerHTML = `<div class="card-wrapper"><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle">${titles[id] || records[id]?.[0] || id}</span></div>`;
         b.onclick = () => openDetail(id);
         d.appendChild(b);
       });
@@ -684,14 +678,14 @@ function openChapterGraphics(n) {
         const isTab14 = (id === 'IAE1101100207V');
         const b = document.createElement('button');
         b.className = 'visual-card';
-        b.innerHTML = `<span><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle ${isTab14 ? 'tab14-three-line' : ''}">${isTab14 ? 'Gaseous Exchange<br>Experimental<br>Investigation' : (titles[id] || records[id]?.[0] || id)}</span></span>`;
+        b.innerHTML = `<div class="card-wrapper"><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle">${isTab14 ? 'Gaseous Exchange<br>Experimental Investigation' : (titles[id] || records[id]?.[0] || id)}</span></div>`;
         b.onclick = () => openDetail(id);
         d.appendChild(b);
       });
       if (col.cls === 'red') {
         const exam = document.createElement('button');
         exam.className = 'visual-card exam-readiness-card';
-        exam.innerHTML = '<span><span class="vnum">EX</span><span class="vtitle">Exam / Test Readiness</span></span>';
+        exam.innerHTML = '<div class="card-wrapper"><span class="vnum">EX</span><span class="vtitle">Exam / Test Readiness</span></div>';
         exam.onclick = () => openExamReadiness();
         d.appendChild(exam);
       }
