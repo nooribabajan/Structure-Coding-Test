@@ -1,120 +1,764 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Imperial Academy — Central Visual Atlas</title>
 <style>
-:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--sky:#dff2ff;--skyBorder:#9ed3ef;--lightgreen:#e3f5e8;--greenBorder:#9bd2aa;--red:#fde3e3;--redBorder:#e7a2a2}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Nastaliq Urdu","Noto Sans Arabic",Tahoma,Arial,sans-serif;line-height:1.75}.header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:22px 18px;border-bottom:4px solid var(--gold)}.header-inner{max-width:1180px;margin:auto;display:flex;align-items:center;gap:20px}.brand{flex:1}.brand h1{margin:0;color:#f2d46f;font-size:clamp(22px,4vw,34px);line-height:1.25}.brand p{margin:5px 0 0;font-family:Arial,sans-serif;font-size:15px}.seal{width:140px;height:95px;flex:0 0 auto}.seal img{width:100%;height:100%;object-fit:contain}.nav{background:var(--paper);border-bottom:1px solid var(--line);padding:10px;position:sticky;top:0;z-index:20}.nav-inner{max-width:1180px;margin:auto;display:flex;justify-content:center;gap:10px}.nav button,.back{border:1px solid var(--line);background:#eee9da;color:var(--green);padding:8px 18px;border-radius:10px;font-weight:800;cursor:pointer;font-size:15px}.nav button.active{background:var(--green);color:#fff}.container{max-width:1180px;margin:24px auto;padding:0 15px}.hero,.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:0 5px 18px rgba(32,37,34,.06)}.hero{padding:22px;text-align:center}.eyebrow{color:#8a712e;font-weight:900;font-size:14px;letter-spacing:.4px}.title{font-size:clamp(27px,5vw,43px);color:var(--green);margin:6px 0}.intro{font-size:18px;color:var(--muted);margin:0}.directory{margin-top:20px}.landing-hero{padding:28px 20px}.bio-mini-graphic{width:220px;height:135px;margin:0 auto 8px;display:grid;place-items:center}.bio-mini-graphic svg{width:100%;height:100%}.chapter-entry{margin-top:18px;border:0;border-radius:14px;background:var(--green);color:#fff;padding:12px 28px;font-size:17px;font-weight:900;cursor:pointer}.chapter-entry:hover{transform:translateY(-2px)}.chapter-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.column{display:grid;gap:12px}.chapter-grid .column:first-child{grid-column:1}.chapter-grid .column:last-child{grid-column:2}.chapter-card{width:100%;height:160px;min-height:160px;border:2px solid var(--skyBorder);background:var(--sky);border-radius:18px;cursor:pointer;padding:14px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:.18s}.column:nth-child(2) .chapter-card{background:var(--lightgreen);border-color:var(--greenBorder)}
-.chapter-card .chapter-title{order:1}.chapter-card .chapter-num{order:2}.chapter-card.exam{background:var(--red);border-color:var(--redBorder)}.chapter-card.exam .chapter-num{font-family:Arial,sans-serif;font-size:34px;line-height:1;font-weight:900;color:#c33;letter-spacing:1px}.chapter-card:hover,.topic-card:hover,.visual-card:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(32,37,34,.09)}.chapter-title{font-size:16px;font-weight:900;color:var(--green);margin:0 0 8px;line-height:1.35}.chapter-num{font-family:Arial,sans-serif;font-size:64px;line-height:.9;font-weight:900;color:#285b4b;direction:ltr}.chapter-grid .column:first-child .chapter-card .chapter-num{color:#285b4b}.chapter-grid .column:last-child .chapter-card .chapter-num{color:#285b4b}.chapter-sub{display:none}.chapter-sub{font-size:13px;color:var(--muted);margin-top:5px}.view{display:none}.view.show{display:block}.section-head{margin-bottom:18px}.backline{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.topic-card{min-height:115px;border:2px solid var(--line);background:#fff;border-radius:16px;cursor:pointer;padding:15px;text-align:center;display:flex;align-items:center;justify-content:center;transition:.18s}.topic-card .topic-num{font-family:Arial,sans-serif;font-size:34px;font-weight:900;color:var(--green);display:block}.topic-card .topic-name{font-size:16px;font-weight:900;color:var(--green)}.topic-section{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}.topic-section:first-child{margin-top:0;border-top:0}.topic-heading{display:flex;align-items:center;gap:14px;margin-bottom:14px}.topic-heading-num{font-family:Arial,sans-serif;font-size:34px;font-weight:900;color:#d22;direction:ltr}.topic-heading-title{font-size:22px;font-weight:900;color:var(--green)}.topic-heading-intro{font-size:15px;color:var(--muted)}.topic-section>.visual-card.main{margin-bottom:12px;min-height:100px;width:100%}.topic-section .visual-grid{grid-template-columns:repeat(3,1fr)}.visual-directory{margin-top:18px}.visual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.chapter1-graphics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;direction:rtl}.chapter1-graphics-grid .graphics-column{display:grid;gap:14px}.chapter1-graphics-grid .graphics-column.sky .visual-card{background:var(--sky);border:2px solid var(--skyBorder)}.chapter1-graphics-grid .graphics-column.green .visual-card{background:var(--lightgreen);border:2px solid var(--greenBorder)}.chapter1-graphics-grid .graphics-column.red .visual-card{background:var(--red);border:2px solid var(--redBorder)}.chapter1-graphics-grid .visual-card{min-height:128px}.chapter1-graphics-grid .vnum{font-size:46px}.chapter1-main{padding:28px 20px}.chapter1-stars{width:min(520px,90vw);height:250px;margin:0 auto 8px;display:block}.chapter1-stars svg{width:100%;height:100%}.graphics-entry{margin-top:16px;border:1px solid var(--gold);border-radius:12px;background:var(--green);color:#fff;padding:11px 28px;font-size:17px;font-weight:900;cursor:pointer}.graphics-entry:hover{transform:translateY(-2px)}.visual-card{min-height:108px;border:1px solid var(--line);background:#fff;border-radius:14px;cursor:pointer;padding:12px;text-align:center;display:flex;align-items:center;justify-content:center;transition:.18s}.visual-card .vnum{font-family:Arial,sans-serif;font-size:27px;font-weight:900;color:var(--green);display:block}.visual-card .vtitle{font-size:14px;font-weight:800;color:var(--ink)}.visual-card.main{background:#fffaf0;border:2px solid var(--gold)}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:15px}.detail{display:none}.detail.show{display:block}.detail-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.detail-id{font-family:Arial,sans-serif;direction:ltr;color:var(--green);font-weight:900}.learning{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.75fr);gap:20px}.graphic{background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;min-height:320px;display:grid;place-items:center;overflow:hidden}.graphic img{width:100%;height:auto;max-height:70vh;object-fit:contain;border-radius:12px}.side{display:grid;gap:14px}.info{background:#edf5ef;border:1px solid var(--line);border-radius:14px;padding:14px}.info h3{margin:0 0 6px;color:var(--green);font-size:18px}.info ul{margin:0;padding-right:22px}.source{background:#f7f2df}.explain{margin-top:20px;padding:20px;border-top:1px solid var(--line);font-size:18px}.footer{text-align:center;color:var(--muted);padding:28px 15px;font-size:13px}@media(max-width:800px){.chapter-grid,.topic-grid{grid-template-columns:1fr 1fr;gap:10px}.chapter1-graphics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}.chapter-card{height:140px;min-height:140px}.chapter-num{font-size:64px}.visual-grid{grid-template-columns:repeat(3,1fr)}.learning{grid-template-columns:1fr}.seal{width:105px;height:75px}}@media(max-width:480px){.container{padding:0 10px}.chapter1-graphics-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.chapter1-graphics-grid .visual-card{min-height:92px}.chapter1-graphics-grid .vnum{font-size:38px}.hero{padding:15px}.chapter-card{height:120px;min-height:120px;padding:8px}.chapter-title{font-size:13px}.chapter-num{font-size:64px}.chapter-sub{font-size:11px}.visual-grid{grid-template-columns:repeat(2,1fr);gap:7px}.visual-card{min-height:95px}.visual-card .vnum{font-size:23px}.visual-card .vtitle{font-size:12px}.back{padding:7px 10px;font-size:12px}}
-
-/* Chapter 01 Visual Atlas — authoritative 3-column compact layout */
-.chapter1-graphics-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;width:100%;}
-.chapter1-graphics-grid .graphics-column{display:grid!important;grid-template-rows:repeat(14,minmax(0,1fr));gap:6px!important;min-width:0;}
-.chapter1-graphics-grid .visual-card{height:clamp(52px,6.2vw,76px)!important;min-height:0!important;padding:4px 5px!important;border-width:2px!important;display:flex;align-items:center;justify-content:center;text-align:center;}
-.chapter1-graphics-grid .vnum{font-size:clamp(18px,2.5vw,30px)!important;line-height:1!important;display:inline-block;margin-right:4px;}
-.chapter1-graphics-grid .vtitle{font-size:14px!important;line-height:1.15!important;}
-.chapter1-graphics-grid .graphics-column.sky .visual-card{border-color:#bfe7ff!important;}
-.chapter1-graphics-grid .graphics-column.green .visual-card{border-color:#bfe8c8!important;}
-.chapter1-graphics-grid .graphics-column.red .visual-card{border-color:#f2b9b9!important;}
-@media(max-width:480px){.chapter1-graphics-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important}.chapter1-graphics-grid .graphics-column{gap:4px!important}.chapter1-graphics-grid .visual-card{height:52px!important;padding:2px!important}.chapter1-graphics-grid .vnum{font-size:16px!important}.chapter1-graphics-grid .vtitle{font-size:10px!important;line-height:1.05!important}}
-
-/* Chapter 10 — same authoritative Visual Atlas layout */
-.chapter10-graphics-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;width:100%;direction:rtl;}
-.chapter10-graphics-grid .graphics-column{display:grid!important;gap:6px!important;min-width:0;}
-.chapter10-graphics-grid .visual-card{height:clamp(52px,6.2vw,76px)!important;min-height:0!important;padding:4px 5px!important;border-width:2px!important;display:flex;align-items:center;justify-content:center;text-align:center;}
-.chapter10-graphics-grid .vnum{font-size:clamp(18px,2.5vw,30px)!important;line-height:1!important;display:inline-block;margin-right:4px;}
-.chapter10-graphics-grid .vtitle{font-size:14px!important;line-height:1.15!important;}
-.chapter10-graphics-grid .graphics-column.sky .visual-card{background:var(--sky)!important;border-color:#bfe7ff!important;}
-.chapter10-graphics-grid .graphics-column.green .visual-card{background:var(--lightgreen)!important;border-color:#bfe8c8!important;}
-.chapter10-graphics-grid .graphics-column.red .visual-card{background:var(--red)!important;border-color:#f2b9b9!important;}
-.chapter10-main{padding:28px 20px;}
-.chapter10-main-graphic{width:min(520px,90vw);height:250px;margin:0 auto 8px;display:block;}
-@media(max-width:480px){.chapter10-graphics-grid{gap:4px!important}.chapter10-graphics-grid .graphics-column{gap:4px!important}.chapter10-graphics-grid .visual-card{height:52px!important;padding:2px!important}.chapter10-graphics-grid .vnum{font-size:16px!important}.chapter10-graphics-grid .vtitle{font-size:10px!important;line-height:1.05!important}}
-
-/* Main visual centering — fixed */
-.chapter1-main .chapter1-stars,
-.chapter10-main .chapter10-main-graphic{
-  width:min(620px,100%);
-  margin-left:auto !important;
-  margin-right:auto !important;
-  display:flex !important;
-  justify-content:center !important;
-  align-items:center !important;
-}
-.chapter1-main .chapter1-stars svg,
-.chapter10-main .chapter10-main-graphic svg{
-  display:block !important;
-  width:100% !important;
-  height:100% !important;
-  margin:0 auto !important;
+:root {
+  --green: #173e34;
+  --green2: #285b4b;
+  --gold: #c59b35;
+  --cream: #f3f0e7;
+  --paper: #fffdf8;
+  --ink: #202522;
+  --muted: #756b56;
+  --line: #ddd4be;
+  --sky: #dff2ff;
+  --skyBorder: #9ed3ef;
+  --lightgreen: #e3f5e8;
+  --greenBorder: #9bd2aa;
+  --red: #fde3e3;
+  --redBorder: #e7a2a2;
 }
 
-/* Chapter 10 — balanced 5/5/5 Graphics columns with Exam/Test Readiness */
-.chapter10-graphics-grid .graphics-column{grid-template-rows:repeat(5,minmax(0,1fr))!important;}
-.chapter10-graphics-grid .exam-readiness-card{background:var(--red)!important;border-color:#f2b9b9!important;}
-.chapter10-graphics-grid .exam-readiness-card .vnum{font-size:clamp(14px,2vw,22px)!important;}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Noto Nastaliq Urdu", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+  line-height: 1.75;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--green), var(--green2));
+  color: #fff;
+  padding: 22px 18px;
+  border-bottom: 4px solid var(--gold);
+}
+.header-inner {
+  max-width: 1180px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.brand { flex: 1; }
+.brand h1 { margin: 0; color: #f2d46f; font-size: clamp(22px, 4vw, 34px); line-height: 1.25; }
+.brand p { margin: 5px 0 0; font-family: Arial, sans-serif; font-size: 15px; }
+.seal { width: 140px; height: 95px; flex: 0 0 auto; }
+.seal img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Container & Panels */
+.container { max-width: 1180px; margin: 24px auto; padding: 0 15px; }
+.hero, .panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 5px 18px rgba(32,37,34,.06);
+}
+.hero { padding: 22px; text-align: center; }
+.panel { padding: 20px; }
+.eyebrow { color: #8a712e; font-weight: 900; font-size: 14px; letter-spacing: .4px; }
+.title { font-size: clamp(27px, 5vw, 43px); color: var(--green); margin: 6px 0; }
+.intro { font-size: 18px; color: var(--muted); margin: 0; }
+.directory { margin-top: 20px; }
+.landing-hero { padding: 28px 20px; }
+
+/* Buttons & Graphics */
+.back {
+  border: 1px solid var(--line);
+  background: #eee9da;
+  color: var(--green);
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+.back:hover { background: var(--green); color: #fff; }
+
+.bio-mini-graphic { width: 220px; height: 135px; margin: 0 auto 8px; display: grid; place-items: center; }
+.bio-mini-graphic svg { width: 100%; height: 100%; }
+.chapter-entry, .graphics-entry {
+  margin-top: 18px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--green);
+  color: #fff;
+  padding: 12px 28px;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.18s;
+}
+.graphics-entry { border: 1px solid var(--gold); border-radius: 12px; padding: 11px 28px; }
+.chapter-entry:hover, .graphics-entry:hover { transform: translateY(-2px); }
+
+/* Grids & Cards */
+.chapter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+.column { display: grid; gap: 12px; }
+.chapter-card {
+  width: 100%;
+  height: 160px;
+  min-height: 160px;
+  border: 2px solid var(--skyBorder);
+  background: var(--sky);
+  border-radius: 18px;
+  cursor: pointer;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: .18s;
+  position: relative;
+  overflow: hidden;
+}
+.column:nth-child(2) .chapter-card { background: var(--lightgreen); border-color: var(--greenBorder); }
+
+/* بیک گراؤنڈ نمبر کی الائنمنٹ اور رنگت */
+.chapter-card .chapter-num { 
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-family: Arial, sans-serif !important; 
+  font-size: 100px !important; 
+  line-height: .9 !important; 
+  font-weight: 900 !important; 
+  color: #a3d2ee !important; /* لائٹ سکائی کلر */
+  direction: ltr !important; 
+  z-index: 1 !important;
+  opacity: 0.8 !important;
+  pointer-events: none;
+}
+
+/* گرین کالم کے کارڈز کے نمبر کا کلر */
+.column:nth-child(2) .chapter-card .chapter-num {
+  color: #a8d5ba !important; /* لائٹ گرین-سکائی ٹون */
+}
+
+/* ٹاپکس اور ٹیکسٹ جو نمبر کے عین اوپر سنٹر میں Overlap کرے گا */
+.chapter-card .chapter-title { 
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 90% !important;
+  font-size: 15px !important; 
+  font-weight: 900 !important; 
+  color: var(--green) !important; 
+  margin: 0 !important; 
+  line-height: 1.25 !important; 
+  z-index: 2 !important;
+  text-align: center !important;
+}
+
+.chapter-card.exam { background: var(--red); border-color: var(--redBorder); }
+.chapter-card.exam .chapter-num { font-size: 48px !important; color: #f2a8a8 !important; }
+
+.chapter-card:hover, .topic-card:hover, .visual-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(32,37,34,.09);
+}
+
+.view { display: none; }
+.view.show { display: block; }
+.section-head { margin-bottom: 18px; }
+.backline { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 15px; }
+
+.topic-section { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.topic-section:first-child { margin-top: 0; border-top: 0; }
+.topic-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.topic-heading-num { font-family: Arial, sans-serif; font-size: 42px; font-weight: 900; color: #d22; direction: ltr; }
+.topic-heading-title { font-size: 22px; font-weight: 900; color: var(--green); }
+.topic-heading-intro { font-size: 15px; color: var(--muted); }
+
+/* Visual Cards */
+.visual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.visual-card {
+  min-height: 120px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 14px;
+  cursor: pointer;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .18s;
+  position: relative;
+  overflow: hidden;
+}
+.visual-card.main { background: #fffaf0; border: 2px solid var(--gold); margin-bottom: 12px; min-height: 110px; width: 100%; }
+
+.chapter1-graphics-grid, .chapter10-graphics-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  width: 100%;
+  direction: rtl;
+}
+.chapter1-graphics-grid .graphics-column, .chapter10-graphics-grid .graphics-column {
+  display: grid !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+.chapter1-graphics-grid .graphics-column.sky .visual-card, .chapter10-graphics-grid .graphics-column.sky .visual-card { background: var(--sky) !important; border-color: #bfe7ff !important; }
+.chapter1-graphics-grid .graphics-column.green .visual-card, .chapter10-graphics-grid .graphics-column.green .visual-card { background: var(--lightgreen) !important; border-color: #bfe8c8 !important; }
+.chapter1-graphics-grid .graphics-column.red .visual-card, .chapter10-graphics-grid .graphics-column.red .visual-card { background: var(--red) !important; border-color: #f2b9b9 !important; }
+
+.visual-card > span { position: relative !important; width: 100% !important; height: 100% !important; display: block !important; text-align: center !important; }
+
+.visual-card .vnum {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+  display: block !important;
+  z-index: 1 !important;
+  font-family: Arial, sans-serif !important;
+  font-size: clamp(55px, 7.2vw, 95px) !important;
+  line-height: .8 !important;
+  font-weight: 900 !important;
+  text-align: center !important;
+  opacity: .45 !important;
+  color: var(--green);
+}
+.visual-card .vtitle {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 94% !important;
+  margin: 0 !important;
+  padding: 0 2px !important;
+  display: block !important;
+  z-index: 2 !important;
+  color: #000 !important;
+  font-size: 14px !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+.tab14-three-line { font-size: 13px !important; line-height: 1.05 !important; }
+
+.chapter1-main .chapter1-stars, .chapter10-main .chapter10-main-graphic {
+  width: min(620px, 100%);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.chapter1-main .chapter1-stars svg, .chapter10-main .chapter10-main-graphic svg {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* Detail View */
+.empty { padding: 30px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 15px; }
+.detail { display: none; }
+.detail.show { display: block; }
+.detail-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 15px; }
+.detail-id { font-family: Arial, sans-serif; direction: ltr; color: var(--green); font-weight: 900; }
+.learning { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(260px, .75fr); gap: 20px; }
+.graphic { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 10px; min-height: 320px; display: grid; place-items: center; overflow: hidden; }
+.graphic img { width: 100%; height: auto; max-height: 70vh; object-fit: contain; border-radius: 12px; }
+.side { display: grid; gap: 14px; }
+.info { background: #edf5ef; border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+.info h3 { margin: 0 0 6px; color: var(--green); font-size: 18px; }
+.info ul { margin: 0; padding-right: 22px; }
+.source { background: #f7f2df; }
+.explain { margin-top: 20px; padding: 20px; border-top: 1px solid var(--line); font-size: 18px; }
+.footer { text-align: center; color: var(--muted); padding: 28px 15px; font-size: 13px; }
+
+/* Floating Bottom-Left Home Button */
+.floating-home-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease-in-out;
+  opacity: 0.9;
+}
+.floating-home-btn:hover {
+  opacity: 1;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  background: var(--green2);
+}
+
+@media(max-width: 800px) {
+  .chapter-grid, .topic-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .chapter-card { height: 140px; min-height: 140px; }
+  .visual-grid { grid-template-columns: repeat(3, 1fr); }
+  .learning { grid-template-columns: 1fr; }
+  .seal { width: 105px; height: 75px; }
+}
+@media(max-width: 480px) {
+  .container { padding: 0 10px; }
+  .chapter1-graphics-grid, .chapter10-graphics-grid { gap: 4px !important; }
+  .visual-card .vnum { font-size: clamp(42px, 12vw, 60px) !important; }
+  .visual-card .vtitle { font-size: 11px !important; line-height: 1.05 !important; }
+  .hero { padding: 15px; }
+  .chapter-card { height: 120px; min-height: 120px; padding: 8px; }
+  .chapter-title { font-size: 13px !important; }
+  .chapter-num { font-size: 64px !important; }
+  .visual-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+  .back { padding: 7px 10px; font-size: 12px; }
+  .floating-home-btn { bottom: 15px; left: 15px; padding: 8px 16px; font-size: 14px; }
+}
 </style>
 </head>
 <body>
-<header class="header"><div class="header-inner"><div class="brand"><h1>Imperial Academy of Education</h1><p>Biology · Central Visual Atlas</p></div><div class="seal"><img src="IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
-<nav class="nav"><div class="nav-inner"><button onclick="showLanding()">Top ↑</button><button id="graphicsNav" class="active" onclick="showChapters()">Graphics</button></div></nav>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <h1>Imperial Academy of Education</h1>
+      <p>Biology · Central Visual Atlas</p>
+    </div>
+    <div class="seal">
+      <img src="IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo">
+    </div>
+  </div>
+</header>
+
 <main class="container">
-<section id="landingView" class="view show"><div class="hero landing-hero"><div class="eyebrow">BIOLOGY · CENTRAL VISUAL ATLAS</div><div class="bio-mini-graphic" aria-label="Biology graphic"><svg viewBox="0 0 260 160" role="img"><circle cx="130" cy="80" r="62" fill="#eef7ee" stroke="#285b4b" stroke-width="4"/><ellipse cx="130" cy="80" rx="28" ry="20" fill="#dff2ff" stroke="#285b4b" stroke-width="3"/><circle cx="92" cy="55" r="10" fill="#dff2ff"/><circle cx="172" cy="58" r="9" fill="#dff2ff"/><circle cx="101" cy="105" r="8" fill="#dff2ff"/><circle cx="166" cy="105" r="11" fill="#dff2ff"/><path d="M115 45c18-13 38-6 43 8M112 112c17 10 34 8 47-4" fill="none" stroke="#9bd2aa" stroke-width="6" stroke-linecap="round"/></svg></div><h2 class="title">Biology · Main Visual Atlas</h2><p class="intro">Imperial Academy of Education کا مرکزی Visual Atlas — Biology کے chapters اور ان کے متعلقہ visuals تک منظم رسائی۔</p><button class="chapter-entry" onclick="showChapters()">Graphics →</button></div></section>
-<section id="chaptersView" class="view"><div class="hero"><div class="eyebrow">BIOLOGY · GRAPHICS</div><h2 class="title">Chapter Visuals</h2><p class="intro">ہر Chapter اپنے متعلقہ Topic اور Subtopic Visuals کے اندر منظم ہے۔</p></div><div class="directory chapter-grid" style="margin-top:20px"><div class="column" id="col1"></div><div class="column" id="col2"></div></div></section>
-<section id="topicsView" class="view"><div class="panel" style="padding:20px"><div class="backline"><button class="back" onclick="showChapters()">← Chapter Visuals</button><span id="chapterId" class="detail-id"></span></div><div class="section-head"><div id="chapterEyebrow" class="eyebrow"></div><h2 id="chapterTitle" class="title"></h2><p id="chapterIntro" class="intro"></p></div><div id="chapterMainContent"></div><div id="topicSections"></div></div></section>
-<section id="visualsView" class="view"><div class="panel" style="padding:20px"><div class="backline"><button class="back" onclick="showTopics()">← Chapter</button><span id="topicId" class="detail-id"></span></div><div class="section-head"><div id="topicEyebrow" class="eyebrow"></div><h2 id="topicTitle" class="title"></h2><p id="topicIntro" class="intro"></p></div><div id="visualGrid" class="visual-grid"></div></div></section>
-<section id="detailView" class="detail"><div class="hero"><div class="detail-top"><button class="back" onclick="showVisuals()">← Visuals</button><span id="detailId" class="detail-id"></span></div><div class="eyebrow">VISUAL LEARNING PAGE</div><h2 id="detailTitle" class="title"></h2><p id="detailLesson" class="intro"></p><div class="learning" style="margin-top:18px"><div id="detailGraphic" class="graphic"></div><aside class="side"><div class="info"><h3>اہم نکات · Key Points</h3><ul id="detailPoints"></ul></div><div class="info"><h3>Exam Relevant</h3><ul id="detailExam"></ul></div><div class="info source"><h3>Source / Academic Standard</h3><p id="detailSource" style="margin:0"></p></div></aside></div><div class="explain"><h2>وضاحت · Explanation</h2><p id="detailText"></p></div><div class="info" style="margin-top:18px"><h3>Visual Reading</h3><p id="detailReading" style="margin:0"></p></div></div></section>
-</main><footer class="footer">Imperial Academy of Education · Biology · Central Visual Atlas</footer>
+  <!-- Landing View -->
+  <section id="landingView" class="view show">
+    <div class="hero landing-hero">
+      <div class="eyebrow">BIOLOGY · CENTRAL VISUAL ATLAS</div>
+      <div class="bio-mini-graphic" aria-label="Biology graphic">
+        <svg viewBox="0 0 260 160" role="img">
+          <circle cx="130" cy="80" r="62" fill="#eef7ee" stroke="#285b4b" stroke-width="4"/>
+          <ellipse cx="130" cy="80" rx="28" ry="20" fill="#dff2ff" stroke="#285b4b" stroke-width="3"/>
+          <circle cx="92" cy="55" r="10" fill="#dff2ff"/><circle cx="172" cy="58" r="9" fill="#dff2ff"/>
+          <circle cx="101" cy="105" r="8" fill="#dff2ff"/><circle cx="166" cy="105" r="11" fill="#dff2ff"/>
+          <path d="M115 45c18-13 38-6 43 8M112 112c17 10 34 8 47-4" fill="none" stroke="#9bd2aa" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2 class="title">Biology · Main Visual Atlas</h2>
+      <p class="intro">Imperial Academy of Education - Central Visual Atlas</p>
+      <button class="chapter-entry" onclick="showChapters()">Select Chapters →</button>
+    </div>
+  </section>
+
+  <!-- Chapters Directory View -->
+  <section id="chaptersView" class="view">
+    <div class="hero">
+      <div class="eyebrow">BIOLOGY · GRAPHICS</div>
+      <h2 class="title">Chapter Visuals</h2>
+    </div>
+    <div class="directory chapter-grid">
+      <div class="column" id="col1"></div>
+      <div class="column" id="col2"></div>
+    </div>
+  </section>
+
+  <!-- Topics Directory View -->
+  <section id="topicsView" class="view">
+    <div class="panel">
+      <div class="backline">
+        <button class="back" onclick="showChapters()">Chapter Visuals ←</button>
+        <span id="chapterId" class="detail-id"></span>
+      </div>
+      <div class="section-head">
+        <div id="chapterEyebrow" class="eyebrow"></div>
+        <h2 id="chapterTitle" class="title"></h2>
+        <p id="chapterIntro" class="intro"></p>
+      </div>
+      <div id="chapterMainContent"></div>
+      <div id="topicSections"></div>
+    </div>
+  </section>
+
+  <!-- Visuals Directory View -->
+  <section id="visualsView" class="view">
+    <div class="panel">
+      <div class="backline">
+        <button class="back" onclick="showChapters()">Chapter Visuals ←</button>
+        <span id="topicId" class="detail-id"></span>
+      </div>
+      <div class="section-head">
+        <div id="topicEyebrow" class="eyebrow"></div>
+        <h2 id="topicTitle" class="title"></h2>
+      </div>
+      <div id="visualGrid" class="visual-grid"></div>
+    </div>
+  </section>
+
+  <!-- Detail View -->
+  <section id="detailView" class="view detail">
+    <div class="hero">
+      <div class="detail-top">
+        <button class="back" onclick="showChapters()">Chapter Visuals ←</button>
+        <span id="detailId" class="detail-id"></span>
+      </div>
+      <div class="eyebrow">VISUAL LEARNING PAGE</div>
+      <h2 id="detailTitle" class="title"></h2>
+      <p id="detailLesson" class="intro"></p>
+      <div class="learning" style="margin-top:18px">
+        <div id="detailGraphic" class="graphic"></div>
+        <aside class="side">
+          <div class="info">
+            <h3>Key Points</h3>
+            <ul id="detailPoints"></ul>
+          </div>
+          <div class="info">
+            <h3>Exam Relevant</h3>
+            <ul id="detailExam"></ul>
+          </div>
+          <div class="info source">
+            <h3>Source / Academic Standard</h3>
+            <p id="detailSource" style="margin:0"></p>
+          </div>
+        </aside>
+      </div>
+      <div class="explain">
+        <h2>Explanation</h2>
+        <p id="detailText"></p>
+      </div>
+      <div class="info" style="margin-top:18px">
+        <h3>Visual Reading</h3>
+        <p id="detailReading" style="margin:0"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Floating Bottom-Left Home Button -->
+<button class="floating-home-btn" onclick="showLanding()" aria-label="Go to Home">
+  ⌂ Home
+</button>
+
+<footer class="footer">
+  Imperial Academy of Education · Biology · Central Visual Atlas
+</footer>
+
 <script>
-const chapters={
-1:{title:'خلیہ: ساخت اور افعال · Cell: Structure & Functions',intro:'Chapter 01 کا مرکزی Visual: Cell Organization',topics:[{id:'IAE11010101',title:'Chapter 01 — Cell: Structure & Functions',intro:'Chapter 01 کا Main Topic Visual اور اس کے 40 subtopic visuals۔',main:'IAE1101010100V',ids:Array.from({length:40},(_,i)=>'IAE11010101'+String(i+1).padStart(2,'0')+'V')} ]},
-2:{title:'Chapter 02',intro:'Chapter 02 Visual Directory',topics:[]},3:{title:'Chapter 03',intro:'Chapter 03 Visual Directory',topics:[]},4:{title:'Chapter 04',intro:'Chapter 04 Visual Directory',topics:[]},5:{title:'Chapter 05',intro:'Chapter 05 Visual Directory',topics:[]},6:{title:'Chapter 06',intro:'Chapter 06 Visual Directory',topics:[]},7:{title:'Chapter 07',intro:'Chapter 07 Visual Directory',topics:[]},8:{title:'Chapter 08',intro:'Chapter 08 Visual Directory',topics:[]},9:{title:'Chapter 09',intro:'Chapter 09 Visual Directory',topics:[]},
-10:{title:'Nutrition in Plants & Gaseous Exchange in Plants',intro:'Lecture 01 · Nutrition in Plants & Gaseous Exchange in Plants',topics:[{id:'IAE11011001',title:'Topic 01 — Nutrition in Plants',intro:'Mineral Nutrition، Macronutrients، Micronutrients، Nitrogen، Magnesium اور Carnivorous Plants.',main:'IAE110110010100V',ids:['IAE1101100101V','IAE1101100102V','IAE1101100103V','IAE1101100104V','IAE1101100105V']},{id:'IAE11011002',title:'Topic 02 — Gaseous Exchange in Plants',intro:'Gaseous Exchange، Stomata، Guard Cells، Palisade Tissue، Transpiration اور Experimental Investigation.',main:'IAE1101100200V',ids:['IAE1101100201V','IAE1101100202V','IAE1101100203V','IAE1101100204V','IAE1101100205V','IAE1101100206V','IAE1101100207V']}]},
-11:{title:'Chapter 11',intro:'Chapter 11 Visual Directory',topics:[]},12:{title:'Chapter 12',intro:'Chapter 12 Visual Directory',topics:[]},13:{title:'Chapter 13',intro:'Chapter 13 Visual Directory',topics:[]}}
-const titles={
-IAE1101010101V:'Cell — Basic Structural and Functional Unit',IAE1101010102V:'Cell Organization — Structure → Function',IAE1101010103V:'Unicellular vs Multicellular',IAE1101010104V:'Cell Theory',IAE1101010105V:'Light Microscope',IAE1101010106V:'Cell Biology Techniques — Overview',IAE1101010107V:'Cell Fractionation',IAE1101010108V:'Differential Staining',IAE1101010109V:'Centrifugation',IAE1101010110V:'Microdissection',IAE1101010111V:'Tissue Culture',IAE1101010112V:'Chromatography',IAE1101010113V:'Electrophoresis',IAE1101010114V:'Spectrophotometry',IAE1101010115V:'Magnification, Resolution & Micrometry',IAE1101010116V:'Cell Wall',IAE1101010117V:'Plasma Membrane',IAE1101010118V:'Fluid Mosaic Model & Surface Markers',IAE1101010119V:'Cytoplasm',IAE1101010120V:'Mitochondrion',IAE1101010121V:'Plastids & Chloroplast',IAE1101010122V:'Endoplasmic Reticulum',IAE1101010123V:'Ribosome',IAE1101010124V:'Golgi Apparatus / Dictyosomes',IAE1101010125V:'Lysosome',IAE1101010126V:'Peroxisomes & Glyoxisomes',IAE1101010127V:'Cytoskeleton',IAE1101010128V:'Cilia & Flagella',IAE1101010129V:'Centrioles',IAE1101010130V:'Nucleus, Nucleolus & Chromosomes',IAE1101010131V:'Prokaryotic Cell',IAE1101010132V:'Eukaryotic Cell',IAE1101010133V:'Prokaryotic vs Eukaryotic',IAE1101010134V:'Plant Cell',IAE1101010135V:'Animal Cell',IAE1101010136V:'Biological Diagram Reading Skills',IAE1101010137V:'Micrometry Calibration',IAE1101010138V:'Plant / Animal / Bacterial Visual Comparison',IAE1101010139V:'Major Organelles — Structure & Function Map',IAE1101010140V:'Chapter 01 Master Visual — Cell Organization'};
-const records={
-IAE1101010100V:['Cell Organization — Main Topic Visual','Chapter 01 کا مرکزی visual: خلیے کی بنیادی تنظیم، ساخت اور organelles کا مجموعی تعارف۔',['Cell as structural and functional unit','Major organelles','Structure → function relationship'],['Cell organization','Major organelles']],
-IAE110110010100V:['Nutrition in Plants — Main Topic Visual','Topic 01 کا مرکزی visual: Mineral Nutrition، essential nutrients اور plant growth کے درمیان تعلق۔',['Macronutrients','Micronutrients','Nitrogen','Magnesium','Carnivorous plants'],['Mineral nutrition','Macro vs micro nutrients']],
-IAE1101100200V:['Gaseous Exchange in Plants — Main Topic Visual','Topic 02 کا مرکزی visual: stomata، guard cells، diffusion، transpiration اور gaseous exchange کا مجموعی تعلق۔',['Stomata','Guard cells','CO₂ / O₂ exchange','Transpiration','Experimental investigation'],['Gaseous exchange','Stomatal regulation']],
-IAE1101100101V:['Mineral Nutrition','ضروری معدنی عناصر کا حصول اور ان کا plant growth اور biological activities میں استعمال۔',['Essential nutrient elements','Availability → uptake → transport → cellular use','Growth اور biological functions'],['Mineral Nutrition کی definition','Essential nutrients']],IAE1101100102V:['Macronutrients','Nitrogen، Phosphorus، Potassium، Calcium، Magnesium اور Sulfur اہم Macronutrients ہیں۔',['Nitrogen','Phosphorus','Potassium','Calcium','Magnesium','Sulfur'],['Macronutrients کے نام','Macronutrient کی تعریف']],IAE1101100103V:['Functions of Macronutrients','Macronutrients پودے کی ساخت، metabolism اور biological processes میں مخصوص کردار ادا کرتے ہیں۔',['Nitrogen → Amino acids → Proteins','Phosphorus → ATP / nucleic acids / phospholipids','Potassium → enzymes / water balance / stomatal regulation','Calcium → cell wall / cellular processes','Magnesium → chlorophyll → photosynthesis','Sulfur → amino acids / proteins'],['Nutrient → function matching','Nitrogen اور Magnesium کے کردار']],IAE1101100104V:['Micronutrients','Micronutrients essential mineral elements ہیں جن کی پودے کو بہت کم مقدار میں ضرورت ہوتی ہے۔',['Iron (Fe)','Manganese (Mn)','Zinc (Zn)','Copper (Cu)','Boron (B)','Molybdenum (Mo)','Chlorine (Cl)','Nickel (Ni)'],['Micronutrients کی تعریف','کم مقدار ≠ کم اہمیت']],IAE1101100105V:['Nitrogen, Magnesium & Carnivorous Plants','Nitrogen proteins، Magnesium chlorophyll، اور carnivory nutrient-poor environments سے متعلق ہے۔',['Nitrogen → amino acids → proteins','Magnesium → chlorophyll → photosynthesis','Carnivorous plants اضافی mineral nutrients حاصل کرتے ہیں'],['Nitrogen function','Magnesium اور chlorophyll','Carnivorous plants کی adaptation']],
-IAE1101100201V:['Gaseous Exchange','Photosynthesis میں CO₂ اور respiration میں O₂ کے تبادلے کا عمل، بنیادی طور پر diffusion کے ذریعے۔',['CO₂ for photosynthesis','O₂ for respiration','Diffusion','Concentration gradient','Stomata'],['Gas requirements','Diffusion principle']],IAE1101100202V:['Stomata','Stomata epidermis میں microscopic pores ہیں جو gaseous exchange اور transpiration میں اہم کردار ادا کرتے ہیں۔',['CO₂ entry','O₂ exchange','Water-vapour loss','Gaseous exchange','Transpiration'],['Stomata کی definition','CO₂ uptake vs water loss']],IAE1101100203V:['Guard Cells','دو specialized guard cells stomatal pore کے کھلنے اور بند ہونے کو control کرتے ہیں۔',['Two guard cells','Turgor','Solute changes','Water movement','Stomatal movement'],['Guard cells کا کردار','Turgor اور stomatal movement']],IAE1101100204V:['Palisade Tissue & Gaseous Exchange','Palisade mesophyll photosynthetic tissue ہے جہاں پہنچنے والی CO₂ photosynthesis میں استعمال ہوتی ہے۔',['Palisade mesophyll','Chloroplast-rich cells','Intercellular air spaces','CO₂ pathway'],['Palisade tissue کا کردار','CO₂ pathway']],IAE1101100205V:['Transpiration','Aerial parts، خصوصاً leaves، سے water vapour کے اخراج کا عمل۔',['Water-vapour loss','Leaves','Stomatal involvement','CO₂ uptake vs water loss trade-off'],['Transpiration کی definition','Stomata سے تعلق']],IAE1101100206V:['Factors Affecting Transpiration','Temperature، Wind اور Humidity transpiration کی شرح کو متاثر کرتے ہیں۔',['Temperature ↑ → evaporation potential ↑','Wind ↑ → boundary layer ↓','Humidity ↑ → water-vapour gradient ↓'],['Temperature effect','Wind effect','Humidity effect']],IAE1101100207V:['Gaseous Exchange — Experimental Investigation','Hydrogen Carbonate Indicator کے ذریعے light اور dark conditions میں leaf discs کے CO₂ net exchange کی controlled investigation۔',['Hydrogen Carbonate Indicator','Light vs dark','CO₂ / pH change','Photosynthesis + respiration','Controls: disc size/number, indicator, temperature, duration'],['Experimental variables','Controls','Observation → comparison → conclusion']]};
-let currentChapter=1,currentTopic=0;
-function goTop(){window.scrollTo({top:0,behavior:'smooth'})}
-function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('show'));document.getElementById(id).classList.add('show');goTop()}
-function showLanding(){show('landingView')}
-function showChapters(){show('chaptersView')}
-function showTopics(){show('topicsView')}
-function showVisuals(){show('visualsView')}
-function renderChapters(){const c1=document.getElementById('col1'),c2=document.getElementById('col2');c1.innerHTML='';c2.innerHTML='';for(let i=1;i<=7;i++)c1.appendChild(chapterButton(i,false));for(let i=8;i<=13;i++)c2.appendChild(chapterButton(i,false));c2.appendChild(chapterButton('exam',true))}
-function chapterButton(n,exam){const b=document.createElement('button');b.className='chapter-card'+(exam?' exam':'');if(exam){b.innerHTML='<span class="chapter-title">Visual Atlas</span><span class="chapter-num">EXAM</span>';b.onclick=()=>showExam();return b}const c=chapters[n];b.innerHTML='<span class="chapter-title">'+c.title+'</span><span class="chapter-num">'+String(n).padStart(2,'0')+'</span>';b.onclick=()=>openChapter(n);return b}
-function openChapter(n){currentChapter=n;const c=chapters[n];document.getElementById('chapterId').textContent='CHAPTER '+String(n).padStart(2,'0');document.getElementById('chapterEyebrow').textContent='CHAPTER '+String(n).padStart(2,'0')+' · MAIN VISUAL';document.getElementById('chapterTitle').textContent=c.title;document.getElementById('chapterIntro').textContent=c.intro;const main=document.getElementById('chapterMainContent'),wrap=document.getElementById('topicSections');main.innerHTML='';wrap.innerHTML='';if(n===1){main.innerHTML=`<div class="hero chapter1-main"><div class="eyebrow">CHAPTER 01 · MAIN VISUAL</div><div class="chapter1-stars" aria-label="Chapter 01 Main Visual"><svg viewBox="0 0 620 300" role="img"><defs><radialGradient id="cellGlow" cx="50%" cy="50%"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#dff2ff"/></radialGradient></defs><rect x="8" y="8" width="604" height="284" rx="28" fill="#173e34"/><g fill="#f2d46f">${Array.from({length:34},(_,i)=>{const x=25+(i*97)%570,y=25+(i*53)%245,r=i%3===0?2.8:1.6;return `<circle cx="${x}" cy="${y}" r="${r}"/>`}).join('')}</g><g transform="translate(310 150)"><circle r="92" fill="url(#cellGlow)" stroke="#c59b35" stroke-width="5"/><circle r="38" fill="#dff2ff" stroke="#285b4b" stroke-width="4"/><g fill="#e3f5e8" stroke="#285b4b" stroke-width="3"><ellipse cx="-52" cy="-30" rx="20" ry="10"/><ellipse cx="48" cy="-35" rx="18" ry="9"/><ellipse cx="-45" cy="38" rx="19" ry="10"/><ellipse cx="48" cy="40" rx="21" ry="10"/></g><path d="M-67 5 C-35-18 15-12 66 7 M-62 58 C-20 30 28 36 63 57" fill="none" stroke="#9bd2aa" stroke-width="7" stroke-linecap="round"/></g></svg></div><h3 class="title" style="font-size:clamp(24px,4vw,36px);margin-top:0">Cell: Structure & Functions</h3><p class="intro">Chapter 01 کا مرکزی Main Visual — Cell Organization</p><div><button class="graphics-entry" onclick="openChapterGraphics(1)">Graphics →</button></div></div>`;show('topicsView');return}if(n===10){main.innerHTML=`<div class="hero chapter10-main"><div class="eyebrow">CHAPTER 10 · MAIN VISUAL</div><div class="chapter10-main-graphic"><svg viewBox="0 0 620 300" role="img"><defs><linearGradient id="c10g" x1="0" x2="1"><stop offset="0" stop-color="#173e34"/><stop offset="1" stop-color="#285b4b"/></linearGradient></defs><rect x="8" y="8" width="604" height="284" rx="28" fill="url(#c10g)"/><g fill="#f2d46f"><circle cx="55" cy="45" r="3"/><circle cx="120" cy="90" r="2"/><circle cx="190" cy="40" r="2.5"/><circle cx="470" cy="55" r="3"/><circle cx="540" cy="105" r="2"/><circle cx="90" cy="220" r="2.5"/><circle cx="520" cy="225" r="3"/></g><g transform="translate(180 150)"><ellipse rx="105" ry="72" fill="#eef7ee" stroke="#c59b35" stroke-width="5"/><path d="M-55-5 Q0-60 55-5 Q0 50-55-5Z" fill="#dff2ff" stroke="#285b4b" stroke-width="4"/><circle cx="0" cy="-5" r="24" fill="#eef7ee" stroke="#285b4b" stroke-width="3"/></g><g transform="translate(445 150)"><path d="M-75 60 Q0-70 75 60" fill="none" stroke="#9bd2aa" stroke-width="18" stroke-linecap="round"/><path d="M-75 60 Q0-70 75 60" fill="none" stroke="#eef7ee" stroke-width="8" stroke-linecap="round"/><circle cx="0" cy="-8" r="13" fill="#dff2ff" stroke="#285b4b" stroke-width="3"/></g><text x="310" y="270" text-anchor="middle" fill="#f2d46f" font-size="22" font-family="Arial" font-weight="700">NUTRITION · GASEOUS EXCHANGE</text></svg></div><h3 class="title" style="font-size:clamp(24px,4vw,36px);margin-top:0">Nutrition in Plants &amp; Gaseous Exchange</h3><p class="intro">Chapter 10 · Lecture 01 — Plants, mineral nutrition, gaseous exchange and transpiration</p><div><button class="graphics-entry" onclick="openChapterGraphics(10)">Graphics →</button></div></div>`;show('topicsView');return}if(!c.topics.length){wrap.innerHTML='<div class="empty">اس چیپٹر کے academic visual records ابھی شامل نہیں کیے گئے۔</div>'}else c.topics.forEach((t,i)=>{const sec=document.createElement('section');sec.className='topic-section';const h=document.createElement('div');h.className='topic-heading';h.innerHTML='<span class="topic-heading-num">'+String(i+1).padStart(2,'0')+'</span><div><div class="topic-heading-title">'+t.title+'</div><div class="topic-heading-intro">'+t.intro+'</div></div>';sec.appendChild(h);if(t.main){const main=document.createElement('button');main.className='visual-card main';main.innerHTML='<span><span class="vnum">00</span><span class="vtitle">'+(titles[t.main]||records[t.main]?.[0]||t.main)+'</span></span>';main.onclick=()=>openDetail(t.main,[t.main,...t.ids],0);sec.appendChild(main)}const g=document.createElement('div');g.className='visual-grid';t.ids.forEach((id,j)=>{const b=document.createElement('button');b.className='visual-card';b.innerHTML='<span><span class="vnum">'+String(j+1).padStart(2,'0')+'</span><span class="vtitle">'+(titles[id]||records[id]?.[0]||id)+'</span></span>';b.onclick=()=>openDetail(id,[t.main,...t.ids],j+1);g.appendChild(b)});sec.appendChild(g);wrap.appendChild(sec)});show('topicsView')}
-function openChapterGraphics(n){currentChapter=n;const c=chapters[n];document.getElementById('topicId').textContent='CHAPTER '+String(n).padStart(2,'0');document.getElementById('topicEyebrow').textContent='CHAPTER '+String(n).padStart(2,'0')+' · GRAPHICS';document.getElementById('topicTitle').textContent=c.title;document.getElementById('topicIntro').textContent=n===1?'Chapter 01 کے تمام 40 subtopic visuals — تین برابر columns میں۔':'Chapter 10 کے تمام 14 Visuals — تین برابر columns میں۔';const g=document.getElementById('visualGrid');g.innerHTML='';if(n===1){g.className='chapter1-graphics-grid';const ids=c.topics[0].ids;const cols=[{cls:'sky',start:0,end:14},{cls:'green',start:14,end:28},{cls:'red',start:28,end:40}];cols.forEach(col=>{const d=document.createElement('div');d.className='graphics-column '+col.cls;ids.slice(col.start,col.end).forEach((id,k)=>{const j=col.start+k;const b=document.createElement('button');b.className='visual-card';b.innerHTML='<span><span class="vnum">'+String(j+1).padStart(2,'0')+'</span><span class="vtitle">'+(titles[id]||records[id]?.[0]||id)+'</span></span>';b.onclick=()=>openDetail(id,ids,j);d.appendChild(b)});g.appendChild(d)});}else{g.className='chapter10-graphics-grid';const ids=[];c.topics.forEach(t=>{if(t.main)ids.push(t.main);t.ids.forEach(id=>ids.push(id));});const cols=[{cls:'sky',start:0,end:5},{cls:'green',start:5,end:10},{cls:'red',start:10,end:14}];cols.forEach(col=>{const d=document.createElement('div');d.className='graphics-column '+col.cls;ids.slice(col.start,col.end).forEach((id,k)=>{const j=col.start+k;const b=document.createElement('button');b.className='visual-card';b.innerHTML='<span><span class="vnum">'+String(j+1).padStart(2,'0')+'</span><span class="vtitle">'+(titles[id]||records[id]?.[0]||id)+'</span></span>';b.onclick=()=>openDetail(id,ids,j);d.appendChild(b)});if(col.cls==='red'){const exam=document.createElement('button');exam.className='visual-card exam-readiness-card';exam.innerHTML='<span><span class="vnum">EX</span><span class="vtitle">Exam / Test Readiness</span></span>';exam.onclick=()=>openExamReadiness();d.appendChild(exam)}g.appendChild(d)});}show('visualsView');goTop()}
-function openExamReadiness(){
- const qs=[
- 'Visual کو دیکھ کر درست structure/organ یا process کی شناخت کریں۔',
- 'Visual میں دکھائے گئے اہم parts/labels کے نام بتائیں۔',
- 'Visual میں دکھائے گئے structure کے بنیادی function کی وضاحت کریں۔',
- 'دو متعلقہ visuals کا تقابلی فرق visual evidence کی بنیاد پر بیان کریں۔',
- 'Visual سے process یا relationship کی درست interpretation کریں۔'
- ];
- const content=document.getElementById('detailText');
- document.getElementById('detailId').textContent='IAE110110-EXAM';
- document.getElementById('detailTitle').textContent='Exam / Test Readiness';
- document.getElementById('detailLesson').textContent='Chapter 10 Visual-based readiness questions';
- content.textContent=qs.map((q,i)=>(i+1)+'. '+q).join('\n');
- document.getElementById('detailPoints').innerHTML='';
- document.getElementById('detailExam').innerHTML='';
- document.getElementById('detailSource').textContent='Imperial Academy · Chapter 10 · Visual-based Exam / Test Readiness';
- document.getElementById('detailReading').textContent='صرف visuals کی شناخت، structure، labels/parts، functions اور visual interpretation پر توجہ دیں۔';
- document.getElementById('detailGraphic').innerHTML='<div class="empty">Visual-based questions — answers hidden</div>';
- document.querySelectorAll('.view').forEach(x=>x.classList.remove('show'));
- document.getElementById('detailView').classList.add('show');
- goTop();
+const chapters = {
+  1: { title: 'Cell: Structure & Functions', intro: 'Chapter 01 Main Visual: Cell Organization', topics: [{ id: 'IAE11010101', title: 'Chapter 01 — Cell: Structure & Functions', intro: 'Chapter 01 Main Topic Visual and 40 subtopic visuals.', main: 'IAE1101010100V', ids: Array.from({length: 40}, (_, i) => 'IAE11010101' + String(i + 1).padStart(2, '0') + 'V') }] },
+  2: { title: 'Chapter 02', intro: 'Chapter 02 Visual Directory', topics: [] },
+  3: { title: 'Chapter 03', intro: 'Chapter 03 Visual Directory', topics: [] },
+  4: { title: 'Chapter 04', intro: 'Chapter 04 Visual Directory', topics: [] },
+  5: { title: 'Chapter 05', intro: 'Chapter 05 Visual Directory', topics: [] },
+  6: { title: 'Chapter 06', intro: 'Chapter 06 Visual Directory', topics: [] },
+  7: { title: 'Chapter 07', intro: 'Chapter 07 Visual Directory', topics: [] },
+  8: { title: 'Chapter 08', intro: 'Chapter 08 Visual Directory', topics: [] },
+  9: { title: 'Chapter 09', intro: 'Chapter 09 Visual Directory', topics: [] },
+  10: { title: 'Nutrition in Plants & Gaseous Exchange in Plants', intro: 'Lecture 01 · Nutrition in Plants & Gaseous Exchange in Plants', topics: [{ id: 'IAE11011001', title: 'Topic 01 — Nutrition in Plants', intro: 'Mineral Nutrition, Macronutrients, Micronutrients, Nitrogen, Magnesium & Carnivorous Plants.', main: 'IAE110110010100V', ids: ['IAE1101100101V', 'IAE1101100102V', 'IAE1101100103V', 'IAE1101100104V', 'IAE1101100105V'] }, { id: 'IAE11011002', title: 'Topic 02 — Gaseous Exchange in Plants', intro: 'Gaseous Exchange, Stomata, Guard Cells, Palisade Tissue, Transpiration & Experimental Investigation.', main: 'IAE1101100200V', ids: ['IAE1101100201V', 'IAE1101100202V', 'IAE1101100203V', 'IAE1101100204V', 'IAE1101100205V', 'IAE1101100206V', 'IAE1101100207V'] }] },
+  11: { title: 'Chapter 11', intro: 'Chapter 11 Visual Directory', topics: [] },
+  12: { title: 'Chapter 12', intro: 'Chapter 12 Visual Directory', topics: [] },
+  13: { title: 'Chapter 13', intro: 'Chapter 13 Visual Directory', topics: [] }
+};
+
+const titles = {
+  IAE1101010101V: 'Cell — Basic Structural and Functional Unit', IAE1101010102V: 'Cell Organization — Structure → Function', IAE1101010103V: 'Unicellular vs Multicellular', IAE1101010104V: 'Cell Theory', IAE1101010105V: 'Light Microscope', IAE1101010106V: 'Cell Biology Techniques — Overview', IAE1101010107V: 'Cell Fractionation', IAE1101010108V: 'Differential Staining', IAE1101010109V: 'Centrifugation', IAE1101010110V: 'Microdissection', IAE1101010111V: 'Tissue Culture', IAE1101010112V: 'Chromatography', IAE1101010113V: 'Electrophoresis', IAE1101010114V: 'Spectrophotometry', IAE1101010115V: 'Magnification, Resolution & Micrometry', IAE1101010116V: 'Cell Wall', IAE1101010117V: 'Plasma Membrane', IAE1101010118V: 'Fluid Mosaic Model & Surface Markers', IAE1101010119V: 'Cytoplasm', IAE1101010120V: 'Mitochondrion', IAE1101010121V: 'Plastids & Chloroplast', IAE1101010122V: 'Endoplasmic Reticulum', IAE1101010123V: 'Ribosome', IAE1101010124V: 'Golgi Apparatus / Dictyosomes', IAE1101010125V: 'Lysosome', IAE1101010126V: 'Peroxisomes & Glyoxisomes', IAE1101010127V: 'Cytoskeleton', IAE1101010128V: 'Cilia & Flagella', IAE1101010129V: 'Centrioles', IAE1101010130V: 'Nucleus, Nucleolus & Chromosomes', IAE1101010131V: 'Prokaryotic Cell', IAE1101010132V: 'Eukaryotic Cell', IAE1101010133V: 'Prokaryotic vs Eukaryotic', IAE1101010134V: 'Plant Cell', IAE1101010135V: 'Animal Cell', IAE1101010136V: 'Biological Diagram Reading Skills', IAE1101010137V: 'Micrometry Calibration', IAE1101010138V: 'Plant / Animal / Bacterial Visual Comparison', IAE1101010139V: 'Major Organelles — Structure & Function Map', IAE1101010140V: 'Chapter 01 Master Visual — Cell Organization'
+};
+
+const records = {
+  IAE1101010100V: ['Cell Organization — Main Topic Visual', 'Chapter 01 main visual showing basic cell structure and organelle functions.', ['Cell as structural and functional unit', 'Major organelles', 'Structure → function relationship'], ['Cell organization', 'Major organelles']],
+  IAE110110010100V: ['Nutrition in Plants — Main Topic Visual', 'Topic 01 main visual showing mineral nutrition and plant growth relations.', ['Macronutrients', 'Micronutrients', 'Nitrogen', 'Magnesium', 'Carnivorous plants'], ['Mineral nutrition', 'Macro vs micro nutrients']],
+  IAE1101100200V: ['Gaseous Exchange in Plants — Main Topic Visual', 'Topic 02 main visual showing stomata, guard cells, diffusion and transpiration.', ['Stomata', 'Guard cells', 'CO₂ / O₂ exchange', 'Transpiration', 'Experimental investigation'], ['Gaseous exchange', 'Stomatal regulation']],
+  IAE1101100101V: ['Mineral Nutrition', 'Essential mineral element uptake and utilization for plant growth.', ['Essential nutrient elements', 'Availability → uptake → transport', 'Growth & biological functions'], ['Mineral Nutrition definition', 'Essential nutrients']],
+  IAE1101100102V: ['Macronutrients', 'Nitrogen, Phosphorus, Potassium, Calcium, Magnesium, and Sulfur are major macronutrients.', ['Nitrogen', 'Phosphorus', 'Potassium', 'Calcium', 'Magnesium', 'Sulfur'], ['Macronutrient names', 'Macronutrient definition']],
+  IAE1101100103V: ['Functions of Macronutrients', 'Macronutrients play specific roles in plant structure and metabolism.', ['Nitrogen → Amino acids → Proteins', 'Phosphorus → ATP / nucleic acids', 'Potassium → enzymes / water balance', 'Calcium → cell wall / signaling', 'Magnesium → chlorophyll', 'Sulfur → amino acids'], ['Nutrient → function matching', 'Nitrogen & Magnesium roles']],
+  IAE1101100104V: ['Micronutrients', 'Micronutrients are essential elements needed in trace amounts.', ['Iron (Fe)', 'Manganese (Mn)', 'Zinc (Zn)', 'Copper (Cu)', 'Boron (B)', 'Molybdenum (Mo)', 'Chlorine (Cl)', 'Nickel (Ni)'], ['Micronutrient definition', 'Trace necessity']],
+  IAE1101100105V: ['Nitrogen, Magnesium & Carnivorous Plants', 'Nitrogen for proteins, Magnesium for chlorophyll, and carnivorous adaptations.', ['Nitrogen → proteins', 'Magnesium → chlorophyll', 'Carnivorous plant adaptations'], ['Nitrogen function', 'Magnesium & chlorophyll', 'Carnivorous adaptation']],
+  IAE1101100201V: ['Gaseous Exchange', 'Exchange of CO₂ for photosynthesis and O₂ for respiration via diffusion.', ['CO₂ for photosynthesis', 'O₂ for respiration', 'Diffusion', 'Concentration gradient', 'Stomata'], ['Gas requirements', 'Diffusion principle']],
+  IAE1101100202V: ['Stomata', 'Microscopic pores in leaf epidermis regulating gas exchange and transpiration.', ['CO₂ entry', 'O₂ exchange', 'Water loss', 'Gaseous exchange', 'Transpiration'], ['Stomata definition', 'CO₂ uptake vs water loss']],
+  IAE1101100203V: ['Guard Cells', 'Specialized guard cells controlling the opening and closing of stomata.', ['Two guard cells', 'Turgor pressure', 'Solute movement', 'Water influx', 'Stomatal pore'], ['Guard cell role', 'Turgor & stomatal opening']],
+  IAE1101100204V: ['Palisade Tissue & Gaseous Exchange', 'Chloroplast-rich mesophyll tissue for primary photosynthesis.', ['Palisade mesophyll', 'Chloroplasts', 'Intercellular spaces', 'CO₂ pathway'], ['Palisade tissue role', 'CO₂ pathway']],
+  IAE1101100205V: ['Transpiration', 'Loss of water vapour from plant aerial parts.', ['Water loss', 'Leaves', 'Stomatal involvement', 'Trade-off'], ['Transpiration definition', 'Stomatal relationship']],
+  IAE1101100206V: ['Factors Affecting Transpiration', 'Temperature, Wind, and Humidity effect on transpiration rates.', ['Temperature ↑ → evaporation ↑', 'Wind ↑ → boundary layer ↓', 'Humidity ↑ → gradient ↓'], ['Temperature effect', 'Wind effect', 'Humidity effect']],
+  IAE1101100207V: ['Gaseous Exchange — Experimental Investigation', 'Controlled investigation using Hydrogen Carbonate Indicator.', ['Hydrogen Carbonate Indicator', 'Light vs dark', 'CO₂ / pH change', 'Photosynthesis vs respiration', 'Control variables'], ['Experimental variables', 'Controls', 'Conclusion interpretation']]
+};
+
+let currentChapter = 1;
+
+function goTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+function show(id) {
+  document.querySelectorAll('.view').forEach(x => x.classList.remove('show'));
+  document.getElementById(id).classList.add('show');
+  goTop();
 }
-function openTopic(i){currentTopic=i;const t=chapters[currentChapter].topics[i];document.getElementById('topicId').textContent=t.id;document.getElementById('topicEyebrow').textContent='TOPIC '+String(i+1).padStart(2,'0')+' · VISUAL DIRECTORY';document.getElementById('topicTitle').textContent=t.title;document.getElementById('topicIntro').textContent=t.intro;const g=document.getElementById('visualGrid');g.innerHTML='';t.ids.forEach((id,j)=>{const b=document.createElement('button');b.className='visual-card';b.innerHTML='<span><span class="vnum">'+String(j+1).padStart(2,'0')+'</span><span class="vtitle">'+(titles[id]||records[id]?.[0]||id)+'</span></span>';b.onclick=()=>openDetail(id,t.ids,j);g.appendChild(b)});showVisuals()}
-function openDetail(id,list,index){const r=records[id];document.getElementById('detailId').textContent=id;document.getElementById('detailTitle').textContent=titles[id]||r?.[0]||id;document.getElementById('detailLesson').textContent=r?.[1]||'Chapter 01 Visual Atlas academic visual.';document.getElementById('detailText').textContent=r?.[1]||'اس visual کی تفصیلی academic explanation متعلقہ chapter material کے مطابق فراہم کی جائے گی۔';document.getElementById('detailPoints').innerHTML=(r?.[2]||[]).map(x=>'<li>'+x+'</li>').join('');document.getElementById('detailExam').innerHTML=(r?.[3]||[]).map(x=>'<li>'+x+'</li>').join('');document.getElementById('detailSource').textContent='Imperial Academy · Visual Atlas · Authoritative chapter/lecture material.';document.getElementById('detailReading').textContent='Visual کو اس کے topic، structure اور function کے تعلق کے ساتھ پڑھیں۔';const box=document.getElementById('detailGraphic');const src=id+'.webp';box.innerHTML='<img src="'+src+'" alt="'+id+' — '+(titles[id]||id)+'"><div class="empty" style="display:none">Graphic upload: '+src+'</div>';const img=box.querySelector('img');img.onerror=()=>{img.style.display='none';box.querySelector('.empty').style.display='block'};document.querySelectorAll('.view').forEach(x=>x.classList.remove('show'));document.getElementById('detailView').classList.add('show');goTop()}
-function showExam(){document.getElementById('detailId').textContent='EXAM';document.getElementById('detailTitle').textContent='Visual Atlas · Examination';document.getElementById('detailLesson').textContent='Visual Atlas کی hierarchy، chapter/topic/subtopic organization اور visual learning system کی جانچ۔';document.getElementById('detailText').textContent='Exam tab Visual Atlas کے بارے میں assessment کے لیے مخصوص ہے۔ اس میں chapter-level directory، topic-level grouping اور subtopic visual organization کو سمجھنے اور استعمال کرنے کی صلاحیت شامل ہوگی۔';document.getElementById('detailPoints').innerHTML='<li>Chapter Visual Directory کی شناخت</li><li>Topic → Subtopic hierarchy</li><li>Visual ID structure</li><li>Visual Atlas navigation</li>';document.getElementById('detailExam').innerHTML='<li>Chapter Visual اور Topic Visual میں فرق</li><li>Subtopic Visual کی درست جگہ</li><li>Visual ID سے متعلق سوالات</li>';document.getElementById('detailSource').textContent='Imperial Academy · Central Visual Atlas';document.getElementById('detailReading').textContent='Exam tab صرف Visual Atlas system کے بارے میں assessment کے لیے ہے۔';document.getElementById('detailGraphic').innerHTML='<div style="padding:60px;text-align:center;color:var(--green);font-weight:900;font-size:22px">Visual Atlas Examination</div>';document.querySelectorAll('.view').forEach(x=>x.classList.remove('show'));document.getElementById('detailView').classList.add('show');goTop()}
+
+function showLanding() { show('landingView'); }
+function showChapters() { show('chaptersView'); }
+
+function renderChapters() {
+  const c1 = document.getElementById('col1');
+  const c2 = document.getElementById('col2');
+  c1.innerHTML = ''; 
+  c2.innerHTML = '';
+  for (let i = 1; i <= 7; i++) c1.appendChild(chapterButton(i, false));
+  for (let i = 8; i <= 13; i++) c2.appendChild(chapterButton(i, false));
+  c2.appendChild(chapterButton('exam', true));
+}
+
+function chapterButton(n, exam) {
+  const b = document.createElement('button');
+  b.className = 'chapter-card' + (exam ? ' exam' : '');
+  if (exam) {
+    b.innerHTML = '<span class="chapter-title">Visual Atlas</span><span class="chapter-num">EXAM</span>';
+    b.onclick = () => showExam();
+    return b;
+  }
+  const c = chapters[n];
+  b.innerHTML = '<span class="chapter-title">' + c.title + '</span><span class="chapter-num">' + String(n).padStart(2, '0') + '</span>';
+  b.onclick = () => openChapter(n);
+  return b;
+}
+
+function openChapter(n) {
+  currentChapter = n;
+  const c = chapters[n];
+  document.getElementById('chapterId').textContent = 'CHAPTER ' + String(n).padStart(2, '0');
+  document.getElementById('chapterEyebrow').textContent = 'CHAPTER ' + String(n).padStart(2, '0') + ' · MAIN VISUAL';
+  document.getElementById('chapterTitle').textContent = c.title;
+  document.getElementById('chapterIntro').textContent = c.intro;
+
+  const main = document.getElementById('chapterMainContent');
+  const wrap = document.getElementById('topicSections');
+  main.innerHTML = '';
+  wrap.innerHTML = '';
+
+  if (n === 1) {
+    main.innerHTML = `<div class="hero chapter1-main">
+      <div class="eyebrow">CHAPTER 01 · MAIN VISUAL</div>
+      <div class="chapter1-stars" aria-label="Chapter 01 Main Visual">
+        <svg viewBox="0 0 620 300" role="img">
+          <defs><radialGradient id="cellGlow" cx="50%" cy="50%"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#dff2ff"/></radialGradient></defs>
+          <rect x="8" y="8" width="604" height="284" rx="28" fill="#173e34"/>
+          <g fill="#f2d46f">${Array.from({length:34}, (_,i) => `<circle cx="${25+(i*97)%570}" cy="${25+(i*53)%245}" r="${i%3===0?2.8:1.6}"/>`).join('')}</g>
+          <g transform="translate(310 150)">
+            <circle r="92" fill="url(#cellGlow)" stroke="#c59b35" stroke-width="5"/>
+            <circle r="38" fill="#dff2ff" stroke="#285b4b" stroke-width="4"/>
+            <g fill="#e3f5e8" stroke="#285b4b" stroke-width="3">
+              <ellipse cx="-52" cy="-30" rx="20" ry="10"/><ellipse cx="48" cy="-35" rx="18" ry="9"/>
+              <ellipse cx="-45" cy="38" rx="19" ry="10"/><ellipse cx="48" cy="40" rx="21" ry="10"/>
+            </g>
+            <path d="M-67 5 C-35-18 15-12 66 7 M-62 58 C-20 30 28 36 63 57" fill="none" stroke="#9bd2aa" stroke-width="7" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <h3 class="title">Cell: Structure & Functions</h3>
+      <p class="intro">Chapter 01 Main Visual — Cell Organization</p>
+      <div><button class="graphics-entry" onclick="openChapterGraphics(1)">Graphics →</button></div>
+    </div>`;
+    show('topicsView');
+    return;
+  }
+
+  if (n === 10) {
+    main.innerHTML = `<div class="hero chapter10-main">
+      <div class="eyebrow">CHAPTER 10 · MAIN VISUAL</div>
+      <div class="chapter10-main-graphic">
+        <svg viewBox="0 0 620 300" role="img">
+          <defs><linearGradient id="c10g" x1="0" x2="1"><stop offset="0" stop-color="#173e34"/><stop offset="1" stop-color="#285b4b"/></linearGradient></defs>
+          <rect x="8" y="8" width="604" height="284" rx="28" fill="url(#c10g)"/>
+          <g fill="#f2d46f"><circle cx="55" cy="45" r="3"/><circle cx="120" cy="90" r="2"/><circle cx="470" cy="55" r="3"/><circle cx="540" cy="105" r="2"/></g>
+          <g transform="translate(180 150)">
+            <ellipse rx="105" ry="72" fill="#eef7ee" stroke="#c59b35" stroke-width="5"/>
+            <path d="M-55-5 Q0-60 55-5 Q0 50-55-5Z" fill="#dff2ff" stroke="#285b4b" stroke-width="4"/>
+            <circle cx="0" cy="-5" r="24" fill="#eef7ee" stroke="#285b4b" stroke-width="3"/>
+          </g>
+          <g transform="translate(445 150)">
+            <path d="M-75 60 Q0-70 75 60" fill="none" stroke="#9bd2aa" stroke-width="18" stroke-linecap="round"/>
+            <path d="M-75 60 Q0-70 75 60" fill="none" stroke="#eef7ee" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="0" cy="-8" r="13" fill="#dff2ff" stroke="#285b4b" stroke-width="3"/>
+          </g>
+          <text x="310" y="270" text-anchor="middle" fill="#f2d46f" font-size="22" font-family="Arial" font-weight="700">NUTRITION · GASEOUS EXCHANGE</text>
+        </svg>
+      </div>
+      <h3 class="title">Nutrition in Plants &amp; Gaseous Exchange</h3>
+      <p class="intro">Chapter 10 · Lecture 01 — Plants, mineral nutrition, gaseous exchange and transpiration</p>
+      <div><button class="graphics-entry" onclick="openChapterGraphics(10)">Graphics →</button></div>
+    </div>`;
+    show('topicsView');
+    return;
+  }
+
+  if (!c.topics.length) {
+    wrap.innerHTML = '<div class="empty">No visual records added yet for this chapter.</div>';
+  } else {
+    c.topics.forEach((t, i) => {
+      const sec = document.createElement('section');
+      sec.className = 'topic-section';
+      sec.innerHTML = `<div class="topic-heading">
+        <span class="topic-heading-num">${String(i + 1).padStart(2, '0')}</span>
+        <div><div class="topic-heading-title">${t.title}</div><div class="topic-heading-intro">${t.intro}</div></div>
+      </div>`;
+
+      if (t.main) {
+        const mainBtn = document.createElement('button');
+        mainBtn.className = 'visual-card main';
+        mainBtn.innerHTML = `<span><span class="vnum">00</span><span class="vtitle">${titles[t.main] || records[t.main]?.[0] || t.main}</span></span>`;
+        mainBtn.onclick = () => openDetail(t.main);
+        sec.appendChild(mainBtn);
+      }
+
+      const g = document.createElement('div');
+      g.className = 'visual-grid';
+      t.ids.forEach((id, j) => {
+        const b = document.createElement('button');
+        b.className = 'visual-card';
+        b.innerHTML = `<span><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle">${titles[id] || records[id]?.[0] || id}</span></span>`;
+        b.onclick = () => openDetail(id);
+        g.appendChild(b);
+      });
+      sec.appendChild(g);
+      wrap.appendChild(sec);
+    });
+  }
+  show('topicsView');
+}
+
+function openChapterGraphics(n) {
+  currentChapter = n;
+  const c = chapters[n];
+  document.getElementById('topicId').textContent = 'CHAPTER ' + String(n).padStart(2, '0');
+  document.getElementById('topicEyebrow').textContent = 'CHAPTER ' + String(n).padStart(2, '0') + ' · GRAPHICS';
+  document.getElementById('topicTitle').textContent = c.title;
+
+  const g = document.getElementById('visualGrid');
+  g.innerHTML = '';
+
+  if (n === 1) {
+    g.className = 'chapter1-graphics-grid';
+    const ids = c.topics[0].ids;
+    const cols = [{ cls: 'sky', start: 0, end: 14 }, { cls: 'green', start: 14, end: 28 }, { cls: 'red', start: 28, end: 40 }];
+    cols.forEach(col => {
+      const d = document.createElement('div');
+      d.className = 'graphics-column ' + col.cls;
+      ids.slice(col.start, col.end).forEach((id, k) => {
+        const j = col.start + k;
+        const b = document.createElement('button');
+        b.className = 'visual-card';
+        b.innerHTML = `<span><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle">${titles[id] || records[id]?.[0] || id}</span></span>`;
+        b.onclick = () => openDetail(id);
+        d.appendChild(b);
+      });
+      g.appendChild(d);
+    });
+  } else {
+    g.className = 'chapter10-graphics-grid';
+    const ids = [];
+    c.topics.forEach(t => {
+      if (t.main) ids.push(t.main);
+      t.ids.forEach(id => ids.push(id));
+    });
+    const cols = [{ cls: 'sky', start: 0, end: 5 }, { cls: 'green', start: 5, end: 10 }, { cls: 'red', start: 10, end: 14 }];
+    cols.forEach(col => {
+      const d = document.createElement('div');
+      d.className = 'graphics-column ' + col.cls;
+      ids.slice(col.start, col.end).forEach((id, k) => {
+        const j = col.start + k;
+        const isTab14 = (id === 'IAE1101100207V');
+        const b = document.createElement('button');
+        b.className = 'visual-card';
+        b.innerHTML = `<span><span class="vnum">${String(j + 1).padStart(2, '0')}</span><span class="vtitle ${isTab14 ? 'tab14-three-line' : ''}">${isTab14 ? 'Gaseous Exchange<br>Experimental<br>Investigation' : (titles[id] || records[id]?.[0] || id)}</span></span>`;
+        b.onclick = () => openDetail(id);
+        d.appendChild(b);
+      });
+      if (col.cls === 'red') {
+        const exam = document.createElement('button');
+        exam.className = 'visual-card exam-readiness-card';
+        exam.innerHTML = '<span><span class="vnum">EX</span><span class="vtitle">Exam / Test Readiness</span></span>';
+        exam.onclick = () => openExamReadiness();
+        d.appendChild(exam);
+      }
+      g.appendChild(d);
+    });
+  }
+  show('visualsView');
+}
+
+function openExamReadiness() {
+  const qs = [
+    'Identify the correct structure or process from the visual.',
+    'Label the key parts indicated in the visual.',
+    'Describe the primary function of the structure shown.',
+    'Differentiate between two related structures using visual evidence.',
+    'Interpret the process or relationship shown in the diagram.'
+  ];
+  document.getElementById('detailId').textContent = 'IAE110110-EXAM';
+  document.getElementById('detailTitle').textContent = 'Exam / Test Readiness';
+  document.getElementById('detailLesson').textContent = 'Chapter 10 Visual-based readiness questions';
+  document.getElementById('detailText').textContent = qs.map((q, i) => (i + 1) + '. ' + q).join('\n');
+  document.getElementById('detailPoints').innerHTML = '';
+  document.getElementById('detailExam').innerHTML = '';
+  document.getElementById('detailSource').textContent = 'Imperial Academy · Chapter 10 · Visual-based Exam Readiness';
+  document.getElementById('detailReading').textContent = 'Focus on visual identification, structures, labels, and functional interpretation.';
+  document.getElementById('detailGraphic').innerHTML = '<div class="empty">Visual-based questions — answers hidden</div>';
+  show('detailView');
+}
+
+function openDetail(id) {
+  const r = records[id];
+  document.getElementById('detailId').textContent = id;
+  document.getElementById('detailTitle').textContent = titles[id] || r?.[0] || id;
+  document.getElementById('detailLesson').textContent = r?.[1] || 'Chapter Visual Atlas academic visual.';
+  document.getElementById('detailText').textContent = r?.[1] || 'Detailed academic explanation for this visual will be provided here.';
+  document.getElementById('detailPoints').innerHTML = (r?.[2] || []).map(x => '<li>' + x + '</li>').join('');
+  document.getElementById('detailExam').innerHTML = (r?.[3] || []).map(x => '<li>' + x + '</li>').join('');
+  document.getElementById('detailSource').textContent = 'Imperial Academy · Visual Atlas · Chapter Material.';
+  document.getElementById('detailReading').textContent = 'Analyze the visual in relation to structure and function.';
+
+  const box = document.getElementById('detailGraphic');
+  const src = id + '.webp';
+  box.innerHTML = `<img src="${src}" alt="${id} — ${titles[id] || id}">
+                   <div class="empty" style="display:none">Graphic upload: ${src}</div>`;
+  const img = box.querySelector('img');
+  img.onerror = () => {
+    img.style.display = 'none';
+    box.querySelector('.empty').style.display = 'block';
+  };
+  show('detailView');
+}
+
+function showExam() {
+  document.getElementById('detailId').textContent = 'EXAM';
+  document.getElementById('detailTitle').textContent = 'Visual Atlas · Examination';
+  document.getElementById('detailLesson').textContent = 'Visual Atlas hierarchy and learning system assessment.';
+  document.getElementById('detailText').textContent = 'Exam tab for Visual Atlas assessment.';
+  document.getElementById('detailPoints').innerHTML = '<li>Chapter Visual Directory identification</li><li>Topic → Subtopic hierarchy</li><li>Visual ID structure</li>';
+  document.getElementById('detailExam').innerHTML = '<li>Chapter Visual vs Topic Visual difference</li><li>Subtopic Visual alignment</li>';
+  document.getElementById('detailSource').textContent = 'Imperial Academy · Central Visual Atlas';
+  document.getElementById('detailReading').textContent = 'Assessment tab for the Visual Atlas system.';
+  document.getElementById('detailGraphic').innerHTML = '<div style="padding:60px;text-align:center;color:var(--green);font-weight:900;font-size:22px">Visual Atlas Examination</div>';
+  show('detailView');
+}
+
 renderChapters();
-</script></body></html>
+</script>
+
+</body>
+</html>
