@@ -91,7 +91,7 @@ function openDetail(id,i){
     const svg=detailGraphic.querySelector('svg');
     if(svg){svg.style.display='block';svg.style.width='100%';svg.style.height='auto';svg.style.maxHeight='70vh';}
   }else{
-    const source='visuals/'+id+'.webp';
+    const source=id+'.webp';
     detailGraphic.innerHTML='<img src="'+source+'" alt="'+id+' — '+title+'" style="display:block;width:100%;height:auto;max-height:70vh;object-fit:contain;border-radius:14px"><div class="placeholder" style="display:none;text-align:center;color:#756b56;padding:70px"><strong style="font-family:Arial">'+id+'</strong><br>Graphic upload: '+source+'</div>';
     const img=detailGraphic.querySelector('img');
     img.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='block'};
