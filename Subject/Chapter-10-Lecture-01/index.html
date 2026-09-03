@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>IAE110110 — Chapter 10 Lecture 01 — Nutrition in Plants &amp; Gaseous Exchange in Plants</title>
+<title>IAE110110 — Chapter 10 Lecture 01 — ALL LEVELS RESPONSIVE FINAL</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 :root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--card:#fffdf8;--bg:#f3f0e7;--shadow:0 8px 24px rgba(23,62,52,.10)}
@@ -89,6 +89,355 @@ html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
 }
 </style>
 
+
+<style id="IAE-FINAL-RESPONSIVE-PATCH">
+/* ============================================================
+   IAE CHAPTER 10 LECTURE 01 — FINAL RESPONSIVE INTEGRITY PATCH
+   Purpose: one geometry system for every page and modal screen.
+   ============================================================ */
+html, body {
+  width:100%;
+  min-width:0;
+  height:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+*, *::before, *::after { box-sizing:border-box; }
+body { overflow:hidden; }
+.wrap {
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  height:100dvh;
+  min-height:100dvh;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+.page {
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  height:100dvh;
+  min-height:100dvh;
+  margin:0;
+  padding:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  position:relative;
+}
+.page.active { display:block; }
+
+/* Header is edge-to-edge, but its contents are safely contained. */
+.top, .screen-header {
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  top:auto;
+  transform:none !important;
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  margin:0 !important;
+  border-radius:0 !important;
+  overflow:hidden;
+}
+.top-inner, .screen-header-inner {
+  width:100%;
+  min-width:0;
+  max-width:none;
+  margin:0;
+  padding-inline:clamp(10px,3vw,28px);
+  display:flex;
+  align-items:center;
+  gap:clamp(8px,2vw,18px);
+  direction:ltr;
+}
+.top-brand, .screen-brand {
+  flex:1 1 auto;
+  min-width:0;
+  max-width:100%;
+  text-align:left;
+}
+.top-brand h1, .screen-brand h1 {
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.top-brand p, .screen-brand p {
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+.top-logo, .screen-seal {
+  flex:0 0 clamp(72px,11vw,140px) !important;
+  width:clamp(72px,11vw,140px) !important;
+  height:clamp(56px,8vw,95px) !important;
+  min-width:0;
+  max-width:clamp(72px,11vw,140px);
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+.top-logo img, .screen-seal img {
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  object-fit:contain;
+}
+
+/* No component may create horizontal page overflow. */
+.page > *, .dialog > *, #content > * {
+  max-width:100%;
+  min-width:0;
+}
+img, svg, video, canvas, iframe { max-width:100%; }
+.tab, .section, .section-card, .visual-card, .question-card,
+.assessment-head, .revision-item, .search-result, .topic-visual,
+.footer-nav, .content-navigation, .assessment-actions {
+  max-width:100%;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.dialog p, .dialog li, .lesson-title, .lesson-subtitle,
+.section, .visual-card, .question-card, .revision-item {
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+
+/* Modal = true full-screen functional page; no negative margins. */
+#modal {
+  position:fixed !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100dvh !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  max-height:100dvh !important;
+  padding:0 !important;
+  margin:0 !important;
+  overflow:hidden !important;
+}
+#modal .dialog {
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  height:100dvh !important;
+  max-height:100dvh !important;
+  margin:0 !important;
+  padding:0 !important;
+  border-radius:0 !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+}
+#modal #content {
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  margin:0;
+  padding:0 0 96px;
+  box-sizing:border-box;
+}
+#modal #content > .screen-header {
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  margin:0 0 18px !important;
+  position:relative !important;
+  left:auto !important;
+  transform:none !important;
+}
+#modal #content > :not(.screen-header) {
+  width:min(1180px, calc(100% - 36px));
+  max-width:1180px;
+  min-width:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+#modal #content > .lesson-title,
+#modal #content > .lesson-subtitle { text-align:center; }
+
+/* Footer remains inside the page width. */
+.footer-nav {
+  margin-left:auto !important;
+  margin-right:auto !important;
+  width:min(1180px, calc(100% - 36px));
+}
+
+/* Close button is always at the lower-left viewport edge. */
+#modal .close,
+.close-btn, .close-button, .modal-close {
+  position:fixed !important;
+  left:max(10px, env(safe-area-inset-left)) !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:max(10px, env(safe-area-inset-bottom)) !important;
+  z-index:2147483647 !important;
+}
+
+/* Mobile: preserve the two-column topic map until it genuinely cannot fit. */
+@media (max-width:760px) {
+  .top, .screen-header { padding:10px 0 12px !important; }
+  .top-inner, .screen-header-inner { padding-inline:10px; gap:9px; }
+  .top-logo, .screen-seal {
+    flex-basis:78px !important;
+    width:78px !important;
+    height:58px !important;
+  }
+  .top-brand h1, .screen-brand h1 {
+    font-size:clamp(18px,5.2vw,25px) !important;
+    line-height:1.2;
+  }
+  .top-brand p, .screen-brand p { font-size:10px !important; line-height:1.35; }
+  .page-title { width:100%; max-width:100%; overflow-wrap:anywhere; }
+  #topicsPage .topic-grid {
+    width:100%;
+    max-width:100%;
+    padding:10px;
+    gap:8px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  #topicsPage .column { min-width:0; }
+  #topicsPage .tab { min-width:0; }
+  #modal #content > :not(.screen-header) {
+    width:calc(100% - 24px);
+  }
+  #modal #content .topic-head,
+  #modal #content .subtopic-head {
+    width:calc(100% - 24px);
+  }
+}
+@media (max-width:420px) {
+  .top-inner, .screen-header-inner { gap:7px; padding-inline:8px; }
+  .top-logo, .screen-seal {
+    flex-basis:68px !important;
+    width:68px !important;
+    height:52px !important;
+  }
+  .top-brand h1, .screen-brand h1 { font-size:18px !important; }
+  .top-brand p, .screen-brand p { font-size:9px !important; }
+  #topicsPage .topic-grid { gap:6px !important; padding:8px; }
+  #modal #content > :not(.screen-header) { width:calc(100% - 16px); }
+}
+</style>
+<script>
+/* Safe logo fallback: if the external asset is unavailable, the header remains valid
+   instead of displaying a broken-image icon or causing layout expansion. */
+(function(){
+  const fallback = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 150">' +
+    '<rect width="220" height="150" rx="18" fill="#173e34"/>' +
+    '<circle cx="110" cy="58" r="36" fill="#f2d46f"/>' +
+    '<text x="110" y="70" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#173e34">IAE</text>' +
+    '<text x="110" y="116" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#f2d46f">IMPERIAL ACADEMY</text>' +
+    '</svg>'
+  );
+  function repairLogos(){
+    document.querySelectorAll('.top-logo img, .screen-seal img').forEach(function(img){
+      img.addEventListener('error', function(){
+        if(img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied='1';
+        img.src=fallback;
+      }, {once:true});
+      if(img.complete && img.naturalWidth===0){ img.dispatchEvent(new Event('error')); }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',repairLogos);
+  else repairLogos();
+})();
+</script>
+
+<style id="IAE-UNIVERSAL-ALL-LEVELS-FINAL">
+/* ================================================================
+   IAE CHAPTER 10 LECTURE 01 — UNIVERSAL ALL-LEVEL RESPONSIVE LOCK
+   Applies to: Home, Topics, Search, Topic, Subtopic, Basic,
+   Standard, Mastery, Dictionary, Visual, Practical, Practice,
+   Exam, Revision, Mastery Review, every modal and nested state.
+   Rule: no screen may inherit a different geometry system.
+   ================================================================ */
+html,body{width:100%;height:100%;min-width:0;margin:0;padding:0;overflow:hidden}
+*,*::before,*::after{box-sizing:border-box}
+body{overflow:hidden}
+.wrap{width:100%;height:100dvh;min-height:100dvh;max-width:100%;margin:0;padding:0;overflow:hidden}
+.page{display:none;width:100%;min-width:0;max-width:100%;height:100dvh;min-height:100dvh;max-height:100dvh;margin:0;padding:0;position:relative;overflow-x:hidden;overflow-y:auto}
+.page.active{display:block}
+
+/* One header geometry everywhere — never use 100vw or translateX for headers. */
+.top,.screen-header{width:100%;min-width:0;max-width:100%;margin:0;padding:14px 0 12px;border-radius:0;border-bottom:3px solid var(--gold);position:relative;left:auto;right:auto;transform:none;overflow:hidden;box-sizing:border-box}
+.top-inner,.screen-header-inner{width:100%;min-width:0;max-width:100%;margin:0;padding:0 12px;display:flex;align-items:center;gap:12px;direction:ltr;box-sizing:border-box}
+.top-brand,.screen-brand{flex:1 1 auto;min-width:0;max-width:100%;text-align:left;overflow:hidden}
+.top-brand h1,.screen-brand h1{margin:0;max-width:100%;font-size:clamp(18px,5.5vw,28px);line-height:1.2;white-space:normal;overflow-wrap:anywhere;word-break:normal}
+.top-brand p,.screen-brand p{margin:4px 0 0;max-width:100%;font-size:10px;line-height:1.35;overflow-wrap:anywhere}
+.top-logo,.screen-seal{flex:0 0 78px;width:78px;height:58px;min-width:0;max-width:78px;margin:0;padding:0;overflow:hidden}
+.top-logo img,.screen-seal img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain}
+
+/* Every page content obeys the same horizontal containment. */
+.page-title,.section-heading,.section-note,.section-card,.topic-grid,.footer-nav,#searchPageContent{width:100%;min-width:0;max-width:1180px;margin-left:auto;margin-right:auto}
+.page-title{padding:14px 14px 6px;text-align:center;overflow-wrap:anywhere}
+.section-card{overflow-wrap:anywhere}
+.topic-grid{padding:10px 10px 18px;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.column{min-width:0;max-width:100%}
+.tab{min-width:0;max-width:100%;overflow:hidden;overflow-wrap:anywhere}
+.tab .label{max-width:86%;overflow-wrap:anywhere}
+
+/* Modal is another full page, not a smaller desktop dialog. */
+#modal{position:fixed!important;inset:0!important;width:100%!important;height:100dvh!important;min-width:0!important;max-width:100%!important;padding:0!important;margin:0!important;display:none;overflow:hidden!important}
+#modal.show{display:block!important}
+#modal .dialog{width:100%!important;min-width:0!important;max-width:100%!important;height:100dvh!important;max-height:100dvh!important;margin:0!important;padding:0!important;border-radius:0!important;overflow-x:hidden!important;overflow-y:auto!important;position:relative;box-sizing:border-box}
+#modal #content{width:100%;min-width:0;max-width:100%;margin:0;padding:0 0 96px;overflow-x:hidden;box-sizing:border-box}
+#modal #content>.screen-header{width:100%;min-width:0;max-width:100%;margin:0 0 16px;position:relative;left:auto;right:auto;transform:none}
+#modal #content>.screen-header + *,
+#modal #content>.lesson-title,#modal #content>.lesson-subtitle,
+#modal #content>.assessment-head,#modal #content>.exam-rules,
+#modal #content>.section,#modal #content>.visual-card,
+#modal #content>.question-card,#modal #content>.revision-item,
+#modal #content>.assessment-actions,#modal #content>.assessment-result,
+#modal #content>.recommendation-title,#modal #content>.recommendation-card,
+#modal #content>.answer-review,#modal #content>.content-navigation,
+#modal #content>.subtopic-reading{width:min(1180px,calc(100% - 24px));max-width:1180px;min-width:0;margin-left:auto;margin-right:auto}
+
+/* Deep/nested lesson layers: flex/grid children must always be shrinkable. */
+#modal .topic-head,#modal .subtopic-head{width:min(1180px,calc(100% - 24px));max-width:1180px;min-width:0;margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:10px;overflow:hidden}
+#modal .topic-head-text,#modal .subtopic-head-text{flex:1 1 auto;min-width:0;max-width:100%;overflow:hidden}
+#modal .topic-head-text .lesson-title,#modal .subtopic-head-text .lesson-title{max-width:100%;overflow-wrap:anywhere;word-break:normal}
+#modal .topic-visual,#modal .subtopic-head .topic-visual{flex:0 0 66px;width:66px;max-width:66px;min-width:66px}
+#modal img,#modal video,#modal canvas,#modal svg{max-width:100%;height:auto}
+#modal .atlas-img{display:block;width:min(900px,100%);max-width:100%;height:auto;max-height:62dvh;object-fit:contain;margin:12px auto;border-radius:12px}
+#modal .section,#modal .visual-card,#modal .question-card,#modal .revision-item,#modal .assessment-head{overflow-wrap:anywhere;word-break:normal}
+#modal p,#modal li,#modal .lesson-title,#modal .lesson-subtitle{max-width:100%;overflow-wrap:anywhere}
+#modal input,#modal button,#modal select,#modal textarea{max-width:100%;font-family:inherit}
+
+/* No negative margin may pull any footer or content outside the viewport. */
+.footer-nav{margin-left:auto!important;margin-right:auto!important;max-width:1180px;width:min(1180px,calc(100% - 20px));position:sticky;bottom:0}
+.content-navigation{padding-bottom:12px}
+.close{position:fixed!important;left:max(10px,env(safe-area-inset-left))!important;right:auto!important;top:auto!important;bottom:max(10px,env(safe-area-inset-bottom))!important;z-index:2147483647!important}
+
+@media(max-width:760px){
+  .top,.screen-header{padding:10px 0 11px}
+  .top-inner,.screen-header-inner{padding-inline:9px;gap:8px}
+  .top-logo,.screen-seal{flex-basis:68px;width:68px;height:52px;max-width:68px;min-width:68px}
+  .top-brand h1,.screen-brand h1{font-size:clamp(17px,5.5vw,24px);line-height:1.18}
+  .top-brand p,.screen-brand p{font-size:9px;line-height:1.3}
+  .page-title{padding:12px 10px 5px;font-size:clamp(20px,6vw,27px)}
+  #topicsPage .topic-grid{padding:8px;gap:6px}
+  #modal #content>.screen-header{margin-bottom:14px}
+  #modal #content>.screen-header + *,#modal #content>.lesson-title,#modal #content>.lesson-subtitle,#modal #content>.assessment-head,#modal #content>.exam-rules,#modal #content>.section,#modal #content>.visual-card,#modal #content>.question-card,#modal #content>.revision-item,#modal #content>.assessment-actions,#modal #content>.assessment-result,#modal #content>.recommendation-title,#modal #content>.recommendation-card,#modal #content>.answer-review,#modal #content>.content-navigation,#modal #content>.subtopic-reading{width:calc(100% - 18px)}
+  #modal .topic-head,#modal .subtopic-head{width:calc(100% - 18px);gap:8px}
+  #modal .topic-visual,#modal .subtopic-head .topic-visual{flex-basis:58px;width:58px;min-width:58px;max-width:58px;height:52px}
+}
+@media(max-width:420px){
+  .top-inner,.screen-header-inner{padding-inline:7px;gap:6px}
+  .top-logo,.screen-seal{flex-basis:60px;width:60px;min-width:60px;max-width:60px;height:48px}
+  .top-brand h1,.screen-brand h1{font-size:17px}
+  .top-brand p,.screen-brand p{font-size:8px}
+  #topicsPage .topic-grid{gap:5px;padding:6px}
+  #modal #content>.screen-header + *,#modal #content>.lesson-title,#modal #content>.lesson-subtitle,#modal #content>.assessment-head,#modal #content>.exam-rules,#modal #content>.section,#modal #content>.visual-card,#modal #content>.question-card,#modal #content>.revision-item,#modal #content>.assessment-actions,#modal #content>.assessment-result,#modal #content>.recommendation-title,#modal #content>.recommendation-card,#modal #content>.answer-review,#modal #content>.content-navigation,#modal #content>.subtopic-reading{width:calc(100% - 14px)}
+  #modal .topic-head,#modal .subtopic-head{width:calc(100% - 14px)}
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -437,54 +786,64 @@ body{min-height:100dvh;}
 }
 </style>
 
-<style>
-/* === FINAL CENTERED CONTENT BALANCE === */
-.page-title,
-#topicsPage .section-heading,
-#topicsPage .topic-grid,
-#searchPage #searchPageContent{
-  width:min(1180px,calc(100% - 32px));
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-#topicsPage .topic-grid{padding-left:0;padding-right:0;}
-#searchPage #searchPageContent{padding-left:0;padding-right:0;}
-#modal #content{
-  width:100%;
-  margin:0 auto;
-  padding-left:16px!important;
-  padding-right:16px!important;
-}
-#modal #content>.screen-header{
-  width:100vw!important;
-  margin-left:calc(50% - 50vw)!important;
-  margin-right:calc(50% - 50vw)!important;
-}
-#modal #content>.lesson-title,
-#modal #content>.lesson-subtitle,
-#modal #content>.assessment-head,
-#modal #content>.exam-rules,
-#modal #content>.section,
-#modal #content>.visual-card,
-#modal #content>.revision-item,
-#modal #content>.question-card,
-#modal #content>.assessment-actions,
-#modal #content>.assessment-result,
-#modal #content>.recommendation-title,
-#modal #content>.recommendation-card,
-#modal #content>.answer-review,
-#modal #content>.content-navigation,
-#modal #content>.subtopic-reading{
-  width:min(1180px,100%);
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-@media(max-width:760px){
-  .page-title,
-  #topicsPage .section-heading,
-  #topicsPage .topic-grid,
-  #searchPage #searchPageContent{width:calc(100% - 20px)}
-  #modal #content{padding-left:10px!important;padding-right:10px!important}
-}
+<script id="IAE-ALL-LEVELS-GEOMETRY-GUARD">
+(function(){
+  function fit(){
+    document.querySelectorAll('.page,.top,.screen-header,#modal,.dialog,#content,.topic-grid,.column,.tab,.section,.visual-card,.question-card,.revision-item,.topic-head,.subtopic-head,.topic-head-text,.subtopic-head-text,.footer-nav').forEach(function(el){
+      el.style.maxWidth = '100%';
+      el.style.minWidth = '0';
+    });
+    document.querySelectorAll('.top,.screen-header').forEach(function(el){el.style.width='100%';el.style.left='auto';el.style.right='auto';el.style.transform='none'});
+    document.querySelectorAll('#modal .dialog').forEach(function(el){el.style.width='100%';el.style.maxWidth='100%';el.style.overflowX='hidden'});
+    document.querySelectorAll('#modal #content>.screen-header').forEach(function(el){el.style.width='100%';el.style.maxWidth='100%';el.style.left='auto';el.style.transform='none'});
+  }
+  document.addEventListener('DOMContentLoaded',fit);
+  window.addEventListener('resize',fit,{passive:true});
+  window.addEventListener('orientationchange',function(){setTimeout(fit,80)},{passive:true});
+  function repairDynamicLogos(){
+    const fallback='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 150"><rect width="220" height="150" rx="18" fill="#173e34"/><circle cx="110" cy="58" r="36" fill="#f2d46f"/><text x="110" y="70" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#173e34">IAE</text><text x="110" y="116" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#f2d46f">IMPERIAL ACADEMY</text></svg>');
+    document.querySelectorAll('.top-logo img,.screen-seal img').forEach(function(img){
+      if(img.dataset.fallbackBound)return; img.dataset.fallbackBound='1';
+      img.addEventListener('error',function(){if(!img.dataset.fallbackApplied){img.dataset.fallbackApplied='1';img.src=fallback;}},{once:true});
+      if(img.complete&&img.naturalWidth===0)img.dispatchEvent(new Event('error'));
+    });
+  }
+  function enforce(){fit();repairDynamicLogos();}
+  document.addEventListener('DOMContentLoaded',enforce);
+  if(window.MutationObserver){new MutationObserver(function(){enforce()}).observe(document.getElementById('content')||document.body,{childList:true,subtree:true});}
+})();
+</script>
+<style id="IAE-FINAL-ALL-LEVELS-CASCADE">
+/* FINAL CASCADE — highest priority geometry for every navigation depth */
+html,body{margin:0!important;padding:0!important;width:100%!important;min-width:0!important;height:100%!important;overflow:hidden!important}
+.wrap{position:relative!important;width:100%!important;max-width:100%!important;min-width:0!important;height:100dvh!important;margin:0!important;padding:0!important;overflow:hidden!important}
+.page{position:absolute!important;inset:0!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;margin:0!important;padding:0!important;overflow-x:hidden!important;overflow-y:auto!important}
+.page:not(.active){display:none!important}.page.active{display:block!important}
+.top,.screen-header{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;transform:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;border-radius:0!important;overflow:hidden!important}
+.top-inner,.screen-header-inner{width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0 10px!important;display:flex!important;direction:ltr!important;align-items:center!important;gap:8px!important}
+.top-brand,.screen-brand{flex:1 1 auto!important;min-width:0!important;max-width:100%!important;overflow:hidden!important;text-align:left!important}
+.top-brand h1,.screen-brand h1{max-width:100%!important;white-space:normal!important;overflow-wrap:anywhere!important}
+.top-logo,.screen-seal{flex:0 0 68px!important;width:68px!important;min-width:68px!important;max-width:68px!important;height:52px!important;overflow:hidden!important}
+.top-logo img,.screen-seal img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important}
+.page-title,.section-heading,.section-note,.section-card,.topic-grid,#searchPageContent,.footer-nav{max-width:1180px!important;min-width:0!important;margin-left:auto!important;margin-right:auto!important}
+.topic-grid{width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.column,.tab,.label{min-width:0!important;max-width:100%!important}
+.tab{overflow:hidden!important;overflow-wrap:anywhere!important}
+#modal{position:fixed!important;inset:0!important;width:100%!important;height:100dvh!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;overflow:hidden!important}
+#modal.show{display:block!important}
+#modal .dialog{width:100%!important;min-width:0!important;max-width:100%!important;height:100dvh!important;max-height:100dvh!important;margin:0!important;padding:0!important;border-radius:0!important;overflow-x:hidden!important;overflow-y:auto!important}
+#modal #content{width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0 0 96px!important;overflow-x:hidden!important}
+#modal #content>.screen-header{width:100%!important;min-width:0!important;max-width:100%!important;margin:0 0 14px!important;position:relative!important;left:auto!important;right:auto!important;transform:none!important}
+#modal #content>.screen-header~*,#modal #content>.lesson-title,#modal #content>.lesson-subtitle,#modal #content>.section,#modal #content>.visual-card,#modal #content>.question-card,#modal #content>.revision-item,#modal #content>.assessment-head,#modal #content>.assessment-actions,#modal #content>.assessment-result,#modal #content>.recommendation-card,#modal #content>.answer-review,#modal #content>.content-navigation,#modal #content>.subtopic-reading,#modal #content>.exam-rules{width:min(1180px,calc(100% - 18px))!important;min-width:0!important;max-width:1180px!important;margin-left:auto!important;margin-right:auto!important}
+#modal .topic-head,#modal .subtopic-head{width:min(1180px,calc(100% - 18px))!important;min-width:0!important;max-width:1180px!important;margin-left:auto!important;margin-right:auto!important;overflow:hidden!important}
+#modal .topic-head-text,#modal .subtopic-head-text{flex:1 1 auto!important;min-width:0!important;max-width:100%!important;overflow:hidden!important}
+#modal .topic-head-text .lesson-title,#modal .subtopic-head-text .lesson-title{max-width:100%!important;overflow-wrap:anywhere!important}
+#modal .topic-visual,#modal .subtopic-head .topic-visual{flex:0 0 58px!important;width:58px!important;min-width:58px!important;max-width:58px!important}
+#modal img,#modal svg,#modal video,#modal canvas{max-width:100%!important}
+#modal .atlas-img{display:block!important;width:min(900px,100%)!important;max-width:100%!important;height:auto!important;max-height:62dvh!important;object-fit:contain!important;margin:12px auto!important}
+#modal p,#modal li,#modal .lesson-title,#modal .lesson-subtitle,#modal .section,#modal .visual-card,#modal .question-card,#modal .revision-item{max-width:100%!important;overflow-wrap:anywhere!important}
+.footer-nav{width:min(1180px,calc(100% - 18px))!important;position:sticky!important;bottom:0!important;margin-left:auto!important;margin-right:auto!important}
+#modal .close{position:fixed!important;left:max(10px,env(safe-area-inset-left))!important;right:auto!important;top:auto!important;bottom:max(10px,env(safe-area-inset-bottom))!important;z-index:2147483647!important}
+@media(max-width:420px){.top-inner,.screen-header-inner{padding-inline:7px!important;gap:6px!important}.top-logo,.screen-seal{flex-basis:60px!important;width:60px!important;min-width:60px!important;max-width:60px!important;height:48px!important}.top-brand h1,.screen-brand h1{font-size:17px!important}.top-brand p,.screen-brand p{font-size:8px!important}.topic-grid{gap:5px!important;padding:6px!important}#modal #content>.screen-header~*,#modal #content>.lesson-title,#modal #content>.lesson-subtitle,#modal #content>.section,#modal #content>.visual-card,#modal #content>.question-card,#modal #content>.revision-item,#modal #content>.assessment-head,#modal #content>.assessment-actions,#modal #content>.assessment-result,#modal #content>.recommendation-card,#modal #content>.answer-review,#modal #content>.content-navigation,#modal #content>.subtopic-reading,#modal #content>.exam-rules{width:calc(100% - 14px)!important}#modal .topic-head,#modal .subtopic-head{width:calc(100% - 14px)!important}}
 </style>
 </body></html>
