@@ -37,7 +37,16 @@
 .chapter-grid .chapter-tab.exam .chapter-no{color:#79570d}
 
 /* LEVEL 3 — LECTURE PARTITION */
-.lecture-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 12px}.lecture-tab{min-height:112px;border-radius:16px;background:#fff;border:5px solid var(--sky);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;padding:12px}.lecture-tab .n{font:600 46px/1 Inter;color:var(--sky);direction:ltr}.lecture-tab strong{font-size:18px;color:var(--green)}.lecture-tab small{color:#68746d;margin-top:3px}
+.lecture-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 12px}.lecture-tab{min-height:132px;border-radius:16px;background:#fff;border:4px solid var(--green2);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;padding:0;position:relative;overflow:hidden;isolation:isolate;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}.lecture-tab:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(23,62,52,.16);filter:saturate(1.06)}
+/* LEVEL 3 — SAME CENTER-OVERLAP STYLE AS LEVEL 2 */
+.lecture-grid .lecture-tab:nth-child(4n+1){background:linear-gradient(145deg,#e8f6ef,#b9dfcf);border-color:#277653}
+.lecture-grid .lecture-tab:nth-child(4n+2){background:linear-gradient(145deg,#fff1d7,#f3cf8b);border-color:#b47a19}
+.lecture-grid .lecture-tab:nth-child(4n+3){background:linear-gradient(145deg,#e9f1ff,#b9cff2);border-color:#3d67a5}
+.lecture-grid .lecture-tab:nth-child(4n){background:linear-gradient(145deg,#f9e8f0,#e8b8cf);border-color:#9b456d}
+.lecture-grid .lecture-tab .n{display:none!important}
+.lecture-grid .lecture-tab .level3-chapter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#38A9E8!important;font-size:24px!important;font-weight:900;line-height:1;text-align:center;white-space:nowrap;z-index:4;pointer-events:none}
+.lecture-grid .lecture-tab strong{display:none!important}
+.lecture-grid .lecture-tab small{display:none}
 .back{display:block;margin:20px auto 0;border:0;background:var(--green);color:#fff;border-radius:9px;padding:9px 18px;font-family:inherit;cursor:pointer}
 /* LEVEL 4 — TOPIC PAGE LANGUAGE, based on Chapter 10 Lecture 02 Level 2 */
 .topic-layout{max-width:1180px;margin:auto;padding:0 12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.topic-column{min-width:0}.topic-tab{min-height:112px;height:112px;border-radius:16px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;padding:10px 12px}.topic-tab.transport{border:5px solid var(--sky)}.topic-tab.homeostasis{border:5px solid var(--leaf)}.topic-tab .num{font:600 64px/1 Inter;direction:ltr;opacity:.9;color:var(--sky)}.topic-tab.homeostasis .num{color:var(--leaf)}.topic-tab .label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;font-weight:700;font-size:18px;line-height:1.3;z-index:2;color:#4B0082;text-shadow:0 1px 2px rgba(255,255,255,.45)}
@@ -55,7 +64,7 @@
 
 /* FINAL TOPIC TITLE VISIBILITY FIX */
 .chapter-grid .chapter-tab .chapter-name{
-  color:#3b0a5a !important;
+  color:#000000 !important;
   font-size:18px !important;
   font-weight:900 !important;
   text-shadow:0 1px 2px rgba(255,255,255,.9) !important;
@@ -141,7 +150,7 @@ function renderChapters(){
 }
 function openChapter(n){currentChapter=n;$('chapterHeading').textContent=(n==='EXAM'?'Examination':`Chapter ${String(n).padStart(2,'0')} — ${chapterNames[n]}`);renderLectures();show('level3')}
 function renderLectures(){
- const g=$('lectureGrid');g.innerHTML=[1,2,3,4].map(n=>`<button class="lecture-tab" onclick="openLecture(${n})"><span class="n">${String(n).padStart(2,'0')}</span><strong>Lecture ${String(n).padStart(2,'0')}</strong><small>${currentChapter===10&&lectureTopics[10]?.[n]?.length?'Topics available':'Ready for content'}</small></button>`).join('');
+ const g=$('lectureGrid');g.innerHTML=[1,2,3,4].map(n=>`<button class="lecture-tab" onclick="openLecture(${n})"><span class="n">${String(n).padStart(2,'0')}</span><span class="level3-chapter">Lecture ${n}</span><strong>Lecture ${String(n).padStart(2,'0')}</strong><small>${currentChapter===10&&lectureTopics[10]?.[n]?.length?'Topics available':'Ready for content'}</small></button>`).join('');
 }
 function openLecture(n){currentLecture=n;$('lectureHeading').textContent=`${currentChapter==='EXAM'?'Examination':`Chapter ${String(currentChapter).padStart(2,'0')} — ${chapterNames[currentChapter]}`} · Lecture ${String(n).padStart(2,'0')}`;$('lectureIntro').textContent='Topics → Main Topic Visual (00) → Individual Visuals (01, 02, 03…)';renderTopics();show('level4')}
 function renderTopics(){
