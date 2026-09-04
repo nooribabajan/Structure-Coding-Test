@@ -3,245 +3,396 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>IAE110110 — Chapter 10 Lecture 02</title>
+<title>IAE110110 — Chapter 10 · Lecture 02 — Transport & Homeostasis in Plants</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--line:#ddd4be;--sky:#87cde1;--blue:#376b8a;--red:#e7aaa0;--shadow:0 6px 20px rgba(23,62,52,.1)}
-*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden}body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic',serif;line-height:1.9}.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden}.page.active{display:block}.top,.screen-header{width:100%;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border-bottom:4px solid var(--gold);padding:14px 0}.top-inner,.screen-header-inner{width:100%;padding:0 clamp(10px,3vw,28px);display:flex;align-items:center;gap:18px;direction:ltr}.top-brand,.screen-brand{flex:1;min-width:0;text-align:left}.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(19px,4vw,34px)/1.25 Arial,sans-serif;overflow-wrap:anywhere}.top-brand p,.screen-brand p{margin:4px 0;font:12px Arial,sans-serif}.top-logo,.screen-seal{width:clamp(75px,11vw,140px);height:clamp(58px,8vw,95px);flex:0 0 clamp(75px,11vw,140px);display:flex;align-items:center;justify-content:center}.seal{font:800 28px Arial;color:var(--gold2)}.top-logo img,.screen-seal img{display:block;width:100%;height:100%;object-fit:contain;}.title{font-size:clamp(23px,3.5vw,32px);font-weight:800;text-align:center;padding:15px 15px 5px}.intro{text-align:center;padding:0 18px 14px;font-size:16px}.section-card{background:#fff;padding:18px clamp(14px,4vw,45px);border-bottom:1px solid var(--line)}.section-card strong{display:block;color:var(--green);font-size:19px;margin-bottom:5px}.section-card p,.section-card li{font-size:16px}.topic-grid,.functional-grid{max-width:1180px;margin:auto;padding:12px 18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.tab{min-height:112px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--shadow)}.topic3{border:5px solid var(--sky)}.topic4{border:5px solid #a8dfb8}.functional{border:5px solid var(--sky)}.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 58px Inter;color:var(--sky);opacity:.8;direction:ltr}.topic4 .num{color:#a8dfb8}.functional .num{color:var(--red)}.label{position:relative;z-index:2;font-weight:700;font-size:15px;max-width:86%}.modal{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;z-index:100}.modal.show{display:block}.dialog{width:100%;height:100dvh;background:#fff;overflow-y:auto;overflow-x:hidden;padding:0 28px 90px}.close{position:fixed;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));z-index:999999;width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;box-shadow:0 4px 14px #0003}.screen-header{margin:0 -28px 20px;width:calc(100% + 56px)}.content{max-width:1180px;margin:auto}.topic-head,.subtopic-head{display:flex;direction:ltr;align-items:center;gap:14px;border-bottom:1px solid #e2e8f0;padding:10px 0 14px;margin-bottom:14px}.topic-head-text,.subtopic-head-text{direction:rtl;text-align:right;flex:1}.lesson-title{font-size:26px;font-weight:800}.id{font:700 11px Inter;color:#876821;direction:ltr}.visual{width:88px;height:76px;flex:0 0 88px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer}.visual img{width:100%;height:100%;object-fit:contain}.fallback{font:700 10px Arial;color:#64748b;text-align:center;direction:ltr}.section{padding:14px;border-radius:14px;background:#f8fafc;margin:12px 0}.basic{border-right:5px solid #ef4444}.standard{border-right:5px solid #22c55e}.mastery{border-right:5px solid #3b82f6}.level{font-weight:800;font-size:18px;margin-bottom:5px}.basic .level{color:#dc2626}.standard .level{color:#16a34a}.mastery .level{color:#2563eb}.diagram{direction:ltr;text-align:center;font-family:Inter,Arial;background:#fff;border:1px dashed #cbd5e1;border-radius:12px;padding:12px;overflow-wrap:anywhere}.visual-link,.choice,.nav button,.search{font-family:inherit}.visual-link{display:block;width:100%;margin:10px 0;padding:10px;border:1px dashed #cbd5e1;border-radius:10px;background:#fff;cursor:pointer;font-weight:700}.nav{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:20px 0;border-top:1px solid var(--line);padding-top:12px;direction:ltr}.nav button{border:0;background:var(--green);color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer}.search{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px}.dict-item,.search-result,.revision-item,.visual-card,.question{padding:12px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;margin:8px 0;cursor:pointer}.dict-item:hover,.search-result:hover,.revision-item:hover{background:#f8fafc}.answer{display:none;background:#f1f5f9;border-radius:9px;padding:9px;margin-top:8px}.choice{display:block;width:100%;text-align:right;padding:10px;margin:7px 0;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}.exam-result{display:none;margin-top:15px;padding:15px;border-radius:14px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}.exam-result.show{display:block}.foot{text-align:center;color:#64748b;margin:25px}.visual-id{font:700 11px Inter;color:#876821;direction:ltr}.inline-term{color:#1f7a5a;cursor:pointer;font-weight:700}
-@media(max-width:760px){.topic-grid,.functional-grid{grid-template-columns:1fr 1fr;gap:7px;padding:9px}.tab{min-height:102px}.label{font-size:13px}.num{font-size:48px}.dialog{padding:0 18px 90px}.screen-header{margin:0 -18px 18px;width:calc(100% + 36px)}.visual{width:72px;height:62px;flex-basis:72px}.lesson-title{font-size:22px}.dialog p,.dialog li{font-size:16px}}
-#topicsPage .topic-grid{width:100%;max-width:1180px;margin:0 auto;padding:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#topicsPage .topic-grid .tab{width:100%;min-width:0}#topicsPage .topic03-column .topics-functional{width:100%;max-width:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:6px}#topicsPage .topic03-column .topics-functional .tab{min-height:58px;border-width:5px}@media(max-width:760px){#topicsPage .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:9px}}
-
-.topics-layout{max-width:1180px;margin:0 auto;padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}.topic-column{min-width:0}.topic-main-tab{min-height:112px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:var(--shadow);margin-bottom:10px}.topic-main-tab.topic3{border:5px solid var(--sky)}.topic-main-tab.topic4{border:5px solid #a8dfb8}.sub-list{display:flex;flex-direction:column;gap:8px}.sub-tab{min-height:68px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 3px 12px rgba(23,62,52,.07);padding:10px 12px}.sub-tab.topic3-sub{border:5px solid var(--sky)}.sub-tab.topic4-sub{border:5px solid #a8dfb8}.sub-tab .sub-num{font:700 16px Inter;color:#876821;direction:ltr;margin-left:10px}.sub-tab .sub-label{font-weight:700;font-size:15px}.topics-functional{max-width:none;width:100%;display:grid;grid-template-columns:1fr;gap:6px}.topics-functional .tab{min-height:58px;border-width:5px}.footer-nav{display:flex;justify-content:center;padding:12px 18px 28px}.footer-nav button{border:0;background:var(--green);color:#fff;padding:9px 18px;border-radius:9px;font-family:inherit;cursor:pointer} .topics-layout .topic-main-tab,.topics-layout .sub-tab,.topics-layout .topics-functional .tab{min-height:112px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:10px 12px}.topics-layout .topic-main-tab .num{position:static;inset:auto;font-size:58px;line-height:1;color:var(--sky);opacity:.9;flex:none}.topics-layout .topic-main-tab.topic4 .num{color:#a8dfb8}.topics-layout .sub-tab .sub-num{font-size:44px;line-height:1;margin:0 0 5px;color:inherit}.topics-layout .sub-tab .sub-label{font-size:15px;line-height:1.35}.topics-layout .topics-functional .tab{min-height:112px}.topics-layout .topics-functional .tab .num{position:static;inset:auto;font-size:50px;line-height:1;color:var(--red);opacity:.9}.topics-layout .topics-functional .tab .label{font-size:15px;line-height:1.35;margin-top:5px}.topics-functional{gap:8px!important;margin-top:112px!important}.topics-layout .topic03-column .topics-functional{margin-top:112px!important}.topics-layout .topic04-column .topics-functional{margin-top:112px!important}.dictionary-term{color:#8bcf9f;cursor:pointer;font-weight:700}.dictionary-popup{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,calc(100vw - 32px));max-height:min(70vh,560px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 55px rgba(0,0,0,.22);z-index:1000001;padding:22px 22px 68px;direction:rtl}.dictionary-popup .popup-close{position:absolute;left:12px;bottom:12px;width:40px;height:40px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 23px Inter;cursor:pointer}.dictionary-popup h3{margin:0 0 4px;color:var(--green);font-size:22px}.dictionary-popup .en{font:700 13px Inter;color:#876821;direction:ltr;text-align:left}.visual-viewer{position:fixed;inset:0;background:rgba(8,15,25,.97);z-index:1000000;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none}.visual-viewer img{display:block;max-width:100vw;max-height:100dvh;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none;transform-origin:center center;will-change:transform;touch-action:none}.visual-viewer .visual-close{position:fixed;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));z-index:1000002;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.88);color:#64748b;font:700 25px Inter;line-height:1;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center}.visual-viewer .visual-close:active{background:rgba(255,255,255,.72)}.dictionary-overlay{position:fixed;inset:0;background:rgba(15,23,42,.38);z-index:1000000}
-@media(max-width:760px){.topics-layout{grid-template-columns:1fr 1fr;gap:7px;padding:9px}.topic-main-tab{min-height:105px}.sub-tab{min-height:72px;padding:8px 5px}.sub-tab .sub-label{font-size:12px}.sub-tab .sub-num{font-size:12px;margin-left:5px}#topicsPage .topic03-column .topics-functional .tab{min-height:58px;border-width:5px}.dictionary-popup{width:calc(100vw - 24px)}}
-
-/* FINAL LEVEL-2 TAB PROPORTION FIX */
-.topics-layout .sub-tab{min-height:68px;height:68px;}
-.topics-layout .topics-functional{display:grid;grid-template-columns:1fr;gap:12px!important;margin-top:68px!important;width:100%;max-width:none;padding:0;}
-.topics-layout .topics-functional .tab{min-height:68px;height:68px;width:100%;border-width:5px;border-radius:12px;padding:10px 12px;}
-.topics-layout .topics-functional .tab .num{font-size:44px;line-height:1;}
-.topics-layout .topics-functional .tab .label{font-size:15px;line-height:1.25;margin-top:4px;}
-@media(max-width:760px){.topics-layout .sub-tab{min-height:68px;height:68px}.topics-layout .topics-functional{gap:8px!important;margin-top:68px!important}.topics-layout .topics-functional .tab{min-height:68px;height:68px}.topics-layout .topics-functional .tab .num{font-size:40px}.topics-layout .topics-functional .tab .label{font-size:12px}}
-
-/* FINAL LEVEL-2 TAB STANDARD — matches Topic 03 / Topic 04 visual language */
-.topics-layout{direction:rtl;}
-.topics-layout .topic-main-tab,.topics-layout .sub-tab,.topics-layout .topics-functional .tab{min-height:112px;height:112px;width:100%;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:10px 12px;}
-.topics-layout .topic-main-tab.topic3,.topics-layout .sub-tab.topic3-sub,.topics-layout .topic03-column .topics-functional .functional{border:5px solid var(--sky);}
-.topics-layout .topic-main-tab.topic4,.topics-layout .sub-tab.topic4-sub,.topics-layout .topic04-column .topics-functional .functional{border:5px solid #a8dfb8;}
-.topics-layout .topic-main-tab .num{position:static;font:600 58px/1 Inter;color:var(--sky);opacity:.9;direction:ltr;flex:none;}
-.topics-layout .topic-main-tab.topic4 .num{color:#a8dfb8;}
-.topics-layout .topic-main-tab .label,.topics-layout .sub-tab .sub-label,.topics-layout .topics-functional .tab .label{position:relative;z-index:2;font-weight:700;font-size:15px;line-height:1.35;max-width:90%;}
-.topics-layout .sub-list>div{display:flex;flex-direction:column;gap:8px;}
-.topics-layout .sub-tab .sub-num{position:static;font:700 44px/1 Inter;color:var(--sky);direction:ltr;margin:0 0 5px;flex:none;}
-.topics-layout .sub-tab.topic4-sub .sub-num{color:#a8dfb8;}
-
-.topics-layout .topics-functional .tab .num{position:static;font:700 44px/1 Inter;direction:ltr;opacity:.9;flex:none;margin:0 0 5px;}
-.topics-layout .topic03-column .topics-functional .tab .num{color:var(--sky);}
-.topics-layout .topic04-column .topics-functional .tab .num{color:#a8dfb8;}
-
-
-/* FINAL APPROVED LEVEL-2 TAB TREATMENT */
-.topics-layout .topic-main-tab .label,
-.topics-layout .sub-tab .sub-label,
-.topics-layout .topics-functional .tab .label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;max-width:100%;text-align:center;z-index:3;margin:0;font-weight:700;font-size:16px;line-height:1.3;}
-.topics-layout .topic-main-tab .num,
-.topics-layout .sub-tab .sub-num,
-.topics-layout .topics-functional .tab .num{position:static;inset:auto;display:flex;align-items:center;justify-content:center;flex:none;margin:0;line-height:1;}
-.topics-layout .topic-main-tab .num{font:600 58px/1 Inter;color:var(--sky);opacity:.9;direction:ltr;}
-.topics-layout .topic-main-tab.topic4 .num{color:#a8dfb8;}
-.topics-layout .sub-tab .sub-num{font:600 58px/1 Inter;color:var(--sky);opacity:.9;direction:ltr;}
-.topics-layout .sub-tab.topic4-sub .sub-num{color:#a8dfb8;}
-.topics-layout .topics-functional .tab .num{font:600 58px/1 Inter;direction:ltr;opacity:.9;}
-.topics-layout .topic03-column .topics-functional .tab .num{color:var(--sky);}
-.topics-layout .topic04-column .topics-functional .tab .num{color:#a8dfb8;}
-.topics-layout .topic-main-tab{position:relative;}
-.topics-layout .sub-tab,.topics-layout .topics-functional .tab{position:relative;}
-/* Functional group stays one-tab-height below the last Topic 03 subtopic and ends level with Topic 04 subtopic 13. */
-.topics-layout .topics-functional{gap:11.2px!important;margin-top:112px!important;}
-@media(max-width:760px){
-.topics-layout .topic-main-tab,.topics-layout .sub-tab,.topics-layout .topics-functional .tab{min-height:112px;height:112px;margin-top:0!important;}
-.topics-layout .topics-functional{margin-top:112px!important;}
-.topics-layout .topic-main-tab .label,.topics-layout .sub-tab .sub-label,.topics-layout .topics-functional .tab .label{font-size:16px;line-height:1.25;}
-.topics-layout .topic-main-tab .num,.topics-layout .sub-tab .sub-num,.topics-layout .topics-functional .tab .num{font-size:48px;}
-.topics-layout .topics-functional{gap:11.2px!important;margin-top:112px!important;}
-}
-/* USER REQUEST ONLY — functional tabs align exactly with Topic 04 subtopics 8–13 */
-.topics-layout .topics-functional{gap:8px!important;margin-top:128px!important;}
-.topics-layout .topics-functional .tab{min-height:112px!important;height:112px!important;}
-@media(max-width:760px){.topics-layout .topics-functional{gap:8px!important;margin-top:128px!important;}.topics-layout .topics-functional .tab{min-height:112px!important;height:112px!important;}}
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--shadow:0 8px 24px rgba(23,62,52,.10)}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic',serif;line-height:1.9}
+.wrap{width:100%;height:100dvh;overflow:hidden}
+.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden}
+.page.active{display:block}
+.top,.screen-header{width:100%;padding:14px 0 12px;border-bottom:3px solid var(--gold);background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;box-shadow:0 3px 13px #0002}
+.top-inner,.screen-header-inner{width:100%;padding:0 clamp(9px,3vw,28px);display:flex;align-items:center;gap:clamp(8px,2vw,18px);direction:ltr}
+.top-brand,.screen-brand{flex:1;min-width:0;text-align:left}
+.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(18px,5.5vw,28px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95}
+.top-logo,.screen-seal{flex:0 0 clamp(60px,11vw,140px);width:clamp(60px,11vw,140px);height:clamp(48px,8vw,95px);overflow:hidden}
+.top-logo img,.screen-seal img{width:100%;height:100%;object-fit:contain}
+.page-title{max-width:1180px;margin:auto;padding:14px;text-align:center;color:var(--green);font-size:clamp(21px,3.5vw,32px);font-weight:800}
+.section-card{max-width:1180px;margin:0 auto;padding:18px 24px;background:#fff;border-bottom:1px solid var(--line)}
+.section-card strong{display:block;color:var(--green);font-size:20px;margin-bottom:6px}
+.section-card p,.section-card li{font-size:16px}
+.topic-grid{max-width:1180px;margin:auto;padding:10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.column{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tab{min-height:105px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05);border:2px solid var(--sky)}
+.tab.topic2{border-color:var(--green)}
+.tab.functional{border-color:var(--red)}
+.tab:hover{transform:translateY(-1px)}
+.topic-intro{min-height:120px}
+.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 58px/1 Inter,sans-serif;color:var(--sky);opacity:.9}
+.topic2 .num{color:#b9e9c3}.functional .num{color:var(--red)}
+.label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.section-heading{text-align:center;color:var(--green);font-size:24px;margin:4px auto 8px;max-width:1180px}
+.section-note{text-align:center;color:#475569;max-width:1000px;margin:0 auto 10px;padding:0 12px}
+.footer-nav{max-width:1180px;margin:12px auto;padding:10px;position:sticky;bottom:0;background:rgba(255,255,255,.96);border-top:1px solid #dbe4ee;display:flex;justify-content:center;z-index:20}
+button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessment-actions button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:50}
+.modal.show{display:block}
+.dialog{width:100%;height:100dvh;background:#fff;overflow-y:auto;overflow-x:hidden;padding:0 28px 90px}
+#content{width:100%;padding-bottom:10px}
+#content>.screen-header{width:calc(100% + 56px);margin:0 -28px 18px;position:sticky;top:0;z-index:100}
+.close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003}
+.lesson-title{font-size:27px;font-weight:700;margin:0 0 12px;text-align:center}
+.lesson-subtitle{text-align:center;color:#64748b;margin:-4px 0 14px}
+.topic-head,.subtopic-head{max-width:1180px;margin:0 auto 14px;display:flex;direction:ltr;align-items:center;gap:14px;padding:10px 0 14px;border-bottom:1px solid #e2e8f0}
+.topic-visual{width:88px;height:76px;flex:0 0 88px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc;padding:5px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.topic-visual img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+.topic-head-text,.subtopic-head-text{direction:rtl;text-align:right;flex:1;min-width:0}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:right;margin:0}
+.section,.visual-card,.question-card,.assessment-head,.exam-rules,.recommendation-card,.answer-review,.revision-item,.search-result{max-width:1180px;margin:10px auto;padding:14px;border-radius:14px;background:#f8fafc}
+.section.basic{border-right:5px solid #ef4444}.section.standard{border-right:5px solid #22c55e}.section.mastery{border-right:5px solid #3b82f6}
+.level-heading{display:block;font-size:18px;font-weight:800;margin-bottom:5px}.basic-h{color:#dc2626}.standard-h{color:#16a34a}.mastery-h{color:#2563eb}
+.section p,.section li,.dialog p,.dialog li{font-size:17px;line-height:1.9}
+.pill,.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial}
+.inline-note{padding:10px 12px;border-radius:10px;background:var(--warn);border-right:4px solid var(--gold);margin:10px auto;max-width:1180px}
+.linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;border:0;box-shadow:none;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;outline:none}.linked-word:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.diagram{direction:ltr;text-align:center;font:700 14px/1.8 Inter,sans-serif;background:#f8fafc;padding:16px;border-radius:12px;white-space:pre-wrap;overflow:auto}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #dbe4ee;padding:9px;text-align:right;vertical-align:top}th{background:#edf5ef}
+.search{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}
+.dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover,.search-result:hover{background:#f8fafc}
+.visual-card{border:1px solid #e2e8f0;background:#fff}.visual-id{display:block;font:700 11px Inter;color:#876821;direction:ltr}
+.atlas-img{display:block;max-width:100%;height:auto;border-radius:12px;margin:10px auto;border:1px solid #e2e8f0}
+.choice,.assessment-option{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-option{display:flex;gap:8px;align-items:flex-start}.assessment-option input{margin-top:6px}
+.assessment-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px auto;max-width:1180px}
+.exam-submit{background:var(--green)!important;color:#fff}
+.assessment-result{display:none;max-width:1180px;margin:18px auto}.assessment-result.show{display:block}
+.result-hero{padding:20px;border-radius:16px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}
+.result-title{font-weight:800;color:#285b4b;font-size:20px}.result-score{font:800 38px Arial;color:#173e34}.result-percent{font:700 16px Arial;color:#876821}
+.recommendation-title{max-width:1180px;margin:18px auto 8px;font-weight:800;color:#285b4b}
+.answer-review{border-right:4px solid #4d7867}.review-wrong{border-right-color:#b94a48}
+.content-navigation{max-width:1180px;margin:18px auto;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;direction:ltr;padding-top:12px;border-top:1px solid var(--line)}
+.content-navigation button{border:0;background:var(--green);color:#fff;padding:7px 10px;border-radius:7px;cursor:pointer;font:700 10px Arial}
+@media(max-width:760px){.dialog{padding:0 18px 88px}.dialog #content>.screen-header{width:calc(100% + 36px);margin:0 -18px 14px}.topic-grid{gap:6px;padding:8px}.tab{min-height:100px}.label{font-size:14px}.topic-visual{width:62px;height:54px;flex-basis:62px}.section p,.section li,.dialog p,.dialog li{font-size:16px}}
+@media(max-width:420px){.top-brand h1,.screen-brand h1{font-size:17px}.top-brand p,.screen-brand p{font-size:8px}.topic-grid{gap:5px;padding:6px}.tab{min-height:94px}.num{font-size:50px}.dialog{padding-inline:14px}.dialog #content>.screen-header{width:calc(100% + 28px);margin-inline:-14px}.lesson-title{font-size:23px}}
 </style>
 </head>
 <body>
-<div class="page active" id="homePage">
-<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>An Academy For Everyone</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div><div class="title">حیاتیات — باب 10، لیکچر 02</div><div class="intro">پودوں میں نقل و حمل اور پودوں میں ہومیوسٹیسس</div></header>
-<div class="section-card"><strong>تعلیمی ترتیب</strong><p>سیکھنا → وضاحت → بصری تصور → تعامل → مشق → تشخیص → نظرِ ثانی → مہارت</p></div>
-<div class="section-card"><strong>لیکچر کے تعلیمی نتائج</strong><ol><li>زائلم، فلوئم، پانی کی صلاحیت، جڑوں کے راستوں، TACT، روزنوں اور Translocation کی وضاحت کرنا۔</li><li>Homeostasis، Osmoregulation، isotonic، hypotonic، hypertonic، plasmolysis اور osmotic adjustment سمجھنا۔</li><li>Hydrophytes، Mesophytes، Xerophytes، Halophytes اور درجۂ حرارت کی موافقت کا تقابل کرنا۔</li><li>نقل و حمل، پانی کے توازن اور ماحولیاتی stress کے تعلق کو بیان کرنا۔</li></ol></div>
-<div class="footer-nav" style="position:relative;margin:24px auto 8px;max-width:1180px;border-top:0;box-shadow:none;background:transparent;display:flex;justify-content:center"><button onclick="showPage('topicsPage')">موضوعات</button></div>
+<div class="wrap">
+<section class="page active" id="homePage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="page-title">IAE110110 — Chapter 10 · Lecture 02</div>
+<div class="section-card"><strong>Transport &amp; Homeostasis in Plants — تعلیمی نقشہ</strong><p>اس لیکچر میں پودوں کے اندر پانی، معدنی آئنز اور نامیاتی غذائی اجزاء کی نقل و حمل، Root Hair سے Xylem تک پانی کے راستوں، Ascent of Sap، TACT mechanism، Stomatal regulation، Phloem translocation اور Pressure-Flow Hypothesis کے ساتھ پودوں کے Water/Solute balance اور ماحولیاتی adaptations کو structure → function → mechanism → application کے تسلسل میں سمجھایا جاتا ہے۔</p></div>
+<div class="section-card"><strong>Learning Outcomes</strong><ol>
+<li>Root hairs، water potential اور osmosis کے ذریعے پانی کے حصول کی وضاحت کر سکے۔</li>
+<li>Apoplast، Symplast اور Vacuolar pathways میں فرق بیان کر سکے۔</li>
+<li>Endodermis اور Casparian Strip کا selective control سمجھا سکے۔</li>
+<li>Root pressure، guttation، xylem structure اور ascent of sap کو مربوط کر سکے۔</li>
+<li>TACT mechanism میں Transpiration، Adhesion، Cohesion اور Tension کے تعلق کو بیان کر سکے۔</li>
+<li>Stomatal opening/closing میں H⁺ pump، K⁺ ions، malate اور ABA کا کردار سمجھا سکے۔</li>
+<li>Phloem structure، source/sink اور Pressure-Flow Hypothesis کی وضاحت کر سکے۔</li>
+<li>Homeostasis، osmotic adjustment اور compatible solutes کا کردار بیان کر سکے۔</li>
+<li>Hydrophytes، Mesophytes، Xerophytes اور Halophytes کی اہم adaptations کا موازنہ کر سکے۔</li>
+<li>KPK examination core کے 20 بنیادی سوالات کے جواب دے سکے۔</li>
+</ol></div>
+<div class="footer-nav"><button onclick="showPage('topicsPage')">موضوعات پر جائیں</button></div>
+</section>
+
+<section class="page" id="topicsPage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="page-title">Lecture 02 — Topics</div>
+<h1 class="section-heading">Transport in Plants &nbsp; | &nbsp; Homeostasis in Plants</h1>
+<p class="section-note">Learning → Explanation → Visual → Interaction → Practice → Assessment → Diagnosis → Revision → Mastery</p>
+<div class="topic-grid"><section class="column">
+<div class="tab topic1 topic-intro" onclick="openTopic('t3')"><div class="label">پودوں میں نقل و حمل<br><small>Transport in Plants</small></div></div>
+<div class="tab topic1" onclick="openSub('t3s1')"><div class="num">1</div><div class="label">جڑ کے بالوں کے ذریعے پانی کا حصول</div></div>
+<div class="tab topic1" onclick="openSub('t3s2')"><div class="num">2</div><div class="label">Water Potential &amp; Osmosis</div></div>
+<div class="tab topic1" onclick="openSub('t3s3')"><div class="num">3</div><div class="label">Apoplast, Symplast &amp; Vacuolar</div></div>
+<div class="tab topic1" onclick="openSub('t3s4')"><div class="num">4</div><div class="label">Endodermis &amp; Casparian Strip</div></div>
+<div class="tab topic1" onclick="openSub('t3s5')"><div class="num">5</div><div class="label">Root Pressure &amp; Guttation</div></div>
+<div class="tab topic1" onclick="openSub('t3s6')"><div class="num">6</div><div class="label">Xylem &amp; Ascent of Sap</div></div>
+<div class="tab topic1" onclick="openSub('t3s7')"><div class="num">7</div><div class="label">TACT Mechanism</div></div>
+<div class="tab topic1" onclick="openSub('t3s8')"><div class="num">8</div><div class="label">Stomatal Opening &amp; Closing</div></div>
+<div class="tab topic1" onclick="openSub('t3s9')"><div class="num">9</div><div class="label">Phloem Translocation / Pressure Flow</div></div>
+</section><section class="column">
+<div class="tab topic2 topic-intro" onclick="openTopic('t4')"><div class="label">پودوں میں ہومیوسٹیسس<br><small>Homeostasis in Plants</small></div></div>
+<div class="tab topic2" onclick="openSub('t4s1')"><div class="num">1</div><div class="label">Water &amp; Solute Balance</div></div>
+<div class="tab topic2" onclick="openSub('t4s2')"><div class="num">2</div><div class="label">Osmotic Adjustment</div></div>
+<div class="tab topic2" onclick="openSub('t4s3')"><div class="num">3</div><div class="label">Hydrophytes, Mesophytes, Xerophytes &amp; Halophytes</div></div>
+<div class="tab functional" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div>
+<div class="tab functional" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div>
+<div class="tab functional" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div>
+<div class="tab functional" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div>
+<div class="tab functional" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div>
+<div class="tab functional" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div>
+<div class="tab functional" onclick="openFunctional('mastery')"><div class="num">M</div><div class="label">Mastery</div></div>
+<div class="tab functional" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div>
+</section></div>
+</section>
+
+<section class="page" id="searchPage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="page-title">Lecture 02 — Search</div><div id="searchPageContent"></div>
+</section>
 </div>
-<div class="page" id="topicsPage">
-<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>An Academy For Everyone</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div><div class="title">تمام موضوعات — Chapter 10 Lecture 02</div><div class="intro">Level 2 — Topics + Functional Navigation</div></header>
-<div class="topics-layout">
-  <section class="topic-column topic3-column" id="topic03Column">
-    <div class="topic-main-tab topic3" onclick="focusTopic('topic03Column')"><span class="label">Transport in Plants</span></div>
-    <div class="sub-list"><div id="t3SubList"></div></div>
-    <div class="functional-grid topics-functional" id="functionalTabs">
-      <div class="tab functional" onclick="functional('dictionary')"><span class="num">A</span><span class="label">Dictionary</span></div>
-      <div class="tab functional" onclick="functional('exam')"><span class="num">E</span><span class="label">Exam Readiness</span></div>
-      <div class="tab functional" onclick="functional('practice')"><span class="num">P</span><span class="label">Practice</span></div>
-      <div class="tab functional" onclick="functional('revision')"><span class="num">R</span><span class="label">Revision</span></div>
-      <div class="tab functional" onclick="functional('search')"><span class="num">S</span><span class="label">Search</span></div>
-      <div class="tab functional" onclick="functional('visual')"><span class="num">V</span><span class="label">Visual Atlas</span></div>
-    </div>
-  </section>
-  <section class="topic-column topic4-column" id="topic04Column">
-    <div class="topic-main-tab topic4" onclick="focusTopic('topic04Column')"><span class="label">Homeostasis in Plants</span></div>
-    <div class="sub-list"><div id="t4SubList"></div></div>
-  </section>
-</div>
-<div class="footer-nav"><button onclick="showPage('homePage')">← پچھلا صفحہ</button></div>
-</div>
-<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="dialog"><button class="close" onclick="closeModal()" aria-label="بند کریں">×</button><div id="content"></div></div></div>
+
+<div class="modal" id="modal" aria-hidden="true">
+<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<button class="close" aria-label="Close" onclick="closeModal()">×</button>
+<div id="content"></div>
+</div></div>
+
 <script>
-const BASE='https://nooribabajan.github.io/Structure-Coding-Test/Subject/Visual-Atlas/';
+const BASE='https://nooribabajan.github.io/Structure-Coding-Test/Subject/Visual-Atlas/Chapter-10/Lecture-02/';
 const topics={
-t3:{id:'IAE1101100300',title:'Topic 03 — Transport in Plants',intro:'پانی، معدنیات اور نامیاتی محلول کی منظم نقل و حرکت۔',subs:[
-['IAE1101100301','Vascular Tissues: Xylem and Phloem','زائلم پانی اور تحلیل شدہ معدنیات کو عموماً جڑ سے اوپر منتقل کرتا ہے۔ فلوئم خصوصاً سکروز جیسے نامیاتی محلول کو Source سے Sink تک منتقل کرتا ہے۔','زائلم کی lignification اسے مضبوطی اور پانی کی ترسیل میں مدد دیتی ہے۔ Sieve tubes اور companion cells فلوئم کے مربوط زندہ transport system کا حصہ ہیں۔','Xylem: Root → Water + Minerals → Shoot<br>Phloem: Source → Organic Solutes → Sink'],
-['IAE1101100302','Water Potential and Water Status','پانی کی صلاحیت (Water Potential) پانی کے حرکت کرنے کے رجحان کو بیان کرتی ہے۔ بنیادی تعلق Ψw = Ψs + Ψp ہے؛ پانی عموماً زیادہ water potential سے کم water potential کی طرف جاتا ہے۔','حل شدہ مادے water potential کم کرتے ہیں جبکہ pressure اس میں حصہ ڈالتا ہے۔ پانی خلیے میں داخل ہو تو turgor بڑھتا ہے۔','Ψw = Ψs + Ψp'],
-['IAE1101100303','Uptake of Water by Roots and Pathways','مٹی → Root Hair → Epidermis → Cortex → Endodermis → Pericycle → Xylem۔ پانی Apoplast، Symplast اور Vacuolar/Transcellular راستوں سے گزر سکتا ہے۔','Endodermis کی Casparian Strip apoplastic راستے کو روکتی اور جھلی کے ذریعے باقاعدہ گزرنے کو ضروری بناتی ہے۔','Soil → Root Hair → Cortex → Endodermis → Xylem'],
-['IAE1101100304','Ascent of Sap — TACT Mechanism','TACT سے مراد Transpiration، Adhesion، Cohesion اور Tension ہے۔ پتوں سے پانی کے بخارات کا اخراج کھنچاؤ پیدا کرتا ہے؛ cohesion پانی کے مسلسل ستون کو قائم رکھتی ہے اور adhesion اسے زائلم کی دیواروں کے ساتھ سہارا دیتی ہے۔','طویل پودوں میں پانی کے اوپر جانے کی بنیادی وضاحت cohesion–tension / transpiration pull ہے؛ root pressure بنیادی عامل نہیں۔','Solar Energy → Evaporation → Transpiration → Tension → Cohesion + Adhesion → Upward Movement'],
-['IAE1101100305','Opening and Closing of Stomata','Stomata گیسوں کے تبادلے اور transpiration کے اہم راستے ہیں۔ Guard cells میں turgor بڑھنے سے روزن کھلتے اور کم ہونے سے بند ہوتے ہیں۔','K⁺ uptake → solute concentration ↑ → water enters by osmosis → guard cells turgid → stomata open۔ پانی کی کمی closure کو فروغ دیتی ہے۔','K⁺ ↑ → Water In → Turgor ↑ → Opening'],
-['IAE1101100306','Translocation of Organic Solutes','فوٹوسنتھیسز سے بننے والی شکر، خصوصاً sucrose، Phloem کے ذریعے Source سے Sink تک منتقل ہوتی ہے۔','Source پر sucrose loading سے پانی xylem سے phloem میں داخل ہوتا ہے، pressure بڑھتا ہے اور mass flow Sink کی طرف ہوتا ہے؛ unloading پر solutes استعمال یا ذخیرہ ہوتے ہیں۔','Source → Sucrose Loading → Water Entry → Pressure ↑ → Mass Flow → Sink'] ]},
-t4:{id:'IAE1101100400',title:'Topic 04 — Homeostasis in Plants',intro:'پودے پانی، محلول، turgor اور درجۂ حرارت سے متعلق اندرونی حالات کو مناسب فعالی حدود میں برقرار رکھتے ہیں۔',subs:[
-['IAE1101100401','Homeostasis in Plants','Homeostasis اندرونی حالات کو مناسب functional limits میں برقرار رکھنے کا عمل ہے۔ یہ مکمل طور پر جامد حالت نہیں بلکہ تبدیلی کے باوجود functional balance ہے۔','ماحولیاتی تبدیلی → اندرونی عدم توازن → جسمانی/ساختی ردِعمل → توازن → بقا۔','Environment → Imbalance → Regulation → Functional Balance → Survival'],
-['IAE1101100402','Osmoregulation and Plant Water-Solute Balance','Osmoregulation پانی اور تحلیل شدہ محلول کے توازن کو منظم کرتا ہے۔ water availability، uptake، solute balance، water potential اور turgor باہم مربوط ہیں۔','یہ subtopic 0302 کی water-potential تفصیل کو دہراتا نہیں بلکہ اسے plant water–solute balance کے تناظر میں جوڑتا ہے۔','Water Availability → Uptake → Solute Balance → Ψw → Turgor → Cell Function'],
-['IAE1101100403','Isotonic Conditions','جب بیرونی اور اندرونی محلول کا ارتکاز تقریباً برابر ہو تو پانی دونوں سمتوں میں حرکت کرتا ہے لیکن net water movement نہیں ہوتا۔','خلیے کی آبی حالت میں بڑا خالص تغیر نہیں ہوتا۔','Equal Solute Concentration → No Net Water Movement'],
-['IAE1101100404','Hypotonic Conditions','جب بیرونی محلول کا ارتکاز کم ہو تو پانی خلیے میں داخل ہوتا ہے، turgor بڑھتا ہے اور خلیہ turgid ہو جاتا ہے۔','Cell wall زیادہ پھیلاؤ کے خلاف mechanical resistance فراہم کرتی ہے اور turgidity ساختی سہارا دیتی ہے۔','Hypotonic → Water In → Turgor ↑ → Turgid Cell'],
-['IAE1101100405','Hypertonic Conditions and Plasmolysis','جب بیرونی محلول کا ارتکاز زیادہ ہو تو پانی خلیے سے باہر نکلتا ہے اور turgor کم ہوتا ہے۔ شدید water loss میں plasmolysis ہو سکتی ہے۔','Plasmolysis میں protoplast/cell membrane پانی کے اخراج کے باعث اندر کی طرف سکڑ کر cell wall سے الگ ہونے لگتا ہے۔','Hypertonic → Water Loss → Turgor ↓ → Plasmolysis'],
-['IAE1101100406','Osmotic Adjustment','کم پانی کی دستیابی کے دوران پودا solute concentration میں جسمانی تبدیلی کے ذریعے water status اور turgor برقرار رکھنے کی کوشش کرتا ہے۔','Water stress → solute adjustment → water retention/uptake support → turgor maintenance → continued cell function۔','Water Stress → Solute Adjustment → Turgor Support'],
-['IAE1101100407','Hydrophytes and Mesophytes','Hydrophytes آبی یا بہت نم ماحول میں رہتے ہیں؛ مثالیں Hydrilla، Vallisneria اور Potamogeton۔ Mesophytes معتدل نمی والے زمینی ماحول کے پودے ہیں۔','بہت زیادہ پانی والا ماحول → hydrophyte؛ معتدل نمی → mesophyte۔','Very Moist/Aquatic → Hydrophyte | Moderate Moisture → Mesophyte'],
-['IAE1101100408','Xerophytes and Water-Conservation Adaptations','Xerophytes خشک یا پانی کی کمی والے ماحول میں رہتے ہیں۔ گہری/لمبی جڑیں، water-storage tissues، کم یا modified leaves، thick cuticle، sunken stomata اور بعض اوقات hairs پانی کے ضیاع کو کم کرتے ہیں۔','Cactus، Opuntia اور Aloe مثالیں ہیں۔','Dry Environment → Water-Loss Risk ↑ → Conservation Adaptations → Survival'],
-['IAE1101100409','Halophytes and Salt Adaptations','Halophytes نمکیاتی مٹی میں رہتے ہیں۔ زیادہ salt بیرونی پانی کی مؤثر دستیابی کم کرتا ہے، اس لیے osmotic adjustment اور salt-tolerance mechanisms اہم ہیں۔','Salinity → external solute concentration ↑ → effective water availability ↓ → osmotic/salt-tolerance responses → balance۔','Saline Environment → Low Effective Water Availability → Adaptation'],
-['IAE1101100410','Saline Soil and Plant Water Stress','مٹی میں تحلیل شدہ نمکیات soil water potential کو کم کرتے ہیں، جس سے جڑوں کے لیے پانی حاصل کرنا مشکل ہو سکتا ہے۔','Water موجود ہونا لازماً یہ نہیں کہ وہ plant کے لیے آسانی سے available بھی ہو؛ water potential تعلق اہم ہے۔','Salt ↑ → Soil Ψw ↓ → Root Uptake Difficulty → Water Stress'],
-['IAE1101100411','Thermoregulation in Plants','Thermoregulation ساختی اور جسمانی ردِعمل کے ذریعے درجۂ حرارت کے stress کو کم کرتا ہے۔ زیادہ درجۂ حرارت پانی کے ضیاع اور protein/enzyme damage کا سبب بن سکتا ہے جبکہ کم درجۂ حرارت metabolism سست اور freezing injury کا خطرہ بڑھاتا ہے۔','Temperature Stress → Cellular/Water Imbalance → Plant Response → Stress Reduction → Survival','Temperature Change → Regulation → Survival'],
-['IAE1101100412','Low-Temperature Adaptations','کم درجۂ حرارت metabolic slowdown اور freezing injury کا خطرہ پیدا کرتا ہے۔ کچھ پودوں میں مضبوط bark، مختصر life cycle، cell solute changes، سخت leaves/stems، scale leaves اور reduced transpiration مدد دیتے ہیں۔','مقصد freezing damage اور metabolic stress کو کم کرنا ہے۔','Low Temperature → Metabolic/Freezing Stress → Protective Adaptations → Reduced Injury'],
-['IAE1101100413','High-Temperature Adaptations','زیادہ درجۂ حرارت evaporation اور water loss بڑھاتا ہے۔ water storage، extensive roots، thick/waxy cuticle، sunken stomata، succulent stems اور leaves کا spines میں تبدیل ہونا پانی محفوظ رکھنے میں مدد دیتا ہے۔','مقصد water status برقرار رکھنا اور heat/water stress کم کرنا ہے۔','High Temperature → Evaporation ↑ → Water Loss ↑ → Conservation → Survival'] ]}
+t3:{title:'پودوں میں نقل و حمل (Transport in Plants)',id:'IAE1101100300',visual:'IAE1101100300V.webp',intro:'پودوں کو زندگی کے لیے پانی، معدنی آئنز اور نامیاتی غذائی اجزاء کی مسلسل نقل و حمل کی ضرورت ہوتی ہے۔ Xylem پانی اور معدنیات کو اوپر منتقل کرتا ہے جبکہ Phloem تیار شدہ خوراک کو Source سے Sink تک پہنچاتا ہے۔'},
+t4:{title:'پودوں میں ہومیوسٹیسس (Homeostasis in Plants)',id:'IAE1101100400',visual:'IAE1101100400V.webp',intro:'Homeostasis سے مراد پانی، نمکیات، آئنز اور دیگر اندرونی حالات کو خارجی ماحول میں تبدیلی کے باوجود مناسب functional range میں برقرار رکھنا ہے۔'}
+};
+const subs={
+t3s1:{topic:'t3',id:'IAE1101100301',title:'جڑ کے بالوں کے ذریعے پانی کا حصول (Water Absorption via Root Hairs)',visual:'IAE1101100301V.webp',
+basic:`Root Hairs جڑ کی Epidermal cells کی باریک، نالی نما یک خلیاتی توسیعات ہیں جو surface area بڑھاتی ہیں۔ Root cells active ion uptake کے ذریعے K⁺، NO₃⁻ وغیرہ اندر منتقل کرتے ہیں؛ اس سے root cell کا water potential زیادہ منفی ہوتا ہے اور پانی osmosis کے ذریعے اندر داخل ہوتا ہے۔`,
+standard:`اہم خصوصیات میں زیادہ surface area، پتلی cell wall، بڑی vacuole اور soil water films سے قریبی رابطہ شامل ہیں۔ Active ion uptake اور water-potential gradient پانی کے مؤثر جذب کو support کرتے ہیں۔`,
+mastery:`Root hairs میں ion accumulation پانی کے potential gradient کو قائم کرتا ہے؛ پھر selectively permeable membranes کے پار osmosis پانی کو کم water potential والے root tissues کی طرف منتقل کرتی ہے۔`,
+extra:`Active Ion Uptake → کم (زیادہ منفی) Ψw → Osmosis → Root water entry`},
+t3s2:{topic:'t3',id:'IAE1101100302',title:'Water Potential اور Osmosis',visual:'IAE1101100302V.webp',
+basic:`Water Potential (Ψw) پانی کے مالیکیولز کی free-energy/tendency to move کو ظاہر کرتا ہے۔ معیاری حالت میں خالص پانی کا Ψw صفر لیا جاتا ہے؛ solutes عموماً solute potential کو منفی بناتے ہیں۔`,
+standard:`جامع طور پر Ψw کو solute، pressure، gravity اور matric components سے بیان کیا جا سکتا ہے: Ψw = Ψs + Ψp + Ψg + Ψm۔ پانی عموماً high water potential (کم منفی) سے lower water potential (زیادہ منفی) کی طرف حرکت کرتا ہے۔ Osmosis selectively permeable membrane کے پار پانی کی net movement ہے۔`,
+mastery:`Water potential کا تصور root uptake، xylem transport، stomatal regulation اور osmotic adjustment کو ایک ہی thermodynamic framework میں جوڑتا ہے۔ Turgor plant support میں اہم ہے۔`,
+extra:`High Ψw → → → Lower Ψw`},
+t3s3:{topic:'t3',id:'IAE1101100303',title:'Apoplast, Symplast اور Vacuolar Pathways',visual:'IAE1101100303V.webp',
+basic:`Root cortex سے xylem تک پانی تین بنیادی راستوں سے جا سکتا ہے: Apoplast (cell walls/intercellular spaces)، Symplast (cytoplasm/plasmodesmata) اور Vacuolar/Transmembrane pathway (بار بار membranes عبور کرنا)۔`,
+standard:`Apoplast تیز اور نسبتاً non-selective route ہے؛ Symplast زندہ cytoplasm اور plasmodesmata کا مسلسل راستہ ہے؛ Vacuolar route میں بار بار plasma membrane اور tonoplast عبور کیے جاتے ہیں، اس لیے membrane control زیادہ ہوتا ہے۔`,
+mastery:`Endodermis پر Casparian Strip apoplastic flow کو روکتی ہے، جس کے بعد water/solutes کو membrane-controlled route اختیار کرنا پڑتا ہے۔`,
+extra:`Soil → Root Hair → Apoplast / Symplast / Vacuolar → Casparian Strip → Xylem`},
+t3s4:{topic:'t3',id:'IAE1101100304',title:'Endodermis اور Casparian Strip',visual:'IAE1101100304V.webp',
+basic:`Endodermis cortex اور stele کے درمیان اہم selective boundary ہے۔ Casparian Strip endodermal cell walls میں suberin کی موم نما hydrophobic پٹی ہے۔`,
+standard:`Casparian Strip apoplastic movement کو روکتی ہے اور پانی و ions کو endodermal plasma membrane سے گزرنے پر مجبور کرتی ہے۔ اس طرح xylem میں داخل ہونے والے solutes پر physiological control قائم رہتا ہے۔`,
+mastery:`Casparian Strip root-to-stele transport کو passive wall pathway سے membrane-controlled physiological selection میں تبدیل کرتی ہے اور غیر ضروری یا نقصان دہ ions کے بے قابو داخلے کو محدود کرتی ہے۔`,
+extra:`Apoplast blocked → Membrane crossing → Selective control → Stele/Xylem`},
+t3s5:{topic:'t3',id:'IAE1101100305',title:'Root Pressure اور Guttation',visual:'IAE1101100305V.webp',
+basic:`Root pressure جڑ کے ذریعے ions کے active uptake، xylem میں solute accumulation اور water entry سے پیدا ہونے والا positive hydrostatic pressure ہے۔ Guttation میں عموماً رات یا صبح سویرے پتوں کے کناروں سے liquid water droplets نکلتے ہیں۔`,
+standard:`Hydathodes ایسے specialized pores ہیں جن سے guttation کا پانی نکلتا ہے۔ Transpiration water vapour کے طور پر stomata سے نکلتی ہے، جبکہ guttation liquid droplets کی صورت میں ہوتی ہے۔`,
+mastery:`Root pressure بعض حالات میں، خصوصاً کم transpiration کے وقت، xylem water movement میں حصہ ڈال سکتا ہے؛ اسے tall plants میں ascent of sap کا واحد بنیادی mechanism نہیں سمجھنا چاہیے۔`,
+extra:`Ion uptake → Xylem Ψw decreases → Water entry → Positive pressure → Guttation`},
+t3s6:{topic:'t3',id:'IAE1101100306',title:'Xylem Structure اور Ascent of Sap',visual:'IAE1101100306V.webp',
+basic:`Xylem vascular tissue ہے جو water اور mineral ions کو roots سے shoots/leaves تک منتقل کرتا ہے۔ Tracheids اور vessel elements اہم conducting cells ہیں اور maturity پر عموماً non-living ہوتے ہیں۔`,
+standard:`Tracheids لمبے، پتلے اور pits والے cells ہیں؛ vessel elements چوڑے اور end perforations کے ذریعے مسلسل vessels بنا سکتے ہیں۔ Lignin thickening xylem walls کو support دیتی ہے۔ Cavitation میں air bubble بنتا ہے اور embolism flow کو روک سکتا ہے۔`,
+mastery:`Xylem کی lignified architecture negative pressure کے تحت collapse کے خلاف structural support دیتی ہے، جبکہ pits lateral water movement اور embolism bypass میں مدد کر سکتے ہیں۔`,
+extra:`Root → Xylem → Stem → Leaf`},
+t3s7:{topic:'t3',id:'IAE1101100307',title:'TACT Mechanism (Ascent of Sap)',visual:'IAE1101100307V.webp',
+basic:`TACT کو Transpiration–Adhesion–Cohesion–Tension کے طور پر یاد رکھا جا سکتا ہے۔ Transpiration leaf water loss پیدا کرتی ہے، جس سے xylem میں tension/negative pressure پیدا ہوتی ہے۔`,
+standard:`Adhesion پانی کے xylem walls سے چپکاؤ، Cohesion hydrogen bonds کے ذریعے water molecules کا جڑاؤ، اور Tension transpiration سے پیدا ہونے والا negative pressure ہے۔ Temperature، humidity، wind اور light transpiration کو متاثر کرتے ہیں۔ Potometer water uptake کی rate ماپتا ہے، transpiration کی direct rate نہیں۔`,
+mastery:`Continuous water columns میں cohesion اور xylem-wall adhesion، leaf-level evaporation سے پیدا ہونے والی tension کو rootward پانی کے پورے column تک transmit کرنے میں مدد دیتے ہیں۔`,
+extra:`Transpiration → Tension → Cohesion + Adhesion → Upward water movement`},
+t3s8:{topic:'t3',id:'IAE1101100308',title:'Stomatal Opening & Closing',visual:'IAE1101100308V.webp',
+basic:`Stomata epidermis میں gas-exchange pores ہیں جنہیں guard cells گھیرتے ہیں۔ Light میں H⁺-ATPase activation، ion uptake اور water entry guard cells کو turgid بنا کر stoma کھولنے میں مدد دیتے ہیں۔`,
+standard:`H⁺ pumping سے membrane gradient بنتا ہے؛ K⁺ اور accompanying anions/organic anions کے accumulation سے guard-cell water potential کم ہوتا ہے، osmosis سے پانی داخل ہوتا ہے اور stoma کھلتا ہے۔ Water stress میں ABA ion efflux اور water loss کو promote کر کے closure میں مدد دیتا ہے۔`,
+mastery:`Stomata photosynthetic CO₂ uptake اور water conservation کے درمیان dynamic physiological trade-off کو regulate کرتے ہیں۔`,
+extra:`Light → H⁺ pump → K⁺/anions → lower Ψw → Water entry → Turgid guard cells → Open`},
+t3s9:{topic:'t3',id:'IAE1101100309',title:'Phloem Translocation / Pressure Flow Hypothesis',visual:null,
+basic:`Phloem تیار شدہ خوراک، خصوصاً sucrose، کو source سے sink تک منتقل کرتا ہے۔ Sieve tube elements اور companion cells اس system کے بنیادی cellular components ہیں۔`,
+standard:`Source وہ حصہ ہے جہاں sugar بنتی یا release ہوتی ہے؛ sink وہ حصہ ہے جہاں sugar استعمال یا ذخیرہ ہوتی ہے۔ Loading کے بعد phloem کا water potential کم ہوتا ہے، xylem سے پانی داخل ہوتا ہے، source پر hydrostatic pressure بڑھتا ہے اور bulk flow pressure gradient کے ساتھ sink کی طرف ہوتا ہے۔`,
+mastery:`Münch pressure-flow model میں long-distance movement کو source اور sink کے درمیان pressure gradient سے سمجھا جاتا ہے۔ Phloem transport multidirectional ہو سکتا ہے کیونکہ مختلف sieve tubes مختلف source–sink relationships serve کر سکتے ہیں۔`,
+extra:`Source → Loading → Water entry → High pressure → Bulk flow → Sink → Unloading → Water return`}
+,
+t4s1:{topic:'t4',id:'IAE1101100401',title:'Water & Solute Balance / Osmoregulation',visual:'IAE1101100401V.webp',
+basic:`Homeostasis میں plant اپنے اندرونی physiological conditions کو مناسب functional range میں رکھنے کی کوشش کرتا ہے۔ Water stress اس وقت پیدا ہوتا ہے جب water loss uptake سے بڑھ جائے۔`,
+standard:`شدید water stress میں turgor pressure کم ہوتا ہے، stomata بند ہو سکتے ہیں اور photosynthesis متاثر ہوتی ہے۔ Water اور solute balance کو roots، xylem، stomatal regulation اور cellular osmotic responses مل کر support کرتے ہیں۔`,
+mastery:`Water balance کو صرف water uptake نہیں بلکہ transpiration demand، solute status، turgor اور environmental conditions کے integrated system کے طور پر سمجھنا چاہیے۔`,
+extra:`Water uptake ↔ Transport ↔ Transpiration ↔ Turgor`},
+t4s2:{topic:'t4',id:'IAE1101100402',title:'Osmotic Adjustment',visual:'IAE1101100402V.webp',
+basic:`Osmotic adjustment میں drought یا salinity کے دوران cells solutes جمع کرتے ہیں تاکہ solute potential (Ψs) زیادہ منفی ہو اور کم water potential والے ماحول سے پانی برقرار/حاصل کیا جا سکے۔`,
+standard:`Compatible solutes میں sugars، proline اور glycine betaine شامل ہو سکتے ہیں؛ ions بھی osmotic balance میں حصہ لے سکتے ہیں۔ یہ process turgor maintenance میں مدد دیتی ہے۔`,
+mastery:`Osmotic adjustment plant cells کو dehydration کے دوران water-potential gradient برقرار رکھنے میں مدد دیتی ہے، مگر ion toxicity سے بچاؤ کے لیے compartmentalization اور selective transport بھی اہم ہیں۔`,
+extra:`Stress → Solute accumulation → More negative Ψs → Water retention → Turgor maintenance`},
+t4s3:{topic:'t4',id:'IAE1101100403',title:'Hydrophytes, Mesophytes, Xerophytes & Halophytes',visual:'IAE1101100403V.webp',
+basic:`Hydrophytes پانی والے habitats، Mesophytes معتدل پانی والے habitats، Xerophytes خشک habitats اور Halophytes نمکین habitats کے پودے ہیں۔ ہر group اپنے environment کے مطابق structural/physiological adaptations رکھتا ہے۔`,
+standard:`Hydrophytes میں aerenchyma اور کم cuticle عام adaptations ہیں؛ Mesophytes میں balanced roots/cuticle/stomata ہوتے ہیں؛ Xerophytes میں thick waxy cuticle، sunken stomata، spines، succulence اور بعض میں CAM pathway؛ Halophytes میں pneumatophores، salt glands اور vacuolar compartmentalization جیسے adaptations ملتے ہیں۔`,
+mastery:`Habitat comparison کو water availability، gas exchange، evaporation control، salt stress اور internal transport کے cause–effect framework میں سمجھیں۔`,
+extra:`Habitat → Structural adaptation → Physiological control → Survival`
+}
 };
 const dict={
-'xylem':['زائلم','پانی اور تحلیل شدہ معدنیات کی ترسیل کرنے والی عروقی بافت۔'],
-'phloem':['فلوئم','نامیاتی محلول، خصوصاً sucrose، کو Source سے Sink تک منتقل کرنے والی عروقی بافت۔'],
-'water potential':['پانی کی صلاحیت','پانی کے حرکت کرنے کے رجحان کی پیمائش؛ Ψw = Ψs + Ψp۔'],
-'apoplast':['ایپوپلاسٹ','خلیاتی دیواروں اور intercellular spaces کا راستہ۔'],
-'symplast':['سمیپلاسٹ','زندہ خلیوں کے cytoplasm کا باہم مربوط راستہ۔'],
-'vacuolar':['ویکیولر','ویکیول سے متعلق؛ ایسا راستہ جس میں پانی جھلیوں اور ویکیول کے ذریعے گزرتا ہے۔'],
-'transcellular':['ٹرانس سیلولر','خلیوں کے اندر سے جھلیوں کو عبور کرتے ہوئے گزرنے والا راستہ۔'],
-'casparian strip':['کاسپیرین اسٹرپ','Endodermis کی رکاوٹ جو apoplastic movement کو روکتی ہے اور جھلی کے ذریعے گزرنے کو ضروری بناتی ہے۔'],
-'endodermis':['اینڈوڈرمیس','جڑ کی اندرونی حفاظتی تہہ جو پانی اور محلول کے xylem تک داخلے کو منظم کرتی ہے۔'],
-'pericycle':['پیری سائیکل','Endodermis کے اندر موجود جڑ کی تہہ، جس سے lateral roots بن سکتی ہیں۔'],
-'lignification':['لگنی فیکیشن','خلیاتی دیوار میں lignin کا جمع ہونا، جس سے بافت مضبوط ہوتی ہے۔'],
-'lignin':['لگنن','ایک مضبوط ساختی مادہ جو پودوں کی بعض خلیاتی دیواروں کو سختی اور سہارا دیتا ہے۔'],
-'sieve tubes':['سیو ٹیوبز','Phloem کے زندہ ترسیلی عناصر جو organic solutes کی نقل و حمل میں حصہ لیتے ہیں۔'],
-'companion cells':['کمپینین سیلز','Sieve tubes کے ساتھ وابستہ زندہ خلیے جو phloem transport کو سہارا دیتے ہیں۔'],
-'sucrose':['سکروز','فوٹوسنتھیسز سے متعلق اہم شکر جو phloem میں organic solute کے طور پر منتقل ہوتی ہے۔'],
-'solutes':['حل شدہ مادے','وہ مادے جو کسی محلول میں حل ہوں، مثلاً نمکیات یا شکر۔'],
-'solute concentration':['حل شدہ مادے کا ارتکاز','کسی محلول میں حل شدہ مادے کی مقدار کی نسبت۔'],
-'transpiration':['ٹرانسپائریشن','پتوں سے پانی کے بخارات کا اخراج۔'],
-'cohesion':['کوهیژن','پانی کے سالمات کے درمیان باہمی کشش۔'],
-'adhesion':['ایڈہیشن','پانی اور زائلم کی دیوار کے درمیان کشش۔'],
-'tension':['ٹینشن','Transpiration سے پیدا ہونے والا کھنچاؤ یا منفی دباؤ۔'],
-'transpiration pull':['ٹرانسپائریشن پل','پتوں سے پانی کے اخراج سے پیدا ہونے والی کھینچنے والی قوت جو xylem میں پانی کے اوپر جانے میں مدد دیتی ہے۔'],
-'root pressure':['جڑ کا دباؤ','جڑ میں پیدا ہونے والا دباؤ جو بعض حالات میں پانی کو اوپر کی طرف دھکیلنے میں حصہ لے سکتا ہے۔'],
-'evaporation':['تبخیر','مائع پانی کا بخارات میں تبدیل ہونا۔'],
-'capillary action':['کیپلری ایکشن','باریک راستوں میں adhesion اور cohesion کے باعث مائع کے حرکت کرنے یا اوپر اٹھنے کا رجحان۔'],
-'stomata':['روزن / Stomata','پودے کے پتوں میں گیسوں کے تبادلے اور transpiration کو منظم کرنے والے سوراخ۔'],
-'guard cells':['گارڈ سیلز','Stomata کے گرد موجود مخصوص خلیے جو روزن کے کھلنے اور بند ہونے کو کنٹرول کرتے ہیں۔'],
-'turgor':['ٹرجَر','خلیے کے اندر پانی کے باعث پیدا ہونے والا دباؤ جو پودے کے خلیے کو مضبوطی دیتا ہے۔'],
-'turgid':['ٹرجڈ','ایسی حالت جس میں خلیہ پانی سے بھرا اور زیادہ turgor والا ہو۔'],
-'flaccid':['فلیسیڈ','ایسی حالت جس میں خلیے کا turgor کم ہو اور خلیہ ڈھیلا ہو۔'],
-'osmosis':['اوسموسس','پانی کا نیم نفوذ پذیر جھلی کے ذریعے نسبتاً زیادہ water potential سے کم water potential کی طرف حرکت کرنا۔'],
-'osmotic':['اوسموٹک','Osmosis یا محلول کے پانی کی حرکت سے متعلق۔'],
-'source':['Source','وہ مقام جہاں organic solutes پیدا یا release ہوتے ہیں۔'],
-'sink':['Sink','وہ مقام جہاں organic solutes استعمال یا ذخیرہ ہوتے ہیں۔'],
-'loading':['لوڈنگ','Source پر sucrose جیسے organic solutes کو phloem میں داخل کرنے کا عمل۔'],
-'unloading':['اَن لوڈنگ','Sink پر organic solutes کو phloem سے نکال کر استعمال یا ذخیرہ کرنے کا عمل۔'],
-'pressure-flow':['پریشر فلو','Phloem میں pressure gradient کے باعث organic solutes کے mass flow کی وضاحت۔'],
-'mass flow':['ماس فلو','دباؤ کے فرق کے باعث محلول کا بڑی مقدار میں ایک سمت میں بہاؤ۔'],
-'homeostasis':['ہومیوسٹیسس','اندرونی حالات کو مناسب فعالی حدود میں برقرار رکھنا۔'],
-'functional limits':['فعالی حدود','وہ مناسب حدود جن میں پودے کے اندرونی حالات معمول کے مطابق کام کر سکتے ہیں۔'],
-'osmoregulation':['اوسموریگولیشن','پانی اور تحلیل شدہ محلول کے توازن کی تنظیم۔'],
-'isotonic':['آئسوٹونک','ایسی حالت جس میں بیرونی اور اندرونی محلول کا ارتکاز تقریباً برابر ہو، اس لیے net water movement نہیں ہوتا۔'],
-'hypotonic':['ہائپوٹونک','ایسی بیرونی حالت جس میں محلول کا ارتکاز نسبتاً کم ہو اور پانی خلیے میں داخل ہونے کا رجحان رکھتا ہو۔'],
-'hypertonic':['ہائپرٹونک','ایسی بیرونی حالت جس میں محلول کا ارتکاز نسبتاً زیادہ ہو اور پانی خلیے سے باہر جانے کا رجحان رکھتا ہو۔'],
-'plasmolysis':['پلازمولائسز','شدید water loss سے protoplast کا cell wall سے اندر کی طرف الگ ہونا۔'],
-'protoplast':['پروٹوپلاسٹ','خلیے کا زندہ اندرونی حصہ، جس میں cell membrane کے اندر موجود cytoplasm اور nucleus شامل ہوتے ہیں۔'],
-'osmotic adjustment':['اوسموٹک ایڈجسٹمنٹ','solute concentration بدل کر water status اور turgor برقرار رکھنے کی جسمانی موافقت۔'],
-'water status':['آبی حالت','پودے یا خلیے میں پانی کی موجودگی اور دستیابی کی حالت۔'],
-'water stress':['آبی دباؤ','ایسی حالت جس میں پودے کو مطلوبہ مقدار میں پانی حاصل یا برقرار رکھنے میں مشکل ہو۔'],
-'hydrophyte':['ہائیڈروفائٹ','آبی یا بہت نم ماحول میں رہنے والا پودا۔'],
-'mesophyte':['میسوفائٹ','معتدل نمی والے زمینی ماحول کا پودا۔'],
-'xerophyte':['زروفائٹ','خشک یا پانی کی کمی والے ماحول کا پودا۔'],
-'halophyte':['ہیلوفائٹ','نمکیاتی ماحول میں رہنے والا پودا۔'],
-'water-storage tissues':['پانی ذخیرہ کرنے والے بافتیں','ایسی بافتیں جو پانی کو ذخیرہ کر کے خشک حالات میں پودے کی مدد کرتی ہیں۔'],
-'modified leaves':['تبدیل شدہ پتے','ایسے پتے جن کی ساخت ماحول کے مطابق تبدیل ہو، مثلاً spines میں تبدیل ہونا۔'],
-'thick cuticle':['موٹی کٹیکل','پتے کی بیرونی مومی تہہ جو پانی کے ضیاع کو کم کرنے میں مدد دیتی ہے۔'],
-'sunken stomata':['دھنسی ہوئی روزن','پتے کی سطح سے اندر واقع stomata جو transpiration کم کرنے میں مدد دیتے ہیں۔'],
-'salt-tolerance mechanisms':['نمک برداشت کرنے کے طریقے','ایسے جسمانی یا ساختی طریقے جو پودے کو زیادہ نمکیات کے باوجود زندہ رہنے میں مدد دیں۔'],
-'salinity':['نمکیاتیت','مٹی یا پانی میں تحلیل شدہ نمکیات کی مقدار یا حالت۔'],
-'soil water potential':['مٹی کی پانی کی صلاحیت','مٹی کے پانی کے حرکت کرنے کے رجحان کی حالت، جو جڑوں کے پانی حاصل کرنے پر اثر انداز ہوتی ہے۔'],
-'plant water stress':['پودوں کا آبی دباؤ','پودے میں پانی کی کمی یا کم دستیابی سے پیدا ہونے والی فعالی مشکل۔'],
-'thermoregulation':['تھرموریگولیشن','درجۂ حرارت کے stress کو کم کرنے والی جسمانی و ساختی موافقت۔'],
-'metabolic slowdown':['میٹابولک سست روی','کم درجۂ حرارت میں کیمیائی اور حیاتیاتی عمل کی رفتار کا کم ہونا۔'],
-'freezing injury':['جماؤ سے ہونے والا نقصان','بہت کم درجۂ حرارت سے خلیوں اور بافتوں کو پہنچنے والا نقصان۔'],
-'protein/enzyme damage':['پروٹین/انزائم نقصان','زیادہ درجۂ حرارت سے پروٹین اور enzymes کی ساخت یا فعالیت متاثر ہونا۔'],
-'cellular stress':['خلیاتی دباؤ','ایسی حالت جس میں ناموافق ماحولیاتی حالات خلیے کے معمول کے کام کو متاثر کریں۔'],
-'bark':['چھال','تنے کی بیرونی حفاظتی تہہ جو بعض پودوں میں درجۂ حرارت اور پانی کے دباؤ سے تحفظ دیتی ہے۔'],
-'scale leaves':['اسکیل لیوز','چھوٹے، تہہ دار یا چھلکے نما پتے جو بعض پودوں میں تحفظ اور پانی کے ضیاع کو کم کرنے میں مدد دیتے ہیں۔'],
-'life cycle':['حیاتی دور','پودے کی زندگی کے مراحل کا مکمل سلسلہ، germination سے reproduction تک۔'],
-'waxy layers':['مومی تہیں','موم پر مشتمل بیرونی تہیں جو پانی کے ضیاع کو کم کرتی ہیں۔'],
-'succulent stems':['رسیلے تنے','موٹے تنے جن کے بافتوں میں پانی ذخیرہ ہوتا ہے۔'],
-'extensive roots':['وسیع جڑیں','پھیلی ہوئی جڑوں کا نظام جو زیادہ مٹی سے پانی حاصل کرنے میں مدد دیتا ہے۔'],
-'K+ uptake':['پوٹاشیم آئن کا اخذ','Guard cells میں K⁺ کے داخل ہونے کا عمل، جو solute concentration بڑھا کر پانی کے داخلے اور stomatal opening میں مدد دیتا ہے۔'],
-'TACT':['TACT','Transpiration، Adhesion، Cohesion اور Tension کا میکانزم جو xylem میں پانی کی اوپر کی حرکت کو سمجھاتا ہے۔']};
-const dictTerms={
-'xylem':'xylem','phloem':'phloem','water potential':'water potential','apoplast':'apoplast','symplast':'symplast','vacuolar':'vacuolar','transcellular':'transcellular','casparian strip':'casparian strip','endodermis':'endodermis','pericycle':'pericycle','lignification':'lignification','lignin':'lignin','sieve tubes':'sieve tubes','companion cells':'companion cells','sucrose':'sucrose','solutes':'solutes','solute concentration':'solute concentration','transpiration':'transpiration','cohesion':'cohesion','adhesion':'adhesion','tension':'tension','transpiration pull':'transpiration pull','root pressure':'root pressure','evaporation':'evaporation','capillary action':'capillary action','stomata':'stomata','guard cells':'guard cells','turgor':'turgor','turgid':'turgid','flaccid':'flaccid','osmosis':'osmosis','osmotic':'osmotic','source':'source','sink':'sink','loading':'loading','unloading':'unloading','pressure-flow':'pressure-flow','mass flow':'mass flow','homeostasis':'homeostasis','functional limits':'functional limits','osmoregulation':'osmoregulation','isotonic':'isotonic','hypotonic':'hypotonic','hypertonic':'hypertonic','plasmolysis':'plasmolysis','protoplast':'protoplast','osmotic adjustment':'osmotic adjustment','water status':'water status','water stress':'water stress','hydrophyte':'hydrophyte','mesophyte':'mesophyte','xerophyte':'xerophyte','halophyte':'halophyte','water-storage tissues':'water-storage tissues','modified leaves':'modified leaves','thick cuticle':'thick cuticle','sunken stomata':'sunken stomata','salt-tolerance mechanisms':'salt-tolerance mechanisms','salinity':'salinity','soil water potential':'soil water potential','plant water stress':'plant water stress','thermoregulation':'thermoregulation','metabolic slowdown':'metabolic slowdown','freezing injury':'freezing injury','protein/enzyme damage':'protein/enzyme damage','cellular stress':'cellular stress','bark':'bark','scale leaves':'scale leaves','life cycle':'life cycle','waxy layers':'waxy layers','succulent stems':'succulent stems','extensive roots':'extensive roots','K+ uptake':'K+ uptake','TACT':'TACT'};
-const dictAliases={hydrophytes:'hydrophyte',mesophytes:'mesophyte',xerophytes:'xerophyte',halophytes:'halophyte',stomata:'stomata','sieve tube':'sieve tubes','companion cell':'companion cells','guard cell':'guard cells','solute':'solutes','roots':'extensive roots'};
-const qs=[['زائلم کا بنیادی کام کیا ہے؟',['نامیاتی شکر منتقل کرنا','پانی اور معدنیات منتقل کرنا','صرف آکسیجن منتقل کرنا','صرف پروٹین بنانا'],1],['TACT میں C کس کو ظاہر کرتا ہے؟',['Capillary','Cohesion','Concentration','Closure'],1],['Source سے Sink تک نامیاتی محلول کس بافت سے منتقل ہوتا ہے؟',['Xylem','Phloem','Epidermis','Cortex'],1],['Hypertonic ماحول میں plant cell کے ساتھ کیا ہوتا ہے؟',['پانی داخل ہوتا ہے','پانی باہر نکلتا ہے','turgor بڑھتا ہے','photosynthesis لازماً بڑھتی ہے'],1],['Xerophytes کی بنیادی موافقت کس مقصد کے لیے ہے؟',['پانی کا ضیاع بڑھانا','پانی محفوظ رکھنا','نمک جذب کرنا','درجۂ حرارت بڑھانا'],1]];
-function esc(x){return String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function img(id){return `<div class="visual" onclick="openVisual('${id}V')"><img src="${BASE}${id}V.webp" alt="${id}V" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=fallback>${id}V</span>'"></div>`}function header(title,id){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><p>An Academy For Everyone</p></div><div class="screen-seal"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="content"><div class="topic-head">${img(id)}<div class="topic-head-text"><div class="lesson-title">${esc(title)}</div><span class="id">${id}V</span></div></div>`}function modal(h){document.getElementById('content').innerHTML=h+`<div class="nav"><button onclick="closeModal()">← پچھلا صفحہ</button></div></div>`;document.getElementById('modal').classList.add('show');document.querySelector('.dialog').scrollTop=0}function closeModal(){document.getElementById('modal').classList.remove('show');document.getElementById('content').innerHTML='';closeInlineDictionary()}document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')closeModal()};
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const el=document.getElementById(id);if(el){el.classList.add('active');el.scrollTop=0;}closeModal();if(id==='topicsPage')requestAnimationFrame(balanceFunctionalTabs);}
-function renderTopics(){
-const a=document.getElementById('t3SubList'),b=document.getElementById('t4SubList');
-const t3Names=['Vascular Tissues','Water Potential','Root Water Uptake & Pathways','TACT Mechanism','Stomatal Opening & Closing','Translocation of Organic Solutes'];
-const t4Names=['Homeostasis in Plants','Osmoregulation & Water-Solute Balance','Isotonic Conditions','Hypotonic Conditions','Hypertonic Conditions & Plasmolysis','Osmotic Adjustment','Hydrophytes & Mesophytes','Xerophytes & Water-Conservation Adaptations','Halophytes & Salt Adaptations','Saline Soil & Plant Water Stress','Thermoregulation in Plants','Low-Temperature Adaptations','High-Temperature Adaptations'];
-if(a)a.innerHTML=topics.t3.subs.map((s,i)=>`<div class="sub-tab topic3-sub" onclick="openSub('t3',${i})"><span class="sub-num">${i+1}</span><span class="sub-label">${esc(t3Names[i])}</span></div>`).join('');
-if(b)b.innerHTML=topics.t4.subs.map((s,i)=>`<div class="sub-tab topic4-sub" onclick="openSub('t4',${i})"><span class="sub-num">${i+1}</span><span class="sub-label">${esc(t4Names[i])}</span></div>`).join('')
-}function balanceFunctionalTabs(){const f=document.getElementById('functionalTabs');if(!f)return;f.querySelectorAll('.functional').forEach(el=>el.style.border='5px solid var(--sky)')}window.addEventListener('resize',balanceFunctionalTabs);function focusTopic(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
-function openTopic(k){document.getElementById(k==='t3'?'topic03Column':'topic04Column')?.scrollIntoView({behavior:'smooth',block:'start'})}
-function dictionaryMarkup(text){let out=esc(text);const terms=Object.keys(dictTerms).concat(Object.keys(dictAliases));terms.sort((a,b)=>b.length-a.length).forEach(term=>{let re=new RegExp('(?<![\w-])'+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?![\w-])','gi');out=out.replace(re,m=>{const key=(dictAliases[term.toLowerCase()]||term.toLowerCase());return `<span class="dictionary-term" onclick="event.stopPropagation();openInlineDictionary('${key}')">${m}</span>`})});return out}
-function openInlineDictionary(term){let v=dict[term]||dict[term.toLowerCase()];if(!v)return;const ov=document.createElement('div');ov.className='dictionary-overlay';ov.onclick=()=>closeInlineDictionary();const p=document.createElement('div');p.className='dictionary-popup';p.onclick=e=>e.stopPropagation();p.innerHTML=`<h3>${esc(v[0])}</h3><div class="en">${esc(term)}</div><p>${esc(v[1])}</p><button class="popup-close" onclick="closeInlineDictionary()" aria-label="بند کریں">×</button>`;ov.appendChild(p);document.body.appendChild(ov)}
-function closeInlineDictionary(){document.querySelector('.dictionary-overlay')?.remove()}
-function openSub(k,i){let t=topics[k],s=t.subs[i],h=header(s[1],s[0])+`<p class="id">${s[0]}</p><section class="section basic"><div class="level"></div><p>${dictionaryMarkup(s[2])}</p></section><section class="section standard"><div class="level"></div><p>${dictionaryMarkup(s[3])}</p></section><section class="section mastery"><div class="level"></div><p>${dictionaryMarkup(s[4])}</p></section><button class="visual-link" onclick="openVisual('${s[0]}V')">Visual Atlas — ${s[0]}V</button>`;modal(h)}
-function openVisual(id){
-const ov=document.createElement('div');ov.className='visual-viewer';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Visual '+id);
-ov.innerHTML=`<img src="${BASE}${id}.webp" alt="${id}" draggable="false"><button class="visual-close" aria-label="بند کریں">×</button>`;
-document.body.appendChild(ov);
-const image=ov.querySelector('img'),close=ov.querySelector('.visual-close');
-let scale=1,minScale=1,maxScale=5,x=0,y=0,lastX=0,lastY=0,dragging=false,startDist=0,startScale=1,pointers=new Map();
-function apply(){image.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`}
-function clamp(){if(scale<=minScale){x=0;y=0;return}const maxX=Math.max(0,(image.getBoundingClientRect().width-window.innerWidth)/2);const maxY=Math.max(0,(image.getBoundingClientRect().height-window.innerHeight)/2);x=Math.max(-maxX,Math.min(maxX,x));y=Math.max(-maxY,Math.min(maxY,y))}
-function distance(){const a=[...pointers.values()];return a.length<2?0:Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y)}
-function closeViewer(){ov.remove();document.removeEventListener('keydown',key)}
-function key(e){if(e.key==='Escape')closeViewer()}
-close.onclick=e=>{e.stopPropagation();closeViewer()};ov.onclick=e=>{if(e.target===ov)closeViewer()};document.addEventListener('keydown',key);
-image.onload=()=>{minScale=1;scale=1;x=0;y=0;apply()};
-image.onerror=()=>{image.alt=id+' — Visual file not loaded';image.style.display='none';const msg=document.createElement('div');msg.style.cssText='color:#fff;font:700 18px Arial;text-align:center;padding:24px;direction:ltr';msg.textContent=id+'.webp';ov.insertBefore(msg,close)};
-ov.addEventListener('wheel',e=>{e.preventDefault();const next=Math.max(minScale,Math.min(maxScale,scale*(e.deltaY<0?1.15:.87)));scale=next;clamp();apply()},{passive:false});
-ov.addEventListener('pointerdown',e=>{if(e.target===close)return;ov.setPointerCapture(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size===1){dragging=true;lastX=e.clientX;lastY=e.clientY}else if(pointers.size===2){dragging=false;startDist=distance();startScale=scale}});
-ov.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size===2){const d=distance();if(startDist){scale=Math.max(minScale,Math.min(maxScale,startScale*(d/startDist)));clamp();apply()}}else if(pointers.size===1&&dragging&&scale>minScale){x+=e.clientX-lastX;y+=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;clamp();apply()}});
-function up(e){pointers.delete(e.pointerId);if(pointers.size===0)dragging=false;if(pointers.size===1){const a=[...pointers.values()][0];lastX=a.x;lastY=a.y;dragging=scale>minScale}}
-ov.addEventListener('pointerup',up);ov.addEventListener('pointercancel',up);
+"Root Hairs":["جڑ کے بال","جڑ کی epidermal cells کی باریک extensions جو water/mineral absorption کے لیے surface area بڑھاتی ہیں۔"],
+"Water Potential":["آبی پوٹینشل","پانی کے move کرنے کے رجحان/free-energy status کو ظاہر کرنے والی مقدار۔"],
+"Osmosis":["اسماسس","Selectively permeable membrane کے پار پانی کی net movement، عموماً higher سے lower water potential کی طرف۔"],
+"Apoplast":["غیر خلوی راستہ","Cell walls اور intercellular spaces کے ذریعے water/solute movement۔"],
+"Symplast":["خلوی راستہ","Cytoplasm اور plasmodesmata کے مسلسل راستے سے movement۔"],
+"Vacuolar":["ویکیولر راستہ","بار بار membranes، cytoplasm اور tonoplast عبور کرنے والا transmembrane route۔"],
+"Endodermis":["اینڈوڈرمیس","Root cortex اور stele کے درمیان selective cell layer۔"],
+"Casparian Strip":["کیسپیرین پٹی","Endodermal walls میں suberin کی hydrophobic strip جو apoplastic flow کو روکتی ہے۔"],
+"Suberin":["سبیرن","Hydrophobic wax-like material جو Casparian strip میں موجود ہوتا ہے۔"],
+"Root Pressure":["جڑ کا دباؤ","Roots میں solute uptake اور water entry سے xylem میں پیدا ہونے والا positive hydrostatic pressure۔"],
+"Guttation":["قطرہ زنی","Leaf margins سے liquid water droplets کا نکلنا، عموماً hydathodes کے ذریعے۔"],
+"Hydathodes":["ہائیڈاتھوڈز","Leaf margins پر specialized structures/pores جن سے guttation کا پانی خارج ہو سکتا ہے۔"],
+"Xylem":["زیلم","Vascular tissue جو water اور mineral ions کو roots سے اوپر منتقل کرتا ہے۔"],
+"Phloem":["فلوئم","Vascular tissue جو assimilates، خصوصاً sucrose، کو source–sink system میں منتقل کرتا ہے۔"],
+"Tracheids":["ٹریکیڈز","Xylem conducting cells جو لمبے، پتلے، lignified اور pits والے ہوتے ہیں۔"],
+"Vessel Elements":["ویسل ایلیمنٹس","Xylem cells جو end perforations کے ذریعے vessels بنا سکتے ہیں۔"],
+"Cavitation":["کیویٹیشن","Xylem water column میں air bubble بننے کا عمل۔"],
+"Embolism":["ایمبولزم","Air bubble کے باعث xylem water flow میں رکاوٹ۔"],
+"TACT":["ٹیکٹ میکانزم","Transpiration, Adhesion, Cohesion, Tension کے ذریعے ascent of sap کی وضاحت۔"],
+"Transpiration":["ٹرانسپائریشن","Plant surfaces، خصوصاً stomata، سے water vapour کا loss۔"],
+"Adhesion":["چپکاؤ","Water molecules کا xylem walls سے تعلق/چپکاؤ۔"],
+"Cohesion":["باہمی جڑاؤ","Hydrogen bonding کی وجہ سے water molecules کا ایک دوسرے سے جڑے رہنا۔"],
+"Tension":["تناؤ","Transpiration سے xylem میں پیدا ہونے والا negative pressure/pull۔"],
+"Potometer":["پوٹومیٹر","Plant water uptake کی rate ماپنے والا apparatus؛ یہ transpiration کو بالواسطہ estimate کرتا ہے۔"],
+"Stomata":["سٹوماٹا","Leaves میں gas exchange کے pores۔"],
+"Guard Cells":["محافظ خلیات","Stoma کے دونوں جانب موجود cells جو pore opening/closing regulate کرتے ہیں۔"],
+"ABA":["ابسِسک ایسڈ","Plant hormone جو water stress میں stomatal closure کو promote کرتا ہے۔"],
+"Phloem Translocation":["فلوئم نقل و حمل","Phloem میں assimilates کی source سے sink تک long-distance movement۔"],
+"Source":["ماخذ","وہ حصہ جہاں sucrose بنتی یا release ہوتی ہے۔"],
+"Sink":["مصرف/ذخیرہ مقام","وہ حصہ جہاں sucrose استعمال یا ذخیرہ ہوتی ہے۔"],
+"Pressure Flow":["دباؤ کے بہاؤ کا مفروضہ","Source–sink hydrostatic pressure gradient سے phloem bulk flow کی وضاحت۔"],
+"Homeostasis":["ہومیوسٹیسس","Internal physiological conditions کو مناسب functional range میں برقرار رکھنا۔"],
+"Osmotic Adjustment":["اسماٹک ایڈجسٹمنٹ","Stress میں solutes جمع کر کے cell water potential کو زیادہ منفی بنانا اور turgor support کرنا۔"],
+"Hydrophytes":["آبی پودے","پانی سے بھرپور habitats کے plants۔"],
+"Mesophytes":["معتدل پودے","Moderate water availability والے habitats کے plants۔"],
+"Xerophytes":["خشک سالی کے پودے","Dry/arid habitats کے plants جن میں water-conservation adaptations ہوتی ہیں۔"],
+"Halophytes":["نمک پسند پودے","Saline habitats کے plants جن میں salt-management adaptations ہوتی ہیں۔"],
+"CAM":["CAM metabolism","Crassulacean Acid Metabolism؛ بعض xerophytes میں CO₂ uptake کو رات کے وقت منتقل کر کے water loss کم کرنے والی strategy۔"]
+};
+
+const questions=[
+["Root hairs پانی کے جذب میں سب سے اہم structural فائدہ کیا دیتے ہیں؟",["Surface area بڑھاتے ہیں","Xylem کو بند کرتے ہیں","Photosynthesis روکتے ہیں","Cuticle موٹی کرتے ہیں"],0,"Root hairs surface area بڑھا کر absorption کے لیے contact area بڑھاتے ہیں۔","Root Hair"],
+["Pure water کا standard water potential کیا لیا جاتا ہے؟",["+1 MPa","0","−10 MPa","100 MPa"],1,"Standard reference کے طور پر pure water کا Ψw صفر لیا جاتا ہے۔","Water Potential"],
+["Apoplast pathway بنیادی طور پر کس کے ذریعے چلتا ہے؟",["Cytoplasm","Cell walls اور intercellular spaces","Nucleus","Sieve plates"],1,"Apoplast cell walls اور intercellular spaces کا راستہ ہے۔","Apoplast"],
+["Casparian Strip کا بنیادی کام کیا ہے؟",["Apoplastic flow کو روک کر membrane control لازم کرنا","Photosynthesis کرنا","Sucrose بنانا","Stomata کھولنا"],0,"Casparian strip endodermis پر apoplastic movement کو روکتی ہے۔","Casparian Strip"],
+["Guttation میں پانی کس شکل میں خارج ہوتا ہے؟",["Water vapour","Liquid droplets","Ice","Sucrose solution only"],1,"Guttation liquid water droplets کی صورت میں ہوتی ہے۔","Guttation"],
+["Xylem میں cavitation سے کیا بنتا ہے؟",["Air bubble","Sucrose crystal","Starch grain","Pollen tube"],0,"Cavitation xylem water column میں air bubble formation ہے۔","Cavitation"],
+["TACT میں C کس کو ظاہر کرتا ہے؟",["Capillary","Cohesion","Carbon","Control"],1,"TACT = Transpiration, Adhesion, Cohesion, Tension۔","TACT"],
+["Potometer براہِ راست کیا measure کرتا ہے؟",["Photosynthesis","Water uptake rate","Root pressure","Sucrose concentration"],1,"Potometer water uptake rate measure کرتا ہے؛ transpiration کو indirectly estimate کیا جاتا ہے۔","Potometer"],
+["Stomatal opening میں guard cells کے turgid ہونے کی فوری وجہ کیا ہے؟",["Water entry","Water loss","Cell wall breakdown","ABA release"],0,"Solute accumulation water potential کم کرتا ہے اور osmosis سے water enters۔","Guard Cells"],
+["Water stress میں stomatal closure سے متعلق اہم hormone کون سا ہے؟",["IAA","ABA","Gibberellin","Ethylene only"],1,"ABA drought/water stress میں stomatal closure promote کرتا ہے۔","ABA"],
+["Phloem میں sucrose کا producing/releasing region کیا کہلاتا ہے؟",["Sink","Source","Hydathode","Endodermis"],1,"Source sucrose بناتا یا release کرتا ہے۔","Source"],
+["Pressure-flow میں source پر pressure کیسے بڑھتا ہے؟",["Water enters phloem after solute loading","Water leaves xylem forever","Stomata disappear","Lignin dissolves"],0,"Solute loading lowers phloem water potential; water enters from xylem and raises hydrostatic pressure۔","Pressure Flow"],
+["Osmotic adjustment کا مقصد کیا ہے؟",["Cell Ψs کو زیادہ منفی بنا کر water retention/support کرنا","Xylem کو ختم کرنا","Cuticle dissolve کرنا","CO₂ روکنا"],0,"Solute accumulation cell water potential کو زیادہ منفی بنا سکتی ہے اور turgor support کرتی ہے۔","Osmotic Adjustment"],
+["Xerophytes میں thick waxy cuticle کا فائدہ کیا ہے؟",["Water loss کم کرنا","Salt uptake بڑھانا","Xylem ختم کرنا","Gas exchange مکمل بند کرنا"],0,"Thick cuticle evaporation/water loss کم کرنے میں مدد دیتی ہے۔","Xerophytes"],
+["Halophytes میں pneumatophores کس مسئلے سے متعلق adaptation ہیں؟",["Waterlogged soil میں oxygen shortage","High light only","Cold stress only","Sugar loading"],0,"Pneumatophores roots کو oxygen-poor waterlogged soils میں gas exchange میں مدد دیتے ہیں۔","Halophytes"],
+["Symplast pathway میں water کس کے ذریعے cytoplasm سے cytoplasm جاتا ہے؟",["Stomata","Plasmodesmata","Hydathodes","Sieve plates"],1,"Symplast cytoplasm اور plasmodesmata کے ذریعے چلتا ہے۔","Symplast"],
+["Xylem walls میں lignin کا اہم فائدہ کیا ہے؟",["Mechanical support اور collapse resistance","Sucrose synthesis","ABA production","Stomatal pore formation"],0,"Lignin thickening xylem کو support دیتی ہے، خاص طور پر negative pressure کے تحت۔","Xylem"],
+["Transpiration بڑھانے والی عام حالت کون سی ہے؟",["High humidity","Low humidity اور moving air","Complete darkness always","No air movement"],1,"Low humidity اور wind عموماً vapour gradient/boundary layer effects کے ذریعے transpiration بڑھاتے ہیں۔","Transpiration"],
+["Phloem transport کی direction کو بہتر طور پر کیسے بیان کیا جاتا ہے؟",["ہمیشہ صرف اوپر","Source–sink pressure relationships کے مطابق؛ مختلف pathways مختلف directions serve کر سکتے ہیں","ہمیشہ gravity کے خلاف","صرف roots سے leaves"],1,"Phloem translocation source–sink relationships کے مطابق multidirectional ہو سکتی ہے۔","Phloem Translocation"],
+["Homeostasis سے کیا مراد ہے؟",["Internal conditions کو مناسب range میں برقرار رکھنا","صرف پانی جذب کرنا","صرف photosynthesis","صرف growth"],0,"Homeostasis internal physiological conditions کو functional range میں رکھنے کا تصور ہے۔","Homeostasis"]
+];
+
+const visualItems=[
+['IAE1101100300V','Transport in Plants — Topic 03','IAE1101100300V.webp','Topic 03 overview'],
+['IAE1101100301V','Root Hairs — Water Absorption','IAE1101100301V.webp','3.1 Root hairs'],
+['IAE1101100302V','Water Potential & Osmosis','IAE1101100302V.webp','3.2 Water potential'],
+['IAE1101100303V','Apoplast, Symplast & Vacuolar','IAE1101100303V.webp','3.3 Water pathways'],
+['IAE1101100304V','Endodermis & Casparian Strip','IAE1101100304V.webp','3.4 Selective boundary'],
+['IAE1101100305V','Root Pressure & Guttation','IAE1101100305V.webp','3.5 Root pressure'],
+['IAE1101100306V','Xylem & Ascent of Sap','IAE1101100306V.webp','3.6 Xylem'],
+['IAE1101100307V','TACT Mechanism','IAE1101100307V.webp','3.7 Ascent of sap'],
+['IAE1101100308V','Stomatal Opening & Closing','IAE1101100308V.webp','3.8 Stomata'],
+['IAE1101100400V','Homeostasis in Plants — Topic 04','IAE1101100400V.webp','Topic 04 overview'],
+['IAE1101100401V','Water & Solute Balance','IAE1101100401V.webp','4.1 Water/solute balance'],
+['IAE1101100402V','Osmotic Adjustment','IAE1101100402V.webp','4.2 Osmotic adjustment'],
+['IAE1101100403V','Hydrophytes, Mesophytes, Xerophytes & Halophytes','IAE1101100403V.webp','4.3 Habitat adaptations']
+];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function linkDictionaryTerms(text){
+ let out=esc(text);
+ const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+ for(const k of keys){
+   const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+   for(const alias of aliases){
+     const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+     out=out.replace(new RegExp('(?<!data-term=")('+safe+')','g'),'<button class="linked-word" type="button" data-term="'+esc(k)+'">$1</button>');
+   }
+ }
+ return out;
 }
-function functional(type){if(type==='dictionary'){modal(header('Biology Dictionary','IAE1101100300')+`<input class="search" placeholder="اصطلاح تلاش کریں..." oninput="dictSearch(this.value)"><div id="dictList"></div>`);dictSearch('')}else if(type==='search'){modal(header('تلاش / Search','IAE1101100300')+`<input class="search" placeholder="موضوع، Subtopic یا اصطلاح تلاش کریں..." oninput="siteSearch(this.value)"><div id="results"></div>`)}else if(type==='visual'){let h=header('Visual Atlas References','IAE1101100300')+'<p style="text-align:center">Chapter 10 Lecture 02 — 21 منظور شدہ Visual IDs</p>';[topics.t3,topics.t4].forEach(t=>{h+=`<div class="section-card"><strong>${esc(t.title)}</strong></div>`;h+='<div>';h+=`<div class="visual-card"><b>Main Topic</b><div class="visual-id">${t.id}V</div><button class="visual-link" onclick="openVisual('${t.id}V')">Visual Reference</button></div>`;t.subs.forEach(s=>h+=`<div class="visual-card"><b>${esc(s[1])}</b><div class="visual-id">${s[0]}V</div><button class="visual-link" onclick="openVisual('${s[0]}V')">Visual Reference</button></div>`);h+='</div>'});modal(h)}else if(type==='practice'){practice()}else if(type==='exam'){exam()}else if(type==='revision'){revision()}}
-function dictSearch(q){let b=document.getElementById('dictList');if(!b)return;q=q.toLowerCase().trim();b.innerHTML=Object.entries(dict).filter(([k,v])=>(k+' '+v[0]+' '+v[1]).toLowerCase().includes(q)).map(([k,v])=>`<div class="dict-item" onclick="dictOpen('${k}')"><b>${esc(v[0])}</b><div class="id">${esc(k)}</div><div>${esc(v[1])}</div></div>`).join('')||'<p>کوئی اصطلاح نہیں ملی۔</p>'}function dictOpen(k){let v=dict[k];modal(header('Dictionary — '+v[0],'IAE1101100300')+`<section class="section"><div class="level">اردو معنی / وضاحت</div><p>${esc(v[1])}</p></section><div class="diagram">${esc(k)}</div>`)}function all(){return [topics.t3,topics.t4].flatMap(t=>t.subs.map((s,i)=>({k:t===topics.t3?'t3':'t4',i,id:s[0],title:s[1],text:s.slice(1).join(' ')})))}function siteSearch(q){let b=document.getElementById('results');if(!b)return;q=q.toLowerCase().trim();b.innerHTML=q?all().filter(x=>(x.id+' '+x.title+' '+x.text).toLowerCase().includes(q)).map(x=>`<div class="search-result" onclick="openSub('${x.k}',${x.i})"><b>${esc(x.title)}</b><div class="id">${x.id}</div></div>`).join('')||'<p>کوئی نتیجہ نہیں ملا۔</p>':'<p>تلاش کے لیے لکھیں۔</p>'}
-function practice(){let h=header('Practice — پودوں میں نقل و حمل و ہومیوسٹیسس','IAE1101100300');qs.forEach((q,i)=>{h+=`<div class="question"><b>${i+1}. ${esc(q[0])}</b>${q[1].map((o,j)=>`<button class="choice" onclick="document.getElementById('a${i}').style.display='block'">${String.fromCharCode(65+j)}. ${esc(o)}</button>`).join('')}<div class="answer" id="a${i}">صحیح جواب: ${String.fromCharCode(65+q[2])}. ${esc(q[1][q[2]])}</div></div>`});modal(h)}function exam(){let h=header('Chapter 10 Lecture 02 — Readiness Test','IAE1101100300')+'<div class="section"><div class="level">امتحانی ہدایات</div><p>ہر سوال کا بہترین جواب منتخب کریں، پھر Test Submit دبائیں۔</p></div>';qs.forEach((q,i)=>{h+=`<div class="question"><b>${i+1}. ${esc(q[0])}</b>${q[1].map((o,j)=>`<label class="choice"><input type="radio" name="q${i}" value="${j}"> ${String.fromCharCode(65+j)}. ${esc(o)}</label>`).join('')}</div>`});h+=`<button class="visual-link" onclick="grade()">Test Submit</button><div class="exam-result" id="result"></div>`;modal(h)}function grade(){let s=0;qs.forEach((q,i)=>{let x=document.querySelector('input[name=q'+i+']:checked');if(x&&+x.value===q[2])s++});let p=Math.round(s/qs.length*100),b=p>=80?'مضبوط تیاری':p>=60?'مزید مشق درکار ہے':'Revision ضروری ہے';let r=document.getElementById('result');r.innerHTML=`<b>${s}/${qs.length} — ${p}%</b><p>${b}</p>`;r.classList.add('show')}function revision(){let h=header('Chapter Master Review — Revision','IAE1101100300')+`<div class="section"><div class="level">Revision Chain</div><p>زائلم/فلوئم → Ψw → Root Pathways → TACT → Stomata → Source/Sink → Homeostasis → Osmoregulation → Tonicity → Osmotic Adjustment → Plant Types → Salinity → Thermoregulation</p></div>`;all().forEach(x=>h+=`<div class="revision-item" onclick="openSub('${x.k}',${x.i})"><span class="id">${x.id}</span> ${esc(x.title)}</div>`);modal(h)}
-renderTopics();
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="screen-seal"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>`}
+function show(html){document.getElementById('content').innerHTML=header()+html;document.getElementById('modal').classList.add('show');document.getElementById('modal').setAttribute('aria-hidden','false');decorateDictionaryLinks();}
+function closeModal(){document.getElementById('modal').classList.remove('show');document.getElementById('modal').setAttribute('aria-hidden','true');}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function img(v){return v?`<div class="topic-visual" onclick="showVisual('${v}')"><img src="${BASE+v}" alt="Visual Atlas image"></div>`:''}
+function navButtons(prev,next){return `<div class="content-navigation">${prev?`<button onclick="${prev}">← Previous</button>`:''}<button onclick="closeModal()">✕ Close</button>${next?`<button onclick="${next}">Next →</button>`:''}</div>`}
+function openTopic(k){
+ const d=topics[k];
+ const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
+ show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div><p>${linkDictionaryTerms(d.intro)}</p></div></div>
+ <div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>مرکزی concept، بنیادی vocabulary اور curriculum-level understanding حاصل کریں۔</p></div>
+ <div class="section standard"><span class="level-heading standard-h">معیاری</span><p>Structure، function، mechanism اور examination-relevant relationships کو مربوط کریں۔</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>Mechanism، cause–effect، comparison اور higher-level conceptual links کو integrate کریں۔</p></div>
+ <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>`);
+}
+function openSub(k){
+ const d=subs[k]; const all=Object.keys(subs), i=all.indexOf(k), prev=all[i-1], next=all[i+1];
+ show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div><div class="lesson-subtitle">درسی مواد — بنیادی → معیاری → Mastery</div></div></div>
+ <div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>${linkDictionaryTerms(d.basic)}</p></div>
+ <div class="section standard"><span class="level-heading standard-h">معیاری</span><p>${linkDictionaryTerms(d.standard)}</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>
+ <div class="diagram">${esc(d.extra)}</div>
+ <div class="inline-note">Academic Code: <span class="pill">${esc(d.id)}</span>${d.visual?` · Visual: <span class="pill">${esc(d.visual.replace('.webp',''))}</span>`:''}</div>
+ ${navButtons(prev?`openSub('${prev}')`:null,next?`openSub('${next}')`:null)}`);
+}
+function showVisual(id){const v=visualItems.find(x=>x[0]===id);if(!v)return;show(`<div class="lesson-title">${esc(v[1])}</div><div class="lesson-subtitle">${esc(v[0])}</div><div class="visual-card"><img class="atlas-img" src="${BASE+v[2]}" alt="${esc(v[1])}"><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p></div>`);}
+function openFunctional(k){
+ if(k==='dictionary'){show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Central Biology Dictionary — Lecture 02 relevant terminology</p><input class="search" id="ds" placeholder="Search Dictionary term…" oninput="renderDict(this.value)"><div id="dictList"></div>`);renderDict('');return;}
+ if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">Chapter 10 authoritative Visual Atlas assets for Lecture 02</p>${visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" onclick="showVisual('${v[0]}')">Visual کھولیں</button></div>`).join('')}`);return;}
+ if(k==='practice'){show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">Recall</span><p>ہر subtopic کا definition، structure اور key term اپنے الفاظ میں بیان کریں۔</p></div><div class="section standard"><span class="level-heading standard-h">Application</span><p>Flow chains یاد کرنے کے بجائے cause → mechanism → result لکھیں، مثلاً TACT، pressure-flow اور stomatal regulation۔</p></div><div class="section mastery"><span class="level-heading mastery-h">Exam Strategy</span><p>Compare/contrast سوالات میں کم از کم structure، mechanism اور function کے headings استعمال کریں۔ diagrams میں arrows اور direction واضح رکھیں۔</p></div><div class="section"><b>KPK Core Focus:</b><p>20 core questions کو timed active-recall practice کے طور پر استعمال کریں۔ پہلے جواب دیکھے بغیر لکھیں، پھر explanation سے self-correct کریں۔</p></div>`);return;}
+ if(k==='readiness'){openAssessment('readiness');return;}
+ if(k==='exam'){openAssessment('exam');return;}
+ if(k==='revision'){show(`<div class="lesson-title">Revision</div><p class="lesson-subtitle">Weak areas سے واپس relevant learning units کی طرف</p>${Object.entries(subs).map(([id,s])=>`<div class="revision-item" onclick="openSub('${id}')"><span>${esc(s.id)}</span><div><b>${esc(s.title)}</b><br><small>Basic → Standard → Mastery دوبارہ پڑھیں</small></div></div>`).join('')}`);return;}
+ if(k==='mastery'){show(`<div class="lesson-title">Mastery</div><div class="section basic"><span class="level-heading basic-h">Foundation</span><p>Definitions، structures اور essential mechanisms پر مکمل گرفت۔</p></div><div class="section standard"><span class="level-heading standard-h">Integration</span><p>Root → Xylem → Leaf water transport اور Source → Phloem → Sink sugar transport کو compare کریں۔</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery Challenge</span><p>Explain کریں کہ water potential، membrane selectivity، pressure gradients، stomatal regulation اور environmental adaptation ایک coherent plant transport/homeostasis system کیسے بناتے ہیں۔</p></div>`);return;}
+ if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Potometer Investigation</b><p>Potometer کے ذریعے shoot water uptake کی rate observe/measure کی جا سکتی ہے۔ Independent variable کے طور پر light، wind یا humidity میں تبدیلی کا design بنایا جا سکتا ہے؛ relevant controlled variables برقرار رکھیں۔ یاد رہے: water uptake transpiration کا indirect estimate ہے۔</p></div><div class="section"><b>Experimental reasoning</b><p>Observation → comparison → conclusion کے درمیان فرق واضح رکھیں۔ ایک observed colour/volume change کو صرف اسی variable کے direct effect کے طور پر claim نہ کریں جب alternative explanations موجود ہوں۔</p></div>`);return;}
+}
+function renderDict(q){
+ const box=document.getElementById('dictList'); if(!box)return; q=(q||'').toLowerCase();
+ const rows=Object.entries(dict).filter(([k,v])=>!q||(k+' '+v[0]+' '+v[1]).toLowerCase().includes(q));
+ box.innerHTML=rows.map(([k,v])=>`<div class="dict-item" onclick="showDict('${esc(k)}')"><b>${esc(k)}</b> — ${esc(v[0])}<br><small>${esc(v[1])}</small></div>`).join('')||'<p>کوئی entry نہیں ملی۔</p>';
+}
+function showDict(k){const d=dict[k];if(!d)return;show(`<div class="lesson-title">${esc(k)}</div><div class="section"><span class="level-heading standard-h">${esc(d[0])}</span><p>${esc(d[1])}</p></div>`);}
+function showDictByTerm(k){showDict(k);}
+function renderAssessmentQuestions(arr,type){
+ return arr.map((q,i)=>`<div class="question-card"><b>Q${i+1}. ${esc(q[0])}</b>${q[1].map((o,j)=>`<label class="assessment-option"><input type="radio" name="${type}-${i}" value="${j}"><span>${esc(o)}</span></label>`).join('')}</div>`).join('');
+}
+let assessmentAttempt=[], assessmentType='readiness';
+function openAssessment(type){
+ assessmentType=type; assessmentAttempt=type==='exam'?questions.slice(0,20):shuffle(questions).slice(0,15);
+ show(`<div class="assessment-head"><div class="assessment-badge">${type==='exam'?'🏛️ EXAMINATION':'🧑‍🎓 READINESS TEST'}</div><div class="lesson-title">Lecture 02 — ${type==='exam'?'Examination':'Readiness Test'}</div><p>${type==='exam'?'Formal assessment of Transport & Homeostasis in Plants.':'Diagnostic assessment covering core concepts, mechanisms and applications.'}</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
+ <div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div>
+ <div id="assessmentQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+ <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit ${type==='exam'?'Examination':'Readiness Test'}</button><button onclick="openAssessment('${type}')">↻ Reset</button></div>
+ <div id="assessmentResult" class="assessment-result"></div>`);
+}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
+function submitAssessment(){
+ let correct=0,wrong=0,unanswered=0,weak={},review=[];
+ assessmentAttempt.forEach((q,i)=>{const sel=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);const s=sel?Number(sel.value):null;if(s===null)unanswered++;else if(s===q[2])correct++;else{wrong++;weak[q[4]]=(weak[q[4]]||0)+1;}review.push({q,selected:s,ok:s===q[2]});});
+ const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Needs Revision','Review weak areas before retest']:['Foundation Revision Required','Rebuild foundational concepts before retest'];
+ let r=document.getElementById('assessmentResult');r.className='assessment-result show';
+ r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Examination Result':'Readiness Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p></div>
+ <div class="recommendation-title">🎯 Weak Areas &amp; Revision Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
+ <div class="recommendation-title">📝 Detailed Answer Review</div>${review.map((x,i)=>`<div class="answer-review ${x.ok?'':'review-wrong'}"><b>Q${i+1}</b><p>${esc(x.q[0])}</p><p><b>آپ کا جواب:</b> ${x.selected===null?'جواب نہیں دیا':esc(x.q[1][x.selected])}</p><p><b>درست جواب:</b> ${esc(x.q[1][x.q[2]])}</p><p>${esc(x.q[3])}</p></div>`).join('')}`;
+ r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function decorateDictionaryLinks(root=document){
+ const nodes=[...root.querySelectorAll('.section p,.section li,.topic-head-text p,.subtopic-head-text .lesson-title,.section-card p')];
+ nodes.forEach(node=>{
+   if(node.dataset.decorated)return;
+   const text=node.textContent; if(!text.trim())return;
+   let html=esc(text);
+   Object.keys(dict).sort((a,b)=>b.length-a.length).forEach(k=>{
+     const aliases=[k,dict[k][0]].sort((a,b)=>b.length-a.length);
+     aliases.forEach(alias=>{
+       const re=new RegExp(alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+       html=html.replace(re,m=>`<button class="linked-word" type="button" data-term="${esc(k)}">${esc(m)}</button>`);
+     });
+   });
+   node.innerHTML=html;node.dataset.decorated='1';
+ });
+}
+document.addEventListener('click',e=>{const w=e.target.closest('.linked-word');if(w){e.preventDefault();showDictByTerm(w.dataset.term);}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();const w=e.target.closest?.('.linked-word');if(w&&(e.key==='Enter'||e.key===' ')){e.preventDefault();showDictByTerm(w.dataset.term);}});
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.top-logo img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none'},{once:true}));});
 </script>
 </body>
 </html>
