@@ -33,11 +33,41 @@
 .topics-layout .sub-list>div{display:flex;flex-direction:column;gap:8px;}
 .topics-layout .sub-tab .sub-num{position:static;font:700 44px/1 Inter;color:var(--sky);direction:ltr;margin:0 0 5px;flex:none;}
 .topics-layout .sub-tab.topic4-sub .sub-num{color:#a8dfb8;}
-.topics-layout .topics-functional{display:grid;grid-template-columns:1fr;gap:8px!important;width:100%;max-width:none;padding:0;margin-top:112px!important;}
+
 .topics-layout .topics-functional .tab .num{position:static;font:700 44px/1 Inter;direction:ltr;opacity:.9;flex:none;margin:0 0 5px;}
 .topics-layout .topic03-column .topics-functional .tab .num{color:var(--sky);}
 .topics-layout .topic04-column .topics-functional .tab .num{color:#a8dfb8;}
-@media(max-width:760px){.topics-layout{grid-template-columns:1fr 1fr;gap:7px;padding:9px;}.topics-layout .topic-main-tab,.topics-layout .sub-tab,.topics-layout .topics-functional .tab{min-height:112px;height:112px;padding:8px 5px;}.topics-layout .topic-main-tab .num{font-size:48px;}.topics-layout .sub-tab .sub-num,.topics-layout .topics-functional .tab .num{font-size:40px;}.topics-layout .topic-main-tab .label,.topics-layout .sub-tab .sub-label,.topics-layout .topics-functional .tab .label{font-size:12px;}}
+
+
+/* FINAL APPROVED LEVEL-2 TAB TREATMENT */
+.topics-layout .topic-main-tab .label,
+.topics-layout .sub-tab .sub-label,
+.topics-layout .topics-functional .tab .label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;max-width:100%;text-align:center;z-index:3;margin:0;font-weight:700;font-size:16px;line-height:1.3;}
+.topics-layout .topic-main-tab .num,
+.topics-layout .sub-tab .sub-num,
+.topics-layout .topics-functional .tab .num{position:static;inset:auto;display:flex;align-items:center;justify-content:center;flex:none;margin:0;line-height:1;}
+.topics-layout .topic-main-tab .num{font:600 58px/1 Inter;color:var(--sky);opacity:.9;direction:ltr;}
+.topics-layout .topic-main-tab.topic4 .num{color:#a8dfb8;}
+.topics-layout .sub-tab .sub-num{font:600 58px/1 Inter;color:var(--sky);opacity:.9;direction:ltr;}
+.topics-layout .sub-tab.topic4-sub .sub-num{color:#a8dfb8;}
+.topics-layout .topics-functional .tab .num{font:600 58px/1 Inter;direction:ltr;opacity:.9;}
+.topics-layout .topic03-column .topics-functional .tab .num{color:var(--sky);}
+.topics-layout .topic04-column .topics-functional .tab .num{color:#a8dfb8;}
+.topics-layout .topic-main-tab{position:relative;}
+.topics-layout .sub-tab,.topics-layout .topics-functional .tab{position:relative;}
+/* Functional group stays one-tab-height below the last Topic 03 subtopic and ends level with Topic 04 subtopic 13. */
+.topics-layout .topics-functional{gap:11.2px!important;margin-top:112px!important;}
+@media(max-width:760px){
+.topics-layout .topic-main-tab,.topics-layout .sub-tab,.topics-layout .topics-functional .tab{min-height:112px;height:112px;margin-top:0!important;}
+.topics-layout .topics-functional{margin-top:112px!important;}
+.topics-layout .topic-main-tab .label,.topics-layout .sub-tab .sub-label,.topics-layout .topics-functional .tab .label{font-size:16px;line-height:1.25;}
+.topics-layout .topic-main-tab .num,.topics-layout .sub-tab .sub-num,.topics-layout .topics-functional .tab .num{font-size:48px;}
+.topics-layout .topics-functional{gap:11.2px!important;margin-top:112px!important;}
+}
+/* USER REQUEST ONLY — functional tabs align exactly with Topic 04 subtopics 8–13 */
+.topics-layout .topics-functional{gap:8px!important;margin-top:128px!important;}
+.topics-layout .topics-functional .tab{min-height:112px!important;height:112px!important;}
+@media(max-width:760px){.topics-layout .topics-functional{gap:8px!important;margin-top:128px!important;}.topics-layout .topics-functional .tab{min-height:112px!important;height:112px!important;}}
 </style>
 </head>
 <body>
@@ -51,7 +81,7 @@
 <header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>An Academy For Everyone</p></div><div class="top-logo"><span class="seal">IAE</span></div></div><div class="title">تمام موضوعات — Chapter 10 Lecture 02</div><div class="intro">Level 2 — Topics + Functional Navigation</div></header>
 <div class="topics-layout">
   <section class="topic-column topic3-column" id="topic03Column">
-    <div class="topic-main-tab topic3" onclick="focusTopic('topic03Column')"><span class="num">03</span><span class="label">Transport in Plants</span></div>
+    <div class="topic-main-tab topic3" onclick="focusTopic('topic03Column')"><span class="label">Transport in Plants</span></div>
     <div class="sub-list"><div id="t3SubList"></div></div>
     <div class="functional-grid topics-functional" id="functionalTabs">
       <div class="tab functional" onclick="functional('dictionary')"><span class="num">A</span><span class="label">Dictionary</span></div>
@@ -63,7 +93,7 @@
     </div>
   </section>
   <section class="topic-column topic4-column" id="topic04Column">
-    <div class="topic-main-tab topic4" onclick="focusTopic('topic04Column')"><span class="num">04</span><span class="label">Homeostasis in Plants</span></div>
+    <div class="topic-main-tab topic4" onclick="focusTopic('topic04Column')"><span class="label">Homeostasis in Plants</span></div>
     <div class="sub-list"><div id="t4SubList"></div></div>
   </section>
 </div>
@@ -100,7 +130,13 @@ const dict={
 const qs=[['زائلم کا بنیادی کام کیا ہے؟',['نامیاتی شکر منتقل کرنا','پانی اور معدنیات منتقل کرنا','صرف آکسیجن منتقل کرنا','صرف پروٹین بنانا'],1],['TACT میں C کس کو ظاہر کرتا ہے؟',['Capillary','Cohesion','Concentration','Closure'],1],['Source سے Sink تک نامیاتی محلول کس بافت سے منتقل ہوتا ہے؟',['Xylem','Phloem','Epidermis','Cortex'],1],['Hypertonic ماحول میں plant cell کے ساتھ کیا ہوتا ہے؟',['پانی داخل ہوتا ہے','پانی باہر نکلتا ہے','turgor بڑھتا ہے','photosynthesis لازماً بڑھتی ہے'],1],['Xerophytes کی بنیادی موافقت کس مقصد کے لیے ہے؟',['پانی کا ضیاع بڑھانا','پانی محفوظ رکھنا','نمک جذب کرنا','درجۂ حرارت بڑھانا'],1]];
 function esc(x){return String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function img(id){return `<div class="visual" onclick="openVisual('${id}V')"><img src="${BASE}${id}V.webp" alt="${id}V" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=fallback>${id}V</span>'"></div>`}function header(title,id){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><p>An Academy For Everyone</p></div><div class="screen-seal"><span class="seal">IAE</span></div></div></header><div class="content"><div class="topic-head">${img(id)}<div class="topic-head-text"><div class="lesson-title">${esc(title)}</div><span class="id">${id}V</span></div></div>`}function modal(h){document.getElementById('content').innerHTML=h+`<div class="nav"><button onclick="closeModal()">← پچھلا صفحہ</button></div></div>`;document.getElementById('modal').classList.add('show');document.querySelector('.dialog').scrollTop=0}function closeModal(){document.getElementById('modal').classList.remove('show');document.getElementById('content').innerHTML='';closeInlineDictionary()}document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')closeModal()};
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const el=document.getElementById(id);if(el){el.classList.add('active');el.scrollTop=0;}closeModal();if(id==='topicsPage')requestAnimationFrame(balanceFunctionalTabs);}
-function renderTopics(){const a=document.getElementById('t3SubList'),b=document.getElementById('t4SubList');if(a)a.innerHTML=topics.t3.subs.map((s,i)=>`<div class="sub-tab topic3-sub" onclick="openSub('t3',${i})"><span class="sub-num">${s[0].slice(-4)}</span><span class="sub-label">${esc(s[1])}</span></div>`).join('');if(b)b.innerHTML=topics.t4.subs.map((s,i)=>`<div class="sub-tab topic4-sub" onclick="openSub('t4',${i})"><span class="sub-num">${s[0].slice(-4)}</span><span class="sub-label">${esc(s[1])}</span></div>`).join('')}function balanceFunctionalTabs(){const a=document.getElementById('topic03Column'),b=document.getElementById('topic04Column'),f=document.getElementById('functionalTabs');if(!a||!b||!f)return;const target=a.getBoundingClientRect().height<=b.getBoundingClientRect().height?a:b;target.appendChild(f);const c=target.classList.contains('topic4-column')?'#a8dfb8':'var(--sky)';f.querySelectorAll('.functional').forEach(el=>el.style.border='5px solid '+c)}window.addEventListener('resize',balanceFunctionalTabs);function focusTopic(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+function renderTopics(){
+const a=document.getElementById('t3SubList'),b=document.getElementById('t4SubList');
+const t3Names=['Vascular Tissues','Water Potential','Root Water Uptake & Pathways','TACT Mechanism','Stomatal Opening & Closing','Translocation of Organic Solutes'];
+const t4Names=['Homeostasis in Plants','Osmoregulation & Water-Solute Balance','Isotonic Conditions','Hypotonic Conditions','Hypertonic Conditions & Plasmolysis','Osmotic Adjustment','Hydrophytes & Mesophytes','Xerophytes & Water-Conservation Adaptations','Halophytes & Salt Adaptations','Saline Soil & Plant Water Stress','Thermoregulation in Plants','Low-Temperature Adaptations','High-Temperature Adaptations'];
+if(a)a.innerHTML=topics.t3.subs.map((s,i)=>`<div class="sub-tab topic3-sub" onclick="openSub('t3',${i})"><span class="sub-num">${i+1}</span><span class="sub-label">${esc(t3Names[i])}</span></div>`).join('');
+if(b)b.innerHTML=topics.t4.subs.map((s,i)=>`<div class="sub-tab topic4-sub" onclick="openSub('t4',${i})"><span class="sub-num">${i+1}</span><span class="sub-label">${esc(t4Names[i])}</span></div>`).join('')
+}function balanceFunctionalTabs(){const f=document.getElementById('functionalTabs');if(!f)return;f.querySelectorAll('.functional').forEach(el=>el.style.border='5px solid var(--sky)')}window.addEventListener('resize',balanceFunctionalTabs);function focusTopic(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
 function openTopic(k){document.getElementById(k==='t3'?'topic03Column':'topic04Column')?.scrollIntoView({behavior:'smooth',block:'start'})}
 const dictTerms={'xylem':'xylem','phloem':'phloem','water potential':'water potential','apoplast':'apoplast','symplast':'symplast','casparian strip':'casparian strip','transpiration':'transpiration','cohesion':'cohesion','adhesion':'adhesion','tension':'tension','stomata':'stomata','source':'source','sink':'sink','homeostasis':'homeostasis','osmoregulation':'osmoregulation','plasmolysis':'plasmolysis','osmotic adjustment':'osmotic adjustment','xerophyte':'xerophyte','halophyte':'halophyte','hydrophyte':'hydrophyte','mesophyte':'mesophyte','thermoregulation':'thermoregulation','turgor':'turgor'};
 function dictionaryMarkup(text){let out=esc(text);Object.keys(dictTerms).sort((a,b)=>b.length-a.length).forEach(term=>{let re=new RegExp('(?<![\w-])'+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?![\w-])','gi');out=out.replace(re,m=>`<span class="dictionary-term" onclick="event.stopPropagation();openInlineDictionary('${term}')">${m}</span>`)});return out}
