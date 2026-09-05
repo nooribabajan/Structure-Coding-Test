@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IAE110110 — Chapter 10 · Lecture 03 — Support, Growth &amp; Development in Plants</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--shadow:0 8px 24px rgba(23,62,52,.10)}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic',serif;line-height:1.9}
+.wrap{width:100%;height:100dvh;overflow:hidden}
+.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden}
+.page.active{display:block}
+.top,.screen-header{width:100%;padding:14px 0 12px;border-bottom:3px solid var(--gold);background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;box-shadow:0 3px 13px #0002}
+.top-inner,.screen-header-inner{width:100%;padding:0 clamp(9px,3vw,28px);display:flex;align-items:center;gap:clamp(8px,2vw,18px);direction:ltr}
+.top-brand,.screen-brand{flex:1;min-width:0;text-align:left}
+.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(18px,5.5vw,28px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95}
+.top-logo,.screen-seal{flex:0 0 clamp(60px,11vw,140px);width:clamp(60px,11vw,140px);height:clamp(48px,8vw,95px);overflow:hidden}
+.top-logo img,.screen-seal img{width:100%;height:100%;object-fit:contain}
+.page-title{max-width:1180px;margin:auto;padding:14px;text-align:center;color:var(--green);font-size:clamp(21px,3.5vw,32px);font-weight:800}
+.section-card{max-width:1180px;margin:0 auto;padding:18px 24px;background:#fff;border-bottom:1px solid var(--line)}
+.section-card strong{display:block;color:var(--green);font-size:20px;margin-bottom:6px}
+.section-card p,.section-card li{font-size:16px}
+.topic-grid{max-width:1180px;margin:auto;padding:10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.column{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tab{min-height:105px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05);border:2px solid var(--sky)}
+.tab.topic2{border-color:var(--green)}
+.tab.functional{border-color:var(--red)}
+.tab:hover{transform:translateY(-1px)}
+.topic-intro{min-height:120px}
+.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 58px/1 Inter,sans-serif;color:var(--sky);opacity:.9}
+.topic2 .num{color:#b9e9c3}.functional .num{color:var(--red)}
+.label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.section-heading{text-align:center;color:var(--green);font-size:24px;margin:4px auto 8px;max-width:1180px}
+.section-note{text-align:center;color:#475569;max-width:1000px;margin:0 auto 10px;padding:0 12px}
+.footer-nav{max-width:1180px;margin:12px auto;padding:10px;position:sticky;bottom:0;background:rgba(255,255,255,.96);border-top:1px solid #dbe4ee;display:flex;justify-content:center;z-index:20}
+button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessment-actions button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:50}
+.modal.show{display:block}
+.modal.dict-modal{display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
+.modal.dict-modal .dialog{width:min(92vw,680px);height:auto;max-height:88dvh;margin:0;border-radius:18px;padding:24px 28px 72px;box-shadow:0 18px 55px rgba(15,23,42,.22)}
+.dialog{width:100%;height:100dvh;background:#fff;overflow-y:auto;overflow-x:hidden;padding:0 28px 90px}
+#content{width:100%;padding-bottom:10px}
+#content>.screen-header{width:calc(100% + 56px);margin:0 -28px 18px;position:sticky;top:0;z-index:100}
+.close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003}
+.lesson-title{font-size:27px;font-weight:700;margin:0 0 12px;text-align:center}
+.lesson-subtitle{text-align:center;color:#64748b;margin:-4px 0 14px}
+.topic-head,.subtopic-head{max-width:1180px;margin:0 auto 14px;display:flex;direction:ltr;align-items:center;gap:14px;padding:10px 0 14px;border-bottom:1px solid #e2e8f0}
+.topic-visual{width:88px;height:76px;flex:0 0 88px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc;padding:5px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.topic-visual img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+.topic-head-text,.subtopic-head-text{direction:rtl;text-align:right;flex:1;min-width:0}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:right;margin:0}
+.section,.visual-card,.question-card,.assessment-head,.exam-rules,.recommendation-card,.answer-review,.revision-item,.search-result{max-width:1180px;margin:10px auto;padding:14px;border-radius:14px;background:#f8fafc}
+.section.basic{border-right:5px solid #ef4444}.section.standard{border-right:5px solid #22c55e}.section.mastery{border-right:5px solid #3b82f6}
+.level-heading{display:block;font-size:18px;font-weight:800;margin-bottom:5px}.basic-h{color:#dc2626}.standard-h{color:#16a34a}.mastery-h{color:#2563eb}
+.section p,.section li,.dialog p,.dialog li{font-size:17px;line-height:1.9}
+.pill,.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial}
+.inline-note{padding:10px 12px;border-radius:10px;background:var(--warn);border-right:4px solid var(--gold);margin:10px auto;max-width:1180px}
+.dictionary-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.18);overflow:auto}.dictionary-dialog{position:relative;width:min(720px,calc(100% - 24px));max-height:calc(100% - 36px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 16px 45px rgba(15,23,42,.22);padding:24px 20px 18px}.dictionary-close{position:absolute;top:8px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#475569}.dictionary-close:hover,.dictionary-close:focus{color:#b42318;background:#f8fafc;outline:none}.dict-modal .dictionary-dialog{animation:dictIn .14s ease-out}@keyframes dictIn{from{transform:translateY(6px);opacity:.7}to{transform:translateY(0);opacity:1}}
+.linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;border:0;box-shadow:none;text-decoration:none;outline:none}.linked-word:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.diagram{direction:ltr;text-align:center;font:700 14px/1.8 Inter,sans-serif;background:#f8fafc;padding:16px;border-radius:12px;white-space:pre-wrap;overflow:auto}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #dbe4ee;padding:9px;text-align:right;vertical-align:top}th{background:#edf5ef}
+.search{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}
+.dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover,.search-result:hover{background:#f8fafc}
+.visual-card{border:1px solid #e2e8f0;background:#fff}.visual-id{display:block;font:700 11px Inter;color:#876821;direction:ltr}
+.atlas-img{display:block;max-width:100%;height:auto;border-radius:12px;margin:10px auto;border:1px solid #e2e8f0}
+.choice,.assessment-option{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-option{display:flex;gap:8px;align-items:flex-start}.assessment-option input{margin-top:6px}
+.assessment-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px auto;max-width:1180px}
+.exam-submit{background:var(--green)!important;color:#fff}
+.assessment-result{display:none;max-width:1180px;margin:18px auto}.assessment-result.show{display:block}
+.result-hero{padding:20px;border-radius:16px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}
+.result-title{font-weight:800;color:#285b4b;font-size:20px}.result-score{font:800 38px Arial;color:#173e34}.result-percent{font:700 16px Arial;color:#876821}
+.recommendation-title{max-width:1180px;margin:18px auto 8px;font-weight:800;color:#285b4b}
+.answer-review{border-right:4px solid #4d7867}.review-wrong{border-right-color:#b94a48}
+.content-navigation{max-width:1180px;margin:18px auto;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;direction:ltr;padding-top:12px;border-top:1px solid var(--line)}
+.content-navigation button{border:0;background:var(--green);color:#fff;padding:7px 10px;border-radius:7px;cursor:pointer;font:700 10px Arial}
+@media(max-width:760px){.dialog{padding:0 18px 88px}.dialog #content>.screen-header{width:calc(100% + 36px);margin:0 -18px 14px}.topic-grid{gap:6px;padding:8px}.tab{min-height:100px}.label{font-size:14px}.topic-visual{width:62px;height:54px;flex-basis:62px}.section p,.section li,.dialog p,.dialog li{font-size:16px}}
+@media(max-width:420px){.top-brand h1,.screen-brand h1{font-size:17px}.top-brand p,.screen-brand p{font-size:8px}.topic-grid{gap:5px;padding:6px}.tab{min-height:94px}.num{font-size:50px}.dialog{padding-inline:14px}.dialog #content>.screen-header{width:calc(100% + 28px);margin-inline:-14px}.lesson-title{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="page active" id="homePage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="page-title">IAE110110 — Chapter 10 · Lecture 03</div>
+<div class="section-card"><strong>Support, Growth &amp; Development in Plants — تعلیمی نقشہ</strong><p>اس لیکچر میں پودوں کے mechanical support، turgor، supporting tissues، growth، development، meristems، primary و secondary growth، annual rings، growth correlation اور apical dominance کو structure → function → mechanism → application کے تسلسل میں سمجھایا جاتا ہے۔</p></div>
+<div class="section-card"><strong>Learning Outcomes</strong><ol>
+<li>Turgor pressure اور herbaceous plants میں اس کے support کردار کی وضاحت کر سکے۔</li>
+<li>Parenchyma، collenchyma اور sclerenchyma کی structure/function کا موازنہ کر سکے۔</li>
+<li>Lignification کو mechanical strength سے مربوط کر سکے۔</li>
+<li>Xylem کے transport اور support دونوں کردار واضح کر سکے۔</li>
+<li>Growth اور development میں فرق بیان کر سکے۔</li>
+<li>Meristematic tissue اور اس کی اقسام کی اہمیت سمجھا سکے۔</li>
+<li>Apical، intercalary اور lateral meristems کو location/function سے مربوط کر سکے۔</li>
+<li>Primary اور secondary growth میں فرق بیان کر سکے۔</li>
+<li>Annual rings کی تشکیل اور basic age estimation سمجھا سکے۔</li>
+<li>Growth correlation اور apical dominance کی وضاحت کر سکے۔</li>
+<li>Cell division، enlargement اور differentiation کو integrated growth/development sequence میں مربوط کر سکے۔</li>
+</ol></div>
+<div class="footer-nav"><button onclick="showPage('topicsPage')">موضوعات پر جائیں</button></div>
+</section>
+
+<section class="page" id="topicsPage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="page-title">Lecture 03 — Topics</div>
+<h1 class="section-heading">Support in Plants &nbsp; | &nbsp; Growth &amp; Development in Plants</h1>
+<p class="section-note">Learning → Explanation → Visual → Interaction → Practice → Assessment → Diagnosis → Revision → Mastery</p>
+<div class="topic-grid"><section class="column">
+<div class="tab topic2 topic-intro" onclick="openTopic('t6')"><div class="label">پودوں میں Growth &amp; Development<br><small>Growth and Development in Plants</small></div></div>
+<div class="tab topic2" onclick="openSub('t6s1')"><div class="num">1</div><div class="label">Growth: Meaning and Biological Basis</div></div>
+<div class="tab topic2" onclick="openSub('t6s2')"><div class="num">2</div><div class="label">Development and Differentiation</div></div>
+<div class="tab topic2" onclick="openSub('t6s3')"><div class="num">3</div><div class="label">Meristematic Tissue</div></div>
+<div class="tab topic2" onclick="openSub('t6s4')"><div class="num">4</div><div class="label">Apical Meristem and Primary Growth</div></div>
+<div class="tab topic2" onclick="openSub('t6s5')"><div class="num">5</div><div class="label">Intercalary Meristem</div></div>
+<div class="tab topic2" onclick="openSub('t6s6')"><div class="num">6</div><div class="label">Lateral Meristem and Secondary Growth</div></div>
+<div class="tab topic2" onclick="openSub('t6s7')"><div class="num">7</div><div class="label">Primary and Secondary Growth</div></div>
+<div class="tab topic2" onclick="openSub('t6s8')"><div class="num">8</div><div class="label">Annual Rings and Age Estimation</div></div>
+<div class="tab topic2" onclick="openSub('t6s9')"><div class="num">9</div><div class="label">Growth Correlation</div></div>
+<div class="tab topic2" onclick="openSub('t6s10')"><div class="num">10</div><div class="label">Apical Dominance</div></div>
+<div class="tab topic2" onclick="openSub('t6s11')"><div class="num">11</div><div class="label">Integrated Growth and Development</div></div>
+<div class="tab functional" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div>
+<div class="tab functional" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div>
+</section><section class="column">
+<div class="tab topic1 topic-intro" onclick="openTopic('t5')"><div class="label">پودوں میں Support<br><small>Support in Plants</small></div></div>
+<div class="tab topic1" onclick="openSub('t5s1')"><div class="num">1</div><div class="label">Turgor Pressure and Support</div></div>
+<div class="tab topic1" onclick="openSub('t5s2')"><div class="num">2</div><div class="label">Parenchyma and Support</div></div>
+<div class="tab topic1" onclick="openSub('t5s3')"><div class="num">3</div><div class="label">Collenchyma and Flexible Support</div></div>
+<div class="tab topic1" onclick="openSub('t5s4')"><div class="num">4</div><div class="label">Sclerenchyma and Rigid Support</div></div>
+<div class="tab topic1" onclick="openSub('t5s5')"><div class="num">5</div><div class="label">Vascular Tissue/Xylem and Support</div></div>
+<div class="tab topic1" onclick="openSub('t5s6')"><div class="num">6</div><div class="label">Integrated Support System</div></div>
+<div class="tab functional" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div>
+<div class="tab functional" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div>
+<div class="tab functional" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div>
+<div class="tab functional" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div>
+<div class="tab functional" onclick="openFunctional('mastery')"><div class="num">M</div><div class="label">Mastery</div></div>
+<div class="tab functional" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div>
+</section></div>
+</section></div>
+</section>
+
+<section class="page" id="searchPage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="page-title">Lecture 03 — Search</div><div id="searchPageContent"></div>
+</section>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true">
+<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<button class="close" aria-label="Close" onclick="closeModal()">×</button>
+<div id="content"></div>
+</div></div>
+
+<script>
+const BASE='https://raw.githubusercontent.com/nooribabajan/Structure-Coding-Test/a9cf0c749fd03f12bfa7dc1fe1cdd2153a916dd8/Subject/Visual-Atlas/';
+const topics={
+ t5:{title:'پودوں میں Support (Support in Plants)',id:'IAE1101100500',visual:'IAE1101100500V.webp',intro:'پودوں میں mechanical support جسم کو قائم رکھنے، bending کے خلاف مزاحمت اور growing organs کو مضبوطی دینے کے لیے ضروری ہے۔ Turgor، parenchyma، collenchyma، sclerenchyma اور lignified xylem اس integrated support system میں مختلف کردار ادا کرتے ہیں۔'},
+ t6:{title:'پودوں میں Growth & Development (Growth and Development in Plants)',id:'IAE1101100600',visual:'IAE1101100600V.webp',intro:'Plant growth میں size، volume یا biomass کا irreversible اضافہ شامل ہے، جبکہ development میں growth کے ساتھ differentiation اور structural/functional organisation بھی شامل ہوتی ہے۔ Meristems length، girth، local regrowth اور plant architecture کو منظم کرتے ہیں۔'}
+};
+const subs={
+ t5s1:{topic:'t5',id:'IAE1101100501',title:'Turgor Pressure and Support',visual:'IAE1101100501V.webp',basic:'Herbaceous plants rely significantly on turgor pressure. Water absorption increases cell turgidity; increased internal pressure against the cell wall produces firmness. Water loss decreases turgor and may lead to flaccidity and wilting.',standard:'Turgor is hydrostatic pressure exerted by cell contents against the cell wall. It is especially important where tissues have not developed extensive lignified mechanical support.',mastery:'Water absorption → cell turgidity → increased turgor pressure → firmness/support; water loss → decreased turgor → flaccidity → wilting.',extra:'Water entry → Turgidity → Turgor pressure → Firmness'},
+ t5s2:{topic:'t5',id:'IAE1101100502',title:'Parenchyma and Support',visual:'IAE1101100502V.webp',basic:'Parenchyma is living, usually thin-walled tissue with large vacuoles. When its cells remain turgid, parenchyma can contribute to internal firmness as well as storage and metabolic functions.',standard:'The large vacuole and water-filled cell contents allow turgid parenchyma to contribute to internal support, especially in herbaceous organs.',mastery:'Parenchyma demonstrates that a living tissue can contribute to support without being primarily a rigid mechanical tissue: its support depends strongly on cell water status.',extra:'Living thin-walled cells → Large vacuoles → Turgidity → Internal firmness'},
+ t5s3:{topic:'t5',id:'IAE1101100503',title:'Collenchyma and Flexible Support',visual:'IAE1101100503V.webp',basic:'Collenchyma is a living mechanical tissue common in young and growing parts. Uneven wall thickening gives strength while retaining flexibility.',standard:'It commonly supports young stems, petioles and leaf regions where organs need mechanical strength without becoming excessively rigid.',mastery:'Uneven wall thickening allows growing organs to bend and continue elongating while receiving mechanical support.',extra:'Living tissue + Uneven wall thickening → Strength + Flexibility'},
+ t5s4:{topic:'t5',id:'IAE1101100504',title:'Sclerenchyma and Rigid Support',visual:'IAE1101100504V.webp',basic:'Sclerenchyma provides stronger rigid support. Mature cells are usually dead and have thick, lignified walls. Fibres are elongated; sclereids are shorter and hard.',standard:'Thick walls and lignification increase rigidity and mechanical strength. Collenchyma therefore favours flexible support, whereas sclerenchyma favours rigid support.',mastery:'Cell-wall thickening + lignification → high resistance to deformation → rigid mechanical support.',extra:'Thick wall + Lignification → Rigidity → Mechanical strength'},
+ t5s5:{topic:'t5',id:'IAE1101100505',title:'Vascular Tissue/Xylem and Support',visual:'IAE1101100505V.webp',basic:'Xylem primarily conducts water and mineral ions, but its lignified conducting elements also contribute to mechanical support.',standard:'Tracheids, vessel elements and xylem fibres can participate in support. Lignified walls resist collapse and strengthen the vascular system.',mastery:'Xylem illustrates a dual structure–function relationship: conducting tissue can simultaneously provide mechanical strength because of lignified cell walls.',extra:'Xylem → Water/mineral transport + Lignified support'},
+ t5s6:{topic:'t5',id:'IAE1101100506',title:'Integrated Support System',visual:'IAE1101100506V.webp',basic:'Plant support is an integrated system rather than the function of a single tissue. Turgor, turgid parenchyma, collenchyma, sclerenchyma and lignified xylem contribute in different ways.',standard:'Herbaceous plants depend strongly on turgor and living supporting tissues, while woody or rigid organs rely more heavily on lignified tissues and secondary supporting structures.',mastery:'Turgor → Firmness | Parenchyma → Turgid support | Collenchyma → Flexible support | Sclerenchyma → Rigid support | Lignified Xylem → Transport + Support.',extra:'Turgor + Parenchyma + Collenchyma + Sclerenchyma + Xylem → Integrated support'},
+ t6s1:{topic:'t6',id:'IAE1101100601',title:'Growth: Meaning and Biological Basis',visual:'IAE1101100601V.webp',basic:'Growth is an irreversible biological increase in size, volume or biomass. It is fundamentally associated with cell division and cell enlargement.',standard:'A complete textbook sequence can be represented as cell division, cell elongation and cell maturation/differentiation.',mastery:'Growth is not simply an increase in cell number: division supplies new cells, enlargement increases their size, and maturation/differentiation establishes specialised structure and function.',extra:'Cell division → Cell elongation/enlargement → Maturation/differentiation → Growth'},
+ t6s2:{topic:'t6',id:'IAE1101100602',title:'Development and Differentiation',visual:'IAE1101100602V.webp',basic:'Development is broader than growth. It includes growth, differentiation and structural and functional organisation.',standard:'Differentiation is the process by which cells acquire specialised structures and functions.',mastery:'Growth supplies increase in size and biomass, while differentiation and organisation explain how that growth becomes an organised plant body.',extra:'Growth + Differentiation + Organisation → Development'},
+ t6s3:{topic:'t6',id:'IAE1101100603',title:'Meristematic Tissue',visual:'IAE1101100603V.webp',basic:'Meristematic tissue consists of actively dividing cells that produce new cells for plant growth.',standard:'The principal meristems are apical, intercalary and lateral, each associated with characteristic positions and growth patterns.',mastery:'Meristems maintain populations of dividing cells that feed subsequent enlargement, maturation and tissue formation.',extra:'Meristematic cells → New cells → Growth'},
+ t6s4:{topic:'t6',id:'IAE1101100604',title:'Apical Meristem and Primary Growth',visual:'IAE1101100604V.webp',basic:'Apical meristem occurs at root and shoot apices and drives primary growth, increasing plant length.',standard:'It contributes to shoot organisation, including new leaves and lateral buds, while root apical meristem supports root extension.',mastery:'Apical meristem → cell production at the apex → elongation behind the meristem → increase in length.',extra:'Apical meristem → Primary growth → Increased length'},
+ t6s5:{topic:'t6',id:'IAE1101100605',title:'Intercalary Meristem',visual:'IAE1101100605V.webp',basic:'Intercalary meristem occurs between or near mature tissues, especially in grasses.',standard:'It supports local growth and enables regrowth after cutting or grazing because active meristematic regions remain near the bases of leaves or internodes.',mastery:'Its position allows rapid renewal of growth in organs that may be repeatedly removed or damaged.',extra:'Intercalary meristem → Local growth → Regrowth'},
+ t6s6:{topic:'t6',id:'IAE1101100606',title:'Lateral Meristem and Secondary Growth',visual:'IAE1101100606V.webp',basic:'Lateral meristems occur in lateral regions and include vascular cambium and cork cambium.',standard:'They produce secondary tissues and increase plant girth or thickness. Vascular cambium forms secondary vascular tissues; cork cambium forms protective tissues.',mastery:'Lateral meristem activity expands the radial dimension of stems and roots and is central to secondary growth in woody plants.',extra:'Lateral meristem → Secondary tissues → Increased girth/thickness'},
+ t6s7:{topic:'t6',id:'IAE1101100607',title:'Primary and Secondary Growth',visual:'IAE1101100607V.webp',basic:'Primary growth mainly increases length through apical meristems. Secondary growth mainly increases girth through lateral meristems.',standard:'Both processes can contribute to overall growth in woody plants, but they differ in direction of increase and principal meristematic source.',mastery:'Primary = longitudinal expansion; Secondary = radial expansion. The distinction links meristem location directly to visible plant form.',extra:'Apical → Length | Lateral → Girth'},
+ t6s8:{topic:'t6',id:'IAE1101100608',title:'Annual Rings and Age Estimation',visual:'IAE1101100608V.webp',basic:'Seasonal differences in cambial activity produce differences in secondary xylem. Favourable conditions produce early wood and less favourable conditions produce late wood; together they can form an annual ring.',standard:'Clear annual rings can be counted for basic age estimation when seasonal growth conditions produce distinct bands. Some tropical or highly seasonal-variable woods may not show clear annual rings.',mastery:'Practical skill: locate the rings, distinguish successive bands and count clear rings carefully; ring formation reflects periodic cambial activity rather than a universal guarantee of one ring per calendar year.',extra:'Cambial activity → Early wood + Late wood → Annual ring → Basic age estimation'},
+ t6s9:{topic:'t6',id:'IAE1101100609',title:'Growth Correlation',visual:'IAE1101100609V.webp',basic:'Growth correlation is the coordinated relationship among growth of different plant parts.',standard:'It can include inhibitory correlation, such as suppression of lateral buds by an active shoot apex, and compensatory correlation in which reduction of one part can enhance growth elsewhere.',mastery:'Plant form emerges from interacting growth centres rather than isolated growth of each organ.',extra:'One organ’s growth ↔ coordinated/inhibitory/compensatory effects on other organs'},
+ t6s10:{topic:'t6',id:'IAE1101100610',title:'Apical Dominance',visual:'IAE1101100610V.webp',basic:'Apical dominance occurs when an active shoot apical bud suppresses lateral or axillary bud growth, favouring the main shoot.',standard:'Reducing or removing apical dominance allows lateral buds to grow and increases branching. Auxin can play an important regulatory role.',mastery:'Apical dominance links growth correlation with plant architecture: active apex → reduced lateral growth; reduced dominance → increased branching.',extra:'Active shoot apex → Lateral bud suppression → Main-shoot dominance'},
+ t6s11:{topic:'t6',id:'IAE1101100611',title:'Integrated Growth and Development',visual:'IAE1101100611V.webp',basic:'Plant growth and development form a continuous sequence from cell production to organised organs.',standard:'Cell division → cell enlargement → differentiation → tissue organisation → organ growth → development. Apical, intercalary and lateral meristems contribute in distinct ways.',mastery:'Apical meristem increases length; lateral meristem increases girth; intercalary meristem supports local growth/regrowth; seasonal cambial activity can produce annual rings; growth correlation coordinates plant parts; apical dominance influences shoot architecture.',extra:'Division → Enlargement → Differentiation → Organisation → Organ growth → Development'}
+};
+const dict={
+ "Turgor Pressure":["ٹرجَر دباؤ","Cell contents کی طرف سے cell wall پر exert ہونے والا hydrostatic pressure؛ water loss اسے کم کرتا ہے اور wilting کا سبب بن سکتا ہے۔"],
+ "Turgor":["ٹرجَر","Cells کی پانی سے بھرپور حالت اور cell wall کے خلاف اندرونی دباؤ سے پیدا ہونے والی firmness۔"],
+ "Parenchyma":["پیرنکائما","Living، عموماً thin-walled tissue جس کے turgid cells internal firmness میں حصہ لے سکتے ہیں۔"],
+ "Collenchyma":["کولنکائما","Young growing parts کا living mechanical tissue؛ uneven wall thickening کے ذریعے flexible support دیتا ہے۔"],
+ "Sclerenchyma":["سکلیرنکائما","Rigid mechanical support دینے والا tissue؛ mature cells میں thick، عموماً lignified walls ہوتی ہیں۔"],
+ "Lignification":["لگنی فیکیشن","Cell wall میں lignin کا جمع ہونا، جس سے rigidity اور mechanical strength بڑھتی ہے۔"],
+ "Lignified":["لگنیفائیڈ","ایسی cell wall جس میں lignin جمع ہو چکا ہو اور جو زیادہ rigid ہو۔"],
+ "Mechanical strength":["میکانیکی مضبوطی","Tissue کی bending، compression یا deformation کے خلاف مزاحمت کی صلاحیت۔"],
+ "Xylem":["زیلم","Vascular tissue جو water اور mineral ions منتقل کرتا ہے اور lignified walls کی وجہ سے support بھی دیتا ہے۔"],
+ "Tracheids":["ٹریکیڈز","Xylem کے elongated conducting cells جو عموماً lignified ہوتے ہیں اور support میں بھی حصہ لیتے ہیں۔"],
+ "Vessel elements":["ویسل ایلیمنٹس","Xylem cells جو end-to-end مل کر vessels بنا سکتے ہیں اور water conduction میں اہم ہیں۔"],
+ "Growth":["نمو","Size، volume یا biomass میں irreversible biological اضافہ، جس میں cell division اور cell enlargement بنیادی اہمیت رکھتے ہیں۔"],
+ "Development":["نشوونما و ارتقاء","Growth کے ساتھ differentiation اور structural/functional organisation کا وسیع تر عمل۔"],
+ "Differentiation":["تخصص پذیری","Cells کا specialised structures اور functions حاصل کرنے کا عمل۔"],
+ "Meristematic tissue":["مرسٹیمیٹک ٹشو","Actively dividing plant tissue جو نئے cells پیدا کرتا ہے۔"],
+ "Apical meristem":["اپیکل مرسٹیم","Root یا shoot apex پر موجود meristem جو بنیادی طور پر primary growth اور length increase کرتا ہے۔"],
+ "Intercalary meristem":["انٹرکیلیری مرسٹیم","Mature tissues کے درمیان یا قریب موجود meristem، خصوصاً grasses میں، جو local growth اور regrowth دیتا ہے۔"],
+ "Lateral meristem":["لیٹرل مرسٹیم","Plant کے lateral regions میں موجود meristem جو secondary tissues بنا کر girth بڑھاتا ہے۔"],
+ "Vascular cambium":["ویسکیولر کیمبیم","Lateral meristem جو secondary vascular tissues بناتا اور stem/root کی thickness بڑھاتا ہے۔"],
+ "Cork cambium":["کارک کیمبیم","Lateral meristem جو protective cork-related tissues بناتا ہے۔"],
+ "Primary growth":["بنیادی نمو","Apical meristems کے ذریعے plant length میں اضافہ۔"],
+ "Secondary growth":["ثانوی نمو","Lateral meristems کے ذریعے plant girth یا thickness میں اضافہ۔"],
+ "Annual ring":["سالانہ حلقہ","Secondary xylem میں seasonal differences سے بننے والا visible ring، جسے مناسب حالات میں basic age estimation کے لیے count کیا جا سکتا ہے۔"],
+ "Growth correlation":["نمو کا باہمی تعلق","Different plant parts کی growth کے درمیان coordinated relationship۔"],
+ "Apical dominance":["اپیکل غلبہ","Active shoot apical bud کی طرف سے lateral/axillary buds کی growth کو suppress کرنا۔"],
+ "Auxin":["آکسن","Plant hormone جو growth regulation اور apical dominance میں اہم کردار ادا کر سکتا ہے۔"],
+ "Early wood":["ابتدائی لکڑی","Favourable growth conditions میں بننے والا secondary xylem، عموماً relatively wider elements کے ساتھ۔"],
+ "Late wood":["اواخر کی لکڑی","Less favourable growth conditions میں بننے والا secondary xylem، عموماً زیادہ dense band کی صورت میں۔"]
+};
+
+// Lecture 03 — complete difficult/technical-term dictionary layer.
+// These terms are used across Level 3 lesson pages and are auto-linked by decorateDictionaryLinks().
+Object.assign(dict,{
+ "Herbaceous plants":["علفی پودے","ایسے پودے جن کے نرم سبز stems میں woody tissue نسبتاً کم ہوتا ہے؛ ان میں turgor support اہم ہو سکتا ہے۔"],
+ "Firmness":["مضبوطی","Plant tissue کی وہ حالت جس میں cells مناسب اندرونی pressure اور structural support کی وجہ سے قائم رہتے ہیں۔"],
+ "Hydrostatic pressure":["ہائیڈروسٹیٹک دباؤ","Fluid یا cell contents کی طرف سے کسی سطح پر exert ہونے والا pressure۔"],
+ "Cell wall":["خلوی دیوار","Plant cell کے باہر موجود مضبوط structural layer جو shape اور mechanical support دیتی ہے۔"],
+ "Cell contents":["خلوی محتویات","Cell کے اندر موجود cytoplasm، vacuole اور دوسرے مواد کا مجموعہ۔"],
+ "Water loss":["پانی کا اخراج/کمی","Cells سے پانی کم ہونے کا عمل جس سے turgor pressure کم اور tissues flaccid ہو سکتے ہیں۔"],
+ "Flaccidity":["نرم پڑ جانا","Turgor کم ہونے سے plant cells اور tissues کی firmness کا کم ہو جانا۔"],
+ "Wilting":["مرجھانا","پانی کی کمی اور کم turgor کی وجہ سے leaves یا soft tissues کا لٹک جانا۔"],
+ "Living tissue":["زندہ بافت","ایسا plant tissue جس کے cells زندگی کی بنیادی metabolic activities انجام دیتے ہیں۔"],
+ "Thin-walled":["باریک دیوار والا","ایسے cells جن کی cell walls نسبتاً کم موٹی ہوں۔"],
+ "Vacuole":["ویکیول","Plant cell کا بڑا membrane-bound compartment جو cell sap رکھتا ہے اور turgor میں اہم کردار ادا کرتا ہے۔"],
+ "Internal firmness":["اندرونی مضبوطی","Turgid cells کے اندرونی pressure سے tissue کو ملنے والی structural firmness۔"],
+ "Mechanical tissue":["میکانیکی بافت","وہ plant tissue جو جسم کو structural strength اور support فراہم کرتا ہے۔"],
+ "Young parts":["جوان حصے","Plant کے developing stems، petioles اور leaves جیسے کم عمر حصے۔"],
+ "Growing parts":["بڑھتے ہوئے حصے","وہ plant regions جہاں cells کی growth اور structural development جاری ہو۔"],
+ "Uneven wall thickening":["غیر مساوی دیواری موٹائی","Cell wall کے مختلف حصوں میں thickness کا یکساں نہ ہونا، collenchyma کی اہم خصوصیت۔"],
+ "Flexible support":["لچک دار سہارا","ایسا mechanical support جو strength کے ساتھ bending اور growth کی گنجائش بھی رکھتا ہے۔"],
+ "Rigid support":["سخت سہارا","ایسا mechanical support جو tissues کو مضبوطی اور کم flexibility فراہم کرتا ہے۔"],
+ "Mature cells":["بالغ خلیات","وہ cells جو اپنی مکمل یا تقریباً مکمل structural اور functional حالت تک پہنچ چکے ہوں۔"],
+ "Dead cells":["مردہ خلیات","ایسے mature cells جن میں living contents باقی نہیں رہتے، مگر ان کی walls support دے سکتی ہیں۔"],
+ "Thick walls":["موٹی خلوی دیواریں","زیادہ موٹائی والی cell walls جو mechanical resistance بڑھا سکتی ہیں۔"],
+ "Lignin":["لگنن","ایک complex structural polymer جو plant cell walls میں جمع ہو کر rigidity اور strength بڑھاتا ہے۔"],
+ "Fibres":["ریشے","لمبے، مضبوط sclerenchymatous cells جو mechanical support میں اہم کردار ادا کرتے ہیں۔"],
+ "Sclereids":["اسکلیرائڈز","نسبتاً چھوٹے، سخت sclerenchyma cells جو مختلف plant parts میں rigidity دیتے ہیں۔"],
+ "Rigidity":["سختی","Deformation یا bending کے خلاف structural resistance۔"],
+ "Vascular tissue":["نسیجی/وعائی بافت","Plant کا conducting tissue system، جس میں xylem اور phloem شامل ہیں۔"],
+ "Mineral ions":["معدنی آئنز","پودے کے لیے ضروری mineral elements کی charged forms جو پانی کے ساتھ منتقل ہو سکتی ہیں۔"],
+ "Conducting cells":["منتقل کرنے والے خلیات","وہ specialized cells جو plant میں پانی یا دوسرے substances کی conduction میں حصہ لیتے ہیں۔"],
+ "Transport":["منتقلی","Plant میں water، minerals یا دیگر substances کو ایک جگہ سے دوسری جگہ منتقل کرنے کا عمل۔"],
+ "Support":["سہارا","Plant body کو قائم رکھنے اور bending یا collapse کے خلاف مدد دینے والی structural صلاحیت۔"],
+ "Biomass":["حیاتی کمیت","کسی organism یا tissue میں موجود biological material کی مجموعی mass۔"],
+ "Cell division":["خلوی تقسیم","ایک cell سے نئے cells بننے کا عمل، جو plant growth کے لیے cell number بڑھاتا ہے۔"],
+ "Cell enlargement":["خلوی پھیلاؤ","Cells کے size یا volume میں اضافہ، جو growth کا اہم مرحلہ ہے۔"],
+ "Cell maturation":["خلوی بلوغت","Cells کا اپنی زیادہ مکمل structural اور functional حالت حاصل کرنا۔"],
+ "Biological basis":["حیاتیاتی بنیاد","کسی biological process کے پیچھے موجود بنیادی cellular اور physiological mechanisms۔"],
+ "Structural organisation":["ساختی تنظیم","Cells اور tissues کا منظم انداز میں arrangement جس سے functional plant structures بنتے ہیں۔"],
+ "Functional organisation":["فعلی تنظیم","Plant structures اور tissues کی ایسی coordination جس سے مخصوص functions انجام پاتے ہیں۔"],
+ "Specialised structures":["خصوصی ساختیں","ایسی cellular structures جو کسی خاص function کے لیے adapted ہوں۔"],
+ "Specialised functions":["خصوصی افعال","وہ مخصوص biological functions جو differentiated cells انجام دیتے ہیں۔"],
+ "Differentiation":["تخصص پذیری","Cells کا specialised structures اور functions حاصل کرنے کا عمل۔"],
+ "Actively dividing":["فعال طور پر تقسیم پذیر","ایسے cells جو مسلسل یا باقاعدگی سے mitotic division کے ذریعے نئے cells بناتے ہیں۔"],
+ "Meristem":["مرسٹیم","Plant کا actively dividing tissue جو نئے cells پیدا کرکے growth میں حصہ لیتا ہے۔"],
+ "Root apex":["جڑ کا سرا","Root کا آخری developing region جہاں apical meristem موجود ہوتا ہے۔"],
+ "Shoot apex":["شاخ/تنہ کا سرا","Shoot کا developing terminal region جہاں shoot apical meristem موجود ہوتا ہے۔"],
+ "Primary growth":["بنیادی نمو","Apical meristems کی سرگرمی سے plant کی length میں اضافہ۔"],
+ "Length increase":["لمبائی میں اضافہ","Plant axis کی longitudinal growth، بنیادی طور پر primary growth سے متعلق۔"],
+ "Shoot system":["شاخی نظام","Plant کا above-ground system جس میں stem، leaves اور متعلقہ structures شامل ہوتے ہیں۔"],
+ "Lateral bud":["جانبی کلی","Shoot کے پہلو میں موجود bud جو نئی lateral branch بن سکتی ہے۔"],
+ "Axillary bud":["بغل کی کلی","Leaf axil میں موجود bud جو مناسب حالات میں lateral shoot بن سکتی ہے۔"],
+ "Local growth":["مقامی نمو","Plant کے کسی مخصوص حصے میں محدود growth۔"],
+ "Regrowth":["دوبارہ نمو","Cutting، grazing یا دوسرے نقصان کے بعد plant part کی دوبارہ growth۔"],
+ "Lateral region":["جانبی علاقہ","Plant axis کا side region جہاں lateral meristems واقع ہو سکتے ہیں۔"],
+ "Secondary tissues":["ثانوی بافتیں","وہ tissues جو secondary growth کے دوران lateral meristems سے بنتے ہیں۔"],
+ "Secondary growth":["ثانوی نمو","Lateral meristems کی سرگرمی سے plant کی girth یا thickness میں اضافہ۔"],
+ "Girth":["محیط/موٹائی","Plant stem یا root کے cross-sectional dimension کا بڑھنا، عموماً secondary growth سے وابستہ۔"],
+ "Thickness":["موٹائی","کسی plant organ کے transverse dimension میں اضافہ۔"],
+ "Vascular cambium":["وعائی کیمبیم","Lateral meristem جو secondary xylem اور secondary phloem جیسے secondary vascular tissues بنانے میں حصہ لیتا ہے۔"],
+ "Cork cambium":["کارک کیمبیم","Lateral meristem جو protective periderm/cork-related tissues بنانے میں حصہ لیتا ہے۔"],
+ "Secondary vascular tissues":["ثانوی وعائی بافتیں","Vascular cambium سے بننے والی secondary conducting tissues، خصوصاً secondary xylem اور secondary phloem۔"],
+ "Protective tissues":["حفاظتی بافتیں","Plant کی بیرونی حفاظت اور water-loss control میں مدد دینے والی tissues۔"],
+ "Cambial activity":["کیمبیم کی سرگرمی","Vascular cambium کی cell production activity جو secondary xylem/phloem کی formation میں حصہ لیتی ہے۔"],
+ "Seasonal cambial activity":["موسمی کیمبیئل سرگرمی","سال کے مختلف seasons میں cambium کی بدلتی ہوئی activity جو secondary xylem کی مختلف bands بنا سکتی ہے۔"],
+ "Secondary xylem":["ثانوی زیلم","Vascular cambium سے بننے والا xylem جو transport کے ساتھ woody support میں بھی اہم ہے۔"],
+ "Early wood":["ابتدائی لکڑی","زیادہ favourable growth conditions کے دوران بننے والا secondary xylem۔"],
+ "Late wood":["اواخر کی لکڑی","کم favourable growth conditions کے دوران بننے والا نسبتاً زیادہ dense secondary xylem band۔"],
+ "Annual ring":["سالانہ حلقہ","Early wood اور late wood سے متعلق seasonal xylem differences کی نمایاں ring، مناسب حالات میں age estimation کے لیے count کی جا سکتی ہے۔"],
+ "Age estimation":["عمر کا تخمینہ","Annual rings کی واضح تعداد گن کر لکڑی کی عمر کا بنیادی اندازہ لگانے کی عملی تکنیک۔"],
+ "Seasonal growth":["موسمی نمو","مختلف seasons میں growth rate اور tissue formation کا بدلنا۔"],
+ "Growth conditions":["نمو کے حالات","وہ environmental اور biological conditions جو plant growth کی رفتار اور pattern پر اثر انداز ہوں۔"],
+ "Tropical trees":["استوائی درخت","Tropical regions میں اگنے والے trees جن میں seasonal pattern کم واضح ہونے کی وجہ سے annual rings ہمیشہ distinct نہیں ہوتیں۔"],
+ "Growth correlation":["نمو کا باہمی تعلق","مختلف plant parts کی growth کے درمیان coordinated relationship۔"],
+ "Inhibitory correlation":["روکنے والا باہمی تعلق","ایک plant part کی growth کا دوسرے part کی growth کو suppress کرنا۔"],
+ "Compensatory correlation":["تلافیاتی باہمی تعلق","ایک part کی growth کم ہونے یا ہٹنے پر دوسرے part کی growth میں اضافہ ہونا۔"],
+ "Apical dominance":["اپیکل غلبہ","Active shoot apical bud کی طرف سے lateral/axillary bud growth کو suppress کرنا۔"],
+ "Shoot apical bud":["شاخی اپیکل کلی","Shoot کے سرے پر موجود active bud جو main shoot growth اور apical dominance میں اہم ہے۔"],
+ "Main shoot":["مرکزی شاخ/تنہ","Plant کا primary shoot axis جو apical dominance کی حالت میں نسبتاً زیادہ بڑھتا ہے۔"],
+ "Branching":["شاخ بندی","Lateral shoots کے بننے سے plant architecture میں branches کا اضافہ۔"],
+ "Auxin":["آکسن","Plant hormone جو growth regulation اور apical dominance میں اہم کردار ادا کر سکتا ہے۔"],
+ "Plant hormone":["نباتاتی ہارمون","Plant میں کم مقدار میں growth اور development کے regulatory signals کے طور پر کام کرنے والے chemical messengers۔"],
+ "Plant architecture":["پودے کی ساختی ترتیب","Plant کے shoots، branches اور organs کی مجموعی spatial arrangement۔"],
+ "Integrated growth":["مربوط نمو","Growth کے مختلف cellular اور tissue-level processes کا ایک دوسرے سے مربوط انداز میں چلنا۔"],
+ "Growth and development":["نمو اور نشوونما","Plant میں size increase، differentiation اور structural/functional organisation کا باہم مربوط وسیع عمل۔"],
+ "Cell production":["خلوی پیداوار","Cell division کے ذریعے نئے plant cells کی formation۔"],
+ "Tissue organisation":["بافتی تنظیم","Cells کا tissues میں منظم arrangement جو مخصوص plant functions کے لیے ضروری ہے۔"],
+ "Organ growth":["عضوی نمو","Plant organs جیسے root، stem یا leaf کے size میں اضافہ۔"],
+ "Mechanism":["طریقۂ کار","کسی biological process کے اندر cause-and-effect کے ذریعے ہونے والا functional process۔"],
+ "Cause-effect":["سبب و نتیجہ","ایک biological factor کے دوسرے نتیجے پر اثر ڈالنے کا منطقی تعلق۔"],
+ "Structural support":["ساختی سہارا","Plant body کی shape اور stability برقرار رکھنے والی mechanical support۔"],
+ "Mechanical strength":["میکانیکی مضبوطی","Tissue کی bending، compression یا deformation کے خلاف مزاحمت کی صلاحیت۔"],
+ "Deformation":["شکل میں بگاڑ","External force کے نتیجے میں tissue یا structure کی shape کا بدلنا۔"],
+ "Compression":["دباؤ/فشردگی","کسی structure پر inward force لگنے سے اس کے دبنے کی حالت۔"],
+ "Cross-sectional dimension":["عرضی بُعد","Plant organ کو transverse direction میں ناپنے والا dimension۔"],
+ "Observation":["مشاہدہ","Practical work میں کسی object یا phenomenon کو منظم انداز میں دیکھنا اور record کرنا۔"],
+ "Identification":["شناخت","Observed structure یا pattern کو درست biological category سے ملانا۔"],
+ "Ring boundaries":["حلقوں کی حدود","Annual ring میں successive bands کے درمیان visible boundaries۔"],
+ "Practical skill":["عملی مہارت","کسی biological observation یا measurement کو درست طریقے سے انجام دینے کی قابلِ عمل صلاحیت۔"],
+ "Diagnostic assessment":["تشخیصی جائزہ","ایسا assessment جو learner کی strengths اور weak areas معلوم کرنے کے لیے استعمال ہو۔"],
+ "Active recall":["فعال یادداشت","بغیر جواب دیکھے معلومات کو ذہن سے retrieve کرنے کی learning strategy۔"],
+ "Conceptual control":["تصوری گرفت","Concepts کے درمیان relationships اور mechanisms کو درست طور پر سمجھنے اور استعمال کرنے کی صلاحیت۔"],
+ "Learning unit":["تعلیمی اکائی","Lecture کا ایسا مربوط حصہ جس میں ایک مخصوص concept یا subtopic سکھایا جائے۔"],
+ "Mastery":["کامل مہارت","Concepts کو recall، explanation، comparison اور application کی سطح پر confidently استعمال کرنے کی حالت۔"]
+});
+
+
+const questions=[
+["Herbaceous plants میں firmness کے لیے کون سا factor خاص اہم ہے؟",["Turgor pressure","Pollen formation","Lignin removal","Stomatal destruction"],0,"Turgor pressure cell wall کے خلاف اندرونی pressure پیدا کرکے herbaceous tissues کو firmness دیتا ہے.","Turgor Pressure"],
+["Parenchyma کے turgid cells کس میں مدد دے سکتے ہیں؟",["Internal firmness","Only pollen dispersal","Only gas exchange","Cell death"],0,"Turgid parenchyma internal support میں حصہ لے سکتا ہے.","Parenchyma"],
+["Collenchyma کی نمایاں خصوصیت کیا ہے؟",["Uneven wall thickening with flexibility","Completely dead thin walls","No mechanical role","Only conducting water"],0,"Collenchyma young parts کو strength کے ساتھ flexibility دیتا ہے.","Collenchyma"],
+["Sclerenchyma کی rigid support کس combination سے وابستہ ہے؟",["Thick lignified walls","Thin unwalled cells","Only large vacuoles","Stomatal opening"],0,"Thick lignified walls sclerenchyma کی rigidity بڑھاتی ہیں.","Sclerenchyma"],
+["Lignification کا mechanical فائدہ کیا ہے؟",["Rigidity and strength increase","Water loss always increases","Cells become more flexible","Growth stops immediately"],0,"Lignin deposition cell walls کو زیادہ rigid اور mechanically strong بناتی ہے.","Lignification"],
+["Xylem support میں بنیادی structural factor کیا ہے؟",["Lignified walls","Sieve plates","Guard cells","Root hairs"],0,"Xylem کے lignified elements transport کے ساتھ mechanical support بھی دیتے ہیں.","Xylem"],
+["Growth کو بہترین طور پر کیسے بیان کیا جاتا ہے؟",["Irreversible increase in size/volume/biomass","Only temporary swelling","Only differentiation","Only branching"],0,"Growth irreversible biological increase ہے.","Growth"],
+["Development growth سے کس طرح مختلف ہے؟",["It also includes differentiation and organisation","It excludes growth","It means only cell death","It means only water uptake"],0,"Development growth سے broader ہے اور differentiation/organisation بھی شامل کرتا ہے.","Development"],
+["Meristematic tissue کی بنیادی خصوصیت کیا ہے؟",["Active cell division","Permanent cell inactivity","Only lignified walls","Only storage"],0,"Meristematic cells actively divide کرکے نئے cells پیدا کرتے ہیں.","Meristematic tissue"],
+["Apical meristem بنیادی طور پر کس growth سے متعلق ہے؟",["Primary growth and length","Secondary girth only","Only salt uptake","Only reproduction"],0,"Apical meristem primary growth اور length increase سے متعلق ہے.","Apical meristem"],
+["Intercalary meristem کہاں خاص طور پر پایا جاتا ہے؟",["Grasses and between/near mature tissues","Only root caps","Only mature wood","Only seeds"],0,"Intercalary meristems grasses میں local growth/regrowth میں اہم ہیں.","Intercalary meristem"],
+["Lateral meristems کا نمایاں نتیجہ کیا ہے؟",["Increased girth/thickness","Only increased leaf colour","Only root hair formation","Only stomatal closure"],0,"Lateral meristems secondary growth کے ذریعے girth بڑھاتے ہیں.","Lateral meristem"],
+["Primary growth بنیادی طور پر کس dimension میں اضافہ کرتی ہے؟",["Length","Girth only","Leaf colour","Salt concentration"],0,"Primary growth length بڑھاتی ہے.","Primary growth"],
+["Secondary growth بنیادی طور پر کس dimension میں اضافہ کرتی ہے؟",["Girth/thickness","Only length","Only leaf number","Only water content"],0,"Secondary growth girth یا thickness بڑھاتی ہے.","Secondary growth"],
+["Annual ring کی تشکیل کس activity سے وابستہ ہے؟",["Seasonal cambial activity","Stomatal opening only","Root hair division only","Pollen germination"],0,"Seasonal cambial activity secondary xylem میں differences پیدا کرکے rings بنا سکتی ہے.","Annual ring"],
+["Clear annual rings کو کس practical مقصد کے لیے count کیا جا سکتا ہے؟",["Basic age estimation","Measuring stomatal pore size","Measuring pollen size","Determining leaf colour"],0,"مناسب حالات میں clear annual rings basic age estimation میں مدد دیتی ہیں.","Annual ring"],
+["Growth correlation سے کیا مراد ہے؟",["Coordinated relationship among plant parts","Only root growth","Only cell death","Only water transport"],0,"Different plant parts کی growth باہم coordinated ہو سکتی ہے.","Growth correlation"],
+["Apical dominance میں active shoot apex کیا کرتا ہے؟",["Suppresses lateral bud growth","Always kills the root","Stops xylem transport","Removes lignin"],0,"Active apical bud lateral/axillary bud growth کو suppress کرتا ہے.","Apical dominance"],
+["Apical dominance کم ہونے پر عموماً کیا ہوتا ہے؟",["Lateral branching increases","All growth stops","Xylem disappears","Cells lose all water"],0,"Dominance کم ہونے سے lateral buds grow کرکے branching بڑھا سکتے ہیں.","Apical dominance"],
+["Growth and development کی integrated sequence کون سی ہے؟",["Division → enlargement → differentiation → organisation → organ growth","Wilting → death → division","Flowering → salt uptake → lignification","Only division → death"],0,"یہ sequence cell production سے organised plant development تک continuous relationship دکھاتی ہے.","Growth"]
+];
+
+const visualItems=[
+['IAE1101100500V','Support in Plants — Topic 05','IAE1101100500V.webp','Topic 05 overview'],
+['IAE1101100501V','Turgor Pressure and Support','IAE1101100501V.webp','5.1 Turgor support'],
+['IAE1101100502V','Parenchyma and Support','IAE1101100502V.webp','5.2 Turgid parenchyma'],
+['IAE1101100503V','Collenchyma and Flexible Support','IAE1101100503V.webp','5.3 Flexible support'],
+['IAE1101100504V','Sclerenchyma and Rigid Support','IAE1101100504V.webp','5.4 Rigid support'],
+['IAE1101100505V','Xylem and Support','IAE1101100505V.webp','5.5 Transport + support'],
+['IAE1101100506V','Integrated Support System','IAE1101100506V.webp','5.6 Integrated support'],
+['IAE1101100600V','Growth and Development in Plants — Topic 06','IAE1101100600V.webp','Topic 06 overview'],
+['IAE1101100601V','Growth: Meaning and Biological Basis','IAE1101100601V.webp','6.1 Growth'],
+['IAE1101100602V','Development and Differentiation','IAE1101100602V.webp','6.2 Development'],
+['IAE1101100603V','Meristematic Tissue','IAE1101100603V.webp','6.3 Meristems'],
+['IAE1101100604V','Apical Meristem and Primary Growth','IAE1101100604V.webp','6.4 Apical meristem'],
+['IAE1101100605V','Intercalary Meristem','IAE1101100605V.webp','6.5 Intercalary meristem'],
+['IAE1101100606V','Lateral Meristem and Secondary Growth','IAE1101100606V.webp','6.6 Lateral meristem'],
+['IAE1101100607V','Primary and Secondary Growth','IAE1101100607V.webp','6.7 Primary vs secondary'],
+['IAE1101100608V','Annual Rings and Age Estimation','IAE1101100608V.webp','6.8 Annual rings'],
+['IAE1101100609V','Growth Correlation','IAE1101100609V.webp','6.9 Growth correlation'],
+['IAE1101100610V','Apical Dominance','IAE1101100610V.webp','6.10 Apical dominance'],
+['IAE1101100611V','Integrated Growth and Development','IAE1101100611V.webp','6.11 Integrated growth']
+];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function linkDictionaryTerms(text){
+ let out=esc(text);
+ const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+ for(const k of keys){
+   const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+   for(const alias of aliases){
+     const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+     out=out.replace(new RegExp('(?<!data-term=")('+safe+')','g'),'<button class="linked-word" type="button" data-term="'+esc(k)+'">$1</button>');
+   }
+ }
+ return out;
+}
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="screen-seal"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>`}
+function show(html){const modal=document.getElementById('modal');modal.classList.remove('dict-modal');document.getElementById('content').innerHTML=header()+html;modal.classList.add('show');modal.setAttribute('aria-hidden','false');decorateDictionaryLinks();}
+function closeModal(){closeDictionaryPopup(false);const modal=document.getElementById('modal');modal.classList.remove('show','dict-modal');modal.setAttribute('aria-hidden','true');}
+let dictionaryReturnElement=null;
+function showDictionaryPopup(k){
+ const d=dict[k]; if(!d)return;
+ const modal=document.getElementById('modal');
+ closeDictionaryPopup(false);
+ dictionaryReturnElement=document.activeElement;
+ const overlay=document.createElement('div');
+ overlay.className='dictionary-overlay';
+ overlay.id='dictionaryOverlay';
+ overlay.innerHTML=`<div class="dictionary-dialog" role="dialog" aria-modal="true" aria-label="Dictionary">
+   <button class="dictionary-close" type="button" aria-label="Close Dictionary" onclick="closeDictionaryPopup()">×</button>
+   <div class="lesson-title">${esc(k)}</div>
+   <div class="section standard"><span class="level-heading standard-h">${esc(d[0])}</span><p>${esc(d[1])}</p></div>
+ </div>`;
+ modal.querySelector('.dialog').appendChild(overlay);
+ modal.classList.add('dict-modal');
+ const close=overlay.querySelector('.dictionary-close');
+ close.focus();
+}
+function closeDictionaryPopup(restore=true){
+ const overlay=document.getElementById('dictionaryOverlay');
+ if(overlay) overlay.remove();
+ document.getElementById('modal').classList.remove('dict-modal');
+ if(restore && dictionaryReturnElement && document.contains(dictionaryReturnElement)){dictionaryReturnElement.focus();}
+ dictionaryReturnElement=null;
+}
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function img(v){return v?`<div class="topic-visual" onclick="showVisual('${v}')"><img src="${BASE+v}" alt="Visual Atlas image"></div>`:''}
+function navButtons(prev,next){return `<div class="content-navigation">${prev?`<button onclick="${prev}">← Previous</button>`:''}<button onclick="closeModal()">✕ Close</button>${next?`<button onclick="${next}">Next →</button>`:''}</div>`}
+function openTopic(k){
+ const d=topics[k];
+ const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
+ show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div><p>${linkDictionaryTerms(d.intro)}</p></div></div>
+ <div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>مرکزی concept، بنیادی vocabulary اور curriculum-level understanding حاصل کریں۔</p></div>
+ <div class="section standard"><span class="level-heading standard-h">معیاری</span><p>Structure، function، mechanism اور examination-relevant relationships کو مربوط کریں۔</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>Mechanism، cause–effect، comparison اور higher-level conceptual links کو integrate کریں۔</p></div>
+ <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>`);
+}
+function openSub(k){
+ const d=subs[k]; const all=Object.keys(subs), i=all.indexOf(k), prev=all[i-1], next=all[i+1];
+ show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div><div class="lesson-subtitle">درسی مواد — بنیادی → معیاری → Mastery</div></div></div>
+ <div class="section basic"><span class="level-heading basic-h">بنیادی</span><p>${linkDictionaryTerms(d.basic)}</p></div>
+ <div class="section standard"><span class="level-heading standard-h">معیاری</span><p>${linkDictionaryTerms(d.standard)}</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>
+ <div class="diagram">${esc(d.extra)}</div>
+ <div class="inline-note">Academic Code: <span class="pill">${esc(d.id)}</span>${d.visual?` · Visual: <span class="pill">${esc(d.visual.replace('.webp',''))}</span>`:''}</div>
+ ${navButtons(prev?`openSub('${prev}')`:null,next?`openSub('${next}')`:null)}`);
+}
+function showVisual(id){const v=visualItems.find(x=>x[0]===id);if(!v)return;show(`<div class="lesson-title">${esc(v[1])}</div><div class="lesson-subtitle">${esc(v[0])}</div><div class="visual-card"><img class="atlas-img" src="${BASE+v[2]}" alt="${esc(v[1])}"><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p></div>`);}
+function openFunctional(k){
+ if(k==='dictionary'){show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Central Biology Dictionary — Lecture 03 relevant terminology</p><input class="search" id="ds" placeholder="Search Dictionary term…" oninput="renderDict(this.value)"><div id="dictList"></div>`);renderDict('');return;}
+ if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">Chapter 10 authoritative Visual Atlas assets for Lecture 03</p>${visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" onclick="showVisual('${v[0]}')">Visual کھولیں</button></div>`).join('')}`);return;}
+ if(k==='practice'){show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">Recall</span><p>ہر subtopic کا definition، structure اور key term اپنے الفاظ میں بیان کریں۔</p></div><div class="section standard"><span class="level-heading standard-h">Application</span><p>Flow chains یاد کرنے کے بجائے cause → mechanism → result لکھیں، مثلاً turgor support، primary/secondary growth اور apical dominance۔</p></div><div class="section mastery"><span class="level-heading mastery-h">Exam Strategy</span><p>Compare/contrast سوالات میں کم از کم structure، mechanism اور function کے headings استعمال کریں۔ diagrams میں arrows اور direction واضح رکھیں۔</p></div><div class="section"><b>Core Focus:</b><p>20 core questions کو timed active-recall practice کے طور پر استعمال کریں۔ پہلے جواب دیکھے بغیر لکھیں، پھر explanation سے self-correct کریں۔</p></div>`);return;}
+ if(k==='readiness'){openAssessment('readiness');return;}
+ if(k==='exam'){openAssessment('exam');return;}
+ if(k==='revision'){show(`<div class="lesson-title">Revision</div><p class="lesson-subtitle">Weak areas سے واپس relevant learning units کی طرف</p>${Object.entries(subs).map(([id,s])=>`<div class="revision-item" onclick="openSub('${id}')"><span>${esc(s.id)}</span><div><b>${esc(s.title)}</b><br><small>Basic → Standard → Mastery دوبارہ پڑھیں</small></div></div>`).join('')}`);return;}
+ if(k==='mastery'){show(`<div class="lesson-title">Mastery</div><div class="section basic"><span class="level-heading basic-h">Foundation</span><p>Definitions، structures اور essential mechanisms پر مکمل گرفت۔</p></div><div class="section standard"><span class="level-heading standard-h">Integration</span><p>Turgor → tissue support اور Apical → lateral growth patterns کو compare کریں۔</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery Challenge</span><p>Explain کریں کہ turgor، tissue structure، meristem activity، primary/secondary growth، annual rings اور growth correlation ایک coherent plant growth/support system کیسے بناتے ہیں۔</p></div>`);return;}
+ if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Annual Ring Investigation</b><p>Wood sample میں clear annual rings locate اور count کر کے basic age estimation کی جا سکتی ہے۔ Ring boundaries کو احتیاط سے distinguish کریں اور یاد رکھیں کہ ring formation seasonal cambial activity سے وابستہ ہے۔</p></div><div class="section"><b>Experimental reasoning</b><p>Observation → identification → count → conclusion کے درمیان فرق واضح رکھیں۔ Ring count کو اسی وقت age estimate کے طور پر استعمال کریں جب rings واضح اور مناسب seasonal pattern کی نمائندگی کرتی ہوں۔</p></div>`);return;}
+}
+function renderDict(q){
+ const box=document.getElementById('dictList'); if(!box)return; q=(q||'').toLowerCase();
+ const rows=Object.entries(dict).filter(([k,v])=>!q||(k+' '+v[0]+' '+v[1]).toLowerCase().includes(q));
+ box.innerHTML=rows.map(([k,v])=>`<div class="dict-item" onclick="showDict('${esc(k)}')"><b>${esc(k)}</b> — ${esc(v[0])}<br><small>${esc(v[1])}</small></div>`).join('')||'<p>کوئی entry نہیں ملی۔</p>';
+}
+function showDict(k){showDictionaryPopup(k);}
+function showDictByTerm(k){showDictionaryPopup(k);}
+function renderAssessmentQuestions(arr,type){
+ return arr.map((q,i)=>`<div class="question-card"><b>Q${i+1}. ${esc(q[0])}</b>${q[1].map((o,j)=>`<label class="assessment-option"><input type="radio" name="${type}-${i}" value="${j}"><span>${esc(o)}</span></label>`).join('')}</div>`).join('');
+}
+let assessmentAttempt=[], assessmentType='readiness';
+function openAssessment(type){
+ assessmentType=type; assessmentAttempt=type==='exam'?questions.slice(0,20):shuffle(questions).slice(0,15);
+ show(`<div class="assessment-head"><div class="assessment-badge">${type==='exam'?'🏛️ EXAMINATION':'🧑‍🎓 READINESS TEST'}</div><div class="lesson-title">Lecture 03 — ${type==='exam'?'Examination':'Readiness Test'}</div><p>${type==='exam'?'Formal assessment of Support, Growth & Development in Plants.':'Diagnostic assessment covering core concepts, mechanisms and applications.'}</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
+ <div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div>
+ <div id="assessmentQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+ <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit ${type==='exam'?'Examination':'Readiness Test'}</button><button onclick="openAssessment('${type}')">↻ Reset</button></div>
+ <div id="assessmentResult" class="assessment-result"></div>`);
+}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
+function submitAssessment(){
+ let correct=0,wrong=0,unanswered=0,weak={},review=[];
+ assessmentAttempt.forEach((q,i)=>{const sel=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);const s=sel?Number(sel.value):null;if(s===null)unanswered++;else if(s===q[2])correct++;else{wrong++;weak[q[4]]=(weak[q[4]]||0)+1;}review.push({q,selected:s,ok:s===q[2]});});
+ const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Needs Revision','Review weak areas before retest']:['Foundation Revision Required','Rebuild foundational concepts before retest'];
+ let r=document.getElementById('assessmentResult');r.className='assessment-result show';
+ r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Examination Result':'Readiness Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p></div>
+ <div class="recommendation-title">🎯 Weak Areas &amp; Revision Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
+ <div class="recommendation-title">📝 Detailed Answer Review</div>${review.map((x,i)=>`<div class="answer-review ${x.ok?'':'review-wrong'}"><b>Q${i+1}</b><p>${esc(x.q[0])}</p><p><b>آپ کا جواب:</b> ${x.selected===null?'جواب نہیں دیا':esc(x.q[1][x.selected])}</p><p><b>درست جواب:</b> ${esc(x.q[1][x.q[2]])}</p><p>${esc(x.q[3])}</p></div>`).join('')}`;
+ r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function decorateDictionaryLinks(root=document){
+ const nodes=[...root.querySelectorAll('.section p,.section li,.topic-head-text p,.subtopic-head-text .lesson-title,.section-card p')];
+ nodes.forEach(node=>{
+   if(node.dataset.decorated)return;
+   const text=node.textContent; if(!text.trim())return;
+   let html=esc(text);
+   Object.keys(dict).sort((a,b)=>b.length-a.length).forEach(k=>{
+     const aliases=[k,dict[k][0]].sort((a,b)=>b.length-a.length);
+     aliases.forEach(alias=>{
+       const re=new RegExp(alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+       html=html.replace(re,m=>`<button class="linked-word" type="button" data-term="${esc(k)}">${esc(m)}</button>`);
+     });
+   });
+   node.innerHTML=html;node.dataset.decorated='1';
+ });
+}
+document.addEventListener('click',e=>{const w=e.target.closest('.linked-word');if(w){e.preventDefault();showDictByTerm(w.dataset.term);}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();const w=e.target.closest?.('.linked-word');if(w&&(e.key==='Enter'||e.key===' ')){e.preventDefault();showDictByTerm(w.dataset.term);}});
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();if(e.target.id==='dictionaryOverlay')closeDictionaryPopup();});
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.top-logo img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none'},{once:true}));});
+</script>
+</body>
+</html>
