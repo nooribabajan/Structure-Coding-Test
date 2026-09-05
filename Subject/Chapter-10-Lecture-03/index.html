@@ -464,11 +464,41 @@ function openSub(k){
  modal.classList.add('level3-modal');
 }
 function showVisual(id){const v=visualItems.find(x=>x[0]===id);if(!v)return;show(`<div class="lesson-title">${esc(v[1])}</div><div class="lesson-subtitle">${esc(v[0])}</div><div class="visual-card"><img class="atlas-img" src="${BASE+v[2]}" alt="${esc(v[1])}"><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p></div>`);}
+
+function practiceReveal(id){const el=document.getElementById(id);if(el)el.hidden=false;}
+function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function openGuidedPractice(){
+ lectureViewStack=[];
+ const recall=questions.slice(0,20);
+ const recallHtml=recall.map((q,i)=>`<div class="question-card practice-q"><b>Q${i+1}. ${esc(q[0])}</b><div class="section"><p><b>پہلے خود جواب دیں:</b> options دیکھے بغیر اپنے الفاظ میں جواب سوچیں یا لکھیں۔</p><button class="visual-link" onclick="practiceReveal('pr-a-${i}')">جواب اور وضاحت دیکھیں</button><div id="pr-a-${i}" class="answer-review" hidden><p><b>درست جواب:</b> ${esc(q[1][q[2]])}</p><p>${esc(q[3]||'')}</p><p><b>Self-check:</b> اپنی پہلی کوشش سے موازنہ کریں، غلطی ہو تو اسی وقت درست جواب دوبارہ بیان کریں۔</p></div></div></div>`).join('');
+ const chains=[
+ ['Turgor Pressure','Cell Firmness','Mechanical Support'],
+ ['Apical Meristem','Cell Production','Primary Growth'],
+ ['Lateral Meristem','Secondary Tissues','Increase in Girth'],
+ ['Apical Dominance','Auxin Effect','Lateral Bud Suppression']
+ ];
+ const chainHtml=chains.map((c,i)=>`<div class="question-card"><b>Chain ${i+1}</b><p>${esc(c[0])} → <span id="pr-chain-${i}" hidden>${esc(c[1])} → ${esc(c[2])}</span></p><button class="visual-link" onclick="practiceReveal('pr-chain-${i}')">Mechanism chain دکھائیں</button><p id="pr-chain-check-${i}" hidden><b>Practice:</b> اب اسی chain کو cause → mechanism → result کے طور پر بلند آواز سے بیان کریں۔</p><button class="visual-link" onclick="practiceReveal('pr-chain-check-${i}')">Self-check مکمل کریں</button></div>`).join('');
+ const compares=[
+ ['Collenchyma vs Sclerenchyma','دونوں میں structure اور support کا فرق بیان کریں۔'],
+ ['Primary Growth vs Secondary Growth','دونوں میں growth pattern اور متعلقہ meristem کا فرق بیان کریں۔'],
+ ['Growth vs Development','Growth اور Development کو ایک جیسے سمجھنے کی غلطی سے بچتے ہوئے بنیادی فرق بیان کریں۔'],
+ ['Apical Meristem vs Lateral Meristem','دونوں meristems کے growth contribution کا تقابلی جواب دیں۔']
+ ];
+ const compareHtml=compares.map((c,i)=>`<div class="question-card"><b>${esc(c[0])}</b><p>${esc(c[1])}</p><button class="visual-link" onclick="practiceReveal('pr-cmp-${i}')">Academy check points دیکھیں</button><div id="pr-cmp-${i}" class="answer-review" hidden><p><b>اپنا جواب لازماً تین headings میں check کریں:</b> Structure → Mechanism → Function / Result.</p><p>جواب میں Lecture 03 کے متعلقہ concepts اور English scientific terms استعمال کریں؛ پھر اپنا جواب دوبارہ مختصر طور پر بیان کریں۔</p></div></div>`).join('');
+ const visualHtml=visualItems.map((v,i)=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" onclick="showVisual('${v[0]}')">Visual دیکھیں اور خود explain کریں</button></div>`).join('');
+ show(`<div class="lesson-title">Practice &amp; Test Strategies</div>
+ <div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>Academy ہر سوال کروائے گی: پہلے آپ خود جواب دیں، پھر درست جواب اور explanation دیکھیں، اپنی غلطی درست کریں، اور اگلے سوال پر جائیں۔</p></div>${recallHtml}
+ <div class="section standard"><span class="level-heading standard-h">2. Concept Connection</span><p>اب اہم concepts کو cause → mechanism → result کے ربط میں خود بیان کریں۔</p></div>${chainHtml}
+ <div class="section standard"><span class="level-heading standard-h">3. Compare &amp; Contrast</span><p>ہر comparison میں Structure → Mechanism → Function / Result کے ذریعے اپنا جواب check کریں۔</p></div>${compareHtml}
+ <div class="section standard"><span class="level-heading standard-h">4. Visual Recall</span><p>Visual کو دیکھ کر اس کا concept، structure یا process اپنے الفاظ میں explain کریں، پھر visual کی معلومات سے خود کو check کریں۔</p></div>${visualHtml}
+ <div class="section mastery"><span class="level-heading mastery-h">5. Core 20 — Final Guided Round</span><p>اوپر کے 20 سوالات دوبارہ بغیر جواب دیکھے کریں۔ ہر غلط یا کمزور جواب کو فوراً متعلقہ explanation سے درست کریں۔</p><button class="visual-link" onclick="practiceReveal('pr-final-check')">Final self-check کھولیں</button><div id="pr-final-check" class="answer-review" hidden><p><b>Final Check:</b> کیا آپ Support → Growth → Development → Meristems → Primary/Secondary Growth → Growth Correlation → Apical Dominance کی ترتیب میں اہم concepts explain کر سکتے ہیں؟</p><p>اگر کسی حصے میں hesitation ہو تو اسی lecture کے متعلقہ Subtopic کو دوبارہ کھول کر Basic → Standard → Mastery مکمل کریں، پھر Practice میں واپس آکر دوبارہ جواب دیں۔</p></div></div>
+ <div class="section"><b>Practice Complete</b><p>اب مقصد صرف instructions پڑھنا نہیں، بلکہ Recall، Correction، Connection، Comparison اور Visual explanation کے ذریعے Lecture 03 کو عملی طور پر revise کرنا ہے۔ اس کے بعد Readiness Test کی طرف جائیں۔</p></div>`);
+}
 function openFunctional(k){
  lectureViewStack=[];
  if(k==='dictionary'){show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Central Biology Dictionary — Lecture 03 relevant terminology</p><input class="search" id="ds" placeholder="Search Dictionary term…" oninput="renderDict(this.value)"><div id="dictList"></div>`);renderDict('');return;}
  if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">Chapter 10 authoritative Visual Atlas assets for Lecture 03</p>${visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" onclick="showVisual('${v[0]}')">Visual کھولیں</button></div>`).join('')}`);return;}
- if(k==='practice'){show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">Recall</span><p>ہر subtopic کا definition، structure اور key term اپنے الفاظ میں بیان کریں۔</p></div><div class="section standard"><span class="level-heading standard-h">Application</span><p>Flow chains یاد کرنے کے بجائے cause → mechanism → result لکھیں، مثلاً turgor support، primary/secondary growth اور apical dominance۔</p></div><div class="section mastery"><span class="level-heading mastery-h">Exam Strategy</span><p>Compare/contrast سوالات میں کم از کم structure، mechanism اور function کے headings استعمال کریں۔ diagrams میں arrows اور direction واضح رکھیں۔</p></div><div class="section"><b>Core Focus:</b><p>20 core questions کو timed active-recall practice کے طور پر استعمال کریں۔ پہلے جواب دیکھے بغیر لکھیں، پھر explanation سے self-correct کریں۔</p></div>`);return;}
+ if(k==='practice'){openGuidedPractice();return;}
  if(k==='readiness'){openAssessment('readiness');return;}
  if(k==='exam'){openAssessment('exam');return;}
  if(k==='revision'){show(`<div class="lesson-title">Revision</div><p class="lesson-subtitle">Weak areas سے واپس relevant learning units کی طرف</p>${Object.entries(subs).map(([id,s])=>`<div class="revision-item" onclick="openSub('${id}')"><span>${esc(s.id)}</span><div><b>${esc(s.title)}</b><br><small>Basic → Standard → Mastery دوبارہ پڑھیں</small></div></div>`).join('')}`);return;}
