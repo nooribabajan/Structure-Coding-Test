@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>IAE110110 — Chapter 10 · Lecture 04 — Special Modes of Nutrition in Plants</title>
+<title>IAE1101100000 — Special Modes of Nutrition in Plants</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 :root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--shadow:0 8px 24px rgba(23,62,52,.10)}
@@ -11,16 +11,18 @@
 html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
 body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic',serif;line-height:1.9}
 .wrap{width:100%;height:100dvh;overflow:hidden}
-.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden}
+.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden;border:3px solid var(--gold)}
 .page.active{display:block}
-.top,.screen-header{width:100%;padding:14px 0 12px;border-bottom:3px solid var(--gold);background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;box-shadow:0 3px 13px #0002}
+.top,.screen-header{position:relative;width:100%;padding:23px 0 21px;border-bottom:3px solid var(--gold);background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;box-shadow:0 3px 13px #0002}
 .top-inner,.screen-header-inner{width:100%;padding:0 clamp(9px,3vw,28px);display:flex;align-items:center;gap:clamp(8px,2vw,18px);direction:ltr}
 .top-brand,.screen-brand{flex:1;min-width:0;text-align:left}
-.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(18px,5.5vw,28px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
-.top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95}
+.top-subtitle{margin-top:1px}
+.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(20px,5.5vw,30px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95;position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:max-content;max-width:70%;text-align:center}
 .top-logo,.screen-seal{flex:0 0 clamp(60px,11vw,140px);width:clamp(60px,11vw,140px);height:clamp(48px,8vw,95px);overflow:hidden}
 .top-logo img,.screen-seal img{width:100%;height:100%;object-fit:contain}
-.page-title{max-width:1180px;margin:auto;padding:14px;text-align:center;color:var(--green);font-size:clamp(21px,3.5vw,32px);font-weight:800}
+.biology-label{max-width:1180px;margin:0 auto;padding:6px 14px 0;text-align:left;direction:ltr;color:var(--green);font:700 16px/1.3 Arial,sans-serif}
+.page-title{max-width:1180px;margin:auto;padding:6px 14px;text-align:center;color:var(--green);font-size:clamp(21px,3.5vw,32px);font-weight:800}
 .section-card{max-width:1180px;margin:0 auto;padding:18px 24px;background:#fff;border-bottom:1px solid var(--line)}
 .section-card strong{display:block;color:var(--green);font-size:20px;margin-bottom:6px}
 .section-card p,.section-card li{font-size:16px}
@@ -36,8 +38,8 @@ body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic',se
 .label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
 .section-heading{text-align:center;color:var(--green);font-size:24px;margin:4px auto 8px;max-width:1180px}
 .section-note{text-align:center;color:#475569;max-width:1000px;margin:0 auto 10px;padding:0 12px}
-.footer-nav{max-width:1180px;margin:12px auto;padding:10px;position:sticky;bottom:0;background:rgba(255,255,255,.96);border-top:1px solid #dbe4ee;display:flex;justify-content:center;z-index:20}
-button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessment-actions button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+.footer-nav{max-width:1180px;margin:8px auto 0;padding:0;position:sticky;bottom:0;background:transparent;border-top:0;display:flex;justify-content:center;z-index:20}
+button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessment-actions button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}.footer-nav button{background:var(--green);color:#fff;border-color:var(--green)}
 .modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:50}
 .modal.show{display:block}
 .modal.dict-modal{display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
@@ -94,9 +96,10 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 <body>
 <div class="wrap">
 <section class="page active" id="homePage">
-<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
-<div class="page-title">IAE110110 — Chapter 10 · Lecture 04</div>
-<div class="section-card"><strong>Support, Growth &amp; Development in Plants — Academic Map</strong><p>اس لیکچر میں پودوں کے mechanical support، turgor، supporting tissues، growth، development، meristems، primary و secondary growth، annual rings، growth correlation اور apical dominance کو structure → function → mechanism → application کے تسلسل میں سمجھایا جاتا ہے۔</p></div>
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img src="../../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="biology-label">Biology</div>
+<div class="page-title">IAE1101100000</div>
+<div class="section-card"><strong>Support, Growth &amp; Development in Plants</strong><p><strong>Support (سہارا):</strong> پودے کے جسم کو سیدھا، مضبوط اور اپنی مناسب شکل و مقام پر برقرار رکھنے کی صلاحیت کو Support کہتے ہیں۔ یہ بنیادی طور پر <strong>Cell Wall، Turgor Pressure</strong> اور <strong>Supporting Tissues</strong> کی مدد سے قائم رہتی ہے۔ <strong>Growth (نشوونما):</strong> پودے کے حجم، جسامت یا خشک وزن میں مستقل اور ناقابلِ واپسی (<strong>Permanent &amp; Irreversible</strong>) اضافہ Growth کہلاتا ہے۔ <strong>Development (ترقی و ارتقاء):</strong> پودے کی ساخت اور افعال (<strong>Structure &amp; Function</strong>) میں رونما ہونے والی بتدریج تبدیلیوں کا مجموعہ Development کہلاتا ہے، جس کے دوران جڑ، تنا، شاخیں اور پتے (<strong>Roots, Stem, Branches &amp; Leaves</strong>) تشکیل پاتے، پختہ (<strong>Maturation</strong>) ہوتے اور مخصوص افعال کے لیے تخصص (<strong>Specialization</strong>) حاصل کرتے ہیں۔</p></div>
 <div class="section-card"><strong>Learning Outcomes</strong><ol>
 <li>Turgor pressure اور herbaceous plants میں اس کے support کردار کی وضاحت کر سکے۔</li>
 <li>Parenchyma، collenchyma اور sclerenchyma کی structure/function کا موازنہ کر سکے۔</li>
@@ -114,7 +117,8 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 </section>
 
 <section class="page" id="topicsPage">
-<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img src="../../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="biology-label">Biology</div>
 <div class="page-title">Lecture 04 — Topics</div>
 <h1 class="section-heading">Special Modes of Nutrition in Plants</h1>
 <p class="section-note">Learning → Explanation → Visual → Interaction → Practice → Assessment → Diagnosis → Revision → Mastery</p>
@@ -141,7 +145,8 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 </section>
 
 <section class="page" id="searchPage">
-<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img src="../../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
+<div class="biology-label">Biology</div>
 <div class="page-title">Lecture 04 — Search</div><div id="searchPageContent"></div>
 </section>
 </div>
@@ -163,7 +168,7 @@ const subs={
  t7s5:{topic:'t7',id:'IAE1101100705',title:'Saprophytic Nutrition',visual:'IAE1101100705V.webp',basic:'Saprophytic Nutrition میں dead organic matter سے nutrients حاصل کیے جاتے ہیں۔ Complex organic substances کو extracellular enzymes کے ذریعے simpler soluble products میں تبدیل کیا جاتا ہے۔',standard:'Digestion body کے باہر ہوتی ہے، پھر soluble products absorb کیے جاتے ہیں۔ Neottia (Bird’s Nest Orchid) کو نصابی مثال کے طور پر شامل کیا جا سکتا ہے۔ جدید biology میں کئی non-photosynthetic plants کو mycoheterotrophic context میں بھی بیان کیا جاتا ہے۔',mastery:'Dead organic matter → extracellular enzymatic digestion → soluble products → absorption۔',extra:'Dead organic matter → Extracellular enzymes → Soluble nutrients → Absorption'},
  t7s6:{topic:'t7',id:'IAE1101100706',title:'Symbiotic Nutrition and Mycorrhizae',visual:'IAE1101100706V.webp',basic:'Symbiosis میں دو مختلف organisms قریبی association میں رہتے ہیں اور دونوں کو فائدہ پہنچ سکتا ہے۔ Mycorrhizae میں plant roots اور fungi کا تعلق شامل ہے۔',standard:'Fungal hyphae soil میں پھیل کر water اور minerals، خصوصاً phosphorus، کے حصول کے لیے root کی effective absorbing area بڑھاتے ہیں۔ Plant fungus کو Photosynthetic carbohydrates فراہم کرتا ہے۔',mastery:'Fungus → water + minerals؛ Plant → organic carbohydrates۔',extra:'Plant root ↔ Fungus | Fungus → water/minerals | Plant → carbohydrates'},
  t7s7:{topic:'t7',id:'IAE1101100707',title:'Root Nodules and Rhizobium',visual:'IAE1101100707V.webp',basic:'Leguminous plants، مثلاً pea اور chickpea، کی roots پر root nodules میں Rhizobium bacteria پائے جا سکتے ہیں۔',standard:'Rhizobium atmospheric N2 کے nitrogen fixation میں حصہ لیتا ہے اور plant nitrogen nutrition کے لیے زیادہ قابلِ استعمال nitrogen-containing compounds بنانے میں مدد دیتا ہے۔ Plant bacteria کو habitat اور organic nutrients فراہم کرتا ہے۔',mastery:'Leguminous plant → Root nodules → Rhizobium → Nitrogen fixation۔',extra:'Leguminous root → Root nodule → Rhizobium → Nitrogen fixation'},
- t7s8:{topic:'t7',id:'IAE1101100708',title:'Root Nodules, Rhizobium & Nitrogen Fixation',visual:'IAE1101100708V.webp',basic:'Nitrogen پودوں کی نشوونما کے لیے ایک اہم معدنی غذائی عنصر ہے۔ یہ Amino Acids، Proteins اور Nucleic Acids کی تیاری میں بنیادی کردار ادا کرتا ہے۔ پودے Atmospheric Nitrogen (N₂) کو براہِ راست استعمال نہیں کر سکتے۔',standard:'Leguminous Plants، مثلاً مٹر، چنا اور لوبیا، Rhizobium بیکٹیریا کے ساتھ ایک Symbiotic Relationship قائم کرتے ہیں۔ ان پودوں کی جڑوں پر Root Nodules تشکیل پاتی ہیں، جن میں Rhizobium بیکٹیریا موجود ہوتے ہیں۔ Rhizobium Atmospheric Nitrogen کو Nitrogen Fixation کے عمل کے ذریعے ایسے Nitrogen-containing compounds میں تبدیل کرتا ہے جنہیں پودا اپنی غذائی ضروریات کے لیے استعمال کر سکتا ہے۔\n\nNitrogen Fixation\nN₂ + 8H⁺ + 8e⁻ + 16ATP → 2NH₃ + H₂ + 16ADP + 16Pi\n\nسادہ تصور:\nAtmospheric N₂ → Nitrogen Fixation → NH₃ → Plant Nitrogen Compounds',mastery:'یہ تعلق باہمی فائدے پر مبنی ہوتا ہے۔ پودا Rhizobium کو رہنے کی جگہ اور غذائی اجزا فراہم کرتا ہے، جبکہ Rhizobium پودے کی Nitrogen Nutrition میں معاونت کرتا ہے۔\n\nLeguminous Plant → Root Nodules → Rhizobium → Nitrogen Fixation → Plant Nitrogen Nutrition',extra:'اہم نکات\n- Root Nodules عموماً Leguminous Plants کی جڑوں پر بنتی ہیں۔\n- ان گانٹھوں میں Rhizobium بیکٹیریا موجود ہوتے ہیں۔\n- Rhizobium Nitrogen Fixation کے عمل میں اہم کردار ادا کرتا ہے۔\n- مٹر، چنا اور لوبیا اس Symbiotic Relationship کی نمایاں مثالیں ہیں۔'},
+ t7s8:{topic:'t7',id:'IAE1101100708',title:'Root Nodules, Rhizobium & Nitrogen Fixation',visual:'IAE1101100708V.webp',basic:'Nitrogen پودوں کی نشوونما کے لیے ایک اہم معدنی غذائی عنصر ہے۔ یہ Amino Acids، Proteins اور Nucleic Acids کی تیاری میں بنیادی کردار ادا کرتا ہے۔ پودے Atmospheric Nitrogen (N₂) کو براہِ راست استعمال نہیں کر سکتے۔',standard:'Leguminous Plants، مثلاً مٹر، چنا اور لوبیا، Rhizobium بیکٹیریا کے ساتھ ایک Symbiotic Relationship قائم کرتے ہیں۔ ان پودوں کی جڑوں پر Root Nodules تشکیل پاتی ہیں، جن میں Rhizobium بیکٹیریا موجود ہوتے ہیں۔ Rhizobium Atmospheric Nitrogen کو Nitrogen Fixation کے عمل کے ذریعے ایسے Nitrogen-containing compounds میں تبدیل کرتا ہے جنہیں پودا اپنی غذائی ضروریات کے لیے استعمال کر سکتا ہے۔',mastery:'یہ تعلق باہمی فائدے پر مبنی ہوتا ہے۔ پودا Rhizobium کو رہنے کی جگہ اور غذائی اجزا فراہم کرتا ہے، جبکہ Rhizobium پودے کی Nitrogen Nutrition میں معاونت کرتا ہے۔\n\nLeguminous Plant → Root Nodules → Rhizobium → Nitrogen Fixation → Plant Nitrogen Nutrition',extra:'اہم نکات\n- Root Nodules عموماً Leguminous Plants کی جڑوں پر بنتی ہیں۔\n- ان گانٹھوں میں Rhizobium بیکٹیریا موجود ہوتے ہیں۔\n- Rhizobium Nitrogen Fixation کے عمل میں اہم کردار ادا کرتا ہے۔\n- مٹر، چنا اور لوبیا اس Symbiotic Relationship کی نمایاں مثالیں ہیں۔'},
 };
 const dict={"Insectivorous Plants":["حشرات خور پودے","ایسے plants جو insects یا دوسرے چھوٹے prey سے nitrogen اور mineral nutrients حاصل کرتے ہیں۔"],"Carnivorous Plants":["گوشت خور پودے","Plants جو photosynthesis کے ساتھ prey سے اضافی nutrients حاصل کرتے ہیں۔"],"Photosynthesis":["ضیائی تالیف","Light energy کی مدد سے carbon dioxide اور water سے carbohydrates تیار کرنے کا process۔"],"Nitrogen":["نائٹروجن","Plant growth اور protein synthesis کے لیے ضروری mineral nutrient۔"],"Mineral Nutrients":["معدنی غذائی اجزا","Plant کے لیے ضروری inorganic elements۔"],"Sarracenia":["سیرسینیا","Pitcher plant جس کے modified pitcher-like leaves insects کو trap کرتے ہیں۔"],"Dionaea muscipula":["ڈایونیا مسکیپیولا","Venus Flytrap؛ دو lobes والا specialized leaf trap۔"],"Drosera":["ڈروسرا","Sundew؛ sticky glandular secretion کے ذریعے insects کو trap کرتا ہے۔"],"Parasitic Plants":["طفیلی پودے","Plants جو living host سے resources حاصل کرتے ہیں۔"],"Host":["میزبان","وہ living organism جس سے parasite resources حاصل کرتا ہے۔"],"Haustoria":["ہاسٹوریا","Parasitic plants کی specialized absorbing structures جو host tissues تک رسائی دیتی ہیں۔"],"Xylem":["زیلم","Vascular tissue جو water اور mineral ions transport کرتا ہے۔"],"Phloem":["فلوئم","Vascular tissue جو organic food transport کرتا ہے۔"],"Total Parasite":["مکمل طفیلی","ایسا parasite جو host پر بہت زیادہ depend کرتا ہے اور عموماً photosynthesis نہیں کرتا۔"],"Partial Parasite":["جزوی طفیلی","ایسا parasite جس میں photosynthesis موجود ہو مگر host dependence جزوی رہے۔"],"Cuscuta":["اکاس بیل / Cuscuta","Thread-like total parasitic plant جو host سے resources لیتا ہے۔"],"Mistletoe":["مسٹل ٹو","Green partial parasitic plant جو host سے water اور minerals حاصل کر سکتا ہے۔"],"Saprophytic Nutrition":["مردہ نامیاتی مادے سے غذائیت","Dead organic matter سے extracellular digestion کے بعد soluble nutrients حاصل کرنے کا mode۔"],"Extracellular Enzymes":["خارج خلوی enzymes","Cells کے باہر complex organic substances کو simpler products میں breakdown کرنے والے enzymes۔"],"Neottia":["نیوٹیا / Bird’s Nest Orchid","Non-photosynthetic orchid؛ school biology میں saprophytic nutrition کی مثال، fungal association اہم ہے۔"],"Mycoheterotrophic":["مائیکو ہیٹروٹروفک","Fungi کے ذریعے carbon یا nutrients حاصل کرنے والے plants کے لیے modern term۔"],"Symbiosis":["باہمی ہم زیستی","دو مختلف organisms کا close association جس میں دونوں کو فائدہ پہنچ سکتا ہے۔"],"Mycorrhizae":["مائیکورائزا","Plant roots اور fungi کی symbiotic association۔"],"Fungal Hyphae":["فنگل ہائفے","Fungus کی thread-like structures جو soil میں water/mineral acquisition بڑھاتی ہیں۔"],"Phosphorus":["فاسفورس","Essential mineral nutrient؛ mycorrhizae phosphorus acquisition بہتر کر سکتی ہے۔"],"Root Nodules":["جڑ کی گانٹھیں","Leguminous roots پر بننے والی structures جن میں Rhizobium رہ سکتے ہیں۔"],"Rhizobium":["رائزو بیئم","Nitrogen-fixing bacteria جو leguminous root nodules میں association بناتے ہیں۔"],"Nitrogen Fixation":["نائٹروجن تثبیت","Atmospheric N2 کو biologically usable nitrogen-containing compounds میں تبدیل کرنے کا process۔"],"Leguminous Plants":["بقولی پودے","Pea اور chickpea جیسے plants جن کی roots پر Rhizobium-containing nodules بن سکتے ہیں۔"],"Adaptation":["ماحولیاتی موافقت","Structural یا functional feature جو environment میں survival اور resource acquisition میں مدد دے۔"],"Special Modes of Nutrition":["غذائیت کے مخصوص طریقے","Specialized nutritional strategies جو مختلف environmental conditions میں nutrients حاصل کرنے میں مدد دیتی ہیں۔"]};
 const questions=[
@@ -188,7 +193,7 @@ function linkDictionaryTerms(text){
  }
  return out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
 }
-function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="screen-seal"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>`}
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><img src="../../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="biology-label">Biology</div>`}
 function show(html,withHeader=true){const modal=document.getElementById('modal');modal.classList.remove('dict-modal','level3-modal');document.getElementById('content').innerHTML=(withHeader?header():'')+html;modal.classList.add('show');modal.setAttribute('aria-hidden','false');decorateDictionaryLinks();}
 function closeModal(){closeDictionaryPopup(false);const modal=document.getElementById('modal');modal.classList.remove('show','dict-modal','level3-modal');modal.setAttribute('aria-hidden','true');}
 let dictionaryReturnElement=null;
@@ -249,7 +254,7 @@ function openSub(k){
  const d=subs[k];
  show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div></div></div>
  <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkDictionaryTerms(d.basic)}</p></div>
- <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkDictionaryTerms(d.standard)}</p></div>
+ <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkDictionaryTerms(d.standard)}</p>${k==='t7s8'?'<div class="diagram equation" role="img" aria-label="Nitrogen fixation equation">N₂ + 8H⁺ + 8e⁻ + 16ATP → 2NH₃ + H₂ + 16ADP + 16Pi</div><div class="inline-note"><b>سادہ تصور:</b> Atmospheric N₂ → Nitrogen Fixation → NH₃ → Plant Nitrogen Compounds</div>':''}</div>
  <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>
  <div class="diagram">${esc(d.extra)}</div>
  <div class="inline-note">Academic Code: <span class="pill">${esc(d.id)}</span>${d.visual?` · Visual: <span class="pill">${esc(d.visual.replace('.webp',''))}</span>`:''}</div>
@@ -357,7 +362,7 @@ function decorateDictionaryLinks(root=document){
 document.addEventListener('click',e=>{const w=e.target.closest('.linked-word');if(w){e.preventDefault();showDictByTerm(w.dataset.term);}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();const w=e.target.closest?.('.linked-word');if(w&&(e.key==='Enter'||e.key===' ')){e.preventDefault();showDictByTerm(w.dataset.term);}});
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();if(e.target.id==='dictionaryOverlay')closeDictionaryPopup();});
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.top-logo img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none'},{once:true}));});
+document.addEventListener('DOMContentLoaded',()=>{});
 </script>
 </body>
 </html>
