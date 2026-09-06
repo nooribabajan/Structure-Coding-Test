@@ -136,6 +136,18 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 .modal.level3-modal #content{width:100%;min-width:0;max-width:100%;height:auto;overflow:visible}
 .modal.practical-modal .teaching-text,
 .modal.level3-modal .teaching-text{min-width:0;max-width:100%;width:100%;height:auto;overflow:visible;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+
+.video-learning-panel{width:min(75vw,960px);margin:18px auto;padding:14px;border:1px solid var(--gold);border-radius:12px;background:#fff;box-shadow:0 3px 12px rgba(23,62,52,.08)}
+.video-learning-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.video-learning-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:var(--green);color:#fff;font:800 13px/1.2 Arial,sans-serif}
+.video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#111;border-radius:10px;overflow:hidden}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+.video-station{background:#111;display:block}.video-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#173e34,#0e2721)}.video-play-card{text-align:center;color:#fff;padding:16px;max-width:420px}.video-play-icon{width:54px;height:54px;margin:0 auto 8px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);color:#173e34;font:900 25px/1 Arial,sans-serif}.video-play-title{font:900 20px/1.35 Arial,sans-serif}.video-play-subtitle{margin-top:6px;font:600 13px/1.55 Arial,sans-serif;opacity:.92}.video-start-btn{margin-top:12px;border:1px solid var(--gold);border-radius:9px;padding:9px 16px;background:#fff;color:#173e34;font:900 14px/1.2 Arial,sans-serif;cursor:pointer}.video-start-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}.video-player-host{position:absolute;inset:0}.video-player-host iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-source{margin-top:10px;padding:10px;border-left:3px solid var(--gold);background:#faf8ef;font-size:14px;line-height:1.7}
+.video-source a{color:var(--blue);font-weight:800}.video-source-btn{margin-top:8px;border:1px solid var(--blue);border-radius:8px;padding:7px 11px;background:#fff;color:var(--blue);font:800 13px/1.2 Arial,sans-serif;cursor:pointer}.video-source-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.video-observe{margin-top:12px;padding:11px 12px;border-radius:9px;background:#f5f8f6;border:1px solid rgba(23,62,52,.14);font-size:14px;line-height:1.8}
+@media(max-width:760px){.video-learning-panel{width:100%;margin:18px 0;padding:10px}.video-source,.video-observe{font-size:14px}}
 </style>
 </head>
 <body>
@@ -353,6 +365,23 @@ function openFunctional(k){
  if(k==='practical'){show(`<div class="practical-screen"><div class="lesson-title">Practical Work</div>${teachingFontControl()}<div class="teaching-text">
 <div class="section"><div class="lesson-title">🌿 Nutritional Adaptation Investigation</div><p><b>Practical ID:</b> <code>IAE1101100707P</code></p></div>
 <div class="section"><h3>🌿 کیا آپ نے کبھی پودوں میں <b>دوستی اور چوری</b> کا سنا ہے؟</h3><h3>❓ کیا قاتل پودے بھی ہوتے ہیں؟</h3><p>اگر پودے اپنی غذا خود بناتے ہیں، تو پھر:</p><p><b>کچھ پودے کیڑے کیوں پکڑتے ہیں؟</b> 🪰🌿</p><p><b>کچھ پودے دوسرے پودوں سے resources کیوں لیتے ہیں؟</b> 🌱</p><p><b>اور کچھ پودے اپنی جڑوں میں bacteria یا fungi کو جگہ کیوں دیتے ہیں؟</b> 🦠🍄</p><p>ذرا سوچیں...</p><p>کیا یہ صرف پودوں کی عجیب عادتیں ہیں؟</p><p>یا ان سب کے پیچھے <b>زندہ رہنے اور اپنی غذائی ضرورت پوری کرنے کی کوئی خاص حکمتِ عملی</b> موجود ہے؟</p><p><b>آج آپ کو جواب فوراً نہیں بتایا جائے گا۔</b></p><p>پہلے <b>Observe → Identify → Think → Investigate → Explain</b> کریں، پھر خود دریافت کریں:</p><h3>“یہ کیوں ہوتا ہے؟”</h3></div>
+<div class="section video-learning-panel">
+<div class="video-learning-head"><h3 style="margin:0">🎥 Authentic Video Learning</h3><span class="video-learning-badge">SOURCE-VERIFIED • TED-Ed</span></div>
+<p style="margin:0 0 10px">پہلے ویڈیو دیکھیں، پھر اسی Practical کے مشاہداتی سوال کا جواب دیں۔ مقصد صرف ویڈیو دیکھنا نہیں بلکہ <b>Observe → Identify → Explain</b> کرنا ہے۔</p>
+<div class="video-frame video-station" id="carnivorousVideoStation">
+  <div class="video-placeholder" id="carnivorousVideoPlaceholder">
+    <div class="video-play-card">
+      <div class="video-play-icon" aria-hidden="true">▶</div>
+      <div class="video-play-title">یہیں ویڈیو دیکھیں</div>
+      <div class="video-play-subtitle">YouTube پر جانے کی ضرورت نہیں — ویڈیو اسی Practical Station میں چلے گی۔</div>
+      <button type="button" class="video-start-btn" onclick="startCarnivorousVideo()">▶ ویڈیو چلائیں</button>
+    </div>
+  </div>
+  <div id="carnivorousVideoPlayer" class="video-player-host" hidden></div>
+</div>
+<div class="video-source"><b>Original source:</b> TED-Ed — <i>The wild world of carnivorous plants</i> by Kenny Coogan. The video explains how carnivorous plants lure, trap and digest prey.<br><small>Academy note: یہ external authentic source ہے؛ ویڈیو Academy میں download/rehost نہیں کی گئی۔</small><br><button type="button" class="video-source-btn" onclick="window.open('https://www.youtube.com/watch?v=ee7muQ_qKU0','_blank','noopener,noreferrer')">اصل YouTube Source کھولیں</button></div>
+<div class="video-observe"><b>🔎 Watch &amp; Think:</b> ویڈیو میں carnivorous plant کے <b>attraction → trapping → digestion → absorption</b> sequence کو observe کریں۔ پھر جواب دیں: <b>اگر یہ پودے photosynthesis کر سکتے ہیں تو insect trapping ان کے لیے nutritional advantage کیسے پیدا کرتی ہے؟</b></div>
+</div>
 <div class="section"><h3>🎯 What You Have to Discover</h3><p>اس Practical میں آپ چار nutritional adaptations کو investigate کریں گے:</p><ol><li><b>Insect Trapping</b></li><li><b>Haustoria</b></li><li><b>Mycorrhizae</b></li><li><b>Root Nodules &amp; Rhizobium</b></li></ol><p><b>Structure → Function → Nutritional Advantage</b> کو آپس میں relate کریں۔</p></div>
 <div class="section"><h3>🧰 Required Materials</h3><ul><li>متعلقہ plant specimens، models یا clear diagrams</li><li>Hand lens، جہاں دستیاب ہو</li><li>Ruler، جہاں measurement required ہو</li><li>Observation sheet اور pencil</li><li>Biological drawing کے لیے صاف کاغذ</li></ul><h3>⚠️ Safety</h3><p>Specimens یا biological material کو غیر ضروری طور پر نہ چھوئیں۔ Teacher کی ہدایت کے مطابق مشاہدہ کریں۔</p></div>
 <div class="section"><h3>🔴 Level 1 — Basic Practical Knowledge</h3><h4>1. Insect-Trapping Plants</h4><p>Modified leaf اور trapping structure observe کریں۔</p><p><b>❓ پودا کیڑے کو کیوں پکڑ رہا ہے؟</b></p><p>Carnivorous plants photosynthesis کے ذریعے carbohydrates بناتے رہتے ہیں؛ prey سے حاصل ہونے والے nutrients، خصوصاً nitrogen اور minerals، nutritional requirements کو supplement کرتے ہیں۔</p><h4>2. Haustorium</h4><p>Parasitic plant میں host سے resources حاصل کرنے والے specialized structure کو observe کریں۔</p><p><b>❓ یہ structure parasite کے لیے کیوں ضروری ہو سکتا ہے؟</b></p><p>Haustorium host tissues تک رسائی میں مدد دیتا ہے، جس سے parasite ضروری resources حاصل کر سکتا ہے۔</p><h4>3. Mycorrhizae</h4><p>Plant root اور fungus کے تعلق کو observe کریں۔</p><p><b>❓ Fungus plant کو کیا دے سکتا ہے؟ Plant fungus کو کیا دے سکتا ہے؟</b></p><p>Fungal hyphae پانی اور minerals کے حصول میں مدد دیتے ہیں، جبکہ plant fungus کو carbohydrates فراہم کرتا ہے۔</p><h4>4. Root Nodules &amp; Rhizobium</h4><p>Leguminous plant کی root پر nodules observe کریں۔</p><p><b>❓ یہ چھوٹی چھوٹی گانٹھیں کیوں بنی ہوئی ہیں؟</b></p><p>Root nodules میں <b>Rhizobium</b> کے ساتھ association nitrogen fixation سے متعلق ہوتی ہے۔</p></div>
@@ -426,6 +455,23 @@ function decorateDictionaryLinks(root=document){
 document.addEventListener('click',e=>{const w=e.target.closest('.linked-word');if(w){e.preventDefault();showDictByTerm(w.dataset.term);}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();const w=e.target.closest?.('.linked-word');if(w&&(e.key==='Enter'||e.key===' ')){e.preventDefault();showDictByTerm(w.dataset.term);}});
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();if(e.target.id==='dictionaryOverlay')closeDictionaryPopup();});
+function startCarnivorousVideo(){
+  const host=document.getElementById('carnivorousVideoPlayer');
+  const placeholder=document.getElementById('carnivorousVideoPlaceholder');
+  if(!host||!placeholder)return;
+  if(!host.dataset.loaded){
+    const iframe=document.createElement('iframe');
+    iframe.src='https://www.youtube-nocookie.com/embed/ee7muQ_qKU0?playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&enablejsapi=1&origin=https%3A%2F%2Fnooribabajan.github.io';
+    iframe.title='The wild world of carnivorous plants — TED-Ed';
+    iframe.loading='eager';
+    iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen=true;
+    host.appendChild(iframe);
+    host.dataset.loaded='1';
+  }
+  placeholder.hidden=true;
+  host.hidden=false;
+}
 </script>
 </body>
 </html>
