@@ -92,8 +92,16 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 .topic-head-text,.subtopic-head-text{text-align:center}
 .topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
 .topic-visual svg{display:block;width:42px;height:42px;max-width:42px;max-height:42px;font-size:14px}
-.page { display: none; }
-.page.active { display: block !important; }
+
+.revision-page-shell{max-width:1180px;margin:0 auto;padding:10px 14px 30px}
+.revision-hero{max-width:900px;margin:8px auto 14px;padding:22px 20px;text-align:center;background:linear-gradient(135deg,#fffdf7,#f4f0df);border:1px solid var(--gold);border-radius:18px;box-shadow:0 8px 24px rgba(23,62,52,.08)}
+.revision-kicker{font:900 11px Arial,sans-serif;letter-spacing:1.8px;color:var(--red);margin-bottom:6px}
+.revision-hero h2{margin:4px 0 8px;color:var(--green);font-size:clamp(22px,4vw,32px)}
+.revision-hero p{margin:0 auto 16px;max-width:760px;font-size:16px;line-height:1.9;color:var(--ink)}
+.ceiling-launch{border:1px solid var(--gold);background:var(--green);color:#fff;padding:11px 22px;border-radius:12px;cursor:pointer;font:800 15px/1.2 Arial,sans-serif;box-shadow:0 5px 14px rgba(23,62,52,.18)}
+.ceiling-launch:hover{transform:translateY(-1px)}
+.ceiling-native-host{width:100%;margin:0 auto}
+@media(max-width:700px){.revision-page-shell{padding:8px 8px 24px}.revision-hero{padding:18px 14px}.revision-hero p{font-size:14px}}
 </style>
 </head>
 <body>
@@ -124,14 +132,40 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 <h1 class="section-heading">Special Modes of Nutrition in Plants</h1>
 <div class="functional-top"><div class="tab functional" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" onclick="openFunctional('mastery')"><div class="num">M</div><div class="label">Mastery</div></div><div class="tab functional" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div></div>
 <div class="topic-grid"><section class="column">
-<div class="tab topic1 topic-intro" onclick="openTopic('t7')"><div class="num">01</div><div class="label">Special Modes of Nutrition in Plants</div></div>
-</section><section class="column"></section></div>
+<div class="tab topic1 topic-intro" onclick="openTopic('t7')"><div class="label">Special Modes of Nutrition in Plants</div></div>
+<div class="tab topic1" onclick="openSub('t7s1')"><div class="num">1</div><div class="label">Insectivorous / Carnivorous Plants</div></div>
+<div class="tab topic1" onclick="openSub('t7s2')"><div class="num">2</div><div class="label">Sarracenia, Dionaea &amp; Drosera</div></div>
+<div class="tab topic1" onclick="openSub('t7s3')"><div class="num">3</div><div class="label">Insect Capture, Digestion &amp; Absorption</div></div>
+<div class="tab topic1" onclick="openSub('t7s4')"><div class="num">4</div><div class="label">Parasitic Plants &amp; Haustoria</div></div>
+<div class="tab topic1" onclick="openSub('t7s5')"><div class="num">5</div><div class="label">Total &amp; Partial Parasites</div></div>
+<div class="tab topic1" onclick="openSub('t7s6')"><div class="num">6</div><div class="label">Saprophytic Nutrition &amp; Extracellular Digestion</div></div>
+<div class="tab topic1" onclick="openSub('t7s7')"><div class="num">7</div><div class="label">Symbiotic Nutrition: Mycorrhizae</div></div>
+<div class="tab topic1" onclick="openSub('t7s8')"><div class="num">8</div><div class="label">Root Nodules, Rhizobium &amp; Nitrogen Fixation</div></div>
+
+
+</section><section class="column">
+
+
+
+
+
+
+</section></div>
 </section>
 
-<section class="page" id="topicLevel3Page">
+<section class="page" id="revisionPage">
 <header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><p>Biology · Interactive Academic Learning System</p></div><div class="top-logo"><img src="../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header>
-<div class="page-title">Lecture 04 — Topic</div>
-<div id="topicLevel3Content"></div>
+<div class="page-title">Lecture 04 — Revision</div>
+<div class="revision-page-shell">
+  <div class="revision-hero">
+    <div class="revision-kicker">LECTURE 04 REVISION</div>
+    <h2>Revision → HIT THE CEILING</h2>
+    <p>پہلے Revision کے اس مرحلے میں اپنے concepts کو challenge کریں۔ پھر HIT THE CEILING کے ذریعے Level 1 سے mastery challenge شروع کریں۔</p>
+    <button class="ceiling-launch" type="button" onclick="startCeilingGame()">HIT THE CEILING</button>
+  </div>
+  <div id="ceilingNativeHost" class="ceiling-native-host" aria-live="polite"></div>
+  <div class="content-navigation"><button class="back-page-tab" type="button" onclick="showPage('topicsPage')">پچھلا صفحہ</button></div>
+</div>
 </section>
 
 <section class="page" id="searchPage">
@@ -148,53 +182,16 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 
 <script>
 const BASE='https://raw.githubusercontent.com/nooribabajan/Structure-Coding-Test/a9cf0c749fd03f12bfa7dc1fe1cdd2153a916dd8/Subject/Visual-Atlas/';
-function img(visual) {
-  if (!visual) return '';
-  return `<div class="topic-visual"><img src="${BASE + visual}" alt="Visual"></div>`;
-}
-
-// 1. Topics Data
-const topics = {
-  t7: {
-    title: 'Special Modes of Nutrition in Plants',
-    id: 'IAE1101100700',
-    visual: 'IAE1101100700V.webp',
-    intro: 'پودوں میں غذائیت کے مخصوص طریقے ان adaptations کو ظاہر کرتے ہیں جن کے ذریعے بعض plants nitrogen یا دوسرے nutrients کی محدود دستیابی والے ماحول میں اپنی nutritional needs پوری کرتے ہیں۔'
-  }
-};
-
-// 2. Sub-Topics Data
-const subs = {
-  t7s1: { topic: 't7', id: 'IAE1101100701', title: 'Insectivorous / Carnivorous Plants', visual: 'IAE1101100701V.webp', basic: 'زیادہ تر green plants Photosynthesis کے ذریعے Carbohydrates تیار کرتے ہیں، لیکن بعض plants nitrogen-poor habitats میں رہتے ہیں۔ Insectivorous یا Carnivorous Plants insects اور بعض چھوٹے animals کو trap کرکے خاص طور پر Nitrogen اور دوسرے Mineral Nutrients حاصل کرتے ہیں۔', standard: 'یہ plants عموماً photosynthetic رہتے ہیں؛ prey بنیادی carbohydrate source نہیں بلکہ mineral nutrition، خصوصاً nitrogen، کی supplementation فراہم کرتا ہے۔', mastery: 'Nitrogen-poor habitat → prey capture → digestion → nitrogen/mineral absorption؛ Photosynthesis carbohydrates کی بنیادی supply جاری رکھتی ہے۔', extra: 'Nitrogen-poor habitat → insect capture → digestion → nitrogen/mineral supplementation' },
-  t7s2: { topic: 't7', id: 'IAE1101100702', title: 'Insect Trapping and Digestion', visual: 'IAE1101100702V.webp', basic: 'اہم carnivorous plants میں Sarracenia، Dionaea muscipula اور Drosera شامل ہیں۔ ان کے leaves trapping کے لیے modified ہوتے ہیں۔', standard: 'Sarracenia میں pitcher-like leaf insect کو trap کرتا ہے؛ Dionaea muscipula میں دو lobes والا trap stimulation پر بند ہوتا ہے؛ Drosera میں sticky glandular secretion insect کو چپکاتا ہے۔ Digestive secretions prey کے organic compounds کو breakdown کرنے میں مدد دیتے ہیں اور nutrients absorb ہوتے ہیں۔', mastery: 'Attraction → Trapping → Digestion → Absorption چار مرحلوں کا بنیادی sequence ہے۔', extra: 'Sarracenia → Pitcher trap | Dionaea muscipula → Two-lobed snap trap | Drosera → Sticky glandular trap' },
-  t7s3: { topic: 't7', id: 'IAE1101100703', title: 'Parasitic Nutrition and Haustoria', visual: 'IAE1101100703V.webp', basic: 'Parasitic Plants کسی living host سے جزوی یا مکمل طور پر water، minerals یا organic nutrients حاصل کرتےengine ہیں۔', standard: 'Haustoria specialized absorbing structures ہیں جو host کے tissues میں داخل ہو کر اس کے vascular system تک رسائی فراہم کر سکتی ہیں۔ Xylem water اور minerals جبکہ Phloem organic food transport کرتا ہے۔', mastery: 'Living host → Haustoria → host vascular tissues → required resources۔', extra: 'Living host → Haustoria → Xylem / Phloem access → Nutrient acquisition' },
-  t7s4: { topic: 't7', id: 'IAE1101100704', title: 'Total and Partial Parasites', visual: 'IAE1101100704V.webp', basic: 'Total Parasites host پر بہت زیادہ depend کرتے ہیں اور عموماً chlorophyll absent یا بہت کم ہوتا ہے۔ Cuscuta (Dodder / اکاس بیل) ایک نمایاں مثال ہے۔', standard: 'Partial Parasites میں chlorophyll اور Photosynthesis موجود ہوتی ہے، لیکن وہ host سے water اور minerals کے لیے depend کر سکتے ہیں۔ Mistletoe اس کی مثال ہے۔', mastery: 'Total parasite → very high host dependence؛ Partial parasite → photosynthesis retained + partial host dependence۔', extra: 'Cuscuta → Total Parasite → Haustoria | Mistletoe → Partial Parasite' },
-  t7s5: { topic: 't7', id: 'IAE1101100705', title: 'Saprophytic Nutrition', visual: 'IAE1101100705V.webp', basic: 'Saprophytic Nutrition میں dead organic matter سے nutrients حاصل کیے جاتے ہیں۔ Complex organic substances کو extracellular enzymes کے ذریعے simpler soluble products میں تبدیل کیا جاتا ہے۔', standard: 'Digestion body کے باہر ہوتی ہے، پھر soluble products absorb کیے جاتے ہیں۔ Neottia (Bird’s Nest Orchid) کو نصابی مثال کے طور پر شامل کیا جا سکتا ہے۔ جدید biology میں کئی non-photosynthetic plants کو mycoheterotrophic context میں بھی بیان کیا جاتا ہے۔', mastery: 'Dead organic matter → extracellular enzymatic digestion → soluble products → absorption۔', extra: 'Dead organic matter → Extracellular enzymes → Soluble nutrients → Absorption' },
-  t7s6: { topic: 't7', id: 'IAE1101100706', title: 'Symbiotic Nutrition and Mycorrhizae', visual: 'IAE1101100706V.webp', basic: 'Symbiosis میں دو مختلف organisms قریبی association میں رہتے ہیں اور دونوں کو فائدہ پہنچ سکتا ہے۔ Mycorrhizae میں plant roots اور fungi کا تعلق شامل ہے۔', standard: 'Fungal hyphae soil میں پھیل کر water اور minerals، خصوصاً phosphorus، کے حصول کے لیے root ki effective absorbing area بڑھاتے ہیں۔ Plant fungus کو Photosynthetic carbohydrates فراہم کرتا ہے۔', mastery: 'Fungus → water + minerals؛ Plant → organic carbohydrates۔', extra: 'Plant root ↔ Fungus | Fungus → water/minerals | Plant → carbohydrates' },
-  t7s7: { topic: 't7', id: 'IAE1101100707', title: 'Root Nodules and Rhizobium', visual: 'IAE1101100707V.webp', basic: 'Leguminous plants، مثلاً pea اور chickpea، ki roots پر root nodules میں Rhizobium bacteria پائے جا سکتے ہیں۔', standard: 'Rhizobium atmospheric N2 کے nitrogen fixation میں حصہ لیتا ہے اور plant nitrogen nutrition کے لیے زیادہ قابلِ استعمال nitrogen-containing compounds بنانے میں مدد دیتا ہے۔ Plant bacteria کو habitat اور organic nutrients فراہم کرتا ہے۔', mastery: 'Leguminous plant → Root nodules → Rhizobium → Nitrogen fixation۔', extra: 'Leguminous root → Root nodule → Rhizobium → Nitrogen fixation' },
-  t7s8: { topic: 't7', id: 'IAE1101100708', title: 'Master Comparison of Nutritional Modes', visual: 'IAE1101100708V.webp', basic: 'Special Modes of Nutrition کو nutrient source اور mechanism کے مطابق الگ پہچانا جاتا ہے۔', standard: 'Insectivorous Plants insects سے extra nitrogen/minerals لیتے ہیں؛ Parasitic Plants living host سے resources لیتے ہیں؛ Saprophytic Nutrition dead organic matter سے soluble nutrients حاصل کرتی ہے؛ Symbiotic Nutrition میں mutually beneficial association کے ذریعے nutritional advantage حاصل ہوتا ہے۔', mastery: 'Insectivorous → Insects → Nitrogen/mineral supplementation | Parasitic → Living host → Haustoria | Saprophytic → Dead organic matter → Extracellular digestion | Symbiotic → Mutual association → Mutual benefit۔', extra: 'Insectivorous → insects | Parasitic → living host | Saprophytic → dead organic matter | Symbiotic → mutual association' }
-};
-
-
-  t7: {
-    title: 'Special Modes of Nutrition in Plants',
-    id: 'IAE1101100700',
-    visual: 'IAE1101100700V.webp',
-    intro: 'پودوں میں غذائیت کے مخصوص طریقے ان adaptations کو ظاہر کرتے ہیں جن کے ذریعے بعض plants nitrogen یا دوسرے nutrients کی محدود دستیابی والے ماحول میں اپنی nutritional needs پوری کرتے ہیں۔'
-  }
-};
-
-// 2. Sub-Topics Data
-const subs = {
-  t7s1: { topic: 't7', id: 'IAE1101100701', title: 'Insectivorous / Carnivorous Plants', visual: 'IAE1101100701V.webp', basic: 'زیادہ تر green plants Photosynthesis کے ذریعے Carbohydrates تیار کرتے ہیں، لیکن بعض plants nitrogen-poor habitats میں رہتے ہیں۔ Insectivorous یا Carnivorous Plants insects اور بعض چھوٹے animals کو trap کرکے خاص طور پر Nitrogen اور دوسرے Mineral Nutrients حاصل کرتے ہیں۔', standard: 'یہ plants عموماً photosynthetic رہتے ہیں؛ prey بنیادی carbohydrate source نہیں بلکہ mineral nutrition، خصوصاً nitrogen، کی supplementation فراہم کرتا ہے۔', mastery: 'Nitrogen-poor habitat → prey capture → digestion → nitrogen/mineral absorption؛ Photosynthesis carbohydrates کی بنیادی supply جاری رکھتی ہے۔', extra: 'Nitrogen-poor habitat → insect capture → digestion → nitrogen/mineral supplementation' },
-  t7s2: { topic: 't7', id: 'IAE1101100702', title: 'Insect Trapping and Digestion', visual: 'IAE1101100702V.webp', basic: 'اہم carnivorous plants میں Sarracenia، Dionaea muscipula اور Drosera شامل ہیں۔ ان کے leaves trapping کے لیے modified ہوتے ہیں۔', standard: 'Sarracenia میں pitcher-like leaf insect کو trap کرتا ہے؛ Dionaea muscipula میں دو lobes والا trap stimulation پر بند ہوتا ہے؛ Drosera میں sticky glandular secretion insect کو چپکاتا ہے۔ Digestive secretions prey کے organic compounds کو breakdown کرنے میں مدد دیتے ہیں اور nutrients absorb ہوتے ہیں۔', mastery: 'Attraction → Trapping → Digestion → Absorption چار مرحلوں کا بنیادی sequence ہے۔', extra: 'Sarracenia → Pitcher trap | Dionaea muscipula → Two-lobed snap trap | Drosera → Sticky glandular trap' },
-  t7s3: { topic: 't7', id: 'IAE1101100703', title: 'Parasitic Nutrition and Haustoria', visual: 'IAE1101100703V.webp', basic: 'Parasitic Plants کسی living host سے جزوی یا مکمل طور پر water، minerals یا organic nutrients حاصل کرتےengine ہیں۔', standard: 'Haustoria specialized absorbing structures ہیں جو host کے tissues میں داخل ہو کر اس کے vascular system تک رسائی فراہم کر سکتی ہیں۔ Xylem water اور minerals جبکہ Phloem organic food transport کرتا ہے۔', mastery: 'Living host → Haustoria → host vascular tissues → required resources۔', extra: 'Living host → Haustoria → Xylem / Phloem access → Nutrient acquisition' },
-  t7s4: { topic: 't7', id: 'IAE1101100704', title: 'Total and Partial Parasites', visual: 'IAE1101100704V.webp', basic: 'Total Parasites host پر بہت زیادہ depend کرتے ہیں اور عموماً chlorophyll absent یا بہت کم ہوتا ہے۔ Cuscuta (Dodder / اکاس بیل) ایک نمایاں مثال ہے۔', standard: 'Partial Parasites میں chlorophyll اور Photosynthesis موجود ہوتی ہے، لیکن وہ host سے water اور minerals کے لیے depend کر سکتے ہیں۔ Mistletoe اس کی مثال ہے۔', mastery: 'Total parasite → very high host dependence؛ Partial parasite → photosynthesis retained + partial host dependence۔', extra: 'Cuscuta → Total Parasite → Haustoria | Mistletoe → Partial Parasite' },
-  t7s5: { topic: 't7', id: 'IAE1101100705', title: 'Saprophytic Nutrition', visual: 'IAE1101100705V.webp', basic: 'Saprophytic Nutrition میں dead organic matter سے nutrients حاصل کیے جاتے ہیں۔ Complex organic substances کو extracellular enzymes کے ذریعے simpler soluble products میں تبدیل کیا جاتا ہے۔', standard: 'Digestion body کے باہر ہوتی ہے، پھر soluble products absorb کیے جاتے ہیں۔ Neottia (Bird’s Nest Orchid) کو نصابی مثال کے طور پر شامل کیا جا سکتا ہے۔ جدید biology میں کئی non-photosynthetic plants کو mycoheterotrophic context میں بھی بیان کیا جاتا ہے۔', mastery: 'Dead organic matter → extracellular enzymatic digestion → soluble products → absorption۔', extra: 'Dead organic matter → Extracellular enzymes → Soluble nutrients → Absorption' },
-  t7s6: { topic: 't7', id: 'IAE1101100706', title: 'Symbiotic Nutrition and Mycorrhizae', visual: 'IAE1101100706V.webp', basic: 'Symbiosis میں دو مختلف organisms قریبی association میں رہتے ہیں اور دونوں کو فائدہ پہنچ سکتا ہے۔ Mycorrhizae میں plant roots اور fungi کا تعلق شامل ہے۔', standard: 'Fungal hyphae soil میں پھیل کر water اور minerals، خصوصاً phosphorus، کے حصول کے لیے root ki effective absorbing area بڑھاتے ہیں۔ Plant fungus کو Photosynthetic carbohydrates فراہم کرتا ہے۔', mastery: 'Fungus → water + minerals؛ Plant → organic carbohydrates۔', extra: 'Plant root ↔ Fungus | Fungus → water/minerals | Plant → carbohydrates' },
-  t7s7: { topic: 't7', id: 'IAE1101100707', title: 'Root Nodules and Rhizobium', visual: 'IAE1101100707V.webp', basic: 'Leguminous plants، مثلاً pea اور chickpea، ki roots پر root nodules میں Rhizobium bacteria پائے جا سکتے ہیں۔', standard: 'Rhizobium atmospheric N2 کے nitrogen fixation میں حصہ لیتا ہے اور plant nitrogen nutrition کے لیے زیادہ قابلِ استعمال nitrogen-containing compounds بنانے میں مدد دیتا ہے۔ Plant bacteria کو habitat اور organic nutrients فراہم کرتا ہے۔', mastery: 'Leguminous plant → Root nodules → Rhizobium → Nitrogen fixation۔', extra: 'Leguminous root → Root nodule → Rhizobium → Nitrogen fixation' },
-  t7s8: { topic: 't7', id: 'IAE1101100708', title: 'Master Comparison of Nutritional Modes', visual: 'IAE1101100708V.webp', basic: 'Special Modes of Nutrition کو nutrient source اور mechanism کے مطابق الگ پہچانا جاتا ہے۔', standard: 'Insectivorous Plants insects سے extra nitrogen/minerals لیتے ہیں؛ Parasitic Plants living host سے resources لیتے ہیں؛ Saprophytic Nutrition dead organic matter سے soluble nutrients حاصل کرتی ہے؛ Symbiotic Nutrition میں mutually beneficial association کے ذریعے nutritional advantage حاصل ہوتا ہے۔', mastery: 'Insectivorous → Insects → Nitrogen/mineral supplementation | Parasitic → Living host → Haustoria | Saprophytic → Dead organic matter → Extracellular digestion | Symbiotic → Mutual association → Mutual benefit۔', extra: 'Insectivorous → insects | Parasitic → living host | Saprophytic → dead organic matter | Symbiotic → mutual association' }
-};
+const topics={t7:{title:'Special Modes of Nutrition in Plants',id:'IAE1101100700',visual:'IAE1101100700V.webp',intro:'پودوں میں غذائیت کے مخصوص طریقے ان adaptations کو ظاہر کرتے ہیں جن کے ذریعے بعض plants nitrogen یا دوسرے nutrients کی محدود دستیابی والے ماحول میں اپنی nutritional needs پوری کرتے ہیں۔'}};
+const subs={
+ t7s1:{topic:'t7',id:'IAE1101100701',title:'Insectivorous / Carnivorous Plants',visual:'IAE1101100701V.webp',basic:'زیادہ تر green plants Photosynthesis کے ذریعے Carbohydrates تیار کرتے ہیں، لیکن بعض plants nitrogen-poor habitats میں رہتے ہیں۔ Insectivorous یا Carnivorous Plants insects اور بعض چھوٹے animals کو trap کرکے خاص طور پر Nitrogen اور دوسرے Mineral Nutrients حاصل کرتے ہیں۔',standard:'یہ plants عموماً photosynthetic رہتے ہیں؛ prey بنیادی carbohydrate source نہیں بلکہ mineral nutrition، خصوصاً nitrogen، کی supplementation فراہم کرتا ہے۔',mastery:'Nitrogen-poor habitat → prey capture → digestion → nitrogen/mineral absorption؛ Photosynthesis carbohydrates کی بنیادی supply جاری رکھتی ہے۔',extra:'Nitrogen-poor habitat → insect capture → digestion → nitrogen/mineral supplementation'},
+ t7s2:{topic:'t7',id:'IAE1101100702',title:'Insect Trapping and Digestion',visual:'IAE1101100702V.webp',basic:'اہم carnivorous plants میں Sarracenia، Dionaea muscipula اور Drosera شامل ہیں۔ ان کے leaves trapping کے لیے modified ہوتے ہیں۔',standard:'Sarracenia میں pitcher-like leaf insect کو trap کرتا ہے؛ Dionaea muscipula میں دو lobes والا trap stimulation پر بند ہوتا ہے؛ Drosera میں sticky glandular secretion insect کو چپکاتا ہے۔ Digestive secretions prey کے organic compounds کو breakdown کرنے میں مدد دیتے ہیں اور nutrients absorb ہوتے ہیں۔',mastery:'Attraction → Trapping → Digestion → Absorption چار مرحلوں کا بنیادی sequence ہے۔',extra:'Sarracenia → Pitcher trap | Dionaea muscipula → Two-lobed snap trap | Drosera → Sticky glandular trap'},
+ t7s3:{topic:'t7',id:'IAE1101100703',title:'Parasitic Nutrition and Haustoria',visual:'IAE1101100703V.webp',basic:'Parasitic Plants کسی living host سے جزوی یا مکمل طور پر water، minerals یا organic nutrients حاصل کرتے ہیں۔',standard:'Haustoria specialized absorbing structures ہیں جو host کے tissues میں داخل ہو کر اس کے vascular system تک رسائی فراہم کر سکتی ہیں۔ Xylem water اور minerals جبکہ Phloem organic food transport کرتا ہے۔',mastery:'Living host → Haustoria → host vascular tissues → required resources۔',extra:'Living host → Haustoria → Xylem / Phloem access → Nutrient acquisition'},
+ t7s4:{topic:'t7',id:'IAE1101100704',title:'Total and Partial Parasites',visual:'IAE1101100704V.webp',basic:'Total Parasites host پر بہت زیادہ depend کرتے ہیں اور عموماً chlorophyll absent یا بہت کم ہوتا ہے۔ Cuscuta (Dodder / اکاس بیل) ایک نمایاں مثال ہے۔',standard:'Partial Parasites میں chlorophyll اور Photosynthesis موجود ہوتی ہے، لیکن وہ host سے water اور minerals کے لیے depend کر سکتے ہیں۔ Mistletoe اس کی مثال ہے۔',mastery:'Total parasite → very high host dependence؛ Partial parasite → photosynthesis retained + partial host dependence۔',extra:'Cuscuta → Total Parasite → Haustoria | Mistletoe → Partial Parasite'},
+ t7s5:{topic:'t7',id:'IAE1101100705',title:'Saprophytic Nutrition',visual:'IAE1101100705V.webp',basic:'Saprophytic Nutrition میں dead organic matter سے nutrients حاصل کیے جاتے ہیں۔ Complex organic substances کو extracellular enzymes کے ذریعے simpler soluble products میں تبدیل کیا جاتا ہے۔',standard:'Digestion body کے باہر ہوتی ہے، پھر soluble products absorb کیے جاتے ہیں۔ Neottia (Bird’s Nest Orchid) کو نصابی مثال کے طور پر شامل کیا جا سکتا ہے۔ جدید biology میں کئی non-photosynthetic plants کو mycoheterotrophic context میں بھی بیان کیا جاتا ہے۔',mastery:'Dead organic matter → extracellular enzymatic digestion → soluble products → absorption۔',extra:'Dead organic matter → Extracellular enzymes → Soluble nutrients → Absorption'},
+ t7s6:{topic:'t7',id:'IAE1101100706',title:'Symbiotic Nutrition and Mycorrhizae',visual:'IAE1101100706V.webp',basic:'Symbiosis میں دو مختلف organisms قریبی association میں رہتے ہیں اور دونوں کو فائدہ پہنچ سکتا ہے۔ Mycorrhizae میں plant roots اور fungi کا تعلق شامل ہے۔',standard:'Fungal hyphae soil میں پھیل کر water اور minerals، خصوصاً phosphorus، کے حصول کے لیے root کی effective absorbing area بڑھاتے ہیں۔ Plant fungus کو Photosynthetic carbohydrates فراہم کرتا ہے۔',mastery:'Fungus → water + minerals؛ Plant → organic carbohydrates۔',extra:'Plant root ↔ Fungus | Fungus → water/minerals | Plant → carbohydrates'},
+ t7s7:{topic:'t7',id:'IAE1101100707',title:'Root Nodules and Rhizobium',visual:'IAE1101100707V.webp',basic:'Leguminous plants، مثلاً pea اور chickpea، کی roots پر root nodules میں Rhizobium bacteria پائے جا سکتے ہیں۔',standard:'Rhizobium atmospheric N2 کے nitrogen fixation میں حصہ لیتا ہے اور plant nitrogen nutrition کے لیے زیادہ قابلِ استعمال nitrogen-containing compounds بنانے میں مدد دیتا ہے۔ Plant bacteria کو habitat اور organic nutrients فراہم کرتا ہے۔',mastery:'Leguminous plant → Root nodules → Rhizobium → Nitrogen fixation۔',extra:'Leguminous root → Root nodule → Rhizobium → Nitrogen fixation'},
+ t7s8:{topic:'t7',id:'IAE1101100708',title:'Root Nodules, Rhizobium & Nitrogen Fixation',visual:'IAE1101100708V.webp',basic:'Leguminous plants کی roots پر موجود root nodules میں Rhizobium bacteria کے ساتھ association پایا جاتا ہے۔',standard:'Rhizobium nitrogen fixation سے متعلق اہم bacterial partner ہے۔ Root nodule اس association کے لیے specialized environment فراہم کرتا ہے، جس سے plant کی nitrogen nutrition میں مدد ملتی ہے۔',mastery:'Legume root → Root nodule → Rhizobium → Nitrogen fixation → Plant nitrogen nutrition۔',extra:'Root nodule → Rhizobium → Nitrogen fixation → Nitrogen nutrition'}
 };
 const dict={"Insectivorous Plants":["حشرات خور پودے","ایسے plants جو insects یا دوسرے چھوٹے prey سے nitrogen اور mineral nutrients حاصل کرتے ہیں۔"],"Carnivorous Plants":["گوشت خور پودے","Plants جو photosynthesis کے ساتھ prey سے اضافی nutrients حاصل کرتے ہیں۔"],"Photosynthesis":["ضیائی تالیف","Light energy کی مدد سے carbon dioxide اور water سے carbohydrates تیار کرنے کا process۔"],"Nitrogen":["نائٹروجن","Plant growth اور protein synthesis کے لیے ضروری mineral nutrient۔"],"Mineral Nutrients":["معدنی غذائی اجزا","Plant کے لیے ضروری inorganic elements۔"],"Sarracenia":["سیرسینیا","Pitcher plant جس کے modified pitcher-like leaves insects کو trap کرتے ہیں۔"],"Dionaea muscipula":["ڈایونیا مسکیپیولا","Venus Flytrap؛ دو lobes والا specialized leaf trap۔"],"Drosera":["ڈروسرا","Sundew؛ sticky glandular secretion کے ذریعے insects کو trap کرتا ہے۔"],"Parasitic Plants":["طفیلی پودے","Plants جو living host سے resources حاصل کرتے ہیں۔"],"Host":["میزبان","وہ living organism جس سے parasite resources حاصل کرتا ہے۔"],"Haustoria":["ہاسٹوریا","Parasitic plants کی specialized absorbing structures جو host tissues تک رسائی دیتی ہیں۔"],"Xylem":["زیلم","Vascular tissue جو water اور mineral ions transport کرتا ہے۔"],"Phloem":["فلوئم","Vascular tissue جو organic food transport کرتا ہے۔"],"Total Parasite":["مکمل طفیلی","ایسا parasite جو host پر بہت زیادہ depend کرتا ہے اور عموماً photosynthesis نہیں کرتا۔"],"Partial Parasite":["جزوی طفیلی","ایسا parasite جس میں photosynthesis موجود ہو مگر host dependence جزوی رہے۔"],"Cuscuta":["اکاس بیل / Cuscuta","Thread-like total parasitic plant جو host سے resources لیتا ہے۔"],"Mistletoe":["مسٹل ٹو","Green partial parasitic plant جو host سے water اور minerals حاصل کر سکتا ہے۔"],"Saprophytic Nutrition":["مردہ نامیاتی مادے سے غذائیت","Dead organic matter سے extracellular digestion کے بعد soluble nutrients حاصل کرنے کا mode۔"],"Extracellular Enzymes":["خارج خلوی enzymes","Cells کے باہر complex organic substances کو simpler products میں breakdown کرنے والے enzymes۔"],"Neottia":["نیوٹیا / Bird’s Nest Orchid","Non-photosynthetic orchid؛ school biology میں saprophytic nutrition کی مثال، fungal association اہم ہے۔"],"Mycoheterotrophic":["مائیکو ہیٹروٹروفک","Fungi کے ذریعے carbon یا nutrients حاصل کرنے والے plants کے لیے modern term۔"],"Symbiosis":["باہمی ہم زیستی","دو مختلف organisms کا close association جس میں دونوں کو فائدہ پہنچ سکتا ہے۔"],"Mycorrhizae":["مائیکورائزا","Plant roots اور fungi کی symbiotic association۔"],"Fungal Hyphae":["فنگل ہائفے","Fungus کی thread-like structures جو soil میں water/mineral acquisition بڑھاتی ہیں۔"],"Phosphorus":["فاسفورس","Essential mineral nutrient؛ mycorrhizae phosphorus acquisition بہتر کر سکتی ہے۔"],"Root Nodules":["جڑ کی گانٹھیں","Leguminous roots پر بننے والی structures جن میں Rhizobium رہ سکتے ہیں۔"],"Rhizobium":["رائزو بیئم","Nitrogen-fixing bacteria جو leguminous root nodules میں association بناتے ہیں۔"],"Nitrogen Fixation":["نائٹروجن تثبیت","Atmospheric N2 کو biologically usable nitrogen-containing compounds میں تبدیل کرنے کا process۔"],"Leguminous Plants":["بقولی پودے","Pea اور chickpea جیسے plants جن کی roots پر Rhizobium-containing nodules بن سکتے ہیں۔"],"Adaptation":["ماحولیاتی موافقت","Structural یا functional feature جو environment میں survival اور resource acquisition میں مدد دے۔"],"Special Modes of Nutrition":["غذائیت کے مخصوص طریقے","Specialized nutritional strategies جو مختلف environmental conditions میں nutrients حاصل کرنے میں مدد دیتی ہیں۔"]};
 const questions=[
@@ -248,33 +245,18 @@ function closeDictionaryPopup(restore=true){
  if(restore && dictionaryReturnElement && document.contains(dictionaryReturnElement)){dictionaryReturnElement.focus();}
  dictionaryReturnElement=null;
 }
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const page = document.getElementById(id);
-  if (page) {
-    page.classList.add('active');
-    // Agar topics ka page khul raha hai, to data generate karne wale functions ko chalayein
-    if (id === 'topicsPage') {
-      if (typeof renderTopics === 'function') renderTopics();
-      if (typeof initApp === 'function') initApp();
-    }
-  }
-}
-
-  function openTopic(k){
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function img(v){return v?`<div class="topic-visual" onclick="showVisual('${v}')" aria-label="Open Visual Atlas visual"><svg viewBox="0 0 100 86" role="img" aria-label="Visual Atlas image" preserveAspectRatio="xMidYMid meet"><image href="${BASE+v}" x="0" y="0" width="100" height="86" preserveAspectRatio="xMidYMid meet"></image></svg></div>`:''}
+function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
+function openTopic(k){
+ lectureViewStack=[];
  const d=topics[k];
  const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
- const target=document.getElementById('topicLevel3Content');
- if(!target)return;
- target.innerHTML=`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div><p class="lesson-subtitle">Topic Introduction</p></div></div>
- <div class="section main-lecture"><div class="level-heading standard-h">Special Modes of Nutrition</div><p>${linkDictionaryTerms('زیادہ تر سبز پودے Autotrophs ہوتے ہیں اور Photosynthesis کے ذریعے اپنی Organic Food خود تیار کرتے ہیں۔ تاہم، بعض habitats میں Nitrogen یا دوسرے Mineral Nutrients کی دستیابی محدود ہوتی ہے۔ ایسے حالات میں بعض plants نے مخصوص Nutritional Adaptations پیدا کی ہیں جنہیں Special Modes of Nutrition کہا جاتا ہے۔')}</p></div>
- <div class="section main-lecture"><div class="level-heading standard-h">چار بنیادی Nutritional Modes</div><p>${linkDictionaryTerms('Insectivorous Nutrition insects سے nitrogen اور minerals کی supplementation فراہم کرتی ہے؛ Parasitic Nutrition living host سے resources حاصل کرتی ہے؛ Saprophytic Nutrition dead organic matter کے extracellular digestion سے nutrients حاصل کرتی ہے؛ Symbiotic Nutrition میں mutually beneficial association کے ذریعے nutritional advantage حاصل کیا جاتا ہے۔')}</p></div>
- <div class="section main-lecture"><div class="level-heading standard-h">Master Concept</div><p>${linkDictionaryTerms('Insectivorous → Insects → Nitrogen/Mineral supplementation؛ Parasitic → Living Host → Haustoria؛ Saprophytic → Dead Organic Matter → Extracellular Digestion؛ Symbiotic → Mutual Association → Mutual Benefit۔')}</p></div>
- <div class="section"><span class="level-heading standard-h">9 Subtopics</span><div class="subtopic-grid">${ids.map((id,i)=>`<button class="visual-link" type="button" onclick="openSub('${id}')"><b>${i+1}. ${esc(subs[id].title)}</b></button>`).join('')}</div></div>
- <div class="content-navigation"><button class="back-page-tab" type="button" onclick="showPage('topicsPage')">پچھلا صفحہ</button></div>`;
- showPage('topicLevel3Page');
- decorateDictionaryLinks(target);
- applyTeachingFontSize();
+ const mainLecture = `<div class="section main-lecture"><div class="level-heading standard-h">Special Modes of Nutrition</div><p>${linkDictionaryTerms('زیادہ تر سبز پودے Autotrophs ہوتے ہیں اور Photosynthesis کے ذریعے اپنی Organic Food خود تیار کرتے ہیں۔ تاہم، بعض habitats میں Nitrogen یا دوسرے Mineral Nutrients کی دستیابی محدود ہوتی ہے۔ ایسے حالات میں بعض plants نے مخصوص Nutritional Adaptations پیدا کی ہیں جنہیں Special Modes of Nutrition کہا جاتا ہے۔')}</p></div><div class="section main-lecture"><div class="level-heading standard-h">چار بنیادی Nutritional Modes</div><p>${linkDictionaryTerms('Insectivorous Nutrition insects سے nitrogen اور minerals کی supplementation فراہم کرتی ہے؛ Parasitic Nutrition living host سے resources حاصل کرتی ہے؛ Saprophytic Nutrition dead organic matter کے extracellular digestion سے nutrients حاصل کرتی ہے؛ Symbiotic Nutrition میں mutually beneficial association کے ذریعے nutritional advantage حاصل کیا جاتا ہے۔')}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Master Concept</div><p>${linkDictionaryTerms('Insectivorous → Insects → Nitrogen/Mineral supplementation؛ Parasitic → Living Host → Haustoria؛ Saprophytic → Dead Organic Matter → Extracellular Digestion؛ Symbiotic → Mutual Association → Mutual Benefit۔')}</p></div>`;
+ show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div></div></div>
+ ${mainLecture}
+ <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
+ ${navButtons()}`);
 }
 let lectureViewStack=[];
 function returnToPreviousView(){
@@ -303,6 +285,7 @@ function openSub(k){
  modal.classList.add('level3-modal');
 }
 function showVisual(id){const v=visualItems.find(x=>x[0]===id);if(!v)return;show(`<div class="lesson-title">${esc(v[1])}</div><div class="lesson-subtitle">${esc(v[0])}</div><div class="visual-card"><img class="atlas-img" src="${BASE+v[2]}" alt="${esc(v[1])}"><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p></div>`);}
+
 function practiceReveal(id){const el=document.getElementById(id);if(el)el.hidden=false;}
 function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
 function openGuidedPractice(){
@@ -332,12 +315,18 @@ function openGuidedPractice(){
  <div class="section mastery"><span class="level-heading mastery-h">5. Core 20 — Final Guided Round</span><p>اوپر کے 20 سوالات دوبارہ بغیر جواب دیکھے کریں۔ ہر غلط یا کمزور جواب کو فوراً متعلقہ explanation سے درست کریں۔</p><button class="visual-link" onclick="practiceReveal('pr-final-check')">Final self-check کھولیں</button><div id="pr-final-check" class="answer-review" hidden><p><b>Final Check:</b> کیا آپ Insectivorous → Parasitic → Saprophytic → Symbiotic Nutrition → Haustoria → Mycorrhizae → Rhizobium → Nitrogen Fixation کی ترتیب میں اہم concepts explain کر سکتے ہیں؟</p><p>اگر کسی حصے میں hesitation ہو تو اسی lecture کے متعلقہ Subtopic کو دوبارہ کھول کر Basic → Standard → Mastery مکمل کریں، پھر Practice میں واپس آکر دوبارہ جواب دیں۔</p></div></div>
  <div class="section"><b>Practice Complete</b><p>اب مقصد صرف instructions پڑھنا نہیں، بلکہ Recall، Correction، Connection، Comparison اور Visual explanation کے ذریعے Lecture 04 کو عملی طور پر revise کرنا ہے۔ اس کے بعد Readiness Test کی طرف جائیں۔</p></div>`);
 }
+function startCeilingGame(){
+ const host=document.getElementById('ceilingNativeHost');
+ if(!host)return;
+ host.scrollIntoView({behavior:'smooth',block:'start'});
+ mountNativeCeilingRevision();
+}
 
 function mountNativeCeilingRevision(){
   const host=document.getElementById('ceilingNativeHost');
   if(!host)return;
   host.innerHTML='';
-  const root=host.attachShadow({mode:'open'});
+  const root=host.shadowRoot || host.attachShadow({mode:'open'});
   root.innerHTML=`<style>
 :root{--green:#174f43;--green2:#58a978;--red:#b83b3b;--blue:#3568a8;--gold:#c9a54b;--cream:#fbf7ed;--ink:#18332d;--muted:#68756e;--line:#ded2b3}*{box-sizing:border-box}body{margin:0;background:linear-gradient(#f8f2e5,#eef5f0);color:var(--ink);font-family:Georgia,"Noto Nastaliq Urdu",serif}.top{height:64px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;box-shadow:0 3px 14px #0002}.brand{font:900 15px Arial,sans-serif}.brand small{display:block;font-size:10px;opacity:.78;margin-top:3px}.tab{font:900 12px Arial,sans-serif;border:1px solid var(--gold);border-radius:999px;padding:8px 14px;background:#fff;color:var(--green)}.stage{max-width:1080px;margin:auto;padding:16px 10px 40px}.crumb{text-align:center;color:var(--muted);font:700 12px Arial,sans-serif;margin-bottom:9px}.game{position:relative;min-height:730px;overflow:hidden;border:1px solid #d8c78d;border-radius:24px;background:linear-gradient(#fffdf8,#f3ead7);box-shadow:0 14px 42px #214b3a1d}.head{text-align:center;padding:22px 15px 5px}.kicker{font:900 11px Arial,sans-serif;letter-spacing:2px;color:var(--red)}h1{font:900 clamp(30px,6vw,52px)/1.05 Arial,sans-serif;color:var(--green);margin:6px 0}.sub{font-size:16px;color:#657169}.hidden{display:none!important}.intro{text-align:center;max-width:720px;margin:auto;padding:8px 16px}.intro p{font-size:18px;line-height:1.85;margin:8px 0}.logo{width:82px;height:82px;margin:3px auto 10px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--green);font:900 10px/1.2 Arial;background:#fffdf7;opacity:.08;transition:.5s}.logo.show{opacity:1}.badge{display:inline-block;border:1px solid var(--gold);border-radius:999px;padding:6px 12px;font:800 11px Arial;color:#6b5421;background:#fff9e8}.start{border:0;border-radius:999px;padding:13px 28px;background:var(--green);color:#fff;font:900 15px Arial;cursor:pointer;box-shadow:0 8px 20px #174f4340;margin-top:14px}.towerarea{height:320px;display:flex;justify-content:center;align-items:flex-end}.tower{position:relative;width:230px;height:295px}.dome{position:absolute;top:0;left:75px;width:80px;height:58px;border:2px solid #aa8d49;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e7d9ad}.dome:after{content:"";position:absolute;width:4px;height:22px;background:#aa8d49;top:-20px;left:38px}.body{position:absolute;bottom:12px;left:40px;width:150px;display:flex;flex-direction:column-reverse;gap:4px}.seg{height:47px;border:1px solid #b59a5b;background:#e8ddbe;opacity:.25;transform:translateY(5px);transition:.45s}.seg.on{opacity:1;transform:none;background:linear-gradient(90deg,#b9e1c7,#6db78b);border-color:#4a9369}.base{position:absolute;bottom:0;left:20px;width:190px;height:17px;border:1px solid #aa8d49;border-radius:7px;background:#d8c899}.torch{position:absolute;top:-55px;left:89px;width:55px;height:62px;display:grid;place-items:center}.flame{width:27px;height:38px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #b39a59;opacity:.32}.flame.on{background:linear-gradient(135deg,#ffd45b,#ef8d2c);border-color:#b97523;opacity:1;box-shadow:0 0 25px #f4b53a99;animation:flicker 1s infinite alternate}@keyframes flicker{to{transform:rotate(48deg) scale(1.08)}}.play{padding:0 14px 25px}.play .towerarea{display:none}.play .level,.play .progress{display:none}.play .count{display:none}.question-shell{position:relative}.question-shell:before{content:"✦  ✿  🦋  ✦";position:absolute;left:8px;top:-28px;font-size:18px;opacity:.5;letter-spacing:8px;direction:ltr}.celebrate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:100;background:rgba(23,79,67,.18);backdrop-filter:blur(3px)}.celebrate.hidden{display:none}.celebrate-card{position:relative;width:min(560px,92vw);padding:30px 22px;border:2px solid var(--gold);border-radius:24px;background:linear-gradient(145deg,#fffdf7,#f6ead0);box-shadow:0 20px 60px #173f3560;text-align:center;overflow:hidden}.celebrate-card h2{margin:8px 0;font:900 28px Arial;color:var(--green)}.celebrate-card p{margin:8px 0;font-size:17px;line-height:1.8}.celebrate-art{font-size:34px;letter-spacing:8px;animation:floaty 1.8s ease-in-out infinite alternate}.celebrate-art span{display:inline-block;animation:fly 2.2s ease-in-out infinite alternate}.celebrate-art span:nth-child(2){animation-delay:.25s}.celebrate-art span:nth-child(3){animation-delay:.5s}.celebrate-art span:nth-child(4){animation-delay:.75s}@keyframes floaty{to{transform:translateY(-7px)}}@keyframes fly{to{transform:translate(12px,-18px) rotate(7deg)}}.level{text-align:center;font:900 14px Arial;color:var(--green)}.count{text-align:center;font:900 12px Arial;color:var(--muted);margin:5px}.progress{height:8px;max-width:760px;margin:8px auto 13px;border:1px solid #c7b77f;border-radius:10px;background:#eee5d1;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--green2);transition:.35s}.card{max-width:790px;margin:auto;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 20px #23483b12}.q{font-size:19px;line-height:1.8;font-weight:700;text-align:center;margin:0 0 15px}.answers{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.answer{border:2px solid transparent;border-radius:14px;padding:14px;background:#fffaf0;color:#202522;cursor:pointer;font-weight:800;text-align:right;line-height:1.55;min-height:62px;box-shadow:0 4px 12px #214b3a16;transition:transform .16s,filter .16s,box-shadow .16s}.answer:hover{transform:translateY(-2px);filter:saturate(1.08);box-shadow:0 7px 16px #214b3a20}.answer:disabled{cursor:default;opacity:.92;transform:none}.answer.a-red{background:#f7d9d9;border-color:#b83b3b}.answer.a-green{background:#dff1e5;border-color:#58a978}.answer.a-blue{background:#dfe9f8;border-color:#3568a8}.answer.a-yellow{background:#fff0bf;border-color:#d4a72c}.answer:hover{background:#f4ead0}.answer:disabled{cursor:default;opacity:.8}.feedback{text-align:center;min-height:34px;margin-top:10px;font-size:14px;font-weight:800;color:var(--red);line-height:1.7}.tip{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}.clear{text-align:center;padding:42px 15px}.clear h2{font:900 25px Arial;color:var(--green)}.clear p{font-size:18px;line-height:1.8}.answer-popup{position:fixed;top:78px;left:50%;transform:translateX(-50%);width:min(700px,92vw);z-index:250;display:none;border:2px solid var(--gold);border-radius:18px;background:linear-gradient(145deg,#fffdf7,#fff0c9);box-shadow:0 14px 45px #173f3540;padding:16px 18px;text-align:center;direction:rtl}.answer-popup.show{display:block;animation:popupIn .28s ease-out}@keyframes popupIn{from{opacity:0;transform:translate(-50%,-12px) scale(.97)}to{opacity:1;transform:translate(-50%,0) scale(1)}}.answer-popup h3{margin:0 0 7px;font:900 20px Arial;color:var(--red)}.answer-popup .popup-answer{font-size:18px;font-weight:900;line-height:1.7;color:var(--green)}.answer-popup .popup-explain{font-size:15px;line-height:1.85;color:var(--ink);margin-top:5px}.answer-popup .popup-note{font-size:12px;color:var(--muted);margin-top:7px}@media(max-width:650px){.answer-popup{top:66px;width:min(94vw,700px);padding:13px 12px}.answer-popup h3{font-size:18px}.answer-popup .popup-answer{font-size:16px}.answer-popup .popup-explain{font-size:14px}}.levels{display:flex;direction:ltr;justify-content:center;align-items:center;gap:12px;margin:10px auto 18px;max-width:560px;padding:10px 14px;border:1px solid #dfcf9d;border-radius:18px;background:linear-gradient(180deg,#fffdf8,#f7edd8);box-shadow:0 6px 20px #214b3a12,inset 0 1px #fff;position:relative}.levels::before{content:"";position:absolute;left:10%;right:10%;top:50%;height:3px;border-radius:99px;background:linear-gradient(90deg,#d8c78d,#e7dcc0,#d8c78d);transform:translateY(-50%);z-index:0}.lvl{position:relative;z-index:1;flex:0 0 42px;width:42px;height:42px;border:2px solid #d8c78d;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf5,#eadfca);padding:0;font-size:0;box-shadow:0 4px 10px #214b3a18,inset 0 1px 2px #fff;transition:transform .35s,box-shadow .35s,background .35s,border-color .35s}.lvl:not(:last-child)::after{content:"";position:absolute;left:calc(100% + 2px);top:50%;width:12px;height:3px;border-radius:99px;background:#d8c78d;transform:translateY(-50%);transition:background .35s,box-shadow .35s}.lvl.active{background:radial-gradient(circle at 35% 28%,#fff9c9,#f1c75b);border-color:#c9a54b;transform:translateY(-3px) scale(1.08);box-shadow:0 0 0 4px #f6d87555,0 8px 20px #c9a54b66}.lvl.active::before{content:"";position:absolute;inset:7px;border-radius:50%;background:#fff8d7;opacity:.95;animation:stepGlow 1.35s ease-in-out infinite alternate}.lvl.done{background:radial-gradient(circle at 35% 28%,#e8f7ec,#62b07f);border-color:#4a9369;box-shadow:0 5px 16px #4a936955}.lvl.done::after{background:#6db78b;box-shadow:0 0 10px #6db78b99}.lvl.done::before{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:900 17px Arial;text-shadow:0 1px 3px #174f4366;z-index:2}@keyframes stepGlow{to{transform:scale(.62);opacity:.35}}.visual{direction:rtl;border:1px solid #d5c69b;border-radius:15px;background:#fffaf0;padding:14px;margin-bottom:13px;text-align:center}.visual-title{font:900 13px Arial;color:var(--green);margin-bottom:9px}.diagram{min-height:145px;display:flex;align-items:center;justify-content:center;gap:13px;direction:ltr;flex-wrap:wrap}.vnode{border:2px solid var(--green);border-radius:14px;padding:13px 10px;background:#eef7f0;font:900 12px Arial;min-width:120px}.arrow{font:900 22px Arial;color:var(--gold)}.visual small{display:block;color:var(--muted);font-size:12px;line-height:1.6;margin-top:7px}.short-answer{width:100%;min-height:125px;border:1px solid #c8b978;border-radius:13px;background:#fffdf8;padding:13px;font:16px/1.8 Georgia,"Noto Nastaliq Urdu",serif;resize:vertical;direction:auto}.write-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:9px}.mic{border:1px solid var(--blue);background:#edf4ff;color:#234d86;border-radius:999px;padding:10px 15px;font-weight:900;cursor:pointer}.mic.on{background:var(--blue);color:#fff}.send{border:0;border-radius:999px;padding:10px 18px;background:var(--green);color:#fff;font-weight:900;cursor:pointer}.voice-note{text-align:center;color:var(--muted);font-size:12px;margin:6px 0 0}.explain-feedback{margin-top:12px;border-radius:13px;padding:12px;background:#f4ead0;border:1px solid #d8c78d;line-height:1.8;text-align:right;font-size:14px}.mastery-grid{max-width:790px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.mastery-box{border:1px solid var(--gold);border-radius:11px;background:#fffaf0;padding:10px 4px;font:900 11px Arial;text-align:center}.mastery-box span{display:block;font-size:18px;margin-bottom:5px}.nextlevel{margin-top:16px}.footer-note{text-align:center;color:var(--muted);font-size:11px;margin-top:12px}@media(max-width:650px){.top{height:58px}.stage{padding:9px 6px}.game{border-radius:18px}.answers{grid-template-columns:1fr}.q{font-size:17px}.towerarea{height:300px}.tower{transform:scale(.88);transform-origin:bottom center}.levels{gap:7px;padding:8px 8px}.levels::before{left:7%;right:7%}.lvl{flex-basis:34px;width:34px;height:34px}.lvl:not(:last-child)::after{width:7px}.lvl.done::before{font-size:14px}.mastery-grid{grid-template-columns:1fr 1fr}.card{padding:14px}}
 </style>
@@ -498,7 +487,7 @@ function openFunctional(k){
  if(k==='practice'){openGuidedPractice();return;}
  if(k==='readiness'){openAssessment('readiness');return;}
  if(k==='exam'){openAssessment('exam');return;}
- if(k==='revision'){show('<div id="ceilingNativeHost"></div>');mountNativeCeilingRevision();return;}
+ if(k==='revision'){showPage('revisionPage');return;}
  if(k==='mastery'){show(`<div class="lesson-title">Mastery</div><div class="section basic"><span class="level-heading basic-h">Foundation</span><p>Definitions، structures اور essential mechanisms پر مکمل گرفت۔</p></div><div class="section standard"><span class="level-heading standard-h">Integration</span><p>Insectivorous → prey nutrients، Parasitic → host resources، Saprophytic → dead matter digestion اور Symbiotic → mutual nutrient exchange کو compare کریں۔</p></div><div class="section mastery"><span class="level-heading mastery-h">Mastery Challenge</span><p>Explain کریں کہ insect trapping، host dependence، extracellular digestion، Mycorrhizae اور Rhizobium کو ایک coherent nutritional framework میں مربوط کریں۔</p></div>`);return;}
  if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Nutritional Adaptation Investigation</b><p>Trapping structures، Haustoria، Mycorrhizae یا Root Nodules کی identifying features locate کریں اور ہر structure کو اس کے nutritional function سے relate کریں۔</p></div><div class="section"><b>Experimental reasoning</b><p>Observation → identification → mechanism → nutritional function کے درمیان فرق واضح رکھیں۔ Trapping structures، Haustoria، Mycorrhizae اور Root Nodules کو ان کے nutritional roles سے مربوط کریں۔</p></div>`);return;}
 }
@@ -536,33 +525,29 @@ function decorateDictionaryLinks(root=document){
  const nodes=[...root.querySelectorAll('.section p,.section li,.topic-head-text p,.subtopic-head-text .lesson-title,.section-card p')];
  nodes.forEach(node=>{
    if(node.dataset.decorated)return;
+   // Do not re-process content that has already been converted into Dictionary links.
+   // Re-processing nested buttons was the source of visible HTML fragments such as meristem">.
    if(node.querySelector('.linked-word')){node.dataset.decorated='1';return;}
-   const text=node.textContent;
-   if(!text.trim())return;
+   const text=node.textContent; if(!text.trim())return;
    let out=esc(text);
    const tokens=[];
-   const keys = Object.keys(dict).sort((a, b) => b.length - a.length);
-   for (const k of keys) {
-     const aliases = [k, dict[k][0]].filter(Boolean).sort((a, b) => b.length - a.length);
-     for (const alias of aliases) {
-       const safe = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-       out = out.replace(new RegExp('(' + safe + ')', 'g'), (m) => {
-         const i = tokens.length;
-         tokens.push('<button class="linked-word" type="button" data-term="' + esc(k) + '">' + m + '</button>');
-         return '\uE000' + i + '\uE001';
+   const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+   for(const k of keys){
+     const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+     for(const alias of aliases){
+       const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+       out=out.replace(new RegExp('('+safe+')','gi'),m=>{
+         const i=tokens.length;
+         tokens.push(`<button class="linked-word" type="button" data-term="${esc(k)}">${esc(m)}</button>`);
+         return '\uE000'+i+'\uE001';
        });
      }
    }
-   node.innerHTML = out.replace(/\uE000(\d+)\uE001/g, (_, i) => tokens[Number(i)]);
-   node.dataset.decorated = '1';
+   node.innerHTML=out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
+   node.dataset.decorated='1';
  });
 }
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.linked-word');
-  if (btn && btn.dataset.term) {
-    showDictionaryPopup(btn.dataset.term);
-  }
-});
+document.addEventListener('click',e=>{const w=e.target.closest('.linked-word');if(w){e.preventDefault();showDictByTerm(w.dataset.term);}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();const w=e.target.closest?.('.linked-word');if(w&&(e.key==='Enter'||e.key===' ')){e.preventDefault();showDictByTerm(w.dataset.term);}});
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();if(e.target.id==='dictionaryOverlay')closeDictionaryPopup();});
 document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.top-logo img').forEach(img=>img.addEventListener('error',()=>{img.style.display='none'},{once:true}));});
