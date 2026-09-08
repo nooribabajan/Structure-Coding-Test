@@ -76,7 +76,7 @@ button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessme
 .section p,.section li{font-size:14px;line-height:1.9}
 .pill,.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial}
 .inline-note{padding:10px 12px;border-radius:10px;background:var(--warn);border-right:4px solid var(--gold);margin:10px auto;max-width:1180px}
-.dictionary-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.18);overflow:auto}.dictionary-dialog{position:relative;width:min(720px,calc(100% - 24px));max-height:calc(100% - 36px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 16px 45px rgba(15,23,42,.22);padding:24px 20px 18px}.dictionary-close{position:absolute;top:8px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#475569}.dictionary-close:hover,.dictionary-close:focus{color:#b42318;background:#f8fafc;outline:none}.dict-modal .dictionary-dialog{animation:dictIn .14s ease-out}@keyframes dictIn{from{transform:translateY(6px);opacity:.7}to{transform:translateY(0);opacity:1}}
+.dictionary-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.18);overflow:auto}.dictionary-dialog{position:relative;width:min(720px,calc(100% - 24px));max-height:calc(100% - 36px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 16px 45px rgba(15,23,42,.22);padding:24px 20px 18px}.dictionary-close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#475569}.dictionary-close:hover,.dictionary-close:focus{color:#b42318;background:#f8fafc;outline:none}.dict-modal .dictionary-dialog{animation:dictIn .14s ease-out}@keyframes dictIn{from{transform:translateY(6px);opacity:.7}to{transform:translateY(0);opacity:1}}
 .linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;border:0;box-shadow:none;text-decoration:none;outline:none}.linked-word:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .diagram{direction:ltr;text-align:center;font:700 14px/1.8 Inter,sans-serif;background:#f8fafc;padding:16px;border-radius:12px;white-space:pre-wrap;overflow:auto}
 table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #dbe4ee;padding:9px;text-align:right;vertical-align:top}th{background:#edf5ef}
@@ -329,6 +329,7 @@ function linkDictionaryTerms(text){
 }
 function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><img src="../../Visual-Atlas/IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="biology-label">Biology</div>`}
 function getMainHost(){return document.getElementById('mainContentContainer');}
+const homeMarkup=getMainHost()?.innerHTML||'';
 let lectureViewStack=[];
 function renderInMainContainer(html,remember=true){const host=getMainHost();if(!host)return;if(remember&&host.innerHTML.trim())lectureViewStack.push(host.innerHTML);const needsBack=!/back-page-tab/.test(html);host.innerHTML='<div class="content-view">'+html+(needsBack?navButtons():'')+'</div>';host.scrollTop=0;decorateDictionaryLinks(host);}
 function show(html,remember=true){renderInMainContainer(html,remember);}
@@ -371,7 +372,7 @@ function showPage(id){
  }
 }
 function img(v){return v?`<div class="topic-visual" onclick="showVisual('${v}')" aria-label="Open Visual Atlas visual"><svg viewBox="0 0 100 86" role="img" aria-label="Visual Atlas image" preserveAspectRatio="xMidYMid meet"><image href="${BASE+v}" x="0" y="0" width="100" height="86" preserveAspectRatio="xMidYMid meet"></image></svg></div>`:''}
-function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button><button class="back-page-tab" type="button" onclick="showPage('topicsPage')">موضوعات پر جائیں</button></div>`}
+function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
 function openTopic(k){
  const d=topics[k];
  const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
@@ -381,7 +382,18 @@ function openTopic(k){
  <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
 `);
 }
-function returnToPreviousView(){closeModal();}
+function returnToPreviousView(){
+  closeDictionaryPopup(false);
+  const host=getMainHost();
+  if(!host)return;
+  if(lectureViewStack.length){
+    host.innerHTML=lectureViewStack.pop();
+    host.scrollTop=0;
+    decorateDictionaryLinks(host);
+  }else{
+    showPage('homePage');
+  }
+}
 function openSub(k){
  const d=subs[k];
  show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div></div></div>
@@ -392,7 +404,7 @@ function openSub(k){
  <div class="inline-note">Academic Code: <span class="pill">${esc(d.id)}</span>${d.visual?` · Visual: <span class="pill">${esc(d.visual.replace('.webp',''))}</span>`:''}</div>
 `);
 }
-function showVisual(id){const v=visualItems.find(x=>x[0]===id);if(!v)return;show(`<div class="lesson-title">${esc(v[1])}</div><div class="lesson-subtitle">${esc(v[0])}</div><div class="visual-card"><img class="atlas-img" src="${BASE+v[2]}" alt="${esc(v[1])}"><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p></div>`,false);}
+function showVisual(id){const v=visualItems.find(x=>x[0]===id);if(!v)return;show(`<button class="close" type="button" aria-label="Close Visual Atlas" title="Close Visual Atlas" onclick="returnToPreviousView()">×</button><div class="lesson-title">${esc(v[1])}</div><div class="lesson-subtitle">${esc(v[0])}</div><div class="visual-card"><img class="atlas-img" src="${BASE+v[2]}" alt="${esc(v[1])}"><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p></div>`,false);}
 
 function practiceReveal(target){const el=typeof target==='string'?document.getElementById(target):target;if(el){el.hidden=false;if(el.style)el.style.display='block';}}
 function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
