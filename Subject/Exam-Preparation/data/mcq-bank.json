@@ -1,0 +1,19 @@
+[
+  {
+    "id": "MCQ001",
+    "chapter": 1,
+    "question": "A cell has a high demand for ATP. Which organelle is most directly associated with meeting this demand?",
+    "options": ["Golgi apparatus","Mitochondrion","Lysosome","Ribosome"],
+    "correct": 1,
+    "pattern": "Concept",
+    "notes": "اہمیت: Organelle ..."
+  },
+  {
+    "id": "MCQ002",
+    "chapter": 1,
+    "question": "A toxin makes the cell membrane highly permeable to ions. What is the most immediate consequence?",
+    "options": ["Loss of ion gradients","Faster DNA replication","More ribosomes","Increased chromosome number"],
+    "correct": 0,
+    "pattern": "Analysis"
+  }
+]
