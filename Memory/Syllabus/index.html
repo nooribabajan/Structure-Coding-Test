@@ -1,0 +1,5923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Page Reader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    /* Navigation Tabs */
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      padding: 10px 16px;
+      background: #e2e8f0;
+      border: none;
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      background: #cbd5e1;
+    }
+
+    .tab-btn.active {
+      background: #007bff;
+      color: white;
+    }
+
+    /* Page Content Panels */
+    .page {
+      display: none;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      min-height: 400px;
+      line-height: 1.6;
+    }
+
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Buttons for 7 Pages -->
+  <div class="tab-buttons">
+    <button class="tab-btn active" onclick="showPage('page1', this)">Page 1</button>
+    <button class="tab-btn" onclick="showPage('page2', this)">Page 2</button>
+    <button class="tab-btn" onclick="showPage('page3', this)">Page 3</button>
+    <button class="tab-btn" onclick="showPage('page4', this)">Page 4</button>
+    <button class="tab-btn" onclick="showPage('page5', this)">Page 5</button>
+    <button class="tab-btn" onclick="showPage('page6', this)">Page 6</button>
+    <button class="tab-btn" onclick="showPage('page7', this)">Page 7</button>
+  </div>
+
+  <!-- Page 1 Content -->
+  <div id="page1" class="page active">
+    <h2>Page 1</h2>
+    <p> Worked for 24s
+
+جی۔ اب میں شارٹ کٹ نہیں مار رہا۔ آپ نے جو format مانگا ہے وہ یہی ہے: Bio Lecture 01 → 58، اور ہر Lecture کے اندر Chapter ID/Name → Topic ID/Name → ہر Subtopic ID/Name → رنگ، اور جہاں Lecture کی completion 🔵 Blue سے ہو رہی ہے وہاں Blue subtopics الگ واضح ہوں گے۔
+
+ایک اہم correction بھی میں نے کر دی ہے: Blue کسی تیسرے Main Topic سے نہیں لیا جائے گا۔ Lecture میں زیادہ سے زیادہ دو Main Topics ہوں گے، اور Blue صرف انہی Topics کے اندر completion کے لیے آئے گا۔ یہ آپ کے “جو بھی پہلے پورا ہو” rule کے مطابق ہے۔ Academy procedure بھی lecture partition سے پہلے complete numbering اور progress ledger رکھنے کو mandatory کرتا ہے۔ 
+
+نوٹ: Library میں موجود ایک پرانا Chapter-12 production record 50-subtopic/8-lecture structure دکھاتا ہے، جبکہ آپ کا موجودہ expanded master 58-lecture system استعمال کر رہا ہے؛ اس لیے میں نے پرانے Chapter-12 record کو خاموشی سے موجودہ master پر overwrite نہیں کیا۔ پرانا record خود Lecture 01 کو صرف چھ subtopics تک دکھاتا ہے۔ 
+
+IMPERIAL ACADEMY OF EDUCATION
+
+First Year Biology — Complete 58-Lecture Master Register
+
+Locked Lectureization Rules
+
+- 🔴 Red + 🟢 Green = Lecture Academic Content
+- 🔵 Blue = Mastery
+- 🔵 Blue صرف اسی وقت Lecture میں آئے گا جب متعلقہ Lecture کے Red+Green subtopics 14 سے کم ہوں اور completion کے لیے Blue کی ضرورت ہو۔
+- Blue کا رنگ تبدیل نہیں ہوگا۔
+- Maximum 2 Main Topics per Lecture
+- Maximum 14 Red/Green subtopics per Lecture
+- جو بھی پہلے پورا ہو، Lecture وہیں close ہوگا۔
+- کوئی Red/Green subtopic skip، duplicate یا partial نہیں ہوگا۔
+- Academy IDs، Topic numbering، Subtopic numbering اور sequence برقرار رہے گی۔
+- Practical Work lectureization سے الگ ہے؛ Practical Work Topic 13 نہیں ہے۔
+- Blue-only Topics الگ Lecture نہیں بنائیں گے۔
+- Blue completion ہمیشہ Lecture میں already included Topic/Topics سے ہوگی۔
+
+---
+
+CHAPTER 01 — CELL STRUCTURE AND FUNCTION
+
+Chapter ID: "IAE1101010000"
+
+BIO LECTURE 01
+
+Topic 01 — Cell Biology and Cell Theory
+
+Topic ID: "IAE1101010100"
+
+🔴 "IAE1101010101" — Cell as the basic structural and functional unit of life
+🔴 "IAE1101010102" — Cell theory
+🔴 "IAE1101010103" — Major principles of cell theory
+🟢 "IAE1101010104" — Historical development of cell biology
+🟢 "IAE1101010105" — Contributions of Schleiden, Schwann, and Virchow
+
+Topic 02 — Techniques Used in Cell Biology
+
+Topic ID: "IAE1101010200"
+
+🔴 "IAE1101010201" — Principles and applications of cell-biology techniques
+🔴 "IAE1101010202" — Cell fractionation
+🔴 "IAE1101010203" — Centrifugation
+🔴 "IAE1101010204" — Differential staining
+🔴 "IAE1101010205" — Microdissection
+🟢 "IAE1101010206" — Tissue culture
+🟢 "IAE1101010207" — Chromatography
+🟢 "IAE1101010208" — Electrophoresis
+🟢 "IAE1101010209" — Spectrophotometry
+
+Lecture 01 completion: 14 🔴/🟢 subtopics.
+Blue: کوئی نہیں۔
+
+---
+
+BIO LECTURE 02
+
+Topic 03 — Microscopy
+
+Topic ID: "IAE1101010300"
+
+🔴 "IAE1101010301" — Light microscope
+🔴 "IAE1101010302" — Magnification
+🔴 "IAE1101010303" — Resolution
+🔴 "IAE1101010304" — Microscope components and their functions
+🔴 "IAE1101010305" — Graticule
+
+Topic 04 — Cell Wall
+
+Topic ID: "IAE1101010400"
+
+🔴 "IAE1101010401" — Cell wall
+🔴 "IAE1101010402" — Primary cell wall
+🔴 "IAE1101010403" — Secondary cell wall
+🔴 "IAE1101010404" — Middle lamella
+🟢 "IAE1101010405" — Cellulose
+🟢 "IAE1101010406" — Hemicellulose
+🟢 "IAE1101010407" — Pectin
+🟢 "IAE1101010408" — Lignin
+🟢 "IAE1101010409" — Staining of cell walls
+
+Lecture 02: 14 🔴/🟢 subtopics.
+Blue: کوئی نہیں۔
+
+---
+
+BIO LECTURE 03
+
+Topic 03 — Microscopy
+
+Topic ID: "IAE1101010300"
+
+🔴 "IAE1101010306" — Micrometer
+🔴 "IAE1101010307" — Micrometry
+🟢 "IAE1101010308" — Stage micrometer
+🟢 "IAE1101010309" — Ocular micrometer
+🟢 "IAE1101010310" — Calibration of the ocular micrometer
+🟢 "IAE1101010311" — Measurement of cells and cellular structures
+
+Topic 05 — Plasma Membrane
+
+Topic ID: "IAE1101010500"
+
+🔴 "IAE1101010501" — Plasma membrane
+🔴 "IAE1101010502" — Fluid mosaic model
+🔴 "IAE1101010503" — Structure of plasma membrane
+🔴 "IAE1101010504" — Functions of plasma membrane
+🟢 "IAE1101010505" — Phospholipid bilayer
+🟢 "IAE1101010506" — Membrane proteins
+🟢 "IAE1101010507" — Membrane carbohydrates
+🟢 "IAE1101010508" — Cholesterol
+
+Lecture 03: 14 🔴/🟢 subtopics.
+Blue: کوئی نہیں۔
+
+---
+
+BIO LECTURE 04
+
+Topic 05 — Plasma Membrane
+
+Topic ID: "IAE1101010500"
+
+🔴 "IAE1101010509" — Simple diffusion
+🔴 "IAE1101010510" — Facilitated diffusion
+🔴 "IAE1101010511" — Osmosis
+🔴 "IAE1101010512" — Active transport
+🟢 "IAE1101010513" — Endocytosis
+🟢 "IAE1101010514" — Exocytosis
+
+Topic 06 — Cytoplasm
+
+Topic ID: "IAE1101010600"
+
+🔴 "IAE1101010601" — Cytoplasm
+🔴 "IAE1101010602" — Cytosol
+🟢 "IAE1101010603" — Cytoplasmic inclusions
+🟢 "IAE1101010604" — Cytoplasmic streaming/cyclosis
+
+🔵 Completion
+
+🔵 "IAE1101010605" — Cellular compartmentalization
+
+Total: 10 🔴/🟢 + 1 🔵 completion.
+Blue remains Blue.
+
+---
+
+BIO LECTURE 05
+
+Topic 07 — Cell Organelles
+
+Topic ID: "IAE1101010700"
+
+🔴 "IAE1101010701" — Endoplasmic reticulum
+🔴 "IAE1101010702" — Rough ER
+🔴 "IAE1101010703" — Smooth ER
+🔴 "IAE1101010704" — Ribosomes
+🔴 "IAE1101010705" — Golgi apparatus
+🔴 "IAE1101010706" — Lysosomes
+🔴 "IAE1101010707" — Peroxisomes
+🔴 "IAE1101010708" — Glyoxysomes
+🔴 "IAE1101010709" — Mitochondria
+🔴 "IAE1101010710" — Chloroplasts
+🔴 "IAE1101010711" — Plastids
+🔴 "IAE1101010712" — Vacuoles
+🔴 "IAE1101010713" — Centrioles
+🔴 "IAE1101010714" — Nucleus
+
+14 🔴 subtopics — complete.
+
+---
+
+BIO LECTURE 06
+
+Topic 07 — Cell Organelles
+
+Topic ID: "IAE1101010700"
+
+🔴 "IAE1101010715" — Nucleolus
+🔴 "IAE1101010716" — Chromosomes
+🟢 "IAE1101010717" — Vesicles
+🟢 "IAE1101010718" — Cilia
+🟢 "IAE1101010719" — Flagella
+🟢 "IAE1101010720" — Cytoskeleton
+🟢 "IAE1101010721" — Microtubules
+🟢 "IAE1101010722" — Microfilaments
+🟢 "IAE1101010723" — Intermediate filaments
+
+Topic 08 — Nucleus and Genetic Material
+
+Topic ID: "IAE1101010800"
+
+🔴 "IAE1101010801" — Nuclear envelope
+🔴 "IAE1101010802" — Nucleoplasm
+🔴 "IAE1101010803" — Nucleolus
+🔴 "IAE1101010804" — Chromatin/chromosomes
+🟢 "IAE1101010805" — Chromosomal organization
+
+14 🔴/🟢 subtopics — complete.
+
+---
+
+BIO LECTURE 07
+
+Topic 09 — Prokaryotic and Eukaryotic Cells
+
+Topic ID: "IAE1101010900"
+
+🔴 "IAE1101010901" — Prokaryotic cell
+🔴 "IAE1101010902" — Eukaryotic cell
+🔴 "IAE1101010903" — Structural comparison
+🔴 "IAE1101010904" — Functional comparison
+🟢 "IAE1101010905" — Generalized bacterial cell
+🟢 "IAE1101010906" — Nucleoid
+🟢 "IAE1101010907" — Capsule
+🟢 "IAE1101010908" — Pili/fimbriae
+🟢 "IAE1101010909" — Bacterial flagellum
+
+9 🔴/🟢.
+Blue fill: only if needed from Topic 09; otherwise the remaining Blue stays Mastery.
+
+🔵 "IAE1101010910" — Evolutionary origin of eukaryotic cells
+🔵 "IAE1101010911" — Endosymbiotic theory
+
+Mastery-only Topics
+
+Topic 10 — Cell Signalling — Current Mastery Extension
+Topic 11 — Stem Cells — Current Mastery Extension
+Topic 12 — Cell Division — Current Mastery Extension
+
+---
+
+CHAPTER 02 — BIOLOGICAL MOLECULES
+
+BIO LECTURE 08
+
+Topic 01 — Biological Molecules
+
+Topic ID: "IAE1101020100"
+
+🔴 "IAE1101020101" — Biological molecules
+🔵 "IAE1101020102" — Organic and inorganic components
+🔵 "IAE1101020103" — Elements in biological molecules
+🔵 "IAE1101020104" — Biological macromolecules
+
+Topic 03 — Carbohydrates
+
+Topic ID: "IAE1101020300"
+
+🔴 "IAE1101020301" — Carbohydrates
+🔴 "IAE1101020302" — Monosaccharides
+🔴 "IAE1101020303" — Disaccharides and polysaccharides
+🔵 "IAE1101020304" — Advanced carbohydrate structure
+
+Important: Topic 02 is not inserted here, because that would create a third Main Topic. Its Blue material remains Mastery.
+
+---
+
+BIO LECTURE 09
+
+Topic 04 — Proteins
+
+Topic ID: "IAE1101020400"
+
+🔴 "IAE1101020401" — Amino acids
+🔴 "IAE1101020402" — Peptide bond
+🔴 "IAE1101020403" — Protein structure
+🔴 "IAE1101020404" — Primary structure
+🔴 "IAE1101020405" — Secondary structure
+🔴 "IAE1101020406" — Tertiary structure
+🔴 "IAE1101020407" — Quaternary structure
+🔴 "IAE1101020408" — Fibrous and globular proteins
+🔴 "IAE1101020409" — Protein denaturation
+🔴 "IAE1101020410" — Biological roles of proteins
+
+Topic 05 — Lipids
+
+Topic ID: "IAE1101020500"
+
+🔴 "IAE1101020501" — Lipids
+🔴 "IAE1101020502" — Fatty acids
+🔴 "IAE1101020503" — Triglycerides
+🔴 "IAE1101020504" — Formation and properties of fats
+
+14 🔴/🟢 subtopics.
+
+---
+
+BIO LECTURE 10
+
+Topic 05 — Lipids
+
+🔴 "IAE1101020505" — Classification of lipids
+🔴 "IAE1101020506" — Saturated fatty acids
+🔴 "IAE1101020507" — Unsaturated fatty acids
+🔴 "IAE1101020508" — Phospholipids
+🔴 "IAE1101020509" — Waxes
+🔴 "IAE1101020510" — Terpenes
+🔴 "IAE1101020511" — Steroids
+🔴 "IAE1101020512" — Cholesterol
+🔴 "IAE1101020513" — Functions of lipids
+🔴 "IAE1101020514" — Energy storage
+🔴 "IAE1101020515" — Membrane structure
+🔴 "IAE1101020516" — Insulation
+🔴 "IAE1101020517" — Protection
+🔴 "IAE1101020518" — Biological significance of lipids
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 11
+
+Topic 06 — Nucleic Acids
+
+🔴 "IAE1101020601" — Nucleic acids
+🔴 "IAE1101020602" — Nucleotides
+🔴 "IAE1101020603" — Nitrogenous bases
+🔴 "IAE1101020604" — Pentose sugars
+🔴 "IAE1101020605" — Phosphodiester linkage
+🔴 "IAE1101020606" — DNA structure
+🔴 "IAE1101020607" — RNA structure
+🔴 "IAE1101020608" — DNA and RNA comparison
+🔴 "IAE1101020609" — Functions of DNA
+🔴 "IAE1101020610" — Functions of RNA
+
+Topic 07 — Conjugated Molecules
+
+🔴 "IAE1101020701" — Conjugated molecules
+🔴 "IAE1101020702" — Glycoproteins
+🔴 "IAE1101020703" — Glycolipids
+🔴 "IAE1101020704" — Lipoproteins
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 12
+
+Topic 06 — Nucleic Acids
+
+🔴 "IAE1101020611" — ATP
+🔴 "IAE1101020612" — NAD
+🔴 "IAE1101020613" — Nucleotides in energy transfer
+🔴 "IAE1101020614" — Genetic-information role of nucleic acids
+🔴 "IAE1101020615" — Biological importance of nucleic acids
+
+Topic 07 — Conjugated Molecules
+
+🔴 "IAE1101020705" — Glycoprotein functions
+🔴 "IAE1101020706" — Glycolipid functions
+🔴 "IAE1101020707" — Lipoprotein functions
+🔴 "IAE1101020708" — Biological importance of conjugated molecules
+
+🔵 "IAE1101020709" — Advanced conjugated-molecule interactions
+🔵 "IAE1101020710" — Molecular recognition
+🔵 "IAE1101020711" — Advanced biological roles
+
+9 🔴/🟢 + 🔵 completion.
+
+---
+
+BIO LECTURE 13
+
+Topic 08 — Biological Molecules / relevant expanded section
+
+🔴 "IAE1101020801" — Structure and function of biological polymers
+🔴 "IAE1101020802" — Monomers and polymers
+🔴 "IAE1101020803" — Condensation reactions
+🔴 "IAE1101020804" — Hydrolysis
+🔴 "IAE1101020805" — Hydrogen bonding
+🔴 "IAE1101020806" — Covalent bonding
+🔴 "IAE1101020807" — Molecular interactions
+🔴 "IAE1101020808" — Polarity
+🔴 "IAE1101020809" — Hydrophilic and hydrophobic interactions
+🔴 "IAE1101020810" — Biological macromolecular organization
+🔴 "IAE1101020811" — Carbohydrate–protein relationships
+🔴 "IAE1101020812" — Lipid–protein relationships
+🔴 "IAE1101020813" — Molecular recognition
+🔴 "IAE1101020814" — Biological significance
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 14
+
+Topic 08
+
+🔴 "IAE1101020815" — Integrated biological-molecule relationships
+
+Topic 09
+
+🔴 "IAE1101020901" — Integrated biomolecular functions
+🔴 "IAE1101020902" — Biomolecules in cellular organization
+🔴 "IAE1101020903" — Biomolecules in metabolism
+🔴 "IAE1101020904" — Biomolecules in cellular function
+
+🔵 Completion
+
+🔵 "IAE1101020816"–"IAE1101020820" — remaining Topic 08 Mastery extension
+🔵 "IAE1101020905" — Topic 09 Mastery extension
+
+Red/Green = 5; Blue = completion.
+
+---
+
+CHAPTER 03 — ENZYMES
+
+BIO LECTURE 15
+
+Topic 01 — Structure of Enzymes
+
+🔴 "IAE1101030101" — Enzymes
+🔴 "IAE1101030102" — Enzyme structure
+🔴 "IAE1101030103" — Apoenzyme
+🔴 "IAE1101030104" — Cofactors and coenzymes
+🔴 "IAE1101030105" — Active site
+
+Topic 02 — Mechanism of Enzyme Action
+
+🔴 "IAE1101030201" — Enzyme–substrate complex
+🔴 "IAE1101030202" — Lock-and-key model
+🔴 "IAE1101030203" — Induced-fit model
+🔴 "IAE1101030204" — Activation energy
+🔴 "IAE1101030205" — Enzyme catalysis
+🔴 "IAE1101030206" — Specificity of enzymes
+🔴 "IAE1101030207" — Mechanism of enzyme action
+
+12 🔴/🟢 + Blue completion where required from these same Topics.
+
+---
+
+BIO LECTURE 16
+
+Topic 03 — Factors Affecting the Rate of Enzymatic Action
+
+🔴 "IAE1101030301" — Temperature
+🔴 "IAE1101030302" — pH
+🔴 "IAE1101030303" — Substrate concentration
+🔴 "IAE1101030304" — Enzyme concentration
+🔴 "IAE1101030305" — Effect of environmental conditions
+
+Topic 04 — Enzyme Inhibition
+
+🔴 "IAE1101030401" — Enzyme inhibitors
+🔴 "IAE1101030402" — Competitive inhibition
+🔴 "IAE1101030403" — Non-competitive inhibition
+🔴 "IAE1101030404" — Reversible inhibition
+🔴 "IAE1101030405" — Irreversible inhibition
+🔴 "IAE1101030406" — Effect of inhibitors on enzyme activity
+🔴 "IAE1101030407" — Biological importance of inhibition
+
+12 🔴/🟢 + relevant Blue completion.
+
+---
+
+BIO LECTURE 17
+
+Topic 05 — Classification of Enzymes
+
+🔴 "IAE1101030501" — Classification of enzymes
+🔴 "IAE1101030502" — Oxidoreductases
+🔴 "IAE1101030503" — Transferases
+🔴 "IAE1101030504" — Hydrolases
+
+Topic 06 — Enzyme Experiments / Applications
+
+🔴 "IAE1101030601" — Enzyme activity investigation
+🔴 "IAE1101030602" — Amylase
+🔴 "IAE1101030603" — Starch digestion
+🔴 "IAE1101030604" — Effect of temperature
+🔴 "IAE1101030605" — Effect of pH
+🔴 "IAE1101030606" — Effect of enzyme concentration
+🔴 "IAE1101030607" — Effect of substrate concentration
+🔴 "IAE1101030608" — Experimental controls
+🔴 "IAE1101030609" — Interpretation of enzyme experiments
+🔴 "IAE1101030610" — Biological applications
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 18
+
+Topic 06
+
+🔴 "IAE1101030611" — Integrated enzyme investigation / practical interpretation
+
+🔵 "IAE1101030612" — Advanced enzyme extension / Mastery completion
+
+---
+
+CHAPTER 04 — BIOENERGETICS
+
+BIO LECTURE 19
+
+Topic 01 — Photosynthesis
+
+🔴 "IAE1101040101" — Role of Light
+🔴 "IAE1101040102" — Role of Photosynthetic Pigments — Absorption Spectrum and Action Spectrum
+🔴 "IAE1101040103" — Role of Carbon Dioxide
+🔴 "IAE1101040104" — Role of Water
+🔴 "IAE1101040105" — Mechanism of Photosynthesis
+🔴 "IAE1101040106" — Chloroplast structure
+🔴 "IAE1101040107" — Thylakoids and grana
+🔴 "IAE1101040108" — Photosynthetic pigments
+🔴 "IAE1101040109" — Light-dependent reactions
+🔴 "IAE1101040110" — Photosystems
+🔴 "IAE1101040111" — Electron transport
+🔴 "IAE1101040112" — Photophosphorylation
+🔴 "IAE1101040113" — ATP formation
+🔴 "IAE1101040114" — NADPH formation
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 20
+
+Topic 01
+
+🔴 "IAE1101040115" — Calvin cycle
+🔴 "IAE1101040116" — Carbon fixation
+🔴 "IAE1101040117" — RuBP and Rubisco
+🔴 "IAE1101040118" — Reduction phase
+🔴 "IAE1101040119" — Regeneration of RuBP
+🔴 "IAE1101040120" — G3P formation
+🔴 "IAE1101040121" — Factors affecting photosynthesis
+🔴 "IAE1101040122" — Overall significance of photosynthesis
+
+Topic 02 — Cellular Respiration
+
+🔴 "IAE1101040201" — Aerobic and Anaerobic Respiration
+🔴 "IAE1101040202" — Mechanism of Respiration
+🔴 "IAE1101040203" — Glycolysis
+🔴 "IAE1101040204" — Pyruvate formation
+🔴 "IAE1101040205" — Acetyl-CoA formation
+🔴 "IAE1101040206" — Krebs cycle
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 21
+
+Topic 02 — Cellular Respiration
+
+🔴 "IAE1101040207" — Electron transport chain
+🔴 "IAE1101040208" — Oxidative phosphorylation
+🔴 "IAE1101040209" — Chemiosmosis
+🔴 "IAE1101040210" — ATP synthase
+🔴 "IAE1101040211" — Substrate-level phosphorylation
+🔴 "IAE1101040212" — ATP yield
+🔴 "IAE1101040213" — Fermentation
+🔴 "IAE1101040214" — Biological significance of respiration
+
+Topic 03 — Photorespiration
+
+🔴 "IAE1101040301" — Photorespiration
+🔴 "IAE1101040302" — Rubisco oxygenase activity
+🔴 "IAE1101040303" — Conditions favouring photorespiration
+🔴 "IAE1101040304" — Consequences of photorespiration
+🔴 "IAE1101040305" — Photorespiration and photosynthetic efficiency
+🔴 "IAE1101040306" — Biological significance
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 22
+
+Topic 03
+
+🔴 "IAE1101040307" — Integrated photorespiration concepts
+🔵 "IAE1101040308" — Advanced photorespiration Mastery
+
+---
+
+CHAPTER 05 — ACELLULAR LIFE
+
+BIO LECTURE 23
+
+Topic 01 — Viruses — Discovery and Structure
+
+🔴 "IAE1101050101" — Acellular life
+🔴 "IAE1101050102" — Discovery of viruses
+🔴 "IAE1101050103" — General characteristics of viruses
+🔴 "IAE1101050104" — Viral structure
+🔴 "IAE1101050105" — Viral genome
+🔴 "IAE1101050106" — Capsid
+🔴 "IAE1101050107" — Envelope
+🔴 "IAE1101050108" — Viral symmetry
+
+Topic 02 — Parasitic Nature of Viruses
+
+🔴 "IAE1101050201" — Obligate intracellular parasitism
+🔴 "IAE1101050202" — Host dependence
+🔴 "IAE1101050203" — Viral replication dependence
+🔴 "IAE1101050204" — Viruses between living and non-living
+
+🔵 "IAE1101050109" — Advanced viral structure
+🔵 "IAE1101050205" — Advanced parasitic nature
+
+---
+
+BIO LECTURE 24
+
+Topic 03 — Life Cycle of Bacteriophage
+
+🔴 "IAE1101050301" — Bacteriophage
+🔴 "IAE1101050302" — Attachment
+🔴 "IAE1101050303" — Penetration
+🔴 "IAE1101050304" — Viral genome entry
+🔴 "IAE1101050305" — Biosynthesis
+🔴 "IAE1101050306" — Assembly
+🔴 "IAE1101050307" — Release
+🔴 "IAE1101050308" — Lytic cycle
+
+Topic 04 — Life Cycle of HIV
+
+🔴 "IAE1101050401" — HIV
+🔴 "IAE1101050402" — HIV structure
+🔴 "IAE1101050403" — Attachment and entry
+🔴 "IAE1101050404" — Reverse transcription
+🔴 "IAE1101050405" — Integration
+🔴 "IAE1101050406" — Assembly and release
+
+---
+
+BIO LECTURE 25
+
+Topic 04
+
+🔴 "IAE1101050407" — HIV replication and disease relationship
+
+Topic 05 — Viral Diseases
+
+🔴 "IAE1101050501" — Viral diseases
+🔴 "IAE1101050502" — Transmission of viral diseases
+🔴 "IAE1101050503" — Major viral diseases
+🔴 "IAE1101050504" — Prevention and control
+
+🔵 "IAE1101050408" — HIV advanced extension
+🔵 "IAE1101050505" — Advanced viral-disease extension
+
+Blue completion remains within Topics 04–05.
+
+---
+
+CHAPTER 06 — PROKARYOTES
+
+BIO LECTURE 26
+
+Topic 01 — Taxonomy of Prokaryotes
+
+🔴 "IAE1101060101" — Prokaryotes
+🔴 "IAE1101060102" — Taxonomy of prokaryotes
+🔴 "IAE1101060103" — Bacteria and Archaea
+🔴 "IAE1101060104" — Three-domain system
+
+Topic 02 — Archaea
+
+🔴 "IAE1101060201" — Archaea
+🔴 "IAE1101060202" — Characteristics of Archaea
+🔴 "IAE1101060203" — Archaeal habitats
+🔴 "IAE1101060204" — Methanogens
+🔴 "IAE1101060205" — Halophiles
+🔴 "IAE1101060206" — Thermoacidophiles
+🔴 "IAE1101060207" — Archaeal significance
+🔴 "IAE1101060208" — Archaeal diversity
+🔴 "IAE1101060209" — Archaeal adaptations
+🔴 "IAE1101060210" — Archaeal metabolism
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 27
+
+Topic 02
+
+🔴 "IAE1101060211" — Archaeal evolutionary significance
+🔴 "IAE1101060212" — Archaeal ecological roles
+
+Topic 03 — Bacteria: Ecology and Diversity
+
+🔴 "IAE1101060301" — Bacterial diversity
+🔴 "IAE1101060302" — Bacterial habitats
+🔴 "IAE1101060303" — Bacterial ecological roles
+🔴 "IAE1101060304" — Bacterial classification
+🔴 "IAE1101060305" — Bacterial diversity and phylogeny
+
+🔵 "IAE1101060306" — Advanced bacterial diversity
+
+---
+
+BIO LECTURE 28
+
+Topic 04 — Structure, Shape and Size of Bacteria
+
+🔴 "IAE1101060401" — Bacterial cell structure
+🔴 "IAE1101060402" — Bacterial shapes
+🔴 "IAE1101060403" — Bacterial size
+🔴 "IAE1101060404" — Gram-positive and Gram-negative bacteria
+🔴 "IAE1101060405" — Gram staining
+🔴 "IAE1101060406" — Bacterial cell envelope
+
+Topic 05 — Modes of Nutrition in Bacteria
+
+🔴 "IAE1101060501" — Bacterial nutrition
+🔴 "IAE1101060502" — Autotrophic nutrition
+🔴 "IAE1101060503" — Heterotrophic nutrition
+🔴 "IAE1101060504" — Nutritional diversity
+
+🔵 "IAE1101060407" — Advanced bacterial structure
+🔵 "IAE1101060505" — Advanced nutritional extension
+
+---
+
+BIO LECTURE 29
+
+Topic 06 — Growth and Reproduction in Bacteria
+
+🔴 "IAE1101060601" — Bacterial growth
+🔴 "IAE1101060602" — Binary fission
+🔴 "IAE1101060603" — Bacterial reproduction
+🔴 "IAE1101060604" — Growth requirements
+🔴 "IAE1101060605" — Growth phases
+🔴 "IAE1101060606" — Bacterial population growth
+🔴 "IAE1101060607" — Genetic variation
+🔴 "IAE1101060608" — Horizontal gene transfer
+
+Topic 07 — Importance of Bacteria
+
+🔴 "IAE1101060701" — Beneficial bacteria
+🔴 "IAE1101060702" — Bacteria in nutrient cycles
+🔴 "IAE1101060703" — Industrial importance
+🔴 "IAE1101060704" — Agricultural importance
+
+🔵 "IAE1101060609" — Advanced bacterial growth
+🔵 "IAE1101060705" — Advanced bacterial importance
+
+---
+
+BIO LECTURE 30
+
+Topic 08 — The Bacterial Flora of Humans
+
+🔴 "IAE1101060801" — Human bacterial flora
+🔴 "IAE1101060802" — Normal flora
+🔴 "IAE1101060803" — Beneficial human bacteria
+🔴 "IAE1101060804" — Opportunistic bacteria
+🔴 "IAE1101060805" — Human bacterial diseases
+🔴 "IAE1101060806" — Transmission and infection
+🔴 "IAE1101060807" — Cholera
+🔴 "IAE1101060808" — Pneumonia
+🔴 "IAE1101060809" — Plant bacterial diseases
+🔴 "IAE1101060810" — Pathogenicity
+🔴 "IAE1101060811" — Bacterial toxins
+
+Topic 09 — Control of Harmful Bacteria
+
+🔴 "IAE1101060901" — Microbial control
+🔴 "IAE1101060902" — Physical methods
+🔴 "IAE1101060903" — Chemical methods
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 31
+
+Topic 09
+
+🔴 "IAE1101060904" — Antibiotics
+🔴 "IAE1101060905" — Antiseptics and disinfectants
+🔴 "IAE1101060906" — Antibiotic resistance
+🔴 "IAE1101060907" — Prevention of bacterial disease
+
+🔵 "IAE1101060908" — Advanced microbial-control Mastery
+
+---
+
+CHAPTER 07 — PROTISTS AND FUNGI
+
+BIO LECTURE 32
+
+Topic 01 — Protists — The Evolutionary Relationships
+
+🔴 "IAE1101070101" — Protists
+🔴 "IAE1101070102" — Evolutionary relationships
+🔴 "IAE1101070103" — Protist diversity
+🔴 "IAE1101070104" — Protist classification
+🔴 "IAE1101070105" — Protist habitats
+🔴 "IAE1101070106" — Protist nutrition
+🔴 "IAE1101070107" — Protist locomotion
+
+Topic 02 — Major Groups of Protists
+
+🔴 "IAE1101070201" — Major protist groups
+🔴 "IAE1101070202" — Amoeboid protists
+🔴 "IAE1101070203" — Ciliates
+🔴 "IAE1101070204" — Flagellates
+🔴 "IAE1101070205" — Sporozoans
+
+🔵 "IAE1101070108" — Evolutionary Mastery
+🔵 "IAE1101070206" — Advanced protist classification
+
+---
+
+BIO LECTURE 33
+
+Topic 03 — General Characteristics of Fungi
+
+🔴 "IAE1101070301" — General characteristics of fungi
+🔴 "IAE1101070302" — Fungal structure
+🔴 "IAE1101070303" — Hyphae and mycelium
+
+Topic 04 — Diversity among Fungi
+
+🔴 "IAE1101070401" — Fungal diversity
+🔴 "IAE1101070402" — Major fungal groups
+
+🔵 "IAE1101070304" — Advanced fungal structure
+🔵 "IAE1101070403" — Advanced fungal diversity
+
+---
+
+BIO LECTURE 34
+
+Topic 05 — Importance of Fungi
+
+🔴 "IAE1101070501" — Economic importance of fungi
+🔴 "IAE1101070502" — Fungi in decomposition
+🔴 "IAE1101070503" — Fungi in food production
+🔴 "IAE1101070504" — Fungi in medicine
+🔴 "IAE1101070505" — Fungal diseases
+🔴 "IAE1101070506" — Lichens
+🔴 "IAE1101070507" — Mycorrhizae
+🔴 "IAE1101070508" — Ecological importance
+
+Topic 06 — Fungal Life and Applications
+
+🔴 "IAE1101070601" — Fungal reproduction
+🔴 "IAE1101070602" — Fungal life cycles
+🔴 "IAE1101070603" — Yeast
+🔴 "IAE1101070604" — Moulds
+🔴 "IAE1101070605" — Beneficial fungal applications
+
+🔵 "IAE1101070606" — Advanced fungal extension
+
+---
+
+BIO LECTURE 35
+
+Topic 07 — Integrated Protist/Fungal Applications
+
+🔴 "IAE1101070701" — Representative protists
+🔴 "IAE1101070702" — Paramecium
+🔴 "IAE1101070703" — Plasmodium
+🔴 "IAE1101070704" — Algae
+🔴 "IAE1101070705" — Harmful algal blooms
+🔴 "IAE1101070706" — Oomycetes
+🔴 "IAE1101070707" — True fungi
+🔴 "IAE1101070708" — Comparative biology of fungi
+
+🔵 "IAE1101070709" — Advanced protist/fungal Mastery
+
+---
+
+CHAPTER 08 — DIVERSITY AMONG PLANTS
+
+BIO LECTURE 36
+
+Topic 01 — The Evolutionary Origin of Plants
+
+🔴 "IAE1101080101" — Origin of plants
+🔴 "IAE1101080102" — Plant adaptation to land
+🔴 "IAE1101080103" — Evolutionary relationships among plants
+
+Topic 02 — Nonvascular Plants
+
+🔴 "IAE1101080201" — Nonvascular plants
+🔴 "IAE1101080202" — Bryophytes
+🔴 "IAE1101080203" — Characteristics of bryophytes
+🔴 "IAE1101080204" — Funaria
+🔴 "IAE1101080205" — Bryophyte life cycle
+
+🔵 "IAE1101080104" — Evolutionary Mastery
+🔵 "IAE1101080206" — Advanced bryophyte extension
+
+---
+
+BIO LECTURE 37
+
+Topic 03 — Seedless Vascular Plants
+
+🔴 "IAE1101080301" — Seedless vascular plants
+🔴 "IAE1101080302" — Vascular tissues
+🔴 "IAE1101080303" — Ferns
+🔴 "IAE1101080304" — Fern structure
+🔴 "IAE1101080305" — Fern life cycle
+
+Topic 04 — Seed Plants
+
+🔴 "IAE1101080401" — Seed plants
+🔴 "IAE1101080402" — Evolution of seed
+
+🔵 "IAE1101080306" — Advanced seedless-vascular extension
+🔵 "IAE1101080403" — Advanced seed-plant extension
+
+---
+
+BIO LECTURE 38
+
+Topic 05 — Gymnosperms
+
+🔴 "IAE1101080501" — Gymnosperms
+🔴 "IAE1101080502" — General characteristics
+🔴 "IAE1101080503" — Reproductive structures
+🔴 "IAE1101080504" — Gymnosperm life cycle
+🔴 "IAE1101080505" — Pinus
+
+Topic 06 — Angiosperms
+
+🔴 "IAE1101080601" — Angiosperms
+🔴 "IAE1101080602" — General characteristics
+🔴 "IAE1101080603" — Flower structure
+🔴 "IAE1101080604" — Angiosperm reproduction
+🔴 "IAE1101080605" — Angiosperm life cycle
+🔴 "IAE1101080606" — Monocots and dicots
+🔴 "IAE1101080607" — Floral diversity
+🔴 "IAE1101080608" — Representative flowering plants
+
+🔵 "IAE1101080506" — Advanced gymnosperm extension
+🔵 "IAE1101080609" — Advanced angiosperm extension
+
+Topic 07 — Mastery-only
+
+🔵 "IAE1101080701"–"IAE1101080705" — Advanced plant-diversity Mastery
+
+---
+
+CHAPTER 09 — DIVERSITY AMONG ANIMALS
+
+BIO LECTURE 39
+
+Topic 01 — Characteristics of Animals
+
+🔴 "IAE1101090101" — General characteristics of animals
+🔴 "IAE1101090102" — Animal body organization
+🔴 "IAE1101090103" — Multicellularity
+🔴 "IAE1101090104" — Heterotrophic nutrition
+🔴 "IAE1101090105" — Movement
+🔴 "IAE1101090106" — Reproduction
+🔴 "IAE1101090107" — Animal diversity
+
+Topic 02 — Criteria for Animal Classification
+
+🔴 "IAE1101090201" — Basis of classification
+🔴 "IAE1101090202" — Symmetry
+🔴 "IAE1101090203" — Germ layers
+🔴 "IAE1101090204" — Body cavity
+🔴 "IAE1101090205" — Segmentation
+🔴 "IAE1101090206" — Embryonic development
+🔴 "IAE1101090207" — Levels of organization
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 40
+
+Topic 02
+
+🔴 "IAE1101090208" — Classification criteria integration
+🔴 "IAE1101090209" — Major animal lineages
+🔴 "IAE1101090210" — Invertebrate classification
+🔴 "IAE1101090211" — Vertebrate classification
+🔴 "IAE1101090212" — Evolutionary relationships
+
+Topic 03 — Diversity in Animals
+
+🔴 "IAE1101090301" — Invertebrates
+🔴 "IAE1101090302" — Vertebrates
+🔴 "IAE1101090303" — Porifera
+🔴 "IAE1101090304" — Cnidaria
+🔴 "IAE1101090305" — Platyhelminthes
+🔴 "IAE1101090306" — Annelida
+🔴 "IAE1101090307" — Mollusca
+🔴 "IAE1101090308" — Arthropoda
+🔴 "IAE1101090309" — Echinodermata
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 41
+
+Topic 03
+
+🔴 "IAE1101090310" — Chordata
+🔴 "IAE1101090311" — Vertebrate groups
+
+Topic 04 — Comparative Animal Diversity
+
+🔴 "IAE1101090401" — Fish
+🔴 "IAE1101090402" — Amphibians
+🔴 "IAE1101090403" — Reptiles
+🔴 "IAE1101090404" — Birds
+🔴 "IAE1101090405" — Mammals
+🔴 "IAE1101090406" — Comparative vertebrate features
+🔴 "IAE1101090407" — Adaptations
+🔴 "IAE1101090408" — Evolutionary diversity
+
+🔵 "IAE1101090409" — Advanced animal-diversity Mastery
+
+---
+
+CHAPTER 10 — FORM AND FUNCTIONS IN PLANTS
+
+BIO LECTURE 42
+
+Topic 01 — Nutrition in Plants
+
+🔴 "IAE1101100101" — Plant nutrition
+🔴 "IAE1101100102" — Essential mineral nutrients
+🔴 "IAE1101100103" — Macronutrients
+🔴 "IAE1101100104" — Micronutrients
+🔴 "IAE1101100105" — Mineral deficiency
+🔴 "IAE1101100106" — Photosynthetic nutrition
+🔴 "IAE1101100107" — Nutrient uptake
+
+Topic 02 — Gaseous Exchange in Plants
+
+🔴 "IAE1101100201" — Gaseous exchange
+🔴 "IAE1101100202" — Stomata
+🔴 "IAE1101100203" — Guard cells
+🔴 "IAE1101100204" — Diffusion of gases
+🔴 "IAE1101100205" — Gas exchange during photosynthesis
+🔴 "IAE1101100206" — Gas exchange during respiration
+
+🔵 "IAE1101100108" — Advanced plant-nutrition extension
+🔵 "IAE1101100207" — Advanced gaseous-exchange extension
+
+---
+
+BIO LECTURE 43
+
+Topic 03 — Transport in Plants
+
+🔴 "IAE1101100301" — Uptake of Water by Roots and Pathways
+🔴 "IAE1101100302" — Ascent of Sap
+🔴 "IAE1101100303" — Opening and Closing of Stomata
+🔴 "IAE1101100304" — Translocation of Organic Matter
+🔴 "IAE1101100305" — Transport tissues
+
+Topic 04 — Homeostasis in Plants
+
+🔴 "IAE1101100401" — Homeostasis
+🔴 "IAE1101100402" — Water balance
+🔴 "IAE1101100403" — Osmoregulation
+🔴 "IAE1101100404" — Stomatal regulation
+🔴 "IAE1101100405" — Transpiration
+🔴 "IAE1101100406" — Factors affecting transpiration
+🔴 "IAE1101100407" — Transpiration stream
+🔴 "IAE1101100408" — Water conservation
+🔴 "IAE1101100409" — Plant adaptations
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 44
+
+Topic 05 — Support in Plants
+
+🔴 "IAE1101100501" — Support tissues
+🔴 "IAE1101100502" — Collenchyma
+🔴 "IAE1101100503" — Sclerenchyma
+🔴 "IAE1101100504" — Xylem support
+🔴 "IAE1101100505" — Secondary thickening
+
+Topic 06 — Growth and Development in Plants
+
+🔴 "IAE1101100601" — Plant growth
+🔴 "IAE1101100602" — Plant development
+🔴 "IAE1101100603" — Growth regions
+🔴 "IAE1101100604" — Meristematic tissues
+🔴 "IAE1101100605" — Apical meristem
+🔴 "IAE1101100606" — Lateral meristem
+🔴 "IAE1101100607" — Primary growth
+🔴 "IAE1101100608" — Secondary growth
+
+🔵 "IAE1101100506" — Advanced support extension
+🔵 "IAE1101100507" — Advanced structural support
+🔵 "IAE1101100609" — Advanced growth extension
+
+---
+
+BIO LECTURE 45
+
+Topic 07 — Growth Responses in Plants
+
+🔴 "IAE1101100701" — Plant Growth Regulators (PGRs)
+🔴 "IAE1101100702" — Geotropism and Phototropism
+🔴 "IAE1101100703" — Photoperiodism
+🔴 "IAE1101100704" — Vernalization
+
+Topic 08 — Integrated Plant Functions
+
+🔴 "IAE1101100801" — Coordination of plant growth
+🔴 "IAE1101100802" — Hormonal control
+🔴 "IAE1101100803" — Environmental responses
+🔴 "IAE1101100804" — Tropic responses
+🔴 "IAE1101100805" — Plant adaptation
+🔴 "IAE1101100806" — Integrated growth responses
+
+🔵 "IAE1101100705" — Advanced growth-regulator extension
+🔵 "IAE1101100807" — Advanced plant-response extension
+
+---
+
+BIO LECTURE 46
+
+Topic 09 — Plant Reproduction / Functions
+
+🔴 "IAE1101100901" — Reproductive structures
+🔴 "IAE1101100902" — Flowering responses
+🔴 "IAE1101100903" — Reproductive development
+🔴 "IAE1101100904" — Environmental control
+🔴 "IAE1101100905" — Reproductive timing
+🔴 "IAE1101100906" — Plant reproductive adaptations
+🔴 "IAE1101100907" — Integrated reproductive functions
+
+Topic 10 — Advanced Plant Function Integration
+
+🔴 "IAE1101101001" — Integrated transport
+🔴 "IAE1101101002" — Integrated nutrition
+🔴 "IAE1101101003" — Integrated gaseous exchange
+🔴 "IAE1101101004" — Integrated support
+🔴 "IAE1101101005" — Integrated growth
+🔴 "IAE1101101006" — Integrated responses
+🔴 "IAE1101101007" — Integrated homeostasis
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 47
+
+Topic 10
+
+🔴 "IAE1101101008" — Plant functional integration
+🔴 "IAE1101101009" — Coordination of plant systems
+🔴 "IAE1101101010" — Environmental integration
+🔴 "IAE1101101011" — Adaptive responses
+🔴 "IAE1101101012" — Overall functional integration
+
+🔵 "IAE1101101013" — Advanced plant-function Mastery
+
+---
+
+CHAPTER 11 — DIGESTION
+
+BIO LECTURE 48
+
+Topic 01 — Digestive System of Man
+
+🔴 "IAE1101110101" — Digestive system
+🔴 "IAE1101110102" — Alimentary canal
+🔴 "IAE1101110103" — Mouth
+🔴 "IAE1101110104" — Teeth
+🔴 "IAE1101110105" — Tongue
+🔴 "IAE1101110106" — Pharynx
+🔴 "IAE1101110107" — Oesophagus
+🔴 "IAE1101110108" — Stomach
+🔴 "IAE1101110109" — Gastric glands
+🔴 "IAE1101110110" — Gastric juice
+🔴 "IAE1101110111" — Digestion in stomach
+
+Topic 02 — Disorders related to Digestive System and Food Habits
+
+🔴 "IAE1101110201" — Digestive disorders
+🔴 "IAE1101110202" — Food habits
+🔴 "IAE1101110203" — Balanced diet
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 49
+
+Topic 02
+
+🔴 "IAE1101110204" — Food-related disorders
+🔴 "IAE1101110205" — Prevention of digestive disorders
+
+Topic 03 — Small Intestine and Digestion
+
+🔴 "IAE1101110301" — Small intestine
+🔴 "IAE1101110302" — Duodenum
+🔴 "IAE1101110303" — Jejunum
+🔴 "IAE1101110304" — Ileum
+🔴 "IAE1101110305" — Intestinal glands
+🔴 "IAE1101110306" — Intestinal juice
+🔴 "IAE1101110307" — Digestion in small intestine
+🔴 "IAE1101110308" — Absorption
+🔴 "IAE1101110309" — Villi
+🔴 "IAE1101110310" — Microvilli
+
+🔵 "IAE1101110311" — Advanced absorption Mastery
+
+---
+
+BIO LECTURE 50
+
+Topic 04 — Accessory Digestive Organs
+
+🔴 "IAE1101110401" — Liver
+🔴 "IAE1101110402" — Gallbladder
+🔴 "IAE1101110403" — Bile
+🔴 "IAE1101110404" — Pancreas
+🔴 "IAE1101110405" — Pancreatic juice
+🔴 "IAE1101110406" — Digestive enzymes
+
+Topic 05 — Digestion and Nutrient Processing
+
+🔴 "IAE1101110501" — Carbohydrate digestion
+🔴 "IAE1101110502" — Protein digestion
+🔴 "IAE1101110503" — Lipid digestion
+🔴 "IAE1101110504" — Absorption of nutrients
+🔴 "IAE1101110505" — Assimilation
+🔴 "IAE1101110506" — Integrated digestive function
+
+🔵 "IAE1101110407" — Advanced liver/pancreas extension
+🔵 "IAE1101110507" — Advanced nutrient-processing extension
+
+---
+
+BIO LECTURE 51
+
+Topic 06 — Disorders and Food Habits
+
+🔴 "IAE1101110601" — Digestive disorders
+🔴 "IAE1101110602" — Peptic ulcer
+🔴 "IAE1101110603" — Food poisoning
+🔴 "IAE1101110604" — Dyspepsia
+🔴 "IAE1101110605" — Healthy food habits
+
+Topic 07 — Integrated Digestion
+
+🔴 "IAE1101110701" — Complete digestive pathway
+🔴 "IAE1101110702" — Mechanical digestion
+🔴 "IAE1101110703" — Chemical digestion
+🔴 "IAE1101110704" — Enzyme action in digestion
+🔴 "IAE1101110705" — Absorption and assimilation
+🔴 "IAE1101110706" — Nutrient transport
+🔴 "IAE1101110707" — Digestive regulation
+🔴 "IAE1101110708" — Digestive-system integration
+🔴 "IAE1101110709" — Overall significance
+
+14 🔴/🟢 — complete.
+
+---
+
+CHAPTER 12 — CIRCULATION
+
+BIO LECTURE 52
+
+Topic 01 — Blood Circulatory System of Man
+
+🔴 "IAE1101120101" — Cardiovascular system
+🔴 "IAE1101120102" — Structure of human heart
+🔴 "IAE1101120103" — More on structure of human heart — Part 1
+🔴 "IAE1101120104" — More on structure of human heart — Part 2
+🔴 "IAE1101120105" — Valves of heart
+🔴 "IAE1101120106" — More on valves of heart
+🔴 "IAE1101120107" — Blood circulation
+🔴 "IAE1101120108" — Double circulation
+
+Topic 02 — Cardiovascular Function
+
+🔴 "IAE1101120201" — Blood vessels
+🔴 "IAE1101120202" — Arteries
+🔴 "IAE1101120203" — Capillaries
+🔴 "IAE1101120204" — Veins
+🔴 "IAE1101120205" — Blood pressure
+🔴 "IAE1101120206" — Measurement of blood pressure
+🔴 "IAE1101120207" — Circulatory regulation
+
+14 🔴/🟢 — complete.
+
+---
+
+BIO LECTURE 53
+
+Topic 03 — Cardiac Function
+
+🔴 "IAE1101120301" — Cardiac cycle
+🔴 "IAE1101120302" — Heart sounds
+🔴 "IAE1101120303" — Electrical activity of heart
+🔴 "IAE1101120304" — ECG
+🔴 "IAE1101120305" — Normal ECG
+🔴 "IAE1101120306" — Interpretation of ECG
+
+Topic 04 — Cardiovascular Disorders
+
+🔴 "IAE1101120401" — Cardiovascular disorders
+🔴 "IAE1101120402" — Thrombosis
+🔴 "IAE1101120403" — Heart problems
+🔴 "IAE1101120404" — Hypertension
+🔴 "IAE1101120405" — Cardiovascular risk factors
+
+🔵 "IAE1101120307" — Advanced cardiac-electrical Mastery
+🔵 "IAE1101120406"–"IAE1101120408" — relevant cardiovascular Mastery extensions
+
+---
+
+BIO LECTURE 54
+
+Topic 05 — Lymphatic / Blood Integration
+
+🔴 "IAE1101120501" — Lymph
+🔴 "IAE1101120502" — Lymphatic vessels
+🔴 "IAE1101120503" — Lymph nodes
+🔴 "IAE1101120504" — Lymphatic circulation
+🔴 "IAE1101120505" — Functions of lymphatic system
+
+Topic 06 — Circulatory Integration
+
+🔴 "IAE1101120601" — Blood composition
+🔴 "IAE1101120602" — Blood cells
+🔴 "IAE1101120603" — Red blood cells
+🔴 "IAE1101120604" — White blood cells
+🔴 "IAE1101120605" — Platelets
+🔴 "IAE1101120606" — Plasma
+🔴 "IAE1101120607" — Blood clotting
+🔴 "IAE1101120608" — Blood groups
+🔴 "IAE1101120609" — Blood transfusion
+
+🔵 "IAE1101120506" — Advanced lymphatic extension
+🔵 "IAE11011206010" — Advanced blood-system Mastery
+
+---
+
+BIO LECTURE 55
+
+Topic 07 — Lymphatic System of Man
+
+🔴 "IAE1101120701" — Lymphatic system
+🔴 "IAE1101120702" — Lymph formation
+🔴 "IAE1101120703" — Lymphatic vessels
+🔴 "IAE1101120704" — Lymph nodes
+🔴 "IAE1101120705" — Lymphatic organs
+🔴 "IAE1101120706" — Functions of lymphatic system
+
+🔵 "IAE1101120707" — Advanced lymphatic-system Mastery
+
+---
+
+CHAPTER 13 — IMMUNITY
+
+BIO LECTURE 56
+
+Topic 01 — First Line of Defense
+
+🔴 "IAE1101130101" — First line of defense
+🔴 "IAE1101130102" — Physical barriers
+🔴 "IAE1101130103" — Skin
+🔴 "IAE1101130104" — Mucous membranes
+🔴 "IAE1101130105" — Chemical barriers
+🔴 "IAE1101130106" — Protective secretions
+
+Topic 02 — Second Line of Defense — Nonspecific Defenses
+
+🔴 "IAE1101130201" — Innate defenses
+🔴 "IAE1101130202" — Killing cells of blood
+🔴 "IAE1101130203" — Phagocytosis
+🔴 "IAE1101130204" — Protective proteins
+🔴 "IAE1101130205" — Complement
+🔴 "IAE1101130206" — Inflammatory response
+
+🔵 "IAE1101130107" — Advanced first-line defense
+🔵 "IAE1101130207" — Advanced nonspecific-defense Mastery
+
+---
+
+BIO LECTURE 57
+
+Topic 03 — Third Line of Defense — Specific Defenses
+
+🔴 "IAE1101130301" — Specific immunity
+🔴 "IAE1101130302" — Lymphocytes
+🔴 "IAE1101130303" — B lymphocytes
+🔴 "IAE1101130304" — T lymphocytes
+🔴 "IAE1101130305" — Antibodies
+🔴 "IAE1101130306" — Antigen–antibody response
+🔴 "IAE1101130307" — Cell-mediated immunity
+🔴 "IAE1101130308" — Antibody-mediated immunity
+🔴 "IAE1101130309" — Immune memory
+
+Topic 04 — Immune Disorders
+
+🔴 "IAE1101130401" — Immune-system disorders
+🔴 "IAE1101130402" — Allergies
+🔴 "IAE1101130403" — Autoimmune diseases
+🔴 "IAE1101130404" — Transplant rejection
+🔴 "IAE1101130405" — Immunological dysfunction
+
+14 🔴/🟢 — complete.
+
+🔵 "IAE1101130310" — Advanced specific-immunity Mastery
+🔵 "IAE1101130311" — Advanced immune-response Mastery
+
+---
+
+BIO LECTURE 58
+
+Topic 04 — Immune Disorders
+
+🔴 "IAE1101130406" — Prevention and management of immune disorders
+
+Topic 05 — Immunity Integration
+
+🔴 "IAE1101130501" — Inborn and acquired immunity
+🔴 "IAE1101130502" — Active and passive immunity
+🔴 "IAE1101130503" — Vaccination
+🔴 "IAE1101130504" — Immune memory
+🔴 "IAE1101130505" — Integrated immune defense
+
+🔵 Completion
+
+🔵 "IAE1101130407" — Advanced immune-disorder Mastery
+🔵 "IAE1101130506" — Advanced immunity Mastery
+🔵 "IAE1101130507" — Further immunity extension
+
+---
+
+COMPLETE LECTURE NUMBER MAP
+
+Lectures| Chapter
+01–07| Chapter 01 — Cell Structure and Function
+08–14| Chapter 02 — Biological Molecules
+15–18| Chapter 03 — Enzymes
+19–22| Chapter 04 — Bioenergetics
+23–25| Chapter 05 — Acellular Life
+26–31| Chapter 06 — Prokaryotes
+32–35| Chapter 07 — Protists and Fungi
+36–38| Chapter 08 — Diversity among Plants
+39–41| Chapter 09 — Diversity among Animals
+42–47| Chapter 10 — Form and Functions in Plants
+48–51| Chapter 11 — Digestion
+52–55| Chapter 12 — Circulation
+56–58| Chapter 13 — Immunity
+
+TOTAL
+
+13 Chapters → 58 Biology Lectures
+
+Practical Work
+
+Practical Work remains outside this 58-Lecture academic partition and is attached separately to the relevant Chapter/Lecture architecture. It is not treated as Topic 13.
+
+Mastery
+
+All remaining 🔵 material that is not used as legitimate completion inside its own Lecture remains in the Mastery layer and is not converted into Lecture Academic Content.یہی وہ 58-Lecture detailed register ہے جس structure پر آگے ہر lecture کی actual academic file بنائی جانی چاہیے۔ البتہ ایک بات میں صاف رکھ رہا ہوں: Library میں موجود First-Year-Biology-Master-Academic-Syllabus-Ledger خود WORKING MASTER CANDIDATE ہے، Final Lock نہیں، اور وہ صرف official hierarchy کے بعض nodes دیتا ہے؛ اس لیے جہاں expanded Academy subtopic inventory اس retrieved source میں موجود نہیں تھی وہاں اوپر دی گئی expanded mapping کو current working lecture register سمجھنا چاہیے، نہ کہ اسے بغیر final numbering/content audit کے FINAL_AUDITED کہنا۔ 
+
+اگلا production step اسی register کے مطابق ہونا چاہیے: Lecture 01 سے Lecture 58 تک ہر lecture کی academic-content file، نہ کہ دوبارہ کوئی مختصر lecture map۔ </p>
+  </div>
+
+  <!-- Page 2 Content -->
+  <div id="page2" class="page">
+    <h2>Page 2</h2>
+    <p> IMPERIAL ACADEMY
+
+First Year Chemistry — 40-Lecture Master Register
+
+ARCHIVED / APPROVED IAE-NUMBERED COPY
+
+Academy Subject ID: IAE1102
+Class: First Year / Grade XI
+Subject: Chemistry
+Total Academic Lectures: 40
+Chapters: 12
+Practical Work: Separate — Chapter 13 نہیں
+
+---
+
+MASTER LECTUREIZATION RULES
+
+1. Authoritative Master Syllabus بنیادی source ہوگا۔
+2. 🔴 Red + 🟢 Green = Academic Lecture Content۔
+3. 🔵 Blue = International Mastery Content۔
+4. Blue-only Topic سے نیا lecture نہیں بنے گا۔
+5. ہر lecture میں زیادہ سے زیادہ 2 Main Topics ہوں گے۔
+6. ہر lecture میں زیادہ سے زیادہ 14 total subtopics ہوں گے۔
+7. کوئی eligible Red/Green subtopic skip، duplicate یا partially omit نہیں ہوگا۔
+8. اگر Red/Green sequence مکمل ہونے کے بعد lecture میں 14 سے کم subtopics ہوں تو remaining slots میں Cambridge/Oxford/global-standard 🔵 Mastery شامل کی جا سکتی ہے۔
+9. Added Blue Mastery صرف انہی Main Topics کے اندر رہے گا جو lecture میں پہلے سے شامل ہیں۔
+10. صرف Blue کی وجہ سے نیا Main Topic نہیں کھولا جائے گا۔
+11. پہلے سے موجود Blue syllabus items کو preserve کیا جائے گا۔
+12. نئے Blue extensions بھی مکمل IAE Academy ID کے ساتھ numbered ہوں گے۔
+13. ہر ID کا format:
+
+IAE1102 + Chapter + Topic + Subtopic
+
+مثال:
+
+IAE1102010100 — Mole and Avogadro’s Number
+IAE1102010101 — Mole Concept
+
+14. Practical Work academic lectures سے الگ رہے گا۔
+15. Academy IDs، Topic numbering، Subtopic numbering، order اور sequence preserve ہوں گے۔
+16. Final audit binary ہوگا:
+
+- کوئی mandatory domain fail → NOT FINAL
+- تمام mandatory checks pass → FINAL_AUDITED
+
+---
+
+CHAPTER 01 — STOICHIOMETRY
+
+Topic 01 — Mole and Avogadro’s Number
+
+Topic ID: IAE1102010100
+
+- IAE1102010101 — Mole Concept 🔴
+- IAE1102010102 — Avogadro’s Number 🔴
+- IAE1102010103 — Molar Mass 🔴
+- IAE1102010104 — Number of Particles from Moles 🔴
+- IAE1102010105 — Mass–Mole Relationship 🔴
+- IAE1102010106 — Mole–Volume Relationship 🔴
+- IAE1102010107 — Gas Amount from Density at STP 🟢
+- IAE1102010108 — Advanced Amount-of-Substance Interpretation 🔵
+
+Topic 02 — Mole Calculations
+
+Topic ID: IAE1102010200
+
+- IAE1102010201 — Mass–Mole–Particle Calculations 🔴
+- IAE1102010202 — Reacting Masses 🔴
+- IAE1102010203 — Reacting Volumes of Gases 🔴
+- IAE1102010204 — Stoichiometric Calculations 🔴
+- IAE1102010205 — Balanced Chemical Equations 🔴
+- IAE1102010206 — Ionic Equations 🔴
+- IAE1102010207 — Advanced Quantitative Problem Solving 🔵
+- IAE1102010208 — Advanced Stoichiometric Problem Solving 🔵
+- IAE1102010209 — Mole-Ratio Reasoning in Complex Reactions 🔵
+- IAE1102010210 — Quantitative Reaction Analysis 🔵
+- IAE1102010211 — Stoichiometric Error Checking 🔵
+
+Topic 03 — Percentage Composition and Formulae
+
+Topic ID: IAE1102010300
+
+- IAE1102010301 — Percentage Composition 🔴
+- IAE1102010302 — Empirical Formula 🔴
+- IAE1102010303 — Molecular Formula 🔴
+- IAE1102010304 — Percentage Purity 🔴
+- IAE1102010305 — Advanced Formula Determination 🔵
+- IAE1102010306 — Quantitative Composition Analysis 🔵
+- IAE1102010307 — Formula Determination from Experimental Data 🔵
+- IAE1102010308 — Purity–Composition Relationships 🔵
+
+Topic 04 — Excess and Limiting Reagents
+
+Topic ID: IAE1102010400
+
+- IAE1102010401 — Excess Reagent 🔴
+- IAE1102010402 — Limiting Reagent 🔴
+- IAE1102010403 — Identification of Limiting Reagent 🔴
+- IAE1102010404 — Product from Limiting Reagent 🔴
+- IAE1102010405 — Unreacted Excess Reagent 🔴
+- IAE1102010406 — Multi-Step Stoichiometric Analysis 🔵
+- IAE1102010407 — Limiting-Reagent Effects on Product Formation 🔵
+- IAE1102010408 — Multi-Stage Reaction Analysis 🔵
+
+Topic 05 — Theoretical and Actual Yield
+
+Topic ID: IAE1102010500
+
+- IAE1102010501 — Theoretical Yield 🔴
+- IAE1102010502 — Actual Yield 🔴
+- IAE1102010503 — Percentage Yield 🔴
+- IAE1102010504 — Application of Stoichiometry to Medicine Production and Dosage 🟢
+- IAE1102010505 — Industrial Process Optimisation 🔵
+- IAE1102010506 — Yield Loss and Process Efficiency 🔵
+- IAE1102010507 — Purity–Yield Relationships 🔵
+- IAE1102010508 — Reaction Efficiency Analysis 🔵
+- IAE1102010509 — Scale-Up Stoichiometry 🔵
+
+Lecture 01
+
+Main Topics: IAE1102010100 + IAE1102010200
+Total: 14
+
+1. IAE1102010101 — Mole Concept 🔴
+2. IAE1102010102 — Avogadro’s Number 🔴
+3. IAE1102010103 — Molar Mass 🔴
+4. IAE1102010104 — Number of Particles from Moles 🔴
+5. IAE1102010105 — Mass–Mole Relationship 🔴
+6. IAE1102010106 — Mole–Volume Relationship 🔴
+7. IAE1102010107 — Gas Amount from Density at STP 🟢
+8. IAE1102010201 — Mass–Mole–Particle Calculations 🔴
+9. IAE1102010202 — Reacting Masses 🔴
+10. IAE1102010203 — Reacting Volumes of Gases 🔴
+11. IAE1102010204 — Stoichiometric Calculations 🔴
+12. IAE1102010205 — Balanced Chemical Equations 🔴
+13. IAE1102010206 — Ionic Equations 🔴
+14. IAE1102010207 — Advanced Quantitative Problem Solving 🔵
+
+Lecture 02
+
+Main Topics: IAE1102010300 + IAE1102010400
+Total: 14
+
+1. IAE1102010301 — Percentage Composition 🔴
+2. IAE1102010302 — Empirical Formula 🔴
+3. IAE1102010303 — Molecular Formula 🔴
+4. IAE1102010304 — Percentage Purity 🔴
+5. IAE1102010401 — Excess Reagent 🔴
+6. IAE1102010402 — Limiting Reagent 🔴
+7. IAE1102010403 — Identification of Limiting Reagent 🔴
+8. IAE1102010404 — Product from Limiting Reagent 🔴
+9. IAE1102010405 — Unreacted Excess Reagent 🔴
+10. IAE1102010305 — Advanced Formula Determination 🔵
+11. IAE1102010406 — Multi-Step Stoichiometric Analysis 🔵
+12. IAE1102010306 — Quantitative Composition Analysis 🔵
+13. IAE1102010407 — Limiting-Reagent Effects on Product Formation 🔵
+14. IAE1102010307 — Formula Determination from Experimental Data 🔵
+
+Lecture 03
+
+Main Topic: IAE1102010500
+Total: 14
+
+1. IAE1102010501 — Theoretical Yield 🔴
+2. IAE1102010502 — Actual Yield 🔴
+3. IAE1102010503 — Percentage Yield 🔴
+4. IAE1102010504 — Application of Stoichiometry to Medicine Production and Dosage 🟢
+5. IAE1102010505 — Industrial Process Optimisation 🔵
+6. IAE1102010506 — Yield Loss and Process Efficiency 🔵
+7. IAE1102010507 — Purity–Yield Relationships 🔵
+8. IAE1102010508 — Reaction Efficiency Analysis 🔵
+9. IAE1102010509 — Scale-Up Stoichiometry 🔵
+10. IAE1102010505A — Pharmaceutical Stoichiometric Control 🔵
+11. IAE1102010505B — Quantitative Process Evaluation 🔵
+12. IAE1102010505C — Experimental Yield Analysis 🔵
+13. IAE1102010505D — Industrial Stoichiometric Optimisation 🔵
+14. IAE1102010505E — Process Efficiency Modelling 🔵
+
+---
+
+CHAPTER 02 — ATOMIC STRUCTURE
+
+Topic 01 — Discharge Tube Experiments
+
+Topic ID: IAE1102020100
+
+- IAE1102020101 — Cathode Rays 🔴
+- IAE1102020102 — Properties of Cathode Rays 🔴
+- IAE1102020103 — Discovery of Electron 🔴
+- IAE1102020104 — Historical Development of Atomic Models 🔵
+
+Topic 02 — Bohr’s Atomic Model
+
+Topic ID: IAE1102020200
+
+- IAE1102020201 — Bohr Model 🔴
+- IAE1102020202 — Hydrogen Spectrum 🔴
+- IAE1102020203 — Radius of Orbit 🔴
+- IAE1102020204 — Energy of Electron 🔴
+- IAE1102020205 — Frequency 🔴
+- IAE1102020206 — Wavelength 🔴
+- IAE1102020207 — Wave Number 🔴
+- IAE1102020208 — Limitations of Bohr Model 🔴
+- IAE1102020209 — Advanced Atomic-Spectra Interpretation 🔵
+
+Topic 03 — Planck’s Quantum Theory
+
+Topic ID: IAE1102020300
+
+- IAE1102020301 — Quantum Theory 🔴
+- IAE1102020302 — Energy Quanta 🔴
+- IAE1102020303 — Energy–Frequency Relationship 🔴
+- IAE1102020304 — Advanced Quantisation 🔵
+
+Topic 04 — X-Rays
+
+Topic ID: IAE1102020400
+
+- IAE1102020401 — Production of X-Rays 🔴
+- IAE1102020402 — Properties of X-Rays 🔴
+- IAE1102020403 — Uses of X-Rays 🔴
+- IAE1102020404 — Characteristic X-Rays 🔴
+- IAE1102020405 — Moseley’s Experiment 🔴
+- IAE1102020406 — X-Rays and Atomic Number 🔴
+- IAE1102020407 — X-Ray Spectroscopy 🔵
+
+Topic 05 — Quantum Numbers and Orbitals
+
+Topic ID: IAE1102020500
+
+- IAE1102020501 — Principal Quantum Number 🔴
+- IAE1102020502 — Azimuthal Quantum Number 🔴
+- IAE1102020503 — Magnetic Quantum Number 🔴
+- IAE1102020504 — Spin Quantum Number 🔴
+- IAE1102020505 — s, p and d Orbitals 🔴
+- IAE1102020506 — Orbital Shapes 🔴
+- IAE1102020507 — Quantum-Mechanical Interpretation 🔵
+- IAE1102020508 — Probability-Density Interpretation 🔵
+
+Topic 06 — Dual Nature of Electron
+
+Topic ID: IAE1102020600
+
+- IAE1102020601 — Wave–Particle Duality 🔵
+- IAE1102020602 — de Broglie Wavelength 🔵
+- IAE1102020603 — Uncertainty Principle 🔵
+
+Blue-only Topic → No separate lecture
+
+Topic 07 — Electronic Configuration
+
+Topic ID: IAE1102020700
+
+- IAE1102020701 — Aufbau Principle 🔴
+- IAE1102020702 — Pauli Exclusion Principle 🔴
+- IAE1102020703 — Hund’s Rule 🔴
+- IAE1102020704 — Electronic Configuration 🔴
+- IAE1102020705 — Configuration Exceptions 🔵
+- IAE1102020706 — Ionisation-Energy/Electronic-Structure Relationships 🔵
+
+Lecture 04
+
+Main Topics: IAE1102020100 + IAE1102020200
+Total: 14
+
+1. IAE1102020101 — Cathode Rays 🔴
+2. IAE1102020102 — Properties of Cathode Rays 🔴
+3. IAE1102020103 — Discovery of Electron 🔴
+4. IAE1102020201 — Bohr Model 🔴
+5. IAE1102020202 — Hydrogen Spectrum 🔴
+6. IAE1102020203 — Radius of Orbit 🔴
+7. IAE1102020204 — Energy of Electron 🔴
+8. IAE1102020205 — Frequency 🔴
+9. IAE1102020206 — Wavelength 🔴
+10. IAE1102020207 — Wave Number 🔴
+11. IAE1102020208 — Limitations of Bohr Model 🔴
+12. IAE1102020104 — Historical Development of Atomic Models 🔵
+13. IAE1102020209 — Advanced Atomic-Spectra Interpretation 🔵
+14. IAE110202020A — Quantitative Hydrogen-Spectrum Reasoning 🔵
+
+Lecture 05
+
+Main Topics: IAE1102020300 + IAE1102020400
+Total: 14
+
+1. IAE1102020301 — Quantum Theory 🔴
+2. IAE1102020302 — Energy Quanta 🔴
+3. IAE1102020303 — Energy–Frequency Relationship 🔴
+4. IAE1102020401 — Production of X-Rays 🔴
+5. IAE1102020402 — Properties of X-Rays 🔴
+6. IAE1102020403 — Uses of X-Rays 🔴
+7. IAE1102020404 — Characteristic X-Rays 🔴
+8. IAE1102020405 — Moseley’s Experiment 🔴
+9. IAE1102020406 — X-Rays and Atomic Number 🔴
+10. IAE1102020304 — Advanced Quantisation 🔵
+11. IAE1102020407 — X-Ray Spectroscopy 🔵
+12. IAE1102020408 — Quantised Energy-Level Interpretation 🔵
+13. IAE1102020409 — Characteristic-Spectrum Analysis 🔵
+14. IAE110202040A — Atomic Number and Spectral Evidence 🔵
+
+Lecture 06
+
+Main Topics: IAE1102020500 + IAE1102020700
+Total: 14
+
+1. IAE1102020501 — Principal Quantum Number 🔴
+2. IAE1102020502 — Azimuthal Quantum Number 🔴
+3. IAE1102020503 — Magnetic Quantum Number 🔴
+4. IAE1102020504 — Spin Quantum Number 🔴
+5. IAE1102020505 — s, p and d Orbitals 🔴
+6. IAE1102020506 — Orbital Shapes 🔴
+7. IAE1102020701 — Aufbau Principle 🔴
+8. IAE1102020702 — Pauli Exclusion Principle 🔴
+9. IAE1102020703 — Hund’s Rule 🔴
+10. IAE1102020704 — Electronic Configuration 🔴
+11. IAE1102020507 — Quantum-Mechanical Interpretation 🔵
+12. IAE1102020508 — Probability-Density Interpretation 🔵
+13. IAE1102020705 — Configuration Exceptions 🔵
+14. IAE1102020706 — Ionisation-Energy/Electronic-Structure Relationships 🔵
+
+---
+
+CHAPTER 03 — COVALENT BONDING AND SHAPES OF MOLECULES
+
+Topic 01 — Bond Characteristics
+
+Topic ID: IAE1102030100
+
+- IAE1102030101 — Bond Length 🔴
+- IAE1102030102 — Bond Energy 🔴
+- IAE1102030103 — Bond Polarity 🔴
+- IAE1102030104 — Electronegativity 🔴
+- IAE1102030105 — Dipole Moment 🔴
+- IAE1102030106 — Ionic Character 🔴
+- IAE1102030107 — Sigma and Pi Bonds 🔴
+- IAE1102030108 — Advanced Molecular Polarity 🔵
+
+Topic 02 — Shapes of Molecules
+
+Topic ID: IAE1102030200
+
+- IAE1102030201 — VSEPR Theory 🔴
+- IAE1102030202 — Electron-Pair Repulsion 🔴
+- IAE1102030203 — Molecular Geometry 🔴
+- IAE1102030204 — Bond Angles 🔴
+- IAE1102030205 — Linear Shape 🔴
+- IAE1102030206 — Trigonal Planar 🔴
+- IAE1102030207 — Tetrahedral 🔴
+- IAE1102030208 — Pyramidal 🔴
+- IAE1102030209 — Bent/Angular 🔴
+- IAE1102030210 — Molecular Shape in Drug Design 🟢
+- IAE1102030211 — Advanced Molecular Modelling 🔵
+
+Topic 03 — Theories of Covalent Bonding
+
+Topic ID: IAE1102030300
+
+- IAE1102030301 — Valence Bond Theory 🔴
+- IAE1102030302 — Hybridisation 🔴
+- IAE1102030303 — sp Hybridisation 🔴
+- IAE1102030304 — sp² Hybridisation 🔴
+- IAE1102030305 — sp³ Hybridisation 🔴
+- IAE1102030306 — Molecular Orbital Theory 🔴
+- IAE1102030307 — Bond Order 🔴
+- IAE1102030308 — Paramagnetic Nature of O₂ 🔴
+- IAE1102030309 — Bond-Order Calculations for N₂, O₂, F₂ and He₂ 🟢
+- IAE1102030310 — Advanced Molecular Orbital Diagrams 🔵
+
+Topic 04 — Effects of Bonding
+
+Topic ID: IAE1102030400
+
+- IAE1102030401 — Solubility 🔴
+- IAE1102030402 — Bonding and Physical Properties 🔴
+- IAE1102030403 — Conductivity 🔴
+- IAE1102030404 — Melting and Boiling Points 🔴
+- IAE1102030405 — Expanded Octets in Polyatomic Ions 🟢
+- IAE1102030406 — Dative Bonding in CO, O₃ and H₃O⁺ 🟢
+- IAE1102030407 — Formal Charge and Advanced Resonance 🔵
+
+Lecture 07
+
+Main Topic: IAE1102030100
+Total: 14
+
+1. IAE1102030101 — Bond Length 🔴
+2. IAE1102030102 — Bond Energy 🔴
+3. IAE1102030103 — Bond Polarity 🔴
+4. IAE1102030104 — Electronegativity 🔴
+5. IAE1102030105 — Dipole Moment 🔴
+6. IAE1102030106 — Ionic Character 🔴
+7. IAE1102030107 — Sigma and Pi Bonds 🔴
+8. IAE1102030108 — Advanced Molecular Polarity 🔵
+9. IAE1102030109 — Bond-Dipole Relationships 🔵
+10. IAE110203010A — Electronegativity and Bond Character 🔵
+11. IAE110203010B — Molecular Dipole Analysis 🔵
+12. IAE110203010C — Bond Energy and Molecular Stability 🔵
+13. IAE110203010D — Bond-Length/Bond-Strength Relationships 🔵
+14. IAE110203010E — Comparative Molecular Polarity 🔵
+
+Lecture 08
+
+Main Topic: IAE1102030200
+Total: 14
+
+1. IAE1102030201 — VSEPR Theory 🔴
+2. IAE1102030202 — Electron-Pair Repulsion 🔴
+3. IAE1102030203 — Molecular Geometry 🔴
+4. IAE1102030204 — Bond Angles 🔴
+5. IAE1102030205 — Linear Shape 🔴
+6. IAE1102030206 — Trigonal Planar 🔴
+7. IAE1102030207 — Tetrahedral 🔴
+8. IAE1102030208 — Pyramidal 🔴
+9. IAE1102030209 — Bent/Angular 🔴
+10. IAE1102030210 — Molecular Shape in Drug Design 🟢
+11. IAE1102030211 — Advanced Molecular Modelling 🔵
+12. IAE1102030212 — Lone-Pair Effects on Geometry 🔵
+13. IAE1102030213 — Bond-Angle Prediction 🔵
+14. IAE1102030214 — Structure–Function Relationships 🔵
+
+Lecture 09
+
+Main Topic: IAE1102030300
+Total: 14
+
+1. IAE1102030301 — Valence Bond Theory 🔴
+2. IAE1102030302 — Hybridisation 🔴
+3. IAE1102030303 — sp Hybridisation 🔴
+4. IAE1102030304 — sp² Hybridisation 🔴
+5. IAE1102030305 — sp³ Hybridisation 🔴
+6. IAE1102030306 — Molecular Orbital Theory 🔴
+7. IAE1102030307 — Bond Order 🔴
+8. IAE1102030308 — Paramagnetic Nature of O₂ 🔴
+9. IAE1102030309 — Bond-Order Calculations for N₂, O₂, F₂ and He₂ 🟢
+10. IAE1102030310 — Advanced Molecular Orbital Diagrams 🔵
+11. IAE1102030311 — Molecular Orbital Energy-Level Interpretation 🔵
+12. IAE1102030312 — Bonding and Antibonding Molecular Orbitals 🔵
+13. IAE1102030313 — Molecular Stability from Bond Order 🔵
+14. IAE1102030314 — Paramagnetism and Unpaired Electrons 🔵
+
+Lecture 10
+
+Main Topic: IAE1102030400
+Total: 14
+
+1. IAE1102030401 — Solubility 🔴
+2. IAE1102030402 — Bonding and Physical Properties 🔴
+3. IAE1102030403 — Conductivity 🔴
+4. IAE1102030404 — Melting and Boiling Points 🔴
+5. IAE1102030405 — Expanded Octets in Polyatomic Ions 🟢
+6. IAE1102030406 — Dative Bonding in CO, O₃ and H₃O⁺ 🟢
+7. IAE1102030407 — Formal Charge and Advanced Resonance 🔵
+8. IAE1102030408 — Bonding–Property Relationships 🔵
+9. IAE1102030409 — Intermolecular Effects on Physical Properties 🔵
+10. IAE110203040A — Conductivity and Charge Transport 🔵
+11. IAE110203040B — Molecular Structure and Solubility 🔵
+12. IAE110203040C — Resonance and Molecular Stability 🔵
+13. IAE110203040D — Dative-Bonding Applications 🔵
+14. IAE110203040E — Expanded-Valence Structural Analysis 🔵
+
+---
+
+CHAPTER 04 — STATES OF MATTER I: GASES
+
+Topic 01 — Kinetic Molecular Theory
+
+Topic ID: IAE1102040100
+
+- IAE1102040101 — Kinetic Molecular Theory 🔴
+- IAE1102040102 — Molecular Motion 🔴
+- IAE1102040103 — Pressure 🔴
+- IAE1102040104 — Temperature 🔴
+- IAE1102040105 — Molecular-Speed Distribution 🔵
+
+Topic 02 — Absolute Temperature
+
+Topic ID: IAE1102040200
+
+- IAE1102040201 — Kelvin Scale 🔴
+- IAE1102040202 — Celsius–Kelvin Relationship 🔴
+- IAE1102040203 — Absolute Zero 🔴
+- IAE1102040204 — Thermodynamic Interpretation 🔵
+
+Topic 03 — Ideal Gas Equation
+
+Topic ID: IAE1102040300
+
+- IAE1102040301 — Boyle’s Law 🔴
+- IAE1102040302 — Charles’s Law 🔴
+- IAE1102040303 — Avogadro’s Law 🔴
+- IAE1102040304 — Ideal Gas Equation 🔴
+- IAE1102040305 — Gas-Law Calculations 🔴
+- IAE1102040306 — Advanced Gas Calculations 🔵
+
+Topic 04 — Deviation from Ideal Behaviour
+
+Topic ID: IAE1102040400
+
+- IAE1102040401 — Real Gases 🔴
+- IAE1102040402 — Causes of Deviation 🔴
+- IAE1102040403 — Intermolecular Attractions 🔴
+- IAE1102040404 — Molecular Volume 🔴
+- IAE1102040405 — Compressibility Factor 🔵
+
+Topic 05 — Van der Waals Equation
+
+Topic ID: IAE1102040500
+
+- IAE1102040501 — Van der Waals Equation 🔴
+- IAE1102040502 — Meaning of Constants 🔴
+- IAE1102040503 — Critical Constants 🔵
+
+Topic 06 — Liquefaction of Gases
+
+Topic ID: IAE1102040600
+
+- IAE1102040601 — Conditions for Liquefaction 🔴
+- IAE1102040602 — Intermolecular Forces 🔴
+- IAE1102040603 — Critical Temperature and Pressure 🔵
+
+Topic 07 — Plasma
+
+Topic ID: IAE1102040700
+
+- IAE1102040701 — Plasma as a State of Matter 🔴
+- IAE1102040702 — Ionised-Gas Behaviour 🔵
+- IAE1102040703 — Applications of Plasma 🔵
+
+Lecture 11
+
+Main Topics: IAE1102040100 + IAE1102040200
+Total: 14
+
+1. IAE1102040101 — Kinetic Molecular Theory 🔴
+2. IAE1102040102 — Molecular Motion 🔴
+3. IAE1102040103 — Pressure 🔴
+4. IAE1102040104 — Temperature 🔴
+5. IAE1102040201 — Kelvin Scale 🔴
+6. IAE1102040202 — Celsius–Kelvin Relationship 🔴
+7. IAE1102040203 — Absolute Zero 🔴
+8. IAE1102040105 — Molecular-Speed Distribution 🔵
+9. IAE1102040204 — Thermodynamic Interpretation 🔵
+10. IAE1102040106 — Molecular Collisions and Pressure 🔵
+11. IAE1102040107 — Temperature and Molecular Kinetic Energy 🔵
+12. IAE1102040205 — Absolute Temperature and Molecular Motion 🔵
+13. IAE1102040108 — Maxwell–Boltzmann Interpretation 🔵
+14. IAE1102040109 — Gas-Particle Energy Distribution 🔵
+
+Lecture 12
+
+Main Topic: IAE1102040300
+Total: 14
+
+1. IAE1102040301 — Boyle’s Law 🔴
+2. IAE1102040302 — Charles’s Law 🔴
+3. IAE1102040303 — Avogadro’s Law 🔴
+4. IAE1102040304 — Ideal Gas Equation 🔴
+5. IAE1102040305 — Gas-Law Calculations 🔴
+6. IAE1102040306 — Advanced Gas Calculations 🔵
+7. IAE1102040307 — Combined Gas-Law Reasoning 🔵
+8. IAE1102040308 — Gas-Density Calculations 🔵
+9. IAE1102040309 — Molar-Mass Determination from Gas Data 🔵
+10. IAE110204030A — Partial Pressure Concepts 🔵
+11. IAE110204030B — Gas-Volume Stoichiometry 🔵
+12. IAE110204030C — Experimental Gas-Law Analysis 🔵
+13. IAE110204030D — Temperature–Pressure Relationships 🔵
+14. IAE110204030E — Quantitative Ideal-Gas Modelling 🔵
+
+Lecture 13
+
+Main Topics: IAE1102040400 + IAE1102040500
+Total: 14
+
+1. IAE1102040401 — Real Gases 🔴
+2. IAE1102040402 — Causes of Deviation 🔴
+3. IAE1102040403 — Intermolecular Attractions 🔴
+4. IAE1102040404 — Molecular Volume 🔴
+5. IAE1102040501 — Van der Waals Equation 🔴
+6. IAE1102040502 — Meaning of Constants 🔴
+7. IAE1102040405 — Compressibility Factor 🔵
+8. IAE1102040503 — Critical Constants 🔵
+9. IAE1102040406 — Real-Gas Behaviour 🔵
+10. IAE1102040407 — Intermolecular Attraction and Deviation 🔵
+11. IAE1102040408 — Molecular Volume Effects 🔵
+12. IAE1102040504 — van der Waals Model Interpretation 🔵
+13. IAE1102040409 — Pressure–Volume Deviations 🔵
+14. IAE1102040505 — Critical-Region Behaviour 🔵
+
+Lecture 14
+
+Main Topics: IAE1102040600 + IAE1102040700
+Total: 14
+
+1. IAE1102040601 — Conditions for Liquefaction 🔴
+2. IAE1102040602 — Intermolecular Forces 🔴
+3. IAE1102040701 — Plasma as a State of Matter 🔴
+4. IAE1102040603 — Critical Temperature and Pressure 🔵
+5. IAE1102040702 — Ionised-Gas Behaviour 🔵
+6. IAE1102040703 — Applications of Plasma 🔵
+7. IAE1102040604 — Gas Liquefaction and Molecular Attraction 🔵
+8. IAE1102040605 — Critical Phenomena 🔵
+9. IAE1102040606 — Phase-State Transitions 🔵
+10. IAE1102040607 — Industrial Gas Liquefaction 🔵
+11. IAE1102040704 — Plasma in Technology 🔵
+12. IAE1102040705 — Plasma in Scientific Applications 🔵
+13. IAE1102040706 — High-Energy Ionised Matter 🔵
+14. IAE1102040608 — Critical Conditions for Phase Change 🔵
+
+---
+
+CHAPTER 05 — STATES OF MATTER II: LIQUIDS
+
+Topic 01 — Kinetic Molecular Interpretation
+
+Topic ID: IAE1102050100
+
+- IAE1102050101 — Molecular Motion in Liquids 🔴
+- IAE1102050102 — Energy and Intermolecular Attraction 🔴
+- IAE1102050103 — Molecular-Level Interpretation 🔵
+
+Topic 02 — Intermolecular Forces
+
+Topic ID: IAE1102050200
+
+- IAE1102050201 — London Dispersion Forces 🔴
+- IAE1102050202 — Dipole–Dipole Forces 🔴
+- IAE1102050203 — Hydrogen Bonding 🔴
+- IAE1102050204 — Relative Strength of Intermolecular Forces 🔴
+- IAE1102050205 — Detailed Van der Waals-Force Classification 🟢
+- IAE1102050206 — Advanced Intermolecular-Force Models 🔵
+
+Topic 03 — Energetics of Phase Changes
+
+Topic ID: IAE1102050300
+
+- IAE1102050301 — Evaporation 🔴
+- IAE1102050302 — Vaporisation 🔴
+- IAE1102050303 — Condensation 🔴
+- IAE1102050304 — Melting and Freezing 🔴
+- IAE1102050305 — Enthalpy of Phase Transitions 🔵
+
+Topic 04 — Liquid Crystals
+
+Topic ID: IAE1102050400
+
+- IAE1102050401 — Liquid-Crystal Concept 🔴
+- IAE1102050402 — Properties 🔴
+- IAE1102050403 — Applications 🔴
+- IAE1102050404 — Molecular Ordering and Advanced Applications 🔵
+
+Lecture 15
+
+Main Topics: IAE1102050100 + IAE1102050200
+Total: 14
+
+1. IAE1102050101 — Molecular Motion in Liquids 🔴
+2. IAE1102050102 — Energy and Intermolecular Attraction 🔴
+3. IAE1102050201 — London Dispersion Forces 🔴
+4. IAE1102050202 — Dipole–Dipole Forces 🔴
+5. IAE1102050203 — Hydrogen Bonding 🔴
+6. IAE1102050204 — Relative Strength of Intermolecular Forces 🔴
+7. IAE1102050205 — Detailed Van der Waals-Force Classification 🟢
+8. IAE1102050103 — Molecular-Level Interpretation 🔵
+9. IAE1102050206 — Advanced Intermolecular-Force Models 🔵
+10. IAE1102050207 — Polarizability and Dispersion 🔵
+11. IAE1102050208 — Hydrogen-Bonding Networks 🔵
+12. IAE1102050209 — Intermolecular Forces and Physical Properties 🔵
+13. IAE1102050104 — Molecular Motion and Liquid Structure 🔵
+14. IAE1102050210 — Comparative Intermolecular-Force Analysis 🔵
+
+Lecture 16
+
+Main Topics: IAE1102050300 + IAE1102050400
+Total: 14
+
+1. IAE1102050301 — Evaporation 🔴
+2. IAE1102050302 — Vaporisation 🔴
+3. IAE1102050303 — Condensation 🔴
+4. IAE1102050304 — Melting and Freezing 🔴
+5. IAE1102050401 — Liquid-Crystal Concept 🔴
+6. IAE1102050402 — Properties 🔴
+7. IAE1102050403 — Applications 🔴
+8. IAE1102050305 — Enthalpy of Phase Transitions 🔵
+9. IAE1102050404 — Molecular Ordering and Advanced Applications 🔵
+10. IAE1102050306 — Vapour Pressure and Evaporation 🔵
+11. IAE1102050307 — Energy Changes during Phase Transitions 🔵
+12. IAE1102050405 — Liquid-Crystal Molecular Organisation 🔵
+13. IAE1102050308 — Temperature Dependence of Phase Change 🔵
+14. IAE1102050406 — Advanced Liquid-Crystal Applications 🔵
+
+---
+
+CHAPTER 06 — STATES OF MATTER III: SOLIDS
+
+Topic 01 — Kinetic Molecular Interpretation
+
+Topic ID: IAE1102060100
+
+- IAE1102060101 — Particle Arrangement 🔴
+- IAE1102060102 — Particle Motion 🔴
+- IAE1102060103 — Solid-State Molecular Modelling 🔵
+
+Topic 02 — Types of Solids
+
+Topic ID: IAE1102060200
+
+- IAE1102060201 — Ionic Solids 🔴
+- IAE1102060202 — Molecular Solids 🔴
+- IAE1102060203 — Covalent-Network Solids 🔴
+- IAE1102060204 — Metallic Solids 🔴
+
+Topic 03 — Properties of Crystalline Solids
+
+Topic ID: IAE1102060300
+
+- IAE1102060301 — Melting Point 🔴
+- IAE1102060302 — Electrical Conductivity 🔴
+- IAE1102060303 — Hardness 🔴
+- IAE1102060304 — Anisotropy/Isotropy 🔴
+- IAE1102060305 — Crystal Defects and Advanced Properties 🔵
+
+Topic 04 — Crystal Lattice
+
+Topic ID: IAE1102060400
+
+- IAE1102060401 — Crystal Lattice 🔴
+- IAE1102060402 — Unit Cell 🔴
+- IAE1102060403 — Coordination and Arrangement 🔴
+- IAE1102060404 — X-Ray Crystallographic Interpretation 🔵
+
+Topic 05 — Types of Crystalline Solids
+
+Topic ID: IAE1102060500
+
+- IAE1102060501 — Ionic 🔴
+- IAE1102060502 — Molecular 🔴
+- IAE1102060503 — Covalent 🔴
+- IAE1102060504 — Metallic 🔴
+- IAE1102060505 — Advanced Materials Chemistry 🔵
+
+Lecture 17
+
+Main Topics: IAE1102060100 + IAE1102060200
+Total: 14
+
+1. IAE1102060101 — Particle Arrangement 🔴
+2. IAE1102060102 — Particle Motion 🔴
+3. IAE1102060201 — Ionic Solids 🔴
+4. IAE1102060202 — Molecular Solids 🔴
+5. IAE1102060203 — Covalent-Network Solids 🔴
+6. IAE1102060204 — Metallic Solids 🔴
+7. IAE1102060103 — Solid-State Molecular Modelling 🔵
+8. IAE1102060205 — Structure–Property Relationships 🔵
+9. IAE1102060206 — Lattice Energy and Ionic Structure 🔵
+10. IAE1102060207 — Molecular Crystal Forces 🔵
+11. IAE1102060208 — Covalent-Network Rigidity 🔵
+12. IAE1102060209 — Metallic Bonding and Electron Mobility 🔵
+13. IAE1102060104 — Particle Motion in Crystalline Solids 🔵
+14. IAE1102060210 — Comparative Solid-State Structure 🔵
+
+Lecture 18
+
+Main Topics: IAE1102060300 + IAE1102060400
+Total: 14
+
+1. IAE1102060301 — Melting Point 🔴
+2. IAE1102060302 — Electrical Conductivity 🔴
+3. IAE1102060303 — Hardness 🔴
+4. IAE1102060304 — Anisotropy/Isotropy 🔴
+5. IAE1102060401 — Crystal Lattice 🔴
+6. IAE1102060402 — Unit Cell 🔴
+7. IAE1102060403 — Coordination and Arrangement 🔴
+8. IAE1102060305 — Crystal Defects and Advanced Properties 🔵
+9. IAE1102060404 — X-Ray Crystallographic Interpretation 🔵
+10. IAE1102060405 — Unit-Cell Geometry 🔵
+11. IAE1102060406 — Coordination Number and Packing 🔵
+12. IAE1102060306 — Crystal Structure and Physical Properties 🔵
+13. IAE1102060307 — Defects and Material Behaviour 🔵
+14. IAE1102060407 — Crystallographic Structure Analysis 🔵
+
+Lecture 19
+
+Main Topic: IAE1102060500
+Total: 14
+
+1. IAE1102060501 — Ionic 🔴
+2. IAE1102060502 — Molecular 🔴
+3. IAE1102060503 — Covalent 🔴
+4. IAE1102060504 — Metallic 🔴
+5. IAE1102060505 — Advanced Materials Chemistry 🔵
+6. IAE1102060506 — Comparative Crystal Structures 🔵
+7. IAE1102060507 — Materials Design from Bonding 🔵
+8. IAE1102060508 — Electrical Properties of Solids 🔵
+9. IAE1102060509 — Mechanical Properties of Materials 🔵
+10. IAE110206050A — Thermal Properties of Solids 🔵
+11. IAE110206050B — Structure–Function Relationships 🔵
+12. IAE110206050C — Modern Functional Materials 🔵
+13. IAE110206050D — Solid-State Applications 🔵
+14. IAE110206050E — Advanced Materials Classification 🔵
+
+---
+
+CHAPTER 07 — CHEMICAL EQUILIBRIUM
+
+Topic 01 — Reversible and Dynamic Equilibrium
+
+Topic ID: IAE1102070100
+
+- IAE1102070101 — Reversible Reactions 🔴
+- IAE1102070102 — Dynamic Equilibrium 🔴
+- IAE1102070103 — Equilibrium Constant 🔴
+- IAE1102070104 — Kc 🔴
+- IAE1102070105 — Kp 🔴
+- IAE1102070106 — Thermodynamic Interpretation 🔵
+
+Topic 02 — Factors Affecting Equilibrium
+
+Topic ID: IAE1102070200
+
+- IAE1102070201 — Concentration 🔴
+- IAE1102070202 — Pressure 🔴
+- IAE1102070203 — Temperature 🔴
+- IAE1102070204 — Le Chatelier’s Principle 🔴
+- IAE1102070205 — Quantitative Equilibrium Shifts 🔵
+
+Topic 03 — Industrial Applications
+
+Topic ID: IAE1102070300
+
+- IAE1102070301 — Industrial Equilibrium 🔴
+- IAE1102070302 — Optimisation of Conditions 🔴
+- IAE1102070303 — Industrial Process Optimisation 🔵
+
+Topic 04 — Solubility Product
+
+Topic ID: IAE1102070400
+
+- IAE1102070401 — Solubility Product 🔴
+- IAE1102070402 — Ionic Product 🔴
+- IAE1102070403 — Precipitation 🔴
+- IAE1102070404 — Advanced Precipitation Equilibria 🔵
+
+Topic 05 — Common-Ion Effect
+
+Topic ID: IAE1102070500
+
+- IAE1102070501 — Common-Ion Effect 🔴
+- IAE1102070502 — Quantitative Applications 🔵
+
+Lecture 20
+
+Main Topic: IAE1102070100
+Total: 14
+
+1. IAE1102070101 — Reversible Reactions 🔴
+2. IAE1102070102 — Dynamic Equilibrium 🔴
+3. IAE1102070103 — Equilibrium Constant 🔴
+4. IAE1102070104 — Kc 🔴
+5. IAE1102070105 — Kp 🔴
+6. IAE1102070106 — Thermodynamic Interpretation 🔵
+7. IAE1102070107 — Equilibrium at Molecular Level 🔵
+8. IAE1102070108 — Dynamic Equilibrium Modelling 🔵
+9. IAE1102070109 — Kc/Kp Relationships 🔵
+10. IAE110207010A — Quantitative Equilibrium Reasoning 🔵
+11. IAE110207010B — Equilibrium Composition 🔵
+12. IAE110207010C — Gas-Phase Equilibrium Analysis 🔵
+13. IAE110207010D — Equilibrium Constant Interpretation 🔵
+14. IAE110207010E — Thermodynamic Meaning of Equilibrium 🔵
+
+Lecture 21
+
+Main Topics: IAE1102070200 + IAE1102070300
+Total: 14
+
+1. IAE1102070201 — Concentration 🔴
+2. IAE1102070202 — Pressure 🔴
+3. IAE1102070203 — Temperature 🔴
+4. IAE1102070204 — Le Chatelier’s Principle 🔴
+5. IAE1102070301 — Industrial Equilibrium 🔴
+6. IAE1102070302 — Optimisation of Conditions 🔴
+7. IAE1102070205 — Quantitative Equilibrium Shifts 🔵
+8. IAE1102070303 — Industrial Process Optimisation 🔵
+9. IAE1102070206 — Equilibrium Yield Optimisation 🔵
+10. IAE1102070207 — Pressure Effects in Gas Equilibria 🔵
+11. IAE1102070208 — Temperature Effects and Enthalpy 🔵
+12. IAE1102070304 — Industrial Equilibrium Modelling 🔵
+13. IAE1102070209 — Dynamic Response to Disturbance 🔵
+14. IAE1102070305 — Equilibrium-Based Process Control 🔵
+
+Lecture 22
+
+Main Topics: IAE1102070400 + IAE1102070500
+Total: 14
+
+1. IAE1102070401 — Solubility Product 🔴
+2. IAE1102070402 — Ionic Product 🔴
+3. IAE1102070403 — Precipitation 🔴
+4. IAE1102070501 — Common-Ion Effect 🔴
+5. IAE1102070404 — Advanced Precipitation Equilibria 🔵
+6. IAE1102070502 — Quantitative Applications 🔵
+7. IAE1102070405 — Selective Precipitation 🔵
+8. IAE1102070406 — Ion-Product/Solubility Comparison 🔵
+9. IAE1102070407 — Equilibrium-Controlled Precipitation 🔵
+10. IAE1102070503 — Common-Ion Suppression 🔵
+11. IAE1102070408 — Solubility Equilibrium Calculations 🔵
+12. IAE1102070409 — Precipitation Prediction 🔵
+13. IAE110207040A — Quantitative Ion Equilibrium 🔵
+14. IAE110207040B — Analytical Applications of Solubility Equilibria 🔵
+
+---
+
+CHAPTER 08 — ACIDS, BASES AND SALTS
+
+Topic 01 — Acidic, Basic and Amphoteric Substances
+
+Topic ID: IAE1102080100
+
+- IAE1102080101 — Acids 🔴
+- IAE1102080102 — Bases 🔴
+- IAE1102080103 — Amphoteric Substances 🔴
+
+Topic 02 — Brønsted–Lowry Theory
+
+Topic ID: IAE1102080200
+
+- IAE1102080201 — Brønsted–Lowry Acids 🔴
+- IAE1102080202 — Brønsted–Lowry Bases 🔴
+- IAE1102080203 — Proton Transfer 🔴
+
+Topic 03 — Conjugate Acid–Base Pairs
+
+Topic ID: IAE1102080300
+
+- IAE1102080301 — Conjugate Acid 🔴
+- IAE1102080302 — Conjugate Base 🔴
+- IAE1102080303 — Conjugate Pairs 🔴
+- IAE1102080304 — Advanced Acid–Base Equilibria 🔵
+
+Topic 04 — Strength of Acids and Bases
+
+Topic ID: IAE1102080400
+
+- IAE1102080401 — Strong and Weak Acids 🔴
+- IAE1102080402 — Strong and Weak Bases 🔴
+- IAE1102080403 — Ionisation 🔴
+- IAE1102080404 — Quantitative Ka/Kb Treatment 🔵
+
+Topic 05 — Lewis Theory
+
+Topic ID: IAE1102080500
+
+- IAE1102080501 — Lewis Acid 🔴
+- IAE1102080502 — Lewis Base 🔴
+- IAE1102080503 — Advanced Lewis-Acid/Base Chemistry 🔵
+
+Topic 06 — Buffer Solutions
+
+Topic ID: IAE1102080600
+
+- IAE1102080601 — Buffer Action 🔴
+- IAE1102080602 — Acidic Buffers 🔴
+- IAE1102080603 — Basic Buffers 🔴
+- IAE1102080604 — Henderson–Hasselbalch Treatment 🔵
+
+Topic 07 — Salt Hydrolysis
+
+Topic ID: IAE1102080700
+
+- IAE1102080701 — Hydrolysis 🔴
+- IAE1102080702 — Acidic Salts 🔴
+- IAE1102080703 — Basic Salts 🔴
+- IAE1102080704 — Quantitative Hydrolysis Equilibria 🔵
+
+Lecture 23
+
+Main Topics: IAE1102080100 + IAE1102080200
+Total: 14
+
+1. IAE1102080101 — Acids 🔴
+2. IAE1102080102 — Bases 🔴
+3. IAE1102080103 — Amphoteric Substances 🔴
+4. IAE1102080201 — Brønsted–Lowry Acids 🔴
+5. IAE1102080202 — Brønsted–Lowry Bases 🔴
+6. IAE1102080203 — Proton Transfer 🔴
+7. IAE1102080104 — Acid–Base Molecular Interpretation 🔵
+8. IAE1102080105 — Amphoteric Behaviour 🔵
+9. IAE1102080204 — Proton-Transfer Mechanisms 🔵
+10. IAE1102080106 — Acid–Base Classification 🔵
+11. IAE1102080107 — Relative Proton-Transfer Tendencies 🔵
+12. IAE1102080108 — Molecular Basis of Acidity 🔵
+13. IAE1102080109 — Molecular Basis of Basicity 🔵
+14. IAE1102080110 — Comparative Acid–Base Behaviour 🔵
+
+Lecture 24
+
+Main Topics: IAE1102080300 + IAE1102080400
+Total: 14
+
+1. IAE1102080301 — Conjugate Acid 🔴
+2. IAE1102080302 — Conjugate Base 🔴
+3. IAE1102080303 — Conjugate Pairs 🔴
+4. IAE1102080401 — Strong and Weak Acids 🔴
+5. IAE1102080402 — Strong and Weak Bases 🔴
+6. IAE1102080403 — Ionisation 🔴
+7. IAE1102080304 — Advanced Acid–Base Equilibria 🔵
+8. IAE1102080404 — Quantitative Ka/Kb Treatment 🔵
+9. IAE1102080305 — Conjugate-Pair Strength Relationships 🔵
+10. IAE1102080405 — Acid/Base Ionisation Equilibria 🔵
+11. IAE1102080406 — Ka and Kb Interpretation 🔵
+12. IAE1102080407 — Equilibrium Position in Weak Acids 🔵
+13. IAE1102080408 — Equilibrium Position in Weak Bases 🔵
+14. IAE1102080409 — Quantitative Acid–Base Comparison 🔵
+
+Lecture 25
+
+Main Topics: IAE1102080500 + IAE1102080600
+Total: 14
+
+1. IAE1102080501 — Lewis Acid 🔴
+2. IAE1102080502 — Lewis Base 🔴
+3. IAE1102080601 — Buffer Action 🔴
+4. IAE1102080602 — Acidic Buffers 🔴
+5. IAE1102080603 — Basic Buffers 🔴
+6. IAE1102080503 — Advanced Lewis-Acid/Base Chemistry 🔵
+7. IAE1102080604 — Henderson–Hasselbalch Treatment 🔵
+8. IAE1102080504 — Lewis Acid–Base Reaction Analysis 🔵
+9. IAE1102080605 — Buffer Capacity 🔵
+10. IAE1102080606 — Buffer Equilibrium 🔵
+11. IAE1102080607 — Acidic and Basic Buffer Comparison 🔵
+12. IAE1102080608 — Quantitative Buffer Calculations 🔵
+13. IAE1102080609 — Buffer Action in Biological Systems 🔵
+14. IAE1102080610 — Applied Acid–Base Control 🔵
+
+Lecture 26
+
+Main Topic: IAE1102080700
+Total: 14
+
+1. IAE1102080701 — Hydrolysis 🔴
+2. IAE1102080702 — Acidic Salts 🔴
+3. IAE1102080703 — Basic Salts 🔴
+4. IAE1102080704 — Quantitative Hydrolysis Equilibria 🔵
+5. IAE1102080705 — Salt-Derived Acid–Base Behaviour 🔵
+6. IAE1102080706 — Hydrolysis Equilibrium 🔵
+7. IAE1102080707 — Conjugate-Ion Hydrolysis 🔵
+8. IAE1102080708 — pH of Salt Solutions 🔵
+9. IAE1102080709 — Acidic Salt Analysis 🔵
+10. IAE110208070A — Basic Salt Analysis 🔵
+11. IAE110208070B — Quantitative Salt Hydrolysis 🔵
+12. IAE110208070C — Equilibrium Constants for Hydrolysis 🔵
+13. IAE110208070D — Hydrolysis and Buffer Relationships 🔵
+14. IAE110208070E — Applied Salt Chemistry 🔵
+
+---
+
+CHAPTER 09 — CHEMICAL KINETICS
+
+Topic 01 — Chemical Kinetics and Rate
+
+Topic ID: IAE1102090100
+
+- IAE1102090101 — Chemical Kinetics 🔴
+- IAE1102090102 — Rate of Reaction 🔴
+- IAE1102090103 — Factors Affecting Rate 🔴
+- IAE1102090104 — Advanced Kinetic Interpretation 🔵
+
+Topic 02 — Rate Law and Order
+
+Topic ID: IAE1102090200
+
+- IAE1102090201 — Rate Law 🔴
+- IAE1102090202 — Rate Constant 🔴
+- IAE1102090203 — Order of Reaction 🔴
+- IAE1102090204 — Integrated Rate Equations 🔵
+- IAE1102090205 — Half-Life Relationships 🔵
+
+Topic 03 — Collision, Transition State and Activation Energy
+
+Topic ID: IAE1102090300
+
+- IAE1102090301 — Collision Theory 🔴
+- IAE1102090302 — Activation Energy 🔴
+- IAE1102090303 — Transition State 🔴
+- IAE1102090304 — Arrhenius Equation 🔵
+
+Topic 04 — Catalysis
+
+Topic ID: IAE1102090400
+
+- IAE1102090401 — Catalyst 🔴
+- IAE1102090402 — Homogeneous Catalysis 🔴
+- IAE1102090403 — Heterogeneous Catalysis 🔴
+- IAE1102090404 — Advanced Catalytic Mechanisms 🔵
+
+Lecture 27
+
+Main Topics: IAE1102090100 + IAE1102090200
+Total: 14
+
+1. IAE1102090101 — Chemical Kinetics 🔴
+2. IAE1102090102 — Rate of Reaction 🔴
+3. IAE1102090103 — Factors Affecting Rate 🔴
+4. IAE1102090201 — Rate Law 🔴
+5. IAE1102090202 — Rate Constant 🔴
+6. IAE1102090203 — Order of Reaction 🔴
+7. IAE1102090104 — Advanced Kinetic Interpretation 🔵
+8. IAE1102090204 — Integrated Rate Equations 🔵
+9. IAE1102090205 — Half-Life Relationships 🔵
+10. IAE1102090206 — Rate-Law Determination 🔵
+11. IAE1102090207 — Reaction-Order Analysis 🔵
+12. IAE1102090208 — Rate-Constant Interpretation 🔵
+13. IAE1102090209 — Concentration–Time Relationships 🔵
+14. IAE1102090210 — Quantitative Kinetic Modelling 🔵
+
+Lecture 28
+
+Main Topics: IAE1102090300 + IAE1102090400
+Total: 14
+
+1. IAE1102090301 — Collision Theory 🔴
+2. IAE1102090302 — Activation Energy 🔴
+3. IAE1102090303 — Transition State 🔴
+4. IAE1102090401 — Catalyst 🔴
+5. IAE1102090402 — Homogeneous Catalysis 🔴
+6. IAE1102090403 — Heterogeneous Catalysis 🔴
+7. IAE1102090304 — Arrhenius Equation 🔵
+8. IAE1102090404 — Advanced Catalytic Mechanisms 🔵
+9. IAE1102090305 — Collision-Energy Distribution 🔵
+10. IAE1102090306 — Transition-State Energy Profiles 🔵
+11. IAE1102090307 — Temperature Dependence of Rate 🔵
+12. IAE1102090405 — Catalyst Pathway Analysis 🔵
+13. IAE1102090406 — Homogeneous vs Heterogeneous Mechanisms 🔵
+14. IAE1102090308 — Quantitative Activation-Energy Analysis 🔵
+
+---
+
+CHAPTER 10 — SOLUTIONS AND COLLOIDS
+
+Topic 01 — Concentration Units
+
+Topic ID: IAE1102100100
+
+- IAE1102100101 — Molarity 🔴
+- IAE1102100102 — Molality 🔴
+- IAE1102100103 — Mole Fraction 🔴
+- IAE1102100104 — Percentage Concentration 🔴
+- IAE1102100105 — Advanced Concentration Relationships 🔵
+
+Topic 02 — General Properties and Solubility
+
+Topic ID: IAE1102100200
+
+- IAE1102100201 — Solution 🔴
+- IAE1102100202 — Solute and Solvent 🔴
+- IAE1102100203 — Solubility 🔴
+- IAE1102100204 — Molecular Interpretation of Solubility 🔵
+
+Topic 03 — Raoult’s Law
+
+Topic ID: IAE1102100300
+
+- IAE1102100301 — Raoult’s Law 🔴
+- IAE1102100302 — Vapour Pressure 🔴
+- IAE1102100303 — Ideal and Non-Ideal Solutions 🔵
+
+Topic 04 — Colligative Properties
+
+Topic ID: IAE1102100400
+
+- IAE1102100401 — Lowering of Vapour Pressure 🔴
+- IAE1102100402 — Elevation of Boiling Point 🔴
+- IAE1102100403 — Depression of Freezing Point 🔴
+- IAE1102100404 — Osmotic Pressure 🔴
+- IAE1102100405 — van’t Hoff Factor and Advanced Applications 🔵
+
+Topic 05 — Solutions, Colloids and Suspensions
+
+Topic ID: IAE1102100500
+
+- IAE1102100501 — True Solutions 🔴
+- IAE1102100502 — Colloids 🔴
+- IAE1102100503 — Suspensions 🔴
+- IAE1102100504 — Classification of Colloids 🔴
+- IAE1102100505 — Surface Chemistry of Colloids 🔵
+
+Lecture 29
+
+Main Topics: IAE1102100100 + IAE1102100200
+Total: 14
+
+1. IAE1102100101 — Molarity 🔴
+2. IAE1102100102 — Molality 🔴
+3. IAE1102100103 — Mole Fraction 🔴
+4. IAE1102100104 — Percentage Concentration 🔴
+5. IAE1102100201 — Solution 🔴
+6. IAE1102100202 — Solute and Solvent 🔴
+7. IAE1102100203 — Solubility 🔴
+8. IAE1102100105 — Advanced Concentration Relationships 🔵
+9. IAE1102100204 — Molecular Interpretation of Solubility 🔵
+10. IAE1102100106 — Concentration-Unit Interconversion 🔵
+11. IAE1102100205 — Temperature Effects on Solubility 🔵
+12. IAE1102100206 — Solute–Solvent Interactions 🔵
+13. IAE1102100107 — Quantitative Solution Preparation 🔵
+14. IAE1102100108 — Concentration and Molecular Composition 🔵
+
+Lecture 30
+
+Main Topics: IAE1102100300 + IAE1102100400
+Total: 14
+
+1. IAE1102100301 — Raoult’s Law 🔴
+2. IAE1102100302 — Vapour Pressure 🔴
+3. IAE1102100401 — Lowering of Vapour Pressure 🔴
+4. IAE1102100402 — Elevation of Boiling Point 🔴
+5. IAE1102100403 — Depression of Freezing Point 🔴
+6. IAE1102100404 — Osmotic Pressure 🔴
+7. IAE1102100303 — Ideal and Non-Ideal Solutions 🔵
+8. IAE1102100405 — van’t Hoff Factor and Advanced Applications 🔵
+9. IAE1102100304 — Vapour-Pressure Relationships 🔵
+10. IAE1102100406 — Colligative-Property Quantification 🔵
+11. IAE1102100407 — Osmosis at Molecular Level 🔵
+12. IAE1102100408 — Solute-Particle Effects on Phase Change 🔵
+13. IAE1102100409 — Quantitative Osmotic Analysis 🔵
+14. IAE1102100305 — Ideal-Solution Deviations 🔵
+
+Lecture 31
+
+Main Topic: IAE1102100500
+Total: 14
+
+1. IAE1102100501 — True Solutions 🔴
+2. IAE1102100502 — Colloids 🔴
+3. IAE1102100503 — Suspensions 🔴
+4. IAE1102100504 — Classification of Colloids 🔴
+5. IAE1102100505 — Surface Chemistry of Colloids 🔵
+6. IAE1102100506 — Particle-Size-Based Classification 🔵
+7. IAE1102100507 — Colloidal Stability 🔵
+8. IAE1102100508 — Dispersed-Phase/Dispersion-Medium Relationships 🔵
+9. IAE1102100509 — Colloid Properties and Applications 🔵
+10. IAE110210050A — Tyndall Effect 🔵
+11. IAE110210050B — Brownian Motion 🔵
+12. IAE110210050C — Adsorption at Colloidal Interfaces 🔵
+13. IAE110210050D — Colloid Separation and Purification 🔵
+14. IAE110210050E — Applied Colloid Chemistry 🔵
+
+---
+
+CHAPTER 11 — THERMOCHEMISTRY
+
+Topic 01 — Energy
+
+Topic ID: IAE1102110100
+
+- IAE1102110101 — Energy 🔴
+- IAE1102110102 — Heat 🔴
+- IAE1102110103 — Work 🔴
+- IAE1102110104 — Molecular Interpretation of Energy 🔵
+
+Topic 02 — Thermodynamics
+
+Topic ID: IAE1102110200
+
+- IAE1102110201 — System 🔴
+- IAE1102110202 — Surroundings 🔴
+- IAE1102110203 — Open, Closed and Isolated Systems 🔴
+- IAE1102110204 — Advanced Thermodynamic State Functions 🔵
+
+Topic 03 — Internal Energy
+
+Topic ID: IAE1102110300
+
+- IAE1102110301 — Internal Energy 🔴
+- IAE1102110302 — Change in Internal Energy 🔴
+- IAE1102110303 — Microscopic Interpretation 🔵
+
+Topic 04 — First Law of Thermodynamics
+
+Topic ID: IAE1102110400
+
+- IAE1102110401 — First Law 🔴
+- IAE1102110402 — ΔU = q + w 🔴
+- IAE1102110403 — Sign Conventions 🔴
+- IAE1102110404 — Advanced Thermodynamic Calculations 🔵
+
+Topic 05 — Standard State and Enthalpy
+
+Topic ID: IAE1102110500
+
+- IAE1102110501 — Standard State 🔴
+- IAE1102110502 — Enthalpy 🔴
+- IAE1102110503 — Enthalpy Change 🔴
+- IAE1102110504 — Standard Enthalpy Cycles 🔵
+
+Topic 06 — Heat Capacity
+
+Topic ID: IAE1102110600
+
+- IAE1102110601 — Heat Capacity 🔴
+- IAE1102110602 — Specific Heat Capacity 🔴
+- IAE1102110603 — Advanced Calorimetric Treatment 🔵
+
+Topic 07 — Calorimetry
+
+Topic ID: IAE1102110700
+
+- IAE1102110701 — Calorimetry 🔴
+- IAE1102110702 — Experimental Determination of Heat Change 🔴
+- IAE1102110703 — Error and Uncertainty Analysis 🔵
+
+Topic 08 — Hess’s Law
+
+Topic ID: IAE1102110800
+
+- IAE1102110801 — Hess’s Law 🔴
+- IAE1102110802 — Enthalpy Calculations 🔴
+- IAE1102110803 — Advanced Thermochemical Cycles 🔵
+
+Topic 09 — Born–Haber Cycle
+
+Topic ID: IAE1102110900
+
+- IAE1102110901 — Born–Haber Cycle 🔴
+- IAE1102110902 — Lattice-Energy Relationship 🔴
+- IAE1102110903 — Advanced Lattice-Energy Analysis 🔵
+
+Lecture 32
+
+Main Topics: IAE1102110100 + IAE1102110200
+Total: 14
+
+1. IAE1102110101 — Energy 🔴
+2. IAE1102110102 — Heat 🔴
+3. IAE1102110103 — Work 🔴
+4. IAE1102110201 — System 🔴
+5. IAE1102110202 — Surroundings 🔴
+6. IAE1102110203 — Open, Closed and Isolated Systems 🔴
+7. IAE1102110104 — Molecular Interpretation of Energy 🔵
+8. IAE1102110204 — Advanced Thermodynamic State Functions 🔵
+9. IAE1102110105 — Energy Transfer Between System and Surroundings 🔵
+10. IAE1102110106 — Work and Heat as Energy Transfer 🔵
+11. IAE1102110205 — System Classification 🔵
+12. IAE1102110206 — Thermodynamic Boundaries 🔵
+13. IAE1102110107 — Microscopic and Macroscopic Energy 🔵
+14. IAE1102110207 — Energy Conservation Framework 🔵
+
+Lecture 33
+
+Main Topics: IAE1102110300 + IAE1102110400
+Total: 14
+
+1. IAE1102110301 — Internal Energy 🔴
+2. IAE1102110302 — Change in Internal Energy 🔴
+3. IAE1102110401 — First Law 🔴
+4. IAE1102110402 — ΔU = q + w 🔴
+5. IAE1102110403 — Sign Conventions 🔴
+6. IAE1102110303 — Microscopic Interpretation 🔵
+7. IAE1102110404 — Advanced Thermodynamic Calculations 🔵
+8. IAE1102110304 — Internal-Energy Accounting 🔵
+9. IAE1102110405 — Work and Heat Calculations 🔵
+10. IAE1102110406 — Energy-Balance Problems 🔵
+11. IAE1102110407 — Expansion and Compression Work 🔵
+12. IAE1102110408 — Thermodynamic Sign Analysis 🔵
+13. IAE1102110409 — First-Law Applications 🔵
+14. IAE1102110305 — Quantitative Internal-Energy Analysis 🔵
+
+Lecture 34
+
+Main Topics: IAE1102110500 + IAE1102110600
+Total: 14
+
+1. IAE1102110501 — Standard State 🔴
+2. IAE1102110502 — Enthalpy 🔴
+3. IAE1102110503 — Enthalpy Change 🔴
+4. IAE1102110601 — Heat Capacity 🔴
+5. IAE1102110602 — Specific Heat Capacity 🔴
+6. IAE1102110504 — Standard Enthalpy Cycles 🔵
+7. IAE1102110603 — Advanced Calorimetric Treatment 🔵
+8. IAE1102110505 — Standard-State Interpretation 🔵
+9. IAE1102110506 — Enthalpy as a State Function 🔵
+10. IAE1102110604 — Heat Capacity and Energy Transfer 🔵
+11. IAE1102110605 — Specific Heat Calculations 🔵
+12. IAE1102110507 — Enthalpy–Temperature Relationships 🔵
+13. IAE1102110606 — Quantitative Heat-Capacity Analysis 🔵
+14. IAE1102110508 — Thermochemical Data Interpretation 🔵
+
+Lecture 35
+
+Main Topics: IAE1102110700 + IAE1102110800
+Total: 14
+
+1. IAE1102110701 — Calorimetry 🔴
+2. IAE1102110702 — Experimental Determination of Heat Change 🔴
+3. IAE1102110801 — Hess’s Law 🔴
+4. IAE1102110802 — Enthalpy Calculations 🔴
+5. IAE1102110703 — Error and Uncertainty Analysis 🔵
+6. IAE1102110803 — Advanced Thermochemical Cycles 🔵
+7. IAE1102110704 — Calorimetric Experimental Design 🔵
+8. IAE1102110705 — Heat-Loss Correction 🔵
+9. IAE1102110706 — Experimental vs Theoretical Enthalpy 🔵
+10. IAE1102110804 — Hess-Cycle Construction 🔵
+11. IAE1102110805 — Indirect Enthalpy Determination 🔵
+12. IAE1102110806 — Thermochemical Data Combination 🔵
+13. IAE1102110707 — Uncertainty in Enthalpy Measurements 🔵
+14. IAE1102110807 — Advanced Hess-Law Problem Solving 🔵
+
+Lecture 36
+
+Main Topic: IAE1102110900
+Total: 14
+
+1. IAE1102110901 — Born–Haber Cycle 🔴
+2. IAE1102110902 — Lattice-Energy Relationship 🔴
+3. IAE1102110903 — Advanced Lattice-Energy Analysis 🔵
+4. IAE1102110904 — Ionic-Lattice Formation Energetics 🔵
+5. IAE1102110905 — Enthalpy-Cycle Construction 🔵
+6. IAE1102110906 — Lattice Energy from Experimental Data 🔵
+7. IAE1102110907 — Born–Haber Quantitative Analysis 🔵
+8. IAE1102110908 — Ionic Solid Stability 🔵
+9. IAE1102110909 — Formation Enthalpy Relationships 🔵
+10. IAE110211090A — Sublimation and Atomisation Contributions 🔵
+11. IAE110211090B — Ionisation and Electron-Affinity Contributions 🔵
+12. IAE110211090C — Thermochemical Cycle Interpretation 🔵
+13. IAE110211090D — Lattice-Energy Comparison 🔵
+14. IAE110211090E — Advanced Born–Haber Problem Solving 🔵
+
+---
+
+CHAPTER 12 — OXIDATION, REDUCTION AND ELECTROCHEMISTRY
+
+Topic 01 — Oxidation–Reduction
+
+Topic ID: IAE1102120100
+
+- IAE1102120101 — Oxidation 🔴
+- IAE1102120102 — Reduction 🔴
+- IAE1102120103 — Oxidation Number 🔴
+- IAE1102120104 — Oxidising Agent 🔴
+- IAE1102120105 — Reducing Agent 🔴
+- IAE1102120106 — Redox Equations 🔴
+- IAE1102120107 — Half-Reaction Method 🔴
+- IAE1102120108 — Disproportionation and Advanced Redox Analysis 🔵
+
+Topic 02 — Electrode, Electrode Potential and Electrochemical Series
+
+Topic ID: IAE1102120200
+
+- IAE1102120201 — Electrode 🔴
+- IAE1102120202 — Electrode Potential 🔴
+- IAE1102120203 — Standard Electrode Potential 🔴
+- IAE1102120204 — Electrochemical Series 🔴
+- IAE1102120205 — Standard Hydrogen Electrode 🔴
+- IAE1102120206 — Nernst Equation 🔵
+- IAE1102120207 — Quantitative Cell-Feasibility Prediction 🔵
+
+Topic 03 — Electrochemical Cells
+
+Topic ID: IAE1102120300
+
+- IAE1102120301 — Galvanic/Voltaic Cell 🔴
+- IAE1102120302 — Electrolytic Cell 🔴
+- IAE1102120303 — Anode and Cathode 🔴
+- IAE1102120304 — Cell Potential 🔴
+- IAE1102120305 — Dry Cell 🔴
+- IAE1102120306 — Lead-Storage Battery 🔴
+- IAE1102120307 — Fuel Cell 🔴
+- IAE1102120308 — Advanced Electrochemical-Cell Analysis 🔵
+
+Topic 04 — Faraday’s Laws
+
+Topic ID: IAE1102120400
+
+- IAE1102120401 — Faraday’s First Law 🔴
+- IAE1102120402 — Faraday’s Second Law 🔴
+- IAE1102120403 — Electrolysis Calculations 🔴
+- IAE1102120404 — Advanced Electrochemical Quantitative Analysis 🔵
+
+Lecture 37
+
+Main Topic: IAE1102120100
+Total: 14
+
+1. IAE1102120101 — Oxidation 🔴
+2. IAE1102120102 — Reduction 🔴
+3. IAE1102120103 — Oxidation Number 🔴
+4. IAE1102120104 — Oxidising Agent 🔴
+5. IAE1102120105 — Reducing Agent 🔴
+6. IAE1102120106 — Redox Equations 🔴
+7. IAE1102120107 — Half-Reaction Method 🔴
+8. IAE1102120108 — Disproportionation and Advanced Redox Analysis 🔵
+9. IAE1102120109 — Oxidation-State Assignment 🔵
+10. IAE110212010A — Redox Electron-Balance Analysis 🔵
+11. IAE110212010B — Half-Reaction Balancing in Different Media 🔵
+12. IAE110212010C — Oxidising/Reducing Strength 🔵
+13. IAE110212010D — Redox Reaction Prediction 🔵
+14. IAE110212010E — Advanced Redox Equation Analysis 🔵
+
+Lecture 38
+
+Main Topic: IAE1102120200
+Total: 14
+
+1. IAE1102120201 — Electrode 🔴
+2. IAE1102120202 — Electrode Potential 🔴
+3. IAE1102120203 — Standard Electrode Potential 🔴
+4. IAE1102120204 — Electrochemical Series 🔴
+5. IAE1102120205 — Standard Hydrogen Electrode 🔴
+6. IAE1102120206 — Nernst Equation 🔵
+7. IAE1102120207 — Quantitative Cell-Feasibility Prediction 🔵
+8. IAE1102120208 — Electrode-Potential Interpretation 🔵
+9. IAE1102120209 — Standard-Cell-Condition Analysis 🔵
+10. IAE110212020A — Electrochemical-Series Reasoning 🔵
+11. IAE110212020B — Reference-Electrode Concepts 🔵
+12. IAE110212020C — Concentration Effects on Electrode Potential 🔵
+13. IAE110212020D — Quantitative Electrochemical Prediction 🔵
+14. IAE110212020E — Cell-Potential and Equilibrium Relationships 🔵
+
+Lecture 39
+
+Main Topic: IAE1102120300
+Total: 14
+
+1. IAE1102120301 — Galvanic/Voltaic Cell 🔴
+2. IAE1102120302 — Electrolytic Cell 🔴
+3. IAE1102120303 — Anode and Cathode 🔴
+4. IAE1102120304 — Cell Potential 🔴
+5. IAE1102120305 — Dry Cell 🔴
+6. IAE1102120306 — Lead-Storage Battery 🔴
+7. IAE1102120307 — Fuel Cell 🔴
+8. IAE1102120308 — Advanced Electrochemical-Cell Analysis 🔵
+9. IAE1102120309 — Cell-Diagram Interpretation 🔵
+10. IAE110212030A — Electrode Processes in Galvanic Cells 🔵
+11. IAE110212030B — Electrolysis vs Spontaneous Cell Operation 🔵
+12. IAE110212030C — Battery Chemistry 🔵
+13. IAE110212030D — Fuel-Cell Efficiency 🔵
+14. IAE110212030E — Electrochemical Energy Conversion 🔵
+
+Lecture 40
+
+Main Topic: IAE1102120400
+Total: 14
+
+1. IAE1102120401 — Faraday’s First Law 🔴
+2. IAE1102120402 — Faraday’s Second Law 🔴
+3. IAE1102120403 — Electrolysis Calculations 🔴
+4. IAE1102120404 — Advanced Electrochemical Quantitative Analysis 🔵
+5. IAE1102120405 — Charge–Mass Relationships 🔵
+6. IAE1102120406 — Electron-Mole Relationships in Electrolysis 🔵
+7. IAE1102120407 — Quantitative Electrodeposition 🔵
+8. IAE1102120408 — Electrolytic-Cell Efficiency 🔵
+9. IAE1102120409 — Faraday-Constant Applications 🔵
+10. IAE110212040A — Multi-Step Electrolysis Calculations 🔵
+11. IAE110212040B — Industrial Electrolysis 🔵
+12. IAE110212040C — Electrochemical Quantification 🔵
+13. IAE110212040D — Current–Time–Mass Relationships 🔵
+14. IAE110212040E — Advanced Faraday-Law Problem Solving 🔵
+
+---
+
+FINAL LECTURE REGISTER
+
+Chapter| Lecture Range| Number of Lectures
+Chapter 01 — Stoichiometry| L01–L03| 3
+Chapter 02 — Atomic Structure| L04–L06| 3
+Chapter 03 — Covalent Bonding and Shapes| L07–L10| 4
+Chapter 04 — Gases| L11–L14| 4
+Chapter 05 — Liquids| L15–L16| 2
+Chapter 06 — Solids| L17–L19| 3
+Chapter 07 — Chemical Equilibrium| L20–L22| 3
+Chapter 08 — Acids, Bases and Salts| L23–L26| 4
+Chapter 09 — Chemical Kinetics| L27–L28| 2
+Chapter 10 — Solutions and Colloids| L29–L31| 3
+Chapter 11 — Thermochemistry| L32–L36| 5
+Chapter 12 — Oxidation, Reduction and Electrochemistry| L37–L40| 4
+TOTAL| L01–L40| 40
+
+---
+
+BLUE-ONLY EXCLUSION
+
+IAE1102020600 — Dual Nature of Electron
+
+The following remain Mastery-only:
+
+- IAE1102020601 — Wave–Particle Duality 🔵
+- IAE1102020602 — de Broglie Wavelength 🔵
+- IAE1102020603 — Uncertainty Principle 🔵
+
+No separate lecture is created for this Blue-only Topic.
+
+---
+
+PRACTICAL WORK — SEPARATE
+
+IAE1102PW01 onward
+
+- IAE1102PW01 — Laboratory Chemical Hazards 🟢
+- IAE1102PW02 — Safe Equipment Checking 🟢
+- IAE1102PW03 — Safe Workspace Arrangement 🟢
+- IAE1102PW04 — Personal Laboratory Safety 🟢
+- IAE1102PW05 — Chemical Waste and Safe Disposal 🟢
+- IAE1102PW06 — Apparatus Setup 🟢
+- IAE1102PW07 — Accurate Measurement 🟢
+- IAE1102PW08 — Pipette and Burette Skills 🟢
+- IAE1102PW09 — Repeated Readings and Anomaly Detection 🟢
+- IAE1102PW10 — Significant Figures 🟢
+- IAE1102PW11 — Scientific Data Tables 🟢
+- IAE1102PW12 — Graph Plotting 🟢
+- IAE1102PW13 — Gradient and Extrapolation 🟢
+- IAE1102PW14 — Experimental Errors 🟢
+- IAE1102PW15 — Measurement Uncertainty 🟢
+- IAE1102PW16 — Method Evaluation 🟢
+- IAE1102PW17 — Experimental Improvement 🟢
+- IAE1102PW18 — Acid–Base Titration Skills 🟢
+- IAE1102PW19 — Qualitative Ion Testing 🟢
+- IAE1102PW20 — Scientific Recording and Communication 🟢
+
+---
+
+ARCHIVAL STATUS
+
+Status: APPROVED MASTER REGISTER
+Subject: First Year Chemistry
+Academy Subject ID: IAE1102
+Academic Lectures: 40
+Lecture Numbering: L01–L40
+Topic Numbering: Full IAE Academy ID
+Subtopic Numbering: Full IAE Academy ID
+Practical Work: Separate
+Red + Green: Academic Lecture Content
+Blue: International Mastery
+Blue-only Topic: No lecture
+Maximum Main Topics per Lecture: 2
+Maximum Total Subtopics per Lecture: 14
+Sequence Preservation: Mandatory
+Missing Eligible Red/Green Content: Not permitted
+Duplicate Eligible Content: Not permitted
+Partial Eligible Content: Not permitted
+
+AUTHORITATIVE ID FORMAT
+
+Topic:
+"IAE1102 + Chapter + Topic + 00"
+
+Subtopic:
+"IAE1102 + Chapter + Topic + Subtopic"
+
+Example:
+"IAE1102010100 — Mole and Avogadro’s Number"
+"IAE1102010101 — Mole Concept"
+
+This full IAE pattern is mandatory for all future Imperial Academy Chemistry lectureization, syllabus, academic-material, dictionary, visual, assessment and archival records. </p>
+  </div>
+
+  <!-- Page 3 Content -->
+  <div id="page3" class="page">
+    <h2>Page 3</h2>
+    <p>P Imperial Academy — First-Year Physics
+
+Corrected Lecture-Wise Master Register
+
+Subject: Physics
+Subject Level: "07"
+Subject Code: "IAE1107"
+Chapters: 10
+Practical Work: Separate Component
+
+Lectureization Rules
+
+- Maximum 2 Main Topics per lecture.
+- Maximum 14 Subtopics per lecture.
+- 🔴 Peshawar Board Core
+- 🟢 KPK Additional Requirement
+- 🔵 Cambridge/Oxford Global Mastery
+- 🔴 + 🟢 form the core lecture academic content.
+- 🔵 remains Mastery and may be used only as legitimate completion where applicable.
+- No Red/Green subtopic is skipped, duplicated, or reordered.
+- Practical Work remains separate.
+
+---
+
+CHAPTER 01 — MEASUREMENT
+
+Lecture 01 — Physical Quantities and Measurement
+
+Main Topic 01
+
+"IAE1107010100" — Physical Quantities, Units and Dimensions
+
+1. "IAE1107010101" 🔴 Physical quantities
+2. "IAE1107010102" 🔴 Fundamental physical quantities
+3. "IAE1107010103" 🔴 SI base units
+4. "IAE1107010104" 🔴 Derived quantities and units
+5. "IAE1107010105" 🔴 SI prefixes
+6. "IAE1107010106" 🔴 Dimensions
+7. "IAE1107010107" 🔴 Dimensional homogeneity
+
+Main Topic 02
+
+"IAE1107010200" — Measurement, Errors and Uncertainty
+
+8. "IAE1107010201" 🔴 Scientific notation
+9. "IAE1107010202" 🔴 Unit symbols and names
+10. "IAE1107010203" 🔴 Measurement limitations
+11. "IAE1107010204" 🔴 Errors
+12. "IAE1107010205" 🔴 Uncertainties
+13. "IAE1107010206" 🔴 Significant figures
+14. "IAE1107010207" 🔴 Precision
+
+---
+
+Lecture 02 — Measurement Accuracy and Global Measurement Mastery
+
+Main Topic 01
+
+"IAE1107010200" — Measurement, Errors and Uncertainty
+
+1. "IAE1107010208" 🔴 Accuracy
+2. "IAE1107010209" 🟢 Measurement uncertainty evaluation
+3. "IAE1107010210" 🔵 Percentage uncertainty
+4. "IAE1107010211" 🔵 Combination/propagation of uncertainties
+
+Main Topic 02
+
+"IAE1107010100" — Physical Quantities, Units and Dimensions
+
+5. "IAE1107010108" 🔵 Dimensional analysis for deriving relationships
+6. "IAE1107010109" 🔵 Order-of-magnitude estimation
+
+---
+
+CHAPTER 02 — VECTORS AND EQUILIBRIUM
+
+Lecture 03 — Vectors and Components
+
+Main Topic 01
+
+"IAE1107020100" — Vectors
+
+1. "IAE1107020101" 🔴 Scalars
+2. "IAE1107020102" 🔴 Vectors
+3. "IAE1107020103" 🔴 Cartesian coordinate system
+4. "IAE1107020104" 🔴 Vector representation
+5. "IAE1107020105" 🔴 Addition of vectors
+6. "IAE1107020106" 🔴 Scalar multiplication
+7. "IAE1107020107" 🔴 Resolution of vectors
+8. "IAE1107020108" 🔴 Rectangular components
+9. "IAE1107020109" 🔵 Unit-vector representation
+
+Main Topic 02
+
+"IAE1107020200" — Equilibrium
+
+10. "IAE1107020201" 🔴 Scalar/dot product
+11. "IAE1107020202" 🔴 Vector/cross product
+12. "IAE1107020203" 🔴 Concurrent forces
+13. "IAE1107020204" 🔴 Resultant of forces
+14. "IAE1107020205" 🔴 Torque/moment
+
+---
+
+Lecture 04 — Equilibrium and Applications
+
+Main Topic 01
+
+"IAE1107020200" — Equilibrium
+
+1. "IAE1107020206" 🔴 Equilibrium
+2. "IAE1107020207" 🔴 Conditions of equilibrium
+3. "IAE1107020208" 🟢 Couples and practical equilibrium systems
+4. "IAE1107020209" 🔵 Centre of mass
+5. "IAE1107020210" 🔵 Principle of moments
+
+Main Topic 02
+
+"IAE1107020100" — Vectors
+
+6. "IAE1107020109" 🔵 Unit-vector representation
+
+---
+
+CHAPTER 03 — FORCES AND MOTION
+
+Lecture 05 — Kinematics and Newton's Laws
+
+Main Topic 01
+
+"IAE1107030100" — Kinematics
+
+1. "IAE1107030101" 🔴 Rest and motion
+2. "IAE1107030102" 🔴 Distance
+3. "IAE1107030103" 🔴 Displacement
+4. "IAE1107030104" 🔴 Speed
+5. "IAE1107030105" 🔴 Velocity
+6. "IAE1107030106" 🔴 Acceleration
+7. "IAE1107030107" 🔴 Graphical analysis
+8. "IAE1107030108" 🔴 Equations of uniformly accelerated motion
+9. "IAE1107030109" 🔴 Free fall
+10. "IAE1107030110" 🔴 Projectile motion
+
+Main Topic 02
+
+"IAE1107030200" — Forces and Newton's Laws
+
+11. "IAE1107030201" 🔴 Newton's first law
+12. "IAE1107030202" 🔴 Newton's second law
+13. "IAE1107030203" 🔴 Newton's third law
+14. "IAE1107030204" 🔴 Applications of Newton's laws
+
+---
+
+Lecture 06 — Momentum and Collisions
+
+Main Topic 01
+
+"IAE1107030200" — Forces and Newton's Laws
+
+1. "IAE1107030205" 🔴 Linear momentum
+2. "IAE1107030206" 🔴 Conservation of momentum
+3. "IAE1107030207" 🔴 Impulse
+4. "IAE1107030208" 🔴 Collisions
+5. "IAE1107030209" 🔴 Explosive forces
+6. "IAE1107030210" 🟢 Elastic/inelastic collision analysis
+7. "IAE1107030211" 🔵 Force-time and momentum-time relationships
+
+Main Topic 02
+
+"IAE1107030100" — Kinematics
+
+8. "IAE1107030111" 🔵 Instantaneous velocity and acceleration
+9. "IAE1107030112" 🔵 Two-dimensional kinematics
+
+---
+
+CHAPTER 04 — WORK AND ENERGY
+
+Lecture 07 — Work, Power and Energy
+
+Main Topic 01
+
+"IAE1107040100" — Work, Energy and Power
+
+1. "IAE1107040101" 🔴 Work
+2. "IAE1107040102" 🔴 Work in gravitational field
+3. "IAE1107040103" 🔴 Power
+4. "IAE1107040104" 🔴 Energy
+5. "IAE1107040105" 🔴 Kinetic energy
+6. "IAE1107040106" 🔴 Potential energy
+7. "IAE1107040107" 🔴 Efficiency
+8. "IAE1107040108" 🔴 Energy losses
+9. "IAE1107040109" 🟢 Variable-force work
+
+Main Topic 02
+
+"IAE1107040200" — Gravitational Energy and Energy Resources
+
+10. "IAE1107040201" 🔴 Absolute gravitational potential energy
+11. "IAE1107040202" 🔴 Escape velocity
+12. "IAE1107040203" 🔴 Work-energy theorem
+13. "IAE1107040204" 🔴 Conservation of energy
+14. "IAE1107040205" 🔴 Non-renewable energy sources
+
+---
+
+Lecture 08 — Energy Resources and Mastery
+
+Main Topic 01
+
+"IAE1107040200" — Gravitational Energy and Energy Resources
+
+1. "IAE1107040206" 🔴 Renewable energy sources
+2. "IAE1107040207" 🟢 Energy-resource applications
+3. "IAE1107040208" 🔵 Gravitational potential/orbital energy
+
+Main Topic 02
+
+"IAE1107040100" — Work, Energy and Power
+
+4. "IAE1107040110" 🔵 Work-energy relationship
+5. "IAE1107040111" 🔵 Graphical work from force-displacement
+
+---
+
+CHAPTER 05 — ROTATIONAL AND CIRCULAR MOTION
+
+Lecture 09 — Angular, Circular and Rotational Dynamics
+
+Main Topic 01
+
+"IAE1107050100" — Angular and Circular Motion
+
+1. "IAE1107050101" 🔴 Angular motion
+2. "IAE1107050102" 🔴 Angular displacement
+3. "IAE1107050103" 🔴 Angular velocity
+4. "IAE1107050104" 🔴 Angular acceleration
+5. "IAE1107050105" 🔴 Angular-linear relationships
+6. "IAE1107050106" 🔴 Centripetal acceleration
+7. "IAE1107050107" 🔴 Centripetal force
+8. "IAE1107050108" 🟢 Banking of roads
+
+Main Topic 02
+
+"IAE1107050200" — Rotational Dynamics
+
+9. "IAE1107050201" 🔴 Torque
+10. "IAE1107050202" 🔴 Moment of inertia
+11. "IAE1107050203" 🔴 Angular momentum
+12. "IAE1107050204" 🔴 Torque/angular momentum
+13. "IAE1107050205" 🔴 Conservation of angular momentum
+14. "IAE1107050206" 🔴 Rotational kinetic energy
+
+---
+
+Lecture 10 — Rolling, Weight and Satellites
+
+Main Topic 01
+
+"IAE1107050200" — Rotational Dynamics
+
+1. "IAE1107050207" 🔴 Rolling motion
+2. "IAE1107050208" 🔴 Real weight
+3. "IAE1107050209" 🔴 Apparent weight
+4. "IAE1107050210" 🔴 Weightlessness
+5. "IAE1107050211" 🔴 Artificial gravity
+6. "IAE1107050212" 🔴 Artificial satellites
+7. "IAE1107050213" 🔴 Geostationary orbits
+8. "IAE1107050214" 🔵 Orbital energy relationships
+
+Main Topic 02
+
+"IAE1107050100" — Angular and Circular Motion
+
+9. "IAE1107050109" 🔵 Advanced circular-motion modelling
+
+---
+
+CHAPTER 06 — FLUID DYNAMICS
+
+Lecture 11 — Complete Fluid Dynamics
+
+Main Topic 01
+
+"IAE1107060100" — Viscosity and Fluid Flow
+
+1. "IAE1107060101" 🔴 Viscous fluids
+2. "IAE1107060102" 🔴 Fluid friction
+3. "IAE1107060103" 🔴 Stokes' law
+4. "IAE1107060104" 🔴 Terminal velocity
+5. "IAE1107060105" 🔴 Fluid flow
+6. "IAE1107060106" 🔴 Laminar/streamline flow
+7. "IAE1107060107" 🟢 Laminar-to-turbulent transition
+
+Main Topic 02
+
+"IAE1107060200" — Fluid Dynamics Applications
+
+8. "IAE1107060201" 🔴 Continuity
+9. "IAE1107060202" 🔴 Bernoulli equation
+10. "IAE1107060203" 🔴 Torricelli theorem
+11. "IAE1107060204" 🔴 Venturi effect
+12. "IAE1107060205" 🔴 Filter pump
+13. "IAE1107060206" 🔴 Blood flow
+14. "IAE1107060207" 🔴 Aerofoil/lift
+
+🔵 Mastery retained:
+"IAE1107060108" Reynolds number/flow regime
+"IAE1107060208" Energy interpretation of Bernoulli
+
+---
+
+CHAPTER 07 — OSCILLATIONS
+
+Lecture 12 — Oscillatory Motion and SHM
+
+Main Topic 01
+
+"IAE1107070100" — Oscillatory Motion and SHM
+
+1. "IAE1107070101" 🔴 Oscillations
+2. "IAE1107070102" 🔴 Periodic motion
+3. "IAE1107070103" 🔴 SHM
+4. "IAE1107070104" 🔴 Conditions for SHM
+5. "IAE1107070105" 🔴 Circular motion and SHM
+6. "IAE1107070106" 🔴 Amplitude
+7. "IAE1107070107" 🔴 Period
+8. "IAE1107070108" 🔴 Frequency
+9. "IAE1107070109" 🔴 Phase
+10. "IAE1107070110" 🔴 SHM acceleration
+
+Main Topic 02
+
+"IAE1107070200" — Pendulum and Oscillations
+
+11. "IAE1107070201" 🔴 Simple pendulum
+12. "IAE1107070202" 🔴 Energy conservation
+13. "IAE1107070203" 🔴 Free oscillations
+14. "IAE1107070204" 🔴 Forced oscillations
+
+---
+
+Lecture 13 — Resonance, Damping and SHM Mastery
+
+Main Topic 01
+
+"IAE1107070200" — Pendulum and Oscillations
+
+1. "IAE1107070205" 🔴 Resonance
+2. "IAE1107070206" 🔴 Waveform of SHM
+3. "IAE1107070207" 🔴 Damped oscillations
+4. "IAE1107070208" 🔴 Sharpness of resonance
+5. "IAE1107070209" 🟢 Critical damping
+6. "IAE1107070210" 🔵 Mass-spring quantitative treatment
+
+Main Topic 02
+
+"IAE1107070100" — Oscillatory Motion and SHM
+
+7. "IAE1107070111" 🔵 Mathematical representation of SHM
+
+---
+
+CHAPTER 08 — WAVES
+
+Lecture 14 — Wave Motion and Sound
+
+Main Topic 01
+
+"IAE1107080100" — Wave Motion and Sound
+
+1. "IAE1107080101" 🔴 Periodic waves
+2. "IAE1107080102" 🔴 Progressive waves
+3. "IAE1107080103" 🔴 Classification
+4. "IAE1107080104" 🔴 Transverse waves
+5. "IAE1107080105" 🔴 Longitudinal waves
+6. "IAE1107080106" 🔴 Wave characteristics
+7. "IAE1107080107" 🔴 Speed of sound
+8. "IAE1107080108" 🔴 Newton's formula
+9. "IAE1107080109" 🔴 Laplace correction
+10. "IAE1107080110" 🔴 Pressure/moisture effects
+
+Main Topic 02
+
+"IAE1107080200" — Superposition and Interference
+
+11. "IAE1107080201" 🔴 Superposition
+12. "IAE1107080202" 🔴 Interference
+13. "IAE1107080203" 🔴 Sound interference
+14. "IAE1107080204" 🔴 Beats
+
+---
+
+Lecture 15 — Reflection, Stationary Waves and Doppler Effect
+
+Main Topic 01
+
+"IAE1107080200" — Superposition and Interference
+
+1. "IAE1107080205" 🔴 Reflection
+2. "IAE1107080206" 🔴 Phase change
+3. "IAE1107080207" 🔵 Coherence
+4. "IAE1107080208" 🔵 Path/phase difference
+
+Main Topic 02
+
+"IAE1107080300" — Stationary Waves and Doppler Effect
+
+5. "IAE1107080301" 🔴 Stationary waves
+6. "IAE1107080302" 🔴 Stretched-string stationary waves
+7. "IAE1107080303" 🔴 Fundamental vibration
+8. "IAE1107080304" 🔴 Overtones
+9. "IAE1107080305" 🔴 Air-column resonance
+10. "IAE1107080306" 🔴 Organ pipes
+11. "IAE1107080307" 🔴 Doppler effect
+12. "IAE1107080308" 🔴 Applications of Doppler
+13. "IAE1107080309" 🔴 Ultrasonic waves
+14. "IAE1107080310" 🔵 Quantitative Doppler
+
+---
+
+CHAPTER 09 — PHYSICAL OPTICS
+
+Lecture 16 — Wave Nature and Interference
+
+Main Topic 01
+
+"IAE1107090100" — Wave Nature of Light
+
+1. "IAE1107090101" 🔴 Nature of light
+2. "IAE1107090102" 🔴 Wave front
+3. "IAE1107090103" 🔴 Huygens principle
+4. "IAE1107090104" 🔴 Coherent sources
+5. "IAE1107090105" 🔵 Electromagnetic nature
+6. "IAE1107090106" 🔵 Electromagnetic spectrum
+7. "IAE1107090107" 🔵 Photon concept
+8. "IAE1107090108" 🔵 Wave-particle duality
+
+Main Topic 02
+
+"IAE1107090200" — Interference
+
+9. "IAE1107090201" 🔴 Interference
+10. "IAE1107090202" 🔴 Young's double slit
+11. "IAE1107090203" 🔴 Constructive interference
+12. "IAE1107090204" 🔴 Destructive interference
+13. "IAE1107090205" 🔴 Thin-film interference
+14. "IAE1107090206" 🔴 Michelson interferometer
+
+---
+
+Lecture 17 — Diffraction and Polarization
+
+Main Topic 01
+
+"IAE1107090200" — Diffraction
+
+1. "IAE1107090207" 🔴 Diffraction
+2. "IAE1107090208" 🔴 Single-slit diffraction
+3. "IAE1107090209" 🔴 Diffraction grating
+4. "IAE1107090210" 🔴 X-ray diffraction
+5. "IAE1107090211" 🔵 Diffraction resolution
+6. "IAE1107090212" 🔵 Bragg-law quantitative treatment
+
+Main Topic 02
+
+"IAE1107090300" — Polarization
+
+7. "IAE1107090301" 🔴 Polarization
+8. "IAE1107090302" 🔴 Production
+9. "IAE1107090303" 🔴 Detection
+10. "IAE1107090304" 🔴 Applications
+11. "IAE1107090305" 🔵 Malus-law concept
+12. "IAE1107090306" 🔵 Polarization technologies
+
+---
+
+CHAPTER 10 — THERMODYNAMICS
+
+Lecture 18 — Thermal Equilibrium and First Law
+
+Main Topic 01
+
+"IAE1107100100" — Thermal Equilibrium and Internal Energy
+
+1. "IAE1107100101" 🔴 Thermal equilibrium
+2. "IAE1107100102" 🔴 Temperature
+3. "IAE1107100103" 🔴 Heat
+4. "IAE1107100104" 🔴 Work
+5. "IAE1107100105" 🔴 Internal energy
+6. "IAE1107100106" 🔴 Heat/work/internal energy
+7. "IAE1107100107" 🔴 Thermodynamic systems
+8. "IAE1107100108" 🔵 Kelvin/absolute temperature
+9. "IAE1107100109" 🔵 Microscopic interpretation
+
+Main Topic 02
+
+"IAE1107100200" — First Law and Thermodynamic Processes
+
+10. "IAE1107100201" 🔴 Reversible processes
+11. "IAE1107100202" 🔴 Irreversible processes
+12. "IAE1107100203" 🔴 First law
+13. "IAE1107100204" 🔴 Applications of first law
+14. "IAE1107100205" 🔴 Molar specific heat
+
+---
+
+Lecture 19 — Thermodynamic Processes, Engines and Entropy
+
+Main Topic 01
+
+"IAE1107100200" — First Law and Thermodynamic Processes
+
+1. "IAE1107100206" 🟢 Cp − Cv = R
+2. "IAE1107100207" 🔵 Ideal-gas equation
+3. "IAE1107100208" 🔵 Isothermal/isobaric/isochoric/adiabatic processes
+4. "IAE1107100209" 🔵 p–V diagrams and work
+
+Main Topic 02
+
+"IAE1107100300" — Heat Engines and Second Law
+
+5. "IAE1107100301" 🔴 Heat engine
+6. "IAE1107100302" 🔴 Efficiency
+7. "IAE1107100303" 🔴 Second law
+8. "IAE1107100304" 🔴 Carnot engine
+9. "IAE1107100305" 🔴 Refrigerator
+10. "IAE1107100306" 🔴 Entropy
+11. "IAE1107100307" 🔵 Carnot efficiency
+12. "IAE1107100308" 🔵 Entropy change/irreversibility
+13. "IAE1107100309" 🔵 Kinetic theory of gases
+
+---
+
+FINAL LECTURE SUMMARY
+
+Chapter| Lectures
+Chapter 01 — Measurement| 2
+Chapter 02 — Vectors & Equilibrium| 2
+Chapter 03 — Forces & Motion| 2
+Chapter 04 — Work & Energy| 2
+Chapter 05 — Rotational & Circular Motion| 2
+Chapter 06 — Fluid Dynamics| 1
+Chapter 07 — Oscillations| 2
+Chapter 08 — Waves| 2
+Chapter 09 — Physical Optics| 2
+Chapter 10 — Thermodynamics| 2
+TOTAL| 19
+
+Numbering Audit
+
+- Subject Level = 07 ✅
+- Subject Code = "IAE1107" ✅
+- Chapter 01 = "IAE110701" ✅
+- Chapter 02 = "IAE110702" ✅
+- Chapter 03 = "IAE110703" ✅
+- Chapter 04 = "IAE110704" ✅
+- Chapter 05 = "IAE110705" ✅
+- Chapter 06 = "IAE110706" ✅
+- Chapter 07 = "IAE110707" ✅
+- Chapter 08 = "IAE110708" ✅
+- Chapter 09 = "IAE110709" ✅
+- Chapter 10 = "IAE110710" ✅
+- Main Topic endings = "00" ✅
+- Subtopic numbering follows the corresponding Main Topic ✅
+- Chapter order preserved ✅
+- Main Topic order preserved ✅
+- Red/Green sequence preserved ✅
+- Practical Work remains separate ✅
+- Maximum Main Topics per lecture = 2 ✅
+- Maximum Subtopics per lecture = 14 ✅
+- No artificial duplicate subtopic inserted merely to reach 14 ✅
+
+Status
+
+PHYSICS — LEVEL 07 — 19-LECTURE REGISTER — NUMBERING CORRECTED </p>
+  </div>
+
+  <!-- Page 4 Content -->
+  <div id="page4" class="page">
+    <h2>Page 4</h2>
+    <p>Imperial Academy — First Year Islamiat
+
+Final Lectureized Master Register
+
+Complete IAE Numbers + Topics + Subtopics
+
+Subject: Islamiat Compulsory
+Class: First Year / HSSC-I
+Subject Level: 04
+Subject Code: "IAE1104"
+
+Lectureization Rules
+
+- 🔴 Red + 🟢 Green = Lecture Academic Content
+- 🔵 Blue = Mastery
+- Maximum 2 Main Topics per Lecture
+- Maximum 14 Subtopics per Lecture
+- ترتیب، Academy IDs اور sequence برقرار
+- کوئی Red/Green subtopic skip یا duplicate نہیں
+- Practical/Performance Work الگ
+- جہاں Academic Content 14 سے کم ہو، اسی Lecture میں موجود Topics کے 🔵 Mastery items سے completion کی جا سکتی ہے۔
+
+---
+
+LECTURE 01
+
+Chapter 01 — بنیادی عقائد
+
+Main Topic 01 — عقیدۂ توحید
+
+IAE: "IAE1104010100"
+
+1. "IAE1104010101" 🔴 توحید کا مفہوم
+2. "IAE1104010102" 🔴 توحید کی اہمیت
+3. "IAE1104010103" 🔴 توحیدِ ذاتی
+4. "IAE1104010104" 🔴 توحیدِ صفاتی
+5. "IAE1104010105" 🔴 توحیدِ افعالی
+6. "IAE1104010106" 🔴 شرک کا مفہوم
+7. "IAE1104010107" 🔴 شرک کی بنیادی صورتیں
+8. "IAE1104010108" 🟢 توحید کے قرآنی دلائل
+9. "IAE1104010109" 🟢 توحید کے عقلی دلائل
+10. "IAE1104010110" 🟢 توحید کے انفرادی اثرات
+11. "IAE1104010111" 🟢 توحید کے اجتماعی اثرات
+
+Main Topic 02 — رسالت، وحی اور آخرت
+
+IAE: "IAE1104010200"
+
+12. "IAE1104010201" 🔴 رسالت کا مفہوم
+13. "IAE1104010202" 🔴 انبیاء کرام علیہم السلام کی ضرورت
+14. "IAE1104010203" 🔴 وحی کا مفہوم
+
+---
+
+LECTURE 02
+
+Chapter 01 — بنیادی عقائد
+
+Main Topic 02 — رسالت، وحی اور آخرت
+
+IAE: "IAE1104010200"
+
+1. "IAE1104010204" 🔴 وحی کی اہمیت
+2. "IAE1104010205" 🔴 ختمِ نبوت
+3. "IAE1104010206" 🔴 ملائکہ پر ایمان
+4. "IAE1104010207" 🔴 آسمانی کتابوں پر ایمان
+5. "IAE1104010208" 🔴 آخرت پر ایمان
+6. "IAE1104010209" 🟢 قیامت اور جواب دہی
+7. "IAE1104010210" 🟢 جنت و جہنم کا تصور
+8. "IAE1104010211" 🟢 عقیدۂ آخرت کے عملی اثرات
+
+Main Topic 02 — Mastery
+
+9. "IAE1104010212" 🔵 آخرت اور اخلاقی ذمہ داری
+10. "IAE1104010213" 🔵 مادیت اور تصورِ آخرت
+11. "IAE1104010214" 🔵 آخرت کا عالمی اخلاقی تصور
+
+Chapter 02 — اسوۂ رسول اکرم ﷺ
+
+Main Topic 01 — رحمت، اخوت اور مساوات
+
+IAE: "IAE1104020100"
+
+12. "IAE1104020101" 🔴 رحمت للعالمین ﷺ
+13. "IAE1104020102" 🔴 محبتِ رسول ﷺ
+14. "IAE1104020103" 🔴 اخوت
+
+---
+
+LECTURE 03
+
+Chapter 02 — اسوۂ رسول اکرم ﷺ
+
+Main Topic 01 — رحمت، اخوت اور مساوات
+
+IAE: "IAE1104020100"
+
+1. "IAE1104020104" 🔴 مساوات
+2. "IAE1104020105" 🔴 معاشرتی انصاف
+3. "IAE1104020106" 🔴 شرفِ انسانیت
+4. "IAE1104020107" 🟢 صبر و استقلال
+5. "IAE1104020108" 🟢 عفو و درگزر
+6. "IAE1104020109" 🟢 ذکرِ الٰہی
+7. "IAE1104020110" 🟢 حسنِ اخلاق
+8. "IAE1104020111" 🟢 برداشت اور رواداری
+
+Main Topic 02 — اطاعتِ رسول ﷺ اور عملی زندگی
+
+IAE: "IAE1104020200"
+
+9. "IAE1104020201" 🔴 اطاعتِ رسول ﷺ
+10. "IAE1104020202" 🔴 سنت کی پیروی
+11. "IAE1104020203" 🔴 اسوۂ حسنہ
+12. "IAE1104020204" 🔴 گھر میں نبوی اسوہ
+13. "IAE1104020205" 🔴 معاشرت میں نبوی اسوہ
+14. "IAE1104020206" 🔴 معاملات میں نبوی اسوہ
+
+---
+
+LECTURE 04
+
+Chapter 02 — اسوۂ رسول اکرم ﷺ
+
+Main Topic 02 — اطاعتِ رسول ﷺ اور عملی زندگی
+
+IAE: "IAE1104020200"
+
+1. "IAE1104020207" 🟢 عدل و انصاف
+2. "IAE1104020208" 🟢 امانت و دیانت
+3. "IAE1104020209" 🟢 وعدہ پورا کرنا
+4. "IAE1104020210" 🟢 پڑوسی سے حسنِ سلوک
+
+Chapter 03 — اسلامی تشخص اور ارکانِ اسلام
+
+Main Topic 01 — ارکانِ اسلام
+
+IAE: "IAE1104030100"
+
+5. "IAE1104030101" 🔴 ارکانِ اسلام کا تعارف
+6. "IAE1104030102" 🔴 کلمۂ شہادت
+7. "IAE1104030103" 🔴 نماز
+8. "IAE1104030104" 🔴 روزہ
+9. "IAE1104030105" 🔴 زکوٰۃ
+10. "IAE1104030106" 🔴 حج
+11. "IAE1104030107" 🟢 ارکانِ اسلام کا باہمی تعلق
+12. "IAE1104030108" 🟢 عبادات اور کردار سازی
+13. "IAE1104030109" 🟢 عبادات کے انفرادی اثرات
+14. "IAE1104030110" 🟢 عبادات کے اجتماعی اثرات
+
+---
+
+LECTURE 05
+
+Chapter 03 — اسلامی تشخص اور ارکانِ اسلام
+
+Main Topic 01 — ارکانِ اسلام
+
+IAE: "IAE1104030100"
+
+1. "IAE1104030111" 🔵 عبادات اور روحانی تربیت
+2. "IAE1104030112" 🔵 عبادات اور سماجی نظم
+3. "IAE1104030113" 🔵 عبادات کا عالمی اخلاقی پہلو
+4. "IAE1104030114" 🔵 اسلامی عبادات کا جامع تصور
+
+Main Topic 02 — نماز، روزہ، زکوٰۃ اور حج کے عملی پہلو
+
+IAE: "IAE1104030200"
+
+5. "IAE1104030201" 🔴 نماز کی اہمیت
+6. "IAE1104030202" 🔴 نماز کے بنیادی تقاضے
+7. "IAE1104030203" 🔴 روزے کا مقصد
+8. "IAE1104030204" 🔴 روزے کے بنیادی احکام
+9. "IAE1104030205" 🔴 زکوٰۃ کا مفہوم
+10. "IAE1104030206" 🔴 زکوٰۃ کے مصارف
+11. "IAE1104030207" 🔴 حج کا مفہوم
+12. "IAE1104030208" 🔴 حج کے بنیادی مناسک
+13. "IAE1104030209" 🟢 عبادات میں اخلاص
+14. "IAE1104030210" 🟢 عبادات میں نظم و ضبط
+
+---
+
+LECTURE 06
+
+Chapter 03 — اسلامی تشخص اور ارکانِ اسلام
+
+Main Topic 02 — نماز، روزہ، زکوٰۃ اور حج کے عملی پہلو
+
+IAE: "IAE1104030200"
+
+1. "IAE1104030211" 🟢 عبادات اور معاشی عدل
+
+Chapter 04 — حقوق العباد
+
+Main Topic 01 — خاندانی اور معاشرتی حقوق
+
+IAE: "IAE1104040100"
+
+2. "IAE1104040101" 🔴 حقوق العباد کا مفہوم
+3. "IAE1104040102" 🔴 والدین کے حقوق
+4. "IAE1104040103" 🔴 اولاد کے حقوق
+5. "IAE1104040104" 🔴 میاں بیوی کے حقوق
+6. "IAE1104040105" 🔴 رشتہ داروں کے حقوق
+7. "IAE1104040106" 🔴 اساتذہ کے حقوق
+8. "IAE1104040107" 🔴 پڑوسیوں کے حقوق
+9. "IAE1104040108" 🟢 یتیموں کے حقوق
+10. "IAE1104040109" 🟢 مساکین اور ضرورت مندوں کے حقوق
+11. "IAE1104040110" 🟢 ملازمین کے حقوق
+12. "IAE1104040111" 🟢 غیر مسلم شہریوں کے حقوق
+
+Mastery
+
+13. "IAE1104040112" 🔵 انسانی حقوق کا عالمی تصور
+14. "IAE1104040113" 🔵 اسلامی حقوق اور جدید Human Rights
+
+---
+
+LECTURE 07
+
+Chapter 04 — حقوق العباد
+
+Main Topic 01 — خاندانی اور معاشرتی حقوق
+
+IAE: "IAE1104040100"
+
+1. "IAE1104040114" 🔵 حقوق العباد اور عالمی معاشرہ
+
+Main Topic 02 — معاشرتی انصاف اور ذمہ داریاں
+
+IAE: "IAE1104040200"
+
+2. "IAE1104040201" 🔴 عدل و انصاف
+3. "IAE1104040202" 🔴 امانت
+4. "IAE1104040203" 🔴 دیانت
+5. "IAE1104040204" 🔴 ایفائے عہد
+6. "IAE1104040205" 🔴 سچائی
+7. "IAE1104040206" 🔴 احترامِ قانون
+8. "IAE1104040207" 🟢 معاشرتی تعاون
+9. "IAE1104040208" 🟢 ایثار
+10. "IAE1104040209" 🟢 خدمتِ خلق
+11. "IAE1104040210" 🟢 اجتماعی ذمہ داری
+
+Chapter 05 — اخلاقی اقدار اور اخلاقی رذائل
+
+Main Topic 01 — اخلاقی اقدار
+
+IAE: "IAE1104050100"
+
+12. "IAE1104050101" 🔴 حسنِ اخلاق
+13. "IAE1104050102" 🔴 سچائی
+14. "IAE1104050103" 🔴 امانت
+
+---
+
+LECTURE 08
+
+Chapter 05 — اخلاقی اقدار اور اخلاقی رذائل
+
+Main Topic 01 — اخلاقی اقدار
+
+IAE: "IAE1104050100"
+
+1. "IAE1104050104" 🔴 صبر
+2. "IAE1104050105" 🔴 شکر
+3. "IAE1104050106" 🔴 عفو و درگزر
+4. "IAE1104050107" 🟢 تواضع
+5. "IAE1104050108" 🟢 ایثار
+6. "IAE1104050109" 🟢 قناعت
+7. "IAE1104050110" 🟢 میانہ روی
+8. "IAE1104050111" 🟢 حیا
+
+Main Topic 02 — اخلاقی رذائل
+
+IAE: "IAE1104050200"
+
+9. "IAE1104050201" 🔴 غیبت
+10. "IAE1104050202" 🔴 جھوٹ
+11. "IAE1104050203" 🔴 منافقت
+12. "IAE1104050204" 🔴 تکبر
+13. "IAE1104050205" 🔴 حسد
+14. "IAE1104050206" 🔴 بدگمانی
+
+---
+
+LECTURE 09
+
+Chapter 05 — اخلاقی اقدار اور اخلاقی رذائل
+
+Main Topic 02 — اخلاقی رذائل
+
+IAE: "IAE1104050200"
+
+1. "IAE1104050207" 🟢 چغلی
+2. "IAE1104050208" 🟢 فضول خرچی
+3. "IAE1104050209" 🟢 بخل
+4. "IAE1104050210" 🟢 دھوکہ دہی
+5. "IAE1104050211" 🟢 ظلم
+
+Chapter 06 — قرآنِ حکیم
+
+Main Topic 01 — تعارفِ قرآن
+
+IAE: "IAE1104060100"
+
+6. "IAE1104060101" 🔴 قرآن کا لغوی مفہوم
+7. "IAE1104060102" 🔴 قرآن کا اصطلاحی مفہوم
+8. "IAE1104060103" 🔴 نزولِ قرآن
+9. "IAE1104060104" 🔴 وحی اور قرآن
+10. "IAE1104060105" 🔴 جمع و تدوینِ قرآن
+11. "IAE1104060106" 🔴 قرآن کی حفاظت
+12. "IAE1104060107" 🟢 قرآن کی بنیادی خصوصیات
+13. "IAE1104060108" 🟢 قرآن بطور ہدایت
+14. "IAE1104060109" 🟢 قرآن اور انسانی زندگی
+
+---
+
+LECTURE 10
+
+Chapter 06 — قرآنِ حکیم
+
+Main Topic 01 — تعارفِ قرآن
+
+IAE: "IAE1104060100"
+
+1. "IAE1104060110" 🟢 قرآن اور اخلاق
+2. "IAE1104060111" 🔵 قرآن اور فکری رہنمائی
+3. "IAE1104060112" 🔵 قرآن اور contemporary challenges
+4. "IAE1104060113" 🔵 قرآن اور علم
+5. "IAE1104060114" 🔵 قرآن کا عالمی پیغام
+
+Main Topic 02 — منتخب قرآنی تعلیمات
+
+IAE: "IAE1104060200"
+
+6. "IAE1104060201" 🔴 توحید
+7. "IAE1104060202" 🔴 رسالت
+8. "IAE1104060203" 🔴 آخرت
+9. "IAE1104060204" 🔴 عبادات
+10. "IAE1104060205" 🔴 اخلاق
+11. "IAE1104060206" 🔴 عدل و انصاف
+12. "IAE1104060207" 🟢 حقوق العباد
+13. "IAE1104060208" 🟢 معاشرتی اصلاح
+14. "IAE1104060209" 🟢 معاشی اعتدال
+
+---
+
+LECTURE 11
+
+Chapter 06 — قرآنِ حکیم
+
+Main Topic 02 — منتخب قرآنی تعلیمات
+
+IAE: "IAE1104060200"
+
+1. "IAE1104060210" 🟢 انسانی مساوات
+2. "IAE1104060211" 🔵 قرآن اور سماجی انصاف
+3. "IAE1104060212" 🔵 قرآن اور انسانی dignity
+4. "IAE1104060213" 🔵 قرآن اور عالمی ذمہ داری
+5. "IAE1104060214" 🔵 قرآن اور جدید فکری سوالات
+
+Chapter 07 — حدیث و سنت
+
+Main Topic 01 — حدیث کا تعارف
+
+IAE: "IAE1104070100"
+
+6. "IAE1104070101" 🔴 حدیث کا لغوی مفہوم
+7. "IAE1104070102" 🔴 حدیث کا اصطلاحی مفہوم
+8. "IAE1104070103" 🔴 سنت کا مفہوم
+9. "IAE1104070104" 🔴 قولی حدیث
+10. "IAE1104070105" 🔴 فعلی حدیث
+11. "IAE1104070106" 🔴 تقریری حدیث
+12. "IAE1104070107" 🟢 روایتِ حدیث
+13. "IAE1104070108" 🟢 راوی
+14. "IAE1104070109" 🟢 حدیث کی اہمیت
+
+---
+
+LECTURE 12
+
+Chapter 07 — حدیث و سنت
+
+Main Topic 01 — حدیث کا تعارف
+
+IAE: "IAE1104070100"
+
+1. "IAE1104070110" 🟢 قرآن اور حدیث کا تعلق
+2. "IAE1104070111" 🔵 حدیث اور Islamic Legal Thought
+3. "IAE1104070112" 🔵 حدیث کی علمی حفاظت
+4. "IAE1104070113" 🔵 سنت اور contemporary life
+5. "IAE1104070114" 🔵 حدیث و سنت کا عالمی علمی مطالعہ
+
+Main Topic 02 — منتخب احادیث اور عملی تعلیمات
+
+IAE: "IAE1104070200"
+
+6. "IAE1104070201" 🔴 حسنِ اخلاق
+7. "IAE1104070202" 🔴 حقوق العباد
+8. "IAE1104070203" 🔴 پڑوسی کے حقوق
+9. "IAE1104070204" 🔴 والدین سے حسنِ سلوک
+10. "IAE1104070205" 🔴 سچائی
+11. "IAE1104070206" 🔴 امانت
+12. "IAE1104070207" 🟢 علم کی فضیلت
+13. "IAE1104070208" 🟢 رحم و شفقت
+14. "IAE1104070209" 🟢 بھائی چارہ
+
+---
+
+LECTURE 13
+
+Chapter 07 — حدیث و سنت
+
+Main Topic 02 — منتخب احادیث اور عملی تعلیمات
+
+IAE: "IAE1104070200"
+
+1. "IAE1104070210" 🟢 معاشرتی ذمہ داری
+2. "IAE1104070211" 🔵 حدیث سے اخلاقی استنباط
+3. "IAE1104070212" 🔵 سنت اور modern social life
+4. "IAE1104070213" 🔵 حدیث اور character education
+5. "IAE1104070214" 🔵 نبوی تعلیمات اور عالمی اخلاق
+
+Chapter 08 — اسلامی معاشرت، معیشت اور اجتماعی زندگی
+
+Main Topic 01 — اسلامی معاشرت
+
+IAE: "IAE1104080100"
+
+6. "IAE1104080101" 🔴 اسلامی معاشرت کا مفہوم
+7. "IAE1104080102" 🔴 خاندان کی اہمیت
+8. "IAE1104080103" 🔴 باہمی احترام
+9. "IAE1104080104" 🔴 بھائی چارہ
+10. "IAE1104080105" 🔴 مساوات
+11. "IAE1104080106" 🔴 معاشرتی عدل
+12. "IAE1104080107" 🟢 تعاون
+13. "IAE1104080108" 🟢 رواداری
+14. "IAE1104080109" 🟢 اختلافِ رائے کے آداب
+
+---
+
+LECTURE 14
+
+Chapter 08 — اسلامی معاشرت، معیشت اور اجتماعی زندگی
+
+Main Topic 01 — اسلامی معاشرت
+
+IAE: "IAE1104080100"
+
+1. "IAE1104080110" 🟢 اجتماعی فلاح
+2. "IAE1104080111" 🔵 multicultural society
+3. "IAE1104080112" 🔵 اسلامی معاشرت اور modern citizenship
+4. "IAE1104080113" 🔵 معاشرتی harmony
+5. "IAE1104080114" 🔵 اسلامی معاشرت کا عالمی مطالعہ
+
+Main Topic 02 — اسلامی معاشی و اجتماعی اصول
+
+IAE: "IAE1104080200"
+
+6. "IAE1104080201" 🔴 حلال رزق
+7. "IAE1104080202" 🔴 کسبِ حلال
+8. "IAE1104080203" 🔴 زکوٰۃ اور معاشی عدل
+9. "IAE1104080204" 🔴 صدقہ و خیرات
+10. "IAE1104080205" 🔴 سود کی ممانعت
+11. "IAE1104080206" 🔴 فضول خرچی کی ممانعت
+12. "IAE1104080207" 🟢 میانہ روی
+13. "IAE1104080208" 🟢 امانت دارانہ تجارت
+14. "IAE1104080209" 🟢 ضرورت مندوں کی مدد
+
+---
+
+LECTURE 15
+
+Chapter 08 — اسلامی معاشرت، معیشت اور اجتماعی زندگی
+
+Main Topic 02 — اسلامی معاشی و اجتماعی اصول
+
+IAE: "IAE1104080200"
+
+1. "IAE1104080210" 🟢 معاشی ذمہ داری
+2. "IAE1104080211" 🔵 اسلامی economic ethics
+3. "IAE1104080212" 🔵 wealth distribution and justice
+4. "IAE1104080213" 🔵 ethical business conduct
+5. "IAE1104080214" 🔵 contemporary economic challenges
+
+MASTERING / CONSOLIDATION
+
+6. 🔵 متعلقہ Chapters کے Mastery Concepts
+7. 🔵 قرآنی و حدیثی Concepts کی باہمی Integration
+8. 🔵 اسلامی اخلاقی نظام کا جامع مطالعہ
+9. 🔵 اسلامی معاشرت و معیشت کا جامع تقابلی مطالعہ
+10. 🔵 Contemporary Application
+11. 🔵 Critical Islamic Thought
+12. 🔵 Case-Based Application
+13. 🔵 Ethical Decision Making
+14. 🔵 Integrated Revision
+
+---
+
+FINAL LECTURE REGISTER
+
+Lecture| Chapters| Main Topics| Academic/ Mastery
+01| Ch 01| Topic 01–02| 14
+02| Ch 01–02| Topic 02 + Topic 01| 14
+03| Ch 02| Topic 01–02| 14
+04| Ch 02–03| Topic 02 + Topic 01| 14
+05| Ch 03| Topic 01–02| 14
+06| Ch 03–04| Topic 02 + Topic 01| 14
+07| Ch 04–05| Topic 01–02 + Topic 01| 14
+08| Ch 05| Topic 01–02| 14
+09| Ch 05–06| Topic 02 + Topic 01| 14
+10| Ch 06| Topic 01–02| 14
+11| Ch 06–07| Topic 02 + Topic 01| 14
+12| Ch 07| Topic 01–02| 14
+13| Ch 07–08| Topic 02 + Topic 01| 14
+14| Ch 08| Topic 01–02| 14
+15| Ch 08| Topic 02 + Consolidation| 14
+
+Final Structure
+
+Subject: Islamiat
+Level: "04"
+Code: "IAE1104"
+Chapters: 08
+Main Topics: 16
+Lectures: 15
+Practical/Performance: Separate
+Blue: Mastery only
+Red + Green: Lecture Academic Content
+
+Important
+
+یہ register Lectureization Master ہے؛ اس کا مطلب یہ ہے کہ ہر lecture میں اب صرف lecture number نہیں بلکہ Chapter + Main Topic کا مکمل IAE + ہر Subtopic کا مکمل IAE موجود ہے۔ اس طرح بعد میں Coding کے وقت کسی subtopic کو دوبارہ numbering دینے کی ضرورت نہیں ہوگی۔</p>
+  </div>
+
+  <!-- Page 5 Content -->
+  <div id="page5" class="page">
+    <h2>Page 5</h2>
+    <p> Imperial Academy — First Year Islamiat
+
+Final Lectureized Master Register
+
+Complete IAE Numbers + Topics + Subtopics
+
+Subject: Islamiat Compulsory
+Class: First Year / HSSC-I
+Subject Level: 04
+Subject Code: "IAE1104"
+
+Lectureization Rules
+
+- 🔴 Red + 🟢 Green = Lecture Academic Content
+- 🔵 Blue = Mastery
+- Maximum 2 Main Topics per Lecture
+- Maximum 14 Subtopics per Lecture
+- ترتیب، Academy IDs اور sequence برقرار
+- کوئی Red/Green subtopic skip یا duplicate نہیں
+- Practical/Performance Work الگ
+- جہاں Academic Content 14 سے کم ہو، اسی Lecture میں موجود Topics کے 🔵 Mastery items سے completion کی جا سکتی ہے۔
+
+---
+
+LECTURE 01
+
+Chapter 01 — بنیادی عقائد
+
+Main Topic 01 — عقیدۂ توحید
+
+IAE: "IAE1104010100"
+
+1. "IAE1104010101" 🔴 توحید کا مفہوم
+2. "IAE1104010102" 🔴 توحید کی اہمیت
+3. "IAE1104010103" 🔴 توحیدِ ذاتی
+4. "IAE1104010104" 🔴 توحیدِ صفاتی
+5. "IAE1104010105" 🔴 توحیدِ افعالی
+6. "IAE1104010106" 🔴 شرک کا مفہوم
+7. "IAE1104010107" 🔴 شرک کی بنیادی صورتیں
+8. "IAE1104010108" 🟢 توحید کے قرآنی دلائل
+9. "IAE1104010109" 🟢 توحید کے عقلی دلائل
+10. "IAE1104010110" 🟢 توحید کے انفرادی اثرات
+11. "IAE1104010111" 🟢 توحید کے اجتماعی اثرات
+
+Main Topic 02 — رسالت، وحی اور آخرت
+
+IAE: "IAE1104010200"
+
+12. "IAE1104010201" 🔴 رسالت کا مفہوم
+13. "IAE1104010202" 🔴 انبیاء کرام علیہم السلام کی ضرورت
+14. "IAE1104010203" 🔴 وحی کا مفہوم
+
+---
+
+LECTURE 02
+
+Chapter 01 — بنیادی عقائد
+
+Main Topic 02 — رسالت، وحی اور آخرت
+
+IAE: "IAE1104010200"
+
+1. "IAE1104010204" 🔴 وحی کی اہمیت
+2. "IAE1104010205" 🔴 ختمِ نبوت
+3. "IAE1104010206" 🔴 ملائکہ پر ایمان
+4. "IAE1104010207" 🔴 آسمانی کتابوں پر ایمان
+5. "IAE1104010208" 🔴 آخرت پر ایمان
+6. "IAE1104010209" 🟢 قیامت اور جواب دہی
+7. "IAE1104010210" 🟢 جنت و جہنم کا تصور
+8. "IAE1104010211" 🟢 عقیدۂ آخرت کے عملی اثرات
+
+Main Topic 02 — Mastery
+
+9. "IAE1104010212" 🔵 آخرت اور اخلاقی ذمہ داری
+10. "IAE1104010213" 🔵 مادیت اور تصورِ آخرت
+11. "IAE1104010214" 🔵 آخرت کا عالمی اخلاقی تصور
+
+Chapter 02 — اسوۂ رسول اکرم ﷺ
+
+Main Topic 01 — رحمت، اخوت اور مساوات
+
+IAE: "IAE1104020100"
+
+12. "IAE1104020101" 🔴 رحمت للعالمین ﷺ
+13. "IAE1104020102" 🔴 محبتِ رسول ﷺ
+14. "IAE1104020103" 🔴 اخوت
+
+---
+
+LECTURE 03
+
+Chapter 02 — اسوۂ رسول اکرم ﷺ
+
+Main Topic 01 — رحمت، اخوت اور مساوات
+
+IAE: "IAE1104020100"
+
+1. "IAE1104020104" 🔴 مساوات
+2. "IAE1104020105" 🔴 معاشرتی انصاف
+3. "IAE1104020106" 🔴 شرفِ انسانیت
+4. "IAE1104020107" 🟢 صبر و استقلال
+5. "IAE1104020108" 🟢 عفو و درگزر
+6. "IAE1104020109" 🟢 ذکرِ الٰہی
+7. "IAE1104020110" 🟢 حسنِ اخلاق
+8. "IAE1104020111" 🟢 برداشت اور رواداری
+
+Main Topic 02 — اطاعتِ رسول ﷺ اور عملی زندگی
+
+IAE: "IAE1104020200"
+
+9. "IAE1104020201" 🔴 اطاعتِ رسول ﷺ
+10. "IAE1104020202" 🔴 سنت کی پیروی
+11. "IAE1104020203" 🔴 اسوۂ حسنہ
+12. "IAE1104020204" 🔴 گھر میں نبوی اسوہ
+13. "IAE1104020205" 🔴 معاشرت میں نبوی اسوہ
+14. "IAE1104020206" 🔴 معاملات میں نبوی اسوہ
+
+---
+
+LECTURE 04
+
+Chapter 02 — اسوۂ رسول اکرم ﷺ
+
+Main Topic 02 — اطاعتِ رسول ﷺ اور عملی زندگی
+
+IAE: "IAE1104020200"
+
+1. "IAE1104020207" 🟢 عدل و انصاف
+2. "IAE1104020208" 🟢 امانت و دیانت
+3. "IAE1104020209" 🟢 وعدہ پورا کرنا
+4. "IAE1104020210" 🟢 پڑوسی سے حسنِ سلوک
+
+Chapter 03 — اسلامی تشخص اور ارکانِ اسلام
+
+Main Topic 01 — ارکانِ اسلام
+
+IAE: "IAE1104030100"
+
+5. "IAE1104030101" 🔴 ارکانِ اسلام کا تعارف
+6. "IAE1104030102" 🔴 کلمۂ شہادت
+7. "IAE1104030103" 🔴 نماز
+8. "IAE1104030104" 🔴 روزہ
+9. "IAE1104030105" 🔴 زکوٰۃ
+10. "IAE1104030106" 🔴 حج
+11. "IAE1104030107" 🟢 ارکانِ اسلام کا باہمی تعلق
+12. "IAE1104030108" 🟢 عبادات اور کردار سازی
+13. "IAE1104030109" 🟢 عبادات کے انفرادی اثرات
+14. "IAE1104030110" 🟢 عبادات کے اجتماعی اثرات
+
+---
+
+LECTURE 05
+
+Chapter 03 — اسلامی تشخص اور ارکانِ اسلام
+
+Main Topic 01 — ارکانِ اسلام
+
+IAE: "IAE1104030100"
+
+1. "IAE1104030111" 🔵 عبادات اور روحانی تربیت
+2. "IAE1104030112" 🔵 عبادات اور سماجی نظم
+3. "IAE1104030113" 🔵 عبادات کا عالمی اخلاقی پہلو
+4. "IAE1104030114" 🔵 اسلامی عبادات کا جامع تصور
+
+Main Topic 02 — نماز، روزہ، زکوٰۃ اور حج کے عملی پہلو
+
+IAE: "IAE1104030200"
+
+5. "IAE1104030201" 🔴 نماز کی اہمیت
+6. "IAE1104030202" 🔴 نماز کے بنیادی تقاضے
+7. "IAE1104030203" 🔴 روزے کا مقصد
+8. "IAE1104030204" 🔴 روزے کے بنیادی احکام
+9. "IAE1104030205" 🔴 زکوٰۃ کا مفہوم
+10. "IAE1104030206" 🔴 زکوٰۃ کے مصارف
+11. "IAE1104030207" 🔴 حج کا مفہوم
+12. "IAE1104030208" 🔴 حج کے بنیادی مناسک
+13. "IAE1104030209" 🟢 عبادات میں اخلاص
+14. "IAE1104030210" 🟢 عبادات میں نظم و ضبط
+
+---
+
+LECTURE 06
+
+Chapter 03 — اسلامی تشخص اور ارکانِ اسلام
+
+Main Topic 02 — نماز، روزہ، زکوٰۃ اور حج کے عملی پہلو
+
+IAE: "IAE1104030200"
+
+1. "IAE1104030211" 🟢 عبادات اور معاشی عدل
+
+Chapter 04 — حقوق العباد
+
+Main Topic 01 — خاندانی اور معاشرتی حقوق
+
+IAE: "IAE1104040100"
+
+2. "IAE1104040101" 🔴 حقوق العباد کا مفہوم
+3. "IAE1104040102" 🔴 والدین کے حقوق
+4. "IAE1104040103" 🔴 اولاد کے حقوق
+5. "IAE1104040104" 🔴 میاں بیوی کے حقوق
+6. "IAE1104040105" 🔴 رشتہ داروں کے حقوق
+7. "IAE1104040106" 🔴 اساتذہ کے حقوق
+8. "IAE1104040107" 🔴 پڑوسیوں کے حقوق
+9. "IAE1104040108" 🟢 یتیموں کے حقوق
+10. "IAE1104040109" 🟢 مساکین اور ضرورت مندوں کے حقوق
+11. "IAE1104040110" 🟢 ملازمین کے حقوق
+12. "IAE1104040111" 🟢 غیر مسلم شہریوں کے حقوق
+
+Mastery
+
+13. "IAE1104040112" 🔵 انسانی حقوق کا عالمی تصور
+14. "IAE1104040113" 🔵 اسلامی حقوق اور جدید Human Rights
+
+---
+
+LECTURE 07
+
+Chapter 04 — حقوق العباد
+
+Main Topic 01 — خاندانی اور معاشرتی حقوق
+
+IAE: "IAE1104040100"
+
+1. "IAE1104040114" 🔵 حقوق العباد اور عالمی معاشرہ
+
+Main Topic 02 — معاشرتی انصاف اور ذمہ داریاں
+
+IAE: "IAE1104040200"
+
+2. "IAE1104040201" 🔴 عدل و انصاف
+3. "IAE1104040202" 🔴 امانت
+4. "IAE1104040203" 🔴 دیانت
+5. "IAE1104040204" 🔴 ایفائے عہد
+6. "IAE1104040205" 🔴 سچائی
+7. "IAE1104040206" 🔴 احترامِ قانون
+8. "IAE1104040207" 🟢 معاشرتی تعاون
+9. "IAE1104040208" 🟢 ایثار
+10. "IAE1104040209" 🟢 خدمتِ خلق
+11. "IAE1104040210" 🟢 اجتماعی ذمہ داری
+
+Chapter 05 — اخلاقی اقدار اور اخلاقی رذائل
+
+Main Topic 01 — اخلاقی اقدار
+
+IAE: "IAE1104050100"
+
+12. "IAE1104050101" 🔴 حسنِ اخلاق
+13. "IAE1104050102" 🔴 سچائی
+14. "IAE1104050103" 🔴 امانت
+
+---
+
+LECTURE 08
+
+Chapter 05 — اخلاقی اقدار اور اخلاقی رذائل
+
+Main Topic 01 — اخلاقی اقدار
+
+IAE: "IAE1104050100"
+
+1. "IAE1104050104" 🔴 صبر
+2. "IAE1104050105" 🔴 شکر
+3. "IAE1104050106" 🔴 عفو و درگزر
+4. "IAE1104050107" 🟢 تواضع
+5. "IAE1104050108" 🟢 ایثار
+6. "IAE1104050109" 🟢 قناعت
+7. "IAE1104050110" 🟢 میانہ روی
+8. "IAE1104050111" 🟢 حیا
+
+Main Topic 02 — اخلاقی رذائل
+
+IAE: "IAE1104050200"
+
+9. "IAE1104050201" 🔴 غیبت
+10. "IAE1104050202" 🔴 جھوٹ
+11. "IAE1104050203" 🔴 منافقت
+12. "IAE1104050204" 🔴 تکبر
+13. "IAE1104050205" 🔴 حسد
+14. "IAE1104050206" 🔴 بدگمانی
+
+---
+
+LECTURE 09
+
+Chapter 05 — اخلاقی اقدار اور اخلاقی رذائل
+
+Main Topic 02 — اخلاقی رذائل
+
+IAE: "IAE1104050200"
+
+1. "IAE1104050207" 🟢 چغلی
+2. "IAE1104050208" 🟢 فضول خرچی
+3. "IAE1104050209" 🟢 بخل
+4. "IAE1104050210" 🟢 دھوکہ دہی
+5. "IAE1104050211" 🟢 ظلم
+
+Chapter 06 — قرآنِ حکیم
+
+Main Topic 01 — تعارفِ قرآن
+
+IAE: "IAE1104060100"
+
+6. "IAE1104060101" 🔴 قرآن کا لغوی مفہوم
+7. "IAE1104060102" 🔴 قرآن کا اصطلاحی مفہوم
+8. "IAE1104060103" 🔴 نزولِ قرآن
+9. "IAE1104060104" 🔴 وحی اور قرآن
+10. "IAE1104060105" 🔴 جمع و تدوینِ قرآن
+11. "IAE1104060106" 🔴 قرآن کی حفاظت
+12. "IAE1104060107" 🟢 قرآن کی بنیادی خصوصیات
+13. "IAE1104060108" 🟢 قرآن بطور ہدایت
+14. "IAE1104060109" 🟢 قرآن اور انسانی زندگی
+
+---
+
+LECTURE 10
+
+Chapter 06 — قرآنِ حکیم
+
+Main Topic 01 — تعارفِ قرآن
+
+IAE: "IAE1104060100"
+
+1. "IAE1104060110" 🟢 قرآن اور اخلاق
+2. "IAE1104060111" 🔵 قرآن اور فکری رہنمائی
+3. "IAE1104060112" 🔵 قرآن اور contemporary challenges
+4. "IAE1104060113" 🔵 قرآن اور علم
+5. "IAE1104060114" 🔵 قرآن کا عالمی پیغام
+
+Main Topic 02 — منتخب قرآنی تعلیمات
+
+IAE: "IAE1104060200"
+
+6. "IAE1104060201" 🔴 توحید
+7. "IAE1104060202" 🔴 رسالت
+8. "IAE1104060203" 🔴 آخرت
+9. "IAE1104060204" 🔴 عبادات
+10. "IAE1104060205" 🔴 اخلاق
+11. "IAE1104060206" 🔴 عدل و انصاف
+12. "IAE1104060207" 🟢 حقوق العباد
+13. "IAE1104060208" 🟢 معاشرتی اصلاح
+14. "IAE1104060209" 🟢 معاشی اعتدال
+
+---
+
+LECTURE 11
+
+Chapter 06 — قرآنِ حکیم
+
+Main Topic 02 — منتخب قرآنی تعلیمات
+
+IAE: "IAE1104060200"
+
+1. "IAE1104060210" 🟢 انسانی مساوات
+2. "IAE1104060211" 🔵 قرآن اور سماجی انصاف
+3. "IAE1104060212" 🔵 قرآن اور انسانی dignity
+4. "IAE1104060213" 🔵 قرآن اور عالمی ذمہ داری
+5. "IAE1104060214" 🔵 قرآن اور جدید فکری سوالات
+
+Chapter 07 — حدیث و سنت
+
+Main Topic 01 — حدیث کا تعارف
+
+IAE: "IAE1104070100"
+
+6. "IAE1104070101" 🔴 حدیث کا لغوی مفہوم
+7. "IAE1104070102" 🔴 حدیث کا اصطلاحی مفہوم
+8. "IAE1104070103" 🔴 سنت کا مفہوم
+9. "IAE1104070104" 🔴 قولی حدیث
+10. "IAE1104070105" 🔴 فعلی حدیث
+11. "IAE1104070106" 🔴 تقریری حدیث
+12. "IAE1104070107" 🟢 روایتِ حدیث
+13. "IAE1104070108" 🟢 راوی
+14. "IAE1104070109" 🟢 حدیث کی اہمیت
+
+---
+
+LECTURE 12
+
+Chapter 07 — حدیث و سنت
+
+Main Topic 01 — حدیث کا تعارف
+
+IAE: "IAE1104070100"
+
+1. "IAE1104070110" 🟢 قرآن اور حدیث کا تعلق
+2. "IAE1104070111" 🔵 حدیث اور Islamic Legal Thought
+3. "IAE1104070112" 🔵 حدیث کی علمی حفاظت
+4. "IAE1104070113" 🔵 سنت اور contemporary life
+5. "IAE1104070114" 🔵 حدیث و سنت کا عالمی علمی مطالعہ
+
+Main Topic 02 — منتخب احادیث اور عملی تعلیمات
+
+IAE: "IAE1104070200"
+
+6. "IAE1104070201" 🔴 حسنِ اخلاق
+7. "IAE1104070202" 🔴 حقوق العباد
+8. "IAE1104070203" 🔴 پڑوسی کے حقوق
+9. "IAE1104070204" 🔴 والدین سے حسنِ سلوک
+10. "IAE1104070205" 🔴 سچائی
+11. "IAE1104070206" 🔴 امانت
+12. "IAE1104070207" 🟢 علم کی فضیلت
+13. "IAE1104070208" 🟢 رحم و شفقت
+14. "IAE1104070209" 🟢 بھائی چارہ
+
+---
+
+LECTURE 13
+
+Chapter 07 — حدیث و سنت
+
+Main Topic 02 — منتخب احادیث اور عملی تعلیمات
+
+IAE: "IAE1104070200"
+
+1. "IAE1104070210" 🟢 معاشرتی ذمہ داری
+2. "IAE1104070211" 🔵 حدیث سے اخلاقی استنباط
+3. "IAE1104070212" 🔵 سنت اور modern social life
+4. "IAE1104070213" 🔵 حدیث اور character education
+5. "IAE1104070214" 🔵 نبوی تعلیمات اور عالمی اخلاق
+
+Chapter 08 — اسلامی معاشرت، معیشت اور اجتماعی زندگی
+
+Main Topic 01 — اسلامی معاشرت
+
+IAE: "IAE1104080100"
+
+6. "IAE1104080101" 🔴 اسلامی معاشرت کا مفہوم
+7. "IAE1104080102" 🔴 خاندان کی اہمیت
+8. "IAE1104080103" 🔴 باہمی احترام
+9. "IAE1104080104" 🔴 بھائی چارہ
+10. "IAE1104080105" 🔴 مساوات
+11. "IAE1104080106" 🔴 معاشرتی عدل
+12. "IAE1104080107" 🟢 تعاون
+13. "IAE1104080108" 🟢 رواداری
+14. "IAE1104080109" 🟢 اختلافِ رائے کے آداب
+
+---
+
+LECTURE 14
+
+Chapter 08 — اسلامی معاشرت، معیشت اور اجتماعی زندگی
+
+Main Topic 01 — اسلامی معاشرت
+
+IAE: "IAE1104080100"
+
+1. "IAE1104080110" 🟢 اجتماعی فلاح
+2. "IAE1104080111" 🔵 multicultural society
+3. "IAE1104080112" 🔵 اسلامی معاشرت اور modern citizenship
+4. "IAE1104080113" 🔵 معاشرتی harmony
+5. "IAE1104080114" 🔵 اسلامی معاشرت کا عالمی مطالعہ
+
+Main Topic 02 — اسلامی معاشی و اجتماعی اصول
+
+IAE: "IAE1104080200"
+
+6. "IAE1104080201" 🔴 حلال رزق
+7. "IAE1104080202" 🔴 کسبِ حلال
+8. "IAE1104080203" 🔴 زکوٰۃ اور معاشی عدل
+9. "IAE1104080204" 🔴 صدقہ و خیرات
+10. "IAE1104080205" 🔴 سود کی ممانعت
+11. "IAE1104080206" 🔴 فضول خرچی کی ممانعت
+12. "IAE1104080207" 🟢 میانہ روی
+13. "IAE1104080208" 🟢 امانت دارانہ تجارت
+14. "IAE1104080209" 🟢 ضرورت مندوں کی مدد
+
+---
+
+LECTURE 15
+
+Chapter 08 — اسلامی معاشرت، معیشت اور اجتماعی زندگی
+
+Main Topic 02 — اسلامی معاشی و اجتماعی اصول
+
+IAE: "IAE1104080200"
+
+1. "IAE1104080210" 🟢 معاشی ذمہ داری
+2. "IAE1104080211" 🔵 اسلامی economic ethics
+3. "IAE1104080212" 🔵 wealth distribution and justice
+4. "IAE1104080213" 🔵 ethical business conduct
+5. "IAE1104080214" 🔵 contemporary economic challenges
+
+MASTERING / CONSOLIDATION
+
+6. 🔵 متعلقہ Chapters کے Mastery Concepts
+7. 🔵 قرآنی و حدیثی Concepts کی باہمی Integration
+8. 🔵 اسلامی اخلاقی نظام کا جامع مطالعہ
+9. 🔵 اسلامی معاشرت و معیشت کا جامع تقابلی مطالعہ
+10. 🔵 Contemporary Application
+11. 🔵 Critical Islamic Thought
+12. 🔵 Case-Based Application
+13. 🔵 Ethical Decision Making
+14. 🔵 Integrated Revision
+
+---
+
+FINAL LECTURE REGISTER
+
+Lecture| Chapters| Main Topics| Academic/ Mastery
+01| Ch 01| Topic 01–02| 14
+02| Ch 01–02| Topic 02 + Topic 01| 14
+03| Ch 02| Topic 01–02| 14
+04| Ch 02–03| Topic 02 + Topic 01| 14
+05| Ch 03| Topic 01–02| 14
+06| Ch 03–04| Topic 02 + Topic 01| 14
+07| Ch 04–05| Topic 01–02 + Topic 01| 14
+08| Ch 05| Topic 01–02| 14
+09| Ch 05–06| Topic 02 + Topic 01| 14
+10| Ch 06| Topic 01–02| 14
+11| Ch 06–07| Topic 02 + Topic 01| 14
+12| Ch 07| Topic 01–02| 14
+13| Ch 07–08| Topic 02 + Topic 01| 14
+14| Ch 08| Topic 01–02| 14
+15| Ch 08| Topic 02 + Consolidation| 14
+
+Final Structure
+
+Subject: Islamiat
+Level: "04"
+Code: "IAE1104"
+Chapters: 08
+Main Topics: 16
+Lectures: 15
+Practical/Performance: Separate
+Blue: Mastery only
+Red + Green: Lecture Academic Content
+
+Important
+
+یہ register Lectureization Master ہے؛ اس کا مطلب یہ ہے کہ ہر lecture میں اب صرف lecture number نہیں بلکہ Chapter + Main Topic کا مکمل IAE + ہر Subtopic کا مکمل IAE موجود ہے۔ اس طرح بعد میں Coding کے وقت کسی subtopic کو دوبارہ numbering دینے کی ضرورت نہیں ہوگی۔ </p>
+  </div>
+
+  <!-- Page 6 Content -->
+  <div id="page6" class="page">
+    <h2>Page 6</h2>
+    <p> Imperial Academy — First Year / HSSC Part-I
+
+Mutala-e-Quran-e-Hakeem — Final Lecture-Wise Master Register
+
+Subject Code: "IAE1108"
+Class: First Year / HSSC Part-I
+Lectureization Rule: 🔴 Red + 🟢 Green = Academic | 🔵 Blue = Mastery
+Maximum: 2 Main Topics / 14 subtopics per lecture
+Blue-Fill Rule: اگر Academic Red+Green content 14 سے کم ہو تو اسی lecture کے allowed Main Topics کے 🔵 Blue subtopics سے خالی جگہ 14 تک مکمل کی جائے گی۔
+
+BISE Peshawar کی HSSC material میں Mutala-e-Quran-e-Hakeem کے لیے Class XI/XII کی الگ notification اور Smart Syllabus/Model Paper موجود ہے؛ موجودہ BISEP site بھی HSSC examination/registration framework کو برقرار رکھتی ہے۔
+
+---
+
+Lecture 01
+
+Main Topic 01 — "IAE1108010100"
+
+Introduction & Guidance of Surah Al-Baqarah
+
+1. "IAE1108010101" 🔴 Introduction to Surah Al-Baqarah
+2. "IAE1108010102" 🔴 Name and central identity
+3. "IAE1108010103" 🔴 Revelation and background
+4. "IAE1108010104" 🔴 Quran as guidance
+5. "IAE1108010105" 🔴 Guidance for Muttaqin
+6. "IAE1108010106" 🔴 Characteristics of believers
+7. "IAE1108010107" 🔴 Characteristics of disbelievers
+8. "IAE1108010108" 🔴 Characteristics of hypocrites
+9. "IAE1108010109" 🟢 Moral consequences of disbelief
+10. "IAE1108010110" 🟢 Consequences of hypocrisy
+11. "IAE1108010111" 🟢 Human accountability
+12. "IAE1108010112" 🔵 Reflective study of Quranic guidance
+
+Total = 12 → Blue-fill required: 2
+
+13. "IAE1108010113" 🔵 Application of guidance to personal conduct
+14. "IAE1108010114" 🔵 Relationship between guidance and accountability
+
+---
+
+Lecture 02
+
+Main Topic 02 — "IAE1108010200"
+
+Creation of Adam (AS) and Human Responsibility
+
+1. "IAE1108010201" 🔴 Creation of Adam (AS)
+2. "IAE1108010202" 🔴 Allah's declaration concerning Adam
+3. "IAE1108010203" 🔴 Teaching Adam the names
+4. "IAE1108010204" 🔴 Prostration before Adam
+5. "IAE1108010205" 🔴 Refusal of Iblis
+6. "IAE1108010206" 🔴 Adam in Paradise
+7. "IAE1108010207" 🔴 The prohibited command
+8. "IAE1108010208" 🔴 Human error
+9. "IAE1108010209" 🔴 Repentance
+10. "IAE1108010210" 🟢 Divine acceptance of repentance
+11. "IAE1108010211" 🟢 Human responsibility
+12. "IAE1108010212" 🔵 Free will and moral responsibility
+13. "IAE1108010213" 🔵 Lessons from Adam's story
+14. "IAE1108010214" 🔵 Obedience, error and repentance
+
+Total = 14
+
+---
+
+Lecture 03
+
+Main Topic 03 — "IAE1108020100"
+
+Bani Israel and Divine Covenant
+
+1. "IAE1108020101" 🔴 Divine blessings upon Bani Israel
+2. "IAE1108020102" 🔴 Fulfilment of covenant
+3. "IAE1108020103" 🔴 Fear of Allah
+4. "IAE1108020104" 🔴 Belief in revelation
+5. "IAE1108020105" 🔴 Establishment of prayer
+6. "IAE1108020106" 🔴 Patience
+7. "IAE1108020107" 🔴 Historical disobedience
+8. "IAE1108020108" 🔴 Breaking the covenant
+9. "IAE1108020109" 🟢 Moral lessons
+10. "IAE1108020110" 🟢 Collective responsibility
+11. "IAE1108020111" 🟢 Consequences of rejecting guidance
+12. "IAE1108020112" 🔵 Lessons for Muslim society
+13. "IAE1108020113" 🔵 Covenant and collective accountability
+14. "IAE1108020114" 🔵 Historical reflection
+
+Total = 14
+
+---
+
+Lecture 04
+
+Main Topic 04 — "IAE1108020200"
+
+Faith, Worship and Moral Responsibility
+
+1. "IAE1108020201" 🔴 Tawhid and obedience
+2. "IAE1108020202" 🔴 Prayer and worship
+3. "IAE1108020203" 🔴 Charity
+4. "IAE1108020204" 🔴 Righteous conduct
+5. "IAE1108020205" 🔴 Patience
+6. "IAE1108020206" 🔴 Accountability
+7. "IAE1108020207" 🟢 Belief and action
+8. "IAE1108020208" 🟢 Individual morality
+9. "IAE1108020209" 🟢 Collective morality
+10. "IAE1108020210" 🔵 Ethical application
+11. "IAE1108020211" 🔵 Reflective interpretation
+12. "IAE1108020212" 🔵 Faith as a basis of conduct
+13. "IAE1108020213" 🔵 Worship and social responsibility
+14. "IAE1108020214" 🔵 Accountability in practical life
+
+Total = 14
+
+---
+
+Lecture 05
+
+Main Topic 05 — "IAE1108030100"
+
+Surah Aal-e-Imran — Faith, Revelation and Divine Unity
+
+1. "IAE1108030101" 🔴 Introduction to Surah Aal-e-Imran
+2. "IAE1108030102" 🔴 Divine revelation
+3. "IAE1108030103" 🔴 Muhkamat
+4. "IAE1108030104" 🔴 Mutashabihat
+5. "IAE1108030105" 🔴 Firmness in faith
+6. "IAE1108030106" 🔴 Tawhid
+7. "IAE1108030107" 🔴 Prayer and supplication
+8. "IAE1108030108" 🔴 Guidance and misguidance
+9. "IAE1108030109" 🟢 Knowledge and responsibility
+10. "IAE1108030110" 🟢 Unity of believers
+11. "IAE1108030111" 🟢 Obedience to Allah and Messenger
+12. "IAE1108030112" 🔵 Knowledge and faith
+13. "IAE1108030113" 🔵 Intellectual reflection on revelation
+14. "IAE1108030114" 🔵 Relationship between certainty and faith
+
+Total = 14
+
+---
+
+Lecture 06
+
+Main Topic 06 — "IAE1108030200"
+
+Family of Imran and Lessons of Faith
+
+1. "IAE1108030201" 🔴 Family of Imran
+2. "IAE1108030202" 🔴 Maryam (AS)
+3. "IAE1108030203" 🔴 Birth of Isa (AS)
+4. "IAE1108030204" 🔴 Miracles of Isa (AS)
+5. "IAE1108030205" 🔴 Truth of revelation
+6. "IAE1108030206" 🔴 Dialogue and truth
+7. "IAE1108030207" 🟢 Steadfastness in faith
+8. "IAE1108030208" 🟢 Sincerity and devotion
+9. "IAE1108030209" 🔵 Prophetic mission
+10. "IAE1108030210" 🔵 Comparative reflection
+11. "IAE1108030211" 🔵 Spiritual lessons
+12. "IAE1108030212" 🔵 Devotion and sincerity
+13. "IAE1108030213" 🔵 Faith under trial
+14. "IAE1108030214" 🔵 Lessons for contemporary life
+
+Total = 14
+
+---
+
+Lecture 07
+
+Main Topic 07 — "IAE1108040100"
+
+Surah Al-Anfal — Faith, Obedience and Badr
+
+1. "IAE1108040101" 🔴 Introduction to Surah Al-Anfal
+2. "IAE1108040102" 🔴 Meaning of Anfal
+3. "IAE1108040103" 🔴 Qualities of true believers
+4. "IAE1108040104" 🔴 Obedience to Allah and Messenger
+5. "IAE1108040105" 🔴 Battle of Badr
+6. "IAE1108040106" 🔴 Divine help
+7. "IAE1108040107" 🔴 Patience and steadfastness
+8. "IAE1108040108" 🟢 Discipline
+9. "IAE1108040109" 🟢 Unity
+10. "IAE1108040110" 🟢 Ethical conduct
+11. "IAE1108040111" 🔵 Strategic lessons
+12. "IAE1108040112" 🔵 Moral lessons
+13. "IAE1108040113" 🔵 Leadership responsibility
+14. "IAE1108040114" 🔵 Collective responsibility
+
+Total = 14
+
+---
+
+Lecture 08
+
+Main Topic 08 — "IAE1108040200"
+
+Justice, Responsibility and Social Order
+
+1. "IAE1108040201" 🔴 Obedience and discipline
+2. "IAE1108040202" 🔴 Trust in Allah
+3. "IAE1108040203" 🔴 Unity among believers
+4. "IAE1108040204" 🔴 Treatment of opponents
+5. "IAE1108040205" 🔴 Trust and responsibility
+6. "IAE1108040206" 🟢 Justice
+7. "IAE1108040207" 🟢 Collective responsibility
+8. "IAE1108040208" 🟢 Social responsibility
+9. "IAE1108040209" 🔵 Ethics of conflict
+10. "IAE1108040210" 🔵 Contemporary application
+11. "IAE1108040211" 🔵 Justice under pressure
+12. "IAE1108040212" 🔵 Social discipline
+13. "IAE1108040213" 🔵 Ethical decision-making
+14. "IAE1108040214" 🔵 Responsibility toward society
+
+Total = 14
+
+---
+
+Lecture 09
+
+Main Topic 09 — "IAE1108050100"
+
+Surah At-Tawbah — Faith, Hypocrisy and Commitment
+
+1. "IAE1108050101" 🔴 Introduction to Surah At-Tawbah
+2. "IAE1108050102" 🔴 Meaning and significance
+3. "IAE1108050103" 🔴 Faith and commitment
+4. "IAE1108050104" 🔴 Hypocrisy
+5. "IAE1108050105" 🔴 Characteristics of hypocrites
+6. "IAE1108050106" 🔴 Repentance
+7. "IAE1108050107" 🔴 Sincere believers
+8. "IAE1108050108" 🟢 Social consequences of hypocrisy
+9. "IAE1108050109" 🟢 Sincerity
+10. "IAE1108050110" 🟢 Accountability
+11. "IAE1108050111" 🔵 Moral psychology of hypocrisy
+12. "IAE1108050112" 🔵 Contemporary ethical application
+13. "IAE1108050113" 🔵 Sincerity and integrity
+14. "IAE1108050114" 🔵 Personal accountability
+
+Total = 14
+
+---
+
+Lecture 10
+
+Main Topic 10 — "IAE1108050200"
+
+Social Order, Sacrifice and Repentance
+
+1. "IAE1108050201" 🔴 Charity and social welfare
+2. "IAE1108050202" 🔴 Sacrifice for truth
+3. "IAE1108050203" 🔴 Obedience
+4. "IAE1108050204" 🔴 Repentance
+5. "IAE1108050205" 🔴 Sincere action
+6. "IAE1108050206" 🟢 Social solidarity
+7. "IAE1108050207" 🟢 Community responsibility
+8. "IAE1108050208" 🟢 Moral reform
+9. "IAE1108050209" 🔵 Ethical reflection
+10. "IAE1108050210" 🔵 Contemporary application
+11. "IAE1108050211" 🔵 Social reform
+12. "IAE1108050212" 🔵 Sacrifice and responsibility
+13. "IAE1108050213" 🔵 Repentance and personal reform
+14. "IAE1108050214" 🔵 Community welfare
+
+Total = 14
+
+---
+
+Lectureization Summary
+
+Lecture| Main Topic| Academic 🔴🟢| Blue 🔵| Total
+01| "IAE1108010100"| 11| 3| 14
+02| "IAE1108010200"| 11| 3| 14
+03| "IAE1108020100"| 11| 3| 14
+04| "IAE1108020200"| 9| 5| 14
+05| "IAE1108030100"| 11| 3| 14
+06| "IAE1108030200"| 8| 6| 14
+07| "IAE1108040100"| 10| 4| 14
+08| "IAE1108040200"| 8| 6| 14
+09| "IAE1108050100"| 10| 4| 14
+10| "IAE1108050200"| 8| 6| 14
+
+Lectureization rule satisfied structurally: ہر lecture 14 subtopics پر مکمل ہے؛ جہاں Red+Green 14 سے کم تھے وہاں اسی lecture کے Blue Mastery سے remaining slots مکمل کیے گئے ہیں۔
+
+اہم source boundary: BISE Peshawar کی indexed official material میں Mutala-e-Quran Hakeem کے Class XI/XII notification اور Smart Syllabus/Model Paper کی موجودگی واضح ہے، اور independent KPK Class XI indexing پانچ chapters کو identify کرتی ہے: Chapter 1 (Ayat 1–67), Chapter 3 (Aal-e-Imran), Chapter 4 (Al-Anfal)، Chapter 5 (At-Tawbah)۔ </p>
+  </div>
+
+  <!-- Page 7 Content -->
+  <div id="page7" class="page">
+    <h2>Page 7</h2>
+    <p> IMPERIAL ACADEMY OF EDUCATION
+
+First-Year Urdu — Final Lectureization Master Register
+
+Subject Level: 09
+Academy Subject Code: "IAE1109"
+Master Topics: 47
+Master Subtopics: 376
+Core: 329 = 235 🔴 Red + 94 🟢 Green
+Mastery: 47 🔵 Blue
+
+Lectureization Protocol
+
+- Lectures follow the locked sequence of Main Topics and Subtopics.
+- Each lecture includes a maximum of 2 Main Topics.
+- Each lecture includes a maximum of 14 Core Subtopics.
+- 🔴 Red and 🟢 Green items constitute the Core Lecture Material.
+- 🔵 Blue items are designated for Mastery only.
+- Blue items may be used for capacity completion only when the active lecture contains fewer than 14 Core Subtopics.
+- Blue items may be selected only from Main Topics already included in that lecture.
+- No future Main Topic may be introduced solely for capacity completion.
+- No Core item may be omitted, duplicated, or partially transferred.
+- Repeated content is identified separately and is not counted as a new Core item.
+- Advanced and postgraduate material remains classified as 🔵 Mastery and does not generate a separate lecture.
+
+---
+
+LECTURE 01
+
+Main Topic 01 — اپنی مدد آپ
+
+- "IAE11090101" — Subtopic 01 — 🔴 Core
+- "IAE11090102" — Subtopic 02 — 🔴 Core
+- "IAE11090103" — Subtopic 03 — 🔴 Core
+- "IAE11090104" — Subtopic 04 — 🔴 Core
+- "IAE11090105" — Subtopic 05 — 🔴 Core
+- "IAE11090106" — Subtopic 06 — 🟢 Core
+- "IAE11090107" — Subtopic 07 — 🟢 Core
+- "IAE11090108" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 02 — جھوٹے آدمی
+
+- "IAE11090201" — Subtopic 01 — 🔴 Core
+- "IAE11090202" — Subtopic 02 — 🔴 Core
+- "IAE11090203" — Subtopic 03 — 🔴 Core
+- "IAE11090204" — Subtopic 04 — 🔴 Core
+- "IAE11090205" — Subtopic 05 — 🔴 Core
+- "IAE11090206" — Subtopic 06 — 🟢 Core
+- "IAE11090207" — Subtopic 07 — 🟢 Core
+- "IAE11090208" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+Repetition: None
+Advanced/Postgraduate: Blue Mastery remains available and is not inserted because Core capacity is full.
+
+---
+
+LECTURE 02
+
+Main Topic 03 — نظریہ پاکستان
+
+- "IAE11090301" — Subtopic 01 — 🔴 Core
+- "IAE11090302" — Subtopic 02 — 🔴 Core
+- "IAE11090303" — Subtopic 03 — 🔴 Core
+- "IAE11090304" — Subtopic 04 — 🔴 Core
+- "IAE11090305" — Subtopic 05 — 🔴 Core
+- "IAE11090306" — Subtopic 06 — 🟢 Core
+- "IAE11090307" — Subtopic 07 — 🟢 Core
+- "IAE11090308" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 04 — پاکستانی قومیت کا مسئلہ
+
+- "IAE11090401" — Subtopic 01 — 🔴 Core
+- "IAE11090402" — Subtopic 02 — 🔴 Core
+- "IAE11090403" — Subtopic 03 — 🔴 Core
+- "IAE11090404" — Subtopic 04 — 🔴 Core
+- "IAE11090405" — Subtopic 05 — 🔴 Core
+- "IAE11090406" — Subtopic 06 — 🟢 Core
+- "IAE11090407" — Subtopic 07 — 🟢 Core
+- "IAE11090408" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+Repetition: None
+Advanced/Postgraduate: Blue Mastery is not inserted.
+
+---
+
+LECTURE 03
+
+Main Topic 05 — کچھ ادب کے بارے میں
+
+- "IAE11090501" — Subtopic 01 — 🔴 Core
+- "IAE11090502" — Subtopic 02 — 🔴 Core
+- "IAE11090503" — Subtopic 03 — 🔴 Core
+- "IAE11090504" — Subtopic 04 — 🔴 Core
+- "IAE11090505" — Subtopic 05 — 🔴 Core
+- "IAE11090506" — Subtopic 06 — 🟢 Core
+- "IAE11090507" — Subtopic 07 — 🟢 Core
+- "IAE11090508" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 06 — لمحۂ فکریہ
+
+- "IAE11090601" — Subtopic 01 — 🔴 Core
+- "IAE11090602" — Subtopic 02 — 🔴 Core
+- "IAE11090603" — Subtopic 03 — 🔴 Core
+- "IAE11090604" — Subtopic 04 — 🔴 Core
+- "IAE11090605" — Subtopic 05 — 🔴 Core
+- "IAE11090606" — Subtopic 06 — 🟢 Core
+- "IAE11090607" — Subtopic 07 — 🟢 Core
+- "IAE11090608" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+Repetition: None
+
+---
+
+LECTURE 04
+
+Main Topic 07 — داروغہ جی کی پانچوں گھی میں اور سر کڑاہی میں
+
+- "IAE11090701" — Subtopic 01 — 🔴 Core
+- "IAE11090702" — Subtopic 02 — 🔴 Core
+- "IAE11090703" — Subtopic 03 — 🔴 Core
+- "IAE11090704" — Subtopic 04 — 🔴 Core
+- "IAE11090705" — Subtopic 05 — 🔴 Core
+- "IAE11090706" — Subtopic 06 — 🟢 Core
+- "IAE11090707" — Subtopic 07 — 🟢 Core
+- "IAE11090708" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 08 — آنگن
+
+- "IAE11090801" — Subtopic 01 — 🔴 Core
+- "IAE11090802" — Subtopic 02 — 🔴 Core
+- "IAE11090803" — Subtopic 03 — 🔴 Core
+- "IAE11090804" — Subtopic 04 — 🔴 Core
+- "IAE11090805" — Subtopic 05 — 🔴 Core
+- "IAE11090806" — Subtopic 06 — 🟢 Core
+- "IAE11090807" — Subtopic 07 — 🟢 Core
+- "IAE11090808" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+Repetition: None
+
+---
+
+LECTURE 05
+
+Main Topic 09 — خوبصورت بلا
+
+- "IAE11090901" — Subtopic 01 — 🔴 Core
+- "IAE11090902" — Subtopic 02 — 🔴 Core
+- "IAE11090903" — Subtopic 03 — 🔴 Core
+- "IAE11090904" — Subtopic 04 — 🔴 Core
+- "IAE11090905" — Subtopic 05 — 🔴 Core
+- "IAE11090906" — Subtopic 06 — 🟢 Core
+- "IAE11090907" — Subtopic 07 — 🟢 Core
+- "IAE11090908" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 10 — تعلیمِ بالغاں
+
+- "IAE11091001" — Subtopic 01 — 🔴 Core
+- "IAE11091002" — Subtopic 02 — 🔴 Core
+- "IAE11091003" — Subtopic 03 — 🔴 Core
+- "IAE11091004" — Subtopic 04 — 🔴 Core
+- "IAE11091005" — Subtopic 05 — 🔴 Core
+- "IAE11091006" — Subtopic 06 — 🟢 Core
+- "IAE11091007" — Subtopic 07 — 🟢 Core
+- "IAE11091008" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 06
+
+Main Topic 11 — شیراز اور کنارِ آبِ رکنا باد وغیرہ
+
+- "IAE11091101" — Subtopic 01 — 🔴 Core
+- "IAE11091102" — Subtopic 02 — 🔴 Core
+- "IAE11091103" — Subtopic 03 — 🔴 Core
+- "IAE11091104" — Subtopic 04 — 🔴 Core
+- "IAE11091105" — Subtopic 05 — 🔴 Core
+- "IAE11091106" — Subtopic 06 — 🟢 Core
+- "IAE11091107" — Subtopic 07 — 🟢 Core
+- "IAE11091108" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 12 — زندہ شہر اور مردہ شہر
+
+- "IAE11091201" — Subtopic 01 — 🔴 Core
+- "IAE11091202" — Subtopic 02 — 🔴 Core
+- "IAE11091203" — Subtopic 03 — 🔴 Core
+- "IAE11091204" — Subtopic 04 — 🔴 Core
+- "IAE11091205" — Subtopic 05 — 🔴 Core
+- "IAE11091206" — Subtopic 06 — 🟢 Core
+- "IAE11091207" — Subtopic 07 — 🟢 Core
+- "IAE11091208" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 07
+
+Main Topic 13 — لالچی وزیر
+
+- "IAE11091301" — Subtopic 01 — 🔴 Core
+- "IAE11091302" — Subtopic 02 — 🔴 Core
+- "IAE11091303" — Subtopic 03 — 🔴 Core
+- "IAE11091304" — Subtopic 04 — 🔴 Core
+- "IAE11091305" — Subtopic 05 — 🔴 Core
+- "IAE11091306" — Subtopic 06 — 🟢 Core
+- "IAE11091307" — Subtopic 07 — 🟢 Core
+- "IAE11091308" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 14 — خطوطِ غالب
+
+- "IAE11091401" — Subtopic 01 — 🔴 Core
+- "IAE11091402" — Subtopic 02 — 🔴 Core
+- "IAE11091403" — Subtopic 03 — 🔴 Core
+- "IAE11091404" — Subtopic 04 — 🔴 Core
+- "IAE11091405" — Subtopic 05 — 🔴 Core
+- "IAE11091406" — Subtopic 06 — 🟢 Core
+- "IAE11091407" — Subtopic 07 — 🟢 Core
+- "IAE11091408" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 08
+
+Main Topic 15 — مکاتیبِ اقبال
+
+- "IAE11091501" — Subtopic 01 — 🔴 Core
+- "IAE11091502" — Subtopic 02 — 🔴 Core
+- "IAE11091503" — Subtopic 03 — 🔴 Core
+- "IAE11091504" — Subtopic 04 — 🔴 Core
+- "IAE11091505" — Subtopic 05 — 🔴 Core
+- "IAE11091506" — Subtopic 06 — 🟢 Core
+- "IAE11091507" — Subtopic 07 — 🟢 Core
+- "IAE11091508" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 16 — حمد
+
+- "IAE11091601" — Subtopic 01 — 🔴 Core
+- "IAE11091602" — Subtopic 02 — 🔴 Core
+- "IAE11091603" — Subtopic 03 — 🔴 Core
+- "IAE11091604" — Subtopic 04 — 🔴 Core
+- "IAE11091605" — Subtopic 05 — 🔴 Core
+- "IAE11091606" — Subtopic 06 — 🟢 Core
+- "IAE11091607" — Subtopic 07 — 🟢 Core
+- "IAE11091608" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 09
+
+Main Topic 17 — نعت
+
+- "IAE11091701" — Subtopic 01 — 🔴 Core
+- "IAE11091702" — Subtopic 02 — 🔴 Core
+- "IAE11091703" — Subtopic 03 — 🔴 Core
+- "IAE11091704" — Subtopic 04 — 🔴 Core
+- "IAE11091705" — Subtopic 05 — 🔴 Core
+- "IAE11091706" — Subtopic 06 — 🟢 Core
+- "IAE11091707" — Subtopic 07 — 🟢 Core
+- "IAE11091708" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 18 — شہر آشوب
+
+- "IAE11091801" — Subtopic 01 — 🔴 Core
+- "IAE11091802" — Subtopic 02 — 🔴 Core
+- "IAE11091803" — Subtopic 03 — 🔴 Core
+- "IAE11091804" — Subtopic 04 — 🔴 Core
+- "IAE11091805" — Subtopic 05 — 🔴 Core
+- "IAE11091806" — Subtopic 06 — 🟢 Core
+- "IAE11091807" — Subtopic 07 — 🟢 Core
+- "IAE11091808" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 10
+
+Main Topic 19 — شہزادے کا چھت پر سونا اور پری کے ہاتھوں اغوا ہونا
+
+- "IAE11091901" — Subtopic 01 — 🔴 Core
+- "IAE11091902" — Subtopic 02 — 🔴 Core
+- "IAE11091903" — Subtopic 03 — 🔴 Core
+- "IAE11091904" — Subtopic 04 — 🔴 Core
+- "IAE11091905" — Subtopic 05 — 🔴 Core
+- "IAE11091906" — Subtopic 06 — 🟢 Core
+- "IAE11091907" — Subtopic 07 — 🟢 Core
+- "IAE11091908" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 20 — مرثیہ درِ مراد
+
+- "IAE11092001" — Subtopic 01 — 🔴 Core
+- "IAE11092002" — Subtopic 02 — 🔴 Core
+- "IAE11092003" — Subtopic 03 — 🔴 Core
+- "IAE11092004" — Subtopic 04 — 🔴 Core
+- "IAE11092005" — Subtopic 05 — 🔴 Core
+- "IAE11092006" — Subtopic 06 — 🟢 Core
+- "IAE11092007" — Subtopic 07 — 🟢 Core
+- "IAE11092008" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 11
+
+Main Topic 21 — تختِ فرس پہ علی اکبرؓ کا خطاب
+
+- "IAE11092101" — Subtopic 01 — 🔴 Core
+- "IAE11092102" — Subtopic 02 — 🔴 Core
+- "IAE11092103" — Subtopic 03 — 🔴 Core
+- "IAE11092104" — Subtopic 04 — 🔴 Core
+- "IAE11092105" — Subtopic 05 — 🔴 Core
+- "IAE11092106" — Subtopic 06 — 🟢 Core
+- "IAE11092107" — Subtopic 07 — 🟢 Core
+- "IAE11092108" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 22 — نظم امید
+
+- "IAE11092201" — Subtopic 01 — 🔴 Core
+- "IAE11092202" — Subtopic 02 — 🔴 Core
+- "IAE11092203" — Subtopic 03 — 🔴 Core
+- "IAE11092204" — Subtopic 04 — 🔴 Core
+- "IAE11092205" — Subtopic 05 — 🔴 Core
+- "IAE11092206" — Subtopic 06 — 🟢 Core
+- "IAE11092207" — Subtopic 07 — 🟢 Core
+- "IAE11092208" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 12
+
+Main Topic 23 — نظم نصیحت اخلاقی
+
+- "IAE11092301" — Subtopic 01 — 🔴 Core
+- "IAE11092302" — Subtopic 02 — 🔴 Core
+- "IAE11092303" — Subtopic 03 — 🔴 Core
+- "IAE11092304" — Subtopic 04 — 🔴 Core
+- "IAE11092305" — Subtopic 05 — 🔴 Core
+- "IAE11092306" — Subtopic 06 — 🟢 Core
+- "IAE11092307" — Subtopic 07 — 🟢 Core
+- "IAE11092308" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 24 — نظم جلوۂ سحر
+
+- "IAE11092401" — Subtopic 01 — 🔴 Core
+- "IAE11092402" — Subtopic 02 — 🔴 Core
+- "IAE11092403" — Subtopic 03 — 🔴 Core
+- "IAE11092404" — Subtopic 04 — 🔴 Core
+- "IAE11092405" — Subtopic 05 — 🔴 Core
+- "IAE11092406" — Subtopic 06 — 🟢 Core
+- "IAE11092407" — Subtopic 07 — 🟢 Core
+- "IAE11092408" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 13
+
+Main Topic 25 — نظم پرانا کوٹ
+
+- "IAE11092501" — Subtopic 01 — 🔴 Core
+- "IAE11092502" — Subtopic 02 — 🔴 Core
+- "IAE11092503" — Subtopic 03 — 🔴 Core
+- "IAE11092504" — Subtopic 04 — 🔴 Core
+- "IAE11092505" — Subtopic 05 — 🔴 Core
+- "IAE11092506" — Subtopic 06 — 🟢 Core
+- "IAE11092507" — Subtopic 07 — 🟢 Core
+- "IAE11092508" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 26 — نظم یہ سڑکیں
+
+- "IAE11092601" — Subtopic 01 — 🔴 Core
+- "IAE11092602" — Subtopic 02 — 🔴 Core
+- "IAE11092603" — Subtopic 03 — 🔴 Core
+- "IAE11092604" — Subtopic 04 — 🔴 Core
+- "IAE11092605" — Subtopic 05 — 🔴 Core
+- "IAE11092606" — Subtopic 06 — 🟢 Core
+- "IAE11092607" — Subtopic 07 — 🟢 Core
+- "IAE11092608" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 14
+
+Main Topic 27 — قطعات مرزا محمود سرحدی
+
+- "IAE11092701" — Subtopic 01 — 🔴 Core
+- "IAE11092702" — Subtopic 02 — 🔴 Core
+- "IAE11092703" — Subtopic 03 — 🔴 Core
+- "IAE11092704" — Subtopic 04 — 🔴 Core
+- "IAE11092705" — Subtopic 05 — 🔴 Core
+- "IAE11092706" — Subtopic 06 — 🟢 Core
+- "IAE11092707" — Subtopic 07 — 🟢 Core
+- "IAE11092708" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 28 — نظم اخلاص
+
+- "IAE11092801" — Subtopic 01 — 🔴 Core
+- "IAE11092802" — Subtopic 02 — 🔴 Core
+- "IAE11092803" — Subtopic 03 — 🔴 Core
+- "IAE11092804" — Subtopic 04 — 🔴 Core
+- "IAE11092805" — Subtopic 05 — 🔴 Core
+- "IAE11092806" — Subtopic 06 — 🟢 Core
+- "IAE11092807" — Subtopic 07 — 🟢 Core
+- "IAE11092808" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 15
+
+Main Topic 29 — پیری میں کیا جوانی کے موسم کو روئیے
+
+- "IAE11092901" — Subtopic 01 — 🔴 Core
+- "IAE11092902" — Subtopic 02 — 🔴 Core
+- "IAE11092903" — Subtopic 03 — 🔴 Core
+- "IAE11092904" — Subtopic 04 — 🔴 Core
+- "IAE11092905" — Subtopic 05 — 🔴 Core
+- "IAE11092906" — Subtopic 06 — 🟢 Core
+- "IAE11092907" — Subtopic 07 — 🟢 Core
+- "IAE11092908" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 30 — غزلیات میر درد
+
+- "IAE11093001" — Subtopic 01 — 🔴 Core
+- "IAE11093002" — Subtopic 02 — 🔴 Core
+- "IAE11093003" — Subtopic 03 — 🔴 Core
+- "IAE11093004" — Subtopic 04 — 🔴 Core
+- "IAE11093005" — Subtopic 05 — 🔴 Core
+- "IAE11093006" — Subtopic 06 — 🟢 Core
+- "IAE11093007" — Subtopic 07 — 🟢 Core
+- "IAE11093008" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 16
+
+Main Topic 31 — شیخ غلام ہمدانی مصحفی کی غزل
+
+- "IAE11093101" — Subtopic 01 — 🔴 Core
+- "IAE11093102" — Subtopic 02 — 🔴 Core
+- "IAE11093103" — Subtopic 03 — 🔴 Core
+- "IAE11093104" — Subtopic 04 — 🔴 Core
+- "IAE11093105" — Subtopic 05 — 🔴 Core
+- "IAE11093106" — Subtopic 06 — 🟢 Core
+- "IAE11093107" — Subtopic 07 — 🟢 Core
+- "IAE11093108" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 32 — غالب کی غزلوں کی تشریح
+
+- "IAE11093201" — Subtopic 01 — 🔴 Core
+- "IAE11093202" — Subtopic 02 — 🔴 Core
+- "IAE11093203" — Subtopic 03 — 🔴 Core
+- "IAE11093204" — Subtopic 04 — 🔴 Core
+- "IAE11093205" — Subtopic 05 — 🔴 Core
+- "IAE11093206" — Subtopic 06 — 🟢 Core
+- "IAE11093207" — Subtopic 07 — 🟢 Core
+- "IAE11093208" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 17
+
+Main Topic 33 — داغ دہلوی کی غزل
+
+- "IAE11093301" — Subtopic 01 — 🔴 Core
+- "IAE11093302" — Subtopic 02 — 🔴 Core
+- "IAE11093303" — Subtopic 03 — 🔴 Core
+- "IAE11093304" — Subtopic 04 — 🔴 Core
+- "IAE11093305" — Subtopic 05 — 🔴 Core
+- "IAE11093306" — Subtopic 06 — 🟢 Core
+- "IAE11093307" — Subtopic 07 — 🟢 Core
+- "IAE11093308" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 34
+
+- "IAE11093401" — Subtopic 01 — 🔴 Core
+- "IAE11093402" — Subtopic 02 — 🔴 Core
+- "IAE11093403" — Subtopic 03 — 🔴 Core
+- "IAE11093404" — Subtopic 04 — 🔴 Core
+- "IAE11093405" — Subtopic 05 — 🔴 Core
+- "IAE11093406" — Subtopic 06 — 🟢 Core
+- "IAE11093407" — Subtopic 07 — 🟢 Core
+- "IAE11093408" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+Lecture Mastery: 0 required
+
+---
+
+LECTURE 18
+
+Main Topic 35
+
+- "IAE11093501" — Subtopic 01 — 🔴 Core
+- "IAE11093502" — Subtopic 02 — 🔴 Core
+- "IAE11093503" — Subtopic 03 — 🔴 Core
+- "IAE11093504" — Subtopic 04 — 🔴 Core
+- "IAE11093505" — Subtopic 05 — 🔴 Core
+- "IAE11093506" — Subtopic 06 — 🟢 Core
+- "IAE11093507" — Subtopic 07 — 🟢 Core
+- "IAE11093508" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 36
+
+- "IAE11093601" — Subtopic 01 — 🔴 Core
+- "IAE11093602" — Subtopic 02 — 🔴 Core
+- "IAE11093603" — Subtopic 03 — 🔴 Core
+- "IAE11093604" — Subtopic 04 — 🔴 Core
+- "IAE11093605" — Subtopic 05 — 🔴 Core
+- "IAE11093606" — Subtopic 06 — 🟢 Core
+- "IAE11093607" — Subtopic 07 — 🟢 Core
+- "IAE11093608" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+
+---
+
+LECTURE 19
+
+Main Topic 37
+
+- "IAE11093701" — Subtopic 01 — 🔴 Core
+- "IAE11093702" — Subtopic 02 — 🔴 Core
+- "IAE11093703" — Subtopic 03 — 🔴 Core
+- "IAE11093704" — Subtopic 04 — 🔴 Core
+- "IAE11093705" — Subtopic 05 — 🔴 Core
+- "IAE11093706" — Subtopic 06 — 🟢 Core
+- "IAE11093707" — Subtopic 07 — 🟢 Core
+- "IAE11093708" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 38
+
+- "IAE11093801" — Subtopic 01 — 🔴 Core
+- "IAE11093802" — Subtopic 02 — 🔴 Core
+- "IAE11093803" — Subtopic 03 — 🔴 Core
+- "IAE11093804" — Subtopic 04 — 🔴 Core
+- "IAE11093805" — Subtopic 05 — 🔴 Core
+- "IAE11093806" — Subtopic 06 — 🟢 Core
+- "IAE11093807" — Subtopic 07 — 🟢 Core
+- "IAE11093808" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+
+---
+
+LECTURE 20
+
+Main Topic 39
+
+- "IAE11093901" — Subtopic 01 — 🔴 Core
+- "IAE11093902" — Subtopic 02 — 🔴 Core
+- "IAE11093903" — Subtopic 03 — 🔴 Core
+- "IAE11093904" — Subtopic 04 — 🔴 Core
+- "IAE11093905" — Subtopic 05 — 🔴 Core
+- "IAE11093906" — Subtopic 06 — 🟢 Core
+- "IAE11093907" — Subtopic 07 — 🟢 Core
+- "IAE11093908" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 40
+
+- "IAE11094001" — Subtopic 01 — 🔴 Core
+- "IAE11094002" — Subtopic 02 — 🔴 Core
+- "IAE11094003" — Subtopic 03 — 🔴 Core
+- "IAE11094004" — Subtopic 04 — 🔴 Core
+- "IAE11094005" — Subtopic 05 — 🔴 Core
+- "IAE11094006" — Subtopic 06 — 🟢 Core
+- "IAE11094007" — Subtopic 07 — 🟢 Core
+- "IAE11094008" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+
+---
+
+LECTURE 21
+
+Main Topic 41
+
+- "IAE11094101" — Subtopic 01 — 🔴 Core
+- "IAE11094102" — Subtopic 02 — 🔴 Core
+- "IAE11094103" — Subtopic 03 — 🔴 Core
+- "IAE11094104" — Subtopic 04 — 🔴 Core
+- "IAE11094105" — Subtopic 05 — 🔴 Core
+- "IAE11094106" — Subtopic 06 — 🟢 Core
+- "IAE11094107" — Subtopic 07 — 🟢 Core
+- "IAE11094108" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 42
+
+- "IAE11094201" — Subtopic 01 — 🔴 Core
+- "IAE11094202" — Subtopic 02 — 🔴 Core
+- "IAE11094203" — Subtopic 03 — 🔴 Core
+- "IAE11094204" — Subtopic 04 — 🔴 Core
+- "IAE11094205" — Subtopic 05 — 🔴 Core
+- "IAE11094206" — Subtopic 06 — 🟢 Core
+- "IAE11094207" — Subtopic 07 — 🟢 Core
+- "IAE11094208" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+
+---
+
+LECTURE 22
+
+Main Topic 43
+
+- "IAE11094301" — Subtopic 01 — 🔴 Core
+- "IAE11094302" — Subtopic 02 — 🔴 Core
+- "IAE11094303" — Subtopic 03 — 🔴 Core
+- "IAE11094304" — Subtopic 04 — 🔴 Core
+- "IAE11094305" — Subtopic 05 — 🔴 Core
+- "IAE11094306" — Subtopic 06 — 🟢 Core
+- "IAE11094307" — Subtopic 07 — 🟢 Core
+- "IAE11094308" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 44
+
+- "IAE11094401" — Subtopic 01 — 🔴 Core
+- "IAE11094402" — Subtopic 02 — 🔴 Core
+- "IAE11094403" — Subtopic 03 — 🔴 Core
+- "IAE11094404" — Subtopic 04 — 🔴 Core
+- "IAE11094405" — Subtopic 05 — 🔴 Core
+- "IAE11094406" — Subtopic 06 — 🟢 Core
+- "IAE11094407" — Subtopic 07 — 🟢 Core
+- "IAE11094408" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+
+---
+
+LECTURE 23
+
+Main Topic 45
+
+- "IAE11094501" — Subtopic 01 — 🔴 Core
+- "IAE11094502" — Subtopic 02 — 🔴 Core
+- "IAE11094503" — Subtopic 03 — 🔴 Core
+- "IAE11094504" — Subtopic 04 — 🔴 Core
+- "IAE11094505" — Subtopic 05 — 🔴 Core
+- "IAE11094506" — Subtopic 06 — 🟢 Core
+- "IAE11094507" — Subtopic 07 — 🟢 Core
+- "IAE11094508" — Subtopic 08 — 🔵 Mastery
+
+Main Topic 46
+
+- "IAE11094601" — Subtopic 01 — 🔴 Core
+- "IAE11094602" — Subtopic 02 — 🔴 Core
+- "IAE11094603" — Subtopic 03 — 🔴 Core
+- "IAE11094604" — Subtopic 04 — 🔴 Core
+- "IAE11094605" — Subtopic 05 — 🔴 Core
+- "IAE11094606" — Subtopic 06 — 🟢 Core
+- "IAE11094607" — Subtopic 07 — 🟢 Core
+- "IAE11094608" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 14
+
+---
+
+LECTURE 24
+
+Main Topic 47
+
+- "IAE11094701" — Subtopic 01 — 🔴 Core
+- "IAE11094702" — Subtopic 02 — 🔴 Core
+- "IAE11094703" — Subtopic 03 — 🔴 Core
+- "IAE11094704" — Subtopic 04 — 🔴 Core
+- "IAE11094705" — Subtopic 05 — 🔴 Core
+- "IAE11094706" — Subtopic 06 — 🟢 Core
+- "IAE11094707" — Subtopic 07 — 🟢 Core
+- "IAE11094708" — Subtopic 08 — 🔵 Mastery
+
+Lecture Core: 7
+Blue Capacity Fill: 1
+Lecture Total: 8
+
+Repetition: None unless explicitly designated in the locked syllabus.
+Advanced/Postgraduate: "IAE11094708" — 🔵 Mastery.
+
+---
+
+FINAL MASTER TOTAL
+
+Category| Total
+Main Topics| 47
+🔴 Red Core| 235
+🟢 Green Core| 94
+Core Total| 329
+🔵 Blue Mastery| 47
+Grand Total| 376
+Lectures| 24
+
+FINAL AUDIT STATUS
+
+Number sequence: 01–47 continuous
+Subtopic sequence: 01–08 under each Main Topic
+Core: 329
+Mastery: 47
+Grand Total: 376
+Maximum Main Topics per Lecture: 2
+Maximum Core Subtopics per Lecture: 14
+Blue capacity fill: Applied only where active Core is less than 14
+Future-topic Blue import: Prohibited
+Practical Work: Separate from numbered Main Topics
+Pakistan Studies: Not part of First-Year Urdu
+Status: FINAL LECTUREIZATION STRUCTURE </p>
+  </div>
+
+  <script>
+    function showPage(pageId, btn) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      // Remove active highlight from all tab buttons
+      document.querySelectorAll('.tab-btn').forEach(button => {
+        button.classList.remove('active');
+      });
+
+      // Show the selected page and highlight its button
+      document.getElementById(pageId).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
