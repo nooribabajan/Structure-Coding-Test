@@ -67,7 +67,7 @@ button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessme
 .lesson-subtitle{text-align:center;color:#64748b;margin:-4px 0 14px}
 .topic-head,.subtopic-head{max-width:1180px;margin:0 auto 14px;display:flex;direction:ltr;align-items:center;gap:14px;padding:10px 0 14px;border-bottom:1px solid #e2e8f0}
 .topic-visual{width:40px;height:40px;flex:0 0 40px;border:0;border-radius:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.topic-visual img{display:none}.topic-visual svg{display:block;width:40px;height:40px;max-width:40px;max-height:40px}
+.topic-visual img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.topic-visual svg{display:block;width:40px;height:40px;max-width:40px;max-height:40px}
 .topic-head-text,.subtopic-head-text{direction:rtl;text-align:right;flex:1;min-width:0}
 .topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;margin:0;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
 .section,.visual-card,.question-card,.assessment-head,.exam-rules,.recommendation-card,.answer-review,.revision-item,.search-result{max-width:1180px;margin:10px auto;padding:14px;border-radius:14px;background:#f8fafc}
@@ -76,17 +76,6 @@ button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessme
 .section p,.section li{font-size:14px;line-height:1.9}
 .pill,.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial}
 .inline-note{padding:10px 12px;border-radius:10px;background:var(--warn);border-right:4px solid var(--gold);margin:10px auto;max-width:1180px}
-.practical-card.section{max-width:1180px;margin:10px auto;padding:16px 18px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0;box-shadow:0 4px 14px rgba(15,23,42,.04)}
-.practical-card.section h3{margin:10px 0;color:var(--green);font-size:20px;line-height:1.45}
-.practical-card.section h4{margin:14px 0 6px;color:var(--green2);font-size:17px}
-.practical-card.section>p{margin:6px 0;font-size:14px;line-height:1.9}
-.practical-card.section>ol{margin:6px 0 12px;padding-right:24px;font-size:14px;line-height:1.9}
-.practical-card .practical-solution{margin:10px 0;padding:12px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:11px}
-.practical-card .practical-safety,.practical-card .practical-errors{max-width:none;margin:8px 0;padding:10px 12px;background:#fff;border:1px solid #e2e8f0;border-radius:10px}
-.practical-card .practical-safety{border-right:4px solid var(--gold)}
-.practical-card .practical-errors{border-right:4px solid var(--sky)}
-.practical-card .practical-safety p,.practical-card .practical-errors p{margin:0;font-size:14px;line-height:1.85}
-@media(max-width:700px){.practical-card.section{margin:8px 0;padding:14px}.practical-card.section h3{font-size:18px}}
 .dictionary-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.18);overflow:auto;cursor:pointer}.dictionary-dialog{position:relative;width:min(720px,calc(100% - 24px));max-height:calc(100% - 36px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 16px 45px rgba(15,23,42,.22);padding:24px 20px 64px;cursor:default}.dictionary-close{position:absolute;bottom:10px;right:10px;left:auto;top:auto;width:44px;height:44px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#475569;z-index:2}.dictionary-close:hover,.dictionary-close:focus{color:#b42318;background:#f8fafc;outline:none}@media(max-width:760px){.dictionary-dialog{padding:20px 16px 62px}.dictionary-close{bottom:10px;right:10px;width:48px;height:48px;font-size:30px}}.dict-modal .dictionary-dialog{animation:dictIn .14s ease-out}@keyframes dictIn{from{transform:translateY(6px);opacity:.7}to{transform:translateY(0);opacity:1}}
 .linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;border:0;box-shadow:none;text-decoration:none;outline:none}.linked-word:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .diagram{direction:ltr;text-align:center;font:700 14px/1.8 Inter,sans-serif;background:#f8fafc;padding:16px;border-radius:12px;white-space:pre-wrap;overflow:auto}
@@ -163,9 +152,9 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 .tab:focus-visible,.main-topic-large:focus-visible,.previous-page-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .label{font-size:15px;line-height:1.45}
 .lecture-navigation{max-width:1180px;margin:10px auto 22px;padding:0;display:flex;justify-content:center}
-.lecture-navigation .previous-page-tab{box-sizing:border-box;width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;cursor:pointer;box-shadow:0 5px 15px rgba(15,23,42,.05);font:700 15px/1.3 'Inter','Segoe UI',Arial,sans-serif;color:var(--red)}
+.lecture-navigation .previous-page-tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;cursor:pointer;box-shadow:0 5px 15px rgba(15,23,42,.05);font:700 15px/1.3 'Inter','Segoe UI',Arial,sans-serif;color:var(--red)}
 .lecture-navigation .nav-arrow{font-size:24px;line-height:1}
-@media(max-width:760px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;padding:0 6px;align-items:start}.column{gap:1px;min-width:0}.column>.main-topic-large,.column>.tab{height:88px;min-height:88px;max-height:88px;width:100%;margin:0}.label{font-size:12.5px;line-height:1.35;max-width:92%;overflow-wrap:anywhere}.num{font-size:44px}.lecture-navigation{padding:0 6px}.lecture-navigation .previous-page-tab{box-sizing:border-box;height:88px;min-height:88px;max-height:88px;width:100%}.lecture-navigation .previous-page-tab .label{font-size:13px}}
+@media(max-width:760px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;padding:0 6px;align-items:start}.column{gap:1px;min-width:0}.column>.main-topic-large,.column>.tab{height:88px;min-height:88px;max-height:88px;width:100%;margin:0}.label{font-size:12.5px;line-height:1.35;max-width:92%;overflow-wrap:anywhere}.num{font-size:44px}.lecture-navigation{padding:0 6px}.lecture-navigation .previous-page-tab{height:88px;min-height:88px;max-height:88px;width:100%}.lecture-navigation .previous-page-tab .label{font-size:13px}}
 /* CLONING RE-ORDER A — LOCKED TWO-COLUMN TOPICS INVARIANT
    The Topics Page must remain two columns side-by-side at all supported widths.
    Responsive behavior changes density/size, not the required two-column topology. */
@@ -212,15 +201,15 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
    uses the same vertical dimension as the topic tabs and spans the full row. */
 .topic-grid{gap:1px !important;}
 .topic-grid>.column{gap:1px !important;}
-.lecture-navigation{width:100% !important;max-width:none !important;margin:1px 0 1px !important;padding:0 !important;}
-.lecture-navigation .previous-page-tab{box-sizing:border-box;width:100% !important;height:105px !important;min-height:105px !important;max-height:105px !important;margin:0 !important;}
+.lecture-navigation{width:100% !important;max-width:none !important;margin:1px 0 22px !important;padding:0 !important;}
+.lecture-navigation .previous-page-tab{width:100% !important;height:105px !important;min-height:105px !important;max-height:105px !important;margin:0 !important;}
 @media(max-width:760px){
   #mainContentContainer .topic-grid{gap:1px !important;}
   #mainContentContainer .topic-grid>.column{gap:1px !important;}
-  .lecture-navigation .previous-page-tab{box-sizing:border-box;height:88px !important;min-height:88px !important;max-height:88px !important;width:100% !important;}
+  .lecture-navigation .previous-page-tab{height:88px !important;min-height:88px !important;max-height:88px !important;width:100% !important;}
 }
 @media(max-width:420px){
-  .lecture-navigation .previous-page-tab{box-sizing:border-box;height:84px !important;min-height:84px !important;max-height:84px !important;}
+  .lecture-navigation .previous-page-tab{height:84px !important;min-height:84px !important;max-height:84px !important;}
 }
 
 /* Dictionary Friendly UX — clear control, match emphasis, no-result state */
@@ -233,119 +222,29 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 @media(max-width:760px){.dictionary-search-wrap .search{padding-right:52px;}.dictionary-clear{width:40px;height:40px;font-size:24px;}}
 
 
-.visual-overlay{position:fixed;inset:0;background:rgba(15,23,42,.58);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;z-index:2147483000;opacity:0;transition:opacity .16s ease}
-.visual-overlay.show{opacity:1}
-.visual-dialog{position:relative;width:min(94vw,900px);max-height:92dvh;overflow:auto;background:#fff;border-radius:18px;padding:46px 18px 18px;box-shadow:0 18px 60px rgba(0,0,0,.3);box-sizing:border-box;text-align:center}
-.visual-close{position:absolute;left:12px;bottom:12px;width:46px;height:46px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter,Arial,sans-serif;cursor:pointer;z-index:5;box-shadow:0 4px 14px #0003}
-.visual-popup-image-wrap{width:100%;display:flex;justify-content:center;align-items:center;margin:2px auto 10px;min-height:160px}
-.visual-popup-image{display:block;max-width:100%;max-height:68dvh;width:auto;height:auto;object-fit:contain;border-radius:10px}
-.visual-popup-caption{font-size:15px;line-height:1.65;color:#334155;margin:6px auto 26px;max-width:760px}
-.visual-popup-credit{font-size:11px;color:#64748b;margin-bottom:2px}
-@media(max-width:520px){.visual-dialog{width:96vw;max-height:90dvh;padding:42px 12px 72px}.visual-popup-image{max-height:62dvh}.visual-close{left:10px;bottom:10px;width:44px;height:44px}}
+/* L1 Examination repair — calibrated from approved Lecture 02 examination architecture */
+.assessment-fullscreen{padding:0 10px 80px!important;overflow-x:hidden}
+.assessment-fullscreen .assessment-shell{width:100%;max-width:1240px;margin:0 auto}
+.assessment-questionnaire{width:100%;display:block}
+.assessment-questionnaire .question-card{width:100%;max-width:1180px;box-sizing:border-box;margin:12px auto;padding:16px}
+.assessment-questionnaire .question-card + .question-card{margin-top:12px}
+.assessment-questionnaire .question-status{display:block}
+.assessment-questionnaire .pill{display:inline-block}
+.assessment-fullscreen .content-navigation{display:none}
+.assessment-fullscreen .assessment-actions{position:sticky;bottom:8px;z-index:30;padding:10px;background:rgba(255,255,255,.96);border:1px solid #dbe4e0;border-radius:12px}
+.assessment-fullscreen .view-close{z-index:40}
+.assessment-fullscreen .assessment-result{width:100%;box-sizing:border-box}
+.assessment-fullscreen .exam-progress{max-width:1180px;margin:10px auto;padding:12px 14px;border-radius:14px;background:#eef6f2;border:1px solid #c8ddd4;position:sticky;top:6px;z-index:25}
+.exam-progress .progress-label{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}
+.exam-progress .progress-track{height:10px;background:#dbe8e2;border-radius:999px;overflow:hidden}
+.exam-progress .progress-bar{height:100%;width:0%;background:var(--green);transition:width .2s ease}
+.assessment-questionnaire .answer-option{display:flex;align-items:flex-start;gap:9px;margin:7px 0;padding:10px 11px;border:1px solid #dbe4e0;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-questionnaire .answer-option:hover{border-color:var(--green);background:#f6fbf8}
+.assessment-questionnaire .answer-option input{margin-top:4px;accent-color:var(--green)}
+.assessment-questionnaire .question-status{font-size:12px;font-weight:700;color:#64748b;margin-top:7px}
+@media(max-width:600px){.assessment-fullscreen{padding-left:6px!important;padding-right:6px!important}.assessment-questionnaire .question-card{padding:13px}.assessment-fullscreen .assessment-actions{bottom:4px}.exam-progress{top:2px!important}}
 
-
-/* Readiness Test — Test Preparation System */
-.readiness-method{background:linear-gradient(180deg,#f8fafc,#fff);border:1px solid #dbe4ee;border-radius:18px;padding:16px;margin:10px 0 16px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
-.readiness-method h3{margin:0 0 8px;color:var(--green);font-size:20px}.readiness-method p{line-height:1.8;margin:7px 0}
-/* Topics Page — Previous Page occupies the final open tab slot in Column 2. */
-#mainContentContainer .lecture-nav-inline{
-  box-sizing:border-box!important;width:100%!important;height:105px!important;min-height:105px!important;max-height:105px!important;
-  margin:0!important;border:2px solid var(--red)!important;border-radius:14px!important;background:#fff!important;
-  display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
-  text-align:center!important;cursor:pointer!important;box-shadow:0 5px 15px rgba(15,23,42,.05)!important;
-  font:700 15px/1.3 'Inter','Segoe UI',Arial,sans-serif!important;color:var(--red)!important;
-  padding:0!important;
-}
-#mainContentContainer .lecture-nav-inline .nav-arrow{font-size:24px;line-height:1}
-@media(max-width:760px){#mainContentContainer .lecture-nav-inline{height:88px!important;min-height:88px!important;max-height:88px!important}.lecture-nav-inline .label{font-size:13px!important}}
-@media(max-width:420px){#mainContentContainer .lecture-nav-inline{height:84px!important;min-height:84px!important;max-height:84px!important}}
-/* The navigation is now inside the equalized two-column grid; no external spacer is needed. */
-#mainContentContainer .lecture-navigation{display:none!important}
-
-.readiness-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:12px 0}.readiness-flow .flow-step{background:#fff;border:1px solid #dbe4ee;border-radius:12px;padding:9px 6px;text-align:center;font-size:12px;line-height:1.45;font-weight:700}
-.readiness-map{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:10px 0 16px}.readiness-map .map-item{border:1px solid #dbe4ee;border-radius:11px;padding:9px;background:#fff;font-size:13px;line-height:1.45}.readiness-map .map-item b{color:#166534}
-.readiness-stage{border:1px solid #dbe4ee;border-radius:16px;background:#fff;margin:12px 0;padding:14px;box-shadow:0 5px 18px rgba(15,23,42,.05)}
-.readiness-stage .stage-label{display:inline-block;border-radius:999px;padding:5px 9px;background:#ecfdf5;color:#166534;font-size:11px;font-weight:800;margin-bottom:6px}.readiness-stage h4{margin:4px 0 8px;font-size:17px;color:#0f172a}.readiness-stage p{line-height:1.75;margin:6px 0}.readiness-answer{margin-top:9px;padding:11px 12px;border-radius:11px;background:#f0fdf4;border-right:4px solid #16a34a;line-height:1.7}.readiness-answer[hidden]{display:none}
-.readiness-action{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.readiness-action button{border:1px solid #cbd5e1;border-radius:10px;padding:9px 13px;background:#fff;cursor:pointer;font-weight:700}.readiness-action .ready-btn{background:#166534;color:#fff;border-color:#166534}.readiness-progress{position:sticky;top:4px;z-index:20;background:#fff;border:1px solid #dbe4ee;border-radius:12px;padding:9px 12px;margin-bottom:10px;box-shadow:0 4px 14px rgba(15,23,42,.06)}.readiness-progress-bar{height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin-top:6px}.readiness-progress-fill{height:100%;width:0;background:#16a34a;transition:width .2s ease}
-@media(max-width:760px){.readiness-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.readiness-map{grid-template-columns:1fr}}
-
-/* IAE FINAL — Previous Page tab must be identical in geometry to ordinary tabs */
-.topic-grid .column > .previous-page-tab{
-  width:100% !important;
-  height:105px !important;
-  min-height:105px !important;
-  max-height:105px !important;
-  margin:0 !important;
-  box-sizing:border-box !important;
-  border:2px solid var(--red) !important;
-  border-radius:16px !important;
-  box-shadow:0 5px 15px rgba(15,23,42,.05) !important;
-}
-.topic-grid .column > .previous-page-tab .num{
-  font-size:58px !important;
-}
-.topic-grid .column > .previous-page-tab .label{
-  font-size:15px !important;
-  line-height:1.45 !important;
-  max-width:92% !important;
-}
-@media(max-width:760px){
-  .topic-grid .column > .previous-page-tab{height:88px !important;min-height:88px !important;max-height:88px !important;width:100% !important;border:2px solid var(--red) !important;border-radius:16px !important}
-  .topic-grid .column > .previous-page-tab .num{font-size:44px !important}
-  .topic-grid .column > .previous-page-tab .label{font-size:12.5px !important;line-height:1.35 !important;max-width:92% !important}
-}
-@media(max-width:420px){
-  .topic-grid .column > .previous-page-tab{height:84px !important;min-height:84px !important;max-height:84px !important;border-radius:14px !important}
-  .topic-grid .column > .previous-page-tab .num{font-size:40px !important}
-  .topic-grid .column > .previous-page-tab .label{font-size:12px !important}
-}
-
-/* FINAL TAB MEASUREMENT MATCH — Previous Page tab matches standard .tab */
-.lecture-navigation .previous-page-tab,
-.topic-grid .column > .previous-page-tab{
-  box-sizing:border-box !important;
-  width:100% !important;
-  height:105px !important;
-  min-height:105px !important;
-  max-height:105px !important;
-  margin:0 !important;
-  border:2px solid var(--red) !important;
-  border-radius:16px !important;
-  padding:0 !important;
-}
-.topic-grid .column > .previous-page-tab .label,
-.lecture-navigation .previous-page-tab .label{
-  font-size:16px !important;
-  line-height:1.45 !important;
-  font-weight:700 !important;
-  max-width:92% !important;
-}
-@media(max-width:760px){
-  .topic-grid .column > .previous-page-tab,
-  .lecture-navigation .previous-page-tab{
-    height:88px !important;
-    min-height:88px !important;
-    max-height:88px !important;
-  }
-  .topic-grid .column > .previous-page-tab .label,
-  .lecture-navigation .previous-page-tab .label{
-    font-size:12.5px !important;
-    line-height:1.35 !important;
-  }
-}
-@media(max-width:420px){
-  .topic-grid .column > .previous-page-tab,
-  .lecture-navigation .previous-page-tab{
-    height:84px !important;
-    min-height:84px !important;
-    max-height:84px !important;
-  }
-  .topic-grid .column > .previous-page-tab .label,
-  .lecture-navigation .previous-page-tab .label{
-    font-size:12px !important;
-  }
-}
-
+.visual-popup-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(15,23,42,.72);overflow:auto}.visual-popup-dialog{position:relative;width:min(1100px,96vw);height:min(92vh,900px);background:#fff;border-radius:18px;box-shadow:0 22px 70px #0007;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;overflow:hidden}.visual-popup-dialog .atlas-img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}.visual-popup-close{position:absolute;right:12px;bottom:12px;top:auto;width:44px;height:44px;border:1px solid #d8c78d;border-radius:50%;background:#fff;color:#173e34;font:700 28px Inter;cursor:pointer;z-index:3;box-shadow:0 4px 14px #0003}.visual-popup-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}@media(max-width:650px){.visual-popup-overlay{padding:8px}.visual-popup-dialog{width:96vw;height:88vh;padding:10px;border-radius:14px}.visual-popup-close{width:42px;height:42px;right:8px;bottom:8px;top:auto}}
 </style>
 </head>
 <body>
@@ -464,24 +363,24 @@ if(document.readyState===&#x27;loading&#x27;){window.addEventListener(&#x27;DOMC
 <script>
 const BASE='./Visual-Atlas/';
 const topics={
- t1:{title:'Mole and Avogadro’s Number',id:'IAE1102010100',visual:'IAE1102010100V.webp',intro:'Topic 01 establishes the mole as the SI unit for amount of substance and connects amount of substance with Avogadro’s constant, molar mass and measurable quantities.',basic:'The mole is a counting unit for amount of substance. One mole contains Avogadro’s constant number of specified entities.',standard:'Use n = m/M for mass–mole conversion and N = nNₐ for particle counting. Connect the mole to molar mass and, for gases under the stated standard conditions, molar volume.',mastery:'Move fluently between amount of substance, mass, particles and gas volume while preserving units and checking the physical reasonableness of the result.'},
- t2:{title:'Mole Calculations',id:'IAE1102010200',visual:'IAE1102010200V.webp',intro:'Topic 02 applies mole relationships to balanced equations, reacting masses, gas volumes, ionic equations and quantitative stoichiometric reasoning.',basic:'Stoichiometric calculation uses the coefficients of a balanced equation as mole ratios between reacting and produced species.',standard:'Convert the given quantity to moles, use the balanced-equation ratio, then convert the required amount into the requested unit. Balanced ionic equations represent reacting species without spectator ions.',mastery:'Use a controlled calculation chain, unit analysis, significant figures and independent checks to solve multi-step quantitative problems.'}
+ t1:{title:'Mole and Avogadro’s Number',id:'IAE1102010100',visual:'IAE1102010100V.svg',intro:'Topic 01 establishes the mole as the SI unit for amount of substance and connects amount of substance with Avogadro’s constant, molar mass and measurable quantities.',basic:'The mole is a counting unit for amount of substance. One mole contains Avogadro’s constant number of specified entities.',standard:'Use n = m/M for mass–mole conversion and N = nNₐ for particle counting. Connect the mole to molar mass and, for gases under the stated standard conditions, molar volume.',mastery:'Move fluently between amount of substance, mass, particles and gas volume while preserving units and checking the physical reasonableness of the result.'},
+ t2:{title:'Mole Calculations',id:'IAE1102010200',visual:'IAE1102010200V.svg',intro:'Topic 02 applies mole relationships to balanced equations, reacting masses, gas volumes, ionic equations and quantitative stoichiometric reasoning.',basic:'Stoichiometric calculation uses the coefficients of a balanced equation as mole ratios between reacting and produced species.',standard:'Convert the given quantity to moles, use the balanced-equation ratio, then convert the required amount into the requested unit. Balanced ionic equations represent reacting species without spectator ions.',mastery:'Use a controlled calculation chain, unit analysis, significant figures and independent checks to solve multi-step quantitative problems.'}
 };
 const subs={
- t1s1:{id:'IAE1102010101',topic:'t1',title:'Mole Concept',visual:'IAE1102010101V.webp',basic:'A mole is the SI unit for amount of substance and represents a fixed number of specified entities.',standard:'One mole contains exactly 6.02214076 × 10²³ elementary entities. The entities may be atoms, molecules, ions or other specified particles.',mastery:'Treat the mole as a counting bridge between microscopic particles and laboratory-scale measurable quantities.',extra:'Specified entities → Mole → 6.02214076 × 10²³ entities'},
- t1s2:{id:'IAE1102010102',topic:'t1',title:'Avogadro’s Number',visual:'IAE1102010102V.webp',basic:'Avogadro’s constant, Nₐ, is 6.02214076 × 10²³ mol⁻¹ and gives the number of specified entities in one mole.',standard:'For an amount n, the number of entities is N = nNₐ. The unit mol⁻¹ ensures dimensional consistency.',mastery:'Use Nₐ as a conversion factor between amount of substance and microscopic particle count.',extra:'n (mol) × Nₐ (mol⁻¹) → N (entities)'},
- t1s3:{id:'IAE1102010103',topic:'t1',title:'Molar Mass',visual:'IAE1102010103V.webp',basic:'Molar mass is the mass of one mole of a substance, normally expressed in g mol⁻¹ in school-level calculations.',standard:'Molar mass is obtained from relative atomic or molecular composition. It connects mass m and amount n through n = m/M.',mastery:'Use formula composition to calculate molar mass, then apply it consistently in dimensional calculations.',extra:'Formula → Relative masses → Molar mass M → n = m/M'},
- t1s4:{id:'IAE1102010104',topic:'t1',title:'Number of Particles from Moles',visual:'IAE1102010104V.webp',basic:'The number of specified particles is obtained by multiplying the amount in moles by Avogadro’s constant.',standard:'N = nNₐ. The particle type must be stated clearly: atoms, molecules, ions or formula units.',mastery:'Check that the particle identity and unit conversion remain consistent throughout the calculation.',extra:'Amount n → × Nₐ → Number of specified particles N'},
- t1s5:{id:'IAE1102010105',topic:'t1',title:'Mass–Mole Relationship',visual:'IAE1102010105V.webp',basic:'Amount of substance can be calculated from mass and molar mass using n = m/M.',standard:'Mass must be expressed in the same mass unit used for molar mass. In typical school calculations, grams pair with g mol⁻¹.',mastery:'Use n = m/M as a dimensional conversion rather than memorising it as an isolated formula.',extra:'Mass m (g) ÷ M (g mol⁻¹) → Amount n (mol)'},
- t1s6:{id:'IAE1102010106',topic:'t1',title:'Mole–Volume Relationship',visual:'IAE1102010106V.webp',basic:'For a gas under specified standard conditions, a known molar volume links gas volume and amount in moles.',standard:'Always state the temperature and pressure conditions because molar volume depends on the chosen conditions.',mastery:'Do not apply a memorised gas molar volume without checking the conditions specified by the problem.',extra:'Gas amount n ↔ Molar volume under stated conditions ↔ Gas volume V'},
- t1s7:{id:'IAE1102010107',topic:'t1',title:'Gas Amount from Density at STP',visual:'IAE1102010107V.webp',basic:'Gas density can be related to molar mass and therefore to amount of substance when the stated standard conditions are fixed.',standard:'Use density with the appropriate gas-law or molar-volume relationship; do not mix definitions from different temperature/pressure conventions.',mastery:'State the convention used for STP before applying a numerical molar-volume relationship.',extra:'Gas density + stated conditions → molar mass/amount relationship'},
- t2s1:{id:'IAE1102010201',topic:'t2',title:'Mass–Mole–Particle Calculations',visual:'IAE1102010201V.webp',basic:'Mass, moles and particle count are connected through molar mass and Avogadro’s constant.',standard:'A reliable chain is mass → moles → particles, using n = m/M and N = nNₐ.',mastery:'Keep units visible at every stage and round only at the end unless instructed otherwise.',extra:'Mass → n = m/M → moles → N = nNₐ → particles'},
- t2s2:{id:'IAE1102010202',topic:'t2',title:'Reacting Masses',visual:'IAE1102010202V.webp',basic:'Reacting masses are calculated by converting a known mass to moles, applying the equation ratio, then converting back to mass.',standard:'The balanced equation supplies the mole ratio; molar masses perform the mass conversions.',mastery:'Separate chemical stoichiometry from arithmetic conversion so that each step can be independently checked.',extra:'Given mass → moles → equation ratio → required moles → required mass'},
- t2s3:{id:'IAE1102010203',topic:'t2',title:'Reacting Volumes of Gases',visual:'IAE1102010203V.webp',basic:'Gas volumes can be related through mole ratios when gases are measured under the same stated conditions.',standard:'At the same temperature and pressure, gas volume ratios follow the mole ratios in a balanced equation.',mastery:'Check that the gases share the required conditions before using direct volume ratios.',extra:'Balanced coefficients → mole ratio → gas-volume ratio (same T and P)'},
- t2s4:{id:'IAE1102010204',topic:'t2',title:'Stoichiometric Calculations',visual:'IAE1102010204V.webp',basic:'Stoichiometry quantitatively relates reactants and products using a balanced chemical equation.',standard:'The general workflow is: write/balance equation → convert given quantity to moles → apply mole ratio → convert to requested quantity.',mastery:'Use unit tracking, limiting-step identification and reasonableness checks to prevent hidden calculation errors.',extra:'Balance → Convert to moles → Mole ratio → Convert to requested quantity → Check'},
- t2s5:{id:'IAE1102010205',topic:'t2',title:'Balanced Chemical Equations',visual:'IAE1102010205V.webp',basic:'A balanced chemical equation has equal numbers of each type of atom on both sides.',standard:'Coefficients, not subscripts, are changed when balancing an equation. The coefficients provide stoichiometric mole ratios.',mastery:'Balance by conserving each element and then use the smallest whole-number coefficient set unless a different convention is required.',extra:'Reactants → conserve atoms → coefficients → Products'},
- t2s6:{id:'IAE1102010206',topic:'t2',title:'Ionic Equations',visual:'IAE1102010206V.webp',basic:'A net ionic equation shows the species that actually undergo chemical change in solution.',standard:'Spectator ions are omitted after identifying the reacting ionic species. Atoms and charge must balance.',mastery:'Use ionic equations to distinguish the chemical event from ions that merely accompany the reaction.',extra:'Complete ionic equation → remove spectators → balanced net ionic equation'},
- t2s7:{id:'IAE1102010207',topic:'t2',title:'Advanced Quantitative Problem Solving',visual:'IAE1102010207V.webp',basic:'Advanced quantitative problem solving combines several mole relationships in a controlled sequence.',standard:'Translate the question into knowns, unknowns, equation, conversion chain and final unit before calculating.',mastery:'Validate the result by units, significant figures, limiting assumptions and order-of-magnitude reasoning.',extra:'Question → Data → Equation → Conversion chain → Result → Independent check'}
+ t1s1:{id:'IAE1102010101',topic:'t1',title:'Mole Concept',visual:'IAE1102010101V.svg',basic:'A mole is the SI unit for amount of substance and represents a fixed number of specified entities.',standard:'One mole contains exactly 6.02214076 × 10²³ elementary entities. The entities may be atoms, molecules, ions or other specified particles.',mastery:'Treat the mole as a counting bridge between microscopic particles and laboratory-scale measurable quantities.',extra:'Specified entities → Mole → 6.02214076 × 10²³ entities'},
+ t1s2:{id:'IAE1102010102',topic:'t1',title:'Avogadro’s Number',visual:'IAE1102010102V.svg',basic:'Avogadro’s constant, Nₐ, is 6.02214076 × 10²³ mol⁻¹ and gives the number of specified entities in one mole.',standard:'For an amount n, the number of entities is N = nNₐ. The unit mol⁻¹ ensures dimensional consistency.',mastery:'Use Nₐ as a conversion factor between amount of substance and microscopic particle count.',extra:'n (mol) × Nₐ (mol⁻¹) → N (entities)'},
+ t1s3:{id:'IAE1102010103',topic:'t1',title:'Molar Mass',visual:'IAE1102010103V.svg',basic:'Molar mass is the mass of one mole of a substance, normally expressed in g mol⁻¹ in school-level calculations.',standard:'Molar mass is obtained from relative atomic or molecular composition. It connects mass m and amount n through n = m/M.',mastery:'Use formula composition to calculate molar mass, then apply it consistently in dimensional calculations.',extra:'Formula → Relative masses → Molar mass M → n = m/M'},
+ t1s4:{id:'IAE1102010104',topic:'t1',title:'Number of Particles from Moles',visual:'IAE1102010104V.svg',basic:'The number of specified particles is obtained by multiplying the amount in moles by Avogadro’s constant.',standard:'N = nNₐ. The particle type must be stated clearly: atoms, molecules, ions or formula units.',mastery:'Check that the particle identity and unit conversion remain consistent throughout the calculation.',extra:'Amount n → × Nₐ → Number of specified particles N'},
+ t1s5:{id:'IAE1102010105',topic:'t1',title:'Mass–Mole Relationship',visual:'IAE1102010105V.svg',basic:'Amount of substance can be calculated from mass and molar mass using n = m/M.',standard:'Mass must be expressed in the same mass unit used for molar mass. In typical school calculations, grams pair with g mol⁻¹.',mastery:'Use n = m/M as a dimensional conversion rather than memorising it as an isolated formula.',extra:'Mass m (g) ÷ M (g mol⁻¹) → Amount n (mol)'},
+ t1s6:{id:'IAE1102010106',topic:'t1',title:'Mole–Volume Relationship',visual:'IAE1102010106V.svg',basic:'For a gas under specified standard conditions, a known molar volume links gas volume and amount in moles.',standard:'Always state the temperature and pressure conditions because molar volume depends on the chosen conditions.',mastery:'Do not apply a memorised gas molar volume without checking the conditions specified by the problem.',extra:'Gas amount n ↔ Molar volume under stated conditions ↔ Gas volume V'},
+ t1s7:{id:'IAE1102010107',topic:'t1',title:'Gas Amount from Density at STP',visual:'IAE1102010107V.svg',basic:'Gas density can be related to molar mass and therefore to amount of substance when the stated standard conditions are fixed.',standard:'Use density with the appropriate gas-law or molar-volume relationship; do not mix definitions from different temperature/pressure conventions.',mastery:'State the convention used for STP before applying a numerical molar-volume relationship.',extra:'Gas density + stated conditions → molar mass/amount relationship'},
+ t2s1:{id:'IAE1102010201',topic:'t2',title:'Mass–Mole–Particle Calculations',visual:'IAE1102010201V.svg',basic:'Mass, moles and particle count are connected through molar mass and Avogadro’s constant.',standard:'A reliable chain is mass → moles → particles, using n = m/M and N = nNₐ.',mastery:'Keep units visible at every stage and round only at the end unless instructed otherwise.',extra:'Mass → n = m/M → moles → N = nNₐ → particles'},
+ t2s2:{id:'IAE1102010202',topic:'t2',title:'Reacting Masses',visual:'IAE1102010202V.svg',basic:'Reacting masses are calculated by converting a known mass to moles, applying the equation ratio, then converting back to mass.',standard:'The balanced equation supplies the mole ratio; molar masses perform the mass conversions.',mastery:'Separate chemical stoichiometry from arithmetic conversion so that each step can be independently checked.',extra:'Given mass → moles → equation ratio → required moles → required mass'},
+ t2s3:{id:'IAE1102010203',topic:'t2',title:'Reacting Volumes of Gases',visual:'IAE1102010203V.svg',basic:'Gas volumes can be related through mole ratios when gases are measured under the same stated conditions.',standard:'At the same temperature and pressure, gas volume ratios follow the mole ratios in a balanced equation.',mastery:'Check that the gases share the required conditions before using direct volume ratios.',extra:'Balanced coefficients → mole ratio → gas-volume ratio (same T and P)'},
+ t2s4:{id:'IAE1102010204',topic:'t2',title:'Stoichiometric Calculations',visual:'IAE1102010204V.svg',basic:'Stoichiometry quantitatively relates reactants and products using a balanced chemical equation.',standard:'The general workflow is: write/balance equation → convert given quantity to moles → apply mole ratio → convert to requested quantity.',mastery:'Use unit tracking, limiting-step identification and reasonableness checks to prevent hidden calculation errors.',extra:'Balance → Convert to moles → Mole ratio → Convert to requested quantity → Check'},
+ t2s5:{id:'IAE1102010205',topic:'t2',title:'Balanced Chemical Equations',visual:'IAE1102010205V.svg',basic:'A balanced chemical equation has equal numbers of each type of atom on both sides.',standard:'Coefficients, not subscripts, are changed when balancing an equation. The coefficients provide stoichiometric mole ratios.',mastery:'Balance by conserving each element and then use the smallest whole-number coefficient set unless a different convention is required.',extra:'Reactants → conserve atoms → coefficients → Products'},
+ t2s6:{id:'IAE1102010206',topic:'t2',title:'Ionic Equations',visual:'IAE1102010206V.svg',basic:'A net ionic equation shows the species that actually undergo chemical change in solution.',standard:'Spectator ions are omitted after identifying the reacting ionic species. Atoms and charge must balance.',mastery:'Use ionic equations to distinguish the chemical event from ions that merely accompany the reaction.',extra:'Complete ionic equation → remove spectators → balanced net ionic equation'},
+ t2s7:{id:'IAE1102010207',topic:'t2',title:'Advanced Quantitative Problem Solving',visual:'IAE1102010207V.svg',basic:'Advanced quantitative problem solving combines several mole relationships in a controlled sequence.',standard:'Translate the question into knowns, unknowns, equation, conversion chain and final unit before calculating.',mastery:'Validate the result by units, significant figures, limiting assumptions and order-of-magnitude reasoning.',extra:'Question → Data → Equation → Conversion chain → Result → Independent check'}
 };
 const dict={
  'Mole':['مول','Amount of substance کی SI unit؛ ایک mole میں specified entities کی Avogadro constant کے برابر تعداد ہوتی ہے۔'],
@@ -580,23 +479,7 @@ function showDictionaryPopup(k){
  host.appendChild(overlay);
  const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
 }
-function closeDictionaryPopup(restore=true){
- const overlay=document.getElementById('dictionaryOverlay');
- if(overlay)overlay.remove();
- // When a dictionary popup is actually closed, prepare the search box for the next word.
- if(restore){
-   const input=document.getElementById('ds');
-   if(input){
-     input.value='';
-     input.dir='ltr';
-     input.style.textAlign='left';
-     renderDict('');
-     const clear=document.getElementById('dictClear');
-     if(clear)clear.style.display='none';
-     setTimeout(()=>{input.focus();input.select();},0);
-   }
- }
-}
+function closeDictionaryPopup(restore=true){const overlay=document.getElementById('dictionaryOverlay');if(overlay)overlay.remove();}
 function showDictByTerm(term){
  const key=Object.prototype.hasOwnProperty.call(dict,term)?term:Object.keys(dict).find(k=>k.toLowerCase()===String(term).toLowerCase());
  if(key)showDictionaryPopup(key);
@@ -655,8 +538,7 @@ function resetDictionarySearch(){
  setTimeout(()=>{input.focus();input.select();},0);
 }
 
-/* SEARCH TAB REMOVED: Dictionary already provides progressive search; topics now rebalance evenly. */
-const topicsMarkup=`<div class="subject-label chemistry-label">Chemistry</div><h1 class="section-heading">Chapter 01 — Stoichiometry · Lecture 01</h1><div class="topic-grid"><section class="column"><div class="main-topic-large tab topic1 topic-intro" role="button" tabindex="0" onclick="openTopic('t1')"><div class="label">Topic 01 — Mole and Avogadro’s Number</div></div>${Object.entries(subs).filter(([k,v])=>v.topic==='t1').map(([k,v],i)=>`<div class="tab topic1" role="button" tabindex="0" onclick="openSub('${k}')"><div class="num">${String(i+1).padStart(2,'0')}</div><div class="label">${esc(v.title)}</div></div>`).join('')}<div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">HIT THE CEILING</div></div></section><section class="column"><div class="main-topic-large tab topic2 topic-intro" role="button" tabindex="0" onclick="openTopic('t2')"><div class="label">Topic 02 — Mole Calculations</div></div>${Object.entries(subs).filter(([k,v])=>v.topic==='t2').map(([k,v],i)=>`<div class="tab topic2" role="button" tabindex="0" onclick="openSub('${k}')"><div class="num">${String(i+1).padStart(2,'0')}</div><div class="label">${esc(v.title)}</div></div>`).join('')}<div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">M</div><div class="label">Mastery</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div><button type="button" class="previous-page-tab lecture-nav-inline" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Home / Previous Page</span></button></section></div>`;
+const topicsMarkup=`<div class="subject-label chemistry-label">Chemistry</div><h1 class="section-heading">Chapter 01 — Stoichiometry · Lecture 01</h1><div class="topic-grid"><section class="column"><div class="main-topic-large tab topic1 topic-intro" role="button" tabindex="0" onclick="openTopic('t1')"><div class="label">Topic 01 — Mole and Avogadro’s Number</div></div>${Object.entries(subs).filter(([k,v])=>v.topic==='t1').map(([k,v],i)=>`<div class="tab topic1" role="button" tabindex="0" onclick="openSub('${k}')"><div class="num">${String(i+1).padStart(2,'0')}</div><div class="label">${esc(v.title)}</div></div>`).join('')}<div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">HIT THE CEILING</div></div></section><section class="column"><div class="main-topic-large tab topic2 topic-intro" role="button" tabindex="0" onclick="openTopic('t2')"><div class="label">Topic 02 — Mole Calculations</div></div>${Object.entries(subs).filter(([k,v])=>v.topic==='t2').map(([k,v],i)=>`<div class="tab topic2" role="button" tabindex="0" onclick="openSub('${k}')"><div class="num">${String(i+1).padStart(2,'0')}</div><div class="label">${esc(v.title)}</div></div>`).join('')}<div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">Search</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">M</div><div class="label">Mastery</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Home / Previous Page</span></button></div>`;
 document.addEventListener('keydown',function(e){const t=e.target;if(t&&t.getAttribute&&t.getAttribute('role')==='button'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();t.click();}});
 
 function showPage(id){
@@ -680,7 +562,9 @@ function showPage(id){
    host.scrollTop=0;decorateDictionaryLinks(host);
  }
 }
-function img(v){return v?`<div class="topic-visual" onclick="showVisual('${v}')" aria-label="Open Visual Atlas visual"><svg viewBox="0 0 100 86" role="img" aria-label="Visual Atlas image" preserveAspectRatio="xMidYMid meet"><image href="${BASE+v}" x="0" y="0" width="100" height="86" preserveAspectRatio="xMidYMid meet"></image></svg></div>`:''}
+const visualSources = {"IAE1102010100V": {"file": "Mole concepts.png", "source": "https://commons.wikimedia.org/wiki/File:Mole_concepts.png", "src": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mole_concepts.png", "license": "CC BY-SA 4.0 — Huzaifa abedeen"}, "IAE1102010101V": {"file": "Mole concepts.png", "source": "https://commons.wikimedia.org/wiki/File:Mole_concepts.png", "src": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mole_concepts.png", "license": "CC BY-SA 4.0 — Huzaifa abedeen"}, "IAE1102010102V": {"file": "Avogadro's number in scientific notation.svg", "source": "https://commons.wikimedia.org/wiki/File:Avogadro%27s_number_in_scientific_notation.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Avogadro%27s_number_in_scientific_notation.svg", "license": "Free Art License — Snaevar / Edgars2007"}, "IAE1102010103V": {"file": "Mass versus moles of iron vs gold.svg", "source": "https://commons.wikimedia.org/wiki/File:Mass_versus_moles_of_iron_vs_gold.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Mass_versus_moles_of_iron_vs_gold.svg", "license": "CC BY-SA 4.0 — VectorVoyager"}, "IAE1102010104V": {"file": "Mole concepts.png", "source": "https://commons.wikimedia.org/wiki/File:Mole_concepts.png", "src": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mole_concepts.png", "license": "CC BY-SA 4.0 — Huzaifa abedeen"}, "IAE1102010105V": {"file": "Substance triangle.svg", "source": "https://commons.wikimedia.org/wiki/File:Substance_triangle.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Substance_triangle.svg", "license": "CC BY-SA 4.0 — Silk interest"}, "IAE1102010106V": {"file": "Molar-volume-ideal-gas DE.svg", "source": "https://commons.wikimedia.org/wiki/File:Molar-volume-ideal-gas_DE.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Molar-volume-ideal-gas_DE.svg", "license": "CC BY-SA 4.0 — MikeRun"}, "IAE1102010107V": {"file": "Gas Calculations.svg", "source": "https://commons.wikimedia.org/wiki/File:Gas_Calculations.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Gas_Calculations.svg", "license": "Public domain — Wlduggan"}, "IAE1102010200V": {"file": "IUPAC definition for stoichiometry.png", "source": "https://commons.wikimedia.org/wiki/File:IUPAC_definition_for_stoichiometry.png", "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/IUPAC_definition_for_stoichiometry.png", "license": "CC BY-SA 4.0 — IUPAC"}, "IAE1102010201V": {"file": "Substance triangle.svg", "source": "https://commons.wikimedia.org/wiki/File:Substance_triangle.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Substance_triangle.svg", "license": "CC BY-SA 4.0 — Silk interest"}, "IAE1102010202V": {"file": "IUPAC definition for stoichiometry.png", "source": "https://commons.wikimedia.org/wiki/File:IUPAC_definition_for_stoichiometry.png", "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/IUPAC_definition_for_stoichiometry.png", "license": "CC BY-SA 4.0 — IUPAC"}, "IAE1102010203V": {"file": "Gas Calculations.svg", "source": "https://commons.wikimedia.org/wiki/File:Gas_Calculations.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Gas_Calculations.svg", "license": "Public domain — Wlduggan"}, "IAE1102010204V": {"file": "IUPAC definition for stoichiometry.png", "source": "https://commons.wikimedia.org/wiki/File:IUPAC_definition_for_stoichiometry.png", "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/IUPAC_definition_for_stoichiometry.png", "license": "CC BY-SA 4.0 — IUPAC"}, "IAE1102010205V": {"file": "Methane-combustion.svg", "source": "https://commons.wikimedia.org/wiki/File:Methane-combustion.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Methane-combustion.svg", "license": "CC BY-SA 4.0 — Yulo1985"}, "IAE1102010206V": {"file": "Chemical precipitation diagram.svg", "source": "https://commons.wikimedia.org/wiki/File:Chemical_precipitation_diagram.svg", "src": "https://upload.wikimedia.org/wikipedia/commons/9/97/Chemical%20precipitation%20diagram.svg", "license": "Open-license Wikimedia Commons diagram"}, "IAE1102010207V": {"file": "IUPAC definition for stoichiometry.png", "source": "https://commons.wikimedia.org/wiki/File:IUPAC_definition_for_stoichiometry.png", "src": "https://upload.wikimedia.org/wikipedia/commons/2/28/IUPAC_definition_for_stoichiometry.png", "license": "CC BY-SA 4.0 — IUPAC"}};
+function visualSource(id){return visualSources[id] || {}; }
+function img(v){if(!v)return ''; const id=String(v).replace(/\.svg$/i,'').replace(/\.webp$/i,''); const vs=visualSource(id); const src=vs.src || (BASE+id+'.svg'); return `<button type="button" class="topic-visual" onclick="showVisual('${id}')" aria-label="Open Visual Atlas visual" title="Open Visual Atlas visual"><img src="${src}" alt="Visual Atlas visual" loading="eager" decoding="async" referrerpolicy="no-referrer"></button>`;}
 function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
 function openTopic(k){
  const d=topics[k];
@@ -713,43 +597,41 @@ function openSub(k){
  <div class="inline-note">Academic Code: <span class="pill">${esc(d.id)}</span>${d.visual?` · Visual: <span class="pill">${esc(d.visual.replace('.webp',''))}</span>`:''}</div>
 `);
 }
-const visualSources={
- 'IAE1102010100V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mole_carbon-12_diagram.svg',credit:'Wikimedia Commons — CC BY-SA'},
- 'IAE1102010101V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mole_carbon-12_diagram.svg',credit:'Wikimedia Commons — CC BY-SA'},
- 'IAE1102010102V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Avogadro%27s_number_in_scientific_notation.svg',credit:'Wikimedia Commons — open license'},
- 'IAE1102010103V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Mass_versus_moles_of_iron_vs_gold.svg',credit:'Wikimedia Commons — CC BY-SA'},
- 'IAE1102010104V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Particle_diagram.png',credit:'Wikimedia Commons — CC0'},
- 'IAE1102010105V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Substance_triangle.svg',credit:'Wikimedia Commons — CC BY-SA'},
- 'IAE1102010106V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gas-volume-temperature-absolute-zero.svg',credit:'Wikimedia Commons — open license'},
- 'IAE1102010107V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Gas-volume-temperature-absolute-zero.svg',credit:'Wikimedia Commons — open license'},
- 'IAE1102010200V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Ideal-stoichiometry.svg',credit:'Wikimedia Commons — open license'},
- 'IAE1102010201V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Substance_triangle.svg',credit:'Wikimedia Commons — CC BY-SA'},
- 'IAE1102010202V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Ideal-stoichiometry.svg',credit:'Wikimedia Commons — open license'},
- 'IAE1102010203V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Relation_between_gas_volume_and_pressure.jpg',credit:'Wikimedia Commons — GFDL / CC BY-SA'},
- 'IAE1102010204V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/IUPAC_definition_for_stoichiometry.png',credit:'Wikimedia Commons / IUPAC — licensed educational source'},
- 'IAE1102010205V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Balancing_chemical_equation_-_formation_of_water.png',credit:'Wikimedia Commons — CC BY-SA'},
- 'IAE1102010206V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Ionicformula.jpg',credit:'Wikimedia Commons — Public Domain'},
- 'IAE1102010207V':{img:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Stoichiometric_Coefficients.png',credit:'Wikimedia Commons — CC BY-SA'}
-};
 function showVisual(id){
- const v=visualItems.find(x=>x[0]===id); if(!v)return;
- const src=visualSources[id]||{img:BASE+v[2],credit:'Imperial Academy Visual Atlas'};
+ const v=visualItems.find(x=>x[0]===id);if(!v)return;
+ closeVisualPopup(false);
+ const host=getMainHost();if(!host)return;
  const overlay=document.createElement('div');
- overlay.className='visual-overlay'; overlay.id='visualOverlay';
- overlay.innerHTML=`<div class="visual-dialog" role="dialog" aria-modal="true" aria-label="${esc(v[1])}">
-   <button class="visual-close" type="button" aria-label="Close Visual" title="Close">×</button>
-   <div class="lesson-title">${esc(v[1])}</div>
-   <div class="visual-popup-image-wrap"><img class="visual-popup-image" src="${src.img}" alt="${esc(v[1])}" referrerpolicy="no-referrer"></div>
-   <div class="visual-popup-caption">${esc(v[3])}</div>
-   <div class="visual-popup-credit">${esc(src.credit)}</div>
+ overlay.className='visual-popup-overlay';
+ overlay.id='visualPopupOverlay';
+ overlay.setAttribute('role','dialog');
+ overlay.setAttribute('aria-modal','true');
+ overlay.setAttribute('aria-label','Visual Atlas');
+ overlay.innerHTML=`<div class="visual-popup-dialog">
+   <button class="visual-popup-close" type="button" aria-label="Close Visual" title="Close Visual">×</button>
+   <img class="atlas-img" src="${(visualSource(id).src || BASE+id+'.svg')}" alt="${esc(v[1])}" loading="eager" decoding="async" referrerpolicy="no-referrer">
  </div>`;
- overlay.addEventListener('click',e=>{if(e.target===overlay) closeVisualPopup();});
- overlay.querySelector('.visual-close').addEventListener('click',closeVisualPopup);
- document.body.appendChild(overlay);
- requestAnimationFrame(()=>overlay.classList.add('show'));
- function closeVisualPopup(){overlay.classList.remove('show');setTimeout(()=>overlay.remove(),160);}
- window.closeVisualPopup=closeVisualPopup;
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.visual-popup-close');
+ const remove=()=>closeVisualPopup(true);
+ close.onclick=remove;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)remove();});
+ window.__iaeVisualPopupOpen=true;
+ try{history.pushState({iaeVisualPopup:true},'',location.href.split('#')[0]+'#visual-'+encodeURIComponent(id));}catch(e){}
+ close.focus();
 }
+function closeVisualPopup(useHistory=true){
+ const overlay=document.getElementById('visualPopupOverlay');
+ if(overlay)overlay.remove();
+ if(window.__iaeVisualPopupOpen){
+   window.__iaeVisualPopupOpen=false;
+   if(useHistory){try{if(history.state&&history.state.iaeVisualPopup)history.back();}catch(e){}}
+ }
+}
+window.addEventListener('popstate',function(){
+ if(window.__iaeVisualPopupOpen){window.__iaeVisualPopupOpen=false;const overlay=document.getElementById('visualPopupOverlay');if(overlay)overlay.remove();}
+});
+
 function practiceReveal(target){const el=typeof target==='string'?document.getElementById(target):target;if(el){el.hidden=false;if(el.style)el.style.display='block';}}
 function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
 function openGuidedPractice(){
@@ -789,6 +671,23 @@ function resetMasteryFont(){
   applyMasteryFontSize(root,14);
   root.dataset.fontSize='14';
 }
+function openSearch(){
+ const rows=[];
+ Object.entries(topics).forEach(([id,t])=>rows.push({type:'Topic',id,title:t.title,detail:t.intro||'' ,open:()=>openTopic(id)}));
+ Object.entries(subs).forEach(([id,s])=>rows.push({type:'Subtopic',id,title:s.title,detail:(s.basic||'')+' '+(s.standard||''),open:()=>openSub(id)}));
+ Object.keys(dict).forEach(k=>rows.push({type:'Dictionary',id:k,title:k,detail:dict[k][1]||'',open:()=>showDictionaryPopup(k)}));
+ const render=(q='')=>{
+   const n=String(q).trim().toLowerCase();
+   const hits=rows.filter(r=>!n||[r.type,r.id,r.title,r.detail].join(' ').toLowerCase().includes(n));
+   const box=document.getElementById('searchResults'); if(!box)return;
+   box.innerHTML=hits.map((r,i)=>`<button type="button" class="search-result" onclick="window.__iaeSearchOpen(${i})"><b>${esc(r.title)}</b><span class="visual-id">${esc(r.type)} · ${esc(r.id)}</span><p>${esc(r.detail.slice(0,220))}</p></button>`).join('') || '<div class="section">No matching result.</div>';
+   window.__iaeSearchRows=hits;
+ };
+ window.__iaeSearchOpen=i=>{const r=(window.__iaeSearchRows||[])[i];if(r)r.open();};
+ show(`<div class="lesson-title">Search</div><p class="lesson-subtitle">Chapter 01 Lecture 01 — Topics, Subtopics and Dictionary</p><input class="search" id="academySearch" placeholder="Search Academy content…" oninput="renderAcademySearch(this.value)"><div id="searchResults"></div>`);
+ window.renderAcademySearch=render;
+ render('');
+}
 function openFunctional(k){
  if(k==='dictionary'){
    show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Chapter 01 Lecture 01 relevant terminology</p><div class="dictionary-search-wrap"><input class="search" id="ds" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" style="text-align:left" placeholder="Type a word or letters…" oninput="updateDictionarySearchDirection(this);renderDict(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();openDictionarySearchPopup(this.value)}"><button type="button" id="dictClear" class="dictionary-clear" aria-label="Clear dictionary search" title="Clear search" onclick="resetDictionarySearch()">×</button></div><div id="dictList"></div>`);
@@ -797,68 +696,62 @@ function openFunctional(k){
    renderDict(''); setTimeout(()=>{if(input){input.focus();input.select();}},0);return;
  }
  if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">Chapter 01 Visual Atlas — Lecture 01</p>${visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" onclick="showVisual('${v[0]}')">Visual کھولیں</button></div>`).join('')}`);return;}
- if(k==='practice'){openGuidedPractice();return;} if(k==='readiness'){openAssessment('readiness');return;} if(k==='exam'){openAssessment('exam');return;}
+ if(k==='search'){openSearch();return;} if(k==='practice'){openGuidedPractice();return;} if(k==='readiness'){openAssessment('readiness');return;} if(k==='exam'){openAssessment('exam');return;}
  if(k==='revision'){const rq=Object.entries(subs).map(([id,s])=>[s.title,s.id,s.title+' کے بنیادی principle اور function کو اپنے الفاظ میں explain کریں۔',s.standard,'Structure → Principle → Function']); const revisionHtml=rq.map((r,i)=>`<div class="question-card revision-q"><div class="pill">${esc(r[1])}</div><h3 style="margin:8px 0;font-size:17px;color:var(--green)">Q${i+1}. ${esc(r[0])}</h3><p><b>سوال:</b> ${esc(r[2])}</p><button class="visual-link" type="button" onclick="practiceReveal('rev-a-${i}')">Model answer دیکھیں</button><div id="rev-a-${i}" class="answer-review" hidden><p><b>جواب:</b> ${esc(r[3])}</p><p><b>Check:</b> ${esc(r[4])}</p></div></div>`).join('');show(`<div class="lesson-title">Revision — Chapter 01 Lecture 01</div><p class="lesson-subtitle">Mole relationships اور stoichiometric calculations کو active recall کے ذریعے revise کریں۔</p>${revisionHtml}`);return;}
  if(k==='mastery'){const m=Object.values(subs).map(s=>`<div class="section mastery"><span class="level-heading mastery-h">${esc(s.title)}</span><p>${linkDictionaryTerms(s.basic)}</p><p>${linkDictionaryTerms(s.standard)}</p><p>${linkDictionaryTerms(s.mastery)}</p></div>`).join('');show(`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-topline"><div class="mastery-subject">Chemistry</div><div class="mastery-controls"><button class="font-btn font-plus" onclick="changeMasteryFont(1)" aria-label="بڑا فونٹ">+</button><div class="iae-mark">IAE</div><button class="font-btn font-minus" onclick="changeMasteryFont(-1)" aria-label="چھوٹا فونٹ">−</button></div></div><div class="mastery-topic-row"><div class="lesson-title">Chapter 01 Lecture 01 — Stoichiometry: Mole &amp; Mole Calculations</div><span class="mastery-badge">Mastery</span></div>${m}</div></div>`);resetMasteryFont();return;}
- if(k==='practical'){
-   const practicals=[
-    {n:'Practical 01',title:'Accurate Mass Measurement — Balance Technique',objective:'طالب علم balance کو صحیح طریقے سے استعمال کرتے ہوئے sample کی mass، unit اور مناسب significant figures کے ساتھ record کرے۔',principle:'Mass measurement stoichiometry کی بنیاد ہے۔ Digital/analytical balance reading دینے سے پہلے balance کو stable, level اور zero/tare ہونا چاہیے۔ Container کا mass tare کرنے سے صرف sample کی mass record کی جاتی ہے۔',apparatus:'Digital/analytical balance, clean dry weighing boat or paper, spatula, assigned sample, notebook/data table.',method:['اپنا PPE (lab coat اور safety goggles) پہنیں اور work area صاف و خشک رکھیں۔','Balance کو level اور vibration-free جگہ پر رکھیں، پھر display کو zero کریں۔','Empty weighing boat/paper balance پر رکھیں اور TARE کریں؛ display دوبارہ zero ہونا چاہیے۔','Spatula سے sample تھوڑی تھوڑی مقدار میں شامل کریں؛ sample کو balance pan پر براہِ راست نہ ڈالیں۔','Reading stable ہونے تک انتظار کریں اور displayed precision کے مطابق mass record کریں۔','اگر repeated readings مختلف ہوں تو balance کی stability، air movement، container اور sample handling check کریں۔','آخر میں sample اور weighing area کو instructor کی ہدایت کے مطابق صاف کریں۔'],calculation:'Recorded mass = balance reading after tare. مثال: اگر tare کے بعد stable reading 2.50 g ہے تو sample mass = 2.50 g۔ اگر readings 2.50 g, 2.51 g, 2.50 g آئیں تو پہلے balance precision اور experimental variation دیکھیں؛ صرف ایک مختلف digit کو خود بخود mistake نہ سمجھیں۔',solution:'Model Solution: Tare کے بعد 2.50 g reading ملی، اس لیے mass = 2.50 g۔ اگر اسی sample کی تین consistent readings 2.50, 2.51, 2.50 g ہوں تو notebook میں raw readings محفوظ کریں اور teacher کی ہدایت کے مطابق reported value لکھیں۔ اہم بات یہ ہے کہ unit (g) برقرار رہے اور balance کی capacity/precision سے زیادہ digits نہ لکھی جائیں۔',safety:'Balance کے اندر liquid یا loose chemical نہ گرائیں، wet container استعمال نہ کریں، sample کو ہاتھ سے نہ چھوئیں، spilled chemical کو خود سے واپس bottle میں نہ ڈالیں، اور unknown chemical کو taste یا direct smell نہ کریں۔'},
-    {n:'Practical 02',title:'Mole Calculation from Measured Mass',objective:'Measured mass سے amount of substance calculate کرنا، formula اور units کو درست استعمال کرنا، اور answer کو sensible significant figures میں report کرنا۔',principle:'Amount of substance کے لیے بنیادی relationship n = m/M ہے۔ یہاں n mol میں، m mass (g) میں، اور M molar mass (g mol⁻¹) میں ہوتا ہے۔ پہلے measured quantity identify کریں، پھر molar mass determine کریں، پھر equation استعمال کریں۔',apparatus:'Balance, weighing container, assigned substance, periodic table, calculator, notebook/data table.',method:['Sample کی mass m کو مناسب precision کے ساتھ measure اور record کریں۔','Chemical formula سے constituent atomic masses لے کر molar mass M معلوم کریں۔','Equation لکھیں: n = m/M۔','Values units سمیت substitute کریں؛ units کو cancel ہوتے ہوئے check کریں۔','Answer کو mol میں دیں اور input data کے مطابق significant figures رکھیں۔','اگر سوال آگے particles یا reaction quantity مانگے تو اسی calculated moles کو اگلے conversion step میں استعمال کریں۔'],calculation:'Example: 18.0 g H₂O کے لیے M(H₂O) ≈ 18.0 g mol⁻¹۔ n = 18.0 g ÷ 18.0 g mol⁻¹ = 1.00 mol H₂O۔',solution:'Model Solution: Given m = 18.0 g H₂O اور M = 18.0 g mol⁻¹۔ Formula: n = m/M۔ Substitution: n = 18.0/18.0 = 1.00 mol۔ Unit check: g ÷ (g mol⁻¹) = mol۔ نتیجہ: sample تقریباً 1.00 mol H₂O ہے۔ یہی method کسی دوسری substance کے لیے بھی استعمال ہوگی؛ صرف molar mass تبدیل ہوگا۔',safety:'Sample handling ہمیشہ teacher/lab instructions کے مطابق کریں۔ Chemical کو taste نہ کریں، direct sniff نہ کریں، balance پر chemical spill نہ ہونے دیں، اور unknown material کے ساتھ غیر مجاز reaction نہ کریں۔'},
-    {n:'Practical 03',title:'Stoichiometric Data Recording & Reaction Calculation',objective:'Experimental data کو raw-data اور calculated-data میں الگ رکھنا، balanced equation سے mole ratio حاصل کرنا، اور theoretical quantity calculate کرنا۔',principle:'Balanced chemical equation reaction میں particles کے conservation اور stoichiometric mole ratios کو ظاہر کرتی ہے۔ Quantitative solution میں عام راستہ یہ ہے: given quantity → moles → mole ratio → required quantity۔',apparatus:'Balance, approved reaction materials supplied by teacher, suitable measuring equipment, calculator, notebook/data table, PPE.',method:['سب سے پہلے reaction کی correct balanced chemical equation لکھیں اور دونوں طرف atoms check کریں۔','Raw data table میں ہر measured mass/volume کو unit اور measurement condition کے ساتھ record کریں؛ calculated values کو raw data میں نہ ملائیں۔','Known quantity کو ضرورت کے مطابق moles میں convert کریں۔','Balanced equation کے coefficients سے required mole ratio identify کریں۔','Mole ratio apply کرکے unknown substance کے moles نکالیں۔','مطلوبہ quantity کے مطابق mass، volume یا particles میں واپس convert کریں۔','Theoretical result کو experimental observation سے compare کریں اور difference کی ممکنہ وجہ note کریں۔'],calculation:'Example: 2H₂ + O₂ → 2H₂O۔ اگر 2.00 mol H₂ available ہے اور O₂ excess ہے تو H₂:H₂O = 2:2 = 1:1، لہٰذا theoretical H₂O = 2.00 mol۔ اگر mass مطلوب ہو: m = nM = 2.00 × 18.0 = 36.0 g H₂O۔',solution:'Model Solution: Balanced equation پہلے سے 2H₂ + O₂ → 2H₂O ہے۔ Given = 2.00 mol H₂۔ Mole ratio H₂:H₂O = 2:2۔ Therefore n(H₂O) = 2.00 mol۔ M(H₂O) ≈ 18.0 g mol⁻¹، اس لیے m(H₂O) = 2.00 × 18.0 = 36.0 g۔ Final answer کو واضح unit اور مناسب significant figures کے ساتھ لکھیں۔ اگر experiment میں actual mass کم آئے تو اسے theoretical value کے برابر فرض نہیں کیا جائے گا؛ دونوں الگ report ہوں گے۔',safety:'Reaction صرف instructor کی منظور شدہ chemicals، quantities اور apparatus کے ساتھ کریں۔ Goggles اور lab coat پہنیں، gas-producing reaction کو بند container میں نہ کریں، reaction vessel کو چہرے کی طرف نہ رکھیں، spills/waste کو lab protocol کے مطابق handle کریں، اور کسی unknown mixture کو خود سے نہ بنائیں۔'}
-   ];
-   const cards=practicals.map((p,i)=>`<div class="practical-card section"><div class="pill">${esc(p.n)}</div><h3>${esc(p.title)}</h3><p><b>Learning Objective:</b> ${esc(p.objective)}</p><p><b>Principle / Concept:</b> ${esc(p.principle)}</p><p><b>Apparatus &amp; Materials:</b> ${esc(p.apparatus)}</p><h4>Methodology — Step by Step</h4><ol>${p.method.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><div class="practical-solution"><h4>Worked Solution / Calculation</h4><p>${esc(p.calculation)}</p><p><b>Model Solution:</b> ${esc(p.solution)}</p></div><div class="practical-safety"><p><b>Safety Measures:</b> ${esc(p.safety)}</p></div></div>`).join('');
-   show(`<div class="lesson-title">Practical Work — Complete Learning Guide</div><p class="lesson-subtitle">یہاں Practical Work کو صرف activity list نہیں رکھا گیا۔ ہر practical ایک مختصر lecture کی طرح پڑھایا گیا ہے: مقصد → principle → apparatus → method → calculation → model solution → safety۔ طالب علم پہلے طریقہ سمجھے، پھر instructor کی نگرانی میں practical perform کرے، اور آخر میں اپنے raw اور calculated results الگ record کرے۔</p><div class="section"><h3 style="margin:8px 0;color:var(--green)">Practical Learning Method</h3><p>ہر practical کے لیے پہلے <b>Understand</b> کریں، پھر <b>Observe</b>، اس کے بعد <b>Perform under supervision</b>، پھر <b>Calculate</b> اور آخر میں <b>Record &amp; Review</b> کریں۔ Model Solution learning reference ہے؛ اسے حقیقی laboratory observation یا instructor کی ہدایت کا متبادل نہ سمجھا جائے۔</p></div>${cards}`);return;
- }}
+ if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Accurate Mass Measurement</b><p>Balance reading record کریں، units واضح رکھیں اور repeated readings میں anomalous value identify کریں۔</p></div><div class="section"><b>Mole Calculation from Measured Mass</b><p>Measured mass اور molar mass سے n = m/M استعمال کر کے amount of substance determine کریں۔</p></div><div class="section"><b>Stoichiometric Data Recording</b><p>Raw data، units، significant figures اور calculated quantities کو واضح scientific table میں record کریں۔</p></div>`);return;}
+}
 
 let assessmentAttempt=[], assessmentType='readiness';
-const readinessChecks=new Array(10).fill(false);
-const readinessGuides=[
- ['Step 1 — Recall','Mole Concept + Avogadro Constant','سوال: 1 mole میں کتنے specified entities ہوتے ہیں؟','جواب: 6.02214076 × 10²³ entities۔','پہلے “mole = counting unit” یاد کریں، پھر Avogadro constant سے particles کا تعلق بنائیں۔'],
- ['Step 2 — Understand','Molar Mass','سوال: 36 g substance کی molar mass 18 g mol⁻¹ ہو تو amount of substance کیا ہوگا؟','جواب: n = m/M = 36/18 = 2 mol۔','Formula پہچانیں، values اور units رکھیں، پھر calculation کریں۔'],
- ['Step 3 — Apply','Moles → Particles','سوال: 0.50 mol میں particles کتنے ہوں گے؟','جواب: N = nNₐ = 0.50 × 6.02214076 × 10²³ = 3.01107038 × 10²³ particles۔','Moles سے particles جانے کے لیے Avogadro constant سے multiply کریں۔'],
- ['Step 4 — Apply','Mole–Volume Relationship','سوال: same temperature اور pressure پر gas کے volume ratios کس quantity کے ratios کے مطابق ہوتے ہیں؟','جواب: Mole ratios کے مطابق۔','Conditions check کریں؛ پھر balanced equation کے coefficients کو gas-volume ratio کے طور پر استعمال کریں۔'],
- ['Step 5 — Method','Balanced Chemical Equation','سوال: Equation balance کرتے وقت formula کے subscripts بدلنے چاہئیں؟','جواب: نہیں۔ صرف coefficients تبدیل کیے جاتے ہیں۔','Atoms دونوں طرف count کریں؛ conservation of atoms برقرار رکھتے ہوئے coefficients لگائیں۔'],
- ['Step 6 — Method','Mole Ratio + Stoichiometry','سوال: Balanced equation میں coefficients ہمیں کیا دیتے ہیں؟','جواب: Reacting substances کے stoichiometric mole ratios۔','Given quantity کو moles میں تبدیل کریں، coefficient ratio لگائیں، پھر مطلوبہ unit میں واپس جائیں۔'],
- ['Step 7 — Error Correction','Mass–Mole–Particle Chain','سوال: Mass سے particles تک جانے کا درست راستہ کیا ہے؟','جواب: Mass → moles → particles۔','پہلے n = m/M، پھر N = nNₐ۔ درمیان کا mole step چھوڑنے سے calculation غلط ہو سکتی ہے۔'],
- ['Step 8 — Concept Check','Ionic Equations','سوال: Spectator ion کیا ہوتا ہے؟','جواب: وہ ion جو reaction میں chemically unchanged رہتا ہے اور net ionic equation سے cancel ہو جاتا ہے۔','Complete ionic equation لکھیں، دونوں طرف unchanged ions identify کریں، پھر انہیں cancel کریں۔'],
- ['Step 9 — Quantitative Check','Gas Amount from Density at STP','سوال: gas کی density اور STP condition دی گئی ہو تو amount of gas نکالتے وقت کن چیزوں کو check کریں گے؟','جواب: density کی units، molar mass، stated STP convention اور gas volume/amount relationship۔','Given data اور units کو پہلے واضح کریں؛ پھر ایک consistent equation سے amount نکالیں اور result کی units check کریں۔'],
- ['Step 10 — Independent Thinking','Stoichiometric Error Check','سوال: numerical answer حاصل کرنے کے بعد اسے فوراً final مان لینا چاہیے؟','جواب: نہیں۔ Units، magnitude، mole ratio اور chemical reasonableness دوبارہ check کریں۔','Empirical check آخری safety step ہے: answer chemistry اور calculation دونوں سے match ہونا چاہیے۔']
-];
-function toggleReadinessAnswer(i){const a=document.getElementById('readiness-answer-'+i);if(a)a.hidden=!a.hidden;}
-function markReadinessStep(i){readinessChecks[i]=true;updateReadinessProgress();const b=document.getElementById('readiness-ready-'+i);if(b){b.textContent='✓ Step Completed';b.disabled=true;b.classList.add('ready-btn');}}
-function updateReadinessProgress(){const n=readinessChecks.filter(Boolean).length;const pct=Math.round(n/readinessChecks.length*100);const t=document.getElementById('readinessProgressText');const f=document.getElementById('readinessProgressFill');if(t)t.textContent=n+' / '+readinessChecks.length+' preparation steps completed';if(f)f.style.width=pct+'%';}
-function startReadinessTest(){
- assessmentType='readiness'; assessmentAttempt=shuffle(questions).slice(0,10);
- show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 FINAL TEST SIMULATION</div><div class="lesson-title">Lecture 01 — Test Readiness Check</div><p>اب آپ نے preparation pathway مکمل کر لیا ہے۔ یہ مختصر simulation بغیر guided answers کے دیں۔ مقصد یہ دیکھنا ہے کہ آپ Lecture 01 کے concepts کو خود apply کر سکتے ہیں یا نہیں۔</p><div><span class="pill">10 Questions</span> <span class="pill">Independent</span> <span class="pill">Test Simulation</span></div></div><div class="exam-rules"><b>Test Mode:</b> پہلے خود حل کریں۔ جواب submit کرنے کے بعد detailed review، weak areas اور next revision path دکھایا جائے گا۔</div><div id="assessmentQuestions">${renderAssessmentQuestions(assessmentAttempt,'readiness')}</div><div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit Readiness Check</button><button onclick="openAssessment('readiness')">↻ Preparation دوبارہ</button></div><div id="assessmentResult" class="assessment-result"></div>`);
+
+function renderAssessmentQuestions(list,type){
+ return list.map((q,i)=>`<div class="question-card assessment-q" data-qindex="${i}"><div class="pill">Q${i+1} · ${esc(q[4])}</div><h3>${esc(q[0])}</h3>${q[1].map((a,j)=>`<label class="answer-option"><input type="radio" name="${type}-${i}" value="${j}" onchange="updateExamProgress()"><span>${esc(a)}</span></label>`).join('')}<div class="question-status" id="status-${type}-${i}">Unanswered</div></div>`).join('');
+}
+function updateExamProgress(){
+ const total=assessmentAttempt.length;let answered=0;
+ assessmentAttempt.forEach((_,i)=>{const selected=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);if(selected)answered++;const st=document.getElementById(`status-${assessmentType}-${i}`);if(st)st.textContent=selected?'Answered':'Unanswered';});
+ const bar=document.getElementById('examProgressBar'),txt=document.getElementById('examProgressText');
+ if(bar)bar.style.width=(total?answered/total*100:0)+'%';
+ if(txt)txt.textContent=`${answered} / ${total} answered`;
 }
 function openAssessment(type){
- if(type==='readiness'){
-   readinessChecks.fill(false);
-   const map=[
-    ['IAE1102010101','Mole Concept'],['IAE1102010102','Avogadro’s Number'],['IAE1102010103','Molar Mass'],['IAE1102010104','Number of Particles from Moles'],['IAE1102010105','Mass–Mole Relationship'],['IAE1102010106','Mole–Volume Relationship'],['IAE1102010107','Gas Amount from Density at STP'],
-    ['IAE1102010201','Mass–Mole–Particle Calculations'],['IAE1102010202','Reacting Masses'],['IAE1102010203','Reacting Volumes of Gases'],['IAE1102010204','Stoichiometric Calculations'],['IAE1102010205','Balanced Chemical Equations'],['IAE1102010206','Ionic Equations'],['IAE1102010207','Advanced Quantitative Problem Solving']
-   ];
-   const mapHtml=map.map((x,i)=>`<div class="map-item"><b>${esc(x[0])}</b><br>${esc(x[1])}</div>`).join('');
-   const guides=readinessGuides.map((g,i)=>`<div class="readiness-stage"><span class="stage-label">${esc(g[0])}</span><h4>${esc(g[1])}</h4><p><b>${esc(g[2].split('—')[0])}</b>${esc(g[2].includes('—')?g[2].split('—').slice(1).join('—'):g[2])}</p><div class="readiness-action"><button type="button" onclick="toggleReadinessAnswer(${i})">جواب اور طریقہ دیکھیں</button><button type="button" id="readiness-ready-${i}" class="ready-btn" onclick="markReadinessStep(${i})">میں نے یہ step سمجھ لیا</button></div><div id="readiness-answer-${i}" class="readiness-answer" hidden><b>${esc(g[3])}</b><br>${esc(g[4])}</div></div>`).join('');
-   show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 TEST READINESS SYSTEM</div><div class="lesson-title">Lecture 01 — Test Readiness</div><p>یہ صرف سوالات کا test نہیں۔ یہ ایک preparation pathway ہے جس کا مقصد آپ کو اس قابل بنانا ہے کہ Lecture 01 کا paper سامنے آنے پر آپ سوال کو سمجھیں، صحیح method پہچانیں اور confidence کے ساتھ حل کریں۔</p><div><span class="pill">Recall</span> <span class="pill">Understand</span> <span class="pill">Apply</span> <span class="pill">Practice</span> <span class="pill">Simulate</span></div></div>
-   <div class="readiness-method"><h3>🎯 ہماری Test-Readiness Methodology</h3><p><b>Recall → Understand → Guided Method → Guided Practice → Error Correction → Independent Practice → Mixed Practice → Test Simulation</b></p><p>ہر مرحلہ پچھلے مرحلے پر build ہوتا ہے۔ طالب علم پہلے concept کو recall کرتا ہے، پھر method دیکھتا ہے، پھر guided example کرتا ہے، اپنی غلطی درست کرتا ہے، اور آخر میں بغیر مدد کے test simulation دیتا ہے۔</p><div class="readiness-flow"><div class="flow-step">1<br>Recall</div><div class="flow-step">2<br>Understand</div><div class="flow-step">3<br>Method</div><div class="flow-step">4<br>Practice</div><div class="flow-step">5<br>Correct</div><div class="flow-step">6<br>Independent</div><div class="flow-step">7<br>Mixed</div><div class="flow-step">8<br>Simulation</div></div></div>
-   <div class="readiness-progress"><b>Preparation Progress</b><span id="readinessProgressText">0 / 10 preparation steps completed</span><div class="readiness-progress-bar"><div id="readinessProgressFill" class="readiness-progress-fill"></div></div></div>
-   <div class="readiness-method"><h3>📚 Lecture 01 Coverage Map</h3><p>یہ Readiness System Lecture کے تمام 14 Red/Green academic subtopics کو cover کرتا ہے:</p><div class="readiness-map">${mapHtml}</div></div>
-   <div class="lesson-title" style="margin-top:16px">Guided Preparation — سوال، جواب اور طریقۂ حل</div><p class="lesson-subtitle">ہر step میں پہلے سوال خود سوچیں۔ پھر “جواب اور طریقہ دیکھیں” دبائیں۔ آخر میں “میں نے یہ step سمجھ لیا” mark کریں۔</p>${guides}
-   <div class="readiness-method"><h3>🧪 Final Test Simulation</h3><p>جب preparation مکمل ہو جائے تو نیچے simulation شروع کریں۔ اس حصے میں guided answers نہیں ہوں گے۔ آپ کو خود سوال پڑھنا، method منتخب کرنا اور answer دینا ہوگا۔</p><div class="readiness-action"><button type="button" class="ready-btn" onclick="startReadinessTest()">🚀 Start Final Test Simulation</button><button type="button" onclick="openAssessment('readiness')">↻ Reset Preparation</button></div></div>`);
-   updateReadinessProgress();
-   return;
+ assessmentType=type;
+ // Lecture 01 has a locked 10-question examination bank; use every question once.
+ assessmentAttempt=type==='exam'?[...questions]:shuffle(questions).slice(0,Math.min(15,questions.length));
+ const examMode=type==='exam';
+ const host=getMainHost();
+ if(!host || !assessmentAttempt.length)return;
+ if(examMode){
+   if(lectureViewStack.length===0 && host.innerHTML.trim()) lectureViewStack.push(host.innerHTML);
+   host.innerHTML=`<div class="content-view assessment-fullscreen">
+     <button class="view-close" type="button" aria-label="Close Examination" title="Close" onclick="returnToPreviousView()">×</button>
+     <div class="assessment-shell">
+       <div class="assessment-head"><div class="assessment-badge">🏛️ FULL EXAMINATION</div><div class="lesson-title">Lecture 01 — Final Examination</div><p>Formal assessment of Lecture 01: Mole, Avogadro’s Number, Mole Calculations and Stoichiometry. Answer every MCQ, review your answers, then submit.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">100 Marks</span> <span class="pill">60 Minutes</span></div></div>
+       <div class="exam-rules"><b>Examination Protocol</b><ol><li>Answer all questions. Every MCQ has one best answer.</li><li>Select one option for each question.</li><li>You may change an answer before submission.</li><li>Unanswered questions receive 0 marks.</li><li>Review the complete paper before pressing <b>Submit Examination</b>.</li><li>Passing standard: 50%.</li></ol></div>
+       <div class="exam-progress"><div class="progress-label"><b>Exam Progress</b><span id="examProgressText">0 / ${assessmentAttempt.length} answered</span></div><div class="progress-track"><div id="examProgressBar" class="progress-bar"></div></div></div>
+       <div id="assessmentQuestions" class="assessment-questionnaire">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+       <div class="assessment-actions"><button class="exam-submit" type="button" onclick="submitAssessment()">Submit Examination</button><button type="button" onclick="openAssessment('exam')">↻ Reset</button></div>
+       <div id="assessmentResult" class="assessment-result"></div>
+     </div>
+   </div>`;
+   host.scrollTop=0;updateExamProgress();return;
  }
- assessmentType=type; assessmentAttempt=type==='exam'?questions.slice(0,20):shuffle(questions).slice(0,15);
- show(`<div class="assessment-head"><div class="assessment-badge">🏛️ EXAMINATION</div><div class="lesson-title">Lecture 01 — Examination</div><p>Formal assessment of Chapter 01 Lecture 01 concepts: Mole, Avogadro’s Number, Mole Calculations and Stoichiometry.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div><div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div><div id="assessmentQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div><div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit Examination</button><button onclick="openAssessment('exam')">↻ Reset</button></div><div id="assessmentResult" class="assessment-result"></div>`);
+ // Preserve the existing Lecture 01 Readiness Test behavior, while repairing its question renderer.
+ show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 READINESS TEST</div><div class="lesson-title">Lecture 01 — Readiness Test</div><p>Diagnostic assessment covering core concepts, calculations and applications.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
+ <div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div>
+ <div id="assessmentQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+ <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit Readiness Test</button><button onclick="openAssessment('readiness')">↻ Reset</button></div>
+ <div id="assessmentResult" class="assessment-result"></div>`);
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
 function submitAssessment(){
  let correct=0,wrong=0,unanswered=0,weak={},review=[];
  assessmentAttempt.forEach((q,i)=>{const sel=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);const s=sel?Number(sel.value):null;if(s===null)unanswered++;else if(s===q[2])correct++;else{wrong++;weak[q[4]]=(weak[q[4]]||0)+1;}review.push({q,selected:s,ok:s===q[2]});});
- const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Needs Revision','Review weak areas before retest']:['Foundation Revision Required','Rebuild foundational concepts before retest'];
+ const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Pass — Needs Revision','Review weak areas before retest']:['Fail — Foundation Revision Required','Rebuild weak concepts before retest'];
  let r=document.getElementById('assessmentResult');r.className='assessment-result show';
- r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Examination Result':'Readiness Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p></div>
+ const topicStats={};assessmentAttempt.forEach((q,i)=>{if(!topicStats[q[4]])topicStats[q[4]]={total:0,correct:0};topicStats[q[4]].total++;if(review[i].ok)topicStats[q[4]].correct++;});
+ r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Final Examination Result':'Readiness Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p>${assessmentType==='exam'?`<p><b>Status:</b> ${pct>=50?'PASSED':'NOT PASSED'} &nbsp; · &nbsp; <b>Marks:</b> ${correct*10}/100</p>`:''}</div>
+ <div class="recommendation-title">📊 Topic Performance</div>${Object.entries(topicStats).map(([t,v])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${v.correct}/${v.total} correct — ${Math.round(v.correct/v.total*100)}%</p></div>`).join('')}
  <div class="recommendation-title">🎯 Weak Areas &amp; Revision Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
  <div class="recommendation-title">📝 Detailed Answer Review</div>${review.map((x,i)=>`<div class="answer-review ${x.ok?'':'review-wrong'}"><b>Q${i+1}</b><p>${esc(x.q[0])}</p><p><b>آپ کا جواب:</b> ${x.selected===null?'جواب نہیں دیا':esc(x.q[1][x.selected])}</p><p><b>درست جواب:</b> ${esc(x.q[1][x.q[2]])}</p><p>${esc(x.q[3])}</p></div>`).join('')}`;
  r.scrollIntoView({behavior:'smooth',block:'start'});
