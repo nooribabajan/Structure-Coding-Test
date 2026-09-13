@@ -25,8 +25,8 @@
         header { position: relative; padding: 38px 20px 32px; text-align: center; background: linear-gradient(135deg,rgba(18,60,52,.98),rgba(31,102,84,.96)); color: white; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.16); }
         header::before, header::after { content: ""; position: absolute; width: 190px; height: 190px; border: 1px solid rgba(242,212,111,.25); border-radius: 50%; }
         header::before { left: -90px; top: -90px; } header::after { right: -90px; bottom: -100px; }
-        .logo { position: relative; z-index: 2; width: 92px; height: 92px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: transparent; }
-        .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .logo { position: relative; z-index: 2; width: min(180px, 62vw); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; box-shadow: none; }
+        .logo img { display: block; width: 100%; height: auto; max-height: 118px; object-fit: contain; background: transparent; }
         .academy-name { position: relative; z-index: 2; font-size: clamp(1.8rem,6vw,3.2rem); letter-spacing: 3px; font-weight: 700; text-transform: uppercase; text-shadow: 0 3px 10px rgba(0,0,0,.25); }
         .academy-subtitle { position: relative; z-index: 2; margin-top: 8px; font-family: Arial,sans-serif; font-size: .75rem; letter-spacing: 3px; color: var(--gold-light); text-transform: uppercase; }
         .motto { position: relative; z-index: 2; margin: 18px auto 0; max-width: 650px; font-style: italic; font-size: 1.05rem; color: #f7f0d6; }
@@ -50,7 +50,7 @@
         footer { margin-top:55px; padding:25px 15px; text-align:center; color:#dce9e4; background:var(--green-dark); border-top:4px solid var(--gold); }
         .footer-name { font-size:1.05rem; letter-spacing:2px; font-weight:bold; } .footer-motto { margin-top:7px; color:var(--gold-light); font-style:italic; font-size:.85rem; } .copyright { margin-top:12px; font-family:Arial,sans-serif; font-size:.7rem; opacity:.65; }
         @media (max-width:800px) { .lecture-grid { grid-template-columns:repeat(2,1fr); } .lecture-card:last-child { grid-column:1/-1; max-width:48%; width:100%; margin:0 auto; } }
-        @media (max-width:520px) { header{padding:30px 15px 27px;} .logo{width:78px;height:78px;} .academy-name{letter-spacing:1.5px;} .academy-subtitle{letter-spacing:1.5px;font-size:.62rem;} .motto{font-size:.9rem;} main{width:94%;margin:30px auto;} .lecture-grid{grid-template-columns:1fr;gap:14px;} .lecture-card{min-height:165px;} .lecture-card:last-child{grid-column:auto;max-width:none;} }
+        @media (max-width:520px) { header{padding:30px 15px 27px;} .logo{width:min(145px,62vw);margin-bottom:13px;} .logo img{max-height:96px;} .academy-name{letter-spacing:1.5px;} .academy-subtitle{letter-spacing:1.5px;font-size:.62rem;} .motto{font-size:.9rem;} main{width:94%;margin:30px auto;} .lecture-grid{grid-template-columns:1fr;gap:14px;} .lecture-card{min-height:165px;} .lecture-card:last-child{grid-column:auto;max-width:none;} }
     </style>
 </head>
 <body>
