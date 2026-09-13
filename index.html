@@ -3,20 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Imperial Academy</title>
+
+    <style>
+        :root {
+            --green-dark: #123c34;
+            --green: #1f6654;
+            --gold: #c59b35;
+            --gold-light: #f2d46f;
+            --blue: #1769aa;
+            --purple: #7048a8;
+            --red: #b83b4b;
+            --cream: #fffaf0;
+            --white: #ffffff;
+            --text: #18332d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 10% 10%, rgba(242,212,111,.20), transparent 25%),
+                radial-gradient(circle at 90% 20%, rgba(23,105,170,.13), transparent 25%),
+                linear-gradient(135deg, #f7f4e9, #eef6f2 50%, #f8f1df);
+        }
+
+        /* TOP ACADEMY BAR */
+        .top-bar {
+            height: 8px;
+            background: linear-gradient(
+                90deg,
+                var(--green-dark),
+                var(--gold),
+                var(--blue),
+                var(--purple),
+                var(--red),
+                var(--green)
+            );
+        }
+
+        /* HEADER */
+        header {
+            position: relative;
+            padding: 38px 20px 32px;
+            text-align: center;
+            background:
+                linear-gradient(135deg,
+                    rgba(18,60,52,.98),
+                    rgba(31,102,84,.96)
+                );
+            color: white;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,.16);
+        }
+
+        header::before,
+        header::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(242,212,111,.25);
+            border-radius: 50%;
+        }
+
+        header::before {
+            left: -80px;
+            top: -80px;
+        }
+
+        header::after {
+            right: -80px;
+            bottom: -90px;
+        }
+
+        /* LOGO */
+        .logo {
+            position: relative;
+            z-index: 2;
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 15px;
+            border: 3px solid var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,.07);
+            box-shadow:
+                0 0 0 6px rgba(197,155,53,.13),
+                0 8px 25px rgba(0,0,0,.22);
+        }
+
+        .logo-inner {
+            width: 70px;
+            height: 70px;
+            border: 1px solid rgba(242,212,111,.65);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--gold-light);
+        }
+
+        .academy-name {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 3px 10px rgba(0,0,0,.25);
+        }
+
+        .academy-subtitle {
+            position: relative;
+            z-index: 2;
+            margin-top: 8px;
+            font-family: Arial, sans-serif;
+            font-size: .78rem;
+            letter-spacing: 4px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+        }
+
+        .motto {
+            position: relative;
+            z-index: 2;
+            margin: 19px auto 0;
+            max-width: 650px;
+            font-style: italic;
+            font-size: 1.08rem;
+            color: #f7f0d6;
+        }
+
+        .motto::before,
+        .motto::after {
+            content: "◆";
+            color: var(--gold);
+            margin: 0 12px;
+            font-size: .65rem;
+        }
+
+        /* MAIN */
+        main {
+            width: min(1100px, 92%);
+            margin: 42px auto;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome h2 {
+            color: var(--green-dark);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            font-family: Arial, sans-serif;
+            color: #61716d;
+            font-size: .95rem;
+        }
+
+        /* NAVIGATION CARDS */
+        .academy-nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .nav-card {
+            position: relative;
+            min-height: 150px;
+            padding: 27px 18px 22px;
+            text-decoration: none;
+            color: white;
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,.12);
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .nav-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,.15),
+                transparent 55%
+            );
+        }
+
+        .nav-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 17px 32px rgba(0,0,0,.20);
+        }
+
+        .nav-icon {
+            position: relative;
+            z-index: 2;
+            width: 54px;
+            height: 54px;
+            margin-bottom: 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,.16);
+            border: 1px solid rgba(255,255,255,.35);
+            font-family: Arial, sans-serif;
+            font-size: 1.4rem;
+        }
+
+        .nav-title {
+            position: relative;
+            z-index: 2;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .nav-description {
+            position: relative;
+            z-index: 2;
+            margin-top: 6px;
+            font-family: Arial, sans-serif;
+            font-size: .72rem;
+            opacity: .88;
+        }
+
+        /* FOUR ORIGINAL LINKS — NOTHING REMOVED */
+        .memory {
+            background: linear-gradient(135deg, #315f55, #174238);
+        }
+
+        .subject {
+            background: linear-gradient(135deg, #246da6, #154a79);
+        }
+
+        .first-year {
+            background: linear-gradient(135deg, #8a5ab5, #5a347f);
+        }
+
+        .second-year {
+            background: linear-gradient(135deg, #c35459, #8b2937);
+        }
+
+        /* MOTTO STRIP */
+        .motto-strip {
+            margin-top: 38px;
+            padding: 23px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(197,155,53,.45);
+            border-bottom: 1px solid rgba(197,155,53,.45);
+            background: rgba(255,255,255,.55);
+            backdrop-filter: blur(5px);
+        }
+
+        .motto-strip strong {
+            color: var(--green-dark);
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .motto-strip span {
+            display: block;
+            margin-top: 6px;
+            font-family: Arial, sans-serif;
+            color: #65736f;
+            font-size: .78rem;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 55px;
+            padding: 25px 15px;
+            text-align: center;
+            color: #dce9e4;
+            background: var(--green-dark);
+            border-top: 4px solid var(--gold);
+        }
+
+        footer .footer-name {
+            font-size: 1.05rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        footer .footer-motto {
+            margin-top: 7px;
+            color: var(--gold-light);
+            font-style: italic;
+            font-size: .85rem;
+        }
+
+        footer .copyright {
+            margin-top: 12px;
+            font-family: Arial, sans-serif;
+            font-size: .7rem;
+            opacity: .65;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            .academy-nav {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 30px 15px 27px;
+            }
+
+            .logo {
+                width: 78px;
+                height: 78px;
+            }
+
+            .logo-inner {
+                width: 59px;
+                height: 59px;
+                font-size: 21px;
+            }
+
+            .academy-name {
+                letter-spacing: 2px;
+            }
+
+            .academy-subtitle {
+                letter-spacing: 2px;
+                font-size: .65rem;
+            }
+
+            .motto {
+                font-size: .92rem;
+            }
+
+            .motto::before,
+            .motto::after {
+                margin: 0 6px;
+            }
+
+            main {
+                width: 94%;
+                margin: 30px auto;
+            }
+
+            .academy-nav {
+                gap: 12px;
+            }
+
+            .nav-card {
+                min-height: 140px;
+                padding: 20px 10px;
+                border-radius: 15px;
+            }
+
+            .nav-title {
+                font-size: 1.05rem;
+            }
+
+            .nav-description {
+                font-size: .65rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Imperial Academy</h1>
+    <div class="top-bar"></div>
 
-    <a href="Memory./">Memory</a>
-    <a href="Subject/">Subject</a>
-    <a href="First-Year/">First Year</a>
-    <a href="Second-Year/">Second Year</a>
+    <header>
+
+        <!-- Imperial Academy Logo -->
+        <div class="logo">
+            <div class="logo-inner">IA</div>
+        </div>
+
+        <h1 class="academy-name">Imperial Academy</h1>
+
+        <div class="academy-subtitle">
+            Knowledge • Character • Excellence
+        </div>
+
+        <div class="motto">
+            Learn with Purpose • Lead with Knowledge
+        </div>
+
+    </header>
+
+    <main>
+
+        <section class="welcome">
+            <h2>Welcome to Imperial Academy</h2>
+            <p>Academic knowledge, organized for learning, practice and mastery.</p>
+        </section>
+
+        <!-- ORIGINAL FOUR DESTINATIONS — ALL PRESERVED -->
+        <nav class="academy-nav">
+
+            <a href="Memory./" class="nav-card memory">
+                <div class="nav-icon">M</div>
+                <div class="nav-title">Memory</div>
+                <div class="nav-description">
+                    Academy records & development
+                </div>
+            </a>
+
+            <a href="Subject/" class="nav-card subject">
+                <div class="nav-icon">S</div>
+                <div class="nav-title">Subject</div>
+                <div class="nav-description">
+                    Subjects & academic resources
+                </div>
+            </a>
+
+            <a href="First-Year/" class="nav-card first-year">
+                <div class="nav-icon">I</div>
+                <div class="nav-title">First Year</div>
+                <div class="nav-description">
+                    First Year academic section
+                </div>
+            </a>
+
+            <a href="Second-Year/" class="nav-card second-year">
+                <div class="nav-icon">II</div>
+                <div class="nav-title">Second Year</div>
+                <div class="nav-description">
+                    Second Year academic section
+                </div>
+            </a>
+
+        </nav>
+
+        <div class="motto-strip">
+            <strong>IMPERIAL ACADEMY</strong>
+            <span>Building knowledge. Developing minds. Creating excellence.</span>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-name">IMPERIAL ACADEMY</div>
+        <div class="footer-motto">
+            Learn with Purpose • Lead with Knowledge
+        </div>
+        <div class="copyright">
+            Academic Portal
+        </div>
+    </footer>
 
 </body>
-</html>
-
-
-</body>
-</html>
+    </html>
