@@ -126,19 +126,17 @@ function celebrateLevel(){const art=['🦋 ✨ 🦋 ✨ 🌸','✨ 🪲 ✨ 🪲
 function finishLevel(){celebrateLevel()}
 function closeHitTheCeiling(ev){
   if(ev){ev.preventDefault();ev.stopPropagation();ev.stopImmediatePropagation&&ev.stopImmediatePropagation();}
+  // The minaret X is an in-game reset control, not a request to close the host/game.
   try{stopAnswerTimer();}catch(e){}
   try{clearTimeout(window.answerPopupTimer);clearTimeout(window.answerTimeout);}catch(e){}
-  var msg={type:'IAE_HIT_CEILING_CLOSE',source:'Hit the Ceiling',action:'close'};
-  /* Frankenstein close: notify every possible host first. */
-  try{window.parent.postMessage(msg,'*');}catch(e){}
-  try{if(window.top!==window.parent)window.top.postMessage(msg,'*');}catch(e){}
-  try{window.dispatchEvent(new CustomEvent('IAE_HIT_CEILING_CLOSE',{detail:msg}));}catch(e){}
-  /* If this game is directly embedded, remove its iframe as a hard fallback. */
-  try{if(window.frameElement&&window.frameElement.parentNode){window.frameElement.parentNode.removeChild(window.frameElement);return;}}catch(e){}
-  /* If opened as a popup/tab, request the browser to close it. */
-  try{window.close();}catch(e){}
-  /* Last-resort standalone fallback: make the game inert/hidden rather than leaving a dead session. */
-  try{document.documentElement.style.display='none';document.body.innerHTML='';}catch(e){}
+  try{$('answerPopup').classList.remove('show');}catch(e){}
+  try{$('celebrate').classList.add('hidden');}catch(e){}
+  try{$('cleared').classList.add('hidden');}catch(e){}
+  try{$('ceiling').classList.add('hidden');}catch(e){}
+  try{$('play').classList.remove('hidden');}catch(e){}
+  levelIndex=0;itemIndex=0;used=[];misses=0;correctCount=0;stepCorrect=0;mcqMissed=[];
+  try{renderLevelBar();buildTower();choose();render();}catch(e){console.error('HIT THE CEILING reset error:',e);}
+  try{window.dispatchEvent(new CustomEvent('IAE_HIT_CEILING_RESET',{detail:{source:'Hit the Ceiling',action:'reset'}}));}catch(e){}
 }
 
 function startSession(){$('intro').classList.add('hidden');$('play').classList.remove('hidden');renderLevelBar();buildTower();levelIndex=0;itemIndex=0;used=[];misses=0;correctCount=0;stepCorrect=0;mcqMissed=[];choose();render()}
