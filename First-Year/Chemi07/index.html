@@ -796,8 +796,7 @@ function highlightMasteryTTS(el){
  el.scrollIntoView({behavior:'smooth',block:'center'});
 }
 function masteryGoogleTTSUrl(text){
- return 'https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&tl='+MASTERY_TTS_LANG+'&q='+encodeURIComponent(text);
-}
+return 'https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&tl='+MASTERY_TTS_LANG+'&q='+encodeURIComponent(text);
 async function prepareMasteryTTS(){
  if(masteryTTSPreparingPromise)return masteryTTSPreparingPromise;
  masteryTTSPreparingPromise=(async()=>{
