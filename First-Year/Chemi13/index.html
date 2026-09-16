@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+
+<!-- IAE V4 CONTROLLED CLONE: Architecture cloned from the approved Chemistry lecture reference; Academic Identity = First Year Chemistry Lecture 13. -->
+<!-- IAE V4 production build: Architecture=approved Chemistry reference; Academic Identity=IAE1102040400 + IAE1102040500 — Lecture 13. -->
+<!-- IAE V4 CLONING CONTROL: Lecture 13 cloned structurally from the approved Chemistry lecture architecture; system architecture is reference-locked and academic IDs/data are target-specific. -->
+<!-- IAE AUDIT STATUS: Built for audit-driven verification; not a claim of release until technical audit passes. -->
+<!-- IAE COLUMN BALANCE: Lecture 01 has 14 locked subtopics, distributed 7 + 7 across two columns; functional tabs keep the columns balanced. -->
+<html dir="rtl" lang="ur">
+<!-- IAE MASTER LOGO: current approved Library logo embedded directly in this single HTML; external logo path removed. -->
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>IAE1102040400 — Real Gases, Van der Waals Equation &amp; Critical Behaviour — Lecture 13</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--shadow:0 8px 24px rgba(23,62,52,.10)}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic','Noto Nastaliq Urdu','Segoe UI',Tahoma,Arial,sans-serif;line-height:1.9}
+.wrap{width:100%;height:100dvh;overflow:hidden}
+.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden;border:3px solid var(--gold)}
+.page.active{display:block}
+.top,.screen-header{position:relative;width:100%;padding:23px 0 21px;border-bottom:3px solid var(--gold);background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;box-shadow:0 3px 13px #0002}
+.top-inner,.screen-header-inner{width:100%;padding:0 clamp(9px,3vw,28px);display:flex;align-items:center;gap:clamp(8px,2vw,18px);direction:ltr}
+.top-brand,.screen-brand{flex:1;min-width:0;text-align:left}
+.top-subtitle{margin-top:1px}
+.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(20px,5.5vw,30px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95;position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:max-content;max-width:70%;text-align:center}
+.top-logo,.screen-seal{flex:0 0 clamp(60px,11vw,140px);width:clamp(60px,11vw,140px);height:clamp(48px,8vw,95px);overflow:hidden}
+.top-logo img,.screen-seal img{width:100%;height:100%;object-fit:contain}
+.subject-label{max-width:1180px;margin:0 auto;padding:6px 14px 0;text-align:left;direction:ltr;color:var(--green);font:700 16px/1.3 Arial,sans-serif}
+.page-title{max-width:1180px;margin:auto;padding:6px 14px;text-align:center;color:var(--green);font-size:clamp(21px,3.5vw,32px);font-weight:800}
+.section-card{max-width:1180px;margin:0 auto;padding:18px 24px;background:#fff;border-bottom:1px solid var(--line)}
+.section-card strong{display:block;color:var(--green);font-size:20px;margin-bottom:6px}
+.section-card p,.section-card li{font-size:16px}
+.topic-grid{max-width:1180px;margin:auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}
+#topicsPage .subject-label,#topicsPage .page-title,#topicsPage .section-heading{position:relative;top:-10px}
+#topicsPage .subject-label{padding-top:9px;}
+#topicsPage .topic-grid{margin-top:-2px;}
+.column{display:flex;flex-direction:column;gap:1px;min-width:0;align-self:start}
+.column>.main-topic-large,.column>.previous-page-tab,.column>.tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;}
+.column:nth-child(2){border:1px solid var(--sky);border-radius:16px;margin-top:0;}
+/* IAE FINAL COLUMN-BALANCE: both columns start at the same top edge; every tab uses identical 105px height. */
+ .topic-control-row{max-width:1180px;width:100%;margin:0 auto 1px;display:flex;direction:ltr;align-items:stretch;justify-content:space-between;gap:1px}.main-topic-large{width:100%;min-height:105px;margin:0 0 0 auto;border:5px solid var(--sky);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05)}
+
+.tab{min-height:105px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05);border:2px solid var(--sky)}
+.tab.topic2{border:1px solid var(--green)}
+.tab.functional{border-color:var(--red)}
+.tab:hover{transform:translateY(-1px)}
+.previous-page-tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05)}
+.previous-page-tab .num{color:var(--red)}
+.previous-page-tab .label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.previous-page-tab:hover{transform:translateY(-1px)}
+.topic-intro{height:105px;min-height:105px;max-height:105px}
+.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 58px/1 Inter,sans-serif;color:var(--sky);opacity:.9}
+.topic2 .num{color:#b9e9c3}.functional .num{color:var(--red)}
+.label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.section-heading{text-align:center;color:var(--green);font-size:24px;margin:4px auto 1px;max-width:1180px}
+.section-note{text-align:center;color:#475569;max-width:1000px;margin:0 auto 10px;padding:0 12px}
+.footer-nav{max-width:1180px;margin:8px auto 0;padding:0;position:sticky;bottom:0;background:transparent;border-top:0;display:flex;justify-content:center;z-index:20}
+button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessment-actions button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}.footer-nav button{background:var(--green);color:#fff;border-color:var(--green)}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:50}
+.modal.show{display:block}
+.modal.dict-modal{display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
+.modal.dict-modal .dialog{width:min(92vw,680px);height:auto;max-height:88dvh;margin:0;border-radius:18px;padding:24px 28px 72px;box-shadow:0 18px 55px rgba(15,23,42,.22)}
+.dialog{width:100%;height:100dvh;background:#fff;overflow-y:auto;overflow-x:hidden;padding:0 28px 90px}
+#content{width:100%;padding-bottom:10px}
+#content>.screen-header{width:calc(100% + 56px);margin:0 -28px 18px;position:sticky;top:0;z-index:100}
+.close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003}
+.lesson-title{font-size:27px;font-weight:700;margin:0 0 12px;text-align:center}
+.lesson-subtitle{text-align:center;color:#64748b;margin:-4px 0 14px}
+.topic-head,.subtopic-head{max-width:1180px;margin:0 auto 14px;display:flex;direction:ltr;align-items:center;gap:14px;padding:10px 0 14px;border-bottom:1px solid #e2e8f0}
+.topic-visual{width:40px;height:40px;flex:0 0 40px;border:0;border-radius:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.topic-visual img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.topic-visual svg{display:block;width:40px;height:40px;max-width:40px;max-height:40px}
+.topic-head-text,.subtopic-head-text{direction:rtl;text-align:right;flex:1;min-width:0}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;margin:0;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
+.section,.visual-card,.question-card,.assessment-head,.exam-rules,.recommendation-card,.answer-review,.revision-item,.search-result{max-width:1180px;margin:10px auto;padding:14px;border-radius:14px;background:#f8fafc}
+.section.basic{border-right:5px solid #ef4444}.section.standard{border-right:5px solid #22c55e}.section.mastery{border-right:5px solid #3b82f6}
+.level-heading{display:block;font-size:18px;font-weight:800;margin-bottom:5px}.basic-h{color:#dc2626}.standard-h{color:#16a34a}.mastery-h{color:#2563eb}
+.section p,.section li{font-size:14px;line-height:1.9}
+.pill,.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial}
+.inline-note{padding:10px 12px;border-radius:10px;background:var(--warn);border-right:4px solid var(--gold);margin:10px auto;max-width:1180px}
+.dictionary-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.18);overflow:auto;cursor:pointer}.dictionary-dialog{position:relative;width:min(720px,calc(100% - 24px));max-height:calc(100% - 36px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 16px 45px rgba(15,23,42,.22);padding:24px 20px 64px;cursor:default}.dictionary-close{position:absolute;bottom:10px;right:10px;left:auto;top:auto;width:44px;height:44px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#475569;z-index:2}.dictionary-close:hover,.dictionary-close:focus{color:#b42318;background:#f8fafc;outline:none}@media(max-width:760px){.dictionary-dialog{padding:20px 16px 62px}.dictionary-close{bottom:10px;right:10px;width:48px;height:48px;font-size:30px}}.dict-modal .dictionary-dialog{animation:dictIn .14s ease-out}@keyframes dictIn{from{transform:translateY(6px);opacity:.7}to{transform:translateY(0);opacity:1}}
+.linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;border:0;box-shadow:none;text-decoration:none;outline:none}.linked-word:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.diagram{direction:ltr;text-align:center;font:700 14px/1.8 Inter,sans-serif;background:#f8fafc;padding:16px;border-radius:12px;white-space:pre-wrap;overflow:auto}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #dbe4ee;padding:9px;text-align:right;vertical-align:top}th{background:#edf5ef}
+.search{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}
+.dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover,.search-result:hover{background:#f8fafc}
+.visual-card{border:1px solid #e2e8f0;background:#fff}.visual-id{display:block;font:700 11px Inter;color:#876821;direction:ltr}
+.atlas-img{display:block;max-width:100%;height:auto;border-radius:12px;margin:10px auto;border:1px solid #e2e8f0}
+.choice,.assessment-option{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-option{display:flex;gap:8px;align-items:flex-start}.assessment-option input{margin-top:6px}
+.assessment-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px auto;max-width:1180px}
+.exam-submit{background:var(--green)!important;color:#fff}
+.assessment-result{display:none;max-width:1180px;margin:18px auto}.assessment-result.show{display:block}
+.result-hero{padding:20px;border-radius:16px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}
+.result-title{font-weight:800;color:#285b4b;font-size:20px}.result-score{font:800 38px Arial;color:#173e34}.result-percent{font:700 16px Arial;color:#876821}
+.recommendation-title{max-width:1180px;margin:18px auto 8px;font-weight:800;color:#285b4b}
+.answer-review{border-right:4px solid #4d7867}.review-wrong{border-right-color:#b94a48}
+.content-navigation{max-width:1180px;margin:0 auto 18px;padding:0 0 2px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;direction:rtl}.modal.level3-modal>.dialog>.close{display:none}
+.content-navigation button{border:0;background:var(--green);color:#fff;padding:11px 28px;border-radius:10px;cursor:pointer;font:700 14px Arial;min-width:150px}
+.main-lecture{margin-top:8px}.main-lecture .level-heading{text-align:center;font-size:16px}.main-lecture p{font-size:14px;line-height:1.9}.topic-head-text .lesson-title{font-size:16px;direction:ltr;unicode-bidi:isolate}.content-navigation{margin-top:15px;margin-bottom:20px}
+.modal.level3-modal>.dialog{padding-bottom:18px}
+@media(max-width:760px){.dialog{padding:0 18px 88px}.dialog #content>.screen-header{width:calc(100% + 36px);margin:0 -18px 14px}.topic-grid{gap:1px;padding:0}.tab{min-height:100px}.label{font-size:14px}.topic-visual{width:62px;height:54px;flex-basis:62px}.section p,.section li{font-size:14px}}
+@media(max-width:420px){.top-brand h1,.screen-brand h1{font-size:17px}.top-brand p,.screen-brand p{font-size:8px}.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:0 4px}.column{gap:5px}.column>.main-topic-large,.column>.tab{height:84px;min-height:84px;max-height:84px}.label{font-size:11.5px;line-height:1.3;max-width:94%}.num{font-size:40px}.dialog{padding-inline:14px}.dialog #content>.screen-header{width:calc(100% + 28px);margin-inline:-14px}.lesson-title{font-size:16px}}
+
+/* Final presentation refinements */
+/* Uniform Level-3 heading standard: centered English title + small SVG at left */
+.topic-head,.subtopic-head{align-items:center}
+.topic-head-text,.subtopic-head-text{text-align:center}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
+.topic-visual svg{display:block;width:42px;height:42px;max-width:42px;max-height:42px;font-size:14px}
+
+/* Topics Page header spacing refinement */
+#topicsPage .page-title { margin-bottom: 2px !important; }
+#topicsPage h1 { margin-top: 0 !important; margin-bottom: 3px !important; }
+#topicsPage .brand-strip { margin-top: 3px !important; padding-top: 2px !important; padding-bottom: 2px !important; }
+
+.main-tabs{width:100%;display:flex;justify-content:center;margin:8px 0 3px;padding:0 3px;position:relative;z-index:40}.main-tab{min-width:150px;padding:10px 24px;border:2px solid var(--green);border-radius:12px;background:var(--green);color:#fff;font:800 15px/1.2 Arial,sans-serif;cursor:pointer;box-shadow:0 3px 10px rgba(23,62,52,.12)}.main-tab:active{transform:translateY(1px)}.main-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* LECTURE 02 — SHARED CONTENT CONTAINER ARCHITECTURE */
+.main-content-container{width:calc(100% - 6px);margin:3px;height:calc(100dvh - 6px);min-height:0;max-height:calc(100dvh - 6px);overflow:auto;border:1px solid var(--line);background:var(--paper);overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;}
+.main-content-container>.content-view{width:100%;min-height:100%;padding:0 0 88px;min-width:0;overflow-x:hidden;}
+.main-content-container .view-header{position:sticky;top:0;z-index:30;background:var(--paper);padding:6px 8px 3px;border-bottom:1px solid var(--line);min-height:42px;}
+.main-content-container .view-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.main-content-container .view-close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border:1px solid #cbd5e1;border-radius:50%;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003;display:grid;place-items:center;}
+#mainContentContainer .topic-grid{width:100%;max-width:none;padding:0 3px;gap:1px;}
+#mainContentContainer .section-heading,#mainContentContainer .subject-label,#mainContentContainer .page-title{max-width:none;}
+#mainContentContainer .content-navigation{padding-bottom:3px;}
+#mainContentContainer .content-view{padding-bottom:72px;}
+#mainContentContainer .previous-page-tab{margin-bottom:48px;scroll-margin-bottom:48px;}
+#homePage{overflow:hidden;}
+/* HIT THE CEILING — full shared-container view, no inner page scroll */
+#mainContentContainer .content-view.hit-ceiling-view{height:100%;min-height:100%;padding:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;}
+#mainContentContainer .hit-ceiling-shell{height:100%;min-height:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;position:relative;}
+#mainContentContainer .hit-ceiling-frame{display:block;width:100%;height:auto !important;min-height:0;grid-row:1;align-self:stretch;border:0;margin:0;padding:0;overflow:hidden;}
+#mainContentContainer .hit-ceiling-back{display:none !important;}
+#mainContentContainer .hit-ceiling-back button{display:grid;place-items:center;width:50px;height:50px;border:2px solid #111827;border-radius:50%;background:#fff;cursor:pointer;position:relative;z-index:1000;box-shadow:0 4px 14px rgba(0,0,0,.22);font-size:0;line-height:1;}
+#mainContentContainer .hit-ceiling-back button:active{transform:scale(.94);}
+#mainContentContainer .hit-ceiling-back button::before{content:"×";font:900 35px/1 Arial,sans-serif;color:#ef4444;background:linear-gradient(135deg,#ef4444 0%,#f59e0b 24%,#22c55e 48%,#06b6d4 68%,#3b82f6 84%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;}
+#mainContentContainer .hit-ceiling-back button:hover{transform:scale(1.06);box-shadow:0 6px 18px rgba(0,0,0,.28);}
+#mainContentContainer .hit-ceiling-back button:focus-visible{outline:3px solid #2563eb;outline-offset:2px;}
+/* HIT THE CEILING answer choices: all four boxes have equal dimensions */
+.hit-ceiling-frame{ }
+
+
+:root{font-synthesis:none} .chemistry-label{letter-spacing:.02em} .screen-brand h1,.page-title,.section-heading,.lesson-title,.level-heading{font-family:'Inter','Segoe UI',Arial,sans-serif}
+
+/* LAYOUT + NAVIGATION REPAIR v2 */
+.topic-grid{max-width:1180px;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start}
+.column{display:flex;flex-direction:column;gap:8px;min-width:0;align-self:start}
+.column:nth-child(2){border:0;margin-top:0}
+.column>.main-topic-large,.column>.tab{width:100%;height:96px;min-height:96px;max-height:96px;margin:0}
+.main-topic-large{border-width:4px}
+.tab{outline:none;transition:transform .15s ease,box-shadow .15s ease}
+.tab:hover,.main-topic-large:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(15,23,42,.08)}
+.tab:focus-visible,.main-topic-large:focus-visible,.previous-page-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.label{font-size:15px;line-height:1.45}
+.lecture-navigation{max-width:1180px;margin:10px auto 22px;padding:0;display:flex;justify-content:center}
+.lecture-navigation .previous-page-tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;cursor:pointer;box-shadow:0 5px 15px rgba(15,23,42,.05);font:700 15px/1.3 'Inter','Segoe UI',Arial,sans-serif;color:var(--red)}
+.lecture-navigation .nav-arrow{font-size:24px;line-height:1}
+@media(max-width:760px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;padding:0 6px;align-items:start}.column{gap:1px;min-width:0}.column>.main-topic-large,.column>.tab{height:88px;min-height:88px;max-height:88px;width:100%;margin:0}.label{font-size:12.5px;line-height:1.35;max-width:92%;overflow-wrap:anywhere}.num{font-size:44px}.lecture-navigation{padding:0 6px}.lecture-navigation .previous-page-tab{height:88px;min-height:88px;max-height:88px;width:100%}.lecture-navigation .previous-page-tab .label{font-size:13px}}
+/* CLONING RE-ORDER A — LOCKED TWO-COLUMN TOPICS INVARIANT
+   The Topics Page must remain two columns side-by-side at all supported widths.
+   Responsive behavior changes density/size, not the required two-column topology. */
+@media(max-width:760px){
+  #mainContentContainer .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;display:grid !important;gap:1px !important;padding:0 6px !important;}
+  #mainContentContainer .topic-grid>.column{display:flex !important;flex-direction:column !important;min-width:0 !important;width:auto !important;}
+}
+@media(max-width:420px){
+  #mainContentContainer .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:1px !important;padding:0 4px !important;}
+}
+/* CLONING RE-ORDER B — EXTENDED TOPICS SCROLL + FUNCTIONAL ACCESS
+   Keep the required two-column topology, but give the shared content container
+   additional bottom travel so the final functional tabs can be reached and tapped
+   comfortably on short mobile viewports. This changes scroll travel, not layout topology. */
+#mainContentContainer{
+  scroll-padding-top:12px !important;
+  scroll-padding-bottom:180px !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+}
+#mainContentContainer .content-view{
+  min-height:calc(100% + 120px) !important;
+  padding-bottom:180px !important;
+}
+#mainContentContainer .lecture-navigation{
+  padding-bottom:0 !important;
+  margin-bottom:100px !important;
+}
+#mainContentContainer .previous-page-tab{
+  margin-bottom:0 !important;
+  scroll-margin-bottom:100px !important;
+}
+@media(max-width:760px){
+  #mainContentContainer .content-view{padding-bottom:180px !important;}
+  #mainContentContainer .lecture-navigation{margin-bottom:100px !important;}
+}
+@media(max-width:420px){
+  #mainContentContainer .content-view{padding-bottom:200px !important;}
+  #mainContentContainer .lecture-navigation{margin-bottom:110px !important;}
+}
+
+/* CLONING RE-ORDER C — 1PX GAP + PREVIOUS TAB HEIGHT LOCK
+   All topic tabs are separated by exactly 1px. The Previous Page tab
+   uses the same vertical dimension as the topic tabs and spans the full row. */
+.topic-grid{gap:1px !important;}
+.topic-grid>.column{gap:1px !important;}
+.lecture-navigation{width:100% !important;max-width:none !important;margin:1px 0 22px !important;padding:0 !important;}
+.lecture-navigation .previous-page-tab{width:100% !important;height:105px !important;min-height:105px !important;max-height:105px !important;margin:0 !important;}
+@media(max-width:760px){
+  #mainContentContainer .topic-grid{gap:1px !important;}
+  #mainContentContainer .topic-grid>.column{gap:1px !important;}
+  .lecture-navigation .previous-page-tab{height:88px !important;min-height:88px !important;max-height:88px !important;width:100% !important;}
+}
+@media(max-width:420px){
+  .lecture-navigation .previous-page-tab{height:84px !important;min-height:84px !important;max-height:84px !important;}
+}
+
+/* Dictionary Friendly UX — clear control, match emphasis, no-result state */
+.dictionary-search-wrap{position:relative;width:100%;}
+.dictionary-search-wrap .search{padding-right:48px;}
+.dictionary-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#64748b;font-size:22px;line-height:1;cursor:pointer;display:none;z-index:2;}
+.dictionary-clear:hover,.dictionary-clear:focus{background:#f1f5f9;color:#b42318;outline:none;}
+.dict-match{font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;}
+.dict-empty{padding:18px 12px;text-align:center;border:1px dashed #cbd5e1;border-radius:12px;color:#64748b;background:#f8fafc;}
+@media(max-width:760px){.dictionary-search-wrap .search{padding-right:52px;}.dictionary-clear{width:40px;height:40px;font-size:24px;}}
+
+
+/* L1 Examination repair — calibrated from approved Lecture 02 examination architecture */
+.assessment-fullscreen{padding:0 10px 80px!important;overflow-x:hidden}
+.assessment-fullscreen .assessment-shell{width:100%;max-width:1240px;margin:0 auto}
+.assessment-questionnaire{width:100%;display:block}
+.assessment-questionnaire .question-card{width:100%;max-width:1180px;box-sizing:border-box;margin:12px auto;padding:16px}
+.assessment-questionnaire .question-card + .question-card{margin-top:12px}
+.assessment-questionnaire .question-status{display:block}
+.assessment-questionnaire .pill{display:inline-block}
+.assessment-fullscreen .content-navigation{display:none}
+.assessment-fullscreen .assessment-actions{position:sticky;bottom:8px;z-index:30;padding:10px;background:rgba(255,255,255,.96);border:1px solid #dbe4e0;border-radius:12px}
+.assessment-fullscreen .view-close{z-index:40}
+.assessment-fullscreen .assessment-result{width:100%;box-sizing:border-box}
+.assessment-fullscreen .exam-progress{max-width:1180px;margin:10px auto;padding:12px 14px;border-radius:14px;background:#eef6f2;border:1px solid #c8ddd4;position:sticky;top:6px;z-index:25}
+.exam-progress .progress-label{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}
+.exam-progress .progress-track{height:10px;background:#dbe8e2;border-radius:999px;overflow:hidden}
+.exam-progress .progress-bar{height:100%;width:0%;background:var(--green);transition:width .2s ease}
+.assessment-questionnaire .answer-option{display:flex;align-items:flex-start;gap:9px;margin:7px 0;padding:10px 11px;border:1px solid #dbe4e0;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-questionnaire .answer-option:hover{border-color:var(--green);background:#f6fbf8}
+.assessment-questionnaire .answer-option input{margin-top:4px;accent-color:var(--green)}
+.assessment-questionnaire .question-status{font-size:12px;font-weight:700;color:#64748b;margin-top:7px}
+@media(max-width:600px){.assessment-fullscreen{padding-left:6px!important;padding-right:6px!important}.assessment-questionnaire .question-card{padding:13px}.assessment-fullscreen .assessment-actions{bottom:4px}.exam-progress{top:2px!important}}
+
+.visual-popup-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(15,23,42,.72);overflow:auto}.visual-popup-dialog{position:relative;width:min(1100px,96vw);height:min(92vh,900px);background:#fff;border-radius:18px;box-shadow:0 22px 70px #0007;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;overflow:hidden}.visual-popup-dialog .atlas-img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}.visual-popup-media{max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.visual-popup-media .atlas-img{max-height:calc(92vh - 78px)}.visual-source-note{font:11px/1.4 Inter,Arial;color:#64748b;text-align:center;max-width:96%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:5px 8px}.visual-source-note a{color:#285b4b;font-weight:800;text-decoration:none}.visual-source-note a:hover{text-decoration:underline}.visual-popup-close{position:absolute;right:12px;bottom:12px;top:auto;width:44px;height:44px;border:1px solid #d8c78d;border-radius:50%;background:#fff;color:#173e34;font:700 28px Inter;cursor:pointer;z-index:3;box-shadow:0 4px 14px #0003}.visual-popup-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}@media(max-width:650px){.visual-popup-overlay{padding:8px}.visual-popup-dialog{width:96vw;height:88vh;padding:10px;border-radius:14px}.visual-popup-close{width:42px;height:42px;right:8px;bottom:8px;top:auto}}
+
+.formula-box{max-width:1180px;margin:12px auto;padding:16px;border:1px solid var(--gold);border-radius:14px;background:#fffdf7;text-align:center;font:800 18px/1.8 Inter,Arial,sans-serif;direction:ltr;overflow:auto}.formula-box small{display:block;font:500 12px/1.6 Arial;color:var(--muted);margin-top:4px}.visual-card .visual-link{margin-top:8px}
+
+.mastery-reading .mastery-vision{border-right:5px solid var(--blue);background:linear-gradient(135deg,#f8fbff,#fffdf8)}
+.mastery-reading .mastery-definition{border-right:5px solid var(--green2);background:#fbfdfb}
+.mastery-reading .mastery-connection{border-right:5px solid var(--gold);background:#fffaf0}
+.mastery-reading .mastery-conclusion{border-right:5px solid var(--green);background:#f7fbf8}
+.mastery-reading .mastery-visual{margin:14px auto 16px;max-width:900px;padding:12px;border:1px solid var(--gold);border-radius:16px;background:#fffdf8;text-align:center;box-shadow:0 5px 18px #214b3a12}
+.mastery-reading .mastery-visual img{display:block;width:100%;max-height:360px;object-fit:contain;border-radius:10px;background:#fff;margin:auto}
+.mastery-reading .mastery-visual figcaption{font-size:13px;line-height:1.8;color:var(--muted);margin-top:8px}
+.mastery-reading .mastery-sound{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin:8px auto 14px;direction:rtl}
+.mastery-reading .mastery-sound button{border:1px solid var(--gold);border-radius:9px;padding:7px 11px;background:#fffaf0;color:var(--green);font:800 12px Arial,sans-serif;cursor:pointer}
+.mastery-reading .mastery-sound button:hover{filter:brightness(.98)}
+.mastery-reading .mastery-source-note{font-size:11px;color:var(--muted);text-align:center;margin:10px auto 16px;line-height:1.7}
+.mastery-reading .mastery-subtopic-title{font-size:21px!important;color:var(--green);margin:0 0 8px!important}
+.mastery-reading .mastery-step{font-size:15px!important;line-height:2!important}
+@media(max-width:650px){.mastery-reading{max-height:none}.mastery-reading .mastery-visual img{max-height:280px}.mastery-reading .mastery-sound button{padding:8px 10px}}
+
+
+.mastery-tts-status{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:4px 10px;border-radius:999px;font-size:.82rem;background:var(--soft,#edf5ef);color:var(--green,#173e34);font-weight:700;direction:rtl;}
+.mastery-tts-status[data-busy="1"]{animation:iaeTtsPulse 1.2s ease-in-out infinite;}
+.mastery-tts-active{outline:3px solid rgba(197,155,53,.55);outline-offset:4px;border-radius:8px;background:rgba(242,212,111,.14);transition:all .2s ease;}
+.mastery-tts-active-title{outline:3px solid rgba(197,155,53,.55);outline-offset:3px;border-radius:8px;background:rgba(242,212,111,.14);padding-inline:8px;transition:all .2s ease;}
+@keyframes iaeTtsPulse{50%{opacity:.58;}}
+
+/* FINAL TAB POSITION REPAIR — cloned from approved Lecture 07 layout */
+.topic-feature-row{max-width:1180px;width:100%;margin:0 auto 1px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;direction:ltr;}
+.topic-feature-row .tab{height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--green);background:#fff;}
+.topic-feature-row .feature-master{grid-column:2;grid-row:1;direction:rtl;border-top-color:var(--sky);border-right-color:var(--sky);border-left-color:var(--green);border-bottom-color:var(--green);}
+.topic-feature-row .feature-visual{grid-column:1;grid-row:1;direction:rtl;border-top-color:var(--sky);border-right-color:var(--sky);border-left-color:var(--green);border-bottom-color:var(--green);}
+.topic-feature-row .label{font-size:16px;font-weight:800;background:linear-gradient(90deg,#3568a8 0 50%,#b83b3b 50% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.topic-feature-row .num{color:transparent;background:linear-gradient(90deg,#3568a8 0 50%,#b83b3b 50% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+@media(max-width:760px){.topic-feature-row .tab{height:88px;min-height:88px;max-height:88px}.topic-feature-row .label{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="page active" id="homePage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img alt="Imperial Academy logo" src="../../IAE-Logo-Transparent.png"/></div></div></header>
+<div class="main-content-container" id="mainContentContainer">
+<div class="content-view" id="homeContentView">
+<div class="view-header"><div class="subject-label chemistry-label">Chemistry · First Year</div></div>
+<div class="section-card" style="max-width:1180px;margin:12px auto 8px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#fffdf8,#eef7f0);">
+<strong style="font-size:24px;text-align:center;">Lecture 13 — Real Gases, Van der Waals Equation &amp; Critical Behaviour</strong>
+<p style="text-align:center;margin:6px 0 0;">Real Gases · Intermolecular Attractions · Van der Waals Equation · Compressibility · Critical Constants · Critical Behaviour</p>
+</div>
+<div class="section" style="max-width:1180px;margin:10px auto;">
+<div class="level-heading standard-h">Lecture Architecture</div>
+<p>یہ Lecture approved Chemistry architecture کو structural clone کے طور پر استعمال کرتا ہے؛ academic identity اور تمام Lecture 13 content الگ رکھا گیا ہے۔ Core topics مکمل teaching، formulas، quantitative reasoning، dictionary، visuals، practice، readiness، examination، revision اور mastery کے ساتھ integrated ہیں۔</p>
+</div>
+<div class="content-navigation" style="margin-top:18px;">
+<button onclick="showPage('topicsPage')" type="button">Start Lecture 13 →</button>
+</div>
+<div class="section" style="max-width:1180px;margin:8px auto 40px;">
+<div class="level-heading mastery-h">Main Learning Route</div>
+<p style="text-align:center;">Real Gases → Causes of Deviation → Intermolecular Attractions → Molecular Volume → Van der Waals Equation → Meaning of Constants → Compressibility Factor → Critical Constants → Real-Gas Behaviour → Intermolecular Attraction and Deviation → Molecular Volume Effects → van der Waals Model Interpretation → Pressure–Volume Deviations → Critical-Region Behaviour</p>
+</div>
+</div></div>
+</section>
+<section class="page" id="hitCeilingPage" style="padding:0;min-height:0;height:100%;overflow:hidden;display:flex;flex-direction:column;"><iframe data-srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;ur&quot; dir=&quot;rtl&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&lt;title&gt;Chemistry Chapter 01 Lecture 13 — HIT THE CEILING&lt;/title&gt;&lt;style&gt;
+:root{--green:#174f43;--green2:#58a978;--red:#b83b3b;--blue:#3568a8;--gold:#c9a54b;--cream:#fbf7ed;--ink:#18332d;--muted:#68756e;--line:#ded2b3}*{box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden}body{margin:0;background:linear-gradient(#f8f2e5,#eef5f0);color:var(--ink);font-family:Georgia,&quot;Noto Nastaliq Urdu&quot;,serif}.top{height:64px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;box-shadow:0 3px 14px #0002}.brand{font:900 15px Arial,sans-serif}.brand small{display:block;font-size:10px;opacity:.78;margin-top:3px}.tab{font:900 12px Arial,sans-serif;border:1px solid var(--gold);border-radius:999px;padding:8px 14px;background:#fff;color:var(--green)}.stage{max-width:1080px;margin:auto;padding:8px 10px 6px;height:calc(100% - 64px);overflow:hidden}.crumb{text-align:center;color:var(--muted);font:700 12px Arial,sans-serif;margin-bottom:9px}.game{position:relative;height:100%;min-height:0;overflow:hidden;border:1px solid #d8c78d;border-radius:24px;background:linear-gradient(#fffdf8,#f3ead7);box-shadow:0 14px 42px #214b3a1d}.head{text-align:center;padding:22px 15px 5px}.kicker{font:900 11px Arial,sans-serif;letter-spacing:2px;color:var(--red)}h1{font:900 clamp(30px,6vw,52px)/1.05 Arial,sans-serif;color:var(--green);margin:6px 0}.sub{font-size:16px;color:#657169}.hidden{display:none!important}.towerarea{height:320px;display:flex;justify-content:center;align-items:flex-end}.tower{position:relative;width:230px;height:295px} .tower-close{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border:2px solid #111827;border-radius:50%;background:linear-gradient(135deg,#ff1744 0%,#ff9800 22%,#ffee00 42%,#00c853 60%,#00b0ff 78%,#7c4dff 100%);color:#fff;text-shadow:0 1px 2px #000;font:900 34px/1 Arial,sans-serif;display:grid;place-items:center;cursor:pointer;z-index:9999;box-shadow:0 0 0 3px rgba(255,255,255,.85),0 5px 18px rgba(0,0,0,.35);padding:0}.tower-close:hover{transform:translate(-50%,-50%) scale(1.08)}.tower-close:active{transform:translate(-50%,-50%) scale(.94)}.tower-close:focus-visible{outline:3px solid #fff;outline-offset:3px}.dome{position:absolute;top:0;left:75px;width:80px;height:58px;border:2px solid #aa8d49;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e7d9ad}.dome:after{content:&quot;&quot;;position:absolute;width:4px;height:22px;background:#aa8d49;top:-20px;left:38px}.body{position:absolute;bottom:12px;left:40px;width:150px;display:flex;flex-direction:column-reverse;gap:4px}.seg{height:47px;border:1px solid #b59a5b;background:#e8ddbe;opacity:.25;transform:translateY(5px);transition:.45s}.seg.on{opacity:1;transform:none;background:linear-gradient(90deg,#b9e1c7,#6db78b);border-color:#4a9369}.base{position:absolute;bottom:0;left:20px;width:190px;height:17px;border:1px solid #aa8d49;border-radius:7px;background:#d8c899}.torch{position:absolute;top:-55px;left:89px;width:55px;height:62px;display:grid;place-items:center}.flame{width:27px;height:38px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #b39a59;opacity:.32}.flame.on{background:linear-gradient(135deg,#ffd45b,#ef8d2c);border-color:#b97523;opacity:1;box-shadow:0 0 25px #f4b53a99;animation:flicker 1s infinite alternate}@keyframes flicker{to{transform:rotate(48deg) scale(1.08)}}.play{padding:0 14px 25px}.play .towerarea{display:none}.play .level,.play .progress{display:none}.play .count{display:none}.question-shell{position:relative}.question-shell:before{content:&quot;✦  ✿  🦋  ✦&quot;;position:absolute;left:8px;top:-28px;font-size:18px;opacity:.5;letter-spacing:8px;direction:ltr}.celebrate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:100;background:rgba(23,79,67,.18);backdrop-filter:blur(3px)}.celebrate.hidden{display:none}.celebrate-card{position:relative;width:min(560px,92vw);padding:30px 22px;border:2px solid var(--gold);border-radius:24px;background:linear-gradient(145deg,#fffdf7,#f6ead0);box-shadow:0 20px 60px #173f3560;text-align:center;overflow:hidden}.celebrate-card h2{margin:8px 0;font:900 28px Arial;color:var(--green)}.celebrate-card p{margin:8px 0;font-size:17px;line-height:1.8}.celebrate-art{font-size:34px;letter-spacing:8px;animation:floaty 1.8s ease-in-out infinite alternate}.celebrate-art span{display:inline-block;animation:fly 2.2s ease-in-out infinite alternate}.celebrate-art span:nth-child(2){animation-delay:.25s}.celebrate-art span:nth-child(3){animation-delay:.5s}.celebrate-art span:nth-child(4){animation-delay:.75s}@keyframes floaty{to{transform:translateY(-7px)}}@keyframes fly{to{transform:translate(12px,-18px) rotate(7deg)}}.level{text-align:center;font:900 14px Arial;color:var(--green)}.count{text-align:center;font:900 12px Arial;color:var(--muted);margin:5px}.progress{height:8px;max-width:760px;margin:8px auto 13px;border:1px solid #c7b77f;border-radius:10px;background:#eee5d1;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--green2);transition:.35s}.card{max-width:790px;margin:auto;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 20px #23483b12}.q{font-size:19px;line-height:1.8;font-weight:700;text-align:center;margin:0 0 15px}.answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(62px,1fr);gap:9px;align-items:stretch}.answer{height:100%;display:flex;align-items:center;justify-content:center;border:2px solid transparent;border-radius:14px;padding:14px;background:#fffaf0;color:#202522;cursor:pointer;font-weight:800;text-align:right;line-height:1.55;min-height:62px;box-shadow:0 4px 12px #214b3a16;transition:transform .16s,filter .16s,box-shadow .16s}.answer:hover{transform:translateY(-2px);filter:saturate(1.08);box-shadow:0 7px 16px #214b3a20}.answer:disabled{cursor:default;opacity:.92;transform:none}.answer.a-red{background:#f7d9d9;border-color:#b83b3b}.answer.a-green{background:#dff1e5;border-color:#58a978}.answer.a-blue{background:#dfe9f8;border-color:#3568a8}.answer.a-yellow{background:#fff0bf;border-color:#d4a72c}.answer:hover{background:#f4ead0}.feedback{text-align:center;min-height:34px;margin-top:10px;font-size:14px;font-weight:800;color:var(--red);line-height:1.7}.tip{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}.clear{text-align:center;padding:42px 15px}.clear h2{font:900 25px Arial;color:var(--green)}.clear p{font-size:18px;line-height:1.8}.answer-popup{position:fixed;top:78px;left:50%;transform:translateX(-50%);width:min(700px,92vw);z-index:250;display:none;border:2px solid var(--gold);border-radius:18px;background:linear-gradient(145deg,#fffdf7,#fff0c9);box-shadow:0 14px 45px #173f3540;padding:16px 18px;text-align:center;direction:rtl}.answer-popup.show{display:block;animation:popupIn .28s ease-out}@keyframes popupIn{from{opacity:0;transform:translate(-50%,-12px) scale(.97)}to{opacity:1;transform:translate(-50%,0) scale(1)}}.answer-popup h3{margin:0 0 7px;font:900 20px Arial;color:var(--red)}.answer-popup .popup-answer{font-size:18px;font-weight:900;line-height:1.7;color:var(--green)}.answer-popup .popup-explain{font-size:15px;line-height:1.85;color:var(--ink);margin-top:5px}.answer-popup .popup-note{font-size:12px;color:var(--muted);margin-top:7px}@media(max-width:650px){.answer-popup{top:66px;width:min(94vw,700px);padding:13px 12px}.answer-popup h3{font-size:18px}.answer-popup .popup-answer{font-size:16px}.answer-popup .popup-explain{font-size:14px}}
+.mastery-badge{display:inline-block;margin-inline-start:8px;padding:4px 10px;border:1px solid var(--gold);border-radius:999px;background:#fff4cf;color:var(--green);font:900 12px Arial,sans-serif;vertical-align:middle}
+.mastery-reading{width:100%;max-width:100%;max-height:760px;overflow-y:auto;overflow-x:hidden;border:1px solid var(--gold);border-radius:20px;background:#fffdf8;box-shadow:0 7px 24px #214b3a12;margin:0 0 18px;padding:0 12px 16px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.mastery-reading .mastery-topline{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;width:100%;min-height:40px;margin:4px 0 0;direction:ltr}.mastery-reading .mastery-subject{justify-self:start;font:900 14px Arial,sans-serif;color:var(--green);white-space:nowrap}.mastery-reading .mastery-controls{justify-self:center;display:flex;direction:ltr;justify-content:center;align-items:center;width:190px;height:34px;margin:0;flex:0 0 190px;border:1px solid var(--gold);border-radius:9px;background:linear-gradient(180deg,#fffdf8,#f5ecd8);box-shadow:0 4px 12px #214b3a16;overflow:hidden}.mastery-topic-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap;margin:0 0 14px;direction:ltr;width:100%}.mastery-topic-row .lesson-title{text-align:left}.mastery-topic-row .lesson-title{margin:0;flex:0 1 auto;min-width:0;text-align:center}.mastery-topic-row .mastery-badge{flex:0 0 auto}.mastery-reading .font-btn{width:48px;height:100%;border:0;cursor:pointer;font:900 20px Arial,sans-serif;transition:filter .15s,transform .15s}
+.mastery-reading .font-btn:hover{filter:brightness(.97)}
+.mastery-reading .font-btn:active{transform:scale(.96)}
+.mastery-reading .font-plus{background:#f6dddd;color:var(--red)}
+.mastery-reading .font-minus{background:#dfeef8;color:var(--blue)}
+.mastery-reading .iae-mark{width:94px;height:100%;display:grid;place-items:center;background:#f4e3ad;color:#315c45;font:900 14px Arial,sans-serif;letter-spacing:2.5px;border-left:1px solid #dfc96f;border-right:1px solid #dfc96f}
+.mastery-reading .mastery-body{font-size:14px;line-height:1.9;overflow-wrap:anywhere;word-break:normal;direction:rtl}
+.mastery-reading .mastery-body p,.mastery-reading .mastery-body li{font-size:1em;line-height:1.9;overflow-wrap:anywhere;word-break:normal}
+.mastery-reading .mastery-body .section{margin-bottom:14px}
+.mastery-reading .mastery-body .lesson-title{font-size:24px;margin:4px 0 12px}
+.mastery-reading .mastery-body .level-heading{font-size:18px}
+@media(max-width:650px){.mastery-reading{max-height:72vh;padding:0 9px 14px}.mastery-reading .mastery-title-row{gap:9px}.mastery-reading .mastery-controls{width:190px;height:32px;flex-basis:190px}.mastery-reading .font-btn{width:48px}.mastery-reading .iae-mark{width:94px}.mastery-reading .mastery-body{font-size:14px;line-height:1.95}.mastery-reading .mastery-body p,.mastery-reading .mastery-body li{line-height:1.95}}
+.levels{display:flex;direction:ltr;justify-content:center;align-items:center;gap:12px;margin:10px auto 18px;max-width:560px;padding:10px 14px;border:1px solid #dfcf9d;border-radius:18px;background:linear-gradient(180deg,#fffdf8,#f7edd8);box-shadow:0 6px 20px #214b3a12,inset 0 1px #fff;position:relative}.levels:before{content:&quot;&quot;;position:absolute;left:10%;right:10%;top:50%;height:3px;border-radius:99px;background:linear-gradient(90deg,#d8c78d,#e7dcc0,#d8c78d);transform:translateY(-50%);z-index:0}.lvl{position:relative;z-index:1;flex:0 0 42px;width:42px;height:42px;border:2px solid #d8c78d;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf5,#eadfca);padding:0;font-size:0;box-shadow:0 4px 10px #214b3a18,inset 0 1px 2px #fff;transition:transform .35s,box-shadow .35s,background .35s,border-color .35s}.lvl:not(:last-child):after{content:&quot;&quot;;position:absolute;left:calc(100% + 2px);top:50%;width:12px;height:3px;border-radius:99px;background:#d8c78d;transform:translateY(-50%);transition:background .35s,box-shadow .35s}.lvl.active{background:radial-gradient(circle at 35% 28%,#fff9c9,#f1c75b);border-color:#c9a54b;transform:translateY(-3px) scale(1.08);box-shadow:0 0 0 4px #f6d87555,0 8px 20px #c9a54b66}.lvl.active:before{content:&quot;&quot;;position:absolute;inset:7px;border-radius:50%;background:#fff8d7;opacity:.95;animation:stepGlow 1.35s ease-in-out infinite alternate}.lvl.done{background:radial-gradient(circle at 35% 28%,#e8f7ec,#62b07f);border-color:#4a9369;box-shadow:0 5px 16px #4a936955}.lvl.done:after{background:#6db78b;box-shadow:0 0 10px #6db78b99}.lvl.done:before{content:&quot;✓&quot;;position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:900 17px Arial;text-shadow:0 1px 3px #174f4366;z-index:2}@keyframes stepGlow{to{transform:scale(.62);opacity:.35}}.visual{direction:rtl;border:1px solid #d5c69b;border-radius:15px;background:#fffaf0;padding:14px;margin-bottom:13px;text-align:center}.visual-title{font:900 13px Arial;color:var(--green);margin-bottom:9px}.diagram{min-height:145px;display:flex;align-items:center;justify-content:center;gap:13px;direction:ltr;flex-wrap:wrap}.vnode{border:2px solid var(--green);border-radius:14px;padding:13px 10px;background:#eef7f0;font:900 12px Arial;min-width:120px}.arrow{font:900 22px Arial;color:var(--gold)}.visual small{display:block;color:var(--muted);font-size:14px;line-height:1.6;margin-top:7px}.short-answer{width:100%;min-height:125px;border:1px solid #c8b978;border-radius:13px;background:#fffdf8;padding:13px;font:16px/1.8 Georgia,&quot;Noto Nastaliq Urdu&quot;,serif;resize:vertical;direction:auto}.write-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:9px}.mic{border:1px solid var(--blue);background:#edf4ff;color:#234d86;border-radius:999px;padding:10px 15px;font-weight:900;cursor:pointer}.mic.on{background:var(--blue);color:#fff}.send{border:0;border-radius:999px;padding:10px 18px;background:var(--green);color:#fff;font-weight:900;cursor:pointer}.voice-note{text-align:center;color:var(--muted);font-size:12px;margin:6px 0 0}.explain-feedback{margin-top:12px;border-radius:13px;padding:12px;background:#f4ead0;border:1px solid #d8c78d;line-height:1.8;text-align:right;font-size:14px}.mastery-grid{max-width:790px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.mastery-box{border:1px solid var(--gold);border-radius:11px;background:#fffaf0;padding:10px 4px;font:900 11px Arial;text-align:center}.mastery-box span{display:block;font-size:18px;margin-bottom:5px}.nextlevel{margin-top:16px}.footer-note{text-align:center;color:var(--muted);font-size:11px;margin-top:12px}@media(max-width:650px){.top{height:58px}.stage{height:calc(100% - 58px);padding:5px 6px 3px}.game{border-radius:18px}.answers{grid-template-columns:1fr}.q{font-size:15px;line-height:1.45;margin-bottom:7px}.head{padding:7px 10px 2px}.kicker{font-size:9px}.head h1{font-size:clamp(24px,7vw,34px);margin:3px 0}.sub{font-size:12px}.levels{gap:5px;padding:4px 6px;margin:3px auto 5px}.levels:before{left:6%;right:6%}.lvl{flex-basis:28px;width:28px;height:28px}.lvl:not(:last-child):after{width:5px}.lvl.done:before{font-size:11px}.towerarea{height:135px}.tower{transform:scale(.45);transform-origin:bottom center}.play{padding:0 8px 4px}.card{padding:8px;border-radius:12px}.answer{padding:7px;min-height:0;font-size:12px;line-height:1.3}.feedback{min-height:18px;margin-top:4px;font-size:12px}.mastery-grid{grid-template-columns:1fr 1fr}.clear{padding:14px 10px}.clear h2{font-size:20px}.clear p{font-size:14px;line-height:1.5}.footer-note{font-size:10px;margin-top:5px}}
+/* IAE FINAL HIT THE CEILING PRESENTATION OVERRIDES */
+.top{display:none!important}
+.stage{height:100%!important;max-width:none!important;padding:6px 8px!important}
+.game{height:100%!important}
+.answers{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:900px;margin:0 auto}
+.answer{width:100%;min-height:68px;padding:14px 10px;font-size:16px!important;line-height:1.55;text-align:center!important}
+.q{font-size:16px!important;text-align:center!important}
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;header class=&quot;top&quot;&gt;&lt;div class=&quot;brand&quot;&gt;IMPERIAL ACADEMY OF EDUCATION&lt;small&gt;An Academy For Everyone&lt;/small&gt;&lt;/div&gt;&lt;div class=&quot;tab&quot;&gt;HIT THE CEILING&lt;/div&gt;&lt;/header&gt;&lt;main class=&quot;stage&quot;&gt;&lt;div class=&quot;crumb&quot;&gt;Chemistry · Chapter 01 · Lecture 13&lt;/div&gt;&lt;section class=&quot;game&quot;&gt;&lt;div class=&quot;head&quot;&gt;&lt;div class=&quot;kicker&quot;&gt;ACADEMY CHALLENGE&lt;/div&gt;&lt;h1&gt;HIT THE CEILING&lt;/h1&gt;&lt;div class=&quot;sub&quot;&gt;Real Gases, Van der Waals Equation, Compressibility &amp; Critical Behaviour&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;intro&quot; class=&quot;intro hidden&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;&lt;div id=&quot;play&quot;&gt;&lt;div id=&quot;levelsBar&quot; class=&quot;levels&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;&lt;div class=&quot;towerarea&quot;&gt;&lt;div class=&quot;tower&quot; ondblclick=&quot;window.parent.postMessage({type:&#x27;IAE_HIT_CEILING_CLOSE&#x27;},&#x27;*&#x27;);&quot;&gt;&lt;button id=&quot;towerClose&quot; class=&quot;tower-close&quot; type=&quot;button&quot; aria-label=&quot;Close HIT THE CEILING&quot; title=&quot;Close HIT THE CEILING&quot; onclick=&quot;window.parent.postMessage({type:&#x27;IAE_HIT_CEILING_CLOSE&#x27;},&#x27;*&#x27;);&quot;&gt;×&lt;/button&gt;&lt;div class=&quot;dome&quot;&gt;&lt;/div&gt;&lt;div class=&quot;torch&quot;&gt;&lt;div id=&quot;flame&quot; class=&quot;flame&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;segments&quot; class=&quot;body&quot;&gt;&lt;/div&gt;&lt;div class=&quot;base&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;play&quot;&gt;&lt;div id=&quot;level&quot; class=&quot;level&quot;&gt;&lt;/div&gt;&lt;div id=&quot;count&quot; class=&quot;count&quot;&gt;&lt;/div&gt;&lt;div class=&quot;progress&quot;&gt;&lt;i id=&quot;bar&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;div class=&quot;card&quot; id=&quot;card&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;cleared&quot; class=&quot;hidden clear&quot;&gt;&lt;div id=&quot;clearLogo&quot; class=&quot;logo show&quot;&gt;IMPERIAL&lt;br&gt;ACADEMY&lt;br&gt;EDUCATION&lt;/div&gt;&lt;h2 id=&quot;clearTitle&quot;&gt;LEVEL CLEARED&lt;/h2&gt;&lt;p id=&quot;clearText&quot;&gt;&lt;/p&gt;&lt;button id=&quot;next&quot; class=&quot;start nextlevel&quot;&gt;NEXT LEVEL&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;answerPopup&quot; class=&quot;answer-popup&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;h3 id=&quot;popupTitle&quot;&gt;ایک اہم نکتہ یہاں تھا&lt;/h3&gt;&lt;div id=&quot;popupAnswer&quot; class=&quot;popup-answer&quot;&gt;&lt;/div&gt;&lt;div id=&quot;popupExplain&quot; class=&quot;popup-explain&quot;&gt;&lt;/div&gt;&lt;div class=&quot;popup-note&quot;&gt;چند لمحے رکیں، نکتہ سمجھیں — پھر اگلا سوال آئے گا۔&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;celebrate&quot; class=&quot;celebrate hidden&quot; aria-live=&quot;polite&quot;&gt;&lt;div class=&quot;celebrate-card&quot;&gt;&lt;div id=&quot;celebrateArt&quot; class=&quot;celebrate-art&quot;&gt;🦋 &lt;span&gt;🦋&lt;/span&gt; ✨ &lt;span&gt;🌸&lt;/span&gt;&lt;/div&gt;&lt;h2 id=&quot;celebrateTitle&quot;&gt;LEVEL CLEARED&lt;/h2&gt;&lt;p id=&quot;celebrateText&quot;&gt;بہت خوب! ایک اور حد پار ہوگئی۔&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;ceiling&quot; class=&quot;hidden clear&quot;&gt;&lt;div class=&quot;logo show&quot;&gt;IMPERIAL&lt;br&gt;ACADEMY&lt;br&gt;EDUCATION&lt;/div&gt;&lt;h2&gt;🏆 HIT THE CEILING&lt;/h2&gt;&lt;p&gt;آپ نے Chapter 01 Lecture 13 کی پانچوں Mastery Levels مکمل کر لی ہیں۔&lt;/p&gt;&lt;div class=&quot;mastery-grid&quot;&gt;&lt;div class=&quot;mastery-box&quot;&gt;&lt;span&gt;01&lt;/span&gt;MCQ Master&lt;/div&gt;&lt;div class=&quot;mastery-box&quot;&gt;&lt;span&gt;02&lt;/span&gt;Dictionary Master&lt;/div&gt;&lt;div class=&quot;mastery-box&quot;&gt;&lt;span&gt;03&lt;/span&gt;Concept Check&lt;/div&gt;&lt;div class=&quot;mastery-box&quot;&gt;&lt;span&gt;04&lt;/span&gt;Visual Master&lt;/div&gt;&lt;div class=&quot;mastery-box&quot;&gt;&lt;span&gt;05&lt;/span&gt;Explain Master&lt;/div&gt;&lt;/div&gt;&lt;p class=&quot;footer-note&quot;&gt;آپ نے صرف answers نہیں دیے — آپ نے concept کو identify، reason، interpret اور explain کیا۔&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;&lt;/main&gt;&lt;script&gt;
+const L1=[[&quot;Why do real gases deviate from the ideal-gas model?&quot;,[&quot;They have finite molecular volume and intermolecular forces&quot;,&quot;They have no particles&quot;,&quot;They always have zero pressure&quot;,&quot;They cannot change temperature&quot;],0,&quot;The ideal model neglects molecular size and intermolecular interactions.&quot;,&quot;Real Gases&quot;],[&quot;Which condition generally makes a gas behave more ideally?&quot;,[&quot;Low pressure and high temperature&quot;,&quot;High pressure and low temperature&quot;,&quot;Very high density only&quot;,&quot;Near the critical point&quot;],0,&quot;At low pressure and higher temperature, molecules are farther apart and attractions matter less.&quot;,&quot;Real-Gas Behaviour&quot;],[&quot;Which effect tends to lower the pressure of a real gas relative to the ideal prediction?&quot;,[&quot;Intermolecular attraction&quot;,&quot;Finite molecular volume only&quot;,&quot;Increasing container volume&quot;,&quot;Using kelvins&quot;],0,&quot;Attractions pull molecules inward and reduce the momentum delivered to the wall relative to an ideal model.&quot;,&quot;Intermolecular Attraction and Deviation&quot;],[&quot;Which effect becomes especially important when molecules are strongly compressed?&quot;,[&quot;Finite molecular volume&quot;,&quot;Absolute zero&quot;,&quot;Molar mass disappearing&quot;,&quot;Celsius conversion&quot;],0,&quot;Crowding makes the finite size of molecules and excluded volume important.&quot;,&quot;Molecular Volume Effects&quot;],[&quot;For one mole, the van der Waals equation is:&quot;,[&quot;(P+a/Vm²)(Vm−b)=RT&quot;,&quot;PVm=0&quot;,&quot;(P−a/Vm²)(Vm+b)=RT&quot;,&quot;P(Vm+b)=0&quot;],0,&quot;The one-mole form includes an attraction correction to pressure and an excluded-volume correction to molar volume.&quot;,&quot;Van der Waals Equation&quot;],[&quot;In the van der Waals model, constant a represents:&quot;,[&quot;Intermolecular attraction&quot;,&quot;Molecular volume only&quot;,&quot;Temperature&quot;,&quot;Pressure unit&quot;],0,&quot;a measures the strength of the attractive interaction correction.&quot;,&quot;Meaning of Constants&quot;],[&quot;In the van der Waals model, constant b represents:&quot;,[&quot;Excluded volume associated with molecular size&quot;,&quot;Intermolecular attraction strength&quot;,&quot;Absolute temperature&quot;,&quot;Compressibility factor&quot;],0,&quot;b accounts for finite molecular volume in the model.&quot;,&quot;Meaning of Constants&quot;],[&quot;The compressibility factor is defined as:&quot;,[&quot;Z=PV/(nRT)&quot;,&quot;Z=nRT/PV&quot;,&quot;Z=PT/(nRV)&quot;,&quot;Z=PV/n&quot;],0,&quot;Z compares the observed PV with the ideal-gas value nRT.&quot;,&quot;Compressibility Factor&quot;],[&quot;For an ideal gas, Z equals:&quot;,[&quot;1&quot;,&quot;0&quot;,&quot;−1&quot;,&quot;RT&quot;],0,&quot;For PV=nRT, Z=PV/(nRT)=1.&quot;,&quot;Compressibility Factor&quot;],[&quot;When attraction dominates, a real gas commonly has:&quot;,[&quot;Z&lt;1&quot;,&quot;Z=10 always&quot;,&quot;Z&gt;1 only&quot;,&quot;Z=0 at all pressures&quot;],0,&quot;Attractions can make PV smaller than nRT, giving Z&lt;1.&quot;,&quot;Compressibility Factor&quot;],[&quot;When excluded-volume/repulsive effects dominate, a real gas commonly has:&quot;,[&quot;Z&gt;1&quot;,&quot;Z&lt;0&quot;,&quot;Z=0&quot;,&quot;Z cannot be defined&quot;],0,&quot;Strong crowding can make PV exceed nRT, giving Z&gt;1.&quot;,&quot;Compressibility Factor&quot;],[&quot;Which critical constant is the temperature at the critical point?&quot;,[&quot;Tc&quot;,&quot;Pc&quot;,&quot;Vc&quot;,&quot;Zc&quot;],0,&quot;Tc denotes critical temperature.&quot;,&quot;Critical Constants&quot;],[&quot;For a van der Waals gas, the critical molar volume is:&quot;,[&quot;Vc=3b&quot;,&quot;Vc=b/3&quot;,&quot;Vc=27b&quot;,&quot;Vc=RT/b&quot;],0,&quot;The van der Waals critical volume is three times b.&quot;,&quot;Critical Constants&quot;],[&quot;For a van der Waals gas, critical temperature is:&quot;,[&quot;Tc=8a/(27Rb)&quot;,&quot;Tc=27Rb/(8a)&quot;,&quot;Tc=a/b&quot;,&quot;Tc=8Rb/(27a)&quot;],0,&quot;The van der Waals critical temperature follows from the critical-point conditions.&quot;,&quot;Critical Constants&quot;],[&quot;At the critical point, liquid and gas phases:&quot;,[&quot;Become indistinguishable&quot;,&quot;Always have zero pressure&quot;,&quot;Have infinite volume difference&quot;,&quot;Must be at 0 K&quot;],0,&quot;The critical point marks the end of the liquid–vapour coexistence distinction.&quot;,&quot;Critical Constants&quot;]];
+const levels=[
+{name:'Real-Gas MCQ',short:'MCQ',kind:'mcq',items:L1},
+{name:'Dictionary Master',short:'DICT',kind:'mcq',items:[[&quot;What does the compressibility factor Z compare?&quot;,[&quot;Observed PV with nRT&quot;,&quot;Temperature with pressure&quot;,&quot;Molar mass with volume&quot;,&quot;a with b&quot;],0,&quot;Z=PV/(nRT) compares real behaviour with the ideal prediction.&quot;,&quot;Compressibility Factor&quot;],[&quot;What does a represent?&quot;,[&quot;Intermolecular attraction&quot;,&quot;Excluded volume&quot;,&quot;Critical temperature&quot;,&quot;Molar mass&quot;],0,&quot;a represents attractive interactions in the van der Waals model.&quot;,&quot;Meaning of Constants&quot;],[&quot;What does b represent?&quot;,[&quot;Excluded molecular volume&quot;,&quot;Attraction strength&quot;,&quot;Pressure&quot;,&quot;Temperature&quot;],0,&quot;b represents the finite-size/excluded-volume correction.&quot;,&quot;Meaning of Constants&quot;],[&quot;When is a gas often closest to ideal?&quot;,[&quot;Low pressure and high temperature&quot;,&quot;High pressure and low temperature&quot;,&quot;At the critical point&quot;,&quot;At maximum density&quot;],0,&quot;Molecules are farther apart and attractions are less important at low pressure and higher temperature.&quot;,&quot;Real-Gas Behaviour&quot;],[&quot;What does Z&lt;1 commonly indicate?&quot;,[&quot;Attraction-dominated deviation&quot;,&quot;Perfect ideality&quot;,&quot;Only excluded volume&quot;,&quot;No pressure&quot;],0,&quot;Attraction can lower PV below nRT, producing Z&lt;1.&quot;,&quot;Compressibility Factor&quot;]]},
+{name:'Concept Check',short:'CONCEPT',kind:'tf',items:[[&quot;Finite molecular size is one cause of real-gas deviation.&quot;,true,&quot;درست۔ Molecules occupy finite space.&quot;],[&quot;Intermolecular attraction can produce Z&lt;1.&quot;,true,&quot;درست۔ Attraction can lower PV relative to nRT.&quot;],[&quot;For an ideal gas, Z=0.&quot;,false,&quot;غلط۔ For an ideal gas, Z=1.&quot;],[&quot;The van der Waals parameter b represents attraction.&quot;,false,&quot;غلط۔ b represents excluded volume; a represents attraction.&quot;],[&quot;At the critical point, liquid and gas become indistinguishable.&quot;,true,&quot;درست۔ This is the defining phase behaviour at the critical point.&quot;]]},
+{name:'Visual Master',short:'VISUAL',kind:'visual',items:[{&quot;title&quot;:&quot;Real-Gas Deviation&quot;,&quot;nodes&quot;:[&quot;Ideal model&quot;,&quot;Attraction&quot;,&quot;Excluded volume&quot;,&quot;Observed deviation&quot;],&quot;caption&quot;:&quot;Competing molecular effects behind non-ideal behaviour&quot;,&quot;q&quot;:&quot;Which two effects are central to the simple van der Waals picture?&quot;,&quot;a&quot;:[&quot;Attraction and finite molecular volume&quot;,&quot;Colour and mass number&quot;,&quot;Celsius and Fahrenheit&quot;,&quot;Light and sound&quot;],&quot;correct&quot;:0,&quot;e&quot;:&quot;The model corrects for attraction and finite molecular size.&quot;},{&quot;title&quot;:&quot;Compressibility Factor&quot;,&quot;nodes&quot;:[&quot;PV&quot;,&quot;nRT&quot;,&quot;Z=PV/nRT&quot;,&quot;Z−1&quot;],&quot;caption&quot;:&quot;Dimensionless measure of deviation&quot;,&quot;q&quot;:&quot;What value of Z represents ideal behaviour?&quot;,&quot;a&quot;:[&quot;1&quot;,&quot;0&quot;,&quot;−1&quot;,&quot;RT&quot;],&quot;correct&quot;:0,&quot;e&quot;:&quot;Z=1 when PV=nRT.&quot;},{&quot;title&quot;:&quot;Van der Waals Corrections&quot;,&quot;nodes&quot;:[&quot;P correction&quot;,&quot;V correction&quot;,&quot;a&quot;,&quot;b&quot;],&quot;caption&quot;:&quot;Attraction and excluded-volume parameters&quot;,&quot;q&quot;:&quot;Which parameter represents attraction?&quot;,&quot;a&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;Z&quot;,&quot;Tc&quot;],&quot;correct&quot;:0,&quot;e&quot;:&quot;a measures the attractive correction.&quot;},{&quot;title&quot;:&quot;Critical Point&quot;,&quot;nodes&quot;:[&quot;Tc&quot;,&quot;Pc&quot;,&quot;Vc&quot;,&quot;Critical state&quot;],&quot;caption&quot;:&quot;Critical coordinates of a real gas&quot;,&quot;q&quot;:&quot;Which set defines the critical point?&quot;,&quot;a&quot;:[&quot;Tc, Pc and Vc&quot;,&quot;a, b and R only&quot;,&quot;P, V and Celsius only&quot;,&quot;Z and molar mass only&quot;],&quot;correct&quot;:0,&quot;e&quot;:&quot;Critical temperature, pressure and volume locate the critical point.&quot;}]},
+{name:'Explain Master',short:'EXPLAIN',kind:'text',items:[{&quot;q&quot;:&quot;Real gas میں deviation کی دو بنیادی وجوہ explain کریں۔&quot;,&quot;need&quot;:[&quot;attraction&quot;,&quot;volume&quot;,&quot;deviation&quot;],&quot;e&quot;:&quot;Intermolecular attraction and finite molecular volume are the two main causes represented by the simple van der Waals model.&quot;},{&quot;q&quot;:&quot;Compressibility factor Z کی physical interpretation بیان کریں۔&quot;,&quot;need&quot;:[&quot;compressibility&quot;,&quot;z&quot;,&quot;ideal&quot;],&quot;e&quot;:&quot;Z=PV/(nRT); Z=1 is ideal, Z&lt;1 often reflects attraction and Z&gt;1 often reflects excluded-volume effects.&quot;},{&quot;q&quot;:&quot;van der Waals equation میں a اور b کا مطلب explain کریں۔&quot;,&quot;need&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;attraction&quot;,&quot;volume&quot;],&quot;e&quot;:&quot;a measures attraction and b represents excluded molecular volume.&quot;},{&quot;q&quot;:&quot;Critical point اور critical constants کی اہمیت بیان کریں۔&quot;,&quot;need&quot;:[&quot;critical&quot;,&quot;temperature&quot;,&quot;pressure&quot;,&quot;volume&quot;],&quot;e&quot;:&quot;Tc, Pc and Vc locate the critical state where liquid and gas become indistinguishable.&quot;},{&quot;q&quot;:&quot;High pressure اور low temperature پر real-gas deviation کیوں بڑھتا ہے؟&quot;,&quot;need&quot;:[&quot;pressure&quot;,&quot;temperature&quot;,&quot;attraction&quot;,&quot;volume&quot;],&quot;e&quot;:&quot;Compression increases molecular crowding and lower temperature makes attractive interactions more significant.&quot;}]}
+];
+const $=id=&gt;document.getElementById(id);
+function shuffle(a){const x=[...a];for(let i=x.length-1;i&gt;0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+function buildTower(){const x=$(&#x27;segments&#x27;);x.innerHTML=&#x27;&#x27;;for(let i=0;i&lt;5;i++){const d=document.createElement(&#x27;div&#x27;);d.className=&#x27;seg&#x27;;x.appendChild(d)}}
+function currentStep(){return Math.min(5,Math.floor(correctCount/10)+1)}
+function updateBars(){document.querySelectorAll(&#x27;.lvl&#x27;).forEach((x,i)=&gt;x.className=&#x27;lvl &#x27;+(i===levelIndex?&#x27;active&#x27;:i&lt;levelIndex?&#x27;done&#x27;:&#x27;&#x27;));const step=Math.min(5,Math.floor(correctCount/10));document.querySelectorAll(&#x27;.seg&#x27;).forEach((x,i)=&gt;x.classList.toggle(&#x27;on&#x27;,i&lt;step));$(&#x27;flame&#x27;).classList.toggle(&#x27;on&#x27;,correctCount&gt;0);const pct=levelIndex===0?Math.round(correctCount/levels[0].items.length*100):Math.round(itemIndex/levels[levelIndex].items.length*100);$(&#x27;bar&#x27;).style.width=pct+&#x27;%&#x27;}
+function renderLevelBar(){const b=$(&#x27;levelsBar&#x27;);b.innerHTML=&#x27;&#x27;;levels.forEach((l,i)=&gt;{const d=document.createElement(&#x27;div&#x27;);d.className=&#x27;lvl&#x27;;d.textContent=(i+1)+&#x27; · &#x27;+l.short;b.appendChild(d)});b.classList.remove(&#x27;hidden&#x27;)}
+function choose(){const pool=levels[levelIndex].items;let choices;if(levelIndex===0){const step=Math.min(5,Math.floor(correctCount/10));const n=pool.length; const bands=[[0,Math.max(0,Math.ceil(n/5)-1)],[Math.ceil(n/5),Math.max(0,Math.ceil(2*n/5)-1)],[Math.ceil(2*n/5),Math.max(0,Math.ceil(3*n/5)-1)],[Math.ceil(3*n/5),Math.max(0,Math.ceil(4*n/5)-1)],[Math.ceil(4*n/5),n-1]];const [lo,hi]=bands[Math.min(step,bands.length-1)];const band=pool.slice(lo,hi+1);choices=band.filter((_,i)=&gt;!used.includes(lo+i));if(!choices.length){used=[];choices=band}const picked=choices[Math.floor(Math.random()*choices.length)];const idx=pool.indexOf(picked);used.push(idx);current={q:picked[0],o:picked[1],a:picked[2],e:picked[3],_idx:idx,difficulty:step+1};}else{choices=pool.filter((_,i)=&gt;!used.includes(i));if(!choices.length){used=[];choices=pool}const idx=choices[Math.floor(Math.random()*choices.length)];used.push(idx);current={...pool[idx],_idx:idx}}}
+function render(){updateBars();$(&#x27;level&#x27;).textContent=&#x27;&#x27;;$(&#x27;count&#x27;).textContent=&#x27;&#x27;;const card=$(&#x27;card&#x27;);card.innerHTML=&#x27;&#x27;;if(levels[levelIndex].kind===&#x27;visual&#x27;)renderVisual(card);else if(levels[levelIndex].kind===&#x27;text&#x27;)renderText(card);else if(levels[levelIndex].kind===&#x27;tf&#x27;)renderTF(card);else renderQuestion(card)}
+function renderQuestion(card){const p=document.createElement(&#x27;p&#x27;);p.className=&#x27;q&#x27;;p.textContent=current.q;card.appendChild(p);const wrap=document.createElement(&#x27;div&#x27;);wrap.className=&#x27;answers&#x27;;const opts=shuffle(current.o.map((t,i)=&gt;({t,i})));const colors=shuffle([&#x27;a-red&#x27;,&#x27;a-green&#x27;,&#x27;a-blue&#x27;,&#x27;a-yellow&#x27;]);opts.forEach((v,k)=&gt;{const b=document.createElement(&#x27;button&#x27;);b.className=&#x27;answer &#x27;+colors[k];b.textContent=v.t;b.onclick=()=&gt;checkMCQ(v.i,b);wrap.appendChild(b)});card.appendChild(wrap);const f=document.createElement(&#x27;div&#x27;);f.id=&#x27;feedback&#x27;;f.className=&#x27;feedback&#x27;;card.appendChild(f);const tip=document.createElement(&#x27;div&#x27;);tip.className=&#x27;tip&#x27;;tip.textContent=&#x27;غلطی ہو تو سوال بدل سکتا ہے؛ concept نہیں۔&#x27;;card.appendChild(tip)}
+function showWrongPopup(answer,explain,duration=3600){const p=$(&#x27;answerPopup&#x27;);if(!p)return;$(&#x27;popupTitle&#x27;).textContent=&#x27;ایک اہم نکتہ یہاں تھا&#x27;;$(&#x27;popupAnswer&#x27;).textContent=&#x27;صحیح جواب: &#x27;+answer;$(&#x27;popupExplain&#x27;).textContent=explain;p.classList.add(&#x27;show&#x27;);clearTimeout(window.answerPopupTimer);window.answerPopupTimer=setTimeout(()=&gt;p.classList.remove(&#x27;show&#x27;),duration)}
+function checkMCQ(i,btn){document.querySelectorAll(&#x27;.answer&#x27;).forEach(b=&gt;b.disabled=true);const f=$(&#x27;feedback&#x27;);if(i!==current.a){misses++;mcqMissed.push({q:current.q,concept:current.e,answer:current.o[current.a],time:Date.now()});try{localStorage.setItem(&#x27;iaeCeilingMissed&#x27;,JSON.stringify(mcqMissed.slice(-100)))}catch(e){}f.innerHTML=&#x27;&#x27;;showWrongPopup(current.o[current.a],current.e,3600);setTimeout(nextAttempt,3800)}else{correctCount++;stepCorrect++;f.innerHTML=&#x27;&lt;strong&gt;✓&lt;/strong&gt;&#x27;;setTimeout(nextAttempt,800)}}
+function renderTF(card){const p=document.createElement(&#x27;p&#x27;);p.className=&#x27;q&#x27;;p.textContent=current[0];card.appendChild(p);const wrap=document.createElement(&#x27;div&#x27;);wrap.className=&#x27;answers&#x27;;[&#x27;True&#x27;,&#x27;False&#x27;].forEach((v,i)=&gt;{const b=document.createElement(&#x27;button&#x27;);b.className=&#x27;answer &#x27;+[&#x27;a-green&#x27;,&#x27;a-red&#x27;][i];b.textContent=v;b.onclick=()=&gt;checkTF(i===0,b);wrap.appendChild(b)});card.appendChild(wrap);const f=document.createElement(&#x27;div&#x27;);f.id=&#x27;feedback&#x27;;f.className=&#x27;feedback&#x27;;card.appendChild(f)}
+function checkTF(v,b){document.querySelectorAll(&#x27;.answer&#x27;).forEach(x=&gt;x.disabled=true);const f=$(&#x27;feedback&#x27;);if(v!==current[1]){misses++;showWrongPopup(current[1]?&#x27;True&#x27;:&#x27;False&#x27;,current[2],3600);setTimeout(nextAttempt,3800)}else{f.textContent=&#x27;✓&#x27;;setTimeout(nextAttempt,600)}}
+function renderVisual(card){const v=document.createElement(&#x27;div&#x27;);v.className=&#x27;visual&#x27;;v.innerHTML=&#x27;&lt;div class=&quot;visual-title&quot;&gt;&#x27;+current.title+&#x27;&lt;/div&gt;&#x27;;const dg=document.createElement(&#x27;div&#x27;);dg.className=&#x27;diagram&#x27;;current.nodes.forEach((n,i)=&gt;{const s=document.createElement(&#x27;div&#x27;);s.className=&#x27;vnode&#x27;;s.textContent=n;dg.appendChild(s);if(i&lt;current.nodes.length-1){const a=document.createElement(&#x27;div&#x27;);a.className=&#x27;arrow&#x27;;a.textContent=&#x27;→&#x27;;dg.appendChild(a)}});v.appendChild(dg);const sm=document.createElement(&#x27;small&#x27;);sm.textContent=current.caption;v.appendChild(sm);card.appendChild(v);const p=document.createElement(&#x27;p&#x27;);p.className=&#x27;q&#x27;;p.textContent=current.q;card.appendChild(p);const wrap=document.createElement(&#x27;div&#x27;);wrap.className=&#x27;answers&#x27;;const vc=shuffle([&#x27;a-red&#x27;,&#x27;a-green&#x27;,&#x27;a-blue&#x27;,&#x27;a-yellow&#x27;]);shuffle(current.a.map((t,i)=&gt;({t,i}))).forEach((x,k)=&gt;{const b=document.createElement(&#x27;button&#x27;);b.className=&#x27;answer &#x27;+vc[k];b.textContent=x.t;b.onclick=()=&gt;checkVisual(x.i,b);wrap.appendChild(b)});card.appendChild(wrap);const f=document.createElement(&#x27;div&#x27;);f.id=&#x27;feedback&#x27;;f.className=&#x27;feedback&#x27;;card.appendChild(f)}
+function checkVisual(i,b){document.querySelectorAll(&#x27;.answer&#x27;).forEach(x=&gt;x.disabled=true);const f=$(&#x27;feedback&#x27;);if(i!==current.correct){misses++;showWrongPopup(current.a[i]||current.e,current.e,3600);setTimeout(nextAttempt,3800)}else{f.textContent=&#x27;✓&#x27;;setTimeout(nextAttempt,600)}}
+function renderText(card){const q=document.createElement(&#x27;p&#x27;);q.className=&#x27;q&#x27;;q.textContent=current.q;card.appendChild(q);const note=document.createElement(&#x27;p&#x27;);note.className=&#x27;tip&#x27;;note.textContent=&#x27;آپ اپنا جواب English یا اردو میں لکھ سکتے ہیں یا Microphone کے ذریعے بول کر دے سکتے ہیں۔&#x27;;card.appendChild(note);const ta=document.createElement(&#x27;textarea&#x27;);ta.id=&#x27;answerBox&#x27;;ta.className=&#x27;short-answer&#x27;;ta.placeholder=&#x27;اپنے الفاظ میں جواب لکھیں…&#x27;;ta.setAttribute(&#x27;aria-label&#x27;,&#x27;Answer&#x27;);card.appendChild(ta);const actions=document.createElement(&#x27;div&#x27;);actions.className=&#x27;write-actions&#x27;;const mic=document.createElement(&#x27;button&#x27;);mic.id=&#x27;mic&#x27;;mic.className=&#x27;mic&#x27;;mic.textContent=&#x27;🎙 Microphone&#x27;;mic.onclick=toggleMic;actions.appendChild(mic);const send=document.createElement(&#x27;button&#x27;);send.className=&#x27;send&#x27;;send.textContent=&#x27;SUBMIT ANSWER&#x27;;send.onclick=checkText;actions.appendChild(send);card.appendChild(actions);const vn=document.createElement(&#x27;div&#x27;);vn.className=&#x27;voice-note&#x27;;vn.id=&#x27;voiceNote&#x27;;vn.textContent=&#x27;Voice transcription browser کی speech recognition support پر منحصر ہے۔&#x27;;card.appendChild(vn)}
+function normalize(s){return(s||&#x27;&#x27;).toLowerCase().replace(/[.,!?،۔؛:()\[\]{}&quot;&#x27;’“”]/g,&#x27; &#x27;).replace(/\s+/g,&#x27; &#x27;).trim()}
+function checkText(){const txt=normalize($(&#x27;answerBox&#x27;).value);if(!txt){$(&#x27;voiceNote&#x27;).textContent=&#x27;پہلے اپنا جواب لکھیں یا Microphone سے بولیں۔&#x27;;return}const terms=current.need.map(normalize);const hits=terms.filter(t=&gt;txt.includes(t)).length;const ratio=hits/terms.length;const f=document.createElement(&#x27;div&#x27;);f.className=&#x27;explain-feedback&#x27;;if(ratio&gt;=.67){f.innerHTML=&#x27;✓ &lt;strong&gt;Conceptually Accepted.&lt;/strong&gt;&lt;br&gt;&#x27;+current.e+&#x27;&lt;br&gt;&lt;strong&gt;آپ نے concept کے اہم حصے explain کیے ہیں۔&lt;/strong&gt;&#x27;;$(&#x27;card&#x27;).appendChild(f);document.querySelectorAll(&#x27;.send,.mic&#x27;).forEach(x=&gt;x.disabled=true);setTimeout(nextAttempt,1300)}else{misses++;f.innerHTML=&#x27;⚠️ &lt;strong&gt;Partial — ابھی Mastery نہیں۔&lt;/strong&gt;&lt;br&gt;&#x27;+current.e+&#x27;&lt;br&gt;&lt;strong&gt;آپ کے جواب میں کچھ اہم conceptual حصہ missing ہے۔ دوبارہ اپنے الفاظ میں explain کریں۔&lt;/strong&gt;&#x27;;$(&#x27;card&#x27;).appendChild(f)}}
+function toggleMic(){const note=$(&#x27;voiceNote&#x27;);if(!(&#x27;webkitSpeechRecognition&#x27;in window||&#x27;SpeechRecognition&#x27;in window)){note.textContent=&#x27;اس browser میں speech recognition دستیاب نہیں؛ آپ typing سے جواب دے سکتے ہیں۔&#x27;;return}if(listening){recognition.stop();return}const R=window.SpeechRecognition||window.webkitSpeechRecognition;recognition=new R();recognition.lang=&#x27;en-US&#x27;;recognition.interimResults=true;recognition.continuous=false;recognition.onstart=()=&gt;{listening=true;$(&#x27;mic&#x27;).classList.add(&#x27;on&#x27;);note.textContent=&#x27;سن رہا ہوں…&#x27;};recognition.onresult=e=&gt;{let t=&#x27;&#x27;;for(let i=e.resultIndex;i&lt;e.results.length;i++)t+=e.results[i][0].transcript+&#x27; &#x27;;$(&#x27;answerBox&#x27;).value=t.trim()};recognition.onerror=()=&gt;{note.textContent=&#x27;Voice input مکمل نہ ہو سکا؛ دوبارہ کوشش کریں یا type کریں۔&#x27;};recognition.onend=()=&gt;{listening=false;$(&#x27;mic&#x27;).classList.remove(&#x27;on&#x27;);note.textContent=&#x27;Voice transcription مکمل۔&#x27;};recognition.start()}
+function nextAttempt(){if(levelIndex===0){if(itemIndex+1&gt;=levels[levelIndex].items.length){finishLevel();return}choose();render();return}itemIndex++;if(itemIndex&gt;=levels[levelIndex].items.length)finishLevel();else{choose();render()}}
+function celebrateLevel(){const art=[&#x27;🦋 ✨ 🦋 ✨ 🌸&#x27;,&#x27;✨ 🪲 ✨ 🪲 ✨&#x27;,&#x27;🌸 🌼 🦋 🌼 🌸&#x27;,&#x27;🦋 ✨ 🌟 ✨ 🦋&#x27;,&#x27;🏆 ✨ 🦋 ✨ 🏆&#x27;];$(&#x27;celebrateArt&#x27;).textContent=art[levelIndex]||&#x27;✨ 🦋 ✨&#x27;;$(&#x27;celebrateTitle&#x27;).textContent=&#x27;LEVEL &#x27;+String(levelIndex+1).padStart(2,&#x27;0&#x27;)+&#x27; CLEARED&#x27;;$(&#x27;celebrateText&#x27;).textContent=&#x27;بہت خوب! آپ نے ایک اور mastery step مکمل کر لیا۔&#x27;;$(&#x27;celebrate&#x27;).classList.remove(&#x27;hidden&#x27;);setTimeout(()=&gt;{$(&#x27;celebrate&#x27;).classList.add(&#x27;hidden&#x27;);if(levelIndex===levels.length-1){$(&#x27;play&#x27;).classList.add(&#x27;hidden&#x27;);$(&#x27;ceiling&#x27;).classList.remove(&#x27;hidden&#x27;)}else{$(&#x27;play&#x27;).classList.add(&#x27;hidden&#x27;);$(&#x27;cleared&#x27;).classList.remove(&#x27;hidden&#x27;);$(&#x27;clearTitle&#x27;).textContent=&#x27;LEVEL &#x27;+String(levelIndex+1).padStart(2,&#x27;0&#x27;)+&#x27; CLEARED&#x27;;$(&#x27;clearText&#x27;).textContent=&#x27;بہت خوب! اگلا challenge آپ کے لیے تیار ہے۔&#x27;}},1800)}
+function finishLevel(){celebrateLevel()}
+function startSession(){$(&#x27;intro&#x27;).classList.add(&#x27;hidden&#x27;);$(&#x27;play&#x27;).classList.remove(&#x27;hidden&#x27;);renderLevelBar();buildTower();levelIndex=0;itemIndex=0;used=[];misses=0;correctCount=0;stepCorrect=0;mcqMissed=[];choose();render()}
+$(&#x27;next&#x27;).onclick=()=&gt;{levelIndex++;itemIndex=0;used=[];correctCount=0;stepCorrect=0;$(&#x27;cleared&#x27;).classList.add(&#x27;hidden&#x27;);$(&#x27;play&#x27;).classList.remove(&#x27;hidden&#x27;);renderLevelBar();buildTower();choose();render()};
+let booted=false;function bootSession(){if(booted)return;booted=true;try{startSession()}catch(err){console.error(&#x27;HIT THE CEILING start error:&#x27;,err);const card=$(&#x27;card&#x27;);if(card){card.innerHTML=&#x27;&lt;div class=&quot;feedback&quot; style=&quot;color:var(--red);font-size:16px&quot;&gt;Session شروع نہیں ہو سکا۔ براہِ کرم دوبارہ کوشش کریں۔&lt;/div&gt;&#x27;;}}}
+if(document.readyState===&#x27;loading&#x27;){window.addEventListener(&#x27;DOMContentLoaded&#x27;,bootSession,{once:true})}else{bootSession()}
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;&quot; title=&quot;HIT THE CEILING&quot; style=&quot;display:block;width:100%;height:100%;min-height:0;flex:1 1 auto;border:0;margin:0;padding:0;overflow:hidden;&quot; style=&quot;display:block;width:100%;height:100%;min-height:0;flex:1 1 auto;border:0;margin:0;padding:0;overflow:hidden;&quot; title=&quot;HIT THE CEILING"></iframe></section>
+<div aria-hidden="true" class="modal" id="modal">
+<div aria-labelledby="modalTitle" aria-modal="true" class="dialog" role="dialog">
+<button aria-label="Close" class="close" onclick="closeModal()">×</button>
+<div id="content"></div>
+</div></div>
+<script>
+const BASE='./Visual-Atlas/';
+const topics={
+ t1:{title:'Real Gases and Deviations from Ideal Behaviour',id:'IAE1102040400',visual:'IAE1102040400V',intro:'Real gases depart from the ideal-gas model because molecules occupy finite volume and attract or repel one another. The size and direction of the deviation depend on pressure and temperature.',basic:'At low pressure and sufficiently high temperature, many gases behave approximately ideally; at higher pressure or lower temperature, intermolecular effects become important.',standard:'Explain why real gases deviate from PV = nRT and identify the competing effects of intermolecular attraction and molecular volume.',mastery:'Predict qualitatively when a gas will show negative or positive deviation and connect the behaviour to molecular-level causes.'},
+ t2:{title:'Van der Waals Equation and Critical Behaviour',id:'IAE1102040500',visual:'IAE1102040500V',intro:'The van der Waals equation modifies the ideal-gas equation to account for finite molecular volume and attractive forces, and it provides a model for critical behaviour.',basic:'The constants a and b represent attraction and excluded volume, respectively, while critical constants describe the boundary of distinct liquid and gas phases.',standard:'Use the van der Waals equation, interpret a and b, calculate critical constants, and explain P–V behaviour near the critical region.',mastery:'Connect the equation, constants, compressibility factor, isotherms and critical point into one coherent model of real-gas behaviour.'}
+};
+const subs={
+
+s13001:{id:"IAE1102040401",topic:"t1",title:"Real Gases",visual:"IAE1102040401V",basic:"Real gases are composed of particles that have finite size and exert intermolecular forces, so their behaviour can depart from the ideal-gas model.",standard:"The ideal model becomes less accurate when pressure is high enough for molecular volume or interactions to matter.",mastery:"Identify the physical assumptions behind ideal and real gases and explain why the ideal model is an approximation.",extra:"Real gas → finite size + intermolecular forces → deviation from PV = nRT"},
+s13002:{id:"IAE1102040402",topic:"t1",title:"Causes of Deviation",visual:"IAE1102040402V",basic:"Deviation from ideal behaviour arises mainly from intermolecular attractions and the finite volume occupied by molecules.",standard:"Attraction tends to lower the measured pressure, while finite molecular volume becomes important at high compression.",mastery:"Distinguish the two causes and predict which effect is likely to dominate under given qualitative conditions.",extra:"Attraction ↓ effective pressure; molecular volume ↓ free volume"},
+s13003:{id:"IAE1102040403",topic:"t1",title:"Intermolecular Attractions",visual:"IAE1102040403V",basic:"Attractive forces between gas molecules pull neighbouring particles toward one another and reduce the outward momentum delivered to the container walls compared with an ideal-gas model.",standard:"Attractions are most influential when molecules are relatively close together, especially at lower temperatures and higher densities.",mastery:"Explain negative deviation using molecular attraction rather than treating pressure as an independent substance.",extra:"Attraction → inward pull → lower wall impact → negative deviation"},
+s13004:{id:"IAE1102040404",topic:"t1",title:"Molecular Volume",visual:"IAE1102040404V",basic:"Gas molecules occupy finite space, so the volume freely available for molecular motion is smaller than the container volume.",standard:"This excluded-volume effect becomes important at high pressure when molecules are crowded.",mastery:"Explain why the finite size of molecules can produce positive deviation from ideal behaviour at high compression.",extra:"Container volume V → free volume smaller than V → repulsive/excluded-volume effect"},
+s13005:{id:"IAE1102040501",topic:"t2",title:"Van der Waals Equation",visual:"IAE1102040501V",basic:"For one mole, the van der Waals equation is (P + a/Vm²)(Vm − b) = RT; for n moles, (P + a n²/V²)(V − nb) = nRT.",standard:"The equation corrects pressure for attraction and volume for finite molecular size.",mastery:"Use the corrected equation and state clearly what each correction represents.",extra:"(P + a/Vm²)(Vm − b) = RT"},
+s13006:{id:"IAE1102040502",topic:"t2",title:"Meaning of Constants",visual:"IAE1102040502V",basic:"In the van der Waals equation, a measures the strength of attractive interactions and b represents excluded molar volume associated with molecular size.",standard:"Larger a indicates stronger attraction; larger b indicates greater excluded volume in the model.",mastery:"Interpret a and b physically and predict how increasing each parameter changes the model.",extra:"a → attraction correction; b → volume correction"},
+s13007:{id:"IAE1102040405",topic:"t1",title:"Compressibility Factor",visual:"IAE1102040405V",basic:"The compressibility factor is Z = PV/(nRT), a dimensionless measure of departure from ideal-gas behaviour.",standard:"For an ideal gas Z = 1; Z < 1 commonly indicates attraction-dominated behaviour, while Z > 1 commonly indicates repulsion/excluded-volume effects.",mastery:"Read Z as a compact diagnostic of real-gas deviation and explain why Z can cross 1.",extra:"Z = PV/nRT; Z = 1 ideal; Z < 1 attraction; Z > 1 repulsion/excluded volume"},
+s13008:{id:"IAE1102040503",topic:"t2",title:"Critical Constants",visual:"IAE1102040503V",basic:"For a van der Waals gas, the critical constants are Pc = a/(27b²), Vc = 3b, and Tc = 8a/(27Rb).",standard:"The critical point is the state at which liquid and gas become indistinguishable in the simple phase-equilibrium picture.",mastery:"Relate Pc, Vc and Tc to the van der Waals parameters and explain the meaning of the critical point.",extra:"Tc = 8a/(27Rb), Pc = a/(27b²), Vc = 3b"},
+s13009:{id:"IAE1102040406",topic:"t2",title:"Real-Gas Behaviour",visual:"IAE1102040406V",basic:"Real-gas behaviour changes continuously with pressure and temperature: gases may approach ideal behaviour at low pressure/high temperature and deviate strongly under compression or cooling.",standard:"The sign and magnitude of deviation depend on the balance between attractions and excluded-volume effects.",mastery:"Use pressure–temperature conditions to anticipate whether ideality is a reasonable approximation.",extra:"Low P/high T → closer to ideal; high P/low T → stronger non-ideality"},
+s13010:{id:"IAE1102040407",topic:"t2",title:"Intermolecular Attraction and Deviation",visual:"IAE1102040407V",basic:"Attractions can reduce the pressure predicted by PV = nRT because molecules near the wall are pulled inward by neighbouring molecules.",standard:"This often produces Z < 1 when attractive effects dominate.",mastery:"Connect molecular attraction, pressure correction and negative deviation in one causal chain.",extra:"Attraction → pressure lower than ideal → Z < 1"},
+s13011:{id:"IAE1102040408",topic:"t1",title:"Molecular Volume Effects",visual:"IAE1102040408V",basic:"When molecules are crowded, their finite size reduces available free volume and the short-range repulsive/excluded-volume effect becomes important.",standard:"This effect can make measured pressure greater than the ideal prediction and is represented by the b correction.",mastery:"Explain why strong compression eventually makes molecular size impossible to ignore.",extra:"Crowding → excluded volume → pressure above ideal → Z > 1"},
+s13012:{id:"IAE1102040504",topic:"t2",title:"van der Waals Model Interpretation",visual:"IAE1102040504V",basic:"The van der Waals model combines two corrections: attraction lowers the effective pressure, while finite molecular size raises the effective pressure at strong compression.",standard:"The model therefore produces non-ideal P–V curves and a critical region absent from the simplest ideal-gas equation.",mastery:"Interpret a van der Waals isotherm by identifying the roles of attraction, excluded volume and temperature.",extra:"Attraction correction + volume correction → real-gas P–V behaviour"},
+s13013:{id:"IAE1102040409",topic:"t1",title:"Pressure–Volume Deviations",visual:"IAE1102040409V",basic:"At a fixed temperature, the ratio between observed PV and ideal nRT changes with pressure as intermolecular effects become significant.",standard:"A P–V plot or Z–P plot can show whether the gas lies below or above ideal behaviour.",mastery:"Relate pressure changes to the direction of deviation and use Z to summarize the result.",extra:"Observed PV/(nRT) → Z → deviation from ideality"},
+s13014:{id:"IAE1102040505",topic:"t2",title:"Critical-Region Behaviour",visual:"IAE1102040505V",basic:"Near the critical point, liquid and gas properties approach one another and the distinction between the two phases disappears at the critical state.",standard:"Compressibility and response to pressure become especially pronounced near the critical region, so simple ideal-gas reasoning is inadequate.",mastery:"Explain why the critical region requires a real-gas model and identify Tc, Pc and Vc as defining critical coordinates.",extra:"Critical point → liquid/gas distinction vanishes → strong non-ideal behaviour"},
+};
+const dict={
+"Real Gas":["حقیقی گیس", "A gas whose molecules have finite volume and intermolecular interactions."],
+"Ideal Gas":["مثالی گیس", "A model gas obeying PV = nRT exactly under ideal assumptions."],
+"Deviation":["انحراف", "The departure of real-gas behaviour from the ideal-gas prediction."],
+"Intermolecular Attraction":["بین سالماتی کشش", "Attractive force between neighbouring molecules."],
+"Molecular Volume":["سالماتی حجم", "Finite space occupied by molecules; in the model it reduces free volume."],
+"Van der Waals Equation":["وان ڈر والز مساوات", "An equation of state correcting the ideal-gas model for attraction and finite molecular volume."],
+"Van der Waals Constant a":["وان ڈر والز مستقل a", "A parameter representing the strength of intermolecular attraction."],
+"Van der Waals Constant b":["وان ڈر والز مستقل b", "A parameter representing excluded molar volume associated with finite molecular size."],
+"Compressibility Factor":["کمپریسبلٹی فیکٹر", "Z = PV/(nRT), a dimensionless measure of non-ideal behaviour."],
+"Critical Point":["تنقیدی نقطہ", "The state at which the liquid and gas phases become indistinguishable."],
+"Critical Temperature":["تنقیدی درجۂ حرارت", "The highest temperature at which a gas can be liquefied by pressure alone."],
+"Critical Pressure":["تنقیدی دباؤ", "The pressure at the critical temperature required to reach the critical point."],
+"Critical Volume":["تنقیدی حجم", "The molar volume at the critical point."],
+"Negative Deviation":["منفی انحراف", "A region where Z < 1, commonly associated with attraction-dominated behaviour."],
+"Positive Deviation":["مثبت انحراف", "A region where Z > 1, commonly associated with excluded-volume/repulsive effects."],
+"Excluded Volume":["مستثنیٰ حجم", "The volume unavailable for translational motion because molecules occupy finite space."],
+"Free Volume":["آزاد حجم", "The portion of container volume effectively available to molecular motion."],
+"P–V Isotherm":["P–V آئسو تھرم", "A pressure–volume curve measured or predicted at constant temperature."],
+"Compressibility":["قابلِ انضغاطی", "The response of a substance to pressure-induced volume change."],
+"Equation of State":["حالت کی مساوات", "An equation relating state variables such as P, V and T."],
+"Boyle Temperature":["بوائل درجۂ حرارت", "A temperature at which the second virial coefficient becomes zero in a real-gas description, making low-pressure behaviour especially close to ideal."],
+"Virial Behaviour":["وائریل رویہ", "A representation of real-gas deviations as a series in inverse molar volume or pressure."],
+};
+const questions=
+[["Why do real gases deviate from the ideal-gas model?",["They have finite molecular volume and intermolecular forces","They have no particles","They always have zero pressure","They cannot change temperature"],0,"The ideal model neglects molecular size and intermolecular interactions.","Real Gases"],["Which condition generally makes a gas behave more ideally?",["Low pressure and high temperature","High pressure and low temperature","Very high density only","Near the critical point"],0,"At low pressure and higher temperature, molecules are farther apart and attractions matter less.","Real-Gas Behaviour"],["Which effect tends to lower the pressure of a real gas relative to the ideal prediction?",["Intermolecular attraction","Finite molecular volume only","Increasing container volume","Using kelvins"],0,"Attractions pull molecules inward and reduce the momentum delivered to the wall relative to an ideal model.","Intermolecular Attraction and Deviation"],["Which effect becomes especially important when molecules are strongly compressed?",["Finite molecular volume","Absolute zero","Molar mass disappearing","Celsius conversion"],0,"Crowding makes the finite size of molecules and excluded volume important.","Molecular Volume Effects"],["For one mole, the van der Waals equation is:",["(P+a/Vm²)(Vm−b)=RT","PVm=0","(P−a/Vm²)(Vm+b)=RT","P(Vm+b)=0"],0,"The one-mole form includes an attraction correction to pressure and an excluded-volume correction to molar volume.","Van der Waals Equation"],["In the van der Waals model, constant a represents:",["Intermolecular attraction","Molecular volume only","Temperature","Pressure unit"],0,"a measures the strength of the attractive interaction correction.","Meaning of Constants"],["In the van der Waals model, constant b represents:",["Excluded volume associated with molecular size","Intermolecular attraction strength","Absolute temperature","Compressibility factor"],0,"b accounts for finite molecular volume in the model.","Meaning of Constants"],["The compressibility factor is defined as:",["Z=PV/(nRT)","Z=nRT/PV","Z=PT/(nRV)","Z=PV/n"],0,"Z compares the observed PV with the ideal-gas value nRT.","Compressibility Factor"],["For an ideal gas, Z equals:",["1","0","−1","RT"],0,"For PV=nRT, Z=PV/(nRT)=1.","Compressibility Factor"],["When attraction dominates, a real gas commonly has:",["Z<1","Z=10 always","Z>1 only","Z=0 at all pressures"],0,"Attractions can make PV smaller than nRT, giving Z<1.","Compressibility Factor"],["When excluded-volume/repulsive effects dominate, a real gas commonly has:",["Z>1","Z<0","Z=0","Z cannot be defined"],0,"Strong crowding can make PV exceed nRT, giving Z>1.","Compressibility Factor"],["Which critical constant is the temperature at the critical point?",["Tc","Pc","Vc","Zc"],0,"Tc denotes critical temperature.","Critical Constants"],["For a van der Waals gas, the critical molar volume is:",["Vc=3b","Vc=b/3","Vc=27b","Vc=RT/b"],0,"The van der Waals critical volume is three times b.","Critical Constants"],["For a van der Waals gas, critical temperature is:",["Tc=8a/(27Rb)","Tc=27Rb/(8a)","Tc=a/b","Tc=8Rb/(27a)"],0,"The van der Waals critical temperature follows from the critical-point conditions.","Critical Constants"],["At the critical point, liquid and gas phases:",["Become indistinguishable","Always have zero pressure","Have infinite volume difference","Must be at 0 K"],0,"The critical point marks the end of the liquid–vapour coexistence distinction.","Critical Constants"],["Why can attraction produce negative deviation?",["It reduces the effective wall-directed momentum transfer","It makes molecules disappear","It increases the container volume","It changes kelvins to Celsius"],0,"Molecular attraction pulls particles inward and can lower the measured pressure.","Intermolecular Attraction and Deviation"],["Why can finite molecular size produce positive deviation?",["Available free volume is reduced as molecules become crowded","Attractions become infinite","Temperature becomes negative","Pressure becomes a temperature unit"],0,"Excluded volume makes the actual crowding greater than the ideal model assumes.","Molecular Volume Effects"],["Which correction does the term (Vm−b) represent?",["Finite molecular volume","Intermolecular attraction","Critical temperature","Compressibility factor"],0,"Subtracting b reduces the free molar volume available for translational motion.","Van der Waals Equation"],["Which correction is represented by adding a/Vm² to pressure in the one-mole equation?",["Attractive forces","Molecular mass","Critical volume","Temperature conversion"],0,"The attraction correction compensates for the pressure reduction caused by intermolecular attraction.","Van der Waals Equation"],["A real gas at very high pressure is more likely to show strong effects from:",["Molecular crowding and finite volume","Absolute zero only","Celsius zero","No molecular interactions"],0,"High pressure brings molecules close enough that excluded-volume effects become important.","Real-Gas Behaviour"],["A real gas at lower temperature is more likely to show stronger:",["Intermolecular attraction effects","Celsius conversion effects","Molecular disappearance","Ideal behaviour only"],0,"Lower temperature reduces kinetic energy and makes attractions more influential.","Real-Gas Behaviour"],["A P–V isotherm is measured at constant:",["Temperature","Pressure","Volume","Molar mass"],0,"An isotherm is a curve for constant temperature.","Pressure–Volume Deviations"],["If Z is below 1, the observed PV is:",["Less than nRT","Equal to infinity","Greater than nRT","Always zero"],0,"Since Z=PV/(nRT), Z<1 means PV<nRT.","Pressure–Volume Deviations"],["If Z is above 1, the observed PV is:",["Greater than nRT","Less than zero","Exactly equal to nRT","Independent of pressure"],0,"Z>1 means PV exceeds the ideal-gas value nRT.","Pressure–Volume Deviations"],["The van der Waals model is useful because it:",["Introduces molecular attraction and finite-volume corrections","Removes all molecular interactions","Forces Z to equal 1","Makes critical behaviour impossible"],0,"Its two corrections provide a simple model of real-gas behaviour and critical phenomena.","van der Waals Model Interpretation"],["Near the critical region, ideal-gas reasoning becomes:",["Less adequate because non-ideal effects are strong","Exact by definition","Independent of pressure","A definition of absolute zero"],0,"Strong non-ideal behaviour and critical phenomena require a real-gas description.","Critical-Region Behaviour"],["Which quantity identifies the critical pressure?",["Pc","Tc","Vc","b"],0,"Pc is the pressure coordinate of the critical point.","Critical Constants"],["Which statement about a is correct?",["Larger a corresponds to stronger attractive interactions in the model","a is the molecular volume","a is always zero","a is the Celsius offset"],0,"The parameter a scales the attractive correction.","Meaning of Constants"],["Which statement about b is correct?",["Larger b represents greater excluded volume in the model","b measures temperature","b is the compressibility factor","b is always negative"],0,"The parameter b represents the finite-size/excluded-volume correction.","Meaning of Constants"],["What is the most useful overall picture of real-gas deviation?",["Attraction can pull Z below 1, while crowding/excluded volume can push Z above 1","All deviations are caused by temperature units","Only molecular mass matters","Real gases always have Z=1"],0,"The balance between attraction and finite-volume effects determines the direction and size of deviation.","Real-Gas Behaviour"]];
+const visualItems=
+[["IAE1102040401V","Real Gases","Ideal assumptions → finite size + attractions → non-ideal behaviour","Real-gas conceptual schematic"],["IAE1102040402V","Causes of Deviation","Attraction effect ↔ excluded-volume effect → deviation","Real-gas deviation schematic"],["IAE1102040403V","Intermolecular Attractions","Molecules attract → wall-directed momentum reduced → pressure lower than ideal","Attraction mechanism schematic"],["IAE1102040404V","Molecular Volume","Crowding → free volume reduced → pressure rises relative to ideal","Excluded-volume schematic"],["IAE1102040501V","Van der Waals Equation","Pressure correction + volume correction → corrected equation of state","van der Waals equation schematic"],["IAE1102040502V","Meaning of Constants","a → attraction; b → excluded volume","van der Waals constants schematic"],["IAE1102040405V","Compressibility Factor","Z=PV/nRT → 1 ideal; below 1 attraction; above 1 crowding","Compressibility-factor diagram"],["IAE1102040503V","Critical Constants","Pc, Vc, Tc → critical point","Critical constants schematic"],["IAE1102040406V","Real-Gas Behaviour","Low P/high T → near ideal; high P/low T → stronger deviation","Real-gas behaviour map"],["IAE1102040407V","Intermolecular Attraction and Deviation","Attraction → negative deviation → Z<1","Negative-deviation schematic"],["IAE1102040408V","Molecular Volume Effects","Finite size → excluded volume → positive deviation → Z>1","Positive-deviation schematic"],["IAE1102040504V","van der Waals Model Interpretation","Isotherms → attraction + volume corrections → critical behaviour","van der Waals isotherm diagram"],["IAE1102040409V","Pressure–Volume Deviations","P–V path → observed PV compared with nRT → Z","P–V deviation schematic"],["IAE1102040505V","Critical-Region Behaviour","T<Tc, T=Tc, T>Tc → subcritical, critical, supercritical behaviour","Critical-region isotherms"]];
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function linkDictionaryTerms(text){
+ let out=esc(text);
+ const tokens=[];
+ const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+ for(const k of keys){
+   const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+   for(const alias of aliases){
+     const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+     out=out.replace(new RegExp('('+safe+')','g'),(m)=>{
+       const i=tokens.length;
+       tokens.push('<button class="linked-word" type="button" data-term="'+esc(k)+'">'+m+'</button>');
+       return '\uE000'+i+'\uE001';
+     });
+   }
+ }
+ return out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
+}
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><img src="../../IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="subject-label">Chemistry</div>`}
+function getMainHost(){return document.getElementById('mainContentContainer');}
+const homeMarkup=getMainHost()?.innerHTML||'';
+let lectureViewStack=[];
+function renderInMainContainer(html,remember=true){const host=getMainHost();if(!host)return;if(remember&&host.innerHTML.trim())lectureViewStack.push(host.innerHTML);const needsBack=!/back-page-tab/.test(html);host.innerHTML='<div class="content-view"><button class="view-close" type="button" aria-label="Close current page" title="Close" onclick="returnToPreviousView()">×</button>'+html+(needsBack?navButtons():'')+'</div>';host.scrollTop=0;decorateDictionaryLinks(host);}
+function show(html,remember=true){renderInMainContainer(html,remember);}
+function closeModal(){closeDictionaryPopup(false);const host=getMainHost();if(!host)return;if(lectureViewStack.length){host.innerHTML=lectureViewStack.pop();host.scrollTop=0;decorateDictionaryLinks(host);}else{showPage('topicsPage');}}
+function showDictionaryPopup(k){
+ const d=dict[k]; if(!d)return;
+ const host=getMainHost(); if(!host)return;
+ closeDictionaryPopup(false);
+ const overlay=document.createElement('div');
+ overlay.className='dictionary-overlay'; overlay.id='dictionaryOverlay';
+ overlay.innerHTML=`<div class="dictionary-dialog" role="dialog" aria-modal="true" aria-label="Dictionary">
+   <button class="dictionary-close" type="button" aria-label="Close Dictionary" onclick="closeDictionaryPopup()">×</button>
+   <div class="lesson-title">${esc(k)}</div>
+   <div class="section standard"><span class="level-heading standard-h">${esc(d[0])}</span><p>${esc(d[1])}</p></div>
+ </div>`;
+ overlay.addEventListener('click',e=>{
+   if(e.target===overlay) closeDictionaryPopup();
+ });
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
+}
+function closeDictionaryPopup(restore=true){const overlay=document.getElementById('dictionaryOverlay');if(overlay)overlay.remove();}
+function showDictByTerm(term){
+ const key=Object.prototype.hasOwnProperty.call(dict,term)?term:Object.keys(dict).find(k=>k.toLowerCase()===String(term).toLowerCase());
+ if(key)showDictionaryPopup(key);
+}
+function escapeRegExp(value){return String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function highlightDictionaryMatch(text,q){
+ const raw=String(text||''); const query=String(q||'').trim();
+ if(!query)return esc(raw);
+ const re=new RegExp('('+escapeRegExp(query)+')','ig');
+ return raw.split(re).map((part,i)=>i%2?'<span class="dict-match">'+esc(part)+'</span>':esc(part)).join('');
+}
+function renderDict(query=''){
+ const host=document.getElementById('dictList'); if(!host)return;
+ const input=document.getElementById('ds');
+ const clear=document.getElementById('dictClear');
+ const q=String(query).trim(); const low=q.toLowerCase();
+ if(clear)clear.style.display=q?'block':'none';
+ const entries=Object.entries(dict).filter(([k,v])=>!low||k.toLowerCase().startsWith(low)||v[0].toLowerCase().startsWith(low));
+ host.innerHTML=entries.map(([k,v])=>`<button type="button" class="dict-row" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightDictionaryMatch(k,q)}</strong><span>${highlightDictionaryMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('')||'<div class="dict-empty">No matching dictionary term found.</div>';
+ if(input && q)updateDictionarySearchDirection(input);
+}
+function dictionaryTextDirection(text){
+ const s=String(text||'');
+ return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(s) ? 'rtl' : 'ltr';
+}
+function updateDictionarySearchDirection(input){
+ if(!input)return;
+ const dir=dictionaryTextDirection(input.value);
+ input.dir=dir;
+ input.style.textAlign=dir==='rtl'?'right':'left';
+}
+function openDictionarySearchPopup(query){
+ const q=String(query).trim(); if(!q)return;
+ const low=q.toLowerCase();
+ const entries=Object.entries(dict).filter(([k,v])=>k.toLowerCase().includes(low)||v[0].toLowerCase().includes(low)||v[1].toLowerCase().includes(low));
+ const host=getMainHost(); if(!host)return;
+ closeDictionaryPopup(false);
+ const dir=dictionaryTextDirection(q);
+ const overlay=document.createElement('div');
+ overlay.className='dictionary-overlay'; overlay.id='dictionaryOverlay';
+ overlay.innerHTML=`<div class="dictionary-dialog" dir="${dir}" style="text-align:${dir==='rtl'?'right':'left'}" role="dialog" aria-modal="true" aria-label="Dictionary search results">
+   <button class="dictionary-close" type="button" aria-label="Close Dictionary Search" onclick="closeDictionaryPopup()">×</button>
+   <div class="lesson-title">Dictionary Search</div>
+   <div class="lesson-subtitle">Search: <b dir="${dir}">${highlightDictionaryMatch(q,q)}</b></div>
+   ${entries.map(([k,v])=>`<button type="button" class="dict-row" dir="${dictionaryTextDirection(k+' '+v[0])}" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightDictionaryMatch(k,q)}</strong><span>${highlightDictionaryMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('') || '<div class="dict-empty">No related dictionary term found.</div>'}
+ </div>`;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)closeDictionaryPopup();});
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
+}
+function resetDictionarySearch(){
+ const input=document.getElementById('ds');
+ if(!input)return;
+ input.value=''; input.dir='ltr'; input.style.textAlign='left';
+ renderDict('');
+ setTimeout(()=>{input.focus();input.select();},0);
+}
+
+const topicsMarkup=`<div class="subject-label chemistry-label">Chemistry</div><h1 class="section-heading">First Year Chemistry — Lecture 13 · IAE1102040400 + IAE1102040500</h1><div class="topic-feature-row"><div class="tab functional feature-visual" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional feature-master" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">L&nbsp;&nbsp;M</div><div class="label">Lecture Mastery</div></div></div><div class="topic-grid"><section class="column"><div class="main-topic-large tab topic1 topic-intro" role="button" tabindex="0" onclick="openTopic('t1')"><div class="label">Real Gases</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s13001')"><div class="num">01</div><div class="label">Real Gases</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s13002')"><div class="num">02</div><div class="label">Causes of Deviation</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s13003')"><div class="num">03</div><div class="label">Intermolecular Attractions</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s13004')"><div class="num">04</div><div class="label">Molecular Volume</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s13005')"><div class="num">05</div><div class="label">Van der Waals Equation</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s13006')"><div class="num">06</div><div class="label">Meaning of Constants</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s13007')"><div class="num">07</div><div class="label">Compressibility Factor</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">HIT THE CEILING</div></div></section><section class="column"><div class="main-topic-large tab topic2 topic-intro" role="button" tabindex="0" onclick="openTopic('t2')"><div class="label">Van der Waals Equation &amp; Critical Behaviour</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s13008')"><div class="num">08</div><div class="label">Critical Constants</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s13009')"><div class="num">09</div><div class="label">Real-Gas Behaviour</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s13010')"><div class="num">10</div><div class="label">Intermolecular Attraction and Deviation</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s13011')"><div class="num">11</div><div class="label">Molecular Volume Effects</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s13012')"><div class="num">12</div><div class="label">van der Waals Model Interpretation</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s13013')"><div class="num">13</div><div class="label">Pressure–Volume Deviations</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s13014')"><div class="num">14</div><div class="label">Critical-Region Behaviour</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">Search</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Home / Previous Page</span></button></div>`
+document.addEventListener('keydown',function(e){const t=e.target;if(t&&t.getAttribute&&t.getAttribute('role')==='button'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();t.click();}});
+
+
+function showPage(id){
+ const host=getMainHost(); if(!host)return;
+ if(id==='homePage'){lectureViewStack=[];host.innerHTML=homeMarkup||'';host.scrollTop=0;decorateDictionaryLinks(host);return;}
+ if(id==='topicsPage'){lectureViewStack=[];host.innerHTML='<div class="content-view">'+topicsMarkup+'</div>';host.scrollTop=0;decorateDictionaryLinks(host);return;}
+ if(id==='hitCeilingPage'){
+   if(host.innerHTML.trim())lectureViewStack.push(host.innerHTML);
+   const page=document.getElementById(id);
+   if(!page)return;
+   host.innerHTML='<div class="content-view hit-ceiling-view"><div class="hit-ceiling-shell">'+page.innerHTML+'<div class="hit-ceiling-back"><button type="button" aria-label="پچھلا صفحہ" title="پچھلا صفحہ" onclick="returnToPreviousView()"></button></div></div></div>';
+   const frame=host.querySelector('.hit-ceiling-shell iframe');
+   if(frame){
+     frame.classList.add('hit-ceiling-frame');
+     frame.removeAttribute('scrolling');
+     frame.setAttribute('title','HIT THE CEILING');
+     if(!frame.getAttribute('srcdoc') && frame.dataset.srcdoc){
+       frame.setAttribute('srcdoc',frame.dataset.srcdoc);
+       frame.removeAttribute('data-srcdoc');
+     }
+   }
+   host.scrollTop=0;
+   return;
+ }
+ const page=document.getElementById(id);
+ if(page){
+   if(host.innerHTML.trim())lectureViewStack.push(host.innerHTML);
+   host.innerHTML='<div class="content-view">'+page.innerHTML+navButtons()+'</div>';
+   host.scrollTop=0;decorateDictionaryLinks(host);
+ }
+}
+const visualSources={
+"IAE1102040400V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040500V":{file:"Isothermes vdWaals.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Isothermes_vdWaals.svg",source:"Wikimedia Commons \u2014 Yannick Copin",sourceUrl:"https://commons.wikimedia.org/wiki/File:Isothermes_vdWaals.svg",license:"CC0 1.0"},
+"IAE1102040401V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040402V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040403V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040404V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040501V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040502V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040405V":{file:"Compressibility_factor_generalized_diagram.png",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Compressibility_factor_generalized_diagram.png",source:"Wikimedia Commons \u2014 Daniele Pugliesi",sourceUrl:"https://commons.wikimedia.org/wiki/File:Compressibility_factor_generalized_diagram.png",license:"CC BY-SA 4.0"},
+"IAE1102040503V":{file:"Isothermes vdWaals.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Isothermes_vdWaals.svg",source:"Wikimedia Commons \u2014 Yannick Copin",sourceUrl:"https://commons.wikimedia.org/wiki/File:Isothermes_vdWaals.svg",license:"CC0 1.0"},
+"IAE1102040406V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040407V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040408V":{file:"Real_Gas_Isotherms.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Gas_Isotherms.svg",source:"Wikimedia Commons \u2014 Raoul NK",sourceUrl:"https://commons.wikimedia.org/wiki/File:Real_Gas_Isotherms.svg",license:"CC BY-SA 3.0"},
+"IAE1102040504V":{file:"Isothermes vdWaals.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Isothermes_vdWaals.svg",source:"Wikimedia Commons \u2014 Yannick Copin",sourceUrl:"https://commons.wikimedia.org/wiki/File:Isothermes_vdWaals.svg",license:"CC0 1.0"},
+"IAE1102040409V":{file:"Isothermes vdWaals.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Isothermes_vdWaals.svg",source:"Wikimedia Commons \u2014 Yannick Copin",sourceUrl:"https://commons.wikimedia.org/wiki/File:Isothermes_vdWaals.svg",license:"CC0 1.0"},
+"IAE1102040505V":{file:"Isothermes vdWaals.svg",src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Isothermes_vdWaals.svg",source:"Wikimedia Commons \u2014 Yannick Copin",sourceUrl:"https://commons.wikimedia.org/wiki/File:Isothermes_vdWaals.svg",license:"CC0 1.0"},
+};function visualSource(id){return visualSources[id] || {}; }
+function img(v){if(!v)return ''; const id=String(v).replace(/\.svg$/i,'').replace(/\.webp$/i,''); const vs=visualSource(id); const src=vs.src || (BASE+id+'.svg'); return `<button type="button" class="topic-visual" onclick="showVisual('${id}')" aria-label="Open Visual Atlas visual" title="Open Visual Atlas visual"><img src="${src}" alt="Visual Atlas visual" loading="eager" decoding="async" referrerpolicy="no-referrer"></button>`;}
+function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
+function openTopic(k){
+ const d=topics[k];
+ const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
+ const mainLecture = `<div class="section main-lecture"><div class="level-heading basic-h">Basic</div><p>${linkDictionaryTerms(d.basic)}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Standard</div><p>${linkDictionaryTerms(d.standard)}</p></div><div class="section main-lecture"><div class="level-heading mastery-h">Mastery</div><p>${linkDictionaryTerms(d.mastery)}</p></div><div class="section topic-introduction"><span class="level-heading standard-h">IAE Topic Definition</span><p>${linkDictionaryTerms(d.intro)}</p></div>`;
+ show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div></div></div>
+ ${mainLecture}
+ <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
+`);
+}
+function returnToPreviousView(){
+  closeDictionaryPopup(false);
+  const host=getMainHost();
+  if(!host)return;
+  if(lectureViewStack.length){
+    host.innerHTML=lectureViewStack.pop();
+    host.scrollTop=0;
+    decorateDictionaryLinks(host);
+  }else{
+    showPage('homePage');
+  }
+}
+function openSub(k){
+ const d=subs[k];
+ show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div></div></div>
+ <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkDictionaryTerms(d.basic)}</p></div>
+ <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkDictionaryTerms(d.standard)}</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>
+ <div class="diagram">${esc(d.extra)}</div>
+ <div class="inline-note">Academic Code: <span class="pill">${esc(d.id)}</span>${d.visual?` · Visual: <span class="pill">${esc(d.visual.replace('.webp',''))}</span>`:''}</div>
+`);
+}
+function showVisual(id){
+ const v=visualItems.find(x=>x[0]===id);if(!v)return;
+ closeVisualPopup(false);
+ const host=getMainHost();if(!host)return;
+ const overlay=document.createElement('div');
+ overlay.className='visual-popup-overlay';
+ overlay.id='visualPopupOverlay';
+ overlay.setAttribute('role','dialog');
+ overlay.setAttribute('aria-modal','true');
+ overlay.setAttribute('aria-label','Visual Atlas');
+ overlay.innerHTML=`<div class="visual-popup-dialog">
+   <button class="visual-popup-close" type="button" aria-label="Close Visual" title="Close Visual">×</button>
+   <div class="visual-popup-media"><img class="atlas-img" src="${(visualSource(id).src || BASE+id+'.svg')}" alt="${esc(v[1])}" loading="eager" decoding="async" referrerpolicy="no-referrer"><div class="visual-source-note">Source: ${esc(visualSource(id).source||'')} · ${esc(visualSource(id).license||'')}</div></div>
+ </div>`;
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.visual-popup-close');
+ const remove=()=>closeVisualPopup(true);
+ close.onclick=remove;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)remove();});
+ window.__iaeVisualPopupOpen=true;
+ close.focus();
+}
+function closeVisualPopup(useHistory=true){
+ const overlay=document.getElementById('visualPopupOverlay');
+ if(overlay)overlay.remove();
+ if(window.__iaeVisualPopupOpen){
+   window.__iaeVisualPopupOpen=false;
+ }
+}
+
+function practiceReveal(target){const el=typeof target==='string'?document.getElementById(target):target;if(el){el.hidden=false;if(el.style)el.style.display='block';}}
+function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function openGuidedPractice(){
+ const recall=questions.slice(0,10);
+ const recallHtml=recall.map((q,i)=>`<div class="question-card practice-q"><b>Q${i+1}. ${esc(q[0])}</b><div class="section"><p><b>پہلے خود جواب دیں:</b> options دیکھے بغیر اپنے الفاظ میں جواب سوچیں یا لکھیں۔</p><button class="visual-link" onclick="practiceReveal('pr-a-${i}')">جواب اور وضاحت دیکھیں</button><div id="pr-a-${i}" class="answer-review" hidden><p><b>درست جواب:</b> ${esc(q[1][q[2]])}</p><p>${esc(q[3]||'')}</p></div></div></div>`).join('');
+ const compares=[['Pressure vs Temperature','Fixed-volume gas میں temperature بڑھنے سے pressure کیوں بڑھ سکتا ہے؟'],['Kelvin vs Celsius','دونوں scales کے degree intervals ایک جیسے ہونے کے باوجود Kelvin کو absolute کیوں کہا جاتا ہے؟'],['Most-Probable Speed vs Average Speed','Molecular-speed distribution میں characteristic speeds کو ایک ہی molecular speed سمجھنا کیوں غلط ہے؟'],['Speed Distribution vs Energy Distribution','Speed اور kinetic-energy distributions میں relationship کو particle motion کے ذریعے explain کریں۔']];
+ const compareHtml=compares.map((c,i)=>`<div class="question-card"><b>${esc(c[0])}</b><p>${esc(c[1])}</p><button class="visual-link" onclick="practiceReveal('pr-cmp-${i}')">Academy check points دیکھیں</button><div id="pr-cmp-${i}" class="answer-review" hidden><p><b>اپنا جواب تین headings میں check کریں:</b> Structure → Principle/Mechanism → Function / Result.</p></div></div>`).join('');
+ const visualHtml=visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" onclick="showVisual('${v[0]}')">Visual دیکھیں اور explain کریں</button></div>`).join('');
+ show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>پہلے جواب خود سوچیں، پھر درست جواب اور explanation دیکھیں، اپنی غلطی درست کریں، اور concept دوبارہ بیان کریں۔</p></div>${recallHtml}<div class="section standard"><span class="level-heading standard-h">2. Compare &amp; Contrast</span><p>attraction، excluded volume، Z، van der Waals corrections اور critical constants کو definition، cause اور consequence کے ذریعے compare کریں۔</p></div>${compareHtml}<div class="section standard"><span class="level-heading standard-h">3. Visual Recall</span><p>ہر Visual کو دیکھ کر concept، process یا measurement chain اپنے الفاظ میں explain کریں۔</p></div>${visualHtml}<div class="section mastery"><span class="level-heading mastery-h">4. Final Guided Round</span><p>Lecture 13 کے real-gas، van der Waals، Z، critical constants اور P–V behaviour concepts بغیر notes کے دوبارہ explain کریں۔ جہاں جواب کمزور ہو متعلقہ Subtopic دوبارہ پڑھیں۔</p></div>`);
+}
+let masteryTTSModule=null;
+let masteryTTSReady=true;
+let masteryTTSPlaying=false;
+let masteryTTSStop=false;
+let masteryTTSCurrentAudio=null;
+let masteryTTSObjectURL=null;
+let masteryTTSSegments=[];
+let masteryTTSIndex=0;
+let masteryTTSChunkIndex=0;
+let masteryTTSPreparingPromise=null;
+const MASTERY_TTS_LANG='ur';
+const MASTERY_TTS_MAX_CHARS=170;
+
+function masteryTTSSplitText(text){
+  const normalized=String(text||'').replace(/\s+/g,' ').trim();
+  if(!normalized)return [];
+  const sentences=normalized.match(/[^۔!?]+[۔!?]?/g)||[normalized];
+  const chunks=[];
+  let buf='';
+  const pushBuf=()=>{if(buf.trim()){chunks.push(buf.trim());buf='';}};
+  for(const sentence of sentences){
+    const s=sentence.trim();
+    if(!s)continue;
+    if(s.length<=MASTERY_TTS_MAX_CHARS){
+      if((buf+' '+s).trim().length<=MASTERY_TTS_MAX_CHARS) buf=(buf+' '+s).trim();
+      else {pushBuf();buf=s;}
+    }else{
+      pushBuf();
+      const words=s.split(/\s+/);
+      for(const w of words){
+        if((buf+' '+w).trim().length<=MASTERY_TTS_MAX_CHARS) buf=(buf+' '+w).trim();
+        else {pushBuf();buf=w;}
+      }
+    }
+  }
+  pushBuf();
+  return chunks;
+}
+function masteryTTSElements(){
+ const root=document.querySelector('.mastery-reading .mastery-body');
+ if(!root)return [];
+ const out=[];
+ const clean=(el)=>String(el?.innerText||el?.textContent||'').replace(/\s+/g,' ').trim();
+ const push=(el,label='')=>{if(el&&clean(el))out.push({el,text:clean(el),label});};
+ const vision=root.querySelector('.mastery-vision');
+ if(vision){
+   push(vision.querySelector('h2'),'Main Topic');
+   vision.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,i===0?'Definition':'Main Topic Understanding'));
+ }
+ const academic=root.querySelector('.mastery-definition');
+ if(academic) academic.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,`Academic Understanding ${i+1}`));
+ root.querySelectorAll('.section.mastery[data-mastery-subtopic]').forEach((section,i)=>{
+   const n=String(i+1).padStart(2,'0');
+   const title=section.querySelector('.mastery-subtopic-title');
+   if(title)push(title,`Subtopic ${n}`);
+   section.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,`Subtopic ${n}`));
+ });
+ const complete=[...root.querySelectorAll('.mastery-conclusion')].find(el=>/Complete Lecture Mastery/i.test(clean(el)));
+ if(complete){
+   const title=complete.querySelector('.level-heading');
+   if(title)push(title,'Complete Lecture Mastery');
+   complete.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,'Complete Lecture Mastery'));
+ }
+ return out;
+}
+function masterySpeechText(){return masteryTTSElements().map(x=>x.text).join(' ').replace(/\s+/g,' ').trim();}
+function masteryTTSStatus(text,busy=false){
+ const box=document.querySelector('.mastery-sound'); if(!box)return;
+ let status=box.querySelector('.mastery-tts-status');
+ if(!status){status=document.createElement('span');status.className='mastery-tts-status';box.appendChild(status);}
+ status.textContent=text||''; status.dataset.busy=busy?'1':'0';
+}
+function clearMasteryTTSHighlight(){
+ document.querySelectorAll('.mastery-tts-active').forEach(el=>el.classList.remove('mastery-tts-active'));
+ document.querySelectorAll('.mastery-tts-active-title').forEach(el=>el.classList.remove('mastery-tts-active-title'));
+}
+function highlightMasteryTTS(el){
+ clearMasteryTTSHighlight(); if(!el)return;
+ el.classList.add(el.classList.contains('mastery-subtopic-title')||el.classList.contains('level-heading')?'mastery-tts-active-title':'mastery-tts-active');
+ el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function masteryGoogleTTSUrl(text){
+ return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+MASTERY_TTS_LANG+'&q='+encodeURIComponent(text);
+}
+async function prepareMasteryTTS(){
+ if(masteryTTSPreparingPromise)return masteryTTSPreparingPromise;
+ masteryTTSPreparingPromise=(async()=>{
+   masteryTTSStatus('اردو TTS تیار ہو رہا ہے…',true);
+   /* This version deliberately uses an online Urdu speech endpoint instead of
+      speechSynthesis or a device-installed voice. The HTML therefore works
+      from a normal browser file, provided the device has internet access. */
+   const probeUrl=masteryGoogleTTSUrl('یہ اردو آواز کی جانچ ہے۔');
+   const probe=new Audio(); probe.preload='auto'; probe.src=probeUrl;
+   await new Promise((resolve,reject)=>{
+     let settled=false;
+     const ok=()=>{if(!settled){settled=true;cleanup();resolve();}};
+     const bad=()=>{if(!settled){settled=true;cleanup();reject(new Error('Urdu online TTS unavailable'));}};
+     const cleanup=()=>{probe.removeEventListener('canplay',ok);probe.removeEventListener('loadedmetadata',ok);probe.removeEventListener('error',bad);};
+     probe.addEventListener('canplay',ok,{once:true});
+     probe.addEventListener('loadedmetadata',ok,{once:true});
+     probe.addEventListener('error',bad,{once:true});
+     setTimeout(()=>{if(!settled)bad();},12000);
+     probe.load();
+   });
+   masteryTTSReady=true;
+   masteryTTSStatus('اردو آواز تیار ہے۔',false);
+   return true;
+ })().catch(err=>{masteryTTSReady=false;throw err;}).finally(()=>{masteryTTSPreparingPromise=null;});
+ return masteryTTSPreparingPromise;
+}
+function stopMastery(){
+ masteryTTSStop=true; masteryTTSPlaying=false;
+ if(masteryTTSCurrentAudio){try{masteryTTSCurrentAudio.pause();masteryTTSCurrentAudio.currentTime=0;}catch(e){}}
+ masteryTTSCurrentAudio=null;
+ updateMasteryPausePlayButton();
+ if(masteryTTSObjectURL){try{URL.revokeObjectURL(masteryTTSObjectURL);}catch(e){} masteryTTSObjectURL=null;}
+ masteryTTSSegments=[];masteryTTSIndex=0;masteryTTSChunkIndex=0;clearMasteryTTSHighlight();
+ masteryTTSStatus('بند کر دیا گیا۔',false);
+ updateMasteryPausePlayButton();
+}
+function updateMasteryPausePlayButton(){
+ const btn=document.getElementById('masteryPausePlayBtn');
+ if(!btn)return;
+ const paused=!!(masteryTTSCurrentAudio&&masteryTTSCurrentAudio.paused);
+ btn.textContent=paused?'▶ جاری':'⏸ وقفہ';
+ btn.setAttribute('aria-label',paused?'آواز دوبارہ چلائیں':'آواز میں وقفہ کریں');
+}
+function toggleMasteryPausePlay(){
+ if(!masteryTTSCurrentAudio)return;
+ if(masteryTTSCurrentAudio.paused){
+   masteryTTSCurrentAudio.play().then(()=>{masteryTTSStatus('جاری ہے…',true);updateMasteryPausePlayButton();}).catch(err=>{console.error(err);masteryTTSStatus('آواز دوبارہ شروع نہیں ہو سکی۔',false);});
+ }else{
+   masteryTTSCurrentAudio.pause();
+   masteryTTSStatus('وقفہ',false);
+   updateMasteryPausePlayButton();
+ }
+}
+async function speakMastery(){
+ if(masteryTTSPlaying)return;
+ stopMastery(); masteryTTSStop=false;
+ const segments=masteryTTSElements();
+ if(!segments.length){masteryTTSStatus('Mastery میں پڑھنے کے لیے متن دستیاب نہیں ہے۔',false);return;}
+ try{
+   await prepareMasteryTTS(); if(masteryTTSStop)return;
+   masteryTTSSegments=segments; masteryTTSIndex=0; masteryTTSChunkIndex=0; masteryTTSPlaying=true;
+   await playNextMasterySegment();
+ }catch(err){
+   console.error('Mastery Urdu TTS error',err);masteryTTSPlaying=false;clearMasteryTTSHighlight();
+   masteryTTSStatus('اردو TTS دستیاب نہیں ہو سکا۔ انٹرنیٹ کنکشن چیک کریں۔',false);
+ }
+}
+async function playNextMasterySegment(){
+ if(masteryTTSStop)return;
+ if(masteryTTSIndex>=masteryTTSSegments.length){masteryTTSPlaying=false;clearMasteryTTSHighlight();masteryTTSStatus('Mastery Sound مکمل ہو گیا۔',false);return;}
+ const item=masteryTTSSegments[masteryTTSIndex];
+ highlightMasteryTTS(item.el);
+ const chunks=masteryTTSSplitText(item.text);
+ masteryTTSChunkIndex=0;
+ await playNextMasteryChunk(item,chunks);
+}
+async function playNextMasteryChunk(item,chunks){
+ if(masteryTTSStop)return;
+ if(masteryTTSChunkIndex>=chunks.length){masteryTTSIndex++;await playNextMasterySegment();return;}
+ const chunk=chunks[masteryTTSChunkIndex];
+ masteryTTSStatus(`${item.label} پڑھا جا رہا ہے…`,true);
+ const audio=new Audio(); audio.preload='auto'; audio.src=masteryGoogleTTSUrl(chunk); masteryTTSCurrentAudio=audio;
+ updateMasteryPausePlayButton();
+ await new Promise((resolve,reject)=>{
+   let done=false;
+   const finish=(ok)=>{if(done)return;done=true;audio.onended=null;audio.onerror=null;ok?resolve():reject(new Error('Audio playback failed'));};
+   audio.onended=()=>{masteryTTSCurrentAudio=null;updateMasteryPausePlayButton();masteryTTSChunkIndex++;finish(true);};
+   audio.onerror=()=>{masteryTTSCurrentAudio=null;updateMasteryPausePlayButton();finish(false);};
+   audio.play().catch(reject);
+ }).then(()=>playNextMasteryChunk(item,chunks)).catch(err=>{
+   if(masteryTTSStop)return;
+   console.error('Mastery audio error',err);masteryTTSPlaying=false;masteryTTSCurrentAudio=null;
+   updateMasteryPausePlayButton();
+   masteryTTSStatus('اس حصے کی اردو آواز نہیں چل سکی۔ انٹرنیٹ کنکشن چیک کریں۔',false);
+ });
+}
+
+function applyMasteryFontSize(root,size){
+  if(!root)return;
+  const controls=root.querySelector('.mastery-controls');
+  const nodes=[root,...root.querySelectorAll('*')];
+  nodes.forEach(el=>{
+    if(controls && (el===controls || controls.contains(el))) return;
+    if(!el.dataset.iaeBaseFontSize){
+      const cs=getComputedStyle(el);
+      const px=parseFloat(cs.fontSize);
+      if(Number.isFinite(px)) el.dataset.iaeBaseFontSize=String(px);
+    }
+    const base=parseFloat(el.dataset.iaeBaseFontSize);
+    if(Number.isFinite(base)) el.style.fontSize=(base*(size/14))+'px';
+  });
+  root.dataset.fontSize=String(size);
+}
+function changeMasteryFont(delta){
+  const root=document.querySelector('.mastery-reading .mastery-body');
+  if(!root)return;
+  let size=parseFloat(root.dataset.fontSize||'14');
+  size=Math.max(12,Math.min(22,size+delta));
+  applyMasteryFontSize(root,size);
+}
+function resetMasteryFont(){
+  const root=document.querySelector('.mastery-reading .mastery-body');
+  if(!root)return;
+  applyMasteryFontSize(root,14);
+  root.dataset.fontSize='14';
+}
+function openSearch(){
+ const rows=[];
+ Object.entries(topics).forEach(([id,t])=>rows.push({type:'Topic',id,title:t.title,detail:t.intro||'' ,open:()=>openTopic(id)}));
+ Object.entries(subs).forEach(([id,s])=>rows.push({type:'Subtopic',id,title:s.title,detail:(s.basic||'')+' '+(s.standard||''),open:()=>openSub(id)}));
+ Object.keys(dict).forEach(k=>rows.push({type:'Dictionary',id:k,title:k,detail:dict[k][1]||'',open:()=>showDictionaryPopup(k)}));
+ const render=(q='')=>{
+   const n=String(q).trim().toLowerCase();
+   const hits=rows.filter(r=>!n||[r.type,r.id,r.title,r.detail].join(' ').toLowerCase().includes(n));
+   const box=document.getElementById('searchResults'); if(!box)return;
+   box.innerHTML=hits.map((r,i)=>`<button type="button" class="search-result" onclick="window.__iaeSearchOpen(${i})"><b>${esc(r.title)}</b><span class="visual-id">${esc(r.type)} · ${esc(r.id)}</span><p>${esc(r.detail.slice(0,220))}</p></button>`).join('') || '<div class="section">No matching result.</div>';
+   window.__iaeSearchRows=hits;
+ };
+ window.__iaeSearchOpen=i=>{const r=(window.__iaeSearchRows||[])[i];if(r)r.open();};
+ show(`<div class="lesson-title">Search</div><p class="lesson-subtitle">Chapter 01 Lecture 13 — Topics, Subtopics and Dictionary</p><input class="search" id="academySearch" placeholder="Search Academy content…" oninput="renderAcademySearch(this.value)"><div id="searchResults"></div>`);
+ window.renderAcademySearch=render;
+ render('');
+}
+function openFunctional(k){
+ if(k==='dictionary'){
+   show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Chapter 01 Lecture 13 relevant terminology</p><div class="dictionary-search-wrap"><input class="search" id="ds" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" style="text-align:left" placeholder="Type a word or letters…" oninput="updateDictionarySearchDirection(this);renderDict(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();openDictionarySearchPopup(this.value)}"><button type="button" id="dictClear" class="dictionary-clear" aria-label="Clear dictionary search" title="Clear search" onclick="resetDictionarySearch()">×</button></div><div id="dictList"></div>`);
+   const input=document.getElementById('ds');
+   if(input){input.value='';input.dir='ltr';input.style.textAlign='left';}
+   renderDict(''); setTimeout(()=>{if(input){input.focus();input.select();}},0);return;
+ }
+ if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">Chapter 01 Visual Atlas — Lecture 13</p>${visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" onclick="showVisual('${v[0]}')">Visual کھولیں</button></div>`).join('')}`);return;}
+ if(k==='search'){openSearch();return;} if(k==='practice'){openGuidedPractice();return;} if(k==='readiness'){openAssessment('readiness');return;} if(k==='exam'){openAssessment('exam');return;}
+ if(k==='revision'){const rq=Object.entries(subs).map(([id,s])=>[s.title,s.id,s.title+' کے بنیادی principle اور function کو اپنے الفاظ میں explain کریں۔',s.standard,'Structure → Principle → Function']); const revisionHtml=rq.map((r,i)=>`<div class="question-card revision-q"><div class="pill">${esc(r[1])}</div><h3 style="margin:8px 0;font-size:17px;color:var(--green)">Q${i+1}. ${esc(r[0])}</h3><p><b>سوال:</b> ${esc(r[2])}</p><button class="visual-link" type="button" onclick="practiceReveal('rev-a-${i}')">Model answer دیکھیں</button><div id="rev-a-${i}" class="answer-review" hidden><p><b>جواب:</b> ${esc(r[3])}</p><p><b>Check:</b> ${esc(r[4])}</p></div></div>`).join('');show(`<div class="lesson-title">Revision — Chapter 01 Lecture 13</div><p class="lesson-subtitle">real-gas deviation، intermolecular attraction، molecular volume، van der Waals equation، compressibility factor اور critical behaviour کو active recall کے ذریعے revise کریں۔</p>${revisionHtml}`);return;}
+ if(k==='mastery'){
+ const lessons=[
+{id:"IAE1102040401",title:"Real Gases",def:"Real gases have finite molecular size and intermolecular interactions, so the ideal-gas equation is an approximation.",explain:"Ideal behaviour is approached when molecules are far apart and interactions are less important; deviations become clearer at high pressure or low temperature.",connect:"Finite size + attractions → deviation from PV=nRT",conclusion:"Real-gas behaviour is the result of molecular properties that the ideal model intentionally neglects."},
+{id:"IAE1102040402",title:"Causes of Deviation",def:"The two main causes are intermolecular attraction and finite molecular volume.",explain:"Attraction tends to lower pressure while excluded volume becomes important during strong compression.",connect:"Attraction → negative deviation; excluded volume → positive deviation",conclusion:"The observed deviation depends on which molecular effect dominates."},
+{id:"IAE1102040403",title:"Intermolecular Attractions",def:"Attractive forces pull neighbouring gas molecules toward each other.",explain:"Near a wall, inward attraction can reduce the outward momentum transfer relative to an ideal gas.",connect:"Attraction → lower effective pressure → Z<1",conclusion:"Attraction explains why some real gases lie below ideal behaviour."},
+{id:"IAE1102040404",title:"Molecular Volume",def:"Molecules occupy finite space, reducing the free volume available for motion.",explain:"At high density this excluded volume makes the gas harder to compress than the ideal model predicts.",connect:"Crowding → excluded volume → positive deviation",conclusion:"Finite molecular size is negligible only when the gas is sufficiently dilute."},
+{id:"IAE1102040501",title:"Van der Waals Equation",def:"The van der Waals equation corrects pressure and molar volume for attraction and finite molecular size.",explain:"For one mole, (P+a/Vm²)(Vm−b)=RT.",connect:"Pressure correction + volume correction → real-gas equation",conclusion:"The equation is a simple molecularly motivated equation of state."},
+{id:"IAE1102040502",title:"Meaning of Constants",def:"a measures attraction and b measures excluded volume in the van der Waals model.",explain:"Larger a means stronger attraction; larger b means greater excluded volume.",connect:"a → attraction; b → molecular size correction",conclusion:"The two constants give the model a direct physical interpretation."},
+{id:"IAE1102040405",title:"Compressibility Factor",def:"Z=PV/(nRT) compares observed gas behaviour with the ideal-gas prediction.",explain:"Z=1 is ideal, Z<1 commonly reflects attraction, and Z>1 commonly reflects crowding/excluded volume.",connect:"Z=PV/nRT → direction and size of deviation",conclusion:"Z provides a compact diagnostic of non-ideality."},
+{id:"IAE1102040503",title:"Critical Constants",def:"Pc, Vc and Tc locate the critical point of a real-gas model.",explain:"For a van der Waals gas, Pc=a/(27b²), Vc=3b and Tc=8a/(27Rb).",connect:"a,b → Pc,Vc,Tc → critical point",conclusion:"Critical constants summarize the endpoint of liquid–vapour coexistence in the model."},
+{id:"IAE1102040406",title:"Real-Gas Behaviour",def:"Real-gas deviation varies with pressure and temperature.",explain:"Low pressure and higher temperature generally favour near-ideal behaviour; compression and cooling strengthen non-ideal effects.",connect:"P,T conditions → molecular proximity/interactions → deviation",conclusion:"The ideal model is a limiting approximation, not a universal description."},
+{id:"IAE1102040407",title:"Intermolecular Attraction and Deviation",def:"Attraction can reduce the measured pressure relative to the ideal prediction.",explain:"This effect can produce negative deviation and Z<1.",connect:"Attraction → lower P than ideal → Z<1",conclusion:"Negative deviation has a molecular explanation in attractive forces."},
+{id:"IAE1102040408",title:"Molecular Volume Effects",def:"Finite molecular size becomes important when molecules are crowded.",explain:"The excluded volume correction accounts for the fact that not all container volume is available for molecular centres of motion.",connect:"Finite size → less free volume → positive deviation",conclusion:"Strong compression exposes the limitation of the point-particle assumption."},
+{id:"IAE1102040504",title:"van der Waals Model Interpretation",def:"The model balances attractive and excluded-volume corrections to produce non-ideal P–V isotherms.",explain:"Different temperatures produce different isotherm shapes, including critical behaviour.",connect:"a,b corrections → isotherms → critical region",conclusion:"The equation is most useful when its molecular corrections are interpreted physically."},
+{id:"IAE1102040409",title:"Pressure–Volume Deviations",def:"Pressure–volume data reveal how observed PV departs from nRT.",explain:"Z converts that departure into a dimensionless quantity that can be compared across conditions.",connect:"P–V data → PV/nRT → Z",conclusion:"The sign of Z−1 identifies the direction of deviation from ideality."},
+{id:"IAE1102040505",title:"Critical-Region Behaviour",def:"Near the critical point, liquid and gas become indistinguishable at the critical state.",explain:"Strong non-ideal behaviour and rapid property changes make ideal-gas reasoning inadequate near the critical region.",connect:"T≈Tc, P≈Pc, V≈Vc → critical behaviour",conclusion:"Critical behaviour is a direct reason to study real-gas equations of state."}
+];
+ const lessonHtml=lessons.map((x,i)=>`<div class="section mastery" data-mastery-subtopic="${esc(x.id)}"><div class="pill">${String(i+1).padStart(2,'0')} · ${esc(x.id)}</div><h3 class="mastery-subtopic-title">${esc(x.title)}</h3><p class="mastery-step"><b>تعریف:</b> ${linkDictionaryTerms(x.def)}</p><p class="mastery-step"><b>وضاحت:</b> ${linkDictionaryTerms(x.explain)}</p><div class="section mastery-connection"><span class="level-heading mastery-h">Concept Connection</span><p>${linkDictionaryTerms(x.connect)}</p></div><div class="section mastery-conclusion"><span class="level-heading standard-h">نتیجہ</span><p>${linkDictionaryTerms(x.conclusion)}</p></div></div>`).join('');
+ const mainVisual=visualSource('IAE1102040400V')||{};
+ const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Mastery Sound"><button type="button" onclick="speakMastery()">🔊 سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Main Topic Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Real Gases, Van der Waals Equation &amp; Critical Behaviour</h2><p class="mastery-step"><b>تعریف:</b> Real-gas behaviour is explained by molecular attraction and finite molecular volume; the van der Waals model captures both effects.</p><p class="mastery-step">Lecture 13 کی chain ہے: <b>Ideal model → molecular corrections → Z → van der Waals equation → P–V isotherms → critical behaviour</b>۔</p></div><figure class="mastery-visual"><img src="${esc(mainVisual.src||'')}" alt="Real Gases, Van der Waals Equation &amp; Critical Behaviour" loading="lazy" decoding="async"><figcaption><b>Real Gases, Van der Waals Equation &amp; Critical Behaviour</b><br>IAE academic schematic</figcaption></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">KPK Textbook، Peshawar Board اور MDCAT-oriented preparation کے لیے real-gas deviation، intermolecular attraction، molecular volume، van der Waals equation، compressibility factor اور critical constants بنیادی ہیں۔ Advanced mastery کے لیے molecular corrections کو P–V behaviour، Z اور critical region کے ساتھ مربوط کرنا ضروری ہے۔</p><p class="mastery-step">Advanced application میں یہی structural reasoning van der Waals isotherms، compressibility behaviour اور critical phenomena تک جاتی ہے۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Real Gases → Causes of Deviation → Intermolecular Attractions → Molecular Volume → Van der Waals Equation → Meaning of Constants → Compressibility Factor → Critical Constants → Real-Gas Behaviour → Intermolecular Attraction and Deviation → Molecular Volume Effects → van der Waals Model Interpretation → Pressure–Volume Deviations → Critical-Region Behaviour</p></div>${lessonHtml}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete Lecture Mastery</span><p class="mastery-step">Final reasoning: <b>intermolecular attraction + finite molecular volume → deviation from ideality → Z → van der Waals corrections → critical behaviour.</b></p></div></div></div>`;
+ show(html);return;}
+ if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Academic applicability</b><p>Lecture 13 syllabus میں کوئی مخصوص practical component فراہم نہیں کیا گیا۔ Approved practical architecture retained ہے؛ academic payload N/A رکھا گیا ہے۔</p></div>`);return;}
+}
+
+let assessmentAttempt=[], assessmentType='readiness';
+
+function renderAssessmentQuestions(list,type){
+ return list.map((q,i)=>`<div class="question-card assessment-q" data-qindex="${i}"><div class="pill">Q${i+1} · ${esc(q[4])}</div><h3>${esc(q[0])}</h3>${q[1].map((a,j)=>`<label class="answer-option"><input type="radio" name="${type}-${i}" value="${j}" onchange="updateExamProgress()"><span>${esc(a)}</span></label>`).join('')}<div class="question-status" id="status-${type}-${i}">Unanswered</div></div>`).join('');
+}
+function updateExamProgress(){
+ const total=assessmentAttempt.length;let answered=0;
+ assessmentAttempt.forEach((_,i)=>{const selected=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);if(selected)answered++;const st=document.getElementById(`status-${assessmentType}-${i}`);if(st)st.textContent=selected?'Answered':'Unanswered';});
+ const bar=document.getElementById('examProgressBar'),txt=document.getElementById('examProgressText');
+ if(bar)bar.style.width=(total?answered/total*100:0)+'%';
+ if(txt)txt.textContent=`${answered} / ${total} answered`;
+}
+function openAssessment(type){
+ assessmentType=type;
+ // Lecture 13 examination bank; use every question once.
+ assessmentAttempt=type==='exam'?[...questions]:shuffle(questions).slice(0,Math.min(15,questions.length));
+ const examMode=type==='exam';
+ const host=getMainHost();
+ if(!host || !assessmentAttempt.length)return;
+ if(examMode){
+   if(lectureViewStack.length===0 && host.innerHTML.trim()) lectureViewStack.push(host.innerHTML);
+   host.innerHTML=`<div class="content-view assessment-fullscreen">
+     <button class="view-close" type="button" aria-label="Close Examination" title="Close" onclick="returnToPreviousView()">×</button>
+     <div class="assessment-shell">
+       <div class="assessment-head"><div class="assessment-badge">🏛️ FULL EXAMINATION</div><div class="lesson-title">Lecture 13 — Final Examination</div><p>Formal assessment of Lecture 13: real gases, causes of deviation, intermolecular attractions, molecular volume, van der Waals equation, compressibility factor and critical behaviour. Answer every MCQ, review your answers, then submit.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">100 Marks</span> <span class="pill">60 Minutes</span></div></div>
+       <div class="exam-rules"><b>Examination Protocol</b><ol><li>Answer all questions. Every MCQ has one best answer.</li><li>Select one option for each question.</li><li>You may change an answer before submission.</li><li>Unanswered questions receive 0 marks.</li><li>Review the complete paper before pressing <b>Submit Examination</b>.</li><li>Passing standard: 50%.</li></ol></div>
+       <div class="exam-progress"><div class="progress-label"><b>Exam Progress</b><span id="examProgressText">0 / ${assessmentAttempt.length} answered</span></div><div class="progress-track"><div id="examProgressBar" class="progress-bar"></div></div></div>
+       <div id="assessmentQuestions" class="assessment-questionnaire">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+       <div class="assessment-actions"><button class="exam-submit" type="button" onclick="submitAssessment()">Submit Examination</button><button type="button" onclick="openAssessment('exam')">↻ Reset</button></div>
+       <div id="assessmentResult" class="assessment-result"></div>
+     </div>
+   </div>`;
+   host.scrollTop=0;updateExamProgress();return;
+ }
+ // Lecture 13 Readiness Test using the same approved assessment architecture.
+ show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 READINESS TEST</div><div class="lesson-title">Lecture 13 — Readiness Test</div><p>Diagnostic assessment covering real-gas deviation, intermolecular attraction, molecular volume, van der Waals corrections, compressibility factor and critical constants.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
+ <div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div>
+ <div id="assessmentQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+ <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit Readiness Test</button><button onclick="openAssessment('readiness')">↻ Reset</button></div>
+ <div id="assessmentResult" class="assessment-result"></div>`);
+}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
+function submitAssessment(){
+ let correct=0,wrong=0,unanswered=0,weak={},review=[];
+ assessmentAttempt.forEach((q,i)=>{const sel=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);const s=sel?Number(sel.value):null;if(s===null)unanswered++;else if(s===q[2])correct++;else{wrong++;weak[q[4]]=(weak[q[4]]||0)+1;}review.push({q,selected:s,ok:s===q[2]});});
+ const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Pass — Needs Revision','Review weak areas before retest']:['Fail — Foundation Revision Required','Rebuild weak concepts before retest'];
+ let r=document.getElementById('assessmentResult');r.className='assessment-result show';
+ const topicStats={};assessmentAttempt.forEach((q,i)=>{if(!topicStats[q[4]])topicStats[q[4]]={total:0,correct:0};topicStats[q[4]].total++;if(review[i].ok)topicStats[q[4]].correct++;});
+ r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Final Examination Result':'Readiness Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p>${assessmentType==='exam'?`<p><b>Status:</b> ${pct>=50?'PASSED':'NOT PASSED'} &nbsp; · &nbsp; <b>Marks:</b> ${correct*10}/100</p>`:''}</div>
+ <div class="recommendation-title">📊 Topic Performance</div>${Object.entries(topicStats).map(([t,v])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${v.correct}/${v.total} correct — ${Math.round(v.correct/v.total*100)}%</p></div>`).join('')}
+ <div class="recommendation-title">🎯 Weak Areas &amp; Revision Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
+ <div class="recommendation-title">📝 Detailed Answer Review</div>${review.map((x,i)=>`<div class="answer-review ${x.ok?'':'review-wrong'}"><b>Q${i+1}</b><p>${esc(x.q[0])}</p><p><b>آپ کا جواب:</b> ${x.selected===null?'جواب نہیں دیا':esc(x.q[1][x.selected])}</p><p><b>درست جواب:</b> ${esc(x.q[1][x.q[2]])}</p><p>${esc(x.q[3])}</p></div>`).join('')}`;
+ r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function decorateDictionaryLinks(root=document){
+ const nodes=[...root.querySelectorAll('.section p,.section li,.topic-head-text p,.subtopic-head-text .lesson-title,.section-card p')];
+ nodes.forEach(node=>{
+   if(node.dataset.decorated)return;
+   // Do not re-process content that has already been converted into Dictionary links.
+   // Re-processing nested buttons was the source of visible HTML fragments such as meristem">.
+   if(node.querySelector('.linked-word')){node.dataset.decorated='1';return;}
+   const text=node.textContent; if(!text.trim())return;
+   let out=esc(text);
+   const tokens=[];
+   const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+   for(const k of keys){
+     const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+     for(const alias of aliases){
+       const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+       out=out.replace(new RegExp('('+safe+')','gi'),m=>{
+         const i=tokens.length;
+         tokens.push(`<button class="linked-word" type="button" data-term="${esc(k)}">${esc(m)}</button>`);
+         return '\uE000'+i+'\uE001';
+       });
+     }
+   }
+   node.innerHTML=out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
+   node.dataset.decorated='1';
+ });
+}
+document.addEventListener('click',e=>{const w=e.target.closest('.linked-word');if(w){e.preventDefault();showDictByTerm(w.dataset.term);}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();const w=e.target.closest?.('.linked-word');if(w&&(e.key==='Enter'||e.key===' ')){e.preventDefault();showDictByTerm(w.dataset.term);}});
+// HIT THE CEILING iframe close bridge: the game posts this event to the parent.
+window.addEventListener('message',e=>{if(e.data&&e.data.type==='IAE_HIT_CEILING_CLOSE'){returnToPreviousView();}});
+function initMainContentContainer(){const host=getMainHost();if(host&&host.innerHTML.trim()==='')showPage('topicsPage');}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMainContentContainer,{once:true});else initMainContentContainer();
+</script>
+</div></body>
+</html>
