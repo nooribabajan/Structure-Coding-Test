@@ -323,15 +323,18 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 #hitCeilingPage .htc14-head{text-align:center;padding:18px 15px 4px;flex:0 0 auto}
 #hitCeilingPage .htc14-kicker{font:900 11px Arial,sans-serif;letter-spacing:2px;color:var(--red)}
 #hitCeilingPage .htc14-head h1{font:900 clamp(30px,6vw,52px)/1.05 Arial,sans-serif;color:var(--green);margin:6px 0}
-#hitCeilingPage .htc14-sub{font-size:16px;color:#657169;margin:0}
 #hitCeilingPage .htc14-levels{display:flex;direction:ltr;justify-content:flex-start;align-items:center;gap:12px;margin:8px auto 10px;max-width:min(900px,94vw);padding:9px 14px;overflow-x:auto;scrollbar-width:thin;border:1px solid #dfcf9d;border-radius:18px;background:linear-gradient(180deg,#fffdf8,#f7edd8);box-shadow:0 6px 20px #214b3a12,inset 0 1px #fff;position:relative;flex:0 0 auto}
 #hitCeilingPage .htc14-levels:before{content:"";position:absolute;left:10%;right:10%;top:50%;height:3px;border-radius:99px;background:linear-gradient(90deg,#d8c78d,#e7dcc0,#d8c78d);transform:translateY(-50%);z-index:0}
 #hitCeilingPage .htc14-lvl{position:relative;z-index:1;flex:0 0 42px;width:42px;height:42px;border:2px solid #d8c78d;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf5,#eadfca);padding:0;font:900 12px Arial,sans-serif;color:var(--green);box-shadow:0 4px 10px #214b3a18,inset 0 1px 2px #fff;cursor:pointer}
 #hitCeilingPage .htc14-lvl.active{border-color:var(--green2);background:var(--green);color:#fff;transform:scale(1.08)}
 #hitCeilingPage .htc14-lvl.done{border-color:var(--green2);background:#edf5ef;color:var(--green)}
+#hitCeilingPage .htc14-tools{position:absolute;top:10px;right:12px;z-index:20;display:flex;align-items:center;gap:6px;direction:ltr}
+#hitCeilingPage .htc14-tool{border:1px solid #c9b878;border-radius:10px;padding:6px 10px;background:#fffaf0;color:var(--green);font:900 11px Arial,sans-serif;cursor:pointer;box-shadow:0 3px 9px #214b3a14}
+#hitCeilingPage .htc14-tool.x{width:34px;padding:6px 0;font-size:16px;line-height:1}
+#hitCeilingPage .htc14-tool:hover{transform:translateY(-1px);box-shadow:0 5px 12px #214b3a1b}
 #hitCeilingPage .htc14-play{min-height:0;flex:1;overflow:hidden;display:flex;flex-direction:column;padding:0 14px 14px}
-#hitCeilingPage .htc14-towerarea{height:190px;min-height:170px;display:flex;justify-content:center;align-items:flex-end;flex:0 0 auto}
-#hitCeilingPage .htc14-tower{position:relative;width:230px;height:175px}
+#hitCeilingPage .htc14-towerarea{height:196px;min-height:178px;display:flex;justify-content:center;align-items:flex-end;flex:0 0 auto}
+#hitCeilingPage .htc14-tower{position:relative;width:230px;height:205px}
 #hitCeilingPage .htc14-dome{position:absolute;top:0;left:75px;width:80px;height:45px;border:2px solid #aa8d49;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e7d9ad}
 #hitCeilingPage .htc14-dome:after{content:"";position:absolute;width:4px;height:18px;background:#aa8d49;top:-16px;left:38px}
 #hitCeilingPage .htc14-body{position:absolute;bottom:12px;left:40px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}
@@ -346,8 +349,11 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 #hitCeilingPage .htc14-count{text-align:center;font:900 12px Arial;color:var(--muted);margin:3px}
 #hitCeilingPage .htc14-progress{height:8px;max-width:760px;margin:6px auto 9px;border:1px solid #c7b77f;border-radius:10px;background:#eee5d1;overflow:hidden;width:100%}
 #hitCeilingPage .htc14-progress i{display:block;height:100%;width:0;background:var(--green2);transition:.35s}
-#hitCeilingPage .htc14-card{max-width:790px;width:100%;margin:0 auto;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 5px 20px #23483b12;min-height:0;overflow:auto}
-#hitCeilingPage .htc14-q{font-size:18px;line-height:1.7;font-weight:700;text-align:center;margin:0 0 12px}
+#hitCeilingPage .htc14-card{max-width:790px;width:100%;margin:0 auto;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 5px 20px #23483b12;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+#hitCeilingPage .htc14-card .htc14-q{flex:0 0 auto}
+#hitCeilingPage .htc14-card .htc14-answers{flex:0 0 auto}
+#hitCeilingPage .htc14-card .htc14-feedback{flex:0 0 auto}
+#hitCeilingPage .htc14-q{font-size:17px;line-height:1.55;font-weight:700;text-align:center;margin:0 0 8px}
 #hitCeilingPage .htc14-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 #hitCeilingPage .htc14-answer{min-height:58px;display:flex;align-items:center;justify-content:center;border:2px solid transparent;border-radius:14px;padding:12px;background:#fffaf0;color:#202522;cursor:pointer;font-weight:800;text-align:right;line-height:1.45;box-shadow:0 4px 12px #214b3a16;transition:.16s}
 #hitCeilingPage .htc14-answer:hover{transform:translateY(-2px);filter:saturate(1.12) brightness(1.02);box-shadow:0 7px 16px #214b3a20}
@@ -367,10 +373,10 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 #hitCeilingPage .htc14-btn{border:1px solid var(--gold);border-radius:12px;padding:9px 16px;background:#fffaf0;color:var(--green);font-weight:900;cursor:pointer}.htc14-btn.primary{background:var(--green);color:#fff}
 #hitCeilingPage .htc14-clear{text-align:center;padding:20px 12px}.htc14-clear h2{font:900 25px Arial;color:var(--green)}.htc14-clear p{font-size:17px;line-height:1.7}
 #hitCeilingPage .htc14-clear-art{font-size:34px;letter-spacing:8px;animation:htc14Float 1.5s ease-in-out infinite alternate}@keyframes htc14Float{to{transform:translateY(-6px)}}
-@media(max-width:650px){#hitCeilingPage .htc14-stage{padding:5px}.htc14-head{padding:10px 8px 2px!important}.htc14-head h1{font-size:30px!important}.htc14-sub{font-size:13px!important}.htc14-levels{margin:5px auto 6px;padding:7px 10px;gap:8px}.htc14-lvl{width:36px!important;height:36px!important;flex-basis:36px!important}.htc14-towerarea{height:145px;min-height:135px}.htc14-tower{transform:scale(.82);transform-origin:bottom center}.htc14-play{padding:0 7px 7px}.htc14-card{padding:10px!important}.htc14-q{font-size:16px!important}.htc14-answers{grid-template-columns:1fr}.htc14-answer{min-height:52px;padding:10px}.htc14-actions{margin-top:5px}}
+@media(max-width:650px){#hitCeilingPage .htc14-stage{padding:5px}.htc14-head{padding:10px 52px 2px 8px!important}.htc14-head h1{font-size:30px!important}.htc14-sub{font-size:13px!important}.htc14-tools{top:7px;right:7px}.htc14-tool{padding:5px 7px;font-size:10px}.htc14-tool.x{width:30px;padding:5px 0}.htc14-levels{margin:5px auto 6px;padding:7px 10px;gap:8px}.htc14-lvl{width:36px!important;height:36px!important;flex-basis:36px!important}.htc14-towerarea{height:145px;min-height:132px}.htc14-tower{transform:scale(.74);transform-origin:bottom center}.htc14-play{padding:0 7px 7px}.htc14-card{padding:8px!important}.htc14-q{font-size:15px!important;margin-bottom:6px!important}.htc14-answers{grid-template-columns:1fr}.htc14-answer{min-height:48px;padding:8px}.htc14-feedback{min-height:24px!important;margin-top:5px!important}.htc14-actions{margin-top:5px}}
 </style>
 <div class="htc14-stage"><div class="htc14-game">
-<div class="htc14-head"><div class="htc14-kicker">IMPERIAL ACADEMY OF EDUCATION</div><h1>HIT THE CEILING</h1><p class="htc14-sub">Molecular Motion in Liquids · Intermolecular Forces · Hydrogen Bonding · Physical Properties</p></div>
+<div class="htc14-head"><div class="htc14-kicker">IMPERIAL ACADEMY OF EDUCATION</div><h1>HIT THE CEILING</h1></div>
 <div id="htc14Levels" class="htc14-levels" aria-label="Game levels"></div>
 <div id="htc14Play" class="htc14-play">
 <div class="htc14-towerarea"><div class="htc14-tower"><div class="htc14-dome"></div><div class="htc14-torch"><div id="htc14Flame" class="htc14-flame"></div></div><div id="htc14Segments" class="htc14-body"></div><div class="htc14-base"></div></div></div>
@@ -394,8 +400,8 @@ const $=id=>document.getElementById(id);
 function total(){return levels.reduce((n,l)=>n+l.items.length,0)}
 function completed(){return levels.slice(0,level).reduce((n,l)=>n+l.items.length,0)+index}
 function buildLevels(){const host=$('htc14Levels');if(!host)return;host.innerHTML=levels.map((l,i)=>`<button type="button" class="htc14-lvl ${i===level?'active':''} ${i<level?'done':''}" aria-label="Level ${i+1}">${String(i+1).padStart(2,'0')}</button>`).join('');[...host.querySelectorAll('.htc14-lvl')].forEach((b,i)=>b.addEventListener('click',()=>{if(i<=level){level=i;index=0;score=levels.slice(0,i).reduce((n,l)=>n+l.items.length,0);render()}}))}
-function update(){const pct=Math.round(completed()/Math.max(1,total())*100),bar=$('htc14ProgressBar');if(bar)bar.style.width=Math.min(100,pct)+'%';if($('htc14Level'))$('htc14Level').textContent='Level '+String(level+1).padStart(2,'0')+' · '+levels[level].title;if($('htc14Count'))$('htc14Count').textContent='Question '+(index+1)+' / '+levels[level].items.length+' · Score: '+score;buildLevels();syncTower()}
-function syncTower(){const body=$('htc14Segments');if(!body)return;const max=levels.length,done=level+(index/Math.max(1,levels[level].items.length));body.innerHTML=Array.from({length:max},(_,i)=>`<div class="htc14-seg ${i<done?'on':''}"></div>`).join('');const flame=$('htc14Flame');if(flame)flame.classList.toggle('on',completed()>0)}
+function update(){const pct=Math.round(score/Math.max(1,total())*100),bar=$('htc14ProgressBar');if(bar)bar.style.width=Math.min(100,pct)+'%';if($('htc14Level'))$('htc14Level').textContent='Level '+String(level+1).padStart(2,'0')+' · '+levels[level].title;if($('htc14Count'))$('htc14Count').textContent='Question '+(index+1)+' / '+levels[level].items.length+' · Score: '+score;buildLevels();syncTower()}
+function syncTower(){const body=$('htc14Segments');if(!body)return;const max=levels.length,done=Math.min(max,score/Math.max(1,total()/max));body.innerHTML=Array.from({length:max},(_,i)=>`<div class="htc14-seg ${i<done?'on':''}"></div>`).join('');const flame=$('htc14Flame');if(flame)flame.classList.toggle('on',score>0)}
 function render(){clearTimeout(timer);clearTimeout(questionTimer);locked=false;const play=$('htc14Play'),clear=$('htc14Cleared');if(clear)clear.hidden=true;if(play)play.style.display='flex';if(level>=levels.length){finish();return}update();const card=$('htc14Card');if(!card)return;const q=levels[level].items[index];card.innerHTML='<div class="htc14-q"></div><div class="htc14-answers"></div><div class="htc14-feedback" aria-live="polite"></div>';card.querySelector('.htc14-q').textContent=q[0];const wrap=card.querySelector('.htc14-answers'),fb=card.querySelector('.htc14-feedback');q[1].forEach((text,i)=>{const b=document.createElement('button');b.type='button';b.className='htc14-answer answer-color-'+i;b.setAttribute('data-option',String(i+1));b.textContent=text;b.addEventListener('click',()=>answer(i,q,fb,[...wrap.querySelectorAll('button')]));wrap.appendChild(b)});questionTimer=setTimeout(()=>{if(locked)return;locked=true;unattempted++;[...wrap.querySelectorAll('button')].forEach(b=>b.disabled=true);fb.textContent='⏱ وقت ختم — سوال UNATTEMPTED کے طور پر محفوظ ہے۔';fb.style.color='var(--muted)';timer=setTimeout(()=>{locked=false;next()},700)},20000)}
 function answer(i,q,fb,buttons){if(locked)return;clearTimeout(questionTimer);locked=true;buttons.forEach(b=>b.disabled=true);if(i===q[2]){score++;fb.textContent='✓ درست — اگلا challenge تیار ہو رہا ہے۔';fb.style.color='var(--green)';timer=setTimeout(()=>{locked=false;next()},450)}else{fb.textContent='✗ دوبارہ کوشش کریں — صحیح concept پر غور کریں۔';fb.style.color='var(--red)';locked=false;buttons.forEach(b=>b.disabled=false)}}
 function next(){clearTimeout(questionTimer);index++;if(index>=levels[level].items.length){level++;index=0}if(level>=levels.length){finish();return}render()}
