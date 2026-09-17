@@ -8,7 +8,7 @@
 <html dir="rtl" lang="ur">
 <!-- IAE MASTER LOGO: approved external IAE-Logo-Transparent.png path; no embedded material is used. -->
 <head>
-<!-- CCSV4 BUILD_ID=CCSV4-L15-20260917T093519Z | TARGET=IAE1102050100+IAE1102050200 | REFERENCE=Lecture14-LOCKED | ACADEMIC_PAYLOAD=LOCKED -->
+<!-- CCSV4 BUILD_ID=CCSV4-L15-20260917T093519Z | AUDIT_RUN_ID=CCSV4-AUD-L15-20260917T1127Z | PACKAGE_ID=CCSV4-PKG-L15-20260917T1127Z | RELEASE_ID=CCSV4-REL-L15-CANDIDATE-20260917T1127Z | TARGET=IAE1102050100+IAE1102050200 | REFERENCE=Lecture14-LOCKED | ACADEMIC_PAYLOAD=LOCKED -->
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
 <title>IAE1102050100 + IAE1102050200 — Molecular Motion in Liquids &amp; Intermolecular Forces — Lecture 15</title>
@@ -431,6 +431,24 @@ const FREE_VISUALS={
  'IAE1102050104V':'https://commons.wikimedia.org/wiki/Special:Redirect/file/3D_model_hydrogen_bonds_in_water.svg',
  'IAE1102050210V':'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dipole_interactions.svg'
 };
+const visualItems=[
+["IAE1102050100V","Molecular Motion in Liquids — Topic Visual","Liquid particles remain close while continuously moving and rearranging.",'Free external educational visual'],
+["IAE1102050200V","Intermolecular Forces — Topic Visual","Visual reference for intermolecular attraction, dipoles and molecular interaction.",'Free external educational visual'],
+["IAE1102050101V","Molecular Motion in Liquids","Close particles + continuous motion + attraction → flow and cohesion",'External educational visual'],
+["IAE1102050102V","Energy and Intermolecular Attraction","Kinetic energy competes with intermolecular attraction during evaporation and boiling",'External educational visual'],
+["IAE1102050201V","London Dispersion Forces","Instantaneous dipole → induced dipole → dispersion attraction",'External educational visual'],
+["IAE1102050202V","Dipole–Dipole Forces","Permanent molecular dipoles align with favourable opposite partial charges",'External educational visual'],
+["IAE1102050203V","Hydrogen Bonding","Directional attraction involving H bonded to N, O or F and an electronegative acceptor",'External educational visual'],
+["IAE1102050204V","Relative Strength of Intermolecular Forces","Dispersion, dipole–dipole and hydrogen-bonding interactions compared by molecular context",'External educational visual'],
+["IAE1102050205V","Detailed Van der Waals-Force Classification","Orientation, induction and dispersion classifications",'External educational visual'],
+["IAE1102050103V","Molecular-Level Interpretation","Structure → interaction → molecular behaviour → measurable property",'External educational visual'],
+["IAE1102050206V","Advanced Intermolecular-Force Models","Electrostatic, induction and dispersion contributions in molecular interactions",'External educational visual'],
+["IAE1102050207V","Polarizability and Dispersion","Electron-cloud distortion controls the magnitude of dispersion attraction",'External educational visual'],
+["IAE1102050208V","Hydrogen-Bonding Networks","Repeated donor–acceptor interactions form chains and extended networks",'External educational visual'],
+["IAE1102050209V","Intermolecular Forces and Physical Properties","Intermolecular attraction influences boiling point, viscosity, surface tension and vapour pressure",'External educational visual'],
+["IAE1102050104V","Molecular Motion and Liquid Structure","Dynamic close-packed structure changes with molecular motion and temperature",'External educational visual'],
+["IAE1102050210V","Comparative Intermolecular-Force Analysis","Compare polarity, polarizability, molecular shape and hydrogen-bonding sites",'External educational visual']
+];
 function visualSource(id){
   const key=String(id||'');
   if(!key)return null;
