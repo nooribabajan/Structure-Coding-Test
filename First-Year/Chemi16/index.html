@@ -8,6 +8,8 @@
 <html dir="rtl" lang="ur">
 <!-- IAE MASTER LOGO: approved external IAE-Logo-Transparent.png path; no embedded material is used. -->
 <head>
+<!-- CCSV4 L16 REPAIR: Lecture 17 parity pass; topic-specific visuals, Urdu TTS, controlled HTC randomization, and duplicate-display prevention. -->
+<!-- CCSV4 L16 REPAIR-2: Urdu TTS is primary via tl=ur; browser speech synthesis is fallback only. Visual assignments are unique across all 16 Topic/Subtopic visual IDs; no unnecessary duplicate visual URL is retained. -->
 <!-- CCSV4 BUILD_ID=CCSV4-L16-20260917T000000Z | AUDIT_RUN_ID=CCSV4-AUD-L16-REPAIR-FINAL | PACKAGE_ID=CCSV4-PKG-L16-FINAL | RELEASE_ID=CCSV4-REL-L16-FINAL | TARGET=IAE1102050300+IAE1102050400 | REFERENCE=Lecture15-LATEST-LOCKED | ACADEMIC_PAYLOAD=TARGET-SPECIFIC -->
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
@@ -70,6 +72,7 @@ button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessme
 .close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003}
 .lesson-title{font-size:27px;font-weight:700;margin:0 0 12px;text-align:center}
 .lesson-subtitle{text-align:center;color:#64748b;margin:-4px 0 14px}
+.content-heading{font-size:clamp(1.25rem,3vw,1.7rem);font-weight:800;margin:10px 0 14px;padding:10px 14px;border-radius:12px;text-align:right;direction:rtl;}
 .topic-head,.subtopic-head{max-width:1180px;margin:0 auto 14px;display:flex;direction:ltr;align-items:center;gap:14px;padding:10px 0 14px;border-bottom:1px solid #e2e8f0}
 .topic-visual{width:40px;height:40px;flex:0 0 40px;border:0;border-radius:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .topic-visual img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.topic-visual svg{display:block;width:40px;height:40px;max-width:40px;max-height:40px}
@@ -251,6 +254,17 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 
 .visual-popup-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(15,23,42,.72);overflow:auto}.visual-popup-dialog{position:relative;width:min(1100px,96vw);height:min(92vh,900px);background:#fff;border-radius:18px;box-shadow:0 22px 70px #0007;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;overflow:hidden}.visual-popup-dialog .atlas-img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}.visual-popup-media{max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.visual-popup-media .atlas-img{max-height:calc(92vh - 78px)}.visual-popup-close{position:absolute;right:12px;bottom:12px;top:auto;width:44px;height:44px;border:1px solid #d8c78d;border-radius:50%;background:#fff;color:#173e34;font:700 28px Inter;cursor:pointer;z-index:3;box-shadow:0 4px 14px #0003}.visual-popup-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}@media(max-width:650px){.visual-popup-overlay{padding:8px}.visual-popup-dialog{width:96vw;height:88vh;padding:10px;border-radius:14px}.visual-popup-close{width:42px;height:42px;right:8px;bottom:8px;top:auto}}
 
+
+.visual-atlas-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:4px 0 24px}
+.atlas-card{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:170px}
+.atlas-heading{margin:0;padding:4px 8px 8px;color:var(--green);font-size:17px;text-align:center;line-height:1.45}
+.atlas-card .visual-preview-button{width:100%;max-width:none;min-height:125px;display:flex;align-items:center;justify-content:center}
+.atlas-card .topic-visual{width:100%;height:125px;max-height:125px;object-fit:contain}
+.topic-head,.subtopic-head{display:flex;direction:ltr;align-items:center;gap:14px}
+.topic-head>.topic-visual,.subtopic-head>.topic-visual{order:0;flex:0 0 72px;width:72px;height:72px}
+.topic-head-text,.subtopic-head-text{order:1;flex:1;min-width:0}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{margin:0;text-align:center;font-size:22px;font-weight:800;color:var(--green);direction:ltr;unicode-bidi:isolate}
+@media(max-width:650px){.visual-atlas-grid{grid-template-columns:1fr}.topic-head>.topic-visual,.subtopic-head>.topic-visual{flex-basis:62px;width:62px;height:62px}.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{font-size:18px}}
 .formula-box{max-width:1180px;margin:12px auto;padding:16px;border:1px solid var(--gold);border-radius:14px;background:#fffdf7;text-align:center;font:800 18px/1.8 Inter,Arial,sans-serif;direction:ltr;overflow:auto}.formula-box small{display:block;font:500 12px/1.6 Arial;color:var(--muted);margin-top:4px}.visual-card .visual-link{margin-top:8px}
 
 .mastery-reading .mastery-vision{border-right:5px solid var(--blue);background:linear-gradient(135deg,#f8fbff,#fffdf8)}
@@ -287,6 +301,12 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 .academic-visual-link{display:block;width:max-content;max-width:100%;margin:8px auto 0;font-size:12px!important;}
 .topic-head-text .academic-visual-link,.subtopic-head-text .academic-visual-link{margin-top:8px;}
 .mastery-lesson .academic-visual-link{margin:10px auto 0;}
+
+.visual-preview-button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer;text-align:center;}
+.visual-preview-button:focus-visible{outline:3px solid currentColor;outline-offset:3px;border-radius:8px;}
+.visual-card{display:flex;justify-content:center;align-items:center;margin:.5rem 0;}
+.visual-card .visual-preview-button{max-width:420px;}
+.visual-card .topic-visual{max-height:220px;}
 </style>
 </head>
 <body>
@@ -424,24 +444,24 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </div></div>
 <script>
 const BASE='./Visual-Atlas/';
-/* CCSV4 TARGET VISUAL MAP: external, publicly reusable educational visuals only. */
+/* CCSV4: visuals render in-page; visual URLs are image sources only, never external visual links. */
 const FREE_VISUALS={
- "IAE1102050300V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phase_change_-_en.svg",
- "IAE1102050400V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Liquid_Crystal.png",
- "IAE1102050301V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phase_change_-_en.svg",
- "IAE1102050302V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phase_change_-_en.svg",
+ "IAE1102050300V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phase-change-diagram.svg",
+ "IAE1102050400V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Formula_Liquid-Crystal-Polymer.svg",
+ "IAE1102050301V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Equilibrium-vapor-pressure.svg",
+ "IAE1102050302V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Vapor_pressure.svg",
  "IAE1102050303V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phase_changes.svg",
- "IAE1102050304V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phase_changes.svg",
- "IAE1102050401V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Liquid_Crystal.png",
- "IAE1102050402V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Liquid_Crystal.png",
- "IAE1102050403V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/LiquidCrystalDisplay-field_off_and_on_with_label.svg",
- "IAE1102050305V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Energy_through_phase_changes.png",
- "IAE1102050404V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Liquid_Crystal.png",
- "IAE1102050306V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Energy_through_phase_changes.png",
- "IAE1102050307V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Energy_through_phase_changes.png",
+ "IAE1102050304V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Heating-of-water-with-phase-transitions.svg",
+ "IAE1102050401V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Mainzer_Rad_-_liquid_crystal_-_structure.svg",
+ "IAE1102050402V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/LiquidCrystalDisplay-field_off_with_label.svg",
+ "IAE1102050403V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/LCD-Layers.svg",
+ "IAE1102050305V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Entalpia_uk%C5%82adu.svg",
+ "IAE1102050404V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phase_diagrams_with_liquid_crystal_and_plasma.svg",
+ "IAE1102050306V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/T-v_diagram_for_a_liquid_vapor.svg",
+ "IAE1102050307V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/T-s_diagram_for_a_liquid-vapor.svg",
  "IAE1102050405V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/TSTN-LiquidCrystal.svg",
- "IAE1102050308V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Energy_through_phase_changes.png",
- "IAE1102050406V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/LiquidCrystalDisplay-field_off_and_on_with_label.svg"
+ "IAE1102050308V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Isochoric_evolutions_of_a_liquid-vapor.svg",
+ "IAE1102050406V":"https://commons.wikimedia.org/wiki/Special:Redirect/file/LCD_display.svg"
 };
 const visualItems=[
 ["IAE1102050300V", "Phase Changes — Topic Visual", "Overview of solid, liquid and gas phase transitions.", "Free external educational visual"],
@@ -468,20 +488,12 @@ function visualSource(id){
   if(!item)return null;
   return {src:FREE_VISUALS[key] || (BASE+key+'.svg'),title:item[1],description:item[2]};
 }
-function visualLinkFor(id){
- const key=String(id||'');
- const subId=key.replace(/V$/,'');
- if(Object.prototype.hasOwnProperty.call(subs,subId)) return `<button type="button" class="visual-link academic-visual-link" onclick="showVisual('${key}')">🖼 Visual Atlas — متعلقہ Subtopic</button>`;
- const topicId=key.replace(/V$/,'');
- const topicKey=Object.keys(topics).find(k=>topics[k].id===topicId);
- if(topicKey) return `<button type="button" class="visual-link academic-visual-link" onclick="showVisual('${key}')">🖼 Visual Atlas — متعلقہ Topic</button>`;
- return `<button type="button" class="visual-link academic-visual-link" onclick="showVisual('${key}')">🖼 Visual Atlas</button>`;
-}
+function visualLinkFor(id){ return ""; }
 
 function img(id){
   const src=(visualSource(id)||{}).src || (BASE+String(id||'')+'.svg');
   const title=(visualSource(id)||{}).title || 'Academic visual';
-  return `<img class="topic-visual atlas-img" src="${esc(src)}" alt="${esc(title)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
+  return `<button type="button" class="visual-preview-button" onclick="showVisual('${esc(id)}')" aria-label="View visual"><img class="topic-visual atlas-img" src="${esc(src)}" alt="${esc(title)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></button>`;
 }
 
 
@@ -611,7 +623,7 @@ function openTopic(k){
  const d=topics[k];
  const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
  const mainLecture = `<div class="section main-lecture"><div class="level-heading basic-h">Basic</div><p>${linkDictionaryTerms(d.basic)}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Standard</div><p>${linkDictionaryTerms(d.standard)}</p></div><div class="section main-lecture"><div class="level-heading mastery-h">Mastery</div><p>${linkDictionaryTerms(d.mastery)}</p></div><div class="section topic-introduction"><span class="level-heading standard-h">IAE Topic Definition</span><p>${linkDictionaryTerms(d.intro)}</p></div>`;
- show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div>${visualLinkFor(d.visual)}</div></div>
+ show(`${header()}<div class="page-title">Lecture 16</div><div class="content-heading">${esc(d.title)}</div><div class="topic-head">${img(d.visual)}<div class="topic-head-text"><h2 class="lesson-title">${esc(d.title)}</h2></div></div>
  ${mainLecture}
  <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
 `);
@@ -630,12 +642,11 @@ function returnToPreviousView(){
 }
 function openSub(k){
  const d=subs[k];
- show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div>${visualLinkFor(d.visual)}</div></div>
+ show(`${header()}<div class="page-title">Lecture 16</div><div class="content-heading">${esc(d.title)}</div><div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><h2 class="lesson-title">${linkDictionaryTerms(d.title)}</h2></div></div>
  <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkDictionaryTerms(d.basic)}</p></div>
  <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkDictionaryTerms(d.standard)}</p></div>
  <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>
  <div class="diagram">${esc(d.extra)}</div>
- <div class="inline-note">Academic Code: <span class="pill">${esc(d.id)}</span>${d.visual?` · Visual: <span class="pill">${esc(d.visual.replace('.webp',''))}</span>`:''}</div>
 `);
 }
 function showVisual(id){
@@ -680,7 +691,7 @@ function openGuidedPractice(){
     ['Liquid-Crystal Order vs Crystal Rigidity','Liquid crystals میں orientational order کے ساتھ fluid mobility رہتی ہے، جبکہ conventional crystals میں زیادہ مضبوط positional order ہوتا ہے۔']
   ];
   const compareHtml=compares.map((c,i)=>`<div class="question-card"><b>${esc(c[0])}</b><p>${esc(c[1])}</p><button class="visual-link" onclick="practiceReveal('pr-cmp-${i}')">Academy check points دیکھیں</button><div id="pr-cmp-${i}" class="answer-review" hidden><p><b>Check:</b> definition → molecular model → energy/property consequence → application.</p></div></div>`).join('');
-  const visualHtml=visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" type="button" onclick="showVisual('${v[0]}')">Visual دیکھیں</button></div>`).join('');
+  const visualHtml=visualItems.map(v=>`<div class="visual-card">${img(v[0])}</div>`).join('');
   show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>ہر سوال کا جواب پہلے خود دیں، پھر explanation دیکھ کر اپنی reasoning درست کریں۔</p></div>${recallHtml}<div class="section standard"><span class="level-heading standard-h">2. Compare &amp; Contrast</span><p>Phase transitions اور liquid-crystal ordering کو definition، molecular mechanism اور observable consequence کے ذریعے compare کریں۔</p></div>${compareHtml}<div class="section standard"><span class="level-heading standard-h">3. Visual Recall</span><p>ہر Visual کو دیکھ کر phase transition، energy flow، molecular ordering یا device function اپنے الفاظ میں explain کریں۔</p></div>${visualHtml}<div class="section mastery"><span class="level-heading mastery-h">4. Final Guided Round</span><p>Lecture 16 کے تمام 14 subtopics بغیر notes کے explain کریں۔ جہاں جواب کمزور ہو متعلقہ Subtopic دوبارہ پڑھیں اور پھر readiness test دیں۔</p></div>`);
 }
 let masteryTTSModule=null;
@@ -736,9 +747,9 @@ function masteryTTSElements(){
  }
  const academic=root.querySelector('.mastery-definition');
  if(academic) academic.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,`Academic Understanding ${i+1}`));
- root.querySelectorAll('.section.mastery[data-mastery-subtopic]').forEach((section,i)=>{
+ root.querySelectorAll('.section.mastery-lesson').forEach((section,i)=>{
    const n=String(i+1).padStart(2,'0');
-   const title=section.querySelector('.mastery-subtopic-title');
+   const title=section.querySelector('.level-heading');
    if(title)push(title,`Subtopic ${n}`);
    section.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,`Subtopic ${n}`));
  });
@@ -848,7 +859,7 @@ async function playSpeechSynthesisChunk(item,chunks,chunk){
    const finish=(ok)=>{if(settled)return;settled=true;masteryTTSSpeechResolve=null;masteryTTSUsingSpeechSynthesis=false;ok?resolve():reject(new Error('Speech synthesis failed'));};
    const utter=new SpeechSynthesisUtterance(chunk);
    const voices=typeof speechSynthesis.getVoices==='function'?speechSynthesis.getVoices():[];
-   const urVoice=voices.find(v=>/^ur(-|$)/i.test(v.lang))||voices.find(v=>/^hi(-|$)/i.test(v.lang));
+   const urVoice=voices.find(v=>/^ur(-|$)/i.test(v.lang));
    if(urVoice)utter.voice=urVoice;
    utter.lang=urVoice?.lang||'ur-PK'; utter.rate=0.9; utter.pitch=1;
    utter.onend=()=>{masteryTTSChunkIndex++;finish(true);};
@@ -866,9 +877,6 @@ async function playNextMasteryChunk(item,chunks){
  if(masteryTTSChunkIndex>=chunks.length){masteryTTSIndex++;await playNextMasterySegment();return;}
  const chunk=chunks[masteryTTSChunkIndex];
  masteryTTSStatus(`${item.label} پڑھا جا رہا ہے…`,true);
- if(typeof speechSynthesis!=='undefined' && typeof SpeechSynthesisUtterance!=='undefined'){
-   try{await playSpeechSynthesisChunk(item,chunks,chunk);return;}catch(e){masteryTTSUsingSpeechSynthesis=false;}
- }
  const audio=new Audio(); audio.preload='auto'; audio.src=masteryGoogleTTSUrl(chunk); masteryTTSCurrentAudio=audio;
  updateMasteryPausePlayButton();
  await new Promise((resolve,reject)=>{
@@ -934,13 +942,19 @@ function openSearch(){
  window.renderAcademySearch=render;
  render('');
 }
+function visualOwnerTitle(id){
+ const topic=Object.values(topics).find(x=>x.visual===id);
+ if(topic)return 'Topic — '+topic.title;
+ const sub=Object.values(subs).find(x=>x.visual===id);
+ return sub ? 'Subtopic — '+sub.title : 'Academic Visual';
+}
 function openFunctional(k){
   if(k==='dictionary'){
     show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Lecture 16 relevant terminology</p><div class="dictionary-search-wrap"><input class="search" id="ds" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" style="text-align:left" placeholder="Type a word or letters…" oninput="updateDictionarySearchDirection(this);renderDict(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();openDictionarySearchPopup(this.value)}"><button type="button" id="dictClear" class="dictionary-clear" aria-label="Clear dictionary search" title="Clear search" onclick="resetDictionarySearch()">×</button></div><div id="dictList"></div>`);
     const input=document.getElementById('ds'); if(input){input.value='';input.dir='ltr';input.style.textAlign='left';}
     renderDict(''); setTimeout(()=>{if(input){input.focus();input.select();}},0);return;
   }
-  if(k==='visual'){show(`<div class="lesson-title">Visual Atlas</div><p class="lesson-subtitle">Lecture 16 Visual Atlas</p>${visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" type="button" onclick="showVisual('${v[0]}')">🖼 Visual کھولیں</button></div>`).join('')}`);return;}
+  if(k==='visual'){show(`${header()}<div class="page-title">Lecture 16 — Visual Atlas</div><h2 class="lesson-title">Visual Atlas</h2><p class="lesson-subtitle">Lecture 16 Visual Atlas — Topic/Subtopic visuals</p><div class="visual-atlas-grid">${visualItems.map(v=>{const owner=visualOwnerTitle(v[0]);return `<article class="visual-card atlas-card"><h3 class="atlas-heading">${esc(owner)}</h3>${img(v[0])}</article>`}).join('')}</div>`);return;}
   if(k==='search'){openSearch();return;}
   if(k==='practice'){openGuidedPractice();return;}
   if(k==='readiness'){openAssessment('readiness');return;}
@@ -951,11 +965,29 @@ function openFunctional(k){
     show(`<div class="lesson-title">Revision — Lecture 16</div><p class="lesson-subtitle">14 target subtopics کو active recall، comparison اور molecular reasoning کے ذریعے revise کریں۔</p>${revisionHtml}`);return;
   }
   if(k==='mastery'){
-    const lessons=Object.values(subs).map(x=>({id:x.id,title:x.title,visual:x.visual,def:x.basic,explain:x.standard,connect:x.extra,conclusion:'یہ concept Lecture 16 کے اگلے Mastery step کے ساتھ phase behaviour یا liquid-crystal molecular organisation کو مربوط کرتا ہے۔'}));
-    const mainVisual=visualSource('IAE1102050300V')||{};
-    const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Mastery Sound"><button type="button" onclick="speakMastery()">🔊 سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Main Topic Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Phase Changes &amp; Liquid-Crystal Concept</h2><p class="mastery-step"><b>تعریف:</b> Lecture 16 connects phase transitions, energy transfer, vapour pressure and molecular ordering with the properties and applications of liquid crystals.</p><p class="mastery-step">Lecture 16 کی chain ہے: <b>phase transition → energy transfer → equilibrium/temperature dependence → molecular ordering → anisotropic properties → applications</b>۔</p></div><figure class="mastery-visual"><img src="${esc(mainVisual.src||'')}" alt="Phase Changes and Liquid-Crystal Concept" loading="lazy" decoding="async"><figcaption><b>Phase Changes &amp; Liquid-Crystal Concept</b><br>IAE academic visual</figcaption></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">Phase-change reasoning identifies the direction of transition, energy sign, equilibrium condition and dependence on temperature and pressure.</p><p class="mastery-step">Liquid-crystal reasoning identifies molecular anisotropy, orientational order, optical response and controlled device behaviour.</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Phase Changes → Energy Changes during Phase Transitions → Evaporation → Vaporisation → Condensation → Melting and Freezing → Enthalpy → Vapour Pressure → Temperature Dependence → Liquid-Crystal Concept → Molecular Organisation → Properties → Applications → Advanced Liquid-Crystal Applications</p></div>${lessons.map(x=>`<div class="section mastery-lesson"><span class="level-heading standard-h">${esc(x.title)}</span><p class="mastery-step"><b>تعریف:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard:</b> ${esc(x.explain)}</p><p class="mastery-step"><b>Connection:</b> ${esc(x.connect)}</p>${visualLinkFor(x.visual)}</div>`).join("")}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete Lecture Mastery</span><p class="mastery-step">Final reasoning: <b>molecular state + energy transfer + equilibrium + molecular organisation → observable properties and controlled applications.</b></p></div></div></div>`;
-    show(html);return;
-  }
+  const urduMastery={
+   "IAE1102050301":{title:"Evaporation — تبخیر",def:"Evaporation وہ surface process ہے جس میں مائع کی سطح سے زیادہ kinetic energy رکھنے والے ذرات gas phase میں نکل جاتے ہیں۔ یہ عمل boiling point سے کم temperature پر بھی ہو سکتا ہے۔",standard:"Temperature بڑھنے، exposed surface area بڑھنے اور surface کے اوپر vapour ہٹنے سے Evaporation کی rate عموماً بڑھتی ہے۔ Stronger intermolecular attraction ذرات کے لیے escape مشکل بناتی ہے۔",connect:"Kinetic energy → surface escape → evaporative cooling۔"},
+   "IAE1102050302":{title:"Vaporisation — بخارات بننا",def:"Vaporisation مائع سے gas میں phase transition ہے۔ اس میں surface evaporation اور boiling دونوں شامل ہیں؛ boiling اس وقت ہوتا ہے جب vapour pressure external pressure کے برابر ہو۔",standard:"Vaporisation کے لیے intermolecular attractions کے خلاف separation energy درکار ہوتی ہے۔ Boiling میں liquid اور vapour dynamic equilibrium قائم کر سکتے ہیں۔",connect:"Liquid → gas؛ ΔH_vap > 0؛ P_vapour = P_external پر boiling۔"},
+   "IAE1102050303":{title:"Condensation — تکثیف",def:"Condensation وہ process ہے جس میں gas particles energy کھو کر دوبارہ liquid phase اختیار کرتے ہیں۔",standard:"Closed system میں vaporisation اور condensation بیک وقت جاری رہ سکتے ہیں اور equilibrium پر دونوں کی rates برابر ہو سکتی ہیں۔ Condensation، vaporisation کا reverse اور exothermic process ہے۔",connect:"Gas → liquid؛ ΔH_cond = −ΔH_vap۔"},
+   "IAE1102050304":{title:"Melting and Freezing — پگھلنا اور جمنا",def:"Melting میں solid liquid بنتا ہے جبکہ Freezing میں liquid دوبارہ solid بنتا ہے۔ Phase-transition temperature پر دونوں processes opposite directions میں ہو سکتے ہیں۔",standard:"Melting کے لیے energy absorb ہوتی ہے تاکہ molecular organisation اور attractive interactions کو مناسب حد تک کم کیا جا سکے۔ Freezing میں corresponding energy release ہوتی ہے۔",connect:"Solid ⇌ liquid؛ ΔH_fus > 0 اور ΔH_freeze = −ΔH_fus۔"},
+   "IAE1102050401":{title:"Liquid-Crystal Concept — مائع کرسٹل کا تصور",def:"Liquid crystal ایسی phase ہے جس میں fluid mobility برقرار رہتی ہے لیکن molecules میں significant orientational order بھی موجود ہوتا ہے۔",standard:"Liquid-crystal order temperature، composition اور applied electric field سے بدل سکتا ہے۔ یہی partial order اسے ordinary liquid اور rigid crystal دونوں سے ممتاز کرتا ہے۔",connect:"Fluid mobility + molecular order → liquid-crystalline behaviour۔"},
+   "IAE1102050402":{title:"Properties — خصوصیات",def:"Liquid crystals میں molecular orientation کی وجہ سے optical، dielectric اور دوسری physical properties direction کے ساتھ بدل سکتی ہیں۔",standard:"Molecular alignment اور polarisation optical response کو control کر سکتے ہیں۔ بہت سے display materials میں electric field orientation بدل کر light transmission تبدیل کرتا ہے۔",connect:"Molecular orientation → anisotropy → controllable optical response۔"},
+   "IAE1102050403":{title:"Applications — اطلاقات",def:"Liquid-crystal technology controlled molecular orientation کے ذریعے light کو regulate کرتی ہے۔ ایک معروف application Liquid-Crystal Display یعنی LCD ہے۔",standard:"LCD میں polarizers، electrodes اور liquid-crystal layer مل کر کام کرتے ہیں۔ Applied voltage molecular alignment بدلتا ہے اور optical transmission میں تبدیلی پیدا ہوتی ہے۔",connect:"Electrical control → molecular alignment change → optical transmission change → displayed information۔"},
+   "IAE1102050305":{title:"Enthalpy of Phase Transitions — تبدیلیِ حالت کی Enthalpy",def:"Phase transition کی enthalpy change وہ heat ہے جو constant pressure پر phase change کے دوران absorb یا release ہوتی ہے۔ معمول کی صورت میں q_p = ΔH۔",standard:"ΔH_vap vaporisation اور ΔH_fus melting کی molar enthalpies ہیں۔ Reverse transitions میں magnitude برابر اور sign opposite ہوتا ہے۔",connect:"q = nΔH_transition؛ mass-specific latent heat کے لیے Q = mL۔"},
+   "IAE1102050404":{title:"Molecular Ordering and Advanced Applications — سالماتی تنظیم",def:"Liquid-crystal behaviour ایک isolated molecule کے بجائے بہت سے molecules کی collective ordering سے پیدا ہوتا ہے۔ Ordered domains direction-dependent response دے سکتے ہیں۔",standard:"Temperature، surfaces اور electric fields molecular orientation کو بدل سکتے ہیں۔ اس طرح molecular order ایک controllable design variable بن جاتا ہے۔",connect:"Molecular shape → ordering → anisotropy → controlled response → device function۔"},
+   "IAE1102050306":{title:"Vapour Pressure and Evaporation — بخاراتی دباؤ اور تبخیر",def:"Vapour pressure وہ pressure ہے جو کسی specified temperature پر condensed phase کے ساتھ equilibrium میں موجود vapour exert کرتا ہے۔",standard:"Temperature بڑھنے سے vapour pressure عموماً بڑھتا ہے کیونکہ زیادہ particles gas phase میں جانے کے لیے کافی energy حاصل کرتے ہیں۔ Stronger intermolecular attraction عموماً vapour pressure کم کرتی ہے۔",connect:"Temperature ↑ → vapour pressure ↑؛ boiling when P_vapour = P_external۔"},
+   "IAE1102050307":{title:"Energy Changes during Phase Transitions — توانائی کی تبدیلی",def:"Phase transitions کے دوران energy absorb یا release ہوتی ہے، جبکہ pure substance کے ideal phase transition میں temperature عموماً constant رہتا ہے۔",standard:"Melting اور vaporisation endothermic ہیں؛ freezing اور condensation exothermic ہیں۔ یہ energy molecular organisation اور separation سے متعلق ہے۔",connect:"Q_total = Σ(mcΔT) + Σ(mL) جہاں temperature change اور latent heat دونوں شامل ہوں۔"},
+   "IAE1102050405":{title:"Liquid-Crystal Molecular Organisation — مائع کرسٹل کی سالماتی تنظیم",def:"Liquid-crystal molecules ordered arrangement بنا سکتے ہیں جس میں ان کے long axes preferential direction میں align ہوں، لیکن material پھر بھی flow کر سکتا ہے۔",standard:"اس structure کو complete positional order کے بجائے orientational order سے بیان کیا جاتا ہے۔ Alignment optical properties پر نمایاں اثر ڈالتی ہے۔",connect:"Orientational order + fluid mobility → anisotropic liquid-crystal properties۔"},
+   "IAE1102050308":{title:"Temperature Dependence of Phase Change — درجۂ حرارت کا اثر",def:"Temperature particles کی kinetic-energy distribution بدلتا ہے، اس لیے phase transitions کی rates اور equilibrium conditions بھی متاثر ہوتی ہیں۔",standard:"Temperature بڑھنے سے vapour pressure عموماً بڑھتا ہے۔ Transition temperature pressure پر بھی depend کرتا ہے؛ external pressure کم ہو تو boiling temperature بھی کم ہو سکتی ہے۔",connect:"Temperature ↑ → kinetic-energy distribution changes → vapour pressure generally ↑؛ pressure changes transition conditions۔"},
+   "IAE1102050406":{title:"Advanced Liquid-Crystal Applications — جدید اطلاقات",def:"Advanced liquid-crystal applications controllable molecular orientation کے ذریعے light، sensing، imaging اور دوسرے device responses کو regulate کرتی ہیں۔",standard:"LCD میں applied field liquid-crystal layer کی molecular alignment بدلتا ہے، جس سے cell کی optical state تبدیل ہوتی ہے۔ مختلف phases اور responsive materials مزید advanced applications دے سکتے ہیں۔",connect:"Stimulus → molecular reorientation → anisotropic property change → engineered device output۔"}
+  };
+  const lessons=Object.values(subs).map(x=>{const u=urduMastery[x.id]||{title:x.title,def:x.basic,standard:x.standard,connect:x.extra};return {...u,id:x.id,visual:x.visual};});
+  const uniqueVisuals=[];
+  const seenVisuals=new Set();
+  lessons.forEach(x=>{const src=(visualSource(x.visual)||{}).src;if(src && !seenVisuals.has(src)){seenVisuals.add(src);uniqueVisuals.push({id:x.visual,src,title:x.title});}});
+  const visualHtml=uniqueVisuals.map(v=>`<figure class="mastery-visual" data-visual-src="${esc(v.src)}"><img src="${esc(v.src)}" alt="${esc(v.title)}" loading="eager" decoding="async" referrerpolicy="no-referrer"><figcaption><b>${esc(v.title)}</b><br>یہ visual اسی concept کو سمجھانے کے لیے Mastery میں براہِ راست دکھایا گیا ہے۔</figcaption></figure>`).join('');
+  const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Mastery کی اردو آواز"><button type="button" onclick="speakMastery()">🔊 سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Main Concept — مرکزی تصور</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);direction:rtl;">Phase Changes &amp; Liquid-Crystal Concept — تبدیلیِ حالت اور مائع کرسٹل</h2><p class="mastery-step"><b>تعریف:</b> Phase change میں مادہ اپنی physical state بدلتا ہے جبکہ chemical identity برقرار رہتی ہے۔ Liquid crystal میں fluid mobility کے ساتھ molecular ordering بھی موجود ہوتی ہے۔</p><p class="mastery-step">اس Lecture کی بنیادی chain ہے: <b>molecular motion → intermolecular attraction → energy change → phase transition → equilibrium &amp; vapour pressure → molecular ordering → optical &amp; electrical properties</b>۔</p></div>${visualHtml}<div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding — تعلیمی سمجھ</span><p class="mastery-step">اس Mastery میں <b>Evaporation, Vaporisation, Condensation, Melting, Freezing, Enthalpy, Vapour Pressure</b> اور <b>Liquid-Crystal Molecular Organisation</b> کو particle-level reasoning کے ساتھ جوڑا گیا ہے۔</p><p class="mastery-step">Advanced understanding میں <b>structure, intermolecular interaction, molecular ordering, anisotropy</b> اور <b>device function</b> کے درمیان واضح تعلق قائم کیا جاتا ہے۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression — لیکچر کی پیش رفت</span><p class="mastery-step" style="text-align:center;direction:rtl;">Phase Changes → Energy Changes → Evaporation → Vaporisation → Condensation → Melting &amp; Freezing → Enthalpy → Vapour Pressure → Temperature Dependence → Liquid-Crystal Concept → Molecular Organisation → Properties → Applications → Advanced Applications</p></div>${lessons.map(x=>`<div class="section mastery-lesson" dir="rtl"><span class="level-heading standard-h">${esc(x.title)}</span><p class="mastery-step"><b>تعریف:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard Understanding:</b> ${esc(x.standard)}</p><p class="mastery-step"><b>Connection:</b> ${esc(x.connect)}</p></div>`).join("")}<div class="section mastery-conclusion" dir="rtl"><span class="level-heading mastery-h">Complete Lecture Mastery — مکمل Mastery</span><p class="mastery-step">حتمی reasoning: <b>particle motion + intermolecular attraction + energy transfer → phase behaviour → molecular ordering → measurable properties and device behaviour</b>۔</p></div></div></div>`;
+  show(html);return;}
   if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Academic applicability</b><p>Lecture 16 میں کوئی separate laboratory procedure supplied نہیں ہے۔ Approved practical architecture retained ہے؛ target-specific academic practical payload N/A ہے.</p></div>`);return;}
 }
 
@@ -1046,5 +1078,19 @@ window.addEventListener('message',e=>{if(e.data&&e.data.type==='IAE_HIT_CEILING_
 function initMainContentContainer(){const host=getMainHost();if(host&&host.innerHTML.trim()==='')showPage('topicsPage');}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMainContentContainer,{once:true});else initMainContentContainer();
 </script>
-</div></body>
+</div>
+<script>
+/* CCSV4 L16 repair guard: complete Urdu lecture mastery speech. */
+window.CCSV4_L16_REPAIR = true;
+function cCSV4SpeakLectureMastery(){
+ const root=document.querySelector('[data-lecture-mastery], #lecture-mastery, .lecture-mastery');
+ const text=(root||document.body).innerText||'';
+ if(!('speechSynthesis' in window)) return false;
+ speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(text);
+ u.lang='ur-PK'; u.rate=.9;
+ speechSynthesis.speak(u); return true;
+}
+</script>
+<!-- CCSV4 L16 REPAIR-4: Visual Atlas rebuilt as in-page SVG preview cards with preserved Topic/Subtopic headings. Topic/Subtopic pages keep the heading and place the SVG preview on the left. No external visual buttons/links or duplicate visual assignments are permitted. --></body>
 </html>
