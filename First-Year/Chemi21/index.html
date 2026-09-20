@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ur">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>IAE1102070200 + IAE1102070300 — Equilibrium Shifts & Industrial Equilibrium — Lecture 21</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--shadow:0 8px 24px rgba(23,62,52,.10)}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic','Noto Nastaliq Urdu','Segoe UI',Tahoma,Arial,sans-serif;line-height:1.9}
+.wrap{width:100%;height:100dvh;overflow:hidden}
+.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden;border:3px solid var(--gold)}
+.page.active{display:block}
+.top,.screen-header{position:relative;width:100%;padding:23px 0 21px;border-bottom:3px solid var(--gold);background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;box-shadow:0 3px 13px #0002}
+.top-inner,.screen-header-inner{width:100%;padding:0 clamp(9px,3vw,28px);display:flex;align-items:center;gap:clamp(8px,2vw,18px);direction:ltr}
+.top-brand,.screen-brand{flex:1;min-width:0;text-align:left}
+.top-subtitle{margin-top:1px}
+.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(20px,5.5vw,30px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95;position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:max-content;max-width:70%;text-align:center}
+.top-logo,.screen-seal{flex:0 0 clamp(60px,11vw,140px);width:clamp(60px,11vw,140px);height:clamp(48px,8vw,95px);overflow:hidden}
+.top-logo img,.screen-seal img{width:100%;height:100%;object-fit:contain}
+.subject-label{max-width:1180px;margin:0 auto;padding:6px 14px 0;text-align:left;direction:ltr;color:var(--green);font:700 16px/1.3 Arial,sans-serif}
+.page-title{max-width:1180px;margin:auto;padding:6px 14px;text-align:center;color:var(--green);font-size:clamp(21px,3.5vw,32px);font-weight:800}
+.section-card{max-width:1180px;margin:0 auto;padding:18px 24px;background:#fff;border-bottom:1px solid var(--line)}
+.section-card strong{display:block;color:var(--green);font-size:20px;margin-bottom:6px}
+.section-card p,.section-card li{font-size:16px}
+.topic-grid{max-width:1180px;margin:auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}
+#topicsPage .subject-label,#topicsPage .page-title,#topicsPage .section-heading{position:relative;top:-10px}
+#topicsPage .subject-label{padding-top:9px;}
+#topicsPage .topic-grid{margin-top:-2px;}
+.column{display:flex;flex-direction:column;gap:1px;min-width:0;align-self:start}
+.column>.main-topic-large,.column>.previous-page-tab,.column>.tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;}
+.column:nth-child(2){border:1px solid var(--sky);border-radius:16px;margin-top:0;}
+/* IAE FINAL COLUMN-BALANCE: both columns start at the same top edge; every tab uses identical 105px height. */
+ .topic-control-row{max-width:1180px;width:100%;margin:0 auto 1px;display:flex;direction:ltr;align-items:stretch;justify-content:space-between;gap:1px}.main-topic-large{width:100%;min-height:105px;margin:0 0 0 auto;border:5px solid var(--sky);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05)}
+
+.tab{min-height:105px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05);border:2px solid var(--sky)}
+.tab.topic2{border:1px solid var(--green)}
+.tab.functional{border-color:var(--red)}
+.tab:hover{transform:translateY(-1px)}
+.previous-page-tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05)}
+.previous-page-tab .num{color:var(--red)}
+.previous-page-tab .label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.previous-page-tab:hover{transform:translateY(-1px)}
+.topic-intro{height:105px;min-height:105px;max-height:105px}
+.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 58px/1 Inter,sans-serif;color:var(--sky);opacity:.9}
+.topic2 .num{color:#b9e9c3}.functional .num{color:var(--red)}
+.label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.section-heading{text-align:center;color:var(--green);font-size:24px;margin:4px auto 1px;max-width:1180px}
+.section-note{text-align:center;color:#475569;max-width:1000px;margin:0 auto 10px;padding:0 12px}
+.footer-nav{max-width:1180px;margin:8px auto 0;padding:0;position:sticky;bottom:0;background:transparent;border-top:0;display:flex;justify-content:center;z-index:20}
+button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessment-actions button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}.footer-nav button{background:var(--green);color:#fff;border-color:var(--green)}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:50}
+.modal.show{display:block}
+.modal.dict-modal{display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
+.modal.dict-modal .dialog{width:min(92vw,680px);height:auto;max-height:88dvh;margin:0;border-radius:18px;padding:24px 28px 72px;box-shadow:0 18px 55px rgba(15,23,42,.22)}
+.dialog{width:100%;height:100dvh;background:#fff;overflow-y:auto;overflow-x:hidden;padding:0 28px 90px}
+#content{width:100%;padding-bottom:10px}
+#content>.screen-header{width:calc(100% + 56px);margin:0 -28px 18px;position:sticky;top:0;z-index:100}
+.close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003}
+.lesson-title{font-size:27px;font-weight:700;margin:0 0 12px;text-align:center}
+.lesson-subtitle{text-align:center;color:#64748b;margin:-4px 0 14px}
+.topic-head,.subtopic-head{max-width:1180px;margin:0 auto 14px;display:flex;direction:ltr;align-items:center;gap:14px;padding:10px 0 14px;border-bottom:1px solid #e2e8f0}
+.topic-visual{width:40px;height:40px;flex:0 0 40px;border:0;border-radius:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.topic-visual img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.topic-visual svg{display:block;width:40px;height:40px;max-width:40px;max-height:40px}
+.topic-head-text,.subtopic-head-text{direction:rtl;text-align:right;flex:1;min-width:0}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;margin:0;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
+.section,.visual-card,.question-card,.assessment-head,.exam-rules,.recommendation-card,.answer-review,.revision-item,.search-result{max-width:1180px;margin:10px auto;padding:14px;border-radius:14px;background:#f8fafc}
+.section.basic{border-right:5px solid #ef4444}.section.standard{border-right:5px solid #22c55e}.section.mastery{border-right:5px solid #3b82f6}
+.level-heading{display:block;font-size:18px;font-weight:800;margin-bottom:5px}.basic-h{color:#dc2626}.standard-h{color:#16a34a}.mastery-h{color:#2563eb}
+.section p,.section li{font-size:14px;line-height:1.9}
+.pill,.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial}
+.inline-note{padding:10px 12px;border-radius:10px;background:var(--warn);border-right:4px solid var(--gold);margin:10px auto;max-width:1180px}
+.dictionary-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.18);overflow:auto;cursor:pointer}.dictionary-dialog{position:relative;width:min(720px,calc(100% - 24px));max-height:calc(100% - 36px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 16px 45px rgba(15,23,42,.22);padding:24px 20px 64px;cursor:default}.dictionary-close{position:absolute;bottom:10px;right:10px;left:auto;top:auto;width:44px;height:44px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#475569;z-index:2}.dictionary-close:hover,.dictionary-close:focus{color:#b42318;background:#f8fafc;outline:none}@media(max-width:760px){.dictionary-dialog{padding:20px 16px 62px}.dictionary-close{bottom:10px;right:10px;width:48px;height:48px;font-size:30px}}.dict-modal .dictionary-dialog{animation:dictIn .14s ease-out}@keyframes dictIn{from{transform:translateY(6px);opacity:.7}to{transform:translateY(0);opacity:1}}
+.linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;border:0;box-shadow:none;text-decoration:none;outline:none}.linked-word:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.diagram{direction:ltr;text-align:center;font:700 14px/1.8 Inter,sans-serif;background:#f8fafc;padding:16px;border-radius:12px;white-space:pre-wrap;overflow:auto}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #dbe4ee;padding:9px;text-align:right;vertical-align:top}th{background:#edf5ef}
+.search{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}
+.dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover,.search-result:hover{background:#f8fafc}
+.visual-card{border:1px solid #e2e8f0;background:#fff}.visual-id{display:block;font:700 11px Inter;color:#876821;direction:ltr}
+.atlas-img{display:block;max-width:100%;height:auto;border-radius:12px;margin:10px auto;border:1px solid #e2e8f0}
+.choice,.assessment-option{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-option{display:flex;gap:8px;align-items:flex-start}.assessment-option input{margin-top:6px}
+.assessment-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px auto;max-width:1180px}
+.exam-submit{background:var(--green)!important;color:#fff}
+.assessment-result{display:none;max-width:1180px;margin:18px auto}.assessment-result.show{display:block}
+.result-hero{padding:20px;border-radius:16px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}
+.result-title{font-weight:800;color:#285b4b;font-size:20px}.result-score{font:800 38px Arial;color:#173e34}.result-percent{font:700 16px Arial;color:#876821}
+.recommendation-title{max-width:1180px;margin:18px auto 8px;font-weight:800;color:#285b4b}
+.answer-review{border-right:4px solid #4d7867}.review-wrong{border-right-color:#b94a48}
+.content-navigation{max-width:1180px;margin:0 auto 18px;padding:0 0 2px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;direction:rtl}.modal.level3-modal>.dialog>.close{display:none}
+.content-navigation button{border:0;background:var(--green);color:#fff;padding:11px 28px;border-radius:10px;cursor:pointer;font:700 14px Arial;min-width:150px}
+.main-lecture{margin-top:8px}.main-lecture .level-heading{text-align:center;font-size:16px}.main-lecture p{font-size:14px;line-height:1.9}.topic-head-text .lesson-title{font-size:16px;direction:ltr;unicode-bidi:isolate}.content-navigation{margin-top:15px;margin-bottom:20px}
+.modal.level3-modal>.dialog{padding-bottom:18px}
+@media(max-width:760px){.dialog{padding:0 18px 88px}.dialog #content>.screen-header{width:calc(100% + 36px);margin:0 -18px 14px}.topic-grid{gap:1px;padding:0}.tab{min-height:100px}.label{font-size:14px}.topic-visual{width:62px;height:54px;flex-basis:62px}.section p,.section li{font-size:14px}}
+@media(max-width:420px){.top-brand h1,.screen-brand h1{font-size:17px}.top-brand p,.screen-brand p{font-size:8px}.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:0 4px}.column{gap:5px}.column>.main-topic-large,.column>.tab{height:84px;min-height:84px;max-height:84px}.label{font-size:11.5px;line-height:1.3;max-width:94%}.num{font-size:40px}.dialog{padding-inline:14px}.dialog #content>.screen-header{width:calc(100% + 28px);margin-inline:-14px}.lesson-title{font-size:16px}}
+
+/* Final presentation refinements */
+/* Uniform Level-3 heading standard: centered English title + small SVG at left */
+.topic-head,.subtopic-head{align-items:center}
+.topic-head-text,.subtopic-head-text{text-align:center}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
+.topic-visual svg{display:block;width:42px;height:42px;max-width:42px;max-height:42px;font-size:14px}
+
+/* Topics Page header spacing refinement */
+#topicsPage .page-title { margin-bottom: 2px !important; }
+#topicsPage h1 { margin-top: 0 !important; margin-bottom: 3px !important; }
+#topicsPage .brand-strip { margin-top: 3px !important; padding-top: 2px !important; padding-bottom: 2px !important; }
+
+.main-tabs{width:100%;display:flex;justify-content:center;margin:8px 0 3px;padding:0 3px;position:relative;z-index:40}.main-tab{min-width:150px;padding:10px 24px;border:2px solid var(--green);border-radius:12px;background:var(--green);color:#fff;font:800 15px/1.2 Arial,sans-serif;cursor:pointer;box-shadow:0 3px 10px rgba(23,62,52,.12)}.main-tab:active{transform:translateY(1px)}.main-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* LECTURE 02 — SHARED CONTENT CONTAINER ARCHITECTURE */
+.main-content-container{width:calc(100% - 6px);margin:3px;height:calc(100dvh - 6px);min-height:0;max-height:calc(100dvh - 6px);overflow:auto;border:1px solid var(--line);background:var(--paper);overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;}
+.main-content-container>.content-view{width:100%;min-height:100%;padding:0 0 88px;min-width:0;overflow-x:hidden;}
+.main-content-container .view-header{position:sticky;top:0;z-index:30;background:var(--paper);padding:6px 8px 3px;border-bottom:1px solid var(--line);min-height:42px;}
+.main-content-container .view-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.main-content-container .view-close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border:1px solid #cbd5e1;border-radius:50%;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003;display:grid;place-items:center;}
+#mainContentContainer .topic-grid{width:100%;max-width:none;padding:0 3px;gap:1px;}
+#mainContentContainer .section-heading,#mainContentContainer .subject-label,#mainContentContainer .page-title{max-width:none;}
+#mainContentContainer .content-navigation{padding-bottom:3px;}
+#mainContentContainer .content-view{padding-bottom:72px;}
+#mainContentContainer .previous-page-tab{margin-bottom:48px;scroll-margin-bottom:48px;}
+#homePage{overflow:hidden;}
+/* HIT THE CEILING — full shared-container view, no inner page scroll */
+#mainContentContainer .content-view.hit-ceiling-view{height:100%;min-height:100%;padding:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;}
+#mainContentContainer .hit-ceiling-shell{height:100%;min-height:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;position:relative;}
+#mainContentContainer .hit-ceiling-frame{display:block;width:100%;height:auto !important;min-height:0;grid-row:1;align-self:stretch;border:0;margin:0;padding:0;overflow:hidden;}
+#mainContentContainer .hit-ceiling-back{display:none !important;}
+#mainContentContainer .hit-ceiling-back button{display:grid;place-items:center;width:50px;height:50px;border:2px solid #111827;border-radius:50%;background:#fff;cursor:pointer;position:relative;z-index:1000;box-shadow:0 4px 14px rgba(0,0,0,.22);font-size:0;line-height:1;}
+#mainContentContainer .hit-ceiling-back button:active{transform:scale(.94);}
+#mainContentContainer .hit-ceiling-back button::before{content:"×";font:900 35px/1 Arial,sans-serif;color:#ef4444;background:linear-gradient(135deg,#ef4444 0%,#f59e0b 24%,#22c55e 48%,#06b6d4 68%,#3b82f6 84%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;}
+#mainContentContainer .hit-ceiling-back button:hover{transform:scale(1.06);box-shadow:0 6px 18px rgba(0,0,0,.28);}
+#mainContentContainer .hit-ceiling-back button:focus-visible{outline:3px solid #2563eb;outline-offset:2px;}
+/* HIT THE CEILING answer choices: all four boxes have equal dimensions */
+.hit-ceiling-frame{ }
+
+
+:root{font-synthesis:none} .chemistry-label{letter-spacing:.02em} .screen-brand h1,.page-title,.section-heading,.lesson-title,.level-heading{font-family:'Inter','Segoe UI',Arial,sans-serif}
+
+/* LAYOUT + NAVIGATION v2 */
+.topic-grid{max-width:1180px;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start}
+.column{display:flex;flex-direction:column;gap:8px;min-width:0;align-self:start}
+.column:nth-child(2){border:0;margin-top:0}
+.column>.main-topic-large,.column>.tab{width:100%;height:96px;min-height:96px;max-height:96px;margin:0}
+.main-topic-large{border-width:4px}
+.tab{outline:none;transition:transform .15s ease,box-shadow .15s ease}
+.tab:hover,.main-topic-large:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(15,23,42,.08)}
+.tab:focus-visible,.main-topic-large:focus-visible,.previous-page-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.label{font-size:15px;line-height:1.45}
+.lecture-navigation{max-width:1180px;margin:10px auto 22px;padding:0;display:flex;justify-content:center}
+.lecture-navigation .previous-page-tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;cursor:pointer;box-shadow:0 5px 15px rgba(15,23,42,.05);font:700 15px/1.3 'Inter','Segoe UI',Arial,sans-serif;color:var(--red)}
+.lecture-navigation .nav-arrow{font-size:24px;line-height:1}
+@media(max-width:760px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;padding:0 6px;align-items:start}.column{gap:1px;min-width:0}.column>.main-topic-large,.column>.tab,.column>.previous-page-tab{height:88px;min-height:88px;max-height:88px;width:100%;margin:0}.label{font-size:12.5px;line-height:1.35;max-width:92%;overflow-wrap:anywhere}.num{font-size:44px}.lecture-navigation{padding:0 6px}.lecture-navigation .previous-page-tab{height:88px;min-height:88px;max-height:88px;width:100%}.lecture-navigation .previous-page-tab .label{font-size:13px}}
+@media(max-width:760px){
+  #mainContentContainer .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;display:grid !important;gap:1px !important;padding:0 6px !important;}
+  #mainContentContainer .topic-grid>.column{display:flex !important;flex-direction:column !important;min-width:0 !important;width:auto !important;}
+}
+@media(max-width:420px){
+  #mainContentContainer .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:1px !important;padding:0 4px !important;}
+}
+#mainContentContainer{
+  scroll-padding-top:12px !important;
+  scroll-padding-bottom:180px !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+}
+#mainContentContainer .content-view{
+  min-height:calc(100% + 120px) !important;
+  padding-bottom:180px !important;
+}
+#mainContentContainer .lecture-navigation{
+  padding-bottom:0 !important;
+  margin-bottom:100px !important;
+}
+#mainContentContainer .previous-page-tab{
+  margin-bottom:0 !important;
+  scroll-margin-bottom:100px !important;
+}
+@media(max-width:760px){
+  #mainContentContainer .content-view{padding-bottom:180px !important;}
+  #mainContentContainer .lecture-navigation{margin-bottom:100px !important;}
+}
+@media(max-width:420px){
+  #mainContentContainer .content-view{padding-bottom:200px !important;}
+  #mainContentContainer .lecture-navigation{margin-bottom:110px !important;}
+}
+
+.topic-grid{gap:1px !important;}
+.topic-grid>.column{gap:1px !important;}
+.lecture-navigation{width:100% !important;max-width:none !important;margin:1px 0 22px !important;padding:0 !important;}
+.lecture-navigation .previous-page-tab{width:100% !important;height:105px !important;min-height:105px !important;max-height:105px !important;margin:0 !important;}
+@media(max-width:760px){
+  #mainContentContainer .topic-grid{gap:1px !important;}
+  #mainContentContainer .topic-grid>.column{gap:1px !important;}
+  .lecture-navigation .previous-page-tab{height:88px !important;min-height:88px !important;max-height:88px !important;width:100% !important;}
+}
+@media(max-width:420px){
+  .lecture-navigation .previous-page-tab{height:84px !important;min-height:84px !important;max-height:84px !important;}
+}
+
+/* Dictionary Friendly UX — clear control, match emphasis, no-result state */
+.dictionary-search-wrap{position:relative;width:100%;}
+.dictionary-search-wrap .search{padding-right:48px;}
+.dictionary-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#64748b;font-size:22px;line-height:1;cursor:pointer;display:none;z-index:2;}
+.dictionary-clear:hover,.dictionary-clear:focus{background:#f1f5f9;color:#b42318;outline:none;}
+.dict-match{font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;}
+.dict-empty{padding:18px 12px;text-align:center;border:1px dashed #cbd5e1;border-radius:12px;color:#64748b;background:#f8fafc;}
+@media(max-width:760px){.dictionary-search-wrap .search{padding-right:52px;}.dictionary-clear{width:40px;height:40px;font-size:24px;}}
+
+
+/* L1 Examination — calibrated from approved Lecture 02 examination architecture */
+.assessment-fullscreen{padding:0 10px 80px!important;overflow-x:hidden}
+.assessment-fullscreen .assessment-shell{width:100%;max-width:1240px;margin:0 auto}
+.assessment-questionnaire{width:100%;display:block}
+.assessment-questionnaire .question-card{width:100%;max-width:1180px;box-sizing:border-box;margin:12px auto;padding:16px}
+.assessment-questionnaire .question-card + .question-card{margin-top:12px}
+.assessment-questionnaire .question-status{display:block}
+.assessment-questionnaire .pill{display:inline-block}
+.assessment-fullscreen .content-navigation{display:none}
+.assessment-fullscreen .assessment-actions{position:sticky;bottom:8px;z-index:30;padding:10px;background:rgba(255,255,255,.96);border:1px solid #dbe4e0;border-radius:12px}
+.assessment-fullscreen .view-close{z-index:40}
+.assessment-fullscreen .assessment-result{width:100%;box-sizing:border-box}
+.assessment-fullscreen .exam-progress{max-width:1180px;margin:10px auto;padding:12px 14px;border-radius:14px;background:#eef6f2;border:1px solid #c8ddd4;position:sticky;top:6px;z-index:25}
+.exam-progress .progress-label{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}
+.exam-progress .progress-track{height:10px;background:#dbe8e2;border-radius:999px;overflow:hidden}
+.exam-progress .progress-bar{height:100%;width:0%;background:var(--green);transition:width .2s ease}
+.assessment-questionnaire .answer-option{display:flex;align-items:flex-start;gap:9px;margin:7px 0;padding:10px 11px;border:1px solid #dbe4e0;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-questionnaire .answer-option:hover{border-color:var(--green);background:#f6fbf8}
+.assessment-questionnaire .answer-option input{margin-top:4px;accent-color:var(--green)}
+.assessment-questionnaire .question-status{font-size:12px;font-weight:700;color:#64748b;margin-top:7px}
+@media(max-width:600px){.assessment-fullscreen{padding-left:6px!important;padding-right:6px!important}.assessment-questionnaire .question-card{padding:13px}.assessment-fullscreen .assessment-actions{bottom:4px}.exam-progress{top:2px!important}}
+
+.visual-popup-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(15,23,42,.72);overflow:auto}.visual-popup-dialog{position:relative;width:min(1100px,96vw);height:min(92vh,900px);background:#fff;border-radius:18px;box-shadow:0 22px 70px #0007;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;overflow:hidden}.visual-popup-dialog .atlas-img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}.visual-popup-media{max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.visual-popup-media .atlas-img{max-height:calc(92vh - 78px)}.visual-popup-close{position:absolute;right:12px;bottom:12px;top:auto;width:44px;height:44px;border:1px solid #d8c78d;border-radius:50%;background:#fff;color:#173e34;font:700 28px Inter;cursor:pointer;z-index:3;box-shadow:0 4px 14px #0003}.visual-popup-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}@media(max-width:650px){.visual-popup-overlay{padding:8px}.visual-popup-dialog{width:96vw;height:88vh;padding:10px;border-radius:14px}.visual-popup-close{width:42px;height:42px;right:8px;bottom:8px;top:auto}}
+
+.formula-box{max-width:1180px;margin:12px auto;padding:16px;border:1px solid var(--gold);border-radius:14px;background:#fffdf7;text-align:center;font:800 18px/1.8 Inter,Arial,sans-serif;direction:ltr;overflow:auto}.formula-box small{display:block;font:500 12px/1.6 Arial;color:var(--muted);margin-top:4px}.visual-card .visual-link{margin-top:8px}
+
+.mastery-reading .mastery-vision{border-right:5px solid var(--blue);background:linear-gradient(135deg,#f8fbff,#fffdf8)}
+.mastery-reading .mastery-definition{border-right:5px solid var(--green2);background:#fbfdfb}
+.mastery-reading .mastery-connection{border-right:5px solid var(--gold);background:#fffaf0}
+.mastery-reading .mastery-conclusion{border-right:5px solid var(--green);background:#f7fbf8}
+.mastery-reading .mastery-visual{margin:14px auto 16px;max-width:900px;padding:12px;border:1px solid var(--gold);border-radius:16px;background:#fffdf8;text-align:center;box-shadow:0 5px 18px #214b3a12}
+.mastery-reading .mastery-visual img{display:block;width:100%;height:auto;min-height:220px;max-height:520px;object-fit:contain;border-radius:10px;background:#fff;margin:auto}
+.mastery-reading .mastery-visual figcaption{font-size:13px;line-height:1.8;color:var(--muted);margin-top:8px}
+.mastery-reading .mastery-sound{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin:8px auto 14px;direction:rtl}
+.mastery-reading .mastery-sound button{border:1px solid var(--gold);border-radius:9px;padding:7px 11px;background:#fffaf0;color:var(--green);font:800 12px Arial,sans-serif;cursor:pointer}
+.mastery-reading .mastery-sound button:hover{filter:brightness(.98)}
+.mastery-reading .mastery-source-note{font-size:11px;color:var(--muted);text-align:center;margin:10px auto 16px;line-height:1.7}
+.mastery-reading .mastery-subtopic-title{font-size:21px!important;color:var(--green);margin:0 0 8px!important}
+.mastery-reading .mastery-step{font-size:15px!important;line-height:2!important}
+@media(max-width:650px){.mastery-reading{max-height:none}.mastery-reading .mastery-visual img{max-height:280px}.mastery-reading .mastery-sound button{padding:8px 10px}}
+
+
+.mastery-tts-status{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:4px 10px;border-radius:999px;font-size:.82rem;background:var(--soft,#edf5ef);color:var(--green,#173e34);font-weight:700;direction:rtl;}
+.mastery-tts-status[data-busy="1"]{animation:iaeTtsPulse 1.2s ease-in-out infinite;}
+.mastery-tts-active{outline:3px solid rgba(197,155,53,.55);outline-offset:4px;border-radius:8px;background:rgba(242,212,111,.14);transition:all .2s ease;}
+.mastery-tts-active-title{outline:3px solid rgba(197,155,53,.55);outline-offset:3px;border-radius:8px;background:rgba(242,212,111,.14);padding-inline:8px;transition:all .2s ease;}
+@keyframes iaeTtsPulse{50%{opacity:.58;}}
+
+.topic-feature-row{max-width:1180px;width:100%;margin:0 auto 1px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;direction:ltr;}
+.topic-feature-row .tab{height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--green);background:#fff;}
+.topic-feature-row .feature-master{grid-column:2;grid-row:1;direction:rtl;border-top-color:var(--sky);border-right-color:var(--sky);border-left-color:var(--green);border-bottom-color:var(--green);}
+.topic-feature-row .feature-visual{grid-column:1;grid-row:1;direction:rtl;border-top-color:var(--sky);border-right-color:var(--sky);border-left-color:var(--green);border-bottom-color:var(--green);}
+.topic-feature-row .label{font-size:16px;font-weight:800;background:linear-gradient(90deg,#3568a8 0 50%,#b83b3b 50% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.topic-feature-row .num{color:transparent;background:linear-gradient(90deg,#3568a8 0 50%,#b83b3b 50% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+@media(max-width:760px){.topic-feature-row .tab{height:88px;min-height:88px;max-height:88px}.topic-feature-row .label{font-size:13px}}
+
+.academic-visual-link{display:block;width:max-content;max-width:100%;margin:8px auto 0;font-size:12px!important;}
+.topic-head-text .academic-visual-link,.subtopic-head-text .academic-visual-link{margin-top:8px;}
+.mastery-lesson .academic-visual-link{margin:10px auto 0;}
+.visual-preview-button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer;text-align:inherit}.visual-preview-button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.visual-preview-button img{display:block;width:100%;}.external-visual-note{font-size:12px;color:#64748b;text-align:center;margin:8px auto}.visual-popup-media a{display:inline-block;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="page active" id="homePage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img alt="Imperial Academy logo" src="IAE-Logo-Transparent.png"/></div></div></header>
+<div class="main-content-container" id="mainContentContainer">
+<div class="content-view" id="homeContentView">
+<div class="view-header"><div class="subject-label chemistry-label">Chemistry · First Year</div></div>
+<div class="section-card" style="max-width:1180px;margin:12px auto 8px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#fffdf8,#eef7f0);">
+<strong style="font-size:24px;text-align:center;">Lecture 21 — Equilibrium Shifts & Industrial Equilibrium</strong>
+<p style="text-align:center;margin:6px 0 0;">Reversible Reactions · Dynamic Equilibrium · Equilibrium Constant · Kc · Kp · Thermodynamic Interpretation · Molecular-Level Equilibrium · Quantitative Equilibrium · Gas-Phase Equilibrium</p>
+</div>
+<div class="section" style="max-width:1180px;margin:10px auto;">
+<div class="level-heading standard-h">Lecture Architecture</div>
+<p>یہ Lecture approved Chemistry learning architecture کے مطابق ہے؛ تمام academic content Lecture 21 کے locked syllabus کے مطابق integrated ہے، اور core topics teaching، dictionary، visuals، practice، readiness، examination، revision اور mastery کے ساتھ مربوط ہیں۔</p>
+</div>
+<div class="content-navigation" style="margin-top:18px;">
+<button onclick="showPage('topicsPage')" type="button">Start Lecture 21 →</button>
+</div>
+<div class="section" style="max-width:1180px;margin:8px auto 40px;">
+<div class="level-heading mastery-h">Main Learning Route</div>
+<p style="text-align:center;">Reversible Process → Dynamic Equilibrium → Equilibrium Composition → Kc/Kp → Quantitative Equilibrium → Thermodynamic Meaning</p>
+</div>
+</div></div>
+</section>
+<section class="page" id="topicsPage"><div class="main-content-container" id="topicsContentContainer"><div class="content-view" id="topicsContentView"></div></div></section>
+<section class="page" id="hitCeilingPage" style="padding:0;min-height:0;height:100%;overflow:hidden;">
+<style>
+#hitCeilingPage{background:linear-gradient(#f8f2e5,#eef5f0)}
+#hitCeilingPage.active{display:flex;flex-direction:column}
+#hitCeilingPage .htc14-stage{max-width:1080px;width:100%;height:100%;min-height:0;margin:0 auto;padding:8px 10px 6px;overflow:hidden}
+#hitCeilingPage .htc14-game{position:relative;height:100%;min-height:0;overflow:hidden;border:1px solid #d8c78d;border-radius:24px;background:linear-gradient(#fffdf8,#f3ead7);box-shadow:0 14px 42px #214b3a1d;display:flex;flex-direction:column}
+#hitCeilingPage .htc14-head{text-align:center;padding:10px 15px 2px;flex:0 0 auto}
+#hitCeilingPage .htc14-kicker{font:900 11px Arial,sans-serif;letter-spacing:2px;color:var(--red)}
+#hitCeilingPage .htc14-head h1{font:900 clamp(30px,6vw,52px)/1.05 Arial,sans-serif;color:var(--green);margin:6px 0}
+#hitCeilingPage .htc14-sub{font-size:16px;color:#657169;margin:0}
+#hitCeilingPage .htc14-levels{display:flex;direction:ltr;justify-content:flex-start;align-items:center;gap:12px;margin:5px auto 6px;max-width:min(900px,94vw);padding:9px 14px;overflow-x:auto;scrollbar-width:thin;border:1px solid #dfcf9d;border-radius:18px;background:linear-gradient(180deg,#fffdf8,#f7edd8);box-shadow:0 6px 20px #214b3a12,inset 0 1px #fff;position:relative;flex:0 0 auto}
+#hitCeilingPage .htc14-levels:before{content:"";position:absolute;left:10%;right:10%;top:50%;height:3px;border-radius:99px;background:linear-gradient(90deg,#d8c78d,#e7dcc0,#d8c78d);transform:translateY(-50%);z-index:0}
+#hitCeilingPage .htc14-lvl{position:relative;z-index:1;flex:0 0 42px;width:42px;height:42px;border:2px solid #d8c78d;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf5,#eadfca);padding:0;font:900 12px Arial,sans-serif;color:var(--green);box-shadow:0 4px 10px #214b3a18,inset 0 1px 2px #fff;cursor:pointer}
+#hitCeilingPage .htc14-lvl.active{border-color:var(--green2);background:var(--green);color:#fff;transform:scale(1.08)}
+#hitCeilingPage .htc14-lvl.done{border-color:var(--green2);background:#edf5ef;color:var(--green)}
+#hitCeilingPage .htc14-tools{position:absolute;top:10px;right:12px;z-index:20;display:flex;align-items:center;gap:6px;direction:ltr}
+#hitCeilingPage .htc14-tool{border:1px solid #c9b878;border-radius:10px;padding:6px 10px;background:#fffaf0;color:var(--green);font:900 11px Arial,sans-serif;cursor:pointer;box-shadow:0 3px 9px #214b3a14}
+#hitCeilingPage .htc14-tool.x{width:34px;padding:6px 0;font-size:16px;line-height:1}
+#hitCeilingPage .htc14-tool:hover{transform:translateY(-1px);box-shadow:0 5px 12px #214b3a1b}
+#hitCeilingPage .htc14-play{min-height:0;flex:1;overflow:hidden;display:flex;flex-direction:column;padding:0 14px 8px}
+#hitCeilingPage .htc14-towerarea{height:132px;min-height:120px;display:flex;justify-content:center;align-items:flex-end;flex:0 0 auto}
+#hitCeilingPage .htc14-tower{position:relative;width:230px;height:175px}
+#hitCeilingPage .htc14-dome{position:absolute;top:0;left:75px;width:80px;height:45px;border:2px solid #aa8d49;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e7d9ad}
+#hitCeilingPage .htc14-dome:after{content:"";position:absolute;width:4px;height:18px;background:#aa8d49;top:-16px;left:38px}
+#hitCeilingPage .htc14-body{position:absolute;bottom:12px;left:40px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}
+#hitCeilingPage .htc14-seg{height:27px;border:1px solid #b59a5b;background:#e8ddbe;opacity:.25;transform:translateY(5px);transition:.35s}
+#hitCeilingPage .htc14-seg.on{opacity:1;transform:none;background:linear-gradient(90deg,#b9e1c7,#6db78b);border-color:#4a9369}
+#hitCeilingPage .htc14-base{position:absolute;bottom:0;left:20px;width:190px;height:17px;border:1px solid #aa8d49;border-radius:7px;background:#d8c899}
+#hitCeilingPage .htc14-torch{position:absolute;top:-43px;left:89px;width:55px;height:52px;display:grid;place-items:center}
+#hitCeilingPage .htc14-flame{width:25px;height:35px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #b39a59;opacity:.32}
+#hitCeilingPage .htc14-flame.on{background:linear-gradient(135deg,#ffd45b,#ef8d2c);border-color:#b97523;opacity:1;box-shadow:0 0 25px #f4b53a99;animation:htc14Flicker .8s infinite alternate}
+@keyframes htc14Flicker{to{transform:rotate(48deg) scale(1.08)}}
+#hitCeilingPage .htc14-info{text-align:center;font:900 14px Arial;color:var(--green);flex:0 0 auto}
+#hitCeilingPage .htc14-count{text-align:center;font:900 12px Arial;color:var(--muted);margin:3px}
+#hitCeilingPage .htc14-progress{height:8px;max-width:760px;margin:6px auto 9px;border:1px solid #c7b77f;border-radius:10px;background:#eee5d1;overflow:hidden;width:100%}
+#hitCeilingPage .htc14-progress i{display:block;height:100%;width:0;background:var(--green2);transition:.35s}
+#hitCeilingPage .htc14-card{max-width:790px;width:100%;margin:0 auto;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 5px 20px #23483b12;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+#hitCeilingPage .htc14-card .htc14-q{flex:0 0 auto}
+#hitCeilingPage .htc14-card .htc14-answers{flex:0 0 auto}
+#hitCeilingPage .htc14-card .htc14-feedback{flex:0 0 auto}
+#hitCeilingPage .htc14-q{font-size:17px;line-height:1.55;font-weight:700;text-align:center;margin:0 0 8px}
+#hitCeilingPage .htc14-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#hitCeilingPage .htc14-answer{min-height:58px;display:flex;align-items:center;justify-content:center;border:2px solid transparent;border-radius:14px;padding:12px;background:#fffaf0;color:#202522;cursor:pointer;font-weight:800;text-align:right;line-height:1.45;box-shadow:0 4px 12px #214b3a16;transition:.16s}
+#hitCeilingPage .htc14-answer:hover{transform:translateY(-2px);filter:saturate(1.12) brightness(1.02);box-shadow:0 7px 16px #214b3a20}
+#hitCeilingPage .htc14-answer:active{transform:translateY(0) scale(.985)}
+#hitCeilingPage .htc14-answer:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#hitCeilingPage .htc14-answer:disabled{cursor:default;opacity:.96;transform:none}
+#hitCeilingPage .htc14-answer.answer-color-0{background:#f7d9d9;border-color:#b83b3b}
+#hitCeilingPage .htc14-answer.answer-color-1{background:#dff1e5;border-color:#58a978}
+#hitCeilingPage .htc14-answer.answer-color-2{background:#dfe9f8;border-color:#3568a8}
+#hitCeilingPage .htc14-answer.answer-color-3{background:#fff0bf;border-color:#d4a72c}
+#hitCeilingPage .htc14-answer.answer-color-0:hover{background:#f7d9d9}
+#hitCeilingPage .htc14-answer.answer-color-1:hover{background:#dff1e5}
+#hitCeilingPage .htc14-answer.answer-color-2:hover{background:#dfe9f8}
+#hitCeilingPage .htc14-answer.answer-color-3:hover{background:#fff0bf}
+#hitCeilingPage .htc14-feedback{text-align:center;min-height:30px;margin-top:8px;font-size:13px;font-weight:800;line-height:1.6}
+#hitCeilingPage .htc14-actions{text-align:center;margin-top:8px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;flex:0 0 auto}
+#hitCeilingPage .htc14-btn{border:1px solid var(--gold);border-radius:12px;padding:9px 16px;background:#fffaf0;color:var(--green);font-weight:900;cursor:pointer}.htc14-btn.primary{background:var(--green);color:#fff}
+#hitCeilingPage .htc14-clear{text-align:center;padding:20px 12px}.htc14-clear h2{font:900 25px Arial;color:var(--green)}.htc14-clear p{font-size:17px;line-height:1.7}
+#hitCeilingPage .htc14-clear-art{font-size:34px;letter-spacing:8px;animation:htc14Float 1.5s ease-in-out infinite alternate}@keyframes htc14Float{to{transform:translateY(-6px)}}
+@media(max-width:650px){#hitCeilingPage .htc14-stage{padding:5px}.htc14-head{padding:10px 52px 2px 8px!important}.htc14-head h1{font-size:30px!important}.htc14-sub{font-size:13px!important}.htc14-tools{top:7px;right:7px}.htc14-tool{padding:5px 7px;font-size:10px}.htc14-tool.x{width:30px;padding:5px 0}.htc14-levels{margin:5px auto 6px;padding:7px 10px;gap:8px}.htc14-lvl{width:36px!important;height:36px!important;flex-basis:36px!important}.htc14-towerarea{height:125px;min-height:115px}.htc14-tower{transform:scale(.74);transform-origin:bottom center}.htc14-play{padding:0 7px 7px}.htc14-card{padding:8px!important}.htc14-q{font-size:15px!important;margin-bottom:6px!important}.htc14-answers{grid-template-columns:1fr}.htc14-answer{min-height:48px;padding:8px}.htc14-feedback{min-height:24px!important;margin-top:5px!important}.htc14-actions{margin-top:5px}}
+
+/* CCSV4 FINAL COLUMN-EQUALISATION: both academic columns contain equal tab counts; Back is a page-level final navigation control, not a column tab. */
+.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch !important;}
+.topic-grid>.column{display:flex !important;flex-direction:column !important;min-width:0 !important;width:100% !important;height:100% !important;align-self:stretch !important;}
+.topic-grid>.column>.main-topic-large,.topic-grid>.column>.tab{width:100% !important;box-sizing:border-box !important;}
+.lecture-navigation{max-width:1180px !important;margin:1px auto 22px !important;padding:0 !important;display:flex !important;justify-content:center !important;}
+.lecture-navigation .previous-page-tab{width:100% !important;box-sizing:border-box !important;}
+@media(max-width:760px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch !important;}.topic-grid>.column{height:100% !important;}.lecture-navigation{padding:0 6px !important;}}
+</style>
+<div class="htc14-stage"><div class="htc14-game">
+<div class="htc14-head"><h1>Lecture 21</h1></div>
+<div id="htc14Levels" class="htc14-levels" aria-label="Game levels"></div>
+<div id="htc14Play" class="htc14-play">
+<div class="htc14-towerarea"><div class="htc14-tower"><div class="htc14-dome"></div><div class="htc14-torch"><div id="htc14Flame" class="htc14-flame"></div></div><div id="htc14Segments" class="htc14-body"></div><div class="htc14-base"></div></div></div>
+<div id="htc14Level" class="htc14-info"></div><div id="htc14Count" class="htc14-count"></div><div class="htc14-progress"><i id="htc14ProgressBar"></i></div>
+<div id="htc14Card" class="htc14-card"></div>
+<div class="htc14-actions"><button type="button" class="htc14-btn" id="htc14Restart">دوبارہ شروع کریں</button><button type="button" class="htc14-btn" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>
+</div>
+<div id="htc14Cleared" class="htc14-clear" hidden><div class="htc14-clear-art">✨ 🦋 ✨ 🦋 ✨</div><h2>🎉 HIT THE CEILING</h2><p>Lecture 21 کے تمام challenges مکمل ہو گئے۔</p><button type="button" class="htc14-btn primary" id="htc14ClearRestart">دوبارہ کھیلیں</button></div>
+</div></div>
+<script>
+(function(){'use strict';
+const levels=[{"title":"Reversible & Dynamic Equilibrium","items":[["What defines a reversible reaction?",["It can proceed in both forward and reverse directions","It can proceed only forward","It cannot reach equilibrium","It has no reactants"],0,"A reversible reaction can proceed in both directions under suitable conditions.","Reversible Reactions"],["At dynamic equilibrium, what happens to the forward and reverse rates?",["They become equal while both continue","They both become zero","Only forward remains","Only reverse remains"],0,"Equal rates produce no net macroscopic change while molecular events continue.","Dynamic Equilibrium"],["Which description is molecularly correct at equilibrium?",["Forward and reverse reaction events continue","All molecules stop reacting","Only products move","The system becomes chemically inactive"],0,"Dynamic equilibrium is a kinetic balance, not a frozen state.","Equilibrium at Molecular Level"]]},{"title":"K, Kc & Kp","items":[["What does the magnitude of K mainly describe?",["Relative equilibrium composition","Reaction speed","Activation energy only","Time to equilibrium"],0,"K describes equilibrium composition for the reaction as written.","Equilibrium Constant"],["What is the correct Kc form for mA+nB⇌xC+yD?",["[C]^x[D]^y/[A]^m[B]^n","[A]^m[B]^n/[C]^x[D]^y","([A]+[B])/([C]+[D])","[C][D]/[A][B]"],0,"Stoichiometric coefficients become exponents in Kc.","Kc"],["What is Kp based on for gas-phase equilibrium?",["Partial pressures","Masses only","Solid volumes","Atomic numbers"],0,"Kp uses partial pressures of gaseous species.","Kp"]]},{"title":"Quantitative Equilibrium","items":[["What does Δn mean in Kp=Kc(RT)^Δn?",["Gaseous product moles minus gaseous reactant moles","Total atoms in the equation","Mass change","Temperature change"],0,"Only gaseous stoichiometric coefficients contribute to Δn.","Kc/Kp Relationships"],["Which sequence is appropriate for an ICE calculation?",["Balanced equation → ICE → expression → solve → check","Guess → substitute → ignore stoichiometry","Use initial values as equilibrium values","Change coefficients to fit the result"],0,"The ICE workflow keeps stoichiometry and equilibrium constraints explicit.","Quantitative Equilibrium Reasoning"],["What is equilibrium composition?",["The constant macroscopic composition reached at dynamic balance","Equal concentrations of all species","Zero concentration of all species","A composition independent of temperature"],0,"Equilibrium composition is constant, not necessarily equal among species.","Equilibrium Composition"]]},{"title":"Thermodynamic Meaning","items":[["What is true at equilibrium for the reaction Gibbs free-energy change?",["ΔG = 0","ΔG is always positive","ΔG is always negative","ΔG is undefined"],0,"At equilibrium there is no net thermodynamic driving force for reaction progress.","Thermodynamic Interpretation"],["How are ΔG° and K related?",["ΔG° = −RT ln K","ΔG° = RT/K","ΔG° = KRT","ΔG° = 0 for every K"],0,"The relation connects standard thermodynamic driving force and equilibrium constant.","Thermodynamic Meaning of Equilibrium"],["What does a large K usually indicate?",["Product-favoured equilibrium composition","A necessarily fast reaction","Equal reactant/product concentrations","Zero reverse rate"],0,"Large K indicates products are favoured in the equilibrium composition for the reaction as written.","Equilibrium Constant Interpretation"]]}];let level=0,index=0,score=0,locked=false,timer=null,questionTimer=null,safetyTimer=null,startedAt=0,unattempted=0,passedQuestions=new Set();
+let htcCorrectPositionSchedule=[];
+function buildHTCCorrectPositionSchedule(){const n=total(),q=Math.floor(n/4),r=n%4,base=[];for(let pos=0;pos<4;pos++)for(let i=0;i<q+(pos<r?1:0);i++)base.push(pos);htcCorrectPositionSchedule=shuffle(base)}
+function htcQuestionNumber(){let n=0;for(let l=0;l<level;l++)n+=levels[l].items.length;return n+index}
+const $=id=>document.getElementById(id);
+function total(){return levels.reduce((n,l)=>n+l.items.length,0)}
+function completed(){return levels.slice(0,level).reduce((n,l)=>n+l.items.length,0)+index}
+function buildLevels(){const host=$('htc14Levels');if(!host)return;host.innerHTML=levels.map((l,i)=>`<button type="button" class="htc14-lvl ${i===level?'active':''} ${i<level?'done':''}" aria-label="Level ${i+1}">${String(i+1).padStart(2,'0')}</button>`).join('');[...host.querySelectorAll('.htc14-lvl')].forEach((b,i)=>b.addEventListener('click',()=>{if(i<=level){level=i;index=0;render()}}))}
+function update(){const pct=Math.round(score/Math.max(1,total())*100),bar=$('htc14ProgressBar');if(bar)bar.style.width=Math.min(100,pct)+'%';if($('htc14Level'))$('htc14Level').textContent='Level '+String(level+1).padStart(2,'0')+' · '+levels[level].title;if($('htc14Count'))$('htc14Count').textContent='Question '+(index+1)+' / '+levels[level].items.length+' · Score: '+score;buildLevels();syncTower()}
+function syncTower(){const body=$('htc14Segments');if(!body)return;const max=levels.length,ratio=score/Math.max(1,total()),done=ratio*max;body.innerHTML=Array.from({length:max},(_,i)=>`<div class="htc14-seg ${i<done?'on':''}"></div>`).join('');const flame=$('htc14Flame');if(flame)flame.classList.toggle('on',score>0)}
+function render(){clearTimeout(timer);clearTimeout(questionTimer);locked=false;const play=$('htc14Play'),clear=$('htc14Cleared');if(clear)clear.hidden=true;if(play)play.style.display='flex';if(level>=levels.length){finish();return}update();const card=$('htc14Card');if(!card)return;const q=levels[level].items[index];card.innerHTML='<div class="htc14-q"></div><div class="htc14-answers"></div><div class="htc14-feedback" aria-live="polite"></div>';card.querySelector('.htc14-q').textContent=q[0];const wrap=card.querySelector('.htc14-answers'),fb=card.querySelector('.htc14-feedback');const correctPos=htcCorrectPositionSchedule[htcQuestionNumber()]??0;const remainingPositions=[0,1,2,3].filter(p=>p!==correctPos);const remainingOriginals=shuffle([0,1,2,3].filter(i=>i!==q[2]));const optionOrder=Array(4);optionOrder[correctPos]=q[2];remainingPositions.forEach((pos,i)=>optionOrder[pos]=remainingOriginals[i]);optionOrder.forEach((originalIndex,displayIndex)=>{const b=document.createElement('button');b.type='button';b.className='htc14-answer answer-color-'+displayIndex;b.setAttribute('data-option',String(displayIndex+1));b.dataset.originalIndex=String(originalIndex);b.textContent=q[1][originalIndex];b.addEventListener('click',()=>answer(originalIndex,q,fb,[...wrap.querySelectorAll('button')]));wrap.appendChild(b)});questionTimer=setTimeout(()=>{if(locked)return;locked=true;unattempted++;[...wrap.querySelectorAll('button')].forEach(b=>b.disabled=true);fb.textContent='⏱ وقت ختم — سوال UNATTEMPTED کے طور پر محفوظ ہے۔';fb.style.color='var(--muted)';timer=setTimeout(()=>{locked=false;next()},700)},20000)}
+function answer(i,q,fb,buttons){if(locked)return;clearTimeout(questionTimer);locked=true;buttons.forEach(b=>b.disabled=true);if(i===q[2]){const key=level+':'+index;if(!passedQuestions.has(key))passedQuestions.add(key);score=passedQuestions.size;fb.textContent='✓ درست — اگلا challenge تیار ہو رہا ہے۔';fb.style.color='var(--green)';update();timer=setTimeout(()=>{locked=false;next()},450)}else{fb.textContent='✗ دوبارہ کوشش کریں — صحیح concept پر غور کریں۔';fb.style.color='var(--red)';locked=false;buttons.forEach(b=>b.disabled=false)}}
+function next(){clearTimeout(questionTimer);index++;if(index>=levels[level].items.length){level++;index=0}if(level>=levels.length){finish();return}render()}
+function finish(){clearTimeout(timer);clearTimeout(questionTimer);clearTimeout(safetyTimer);const play=$('htc14Play'),clear=$('htc14Cleared');if(play)play.style.display='none';if(clear)clear.hidden=false;syncTower();const flame=$('htc14Flame');if(flame)flame.classList.toggle('on',score>0)}
+function start(){clearTimeout(timer);clearTimeout(questionTimer);clearTimeout(safetyTimer);level=0;index=0;score=0;passedQuestions=new Set();unattempted=0;locked=false;startedAt=Date.now();buildHTCCorrectPositionSchedule();safetyTimer=setTimeout(()=>{clearTimeout(questionTimer);locked=true;finish()},300000);const play=$('htc14Play'),clear=$('htc14Cleared');if(play)play.style.display='flex';if(clear)clear.hidden=true;render()}
+const restart=$('htc14Restart');if(restart)restart.addEventListener('click',start);const cr=$('htc14ClearRestart');if(cr)cr.addEventListener('click',start);window.htc14Start=start;
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
+</script></section>
+<div aria-hidden="true" class="modal" id="modal">
+<div aria-labelledby="modalTitle" aria-modal="true" class="dialog" role="dialog">
+<button aria-label="Close" class="close" onclick="closeModal()">×</button>
+<div id="content"></div>
+</div></div>
+<script>
+const BASE='./Visual-Atlas/'; const DICTIONARY_OVERLAY_ID='dictionaryOverlay';
+const FREE_VISUALS={"V1":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/1606e1b2006493a1f8a44f0c59c68c7c218cead4","V2":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/9788fde85e83960a0a909fe802bacef5386c9de7","V3":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/ad64a45ab4cfe2badd8d653dd9ca2871d5740245","V4":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/22fa43a8f8f1c4aef372d93f91a5acffdf33caac","V5":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/0402516bd1c563bf706ff9a267c6f19a642c591d"}; const visualItems=[["V1","Equilibrium concentration / response visual","OpenStax Chemistry 2e equilibrium-response visual selected for concentration, Q/K and disturbance concepts.","External academic visual \u2014 OpenStax"],["V2","Pressure effects in gas equilibria","OpenStax Chemistry 2e gas-equilibrium visual selected for pressure and partial-pressure effects.","External academic visual \u2014 OpenStax"],["V3","Temperature and reaction-energy visual","OpenStax Chemistry 2e reaction-energy visual selected for temperature and enthalpy reasoning.","External academic visual \u2014 OpenStax"],["V4","Le Chatelier equilibrium visual","OpenStax Chemistry 2e equilibrium visual selected for Le Chatelier stress-response reasoning.","External academic visual \u2014 OpenStax"],["V5","Haber-Bosch industrial equilibrium visual","OpenStax Chemistry 2e Haber-Bosch industrial-process visual selected for industrial equilibrium and optimisation.","External academic visual \u2014 OpenStax"]];
+function visualSource(id){const key=String(id||'');const item=visualItems.find(v=>v[0]===key);if(!item)return null;return {src:FREE_VISUALS[key]||'',title:item[1],description:item[2],source:'OpenStax — external visual page'};}
+function visualLinkFor(id){const key=String(id||'');return `<button type="button" class="visual-link academic-visual-link" onclick="showVisual('${key}')">🖼 Visual Atlas — متعلقہ visual کھولیں</button>`;}
+function img(id){const v=visualSource(id)||{};return `<button type="button" class="topic-visual" onclick="showVisual('${esc(id)}')" aria-label="Open external visual" title="Open external visual">🖼</button>`;}
+
+
+const topics={"t1":{"title":"IAE1102070200 — Equilibrium Shifts","id":"IAE1102070200","visual":"V4","intro":"Equilibrium shifts are controlled by concentration, pressure, temperature and Le Chatelier reasoning, then interpreted quantitatively through Q and K.","basic":"Concentration، pressure، temperature اور disturbance کو equilibrium stress کے طور پر سمجھیں۔","standard":"Stress identify کریں، Q/K یا heat term پر اثر determine کریں، اور shift direction predict کریں۔","mastery":"Stress → molecular/rate response → Q/K or enthalpy reasoning → new equilibrium composition."},"t2":{"title":"IAE1102070300 — Industrial Equilibrium","id":"IAE1102070300","visual":"V5","intro":"Industrial equilibrium connects equilibrium chemistry with operating conditions, yield, process optimisation, modelling, recycle and control.","basic":"Industrial equilibrium میں yield، rate، energy، separation، recycle اور process constraints ایک ساتھ آتے ہیں۔","standard":"Industrial conditions کو connected process کے طور پر interpret کریں۔","mastery":"Equilibrium chemistry → operating window → reactor/separation/recycle → process control."}};
+const subs={"s2101":{"id":"IAE1102070201","topic":"t1","title":"Concentration","visual":"V1","basic":"Concentration describes the amount of a reacting species per unit volume and affects the equilibrium response.","standard":"Adding a reactant or removing a product changes Q and can drive a temporary shift until equilibrium is re-established.","mastery":"Track the species change, compare Q with K, and predict the shift direction.","extra":"Adding a reactant or removing a product changes Q and can drive a temporary shift until equilibrium is re-established."},"s2102":{"id":"IAE1102070202","topic":"t1","title":"Pressure","visual":"V2","basic":"Pressure changes can disturb gas-phase equilibria when gaseous mole counts differ.","standard":"Changing volume changes partial pressures; the response depends on the stoichiometric difference in gaseous moles.","mastery":"Use Δn(gas) to predict the direction of a pressure-induced shift.","extra":"Changing volume changes partial pressures; the response depends on the stoichiometric difference in gaseous moles."},"s2103":{"id":"IAE1102070203","topic":"t1","title":"Temperature","visual":"V3","basic":"Temperature affects equilibrium because it changes the energetic balance of forward and reverse processes.","standard":"For an endothermic forward reaction heat behaves as a reactant; for an exothermic one it behaves as a product.","mastery":"Use the sign of ΔH to predict the temperature-driven shift and remember that temperature changes K.","extra":"For an endothermic forward reaction heat behaves as a reactant; for an exothermic one it behaves as a product."},"s2104":{"id":"IAE1102070204","topic":"t1","title":"Le Chatelier’s Principle","visual":"V4","basic":"Le Chatelier’s principle predicts the direction in which an equilibrium system responds to a stress.","standard":"Concentration, relevant pressure/volume changes, and temperature can shift equilibrium; catalysts change rate, not equilibrium position.","mastery":"Identify the stress first, then predict the compensating response.","extra":"Concentration, relevant pressure/volume changes, and temperature can shift equilibrium; catalysts change rate, not equilibrium position."},"s2105":{"id":"IAE1102070301","topic":"t1","title":"Industrial Equilibrium","visual":"V5","basic":"Industrial equilibrium applies equilibrium principles to processes where yield, rate, energy, separation, and recycle interact.","standard":"The Haber-Bosch ammonia process illustrates the balance among pressure, temperature, catalyst, product removal and recycle.","mastery":"Read an industrial equilibrium as a connected process rather than an isolated reaction.","extra":"The Haber-Bosch ammonia process illustrates the balance among pressure, temperature, catalyst, product removal and recycle."},"s2106":{"id":"IAE1102070302","topic":"t1","title":"Optimisation of Conditions","visual":"V5","basic":"Optimisation selects operating variables that balance equilibrium yield, rate, energy demand, and process constraints.","standard":"Industrial conditions are compromises: a condition that improves equilibrium yield may reduce rate or increase engineering cost.","mastery":"Compare competing effects and identify the practical operating window.","extra":"Industrial conditions are compromises: a condition that improves equilibrium yield may reduce rate or increase engineering cost."},"s2107":{"id":"IAE1102070205","topic":"t1","title":"Quantitative Equilibrium Shifts","visual":"V1","basic":"Quantitative shift analysis uses Q and K to determine the direction required to reach equilibrium.","standard":"Q<K favours the forward direction; Q>K favours the reverse direction; Q=K at equilibrium.","mastery":"Calculate or compare Q with K before predicting the shift.","extra":"Q<K favours the forward direction; Q>K favours the reverse direction; Q=K at equilibrium."},"s2108":{"id":"IAE1102070303","topic":"t2","title":"Industrial Process Optimisation","visual":"V5","basic":"Industrial process optimisation integrates reaction conditions, heat exchange, separation, recycle, throughput, and yield.","standard":"Product removal and recycle can keep a process operating in a productive direction.","mastery":"Trace reactor → separation → product removal → recycle.","extra":"Product removal and recycle can keep a process operating in a productive direction."},"s2109":{"id":"IAE1102070206","topic":"t2","title":"Equilibrium Yield Optimisation","visual":"V5","basic":"Equilibrium yield optimisation seeks a useful product fraction within kinetic and engineering limits.","standard":"Pressure, temperature, feed composition, and product removal can affect yield depending on the reaction.","mastery":"Separate equilibrium-yield effects from reaction-rate effects.","extra":"Pressure, temperature, feed composition, and product removal can affect yield depending on the reaction."},"s2110":{"id":"IAE1102070207","topic":"t2","title":"Pressure Effects in Gas Equilibria","visual":"V2","basic":"Pressure effects arise from changes in gas partial pressures and depend on Δn(gas).","standard":"Compression favours fewer gas moles when the counts differ; equal gas-mole counts give no equilibrium-position shift from compression.","mastery":"Use the balanced equation, not total pressure alone.","extra":"Compression favours fewer gas moles when the counts differ; equal gas-mole counts give no equilibrium-position shift from compression."},"s2111":{"id":"IAE1102070208","topic":"t2","title":"Temperature Effects and Enthalpy","visual":"V3","basic":"Temperature effects on equilibrium are interpreted using the reaction enthalpy change.","standard":"Increasing temperature favours the endothermic direction and lowers product favourability for an exothermic forward reaction.","mastery":"Connect ΔH with the heat term and the resulting change in K.","extra":"Increasing temperature favours the endothermic direction and lowers product favourability for an exothermic forward reaction."},"s2112":{"id":"IAE1102070304","topic":"t2","title":"Industrial Equilibrium Modelling","visual":"V5","basic":"Industrial equilibrium modelling links equations, material balances, operating variables, and process-flow relationships.","standard":"A model can connect equilibrium expressions and process conditions to composition, conversion, yield, recycle, and separation.","mastery":"Trace inputs → reaction model → equilibrium constraint → outputs → recycle/feedback.","extra":"A model can connect equilibrium expressions and process conditions to composition, conversion, yield, recycle, and separation."},"s2113":{"id":"IAE1102070209","topic":"t2","title":"Dynamic Response to Disturbance","visual":"V1","basic":"A disturbed equilibrium passes through a transient response before a new equilibrium is established.","standard":"A disturbance creates unequal forward and reverse rates, followed by a directional response and eventual re-equilibration.","mastery":"Distinguish the disturbance, transient response, and final equilibrium state.","extra":"A disturbance creates unequal forward and reverse rates, followed by a directional response and eventual re-equilibration."},"s2114":{"id":"IAE1102070305","topic":"t2","title":"Equilibrium-Based Process Control","visual":"V5","basic":"Equilibrium-based process control uses measurements and controlled variables to keep an industrial process in its desired region.","standard":"Temperature, pressure, feed composition, product removal, and recycle can be controlled process variables.","mastery":"Explain measurement → controller decision → adjustment → equilibrium response → feedback.","extra":"Temperature, pressure, feed composition, product removal, and recycle can be controlled process variables."}};
+const questions=[["Which statement best describes Reversible Reactions?",["A reversible reaction can proceed in both forward and reverse directions under suitable conditions. The symbol ⇌ represents this two-way chemical process.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"A reversible system can move toward products or back toward reactants depending on the relative rates and composition. A closed system is important when material must remain available for both directions.","Reversible Reactions"],["Which statement best describes Dynamic Equilibrium?",["Dynamic equilibrium is reached when the forward and reverse reaction rates become equal while both processes continue at the molecular level.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"Concentrations remain constant at equilibrium, but individual particles continue reacting. Constant macroscopic composition does not mean molecular motion has stopped.","Dynamic Equilibrium"],["Which statement best describes Equilibrium Constant?",["The equilibrium constant K is a quantitative measure of equilibrium composition at a specified temperature, expressed from the equilibrium activities or concentration/pressure terms of a reaction.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"The magnitude of K indicates the relative extent of reactant and product presence at equilibrium, but it does not tell how quickly equilibrium is reached.","Equilibrium Constant"],["Which statement best describes Kc?",["Kc is the equilibrium constant written using molar concentrations of the reacting species that belong in the equilibrium expression.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"For mA+nB⇌xC+yD, Kc=[C]^x[D]^y/[A]^m[B]^n, with pure solids and pure liquids omitted under the standard convention.","Kc"],["Which statement best describes Kp?",["Kp is the equilibrium constant written using partial pressures for gas-phase species.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"Gas-phase equilibrium can be described by Kp, and Kp and Kc are related through temperature, the gas constant, and the change in gaseous moles.","Kp"],["Which statement best describes Thermodynamic Interpretation?",["Equilibrium is a thermodynamic state associated with minimum Gibbs free energy under the specified conditions for a closed system.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"The relation ΔG° = −RT ln K connects standard Gibbs free energy change with the equilibrium constant, while ΔG becomes zero at equilibrium.","Thermodynamic Interpretation"],["Which statement best describes Equilibrium at Molecular Level?",["At molecular level, equilibrium is a statistical balance: forward and reverse reaction events continue, but their average rates become equal.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"Particle collisions, activation events and reverse reactions continue even though bulk concentrations appear constant.","Equilibrium at Molecular Level"],["Which statement best describes Dynamic Equilibrium Modelling?",["Dynamic equilibrium can be modelled by tracking reactant and product amounts or concentrations as functions of time until they approach constant values.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"Rate-versus-time and concentration-versus-time models show that equilibrium is a kinetic balance, not simply a fixed concentration ratio imposed at all times.","Dynamic Equilibrium Modelling"],["Which statement best describes Kc/Kp Relationships?",["Kc and Kp describe the same equilibrium composition using different state variables and are connected for gas-phase reactions by Kp=Kc(RT)^Δn.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"Δn is the stoichiometric change in moles of gaseous products minus gaseous reactants. Temperature matters in the conversion.","Kc/Kp Relationships"],["Which statement best describes Quantitative Equilibrium Reasoning?",["Quantitative equilibrium reasoning combines the balanced equation, an equilibrium expression, known data and algebraic relationships to determine unknown equilibrium quantities.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"Useful workflows include identifying the reaction direction, constructing an ICE table, solving for the change and checking the resulting equilibrium values.","Quantitative Equilibrium Reasoning"],["Which statement best describes Equilibrium Composition?",["Equilibrium composition is the set of reactant and product amounts or concentrations present after the forward and reverse processes have reached dynamic balance.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"The equilibrium composition depends on temperature and the thermodynamic system; it is not generally characterised by equal reactant and product concentrations.","Equilibrium Composition"],["Which statement best describes Gas-Phase Equilibrium Analysis?",["Gas-phase equilibrium analysis uses partial pressures, concentrations, stoichiometry and gas relationships to describe reacting gaseous mixtures.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"For gaseous species, Kp can be written from partial pressures, while Kc uses concentrations; ideal-gas relations can connect the representations.","Gas-Phase Equilibrium Analysis"],["Which statement best describes Equilibrium Constant Interpretation?",["The size of K indicates whether equilibrium composition is product- or reactant-dominated for the reaction as written.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"Large K values correspond to product-favoured equilibrium composition, small K values to reactant-favoured composition, and K near unity indicates neither side overwhelmingly dominates.","Equilibrium Constant Interpretation"],["Which statement best describes Thermodynamic Meaning of Equilibrium?",["Thermodynamically, equilibrium is the state in which the reaction Gibbs free-energy change is zero for the system as specified, with no net macroscopic driving force.","Equilibrium means all molecular motion has stopped.","K is determined only by reaction speed.","Reactant and product amounts must always be equal."],0,"At equilibrium the chemical potentials satisfy the condition for no net reaction progress; K and ΔG° encode the thermodynamic preference at a given temperature.","Thermodynamic Meaning of Equilibrium"],["For mA + nB ⇌ xC + yD, which Kc expression is correct?",["[C]^x[D]^y/[A]^m[B]^n","[A]^m[B]^n/[C]^x[D]^y","([A]+[B])/([C]+[D])","[C][D]/[A][B] regardless of coefficients"],0,"Stoichiometric coefficients become exponents in the equilibrium expression.","Kc"],["For a gas reaction, what does Δn represent in Kp = Kc(RT)^Δn?",["Moles of gaseous products minus moles of gaseous reactants","Total moles of all substances including solids","Mass of products minus mass of reactants","Number of atoms in the equation"],0,"Only gaseous stoichiometric coefficients contribute to Δn.","Kc/Kp Relationships"],["What does a large K value indicate for the reaction as written?",["Equilibrium is product-favoured","The reaction must be fast","The forward and reverse rates are unequal at equilibrium","Reactants and products have equal concentrations"],0,"A large K indicates a product-favoured equilibrium composition, not a reaction-rate statement.","Equilibrium Constant Interpretation"],["At dynamic equilibrium, which statement is correct?",["Forward and reverse rates are equal while both continue","Both rates are zero","Only the forward reaction continues","All concentrations are equal"],0,"Dynamic equilibrium is a kinetic balance with ongoing microscopic processes.","Dynamic Equilibrium"],["Which quantity is zero at equilibrium for the reaction under the specified conditions?",["ΔG","Temperature","The forward rate","The reverse rate"],0,"At equilibrium the net reaction Gibbs free-energy change ΔG is zero.","Thermodynamic Interpretation"],["Which workflow is most appropriate for a typical ICE equilibrium calculation?",["Write balanced equation → ICE table → equilibrium expression → solve → check","Guess K → ignore stoichiometry → calculate mass","Use initial values directly as equilibrium values","Change coefficients until the answer looks reasonable"],0,"A controlled ICE workflow keeps stoichiometry and equilibrium conditions consistent.","Quantitative Equilibrium Reasoning"],["Which statement about equilibrium composition is correct?",["Reactant and product concentrations can be unequal even though they are constant","All species must have equal concentrations","Concentrations must become zero","Composition is independent of temperature"],0,"Equilibrium means constant macroscopic composition, not equal concentrations.","Equilibrium Composition"],["Which variable is naturally used in Kp expressions?",["Partial pressure of each gaseous species","Mass of each solid","Colour of the gas","Total volume only"],0,"Kp is expressed using partial pressures of gaseous species.","Gas-Phase Equilibrium Analysis"],["Which statement best connects K and ΔG°?",["ΔG° = −RT ln K","ΔG° = RT/K","ΔG° = K/RT","ΔG° is always zero regardless of K"],0,"The standard free-energy relation connects thermodynamic driving force and equilibrium constant.","Thermodynamic Meaning of Equilibrium"]];
+const dict=Object.create(null);
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function linkDictionaryTerms(text){
+ let out=esc(text);
+ const tokens=[];
+ const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+ for(const k of keys){
+   const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+   for(const alias of aliases){
+     const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+     out=out.replace(new RegExp('('+safe+')','g'),(m)=>{
+       const i=tokens.length;
+       tokens.push('<button class="linked-word" type="button" data-term="'+esc(k)+'">'+m+'</button>');
+       return '\uE000'+i+'\uE001';
+     });
+   }
+ }
+ return out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
+}
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><img src="IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="subject-label">Chemistry</div>`}
+function getMainHost(){const active=document.querySelector('.page.active .main-content-container');return active||document.getElementById('mainContentContainer');}
+const homeMarkup=getMainHost()?.innerHTML||'';
+let lectureViewStack=[];
+function renderInMainContainer(html,remember=true){const host=getMainHost();if(!host)return;if(remember&&host.innerHTML.trim())lectureViewStack.push(host.innerHTML);const needsBack=!/back-page-tab/.test(html);host.innerHTML='<div class="content-view"><button class="view-close" type="button" aria-label="Close current page" title="Close" onclick="returnToPreviousView()">×</button>'+html+(needsBack?navButtons():'')+'</div>';host.scrollTop=0;decorateDictionaryLinks(host);}
+function show(html,remember=true){renderInMainContainer(html,remember);}
+function closeModal(){closeDictionaryPopup(false);const host=getMainHost();if(!host)return;if(lectureViewStack.length){host.innerHTML=lectureViewStack.pop();host.scrollTop=0;decorateDictionaryLinks(host);}else{showPage('topicsPage');}}
+function showDictionaryPopup(k){
+ const d=dict[k]; if(!d)return;
+ const host=getMainHost(); if(!host)return;
+ closeDictionaryPopup(false);
+ const overlay=document.createElement('div');
+ overlay.className='dictionary-overlay'; overlay.id=DICTIONARY_OVERLAY_ID;
+ overlay.innerHTML=`<div class="dictionary-dialog" role="dialog" aria-modal="true" aria-label="Dictionary">
+   <button class="dictionary-close" type="button" aria-label="Close Dictionary" onclick="closeDictionaryPopup()">×</button>
+   <div class="lesson-title">${esc(k)}</div>
+   <div class="section standard"><span class="level-heading standard-h">${esc(d[0])}</span><p>${esc(d[1])}</p></div>
+ </div>`;
+ overlay.addEventListener('click',e=>{
+   if(e.target===overlay) closeDictionaryPopup();
+ });
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
+}
+function closeDictionaryPopup(restore=true){const overlay=document.getElementById(DICTIONARY_OVERLAY_ID);if(overlay)overlay.remove();}
+function showDictByTerm(term){
+ const key=Object.prototype.hasOwnProperty.call(dict,term)?term:Object.keys(dict).find(k=>k.toLowerCase()===String(term).toLowerCase());
+ if(key)showDictionaryPopup(key);
+}
+function escapeRegExp(value){return String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function highlightDictionaryMatch(text,q){
+ const raw=String(text||''); const query=String(q||'').trim();
+ if(!query)return esc(raw);
+ const re=new RegExp('('+escapeRegExp(query)+')','ig');
+ return raw.split(re).map((part,i)=>i%2?'<span class="dict-match">'+esc(part)+'</span>':esc(part)).join('');
+}
+function renderDict(query=''){
+ const host=document.getElementById('dictList'); if(!host)return;
+ const input=document.getElementById('ds');
+ const clear=document.getElementById('dictClear');
+ const q=String(query).trim(); const low=q.toLowerCase();
+ if(clear)clear.style.display=q?'block':'none';
+ const entries=Object.entries(dict).filter(([k,v])=>!low||k.toLowerCase().startsWith(low)||v[0].toLowerCase().startsWith(low));
+ host.innerHTML=entries.map(([k,v])=>`<button type="button" class="dict-row" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightDictionaryMatch(k,q)}</strong><span>${highlightDictionaryMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('')||'<div class="dict-empty">No matching dictionary term found.</div>';
+ if(input && q)updateDictionarySearchDirection(input);
+}
+function dictionaryTextDirection(text){
+ const s=String(text||'');
+ return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(s) ? 'rtl' : 'ltr';
+}
+function updateDictionarySearchDirection(input){
+ if(!input)return;
+ const dir=dictionaryTextDirection(input.value);
+ input.dir=dir;
+ input.style.textAlign=dir==='rtl'?'right':'left';
+}
+function openDictionarySearchPopup(query){
+ const q=String(query).trim(); if(!q)return;
+ const low=q.toLowerCase();
+ const entries=Object.entries(dict).filter(([k,v])=>k.toLowerCase().includes(low)||v[0].toLowerCase().includes(low)||v[1].toLowerCase().includes(low));
+ const host=getMainHost(); if(!host)return;
+ closeDictionaryPopup(false);
+ const dir=dictionaryTextDirection(q);
+ const overlay=document.createElement('div');
+ overlay.className='dictionary-overlay'; overlay.id=DICTIONARY_OVERLAY_ID;
+ overlay.innerHTML=`<div class="dictionary-dialog" dir="${dir}" style="text-align:${dir==='rtl'?'right':'left'}" role="dialog" aria-modal="true" aria-label="Dictionary search results">
+   <button class="dictionary-close" type="button" aria-label="Close Dictionary Search" onclick="closeDictionaryPopup()">×</button>
+   <div class="lesson-title">Dictionary Search</div>
+   <div class="lesson-subtitle">Search: <b dir="${dir}">${highlightDictionaryMatch(q,q)}</b></div>
+   ${entries.map(([k,v])=>`<button type="button" class="dict-row" dir="${dictionaryTextDirection(k+' '+v[0])}" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightDictionaryMatch(k,q)}</strong><span>${highlightDictionaryMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('') || '<div class="dict-empty">No related dictionary term found.</div>'}
+ </div>`;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)closeDictionaryPopup();});
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
+}
+function resetDictionarySearch(){
+ const input=document.getElementById('ds');
+ if(!input)return;
+ input.value=''; input.dir='ltr'; input.style.textAlign='left';
+ renderDict('');
+ setTimeout(()=>{input.focus();input.select();},0);
+}
+
+function showPage(pageId){
+  const pages=document.querySelectorAll('.page');
+  pages.forEach(p=>p.classList.remove('active'));
+  const page=document.getElementById(pageId);
+  if(!page)return;
+  page.classList.add('active');
+  if(pageId==='topicsPage'){
+    const host=document.getElementById('topicsContentView');
+    if(host && !host.querySelector('.topic-grid')) host.innerHTML=header()+topicsMarkup;
+  }
+  const active=page.querySelector('.main-content-container');
+  if(active) active.scrollTop=0;
+}
+
+const topicsMarkup=`<div class="subject-label chemistry-label">Chemistry</div><h1 class="section-heading">First Year Chemistry — Lecture 21 · IAE1102070200 + IAE1102070300</h1><div class="topic-feature-row"><div class="tab functional feature-visual" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional feature-master" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">L&nbsp;&nbsp;M</div><div class="label">Lecture Mastery</div></div></div><div class="topic-grid"><section class="column"><div class="main-topic-large tab topic1 topic-intro" role="button" tabindex="0" onclick="openTopic('t1')"><div class="label">IAE1102070200 — Equilibrium Shifts</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2101')"><div class="num">01</div><div class="label">Concentration</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2102')"><div class="num">02</div><div class="label">Pressure</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2103')"><div class="num">03</div><div class="label">Temperature</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2104')"><div class="num">04</div><div class="label">Le Chatelier’s Principle</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2105')"><div class="num">05</div><div class="label">Industrial Equilibrium</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2106')"><div class="num">06</div><div class="label">Optimisation of Conditions</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2107')"><div class="num">07</div><div class="label">Quantitative Equilibrium Shifts</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">Search</div></div></section><section class="column"><div class="main-topic-large tab topic2 topic-intro" role="button" tabindex="0" onclick="openTopic('t2')"><div class="label">IAE1102070300 — Industrial Equilibrium</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2108')"><div class="num">08</div><div class="label">Industrial Process Optimisation</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2109')"><div class="num">09</div><div class="label">Equilibrium Yield Optimisation</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2110')"><div class="num">10</div><div class="label">Pressure Effects in Gas Equilibria</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2111')"><div class="num">11</div><div class="label">Temperature Effects and Enthalpy</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2112')"><div class="num">12</div><div class="label">Industrial Equilibrium Modelling</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2113')"><div class="num">13</div><div class="label">Dynamic Response to Disturbance</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2114')"><div class="num">14</div><div class="label">Equilibrium-Based Process Control</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">HIT THE CEILING</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Home / Previous Page</span></button></div>`;
+function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
+document.addEventListener('keydown',e=>{const el=e.target;if((e.key==='Enter'||e.key===' ')&&el&&el.getAttribute&&el.getAttribute('role')==='button'&&el.classList.contains('tab')){e.preventDefault();el.click();}});
+function openTopic(k){
+ const d=topics[k];
+ const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
+ const mainLecture = `<div class="section main-lecture"><div class="level-heading basic-h">Basic</div><p>${linkDictionaryTerms(d.basic)}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Standard</div><p>${linkDictionaryTerms(d.standard)}</p></div><div class="section main-lecture"><div class="level-heading mastery-h">Mastery</div><p>${linkDictionaryTerms(d.mastery)}</p></div><div class="section topic-introduction"><span class="level-heading standard-h">IAE Topic Definition</span><p>${linkDictionaryTerms(d.intro)}</p></div>`;
+ show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div></div></div>
+ <div class="section visual-choice"><span class="level-heading standard-h">Topic Visual</span>${visualLinkFor(d.visual)}</div>
+ ${mainLecture}
+ <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
+`);
+}
+function returnToPreviousView(){
+  closeDictionaryPopup(false);
+  const host=getMainHost();
+  if(!host)return;
+  if(lectureViewStack.length){
+    host.innerHTML=lectureViewStack.pop();
+    host.scrollTop=0;
+    decorateDictionaryLinks(host);
+  }else{
+    showPage('homePage');
+  }
+}
+function openSub(k){
+ const d=subs[k];
+ show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div></div></div>
+ <div class="section visual-choice"><span class="level-heading standard-h">Related Visual</span>${visualLinkFor(d.visual)}</div>
+ <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkDictionaryTerms(d.basic)}</p></div>
+ <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkDictionaryTerms(d.standard)}</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>
+ <div class="diagram">${esc(d.extra)}</div>
+
+`);
+}
+function showVisual(id){
+ const v=visualItems.find(x=>x[0]===id);if(!v)return;
+ closeVisualPopup(false);
+ const host=getMainHost();if(!host)return;
+ const overlay=document.createElement('div');
+ overlay.className='visual-popup-overlay';
+ overlay.id='visualPopupOverlay';
+ overlay.setAttribute('role','dialog');
+ overlay.setAttribute('aria-modal','true');
+ overlay.setAttribute('aria-label','Visual Atlas');
+ overlay.innerHTML=`<div class="visual-popup-dialog">
+   <button class="visual-popup-close" type="button" aria-label="Close Visual" title="Close Visual">×</button>
+   <div class="visual-popup-media"><img class="atlas-img" src="${(visualSource(id).src || BASE+id+'.svg')}" alt="${esc(v[1])}" loading="eager" decoding="async" referrerpolicy="no-referrer"><div class="visual-source-credit">${esc(visualSource(id).source||'Approved academic source')}</div></div>
+ </div>`;
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.visual-popup-close');
+ const remove=()=>closeVisualPopup(true);
+ close.onclick=remove;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)remove();});
+ window.__iaeVisualPopupOpen=true;
+ close.focus();
+}
+function closeVisualPopup(useHistory=true){const overlay=document.getElementById('visualPopupOverlay');if(overlay)overlay.remove();if(window.__iaeVisualPopupOpen)window.__iaeVisualPopupOpen=false;}
+
+function practiceReveal(target){const el=typeof target==='string'?document.getElementById(target):target;if(el){el.hidden=false;if(el.style)el.style.display='block';}}
+function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function openGuidedPractice(){
+  const recall=questions.slice(0,14);
+  const recallHtml=recall.map((q,i)=>`<div class="question-card practice-q"><b>Q${i+1}. ${esc(q[0])}</b><div class="section"><p><b>پہلے خود جواب دیں:</b> options دیکھے بغیر جواب سوچیں۔</p><button class="visual-link" onclick="practiceReveal('pr-a-${i}')">جواب اور وضاحت دیکھیں</button><div id="pr-a-${i}" class="answer-review" hidden><p><b>درست جواب:</b> ${esc(q[1][q[2]])}</p><p>${esc(q[3]||'')}</p></div></div></div>`).join('');
+  const compares=[['Reversible vs Irreversible Change','A reversible reaction can proceed in both forward and reverse directions under the stated conditions, allowing a dynamic equilibrium state.'],['Kc vs Kp','Kc uses equilibrium concentrations, while Kp uses equilibrium partial pressures; their relationship depends on the gas-phase stoichiometry.'],['Dynamic vs Static Equilibrium','Dynamic equilibrium has continuing forward and reverse molecular processes with equal rates; it is not a frozen state.'],['Q vs K','The reaction quotient Q describes the current composition; comparing Q with K indicates the direction of net change toward equilibrium.']];
+  const compareHtml=compares.map((c,i)=>`<div class="question-card"><b>${esc(c[0])}</b><p>${esc(c[1])}</p><button class="visual-link" onclick="practiceReveal('pr-cmp-${i}')">Academy check points دیکھیں</button><div id="pr-cmp-${i}" class="answer-review" hidden><p><b>Check:</b> definition → molecular model → energy/property consequence → application.</p></div></div>`).join('');
+  const visualHtml=visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" type="button" onclick="showVisual('${v[0]}')">Visual دیکھیں</button></div>`).join('');
+  show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>ہر سوال کا جواب پہلے خود دیں، پھر explanation دیکھ کر اپنی reasoning درست کریں۔</p></div>${recallHtml}<div class="section standard"><span class="level-heading standard-h">2. Compare &amp; Contrast</span><p>Bonding models، structure اور materials properties کو definition، molecular mechanism اور observable consequence کے ذریعے compare کریں۔</p></div>${compareHtml}<div class="section standard"><span class="level-heading standard-h">3. Visual Recall</span><p>ہر Visual کو دیکھ کر bonding model، structure، property یا material function اپنے الفاظ میں explain کریں۔</p></div>${visualHtml}<div class="section mastery"><span class="level-heading mastery-h">4. Final Guided Round</span><p>Lecture 21 کے تمام 14 subtopics بغیر notes کے explain کریں۔ جہاں جواب کمزور ہو متعلقہ Subtopic دوبارہ پڑھیں اور پھر readiness test دیں۔</p></div>`);
+}
+let masteryTTSModule=null;
+let masteryTTSReady=true;
+let masteryTTSPlaying=false;
+let masteryTTSStop=false;
+let masteryTTSCurrentAudio=null;
+let masteryTTSObjectURL=null;
+let masteryTTSUsingSpeechSynthesis=false;
+let masteryTTSSpeechResolve=null;
+let masteryTTSSegments=[];
+let masteryTTSIndex=0;
+let masteryTTSChunkIndex=0;
+let masteryTTSPreparingPromise=null;
+const MASTERY_TTS_LANG='ur';
+const MASTERY_TTS_MAX_CHARS=170;
+
+function masteryTTSSplitText(text){
+  const normalized=String(text||'').replace(/\s+/g,' ').trim();
+  if(!normalized)return [];
+  const sentences=normalized.match(/[^۔!?]+[۔!?]?/g)||[normalized];
+  const chunks=[];
+  let buf='';
+  const pushBuf=()=>{if(buf.trim()){chunks.push(buf.trim());buf='';}};
+  for(const sentence of sentences){
+    const s=sentence.trim();
+    if(!s)continue;
+    if(s.length<=MASTERY_TTS_MAX_CHARS){
+      if((buf+' '+s).trim().length<=MASTERY_TTS_MAX_CHARS) buf=(buf+' '+s).trim();
+      else {pushBuf();buf=s;}
+    }else{
+      pushBuf();
+      const words=s.split(/\s+/);
+      for(const w of words){
+        if((buf+' '+w).trim().length<=MASTERY_TTS_MAX_CHARS) buf=(buf+' '+w).trim();
+        else {pushBuf();buf=w;}
+      }
+    }
+  }
+  pushBuf();
+  return chunks;
+}
+function masteryTTSElements(){
+ const root=document.querySelector('.mastery-reading .mastery-body');
+ if(!root)return [];
+ const out=[];
+ const clean=(el)=>String(el?.innerText||el?.textContent||'').replace(/\s+/g,' ').trim();
+ const push=(el,label='')=>{if(el&&clean(el))out.push({el,text:clean(el),label});};
+ const vision=root.querySelector('.mastery-vision');
+ if(vision){
+   push(vision.querySelector('h2'),'Main Topic');
+   vision.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,i===0?'Definition':'Main Topic Understanding'));
+ }
+ const academic=root.querySelector('.mastery-definition');
+ if(academic) academic.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,`Academic Understanding ${i+1}`));
+ const progression=root.querySelector('.mastery-connection');
+ if(progression){
+   push(progression.querySelector('.level-heading'),'Lecture Progression');
+   progression.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,'Lecture Progression'));
+ }
+ root.querySelectorAll('.section.mastery[data-mastery-subtopic]').forEach((section,i)=>{
+   const n=String(i+1).padStart(2,'0');
+   const title=section.querySelector('.level-heading');
+   if(title)push(title,`Subtopic ${n}`);
+   const fig=section.querySelector(':scope > .mastery-visual');
+   if(fig){
+     const cap=fig.querySelector('figcaption');
+     if(cap)push(cap,`Subtopic ${n} Visual`);
+   }
+   section.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,`Subtopic ${n}`));
+ });
+ const complete=[...root.querySelectorAll('.mastery-conclusion')].find(el=>/Complete Lecture Mastery/i.test(clean(el)));
+ if(complete){
+   const title=complete.querySelector('.level-heading');
+   if(title)push(title,'Complete Lecture Mastery');
+   complete.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,'Complete Lecture Mastery'));
+ }
+ return out;
+}
+function masterySpeechText(){return masteryTTSElements().map(x=>x.text).join(' ').replace(/\s+/g,' ').trim();}
+function masteryTTSStatus(text,busy=false){
+ const box=document.querySelector('.mastery-sound'); if(!box)return;
+ let status=box.querySelector('.mastery-tts-status');
+ if(!status){status=document.createElement('span');status.className='mastery-tts-status';box.appendChild(status);}
+ status.textContent=text||''; status.dataset.busy=busy?'1':'0';
+}
+function clearMasteryTTSHighlight(){
+ document.querySelectorAll('.mastery-tts-active').forEach(el=>el.classList.remove('mastery-tts-active'));
+ document.querySelectorAll('.mastery-tts-active-title').forEach(el=>el.classList.remove('mastery-tts-active-title'));
+}
+function highlightMasteryTTS(el){
+ clearMasteryTTSHighlight(); if(!el)return;
+ el.classList.add(el.classList.contains('mastery-subtopic-title')||el.classList.contains('level-heading')?'mastery-tts-active-title':'mastery-tts-active');
+ el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function masteryGoogleTTSUrl(text){
+ return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+MASTERY_TTS_LANG+'&q='+encodeURIComponent(text);
+}
+async function prepareMasteryTTS(){
+ if(masteryTTSPreparingPromise)return masteryTTSPreparingPromise;
+ masteryTTSPreparingPromise=(async()=>{
+   masteryTTSStatus('اردو آواز تیار کی جا رہی ہے…',true);
+   masteryTTSReady=true;
+   masteryTTSStatus('اردو آواز تیار ہے۔',false);
+   return true;
+ })().catch(err=>{masteryTTSReady=false;throw err;}).finally(()=>{masteryTTSPreparingPromise=null;});
+ return masteryTTSPreparingPromise;
+}
+function getUrduVoice(){
+ if(!('speechSynthesis' in window))return null;
+ const voices=speechSynthesis.getVoices?speechSynthesis.getVoices():[];
+ return voices.find(v=>/^ur(-|$)/i.test(v.lang))||voices.find(v=>/^ur(-PK|-IN|-AE)?$/i.test(v.lang))||null;
+}
+function ensureSpeechVoices(){
+ if(!('speechSynthesis' in window))return;
+ try{speechSynthesis.getVoices();}catch(e){}
+ if(typeof speechSynthesis.addEventListener==='function'){
+   try{speechSynthesis.addEventListener('voiceschanged',()=>{} ,{once:true});}catch(e){}
+ }
+}
+function stopMastery(){
+ masteryTTSStop=true; masteryTTSPlaying=false;
+ if(masteryTTSCurrentAudio){try{masteryTTSCurrentAudio.pause();masteryTTSCurrentAudio.currentTime=0;}catch(e){}}
+ masteryTTSCurrentAudio=null;
+ updateMasteryPausePlayButton();
+ if(masteryTTSObjectURL){try{URL.revokeObjectURL(masteryTTSObjectURL);}catch(e){} masteryTTSObjectURL=null;}
+ masteryTTSSegments=[];masteryTTSIndex=0;masteryTTSChunkIndex=0;clearMasteryTTSHighlight();
+ if('speechSynthesis' in window){try{speechSynthesis.cancel();}catch(e){}}
+ masteryTTSUsingSpeechSynthesis=false;
+ if(masteryTTSSpeechResolve){try{masteryTTSSpeechResolve();}catch(e){} masteryTTSSpeechResolve=null;}
+ masteryTTSStatus('بند کر دیا گیا۔',false);
+ updateMasteryPausePlayButton();
+}
+function updateMasteryPausePlayButton(){
+ const btn=document.getElementById('masteryPausePlayBtn');
+ if(!btn)return;
+ const paused=(masteryTTSUsingSpeechSynthesis&&'speechSynthesis' in window)?speechSynthesis.paused:!!(masteryTTSCurrentAudio&&masteryTTSCurrentAudio.paused);
+ btn.textContent=paused?'▶ جاری':'⏸ وقفہ';
+ btn.setAttribute('aria-label',paused?'آواز دوبارہ چلائیں':'آواز میں وقفہ کریں');
+}
+function toggleMasteryPausePlay(){
+ if(masteryTTSUsingSpeechSynthesis && 'speechSynthesis' in window){
+   if(speechSynthesis.paused){speechSynthesis.resume();masteryTTSStatus('جاری ہے…',true);}
+   else{speechSynthesis.pause();masteryTTSStatus('وقفہ',false);}
+   updateMasteryPausePlayButton();return;
+ }
+ if(!masteryTTSCurrentAudio)return;
+ if(masteryTTSCurrentAudio.paused){
+   masteryTTSCurrentAudio.play().then(()=>{masteryTTSStatus('جاری ہے…',true);updateMasteryPausePlayButton();}).catch(err=>{console.error(err);masteryTTSStatus('آواز دوبارہ شروع نہیں ہو سکی۔',false);});
+ }else{masteryTTSCurrentAudio.pause();masteryTTSStatus('وقفہ',false);updateMasteryPausePlayButton();}
+}
+async function speakMastery(){
+ if(masteryTTSPlaying)return;
+ stopMastery(); masteryTTSStop=false;
+ const segments=masteryTTSElements();
+ if(!segments.length){masteryTTSStatus('Mastery میں پڑھنے کے لیے متن دستیاب نہیں ہے۔',false);return;}
+ masteryTTSSegments=segments; masteryTTSIndex=0; masteryTTSChunkIndex=0; masteryTTSPlaying=true;
+ ensureSpeechVoices();
+ /* Start local speech directly from the button gesture. This avoids Android/Chrome
+    blocking playback after an async preparation step. */
+ if('speechSynthesis' in window && typeof SpeechSynthesisUtterance!=='undefined'){
+   try{
+     const first=masteryTTSSegments[0];
+     const firstChunks=masteryTTSSplitText(first.text);
+     if(firstChunks.length){
+       await playSpeechSynthesisChunk(first,firstChunks,firstChunks[0]);
+       if(masteryTTSStop)return;
+       masteryTTSChunkIndex=1;
+       await playNextMasteryChunk(first,firstChunks);
+       return;
+     }
+   }catch(err){
+     console.warn('Local Urdu speech unavailable; trying online audio.',err);
+     masteryTTSUsingSpeechSynthesis=false;
+   }
+ }
+ try{
+   await playNextMasterySegment();
+ }catch(err){
+   console.error('Mastery Urdu TTS error',err);masteryTTSPlaying=false;clearMasteryTTSHighlight();
+   masteryTTSStatus('اردو آواز دستیاب نہیں ہو سکی۔ انٹرنیٹ یا device voice چیک کریں۔',false);
+ }
+}
+async function playNextMasterySegment(){
+ if(masteryTTSStop)return;
+ if(masteryTTSIndex>=masteryTTSSegments.length){masteryTTSPlaying=false;clearMasteryTTSHighlight();masteryTTSStatus('Mastery Sound مکمل ہو گیا۔',false);return;}
+ const item=masteryTTSSegments[masteryTTSIndex];
+ highlightMasteryTTS(item.el);
+ const chunks=masteryTTSSplitText(item.text);
+ masteryTTSChunkIndex=0;
+ await playNextMasteryChunk(item,chunks);
+}
+async function playSpeechSynthesisChunk(item,chunks,chunk){
+ if(!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance==='undefined') throw new Error('Speech synthesis unavailable');
+ masteryTTSUsingSpeechSynthesis=true;
+ await new Promise((resolve,reject)=>{
+   let settled=false;
+   const finish=(ok)=>{if(settled)return;settled=true;masteryTTSSpeechResolve=null;masteryTTSUsingSpeechSynthesis=false;ok?resolve():reject(new Error('Speech synthesis failed'));};
+   const utter=new SpeechSynthesisUtterance(chunk);
+   const voice=getUrduVoice();
+   if(voice)utter.voice=voice;
+   utter.lang=voice?voice.lang:'ur-PK';
+   utter.rate=0.9; utter.pitch=1;
+   utter.onend=()=>{masteryTTSChunkIndex++;finish(true);};
+   utter.onerror=()=>finish(false);
+   masteryTTSSpeechResolve=()=>finish(true);
+   try{speechSynthesis.cancel();speechSynthesis.speak(utter);}catch(e){finish(false);return;}
+   setTimeout(()=>{if(!settled){try{speechSynthesis.cancel();}catch(e){}finish(false);}},Math.max(30000,chunk.length*500));
+ });
+}
+async function playNextMasteryChunk(item,chunks){
+ if(masteryTTSStop)return;
+ if(masteryTTSChunkIndex>=chunks.length){masteryTTSIndex++;await playNextMasterySegment();return;}
+ const chunk=chunks[masteryTTSChunkIndex];
+ masteryTTSStatus(`${item.label} پڑھا جا رہا ہے…`,true);
+ const audio=new Audio(); audio.preload='auto'; audio.src=masteryGoogleTTSUrl(chunk); masteryTTSCurrentAudio=audio;
+ updateMasteryPausePlayButton();
+ await new Promise((resolve,reject)=>{
+   let done=false;
+   const finish=(ok)=>{if(done)return;done=true;audio.onended=null;audio.onerror=null;ok?resolve():reject(new Error('Audio playback failed'));};
+   audio.onended=()=>{masteryTTSCurrentAudio=null;updateMasteryPausePlayButton();masteryTTSChunkIndex++;finish(true);};
+   audio.onerror=()=>{masteryTTSCurrentAudio=null;updateMasteryPausePlayButton();finish(false);};
+   audio.play().catch(reject);
+ }).then(()=>playNextMasteryChunk(item,chunks)).catch(async err=>{
+   if(masteryTTSStop)return;
+   if('speechSynthesis' in window && typeof SpeechSynthesisUtterance!=='undefined'){
+     try{await playSpeechSynthesisChunk(item,chunks,chunk);await playNextMasteryChunk(item,chunks);return;}catch(fallbackErr){console.error('Mastery TTS fallback error',fallbackErr);}
+   }
+   throw err;
+ });
+}
+
+function applyMasteryFontSize(root,size){
+  if(!root)return;
+  const controls=root.querySelector('.mastery-controls');
+  const nodes=[root,...root.querySelectorAll('*')];
+  nodes.forEach(el=>{
+    if(controls && (el===controls || controls.contains(el))) return;
+    if(!el.dataset.iaeBaseFontSize){
+      const cs=getComputedStyle(el);
+      const px=parseFloat(cs.fontSize);
+      if(Number.isFinite(px)) el.dataset.iaeBaseFontSize=String(px);
+    }
+    const base=parseFloat(el.dataset.iaeBaseFontSize);
+    if(Number.isFinite(base)) el.style.fontSize=(base*(size/14))+'px';
+  });
+  root.dataset.fontSize=String(size);
+}
+function changeMasteryFont(delta){
+  const root=document.querySelector('.mastery-reading .mastery-body');
+  if(!root)return;
+  let size=parseFloat(root.dataset.fontSize||'14');
+  size=Math.max(12,Math.min(22,size+delta));
+  applyMasteryFontSize(root,size);
+}
+function resetMasteryFont(){
+  const root=document.querySelector('.mastery-reading .mastery-body');
+  if(!root)return;
+  applyMasteryFontSize(root,14);
+  root.dataset.fontSize='14';
+}
+function openSearch(){
+ const rows=[];
+ Object.entries(topics).forEach(([id,t])=>rows.push({type:'Topic',id,title:t.title,detail:t.intro||'' ,open:()=>openTopic(id)}));
+ Object.entries(subs).forEach(([id,s])=>rows.push({type:'Subtopic',id,title:s.title,detail:(s.basic||'')+' '+(s.standard||''),open:()=>openSub(id)}));
+ Object.keys(dict).forEach(k=>rows.push({type:'Dictionary',id:k,title:k,detail:dict[k][1]||'',open:()=>showDictionaryPopup(k)}));
+ const render=(q='')=>{
+   const n=String(q).trim().toLowerCase();
+   const hits=rows.filter(r=>!n||[r.type,r.id,r.title,r.detail].join(' ').toLowerCase().includes(n));
+   const box=document.getElementById('searchResults'); if(!box)return;
+   box.innerHTML=hits.map((r,i)=>`<button type="button" class="search-result" onclick="window.__iaeSearchOpen(${i})"><b>${esc(r.title)}</b><span class="visual-id">${esc(r.type)} · ${esc(r.id)}</span><p>${esc(r.detail.slice(0,220))}</p></button>`).join('') || '<div class="section">No matching result.</div>';
+   window.__iaeSearchRows=hits;
+ };
+ window.__iaeSearchOpen=i=>{const r=(window.__iaeSearchRows||[])[i];if(r)r.open();};
+ show(`<div class="lesson-title">Search</div><p class="lesson-subtitle">Lecture 21 — Topics, Subtopics and Dictionary</p><input class="search" id="academySearch" placeholder="Search Academy content…" oninput="renderAcademySearch(this.value)"><div id="searchResults"></div>`);
+ window.renderAcademySearch=render;
+ render('');
+}
+function visualOwnerTitle(id){const k=String(id||''); const v=visualItems.find(x=>x[0]===k); if(!v)return k; const owners=[]; Object.keys(subs).forEach(k2=>{if(subs[k2].visual===k)owners.push(subs[k2].id+' — '+subs[k2].title)}); Object.keys(topics).forEach(k2=>{if(topics[k2].visual===k)owners.unshift(topics[k2].id+' — '+topics[k2].title)}); return owners.length?owners.join(' · '):v[1];}
+function openFunctional(k){
+  if(k==='dictionary'){
+    show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Lecture 21 relevant terminology</p><div class="dictionary-search-wrap"><input class="search" id="ds" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" style="text-align:left" placeholder="Type a word or letters…" oninput="updateDictionarySearchDirection(this);renderDict(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();openDictionarySearchPopup(this.value)}"><button type="button" id="dictClear" class="dictionary-clear" aria-label="Clear dictionary search" title="Clear search" onclick="resetDictionarySearch()">×</button></div><div id="dictList"></div>`);
+    const input=document.getElementById('ds'); if(input){input.value='';input.dir='ltr';input.style.textAlign='left';}
+    renderDict(''); setTimeout(()=>{if(input){input.focus();input.select();}},0);return;
+  }
+  if(k==='visual'){show(`${header()}<div class="page-title">Lecture 21 — Visual Atlas</div><h2 class="lesson-title">Visual Atlas</h2><p class="lesson-subtitle">Lecture 21 Visual Atlas — Topic/Subtopic visuals</p><div class="visual-atlas-grid">${visualItems.map(v=>{const owner=visualOwnerTitle(v[0]);return `<article class="visual-card atlas-card"><h3 class="atlas-heading">${esc(owner)}</h3>${img(v[0])}${visualLinkFor(v[0])}</article>`}).join('')}</div>`);return;}
+  if(k==='search'){openSearch();return;}
+  if(k==='practice'){openGuidedPractice();return;}
+  if(k==='readiness'){openAssessment('readiness');return;}
+  if(k==='exam'){openAssessment('exam');return;}
+  if(k==='revision'){
+    const rq=Object.entries(subs).map(([id,d])=>[d.title,d.id,d.title+' کے بنیادی principle اور molecular explanation کو اپنے الفاظ میں بیان کریں۔',d.standard,'Definition → Molecular model → Consequence']);
+    const revisionHtml=rq.map((r,i)=>`<div class="question-card revision-q"><div class="pill">${esc(r[1])}</div><h3 style="margin:8px 0;font-size:17px;color:var(--green)">Q${i+1}. ${esc(r[0])}</h3><p><b>سوال:</b> ${esc(r[2])}</p><button class="visual-link" type="button" onclick="practiceReveal('rev-a-${i}')">Model answer دیکھیں</button><div id="rev-a-${i}" class="answer-review" hidden><p><b>جواب:</b> ${esc(r[3])}</p><p><b>Check:</b> ${esc(r[4])}</p></div></div>`).join('');
+    show(`<div class="lesson-title">Revision — Lecture 21</div><p class="lesson-subtitle">14 target subtopics کو active recall، comparison اور molecular reasoning کے ذریعے revise کریں۔</p>${revisionHtml}`);return;
+  }
+  if(k==='mastery'){
+  const lessons=Object.values(subs).map(x=>({id:x.id,title:x.title,visual:x.visual,def:x.basic,explain:x.standard,mastery:x.mastery,connect:x.extra}));
+  const mainVisual=visualSource('IAE1102070200 + IAE1102070300V')||{};
+  const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Urdu Mastery Sound"><button type="button" onclick="speakMastery()">🔊 اردو میں سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Mastery Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Equilibrium Shifts &amp; Industrial Equilibrium</h2><p class="mastery-step"><b>بنیادی تصور:</b> Lecture 21 میں concentration، pressure، temperature، Le Chatelier response، Q/K اور industrial equilibrium کو ایک connected molecular-to-thermodynamic model کے طور پر سمجھا جاتا ہے۔</p><p class="mastery-step"><b>Mastery chain:</b> <b>stress → Q/K or enthalpy response → equilibrium shift → yield → industrial optimisation → process control</b>۔</p></div><figure class="mastery-visual"><button type="button" class="visual-preview-button" onclick="showVisual('IAE1102070200 + IAE1102070300V')" aria-label="Open Lecture Mastery visual"><img src="${esc(mainVisual.src||'')}" alt="${esc(mainVisual.title||'Chemical Equilibrium')}" loading="eager" decoding="async" referrerpolicy="no-referrer"></button><figcaption><b>${esc(mainVisual.title||'Chemical Equilibrium')}</b><br>${esc(mainVisual.source||'Approved academic source')} — Lecture Mastery</figcaption></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">پہلے reversible reaction کی direction اور stoichiometry identify کریں، پھر forward اور reverse molecular rates کو سمجھیں۔ Dynamic equilibrium میں دونوں processes جاری رہتے ہیں مگر net macroscopic change صفر ہوتا ہے۔</p><p class="mastery-step">اس کے بعد equilibrium composition سے درست <b>Kc</b> یا <b>Kp</b> expression بنائیں، quantitative relationships استعمال کریں، اور آخر میں K کو thermodynamic meaning سے connect کریں۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Reversible Reactions → Dynamic Equilibrium → Equilibrium Constant → Kc → Kp → Thermodynamic Interpretation → Molecular-Level Equilibrium → Dynamic Equilibrium Modelling → Kc/Kp Relationships → Quantitative Equilibrium Reasoning → Equilibrium Composition → Gas-Phase Equilibrium Analysis → Equilibrium Constant Interpretation → Thermodynamic Meaning of Equilibrium</p></div>${lessons.map((x,i)=>{const v=visualSource(x.visual)||{};return `<div class="section mastery-lesson" data-mastery-subtopic="${esc(x.id)}"><span class="level-heading standard-h">${String(i+1).padStart(2,'0')}. ${esc(x.title)}</span><figure class="mastery-visual"><button type="button" class="visual-preview-button" onclick="showVisual('${esc(x.visual)}')" aria-label="Open ${esc(x.title)} visual"><img src="${esc(v.src||'')}" alt="${esc(v.title||x.title)}" loading="eager" decoding="async" referrerpolicy="no-referrer"></button><figcaption><b>${esc(v.title||x.title)}</b><br>${esc(v.source||'Approved academic source')} — Lecture Mastery</figcaption></figure><p class="mastery-step"><b>Concept:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard:</b> ${esc(x.explain)}</p><p class="mastery-step"><b>Mastery reasoning:</b> ${esc(x.mastery)}</p><p class="mastery-step"><b>Key connection:</b> ${esc(x.connect)}</p></div>`;}).join('')}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete Lecture Mastery</span><p class="mastery-step"><b>Final reasoning:</b> Start with the disturbance, identify its effect on Q/K or the heat term, predict the equilibrium shift, then connect the result to yield and industrial operating conditions.</p></div></div></div>`;show(html);return;}
+  if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Academic applicability</b><p>Lecture 21 میں کوئی separate laboratory procedure supplied نہیں ہے۔ Approved practical architecture retained ہے؛ target-specific academic practical payload N/A ہے.</p></div>`);return;}
+}
+
+let assessmentAttempt=[], assessmentType='readiness';
+
+function renderAssessmentQuestions(list,type){
+ return list.map((q,i)=>{const order=shuffle([0,1,2,3]);return `<div class="question-card assessment-q" data-qindex="${i}"><div class="pill">Q${i+1} · ${esc(q[4])}</div><h3>${esc(q[0])}</h3>${order.map(j=>`<label class="answer-option"><input type="radio" name="${type}-${i}" value="${j}" onchange="updateExamProgress()"><span>${esc(q[1][j])}</span></label>`).join('')}<div class="question-status" id="status-${type}-${i}">Unanswered</div></div>`}).join('');
+}
+function updateExamProgress(){
+ const total=assessmentAttempt.length;let answered=0;
+ assessmentAttempt.forEach((_,i)=>{const selected=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);if(selected)answered++;const st=document.getElementById(`status-${assessmentType}-${i}`);if(st)st.textContent=selected?'Answered':'Unanswered';});
+ const bar=document.getElementById('examProgressBar'),txt=document.getElementById('examProgressText');
+ if(bar)bar.style.width=(total?answered/total*100:0)+'%';
+ if(txt)txt.textContent=`${answered} / ${total} answered`;
+}
+function openAssessment(type){
+ assessmentType=type;
+ // Lecture 21 examination bank; use every question once.
+ assessmentAttempt=type==='exam'?[...questions]:shuffle(questions).slice(0,Math.min(15,questions.length));
+ const examMode=type==='exam';
+ const host=getMainHost();
+ if(!host || !assessmentAttempt.length)return;
+ if(examMode){
+   if(lectureViewStack.length===0 && host.innerHTML.trim()) lectureViewStack.push(host.innerHTML);
+   host.innerHTML=`<div class="content-view assessment-fullscreen">
+     <button class="view-close" type="button" aria-label="Close Examination" title="Close" onclick="returnToPreviousView()">×</button>
+     <div class="assessment-shell">
+       <div class="assessment-head"><div class="assessment-badge">🏛️ FULL EXAMINATION</div><div class="lesson-title">Lecture 21 — Final Examination</div><p>Formal assessment of Lecture 21: concentration, pressure, temperature, Le Chatelier’s principle, quantitative equilibrium shifts, industrial equilibrium, optimisation, modelling, disturbance response and process control. Answer every MCQ, review your answers, then submit.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">100 Marks</span> <span class="pill">60 Minutes</span></div></div>
+       <div class="exam-rules"><b>Examination Protocol</b><ol><li>Answer all questions. Every MCQ has one best answer.</li><li>Select one option for each question.</li><li>You may change an answer before submission.</li><li>Unanswered questions receive 0 marks.</li><li>Review the complete paper before pressing <b>Submit Examination</b>.</li><li>Passing standard: 50%.</li></ol></div>
+       <div class="exam-progress"><div class="progress-label"><b>Exam Progress</b><span id="examProgressText">0 / ${assessmentAttempt.length} answered</span></div><div class="progress-track"><div id="examProgressBar" class="progress-bar"></div></div></div>
+       <div id="assessmentQuestions" class="assessment-questionnaire">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+       <div class="assessment-actions"><button class="exam-submit" type="button" onclick="submitAssessment()">Submit Examination</button><button type="button" onclick="openAssessment('exam')">↻ Reset</button></div>
+       <div id="assessmentResult" class="assessment-result"></div>
+     </div>
+   </div>`;
+   host.scrollTop=0;updateExamProgress();return;
+ }
+ // Lecture 21 Readiness Test using the same approved assessment architecture.
+ show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 READINESS TEST</div><div class="lesson-title">Lecture 21 — Readiness Test</div><p>Diagnostic assessment covering concentration, pressure, temperature, Le Chatelier response, Q/K reasoning, industrial equilibrium and process optimisation.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
+ <div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div>
+ <div id="readinessQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+ <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit Readiness Test</button><button onclick="openAssessment('readiness')">↻ Reset</button></div>
+ <div id="readinessResult" class="assessment-result"></div>`);
+}
+function shuffle(a){const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
+function submitAssessment(){
+ let correct=0,wrong=0,unanswered=0,weak={},review=[];
+ assessmentAttempt.forEach((q,i)=>{const sel=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);const s=sel?Number(sel.value):null;if(s===null)unanswered++;else if(s===q[2])correct++;else{wrong++;weak[q[4]]=(weak[q[4]]||0)+1;}review.push({q,selected:s,ok:s===q[2]});});
+ const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Pass — Needs Revision','Review weak areas before retest']:['Fail — Foundation Revision Required','Rebuild weak concepts before retest'];
+ let r=document.getElementById(assessmentType==='exam'?'assessmentResult':'readinessResult');if(!r)return;r.className='assessment-result show';
+ const topicStats={};assessmentAttempt.forEach((q,i)=>{if(!topicStats[q[4]])topicStats[q[4]]={total:0,correct:0};topicStats[q[4]].total++;if(review[i].ok)topicStats[q[4]].correct++;});
+ r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Final Examination Result':'Readiness Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p>${assessmentType==='exam'?`<p><b>Status:</b> ${pct>=50?'PASSED':'NOT PASSED'} &nbsp; · &nbsp; <b>Marks:</b> ${correct*10}/100</p>`:''}</div>
+ <div class="recommendation-title">📊 Topic Performance</div>${Object.entries(topicStats).map(([t,v])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${v.correct}/${v.total} correct — ${Math.round(v.correct/v.total*100)}%</p></div>`).join('')}
+ <div class="recommendation-title">🎯 Weak Areas &amp; Revision Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
+ <div class="recommendation-title">📝 Detailed Answer Review</div>${review.map((x,i)=>`<div class="answer-review ${x.ok?'':'review-wrong'}"><b>Q${i+1}</b><p>${esc(x.q[0])}</p><p><b>آپ کا جواب:</b> ${x.selected===null?'جواب نہیں دیا':esc(x.q[1][x.selected])}</p><p><b>درست جواب:</b> ${esc(x.q[1][x.q[2]])}</p><p>${esc(x.q[3])}</p></div>`).join('')}`;
+ r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function decorateDictionaryLinks(root=document){
+ const nodes=[...root.querySelectorAll('.section p,.section li,.topic-head-text p,.subtopic-head-text .lesson-title,.section-card p')];
+ nodes.forEach(node=>{
+   if(node.dataset.decorated)return;
+   // Do not re-process content that has already been converted into Dictionary links.
+   // Re-processing nested buttons was the source of visible HTML fragments such as meristem">.
+   if(node.querySelector('.linked-word')){node.dataset.decorated='1';return;}
+   const text=node.textContent; if(!text.trim())return;
+   let out=esc(text);
+   const tokens=[];
+   const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+   for(const k of keys){
+     const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+     for(const alias of aliases){
+       const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+       out=out.replace(new RegExp('('+safe+')','gi'),m=>{
+         const i=tokens.length;
+         tokens.push(`<button class="linked-word" type="button" data-term="${esc(k)}">${esc(m)}</button>`);
+         return '\uE000'+i+'\uE001';
+       });
+     }
+   }
+   node.innerHTML=out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
+   node.dataset.decorated='1';
+ });
+}
+// CCSV4 TAB CLICK REPAIR — deterministic delegated activation.
+Object.assign(window,{showPage,openTopic,openSub,openFunctional,showVisual,returnToPreviousView});
+function ccsv4InvokeClick(el,event){
+  if(!el)return false;
+  const code=(el.getAttribute('onclick')||'').trim();
+  if(!code)return false;
+  try{
+    const m=code.match(/^([A-Za-z_$][\w$]*)\s*\((.*)\)\s*;?$/s);
+    if(!m)return false;
+    const fn=window[m[1]];
+    if(typeof fn!=='function')return false;
+    const raw=m[2].trim(), values=[];
+    if(raw){
+      const re=/'((?:\\.|[^'])*)'|"((?:\\.|[^"])*)"/g; let x;
+      while((x=re.exec(raw))!==null) values.push(x[1]!==undefined?x[1].replace(/\\'/g,"'"):x[2].replace(/\\"/g,'"'));
+      if(values.length===0)return false;
+    }
+    fn(...values); return true;
+  }catch(err){ console.error('CCSV4 tab click activation failed',err,code); return false; }
+}
+document.addEventListener('click',function(e){
+  const el=e.target.closest?.('.topic-grid .tab, .topic-feature-row .tab, .lecture-navigation .previous-page-tab');
+  if(el && ccsv4InvokeClick(el,e)){ e.preventDefault(); e.stopImmediatePropagation(); }
+},true);
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter' && e.key!==' ')return;
+  const el=e.target.closest?.('.topic-grid .tab, .topic-feature-row .tab, .lecture-navigation .previous-page-tab');
+  if(el && ccsv4InvokeClick(el,e)){ e.preventDefault(); e.stopImmediatePropagation(); }
+},true);
+window.addEventListener('message',e=>{if(e.data&&e.data.type==='IAE_HIT_CEILING_CLOSE'){returnToPreviousView();}});
+function initMainContentContainer(){const host=getMainHost();if(host&&host.innerHTML.trim()==='')showPage('topicsPage');}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMainContentContainer,{once:true});else initMainContentContainer();
+</script>
+</div>
+</body>
+</html>
