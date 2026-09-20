@@ -1,0 +1,108 @@
+name: CCSV4 Runtime Chromium — Lecture 20
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'First-Year/Chemi20/**'
+      - '.github/workflows/ccsv4-runtime.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  runtime-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install --no-save @playwright/test
+          npx playwright install --with-deps chromium
+
+      - name: Start local lecture server
+        run: |
+          python3 -m http.server 4173 --directory . >/tmp/ccsv4-server.log 2>&1 &
+          sleep 2
+
+      - name: Runtime Chromium smoke test
+        run: |
+          node <<'NODE'
+          const { chromium } = require('playwright');
+
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+
+            const page = await browser.newPage({
+              viewport: {width:390, height:844},
+              deviceScaleFactor: 1
+            });
+
+            const errors = [];
+
+            page.on('console', m => {
+              if (m.type() === 'error') {
+                errors.push('console: ' + m.text());
+              }
+            });
+
+            page.on('pageerror', e => {
+              errors.push('pageerror: ' + e.message);
+            });
+
+            const url =
+              'http://127.0.0.1:4173/First-Year/Chemi20/index.html';
+
+            const response = await page.goto(url, {
+              waitUntil: 'networkidle',
+              timeout: 30000
+            });
+
+            if (!response || !response.ok()) {
+              throw new Error(
+                'Lecture 20 failed to load: HTTP ' +
+                (response && response.status())
+              );
+            }
+
+            await page.screenshot({
+              path: 'ccsv4-runtime.png',
+              fullPage: false
+            });
+
+            console.log('TITLE:', await page.title());
+            console.log('URL:', page.url());
+            console.log('CONSOLE_ERRORS:', errors.length);
+
+            if (errors.length) {
+              console.error(errors.join('\\n'));
+              process.exitCode = 1;
+            }
+
+            await browser.close();
+          })().catch(e => {
+            console.error(e);
+            process.exitCode = 1;
+          });
+          NODE
+
+      - name: Upload runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CCSV4-Lecture20-runtime-evidence
+          path: |
+            ccsv4-runtime.png
+            /tmp/ccsv4-server.log
+          if-no-files-found: warn
