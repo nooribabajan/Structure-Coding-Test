@@ -36,7 +36,7 @@ jobs:
           python3 -m http.server 4173 --directory . >/tmp/ccsv4-server.log 2>&1 &
           sleep 2
 
-      - name: Runtime Chromium smoke test
+      - name: Runtime Chromium diagnostic test
         run: |
           node <<'NODE'
           const { chromium } = require('playwright');
@@ -50,15 +50,46 @@ jobs:
             });
 
             const errors = [];
+            const httpErrors = [];
+            const failedRequests = [];
 
-            page.on('console', m => {
-              if (m.type() === 'error') {
-                errors.push('console: ' + m.text());
+            page.on('console', message => {
+              if (message.type() === 'error') {
+                errors.push({
+                  type: 'console',
+                  text: message.text(),
+                  location: message.location()
+                });
               }
             });
 
-            page.on('pageerror', e => {
-              errors.push('pageerror: ' + e.message);
+            page.on('pageerror', error => {
+              errors.push({
+                type: 'pageerror',
+                text: error.message,
+                stack: error.stack || ''
+              });
+            });
+
+            page.on('response', response => {
+              if (response.status() >= 400) {
+                httpErrors.push({
+                  status: response.status(),
+                  statusText: response.statusText(),
+                  url: response.url(),
+                  resourceType: response.request().resourceType(),
+                  method: response.request().method()
+                });
+              }
+            });
+
+            page.on('requestfailed', request => {
+              failedRequests.push({
+                url: request.url(),
+                resourceType: request.resourceType(),
+                method: request.method(),
+                failure: request.failure()
+              });
             });
 
             const url =
@@ -72,7 +103,9 @@ jobs:
             if (!response || !response.ok()) {
               throw new Error(
                 'Lecture 20 failed to load: HTTP ' +
-                (response && response.status())
+                (response && response.status()) +
+                ' ' +
+                (response && response.statusText())
               );
             }
 
@@ -83,25 +116,63 @@ jobs:
 
             console.log('TITLE:', await page.title());
             console.log('URL:', page.url());
-            console.log('CONSOLE_ERRORS:', errors.length);
 
-            if (errors.length) {
-              console.error(errors.join('\\n'));
+            console.log('\n=== HTTP ERRORS (400+) ===');
+
+            if (!httpErrors.length) {
+              console.log('NONE');
+            } else {
+              for (const error of httpErrors) {
+                console.log(JSON.stringify(error));
+              }
+            }
+
+            console.log('\n=== FAILED REQUESTS ===');
+
+            if (!failedRequests.length) {
+              console.log('NONE');
+            } else {
+              for (const error of failedRequests) {
+                console.log(JSON.stringify(error));
+              }
+            }
+
+            console.log('\n=== JAVASCRIPT / CONSOLE ERRORS ===');
+
+            if (!errors.length) {
+              console.log('NONE');
+            } else {
+              for (const error of errors) {
+                console.log(JSON.stringify(error));
+              }
+            }
+
+            console.log('\n=== DIAGNOSTIC SUMMARY ===');
+            console.log('HTTP_ERRORS:', httpErrors.length);
+            console.log('FAILED_REQUESTS:', failedRequests.length);
+            console.log('JS_CONSOLE_ERRORS:', errors.length);
+
+            if (
+              httpErrors.length ||
+              failedRequests.length ||
+              errors.length
+            ) {
               process.exitCode = 1;
             }
 
             await browser.close();
-          })().catch(e => {
-            console.error(e);
+
+          })().catch(error => {
+            console.error(error);
             process.exitCode = 1;
           });
           NODE
 
-      - name: Upload runtime evidence
+      - name: Upload runtime diagnostic evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: CCSV4-Lecture20-runtime-evidence
+          name: CCSV4-Lecture20-runtime-diagnostic
           path: |
             ccsv4-runtime.png
             /tmp/ccsv4-server.log
