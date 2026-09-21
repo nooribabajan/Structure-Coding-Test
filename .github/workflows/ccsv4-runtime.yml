@@ -1,132 +1,200 @@
-name: CCSV4 Runtime Chromium — Last Committed Lecture
+name: CCSV4 Permanent Runtime Gate — Chromium Diagnostics
 
 on:
-  workflow_dispatch:
-    inputs:
-      lecture:
-        description: "Lecture number to test (example: 22)"
-        required: true
-        default: "22"
-
   push:
     branches:
       - main
-    paths:
-      - 'First-Year/Chemi*/**'
-      - '.github/workflows/ccsv4-runtime.yml'
+
+  workflow_dispatch:
+    inputs:
+      lecture:
+        description: "Optional lecture number. Leave blank to auto-detect."
+        required: false
+        default: ""
 
 permissions:
   contents: read
 
 jobs:
-  runtime:
+
+  detect:
+    name: CCSV4 — Detect Test Targets
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    outputs:
+      lectures: ${{ steps.detect.outputs.lectures }}
+      count: ${{ steps.detect.outputs.count }}
 
     steps:
-      - name: Checkout latest committed repository
+
+      - name: Checkout complete repository history
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Determine lecture to test
-        id: target
+      - name: Detect affected or latest lecture
+        id: detect
         shell: bash
         run: |
+
           set -euo pipefail
+
+          TARGETS=""
+
+          #
+          # MANUAL RUN
+          #
 
           if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
 
-            lecture=$(jq -r '.inputs.lecture // "22"' "$GITHUB_EVENT_PATH")
+            requested=$(jq -r '.inputs.lecture // ""' "$GITHUB_EVENT_PATH")
 
-            if ! [[ "$lecture" =~ ^[0-9]+$ ]]; then
-              echo "ERROR: Lecture number must be numeric."
-              exit 1
+            if [ -n "$requested" ]; then
+
+              if ! [[ "$requested" =~ ^[0-9]+$ ]]; then
+                echo "CCSV4 DETECTION FAILURE"
+                echo "PROBLEM_CODE=INVALID_LECTURE_INPUT"
+                exit 1
+              fi
+
+              FILE="First-Year/Chemi${requested}/index.html"
+
+              if [ ! -f "$FILE" ]; then
+                echo "CCSV4 DETECTION FAILURE"
+                echo "PROBLEM_CODE=MISSING_LECTURE_FILE"
+                echo "Missing: $FILE"
+                exit 1
+              fi
+
+              TARGETS="$requested"
+
             fi
-
-            FILE="First-Year/Chemi${lecture}/index.html"
-
-            if [ ! -f "$FILE" ]; then
-              echo "ERROR: Requested lecture file does not exist:"
-              echo "$FILE"
-              exit 1
-            fi
-
-            echo "lecture=$lecture" >> "$GITHUB_OUTPUT"
-            echo "file=$FILE" >> "$GITHUB_OUTPUT"
-
-            echo "Manual runtime target:"
-            echo "$FILE"
-
-          else
-
-            echo "Finding the most recently committed Chemistry lecture index.html..."
-
-            latest_path=$(
-              git log -1 \
-                --format='%H' \
-                -- ':(glob)First-Year/Chemi*/index.html' |
-              xargs -I{} git show --format= --name-only {} 2>/dev/null |
-              grep -E '^First-Year/Chemi[0-9]+/index\.html$' |
-              head -n 1 || true
-            )
-
-            if [ -z "$latest_path" ]; then
-              echo "Fallback: selecting highest-numbered Chemistry lecture."
-
-              latest_path=$(
-                find First-Year \
-                  -type f \
-                  -path '*/Chemi*/index.html' |
-                grep -E '/Chemi[0-9]+/index\.html$' |
-                sort -V |
-                tail -n 1 || true
-              )
-            fi
-
-            if [ -z "$latest_path" ]; then
-              echo "ERROR: No Chemistry lecture index.html found."
-              exit 1
-            fi
-
-            lecture=$(echo "$latest_path" |
-              sed -E 's#^First-Year/Chemi([0-9]+)/index\.html$#\1#')
-
-            if ! [[ "$lecture" =~ ^[0-9]+$ ]]; then
-              echo "ERROR: Could not determine lecture number."
-              exit 1
-            fi
-
-            echo "lecture=$lecture" >> "$GITHUB_OUTPUT"
-            echo "file=$latest_path" >> "$GITHUB_OUTPUT"
-
-            echo "Latest committed lecture target:"
-            echo "$latest_path"
 
           fi
 
-      - name: Show exact commit under test
-        shell: bash
-        run: |
-          echo "Repository HEAD:"
-          git rev-parse HEAD
+          #
+          # AUTOMATIC COMMIT DETECTION
+          #
 
-          echo
-          echo "HEAD commit:"
-          git log -1 --oneline --decorate
+          if [ -z "$TARGETS" ]; then
 
-          echo
-          echo "Lecture under test:"
-          echo "${{ steps.target.outputs.lecture }}"
+            BEFORE=$(jq -r '.before // ""' "$GITHUB_EVENT_PATH")
+            AFTER="$GITHUB_SHA"
 
-          echo
-          echo "File under test:"
-          echo "${{ steps.target.outputs.file }}"
+            if [ -n "$BEFORE" ] &&
+               [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
 
-          echo
-          echo "File commit history:"
-          git log -5 --oneline -- \
-            "${{ steps.target.outputs.file }}"
+              CHANGED_FILES=$(
+                git diff --name-only \
+                  "$BEFORE" \
+                  "$AFTER" \
+                  -- \
+                  'First-Year/Chemi*/**' \
+                  '.github/workflows/**'
+              )
+
+            else
+
+              CHANGED_FILES=$(
+                git ls-tree \
+                  -r \
+                  --name-only \
+                  "$AFTER" \
+                  -- \
+                  'First-Year/Chemi*/**'
+              )
+
+            fi
+
+            #
+            # Find lectures whose actual files changed.
+            #
+
+            TARGETS=$(
+              printf '%s\n' "$CHANGED_FILES" |
+              sed -nE \
+                's#^First-Year/Chemi([0-9]+)/.*#\1#p' |
+              sort -n -u |
+              paste -sd ',' -
+            )
+
+          fi
+
+          #
+          # IMPORTANT:
+          # If only workflow/system files changed,
+          # do NOT skip the runtime test.
+          #
+          # Instead test the newest committed lecture.
+          #
+
+          if [ -z "$TARGETS" ]; then
+
+            echo "No lecture-specific change detected."
+
+            LATEST=$(
+              find First-Year \
+                -type f \
+                -path '*/Chemi*/index.html' |
+              grep -E '/Chemi[0-9]+/index\.html$' |
+              sort -V |
+              tail -n 1 || true
+            )
+
+            if [ -z "$LATEST" ]; then
+
+              echo "CCSV4 DETECTION FAILURE"
+              echo "PROBLEM_CODE=NO_LECTURE_FILES_FOUND"
+              exit 1
+
+            fi
+
+            TARGETS=$(
+              echo "$LATEST" |
+              sed -E \
+                's#^First-Year/Chemi([0-9]+)/index\.html$#\1#'
+            )
+
+            echo "System-only commit detected."
+            echo "Testing latest committed lecture: $TARGETS"
+
+          fi
+
+          COUNT=$(
+            echo "$TARGETS" |
+            tr ',' '\n' |
+            sed '/^$/d' |
+            wc -l
+          )
+
+          echo "Detected lectures: $TARGETS"
+          echo "Count: $COUNT"
+
+          echo "lectures=$TARGETS" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+
+
+  runtime:
+    name: CCSV4 — Chromium Runtime Diagnostic
+    needs: detect
+
+    if: needs.detect.outputs.count != '0'
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 45
+
+    strategy:
+      fail-fast: false
+      matrix:
+        lecture:
+          - ${{ needs.detect.outputs.lectures }}
+
+    steps:
+
+      - name: Checkout exact committed version
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
@@ -136,11 +204,774 @@ jobs:
       - name: Install latest Playwright
         shell: bash
         run: |
-          npm init -y
-          npm install --save-dev playwright@latest
 
-          echo "Playwright version:"
+          set -euo pipefail
+
+          npm init -y
+
+          npm install \
+            --save-dev \
+            playwright@latest
+
+          echo ""
+          echo "=========================================="
+          echo "PLAYWRIGHT VERSION"
+          echo "=========================================="
+
           npx playwright --version
 
-          echo
-          echo "Installing bundled
+          echo ""
+          echo "Installing bundled Chromium..."
+
+          npx playwright install --with-deps chromium
+
+      - name: Validate target lecture
+        shell: bash
+        run: |
+
+          set -euo pipefail
+
+          LECTURES="${{ needs.detect.outputs.lectures }}"
+
+          echo "Runtime target(s):"
+          echo "$LECTURES"
+
+          while IFS= read -r lecture; do
+
+            [ -z "$lecture" ] && continue
+
+            FILE="First-Year/Chemi${lecture}/index.html"
+
+            echo ""
+            echo "Checking:"
+            echo "$FILE"
+
+            if [ ! -f "$FILE" ]; then
+
+              echo "CCSV4 FAILURE"
+              echo "PROBLEM_CODE=MISSING_LECTURE_FILE"
+              echo "Missing: $FILE"
+
+              exit 1
+
+            fi
+
+          done < <(echo "$LECTURES" | tr ',' '\n')
+
+      - name: Start local lecture server
+        shell: bash
+        run: |
+
+          set -euo pipefail
+
+          npx --yes http-server \
+            First-Year \
+            -p 4173 \
+            > server.log 2>&1 &
+
+          echo $! > server.pid
+
+          FIRST_LECTURE=$(
+            echo "${{ needs.detect.outputs.lectures }}" |
+            cut -d',' -f1
+          )
+
+          for i in {1..30}; do
+
+            if curl -fsS \
+              "http://127.0.0.1:4173/Chemi${FIRST_LECTURE}/index.html" \
+              >/dev/null; then
+
+              echo "CCSV4 PASS"
+              echo "PROBLEM_CODE=NONE"
+              echo "Local server is ready."
+
+              exit 0
+
+            fi
+
+            sleep 1
+
+          done
+
+          echo "CCSV4 FAILURE"
+          echo "PROBLEM_CODE=LOCAL_SERVER_START_FAILURE"
+
+          cat server.log
+
+          exit 1
+
+      - name: Chromium — Deep CCSV4 tab diagnostic
+        shell: bash
+        run: |
+
+          set -euo pipefail
+
+          mkdir -p ccsv4-evidence
+
+          echo "${{ needs.detect.outputs.lectures }}" |
+          tr ',' '\n' |
+          while IFS= read -r lecture; do
+
+            [ -z "$lecture" ] && continue
+
+            echo ""
+            echo "################################################"
+            echo "CCSV4 RUNTIME TEST — LECTURE $lecture"
+            echo "################################################"
+
+            LECTURE="$lecture" node <<'NODE'
+
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          (async () => {
+
+            const lecture = process.env.LECTURE;
+
+            const url =
+              `http://127.0.0.1:4173/Chemi${lecture}/index.html`;
+
+            const evidence = {
+
+              lecture,
+
+              url,
+
+              testedAt:
+                new Date().toISOString(),
+
+              playwright:
+                require(
+                  'playwright/package.json'
+                ).version,
+
+              chromium:
+                null,
+
+              tabs: [],
+
+              consoleErrors: [],
+
+              pageErrors: [],
+
+              failedRequests: [],
+
+              globalProblems: []
+
+            };
+
+            const browser =
+              await chromium.launch({
+                headless: true,
+                args: [
+                  '--disable-gpu'
+                ]
+              });
+
+            evidence.chromium =
+              await browser.version();
+
+            const context =
+              await browser.newContext();
+
+            const page =
+              await context.newPage();
+
+            page.on(
+              'console',
+              message => {
+
+                if (
+                  message.type() ===
+                  'error'
+                ) {
+
+                  evidence.consoleErrors.push(
+                    message.text()
+                  );
+
+                }
+
+              }
+            );
+
+            page.on(
+              'pageerror',
+              error => {
+
+                evidence.pageErrors.push(
+                  String(error)
+                );
+
+              }
+            );
+
+            page.on(
+              'requestfailed',
+              request => {
+
+                evidence.failedRequests.push({
+
+                  url:
+                    request.url(),
+
+                  method:
+                    request.method(),
+
+                  failure:
+                    request.failure()
+
+                });
+
+              }
+            );
+
+            /*
+             * ----------------------------------------
+             * PAGE LOAD
+             * ----------------------------------------
+             */
+
+            try {
+
+              await page.goto(
+                url,
+                {
+                  waitUntil:
+                    'domcontentloaded'
+                }
+              );
+
+              await page
+                .waitForLoadState(
+                  'networkidle'
+                )
+                .catch(() => {});
+
+            } catch (error) {
+
+              evidence.globalProblems.push({
+
+                code:
+                  'PAGE_LOAD_FAILURE',
+
+                message:
+                  String(error)
+
+              });
+
+            }
+
+            /*
+             * ----------------------------------------
+             * REQUIRED CCSV4 FUNCTIONS
+             * ----------------------------------------
+             */
+
+            const requiredFunctions =
+              await page.evaluate(() => {
+
+                const names = [
+
+                  'showPage',
+                  'openTopic',
+                  'openSub',
+                  'openFunctional',
+                  'showVisual',
+                  'returnToPreviousView'
+
+                ];
+
+                return names.map(
+                  name => ({
+
+                    name,
+
+                    exists:
+                      typeof window[name] ===
+                      'function'
+
+                  })
+                );
+
+              });
+
+            evidence.requiredFunctions =
+              requiredFunctions;
+
+            for (
+              const functionInfo
+              of requiredFunctions
+            ) {
+
+              if (
+                !functionInfo.exists
+              ) {
+
+                evidence.globalProblems.push({
+
+                  code:
+                    'MISSING_TAB_FUNCTION',
+
+                  function:
+                    functionInfo.name
+
+                });
+
+              }
+
+            }
+
+            /*
+             * ----------------------------------------
+             * TAB DISCOVERY
+             * ----------------------------------------
+             */
+
+            const selector =
+              '.topic-grid .tab, ' +
+              '.topic-feature-row .tab, ' +
+              '.lecture-navigation .previous-page-tab';
+
+            const tabCount =
+              await page
+                .locator(selector)
+                .count();
+
+            evidence.tabCount =
+              tabCount;
+
+            if (!tabCount) {
+
+              evidence.globalProblems.push({
+
+                code:
+                  'NO_TABS_FOUND',
+
+                selector
+
+              });
+
+            }
+
+            /*
+             * ----------------------------------------
+             * TAB DESCRIPTORS
+             * ----------------------------------------
+             */
+
+            const descriptors =
+              await page
+                .locator(selector)
+                .evaluateAll(
+                  elements =>
+                    elements.map(
+                      (element, index) => ({
+
+                        index,
+
+                        label:
+                          element.innerText
+                            .trim(),
+
+                        onclick:
+                          element
+                            .getAttribute(
+                              'onclick'
+                            ),
+
+                        className:
+                          element.className,
+
+                        tagName:
+                          element.tagName,
+
+                        id:
+                          element.id,
+
+                        role:
+                          element.getAttribute(
+                            'role'
+                          ),
+
+                        disabled:
+                          element.disabled ===
+                          true
+
+                      })
+                    )
+                );
+
+            evidence.descriptors =
+              descriptors;
+
+            /*
+             * ----------------------------------------
+             * TEST EVERY TAB
+             * ----------------------------------------
+             */
+
+            for (
+              const descriptor
+              of descriptors
+            ) {
+
+              /*
+               * Fresh page for every tab.
+               */
+
+              await page.goto(
+                url,
+                {
+                  waitUntil:
+                    'domcontentloaded'
+                }
+              );
+
+              await page
+                .waitForLoadState(
+                  'networkidle'
+                )
+                .catch(() => {});
+
+              /*
+               * Instrument functions.
+               */
+
+              await page.evaluate(() => {
+
+                window.__ccsv4Calls = [];
+
+                const names = [
+
+                  'showPage',
+                  'openTopic',
+                  'openSub',
+                  'openFunctional',
+                  'showVisual',
+                  'returnToPreviousView'
+
+                ];
+
+                for (
+                  const name
+                  of names
+                ) {
+
+                  const original =
+                    window[name];
+
+                  if (
+                    typeof original !==
+                    'function'
+                  ) {
+                    continue;
+                  }
+
+                  window[name] =
+                    function (...args) {
+
+                      window
+                        .__ccsv4Calls
+                        .push({
+
+                          name,
+
+                          args:
+                            args.map(
+                              value => {
+
+                                if (
+                                  value !==
+                                    null &&
+                                  typeof value ===
+                                    'object'
+                                ) {
+
+                                  return '[object]';
+
+                                }
+
+                                return value;
+
+                              }
+                            )
+
+                        });
+
+                      return original.apply(
+                        this,
+                        args
+                      );
+
+                    };
+
+                }
+
+              });
+
+              const tab =
+                page
+                  .locator(selector)
+                  .nth(
+                    descriptor.index
+                  );
+
+              /*
+               * Verify tab still exists
+               * after reload.
+               */
+
+              if (
+                !(await tab.count())
+              ) {
+
+                evidence.tabs.push({
+
+                  ...descriptor,
+
+                  status:
+                    'FAIL',
+
+                  problemCode:
+                    'TAB_DISAPPEARED_AFTER_RELOAD'
+
+                });
+
+                continue;
+
+              }
+
+              await tab
+                .scrollIntoViewIfNeeded();
+
+              /*
+               * BEFORE STATE
+               */
+
+              const before =
+                await page.evaluate(() => {
+
+                  const visibleIds =
+                    Array.from(
+                      document
+                        .querySelectorAll(
+                          '[id]'
+                        )
+                    )
+                    .filter(
+                      element => {
+
+                        const style =
+                          getComputedStyle(
+                            element
+                          );
+
+                        return (
+                          style.display !==
+                            'none' &&
+                          style.visibility !==
+                            'hidden'
+                        );
+
+                      }
+                    )
+                    .map(
+                      element =>
+                        element.id
+                    )
+                    .filter(Boolean);
+
+                  const activeTabs =
+                    Array.from(
+                      document
+                        .querySelectorAll(
+                          '.tab.active, ' +
+                          '.tab[aria-selected="true"]'
+                        )
+                    )
+                    .map(
+                      element =>
+                        element.innerText.trim()
+                    );
+
+                  return {
+
+                    href:
+                      location.href,
+
+                    visibleIds,
+
+                    activeTabs,
+
+                    bodyText:
+                      document.body
+                        .innerText
+                        .slice(
+                          0,
+                          6000
+                        )
+
+                  };
+
+                });
+
+              /*
+               * REAL BROWSER CLICK
+               */
+
+              let clickError =
+                null;
+
+              try {
+
+                await tab.click({
+                  force: true
+                });
+
+              } catch (error) {
+
+                clickError =
+                  String(error);
+
+              }
+
+              await page.waitForTimeout(
+                700
+              );
+
+              /*
+               * AFTER STATE
+               */
+
+              const after =
+                await page.evaluate(() => {
+
+                  const visibleIds =
+                    Array.from(
+                      document
+                        .querySelectorAll(
+                          '[id]'
+                        )
+                    )
+                    .filter(
+                      element => {
+
+                        const style =
+                          getComputedStyle(
+                            element
+                          );
+
+                        return (
+                          style.display !==
+                            'none' &&
+                          style.visibility !==
+                            'hidden'
+                        );
+
+                      }
+                    )
+                    .map(
+                      element =>
+                        element.id
+                    )
+                    .filter(Boolean);
+
+                  const activeTabs =
+                    Array.from(
+                      document
+                        .querySelectorAll(
+                          '.tab.active, ' +
+                          '.tab[aria-selected="true"]'
+                        )
+                    )
+                    .map(
+                      element =>
+                        element.innerText.trim()
+                    );
+
+                  return {
+
+                    href:
+                      location.href,
+
+                    visibleIds,
+
+                    activeTabs,
+
+                    bodyText:
+                      document.body
+                        .innerText
+                        .slice(
+                          0,
+                          6000
+                        )
+
+                  };
+
+                });
+
+              const calls =
+                await page.evaluate(
+                  () =>
+                    window
+                      .__ccsv4Calls || []
+                );
+
+              const functionInvoked =
+                calls.length > 0;
+
+              const stateChanged =
+                JSON.stringify(before) !==
+                JSON.stringify(after);
+
+              /*
+               * ----------------------------------------
+               * DIAGNOSTIC PROBLEM CLASSIFICATION
+               * ----------------------------------------
+               */
+
+              let status =
+                'PASS';
+
+              let problemCode =
+                'NONE';
+
+              if (clickError) {
+
+                status =
+                  'FAIL';
+
+                problemCode =
+                  'BROWSER_CLICK_FAILURE';
+
+              }
+
+              else if (
+                !functionInvoked &&
+                !stateChanged
+              ) {
+
+                status =
+                  'FAIL';
+
+                problemCode =
+                  'TAB_FUNCTION_AND_STATE_FAILURE';
+
+              }
+
+              else if (
+                !functionInvoked
+              ) {
+
+                status =
+                  'FAIL';
+
+                problemCode =
+                  'TAB_NO_FUNCTION_INVOCATION';
+
+              }
+
+              else if (
+                !state
