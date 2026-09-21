@@ -556,6 +556,7 @@ function showPage(pageId){
   if(pageId==='topicsPage'){
     const host=document.getElementById('topicsContentView');
     if(host && !host.querySelector('.topic-grid')) host.innerHTML=header()+topicsMarkup;
+    if(host) bindTopicNavigation(host);
   }
   const active=page.querySelector('.main-content-container');
   if(active) active.scrollTop=0;
@@ -582,6 +583,7 @@ function returnToPreviousView(){
     host.innerHTML=lectureViewStack.pop();
     host.scrollTop=0;
     decorateDictionaryLinks(host);
+    bindTopicNavigation(host);
   }else{
     showPage('homePage');
   }
@@ -1022,25 +1024,40 @@ function decorateDictionaryLinks(root=document){
    node.dataset.decorated='1';
  });
 }
-// CCSV4 TAB CLICK REPAIR — deterministic delegated activation.
+// CCSV4 CC34 REPAIR — direct, deterministic topic-navigation binding.
 Object.assign(window,{showPage,openTopic,openSub,openFunctional,showVisual,returnToPreviousView});
-function ccsv4InvokeClick(el,event){
-  if(!el)return false;
-  const code=(el.getAttribute('onclick')||'').trim();
-  if(!code)return false;
-  try{
-    const m=code.match(/^([A-Za-z_$][\w$]*)\s*\((.*)\)\s*;?$/s);
-    if(!m)return false;
-    const fn=window[m[1]];
-    if(typeof fn!=='function')return false;
-    const raw=m[2].trim(), values=[];
-    if(raw){
-      const re=/'((?:\\.|[^'])*)'|"((?:\\.|[^"])*)"/g; let x;
-      while((x=re.exec(raw))!==null) values.push(x[1]!==undefined?x[1].replace(/\\'/g,"'"):x[2].replace(/\\"/g,'"'));
-      if(values.length===0)return false;
-    }
-    fn(...values); return true;
-  }catch(err){ console.error('CCSV4 tab click activation failed',err,code); return false; }
+function ccsv4RunAction(code){
+  const m=String(code||'').trim().match(/^([A-Za-z_$][\w$]*)\s*\((.*)\)\s*;?$/s);
+  if(!m)return false;
+  const fn=window[m[1]];
+  if(typeof fn!=='function')return false;
+  const raw=m[2].trim(), values=[];
+  if(raw){
+    const re=/'((?:\\.|[^'])*)'|"((?:\\.|[^"])*)"/g; let x;
+    while((x=re.exec(raw))!==null) values.push(x[1]!==undefined?x[1].replace(/\\'/g,"'"):x[2].replace(/\\"/g,'"'));
+    if(values.length===0)return false;
+  }
+  fn(...values); return true;
+}
+function bindTopicNavigation(root){
+  if(!root)return;
+  const selector='.topic-grid .tab, .topic-feature-row .tab, .lecture-navigation .previous-page-tab, .content-view .visual-link[onclick]';
+  root.querySelectorAll(selector).forEach(el=>{
+    if(el.dataset.ccsv4NavBound==='1')return;
+    const code=el.getAttribute('onclick');
+    if(!code)return;
+    el.dataset.ccsv4Action=code;
+    el.removeAttribute('onclick');
+    el.dataset.ccsv4NavBound='1';
+    el.addEventListener('click',e=>{
+      if(ccsv4RunAction(el.dataset.ccsv4Action)){e.preventDefault();e.stopPropagation();}
+    });
+    el.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){
+        if(ccsv4RunAction(el.dataset.ccsv4Action)){e.preventDefault();e.stopPropagation();}
+      }
+    });
+  });
 }
 document.addEventListener('click',function(e){
   const word=e.target.closest?.('.linked-word');
@@ -1048,18 +1065,10 @@ document.addEventListener('click',function(e){
     const term=word.getAttribute('data-term')||word.textContent.trim();
     showDictByTerm(term);
     e.preventDefault(); e.stopImmediatePropagation();
-    return;
   }
-  const el=e.target.closest?.('.topic-grid .tab, .topic-feature-row .tab, .lecture-navigation .previous-page-tab');
-  if(el && ccsv4InvokeClick(el,e)){ e.preventDefault(); e.stopImmediatePropagation(); }
-},true);
-document.addEventListener('keydown',function(e){
-  if(e.key!=='Enter' && e.key!==' ')return;
-  const el=e.target.closest?.('.topic-grid .tab, .topic-feature-row .tab, .lecture-navigation .previous-page-tab');
-  if(el && ccsv4InvokeClick(el,e)){ e.preventDefault(); e.stopImmediatePropagation(); }
 },true);
 window.addEventListener('message',e=>{if(e.data&&e.data.type==='IAE_HIT_CEILING_CLOSE'){returnToPreviousView();}});
-function initMainContentContainer(){const host=getMainHost();if(host&&host.innerHTML.trim()==='')showPage('topicsPage');}
+function initMainContentContainer(){const host=getMainHost();if(host&&host.innerHTML.trim()==='')showPage('topicsPage');else if(host)bindTopicNavigation(host);}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMainContentContainer,{once:true});else initMainContentContainer();
 </script>
 </div>
