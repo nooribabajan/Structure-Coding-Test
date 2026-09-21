@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html dir="rtl" lang="ur">
+<html lang="ur-PK" dir="rtl" dir="rtl" lang="ur">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
-<title>IAE1102070400 + IAE1102070500 — Solubility Product & Precipitation Equilibria — Lecture 22</title>
+<title>IAE1102070400 + IAE1102070500 — Solubility Product & Precipitation Equilibria — Lecture 22 — CCSV4 Repair</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 :root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--shadow:0 8px 24px rgba(23,62,52,.10)}
@@ -80,7 +80,7 @@ button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessme
 table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #dbe4ee;padding:9px;text-align:right;vertical-align:top}th{background:#edf5ef}
 .search{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}
 .dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover,.search-result:hover{background:#f8fafc}
-.visual-card{border:1px solid #e2e8f0;background:#fff}.visual-id{display:block;font:700 11px Inter;color:#876821;direction:ltr}
+.visual-card{border:1px solid #e2e8f0;background:#fff}.visual-id{display:none}
 .atlas-img{display:block;max-width:100%;height:auto;border-radius:12px;margin:10px auto;border:1px solid #e2e8f0}
 .choice,.assessment-option{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}
 .assessment-option{display:flex;gap:8px;align-items:flex-start}.assessment-option input{margin-top:6px}
@@ -105,7 +105,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 .topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
 .topic-visual svg{display:block;width:42px;height:42px;max-width:42px;max-height:42px;font-size:14px}
 
-/* Topics Page header spacing refinement */
+/* موضوعs Page header spacing refinement */
 #topicsPage .page-title { margin-bottom: 2px !important; }
 #topicsPage h1 { margin-top: 0 !important; margin-bottom: 3px !important; }
 #topicsPage .brand-strip { margin-top: 3px !important; padding-top: 2px !important; padding-bottom: 2px !important; }
@@ -123,7 +123,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 #mainContentContainer .content-view{padding-bottom:72px;}
 #mainContentContainer .previous-page-tab{margin-bottom:48px;scroll-margin-bottom:48px;}
 #homePage{overflow:hidden;}
-/* HIT THE CEILING — full shared-container view, no inner page scroll */
+/* ہِٹ دی سیلنگ — full shared-container view, no inner page scroll */
 #mainContentContainer .content-view.hit-ceiling-view{height:100%;min-height:100%;padding:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;}
 #mainContentContainer .hit-ceiling-shell{height:100%;min-height:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;position:relative;}
 #mainContentContainer .hit-ceiling-frame{display:block;width:100%;height:auto !important;min-height:0;grid-row:1;align-self:stretch;border:0;margin:0;padding:0;overflow:hidden;}
@@ -133,7 +133,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 #mainContentContainer .hit-ceiling-back button::before{content:"×";font:900 35px/1 Arial,sans-serif;color:#ef4444;background:linear-gradient(135deg,#ef4444 0%,#f59e0b 24%,#22c55e 48%,#06b6d4 68%,#3b82f6 84%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;}
 #mainContentContainer .hit-ceiling-back button:hover{transform:scale(1.06);box-shadow:0 6px 18px rgba(0,0,0,.28);}
 #mainContentContainer .hit-ceiling-back button:focus-visible{outline:3px solid #2563eb;outline-offset:2px;}
-/* HIT THE CEILING answer choices: all four boxes have equal dimensions */
+/* ہِٹ دی سیلنگ answer choices: all four boxes have equal dimensions */
 .hit-ceiling-frame{ }
 
 
@@ -200,7 +200,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
   .lecture-navigation .previous-page-tab{height:84px !important;min-height:84px !important;max-height:84px !important;}
 }
 
-/* Dictionary Friendly UX — clear control, match emphasis, no-result state */
+/* لغت Friendly UX — clear control, match emphasis, no-result state */
 .dictionary-search-wrap{position:relative;width:100%;}
 .dictionary-search-wrap .search{padding-right:48px;}
 .dictionary-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#64748b;font-size:22px;line-height:1;cursor:pointer;display:none;z-index:2;}
@@ -210,7 +210,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 @media(max-width:760px){.dictionary-search-wrap .search{padding-right:52px;}.dictionary-clear{width:40px;height:40px;font-size:24px;}}
 
 
-/* L1 Examination — calibrated from approved Lecture 02 examination architecture */
+/* L1 امتحان — calibrated from approved Lecture 02 examination architecture */
 .assessment-fullscreen{padding:0 10px 80px!important;overflow-x:hidden}
 .assessment-fullscreen .assessment-shell{width:100%;max-width:1240px;margin:0 auto}
 .assessment-questionnaire{width:100%;display:block}
@@ -281,7 +281,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 <div class="view-header"><div class="subject-label chemistry-label">Chemistry · First Year</div></div>
 <div class="section-card" style="max-width:1180px;margin:12px auto 8px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#fffdf8,#eef7f0);">
 <strong style="font-size:24px;text-align:center;">Lecture 22 — Solubility Product & Precipitation Equilibria</strong>
-<p style="text-align:center;margin:6px 0 0;">Reversible Reactions · Dynamic Equilibrium · Equilibrium Constant · Kc · Kp · Thermodynamic Interpretation · Molecular-Level Equilibrium · Quantitative Equilibrium · Gas-Phase Equilibrium</p>
+<p style="text-align:center;margin:6px 0 0;">Solubility Product · Ionic Product · Precipitation · Common-Ion Effect · Selective Precipitation · Quantitative Solubility Equilibria</p>
 </div>
 <div class="section" style="max-width:1180px;margin:10px auto;">
 <div class="level-heading standard-h">Lecture Architecture</div>
@@ -292,7 +292,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 </div>
 <div class="section" style="max-width:1180px;margin:8px auto 40px;">
 <div class="level-heading mastery-h">Main Learning Route</div>
-<p style="text-align:center;">Reversible Process → Dynamic Equilibrium → Equilibrium Composition → Kc/Kp → Quantitative Equilibrium → Thermodynamic Meaning</p>
+<p style="text-align:center;">Ksp → Qsp → Precipitation Decision → Common-Ion Effect → Selective Precipitation → Quantitative Applications</p>
 </div>
 </div></div>
 </section>
@@ -359,7 +359,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 #hitCeilingPage .htc14-clear-art{font-size:34px;letter-spacing:8px;animation:htc14Float 1.5s ease-in-out infinite alternate}@keyframes htc14Float{to{transform:translateY(-6px)}}
 @media(max-width:650px){#hitCeilingPage .htc14-stage{padding:5px}.htc14-head{padding:10px 52px 2px 8px!important}.htc14-head h1{font-size:30px!important}.htc14-sub{font-size:13px!important}.htc14-tools{top:7px;right:7px}.htc14-tool{padding:5px 7px;font-size:10px}.htc14-tool.x{width:30px;padding:5px 0}.htc14-levels{margin:5px auto 6px;padding:7px 10px;gap:8px}.htc14-lvl{width:36px!important;height:36px!important;flex-basis:36px!important}.htc14-towerarea{height:125px;min-height:115px}.htc14-tower{transform:scale(.74);transform-origin:bottom center}.htc14-play{padding:0 7px 7px}.htc14-card{padding:8px!important}.htc14-q{font-size:15px!important;margin-bottom:6px!important}.htc14-answers{grid-template-columns:1fr}.htc14-answer{min-height:48px;padding:8px}.htc14-feedback{min-height:24px!important;margin-top:5px!important}.htc14-actions{margin-top:5px}}
 
-/* CCSV4 FINAL COLUMN-EQUALISATION: both academic columns contain equal tab counts; Back is a page-level final navigation control, not a column tab. */
+/* CCSV4 FINAL COLUMN-EQUALISATION: both academic columns contain equal tab counts; واپس is a page-level final navigation control, not a column tab. */
 .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch !important;}
 .topic-grid>.column{display:flex !important;flex-direction:column !important;min-width:0 !important;width:100% !important;height:100% !important;align-self:stretch !important;}
 .topic-grid>.column>.main-topic-large,.topic-grid>.column>.tab{width:100% !important;box-sizing:border-box !important;}
@@ -376,11 +376,31 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 <div id="htc14Card" class="htc14-card"></div>
 <div class="htc14-actions"><button type="button" class="htc14-btn" id="htc14Restart">دوبارہ شروع کریں</button><button type="button" class="htc14-btn" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>
 </div>
-<div id="htc14Cleared" class="htc14-clear" hidden><div class="htc14-clear-art">✨ 🦋 ✨ 🦋 ✨</div><h2>🎉 HIT THE CEILING</h2><p>Lecture 22 کے تمام challenges مکمل ہو گئے۔</p><button type="button" class="htc14-btn primary" id="htc14ClearRestart">دوبارہ کھیلیں</button></div>
+<div id="htc14Cleared" class="htc14-clear" hidden><div class="htc14-clear-art">✨ 🦋 ✨ 🦋 ✨</div><h2>🎉 ہِٹ دی سیلنگ</h2><p>Lecture 22 کے تمام challenges مکمل ہو گئے۔</p><button type="button" class="htc14-btn primary" id="htc14ClearRestart">دوبارہ کھیلیں</button></div>
 </div></div>
 <script>
 (function(){'use strict';
-const levels=[{"title":"Reversible & Dynamic Equilibrium","items":[["What defines a reversible reaction?",["It can proceed in both forward and reverse directions","It can proceed only forward","It cannot reach equilibrium","It has no reactants"],0,"A reversible reaction can proceed in both directions under suitable conditions.","Reversible Reactions"],["At dynamic equilibrium, what happens to the forward and reverse rates?",["They become equal while both continue","They both become zero","Only forward remains","Only reverse remains"],0,"Equal rates produce no net macroscopic change while molecular events continue.","Dynamic Equilibrium"],["Which description is molecularly correct at equilibrium?",["Forward and reverse reaction events continue","All molecules stop reacting","Only products move","The system becomes chemically inactive"],0,"Dynamic equilibrium is a kinetic balance, not a frozen state.","Equilibrium at Molecular Level"]]},{"title":"K, Kc & Kp","items":[["What does the magnitude of K mainly describe?",["Relative equilibrium composition","Reaction speed","Activation energy only","Time to equilibrium"],0,"K describes equilibrium composition for the reaction as written.","Equilibrium Constant"],["What is the correct Kc form for mA+nB⇌xC+yD?",["[C]^x[D]^y/[A]^m[B]^n","[A]^m[B]^n/[C]^x[D]^y","([A]+[B])/([C]+[D])","[C][D]/[A][B]"],0,"Stoichiometric coefficients become exponents in Kc.","Kc"],["What is Kp based on for gas-phase equilibrium?",["Partial pressures","Masses only","Solid volumes","Atomic numbers"],0,"Kp uses partial pressures of gaseous species.","Kp"]]},{"title":"Quantitative Equilibrium","items":[["What does Δn mean in Kp=Kc(RT)^Δn?",["Gaseous product moles minus gaseous reactant moles","Total atoms in the equation","Mass change","Temperature change"],0,"Only gaseous stoichiometric coefficients contribute to Δn.","Kc/Kp Relationships"],["Which sequence is appropriate for an ICE calculation?",["Balanced equation → ICE → expression → solve → check","Guess → substitute → ignore stoichiometry","Use initial values as equilibrium values","Change coefficients to fit the result"],0,"The ICE workflow keeps stoichiometry and equilibrium constraints explicit.","Quantitative Equilibrium Reasoning"],["What is equilibrium composition?",["The constant macroscopic composition reached at dynamic balance","Equal concentrations of all species","Zero concentration of all species","A composition independent of temperature"],0,"Equilibrium composition is constant, not necessarily equal among species.","Equilibrium Composition"]]},{"title":"Thermodynamic Meaning","items":[["What is true at equilibrium for the reaction Gibbs free-energy change?",["ΔG = 0","ΔG is always positive","ΔG is always negative","ΔG is undefined"],0,"At equilibrium there is no net thermodynamic driving force for reaction progress.","Thermodynamic Interpretation"],["How are ΔG° and K related?",["ΔG° = −RT ln K","ΔG° = RT/K","ΔG° = KRT","ΔG° = 0 for every K"],0,"The relation connects standard thermodynamic driving force and equilibrium constant.","Thermodynamic Meaning of Equilibrium"],["What does a large K usually indicate?",["Product-favoured equilibrium composition","A necessarily fast reaction","Equal reactant/product concentrations","Zero reverse rate"],0,"Large K indicates products are favoured in the equilibrium composition for the reaction as written.","Equilibrium Constant Interpretation"]]}];let level=0,index=0,score=0,locked=false,timer=null,questionTimer=null,safetyTimer=null,startedAt=0,unattempted=0,passedQuestions=new Set();
+const levels=[
+{"title":"Ksp & Ionic Product","items":[
+["What does Ksp represent for a sparingly soluble ionic solid?",["Its solubility-equilibrium constant","Its reaction rate","Its molar mass","Its melting point"],0,"Ksp is the equilibrium constant for the dissolution of a sparingly soluble ionic solid.","Solubility Product"],
+["What is Qsp calculated from?",["Current dissolved-ion concentrations","Only the mass of the solid","Only the solvent volume","The melting point"],0,"Qsp uses the current ion concentrations in the mixture.","Ionic Product"],
+["If Qsp > Ksp, what is predicted?",["Precipitation","More dissolution only","No change under all conditions","Evaporation"],0,"When the ion product exceeds Ksp, the system moves toward precipitation.","Precipitation"]]},
+{"title":"Common-Ion & Quantitative Equilibria","items":[
+["What is the common-ion effect on a sparingly soluble salt?",["It generally decreases the salt's solubility","It always increases solubility","It changes the salt into a gas","It removes Ksp from the system"],0,"Adding an ion already present in the dissolution equilibrium suppresses dissolution.","Common-Ion Effect"],
+["Which condition indicates saturation at equilibrium?",["Qsp = Ksp","Qsp > Ksp","Qsp = 0 always","Ksp = 0 always"],0,"At the solubility equilibrium condition, the ion product equals Ksp.","Equilibrium Condition"],
+["What must be considered when calculating Qsp after mixing solutions?",["Post-mixing ion concentrations and stoichiometry","Only the original stock concentrations","Only the solid mass","Only the temperature label"],0,"Dilution and stoichiometric ion concentrations must be accounted for before comparing Qsp with Ksp.","Quantitative Applications"]]},
+{"title":"Selective Precipitation & Applications","items":[
+["What is the basis of selective precipitation?",["Different ions reach precipitation thresholds at different conditions","All ions precipitate at exactly the same concentration","Only solvent density matters","Ksp is irrelevant"],0,"Different Ksp values create different precipitation thresholds.","Selective Precipitation"],
+["What happens as precipitation proceeds toward equilibrium?",["Dissolved-ion concentrations change until Qsp approaches Ksp","All dissolved ions instantly become zero","Ksp continuously changes for the same temperature","The solid must disappear"],0,"Precipitation changes ion concentrations until the equilibrium condition is restored.","Equilibrium-Controlled Precipitation"],
+["Why can selective precipitation be useful analytically?",["It can separate or identify ions using controlled precipitation thresholds","It makes every salt equally soluble","It removes the need for concentration measurements","It prevents all equilibria"],0,"Controlled precipitation can separate ions according to their solubility equilibria.","Analytical Applications"]]},
+{"title":"Mastery Checks","items":[
+["For a dissolution producing two cations and three anions, how do ion concentrations enter Ksp?",["With powers set by the dissolution stoichiometry","All with power zero","Only the solid gets a power","All with power one regardless of stoichiometry"],0,"Stoichiometric coefficients become exponents in the Ksp expression.","Solubility Equilibrium Calculations"],
+["If Qsp < Ksp, what direction is favored?",["Net dissolution toward saturation","Immediate precipitation","No possible change","Conversion to gas"],0,"Qsp below Ksp indicates the solution is unsaturated with respect to that solid, so dissolution is favored.","Ion-Product/Solubility Comparison"],
+["What is the key first step in a precipitation prediction after mixing?",["Calculate the post-mixing ion concentrations","Guess whether a precipitate looks visible","Ignore dilution","Compare masses instead of concentrations"],0,"Post-mixing concentrations are needed to calculate Qsp correctly.","Precipitation Prediction"],
+["What does increasing a common-ion concentration generally do?",["Suppresses dissolution of the sparingly soluble salt","Forces complete dissolution","Makes Ksp equal to zero","Removes the common ion"],0,"A higher common-ion concentration shifts the solubility equilibrium toward the solid.","Common-Ion Suppression"],
+["Which approach is appropriate for a quantitative Ksp problem?",["Write the equilibrium equation, expression, stoichiometric relations, and solve","Ignore the balanced equation","Use only the salt's molar mass","Treat all ions as unrelated"],0,"A correct equilibrium model preserves stoichiometry and the Ksp relationship.","Quantitative Ion Equilibrium"],
+["What is an important use of solubility equilibria in analysis?",["Controlled separation and identification of ions","Determining atomic numbers","Measuring flame temperature only","Eliminating all dissolved species"],0,"Solubility equilibria support analytical separation and controlled precipitation methods.","Analytical Applications"]]}
+];let level=0,index=0,score=0,locked=false,timer=null,questionTimer=null,safetyTimer=null,startedAt=0,unattempted=0,passedQuestions=new Set();
 let htcCorrectPositionSchedule=[];
 function buildHTCCorrectPositionSchedule(){const n=total(),q=Math.floor(n/4),r=n%4,base=[];for(let pos=0;pos<4;pos++)for(let i=0;i<q+(pos<r?1:0);i++)base.push(pos);htcCorrectPositionSchedule=shuffle(base)}
 function htcQuestionNumber(){let n=0;for(let l=0;l<level;l++)n+=levels[l].items.length;return n+index}
@@ -401,15 +421,15 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script></section>
 <div aria-hidden="true" class="modal" id="modal">
 <div aria-labelledby="modalTitle" aria-modal="true" class="dialog" role="dialog">
-<button aria-label="Close" class="close" onclick="closeModal()">×</button>
+<button aria-label="بند کریں" class="close" onclick="closeModal()">×</button>
 <div id="content"></div>
 </div></div>
 <script>
-const BASE='./Visual-Atlas/'; const DICTIONARY_OVERLAY_ID='dictionaryOverlay';
-const FREE_VISUALS={"V1":"https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution","V2":"https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution#the-solubility-product","V3":"https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution#predicting-precipitation","V4":"https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution#common-ion-effect","V5":"https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution"};
-function visualSource(id){const key=String(id||'');const item=visualItems.find(v=>v[0]===key);if(!item)return null;return {src:FREE_VISUALS[key]||'',title:item[1],description:item[2],source:'OpenStax — external visual page'};}
-function visualLinkFor(id){const key=String(id||'');return `<button type="button" class="visual-link academic-visual-link" onclick="showVisual('${key}')">🖼 Visual Atlas — external visual کھولیں</button>`;}
-function img(id){const v=visualSource(id)||{};return `<button type="button" class="topic-visual" onclick="showVisual('${esc(id)}')" aria-label="Open external visual" title="Open external visual">🖼</button>`;}
+const BASE='./ویژول-Atlas/'; const DICTIONARY_OVERLAY_ID='dictionaryOverlay';
+const FREE_VISUALS={"V1":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/4c5db5750437d56fb6f76a1a058ec8b8e65ddba6","V2":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/4c186d31c3bb35d85a8bf954039042da1ff21f71","V3":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/4307e04c7bc3942a2883e01d0c58ccad73b7a258","V4":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/5acd6d8e2cded50e65db99673c7f32d416f6c232","V5":"https://openstax.org/apps/image-cdn/v1/f%3Dwebp/apps/archive/20260604.144757/resources/1cc74d4d69e47dc618e47dbf16be544fb338ed78"}; const visualItems=[["V1","Solubility equilibrium / Ksp visual","OpenStax Chemistry 2e visual for dissolution equilibrium, solubility product and saturation reasoning.","External academic visual — OpenStax"],["V2","Solubility Product visual","OpenStax Chemistry 2e visual focused on the solubility-product expression and equilibrium relationship.","External academic visual — OpenStax"],["V3","Precipitation prediction visual","OpenStax Chemistry 2e visual for comparing ion product with Ksp and predicting precipitation.","External academic visual — OpenStax"],["V4","Common-ion effect visual","OpenStax Chemistry 2e visual for common-ion suppression and equilibrium-controlled solubility changes.","External academic visual — OpenStax"],["V5","Selective precipitation / applications visual","OpenStax Chemistry 2e visual used as a broad visual reference for precipitation and analytical solubility applications.","External academic visual — OpenStax"]];
+function visualماخذ(id){const key=String(id||'');const item=visualItems.find(v=>v[0]===key);if(!item)return null;return {src:FREE_VISUALS[key]||'',title:item[1],description:item[2],source:'OpenStax — direct figure image'};}
+function visualLinkFor(id){const key=String(id||'');return `<button type="button" class="visual-link academic-visual-link" onclick="showویژول('${key}')">🖼 ویژول اٹلس — external visual کھولیں</button>`;}
+function img(id){const v=visualماخذ(id)||{};return `<button type="button" class="topic-visual" onclick="showویژول('${esc(id)}')" aria-label="Open external visual" title="Open external visual">🖼</button>`;}
 
 
 const topics={"t1":{"title":"IAE1102070400 — Solubility Equilibria","id":"IAE1102070400","visual":"V1","intro":"Solubility equilibria describe the dynamic balance between a sparingly soluble solid and its dissolved ions, using Ksp and ion-product reasoning.","basic":"Ksp، ionic product اور precipitation کو solubility equilibrium کے connected framework میں سمجھیں۔","standard":"Dissolution equation لکھیں، Ksp expression بنائیں، Qsp compare کریں اور precipitation یا dissolution direction predict کریں۔","mastery":"solid ⇌ ions → Ksp → Qsp → saturation state → precipitation/dissolution → quantitative solubility reasoning."},"t2":{"title":"IAE1102070500 — Common-Ion & Quantitative Applications","id":"IAE1102070500","visual":"V4","intro":"Common-ion effects and quantitative solubility calculations extend Ksp reasoning to suppression, selective precipitation and analytical applications.","basic":"Common ion solubility کو کم کرتا ہے؛ quantitative applications اسی equilibrium constraint کو استعمال کرتی ہیں۔","standard":"Common-ion suppression، selective precipitation اور concentration calculations کو Ksp کے ساتھ connect کریں۔","mastery":"common ion → equilibrium shift → reduced solubility → controlled precipitation → analytical separation."}};
@@ -417,11 +437,9 @@ const subs={"s2201":{"id":"IAE1102070401","topic":"t1","title":"Solubility Produ
 const questions=[["For AgCl(s) ⇌ Ag+ + Cl−, which expression is Ksp?",["[Ag+][Cl−]","[AgCl]","[Ag+]/[Cl−]","[AgCl]/([Ag+][Cl−])"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Solubility Product"],["If Qsp is greater than Ksp, what is expected?",["Precipitation occurs until equilibrium is restored","The solid must dissolve completely","No change occurs","Ksp immediately increases"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Ionic Product"],["Which condition represents a saturated solution at equilibrium?",["Qsp = Ksp","Qsp < Ksp","Qsp > Ksp","Qsp = 0"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Precipitation"],["Adding AgNO3 to a saturated AgCl solution introduces which common ion?",["Ag+","NO3−","Cl−","AgCl"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Common-Ion Effect"],["Why can selective precipitation separate ions?",["Their salts can have different precipitation thresholds","All salts have identical Ksp values","Precipitation never depends on concentration","Ksp is independent of stoichiometry"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Selective Precipitation"],["For CaF2(s) ⇌ Ca2+ + 2F−, Ksp equals:",["[Ca2+][F−]²","[Ca2+][F−]","[CaF2]","[Ca2+]²[F−]"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Quantitative Applications"],["After mixing two solutions, what should be calculated before testing for precipitation?",["The actual post-mixing ion concentrations","Only the original concentrations","Only the mass of solvent","The melting point of the solid"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Precipitation Prediction"],["When a common ion is added to a sparingly soluble salt equilibrium, solubility generally:",["Decreases","Increases without limit","Becomes independent of Ksp","Always becomes zero"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Common-Ion Suppression"],["In an ICE calculation for M(OH)2 dissolution, if [M2+] = s, then [OH−] from the dissolution alone is:",["2s","s/2","s²","2/s"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Solubility Equilibrium Calculations"],["A precipitate forms when:",["Qsp > Ksp","Qsp < Ksp","Qsp = 0","Ksp > 1 only"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Ion-Product/Solubility Comparison"],["Equilibrium-controlled precipitation ends when:",["Qsp returns to Ksp","All ions disappear","Ksp becomes zero","The solid concentration appears in Ksp"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Equilibrium-Controlled Precipitation"],["Which is an analytical application of solubility equilibria?",["Controlled separation of ions by selective precipitation","Measuring gas pressure only","Determining reaction rate from temperature alone","Calculating atomic mass from density alone"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Analytical Applications"],["What is the main role of stoichiometric coefficients in a Ksp expression?",["They become exponents on dissolved-ion concentrations","They are ignored completely","They become denominators automatically","They apply to the solid concentration"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Advanced Precipitation Equilibria"],["A smaller Ksp generally indicates:",["A less soluble equilibrium system, for comparable stoichiometry","A faster reaction rate","A higher melting point by definition","That precipitation is impossible"],0,"The answer follows from the solubility-equilibrium relationship and the Ksp/Qsp condition described in the question.","Quantitative Ion Equilibrium"]];
 const dict=Object.create(null);
 Object.assign(dict,{
-  "Concentration":["Concentration","The amount of a substance present per unit volume; equilibrium changes can follow concentration disturbances.","Solubility Equilibria"],
+  "Concentration":["Concentration","The amount of a substance present per unit volume; equilibrium changes can follow concentration concentration changes.","Solubility Equilibria"],
   "equilibrium":["Equilibrium","A dynamic state in which forward and reverse reaction rates are equal and macroscopic composition remains constant.","Solubility Equilibria"],
-  "Le Chatelier’s Principle":["Le Chatelier’s Principle","The principle that an equilibrium system responds to a disturbance in a direction that reduces the effect of that disturbance.","Solubility Equilibria"],
-  "Le Chatelier's Principle":["Le Chatelier's Principle","The principle that an equilibrium system responds to a disturbance in a direction that reduces the effect of that disturbance.","Solubility Equilibria"],
-  "disturbance":["Disturbance","A deliberate change in conditions such as concentration, pressure or temperature that moves a system away from its existing equilibrium state.","Solubility Equilibria"],
+  "concentration change":["Disturbance","A deliberate change in conditions such as concentration, pressure or temperature that moves a system away from its existing equilibrium state.","Solubility Equilibria"],
   "quantitative":["Quantitative","Based on numerical measurement or calculation rather than only qualitative description.","Solubility Equilibria"],
   "stoichiometric":["Stoichiometric","Related to the numerical relationships between reactants and products in a balanced chemical equation.","Solubility Equilibria"],
   "partial pressure":["Partial pressure","The pressure contributed by one gaseous component of a mixture.","Pressure Effects in Gas Equilibria"],
@@ -436,7 +454,7 @@ Object.assign(dict,{
   "recycle":["Recycle","Returning part of a process stream to an earlier stage so that unreacted material can be processed again.","Precipitation & Common-Ion Applications"],
   "process control":["Process control","Monitoring and adjusting operating variables to keep an industrial process within its required operating conditions.","Precipitation & Common-Ion Applications"],
   "modelling":["Modelling","Representing a chemical or industrial system with equations, assumptions and variables so its behaviour can be analysed.","Precipitation & Common-Ion Applications"],
-  "dynamic response":["Dynamic response","The way a system changes with time after a disturbance or change in operating conditions.","Precipitation & Common-Ion Applications"],
+  "dynamic response":["Dynamic response","The way a system changes with time after a concentration change or change in operating conditions.","Precipitation & Common-Ion Applications"],
   "polarisation":["Polarisation","A redistribution of electronic charge in a molecule or system; included here only where relevant to the chemical model.","Chemistry"],
   "operating window":["Operating window","The practical range of process conditions within which required performance and constraints can be maintained.","Precipitation & Common-Ion Applications"],
   "equilibrium yield":["Equilibrium yield","The product yield permitted by the equilibrium composition under specified conditions.","Precipitation & Common-Ion Applications"],
@@ -447,7 +465,7 @@ Object.assign(dict,{
   "ΔH":["ΔH (enthalpy change)","The enthalpy change associated with the reaction as written; its sign helps determine the temperature response of equilibrium.","Temperature Effects and Enthalpy"]
 });
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-function linkDictionaryTerms(text){
+function linkلغتTerms(text){
  let out=esc(text);
  const tokens=[];
  const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
@@ -468,33 +486,33 @@ function header(){return `<header class="screen-header"><div class="screen-heade
 function getMainHost(){const active=document.querySelector('.page.active .main-content-container');return active||document.getElementById('mainContentContainer');}
 const homeMarkup=getMainHost()?.innerHTML||'';
 let lectureViewStack=[];
-function renderInMainContainer(html,remember=true){const host=getMainHost();if(!host)return;if(remember&&host.innerHTML.trim())lectureViewStack.push(host.innerHTML);const needsBack=!/back-page-tab/.test(html);host.innerHTML='<div class="content-view"><button class="view-close" type="button" aria-label="Close current page" title="Close" onclick="returnToPreviousView()">×</button>'+html+(needsBack?navButtons():'')+'</div>';host.scrollTop=0;decorateDictionaryLinks(host);}
+function renderInMainContainer(html,remember=true){const host=getMainHost();if(!host)return;if(remember&&host.innerHTML.trim())lectureViewStack.push(host.innerHTML);const needsواپس=!/back-page-tab/.test(html);host.innerHTML='<div class="content-view"><button class="view-close" type="button" aria-label="بند کریں current page" title="بند کریں" onclick="returnToPreviousView()">×</button>'+html+(needsواپس?navButtons():'')+'</div>';host.scrollTop=0;decorateلغتLinks(host);}
 function show(html,remember=true){renderInMainContainer(html,remember);}
-function closeModal(){closeDictionaryPopup(false);const host=getMainHost();if(!host)return;if(lectureViewStack.length){host.innerHTML=lectureViewStack.pop();host.scrollTop=0;decorateDictionaryLinks(host);}else{showPage('topicsPage');}}
-function showDictionaryPopup(k){
+function closeModal(){closeلغتPopup(false);const host=getMainHost();if(!host)return;if(lectureViewStack.length){host.innerHTML=lectureViewStack.pop();host.scrollTop=0;decorateلغتLinks(host);}else{showPage('topicsPage');}}
+function showلغتPopup(k){
  const d=dict[k]; if(!d)return;
  const host=getMainHost(); if(!host)return;
- closeDictionaryPopup(false);
+ closeلغتPopup(false);
  const overlay=document.createElement('div');
  overlay.className='dictionary-overlay'; overlay.id=DICTIONARY_OVERLAY_ID;
- overlay.innerHTML=`<div class="dictionary-dialog" role="dialog" aria-modal="true" aria-label="Dictionary">
-   <button class="dictionary-close" type="button" aria-label="Close Dictionary" onclick="closeDictionaryPopup()">×</button>
+ overlay.innerHTML=`<div class="dictionary-dialog" role="dialog" aria-modal="true" aria-label="لغت">
+   <button class="dictionary-close" type="button" aria-label="بند کریں لغت" onclick="closeلغتPopup()">×</button>
    <div class="lesson-title">${esc(k)}</div>
    <div class="section standard"><span class="level-heading standard-h">${esc(d[0])}</span><p>${esc(d[1])}</p></div>
  </div>`;
  overlay.addEventListener('click',e=>{
-   if(e.target===overlay) closeDictionaryPopup();
+   if(e.target===overlay) closeلغتPopup();
  });
  host.appendChild(overlay);
  const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
 }
-function closeDictionaryPopup(restore=true){const overlay=document.getElementById(DICTIONARY_OVERLAY_ID);if(overlay)overlay.remove();}
+function closeلغتPopup(restore=true){const overlay=document.getElementById(DICTIONARY_OVERLAY_ID);if(overlay)overlay.remove();}
 function showDictByTerm(term){
  const key=Object.prototype.hasOwnProperty.call(dict,term)?term:Object.keys(dict).find(k=>k.toLowerCase()===String(term).toLowerCase());
- if(key)showDictionaryPopup(key);
+ if(key)showلغتPopup(key);
 }
 function escapeRegExp(value){return String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
-function highlightDictionaryMatch(text,q){
+function highlightلغتMatch(text,q){
  const raw=String(text||''); const query=String(q||'').trim();
  if(!query)return esc(raw);
  const re=new RegExp('('+escapeRegExp(query)+')','ig');
@@ -507,39 +525,39 @@ function renderDict(query=''){
  const q=String(query).trim(); const low=q.toLowerCase();
  if(clear)clear.style.display=q?'block':'none';
  const entries=Object.entries(dict).filter(([k,v])=>!low||k.toLowerCase().startsWith(low)||v[0].toLowerCase().startsWith(low));
- host.innerHTML=entries.map(([k,v])=>`<button type="button" class="dict-row" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightDictionaryMatch(k,q)}</strong><span>${highlightDictionaryMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('')||'<div class="dict-empty">No matching dictionary term found.</div>';
- if(input && q)updateDictionarySearchDirection(input);
+ host.innerHTML=entries.map(([k,v])=>`<button type="button" class="dict-row" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightلغتMatch(k,q)}</strong><span>${highlightلغتMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('')||'<div class="dict-empty">No matching dictionary term found.</div>';
+ if(input && q)updateلغتتلاشDirection(input);
 }
 function dictionaryTextDirection(text){
  const s=String(text||'');
  return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(s) ? 'rtl' : 'ltr';
 }
-function updateDictionarySearchDirection(input){
+function updateلغتتلاشDirection(input){
  if(!input)return;
  const dir=dictionaryTextDirection(input.value);
  input.dir=dir;
  input.style.textAlign=dir==='rtl'?'right':'left';
 }
-function openDictionarySearchPopup(query){
+function openلغتتلاشPopup(query){
  const q=String(query).trim(); if(!q)return;
  const low=q.toLowerCase();
  const entries=Object.entries(dict).filter(([k,v])=>k.toLowerCase().includes(low)||v[0].toLowerCase().includes(low)||v[1].toLowerCase().includes(low));
  const host=getMainHost(); if(!host)return;
- closeDictionaryPopup(false);
+ closeلغتPopup(false);
  const dir=dictionaryTextDirection(q);
  const overlay=document.createElement('div');
  overlay.className='dictionary-overlay'; overlay.id=DICTIONARY_OVERLAY_ID;
- overlay.innerHTML=`<div class="dictionary-dialog" dir="${dir}" style="text-align:${dir==='rtl'?'right':'left'}" role="dialog" aria-modal="true" aria-label="Dictionary search results">
-   <button class="dictionary-close" type="button" aria-label="Close Dictionary Search" onclick="closeDictionaryPopup()">×</button>
-   <div class="lesson-title">Dictionary Search</div>
-   <div class="lesson-subtitle">Search: <b dir="${dir}">${highlightDictionaryMatch(q,q)}</b></div>
-   ${entries.map(([k,v])=>`<button type="button" class="dict-row" dir="${dictionaryTextDirection(k+' '+v[0])}" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightDictionaryMatch(k,q)}</strong><span>${highlightDictionaryMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('') || '<div class="dict-empty">No related dictionary term found.</div>'}
+ overlay.innerHTML=`<div class="dictionary-dialog" dir="${dir}" style="text-align:${dir==='rtl'?'right':'left'}" role="dialog" aria-modal="true" aria-label="لغت search results">
+   <button class="dictionary-close" type="button" aria-label="بند کریں لغت تلاش" onclick="closeلغتPopup()">×</button>
+   <div class="lesson-title">لغت تلاش</div>
+   <div class="lesson-subtitle">تلاش: <b dir="${dir}">${highlightلغتMatch(q,q)}</b></div>
+   ${entries.map(([k,v])=>`<button type="button" class="dict-row" dir="${dictionaryTextDirection(k+' '+v[0])}" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightلغتMatch(k,q)}</strong><span>${highlightلغتMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('') || '<div class="dict-empty">No related dictionary term found.</div>'}
  </div>`;
- overlay.addEventListener('click',e=>{if(e.target===overlay)closeDictionaryPopup();});
+ overlay.addEventListener('click',e=>{if(e.target===overlay)closeلغتPopup();});
  host.appendChild(overlay);
  const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
 }
-function resetDictionarySearch(){
+function resetلغتتلاش(){
  const input=document.getElementById('ds');
  if(!input)return;
  input.value=''; input.dir='ltr'; input.style.textAlign='left';
@@ -561,57 +579,73 @@ function showPage(pageId){
   if(active) active.scrollTop=0;
 }
 
-const topicsMarkup=`<div class="subject-label chemistry-label">Chemistry</div><h1 class="section-heading">First Year Chemistry — Lecture 22 · IAE1102070400 + IAE1102070500</h1><div class="topic-feature-row"><div class="tab functional feature-visual" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional feature-master" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">L&nbsp;&nbsp;M</div><div class="label">Lecture Mastery</div></div></div><div class="topic-grid"><section class="column"><div class="main-topic-large tab topic1 topic-intro" role="button" tabindex="0" onclick="openTopic('t1')"><div class="label">IAE1102070400 — Solubility Equilibria</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2201')"><div class="num">01</div><div class="label">Solubility Product</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2202')"><div class="num">02</div><div class="label">Ionic Product</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2203')"><div class="num">03</div><div class="label">Precipitation</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2204')"><div class="num">04</div><div class="label">Common-Ion Effect</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2205')"><div class="num">05</div><div class="label">Advanced Precipitation Equilibria</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2206')"><div class="num">06</div><div class="label">Quantitative Applications</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2207')"><div class="num">07</div><div class="label">Selective Precipitation</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">Search</div></div></section><section class="column"><div class="main-topic-large tab topic2 topic-intro" role="button" tabindex="0" onclick="openTopic('t2')"><div class="label">IAE1102070500 — Common-Ion &amp; Quantitative Applications</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2208')"><div class="num">08</div><div class="label">Ion-Product/Solubility Comparison</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2209')"><div class="num">09</div><div class="label">Equilibrium-Controlled Precipitation</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2210')"><div class="num">10</div><div class="label">Common-Ion Suppression</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2211')"><div class="num">11</div><div class="label">Solubility Equilibrium Calculations</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2212')"><div class="num">12</div><div class="label">Precipitation Prediction</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2213')"><div class="num">13</div><div class="label">Quantitative Ion Equilibrium</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2214')"><div class="num">14</div><div class="label">Analytical Applications of Solubility Equilibria</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">HIT THE CEILING</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Home / Previous Page</span></button></div>`;function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
+const topicsMarkup=`<div class="subject-label chemistry-label">Chemistry</div><h1 class="section-heading">First Year Chemistry — Lecture 22 · IAE1102070400 + IAE1102070500</h1><div class="topic-feature-row"><div class="tab functional feature-visual" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">ویژول اٹلس</div></div><div class="tab functional feature-master" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">L&nbsp;&nbsp;M</div><div class="label">لیکچر ماسٹری</div></div></div><div class="topic-grid"><section class="column"><div class="main-topic-large tab topic1 topic-intro" role="button" tabindex="0" onclick="openموضوع('t1')"><div class="label">IAE1102070400 — Solubility Equilibria</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2201')"><div class="num">01</div><div class="label">Solubility Product</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2202')"><div class="num">02</div><div class="label">Ionic Product</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2203')"><div class="num">03</div><div class="label">Precipitation</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2204')"><div class="num">04</div><div class="label">Common-Ion Effect</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2205')"><div class="num">05</div><div class="label">Advanced Precipitation Equilibria</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2206')"><div class="num">06</div><div class="label">Quantitative Applications</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2207')"><div class="num">07</div><div class="label">Selective Precipitation</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">لغت</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">مشق &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">تیاری Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">تلاش</div></div></section><section class="column"><div class="main-topic-large tab topic2 topic-intro" role="button" tabindex="0" onclick="openموضوع('t2')"><div class="label">IAE1102070500 — Common-Ion &amp; Quantitative Applications</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2208')"><div class="num">08</div><div class="label">Ion-Product/Solubility Comparison</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2209')"><div class="num">09</div><div class="label">Equilibrium-Controlled Precipitation</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2210')"><div class="num">10</div><div class="label">Common-Ion Suppression</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2211')"><div class="num">11</div><div class="label">Solubility Equilibrium Calculations</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2212')"><div class="num">12</div><div class="label">Precipitation Prediction</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2213')"><div class="num">13</div><div class="label">Quantitative Ion Equilibrium</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2214')"><div class="num">14</div><div class="label">Analytical Applications of Solubility Equilibria</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">دہرائی</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">عملی کام</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">امتحان</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">ہِٹ دی سیلنگ</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Home / Previous Page</span></button></div>`;function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
 document.addEventListener('keydown',e=>{const el=e.target;if((e.key==='Enter'||e.key===' ')&&el&&el.getAttribute&&el.getAttribute('role')==='button'&&el.classList.contains('tab')){e.preventDefault();el.click();}});
-function openTopic(k){
+function openموضوع(k){
  const d=topics[k];
  const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
- const mainLecture = `<div class="section main-lecture"><div class="level-heading basic-h">Basic</div><p>${linkDictionaryTerms(d.basic)}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Standard</div><p>${linkDictionaryTerms(d.standard)}</p></div><div class="section main-lecture"><div class="level-heading mastery-h">Mastery</div><p>${linkDictionaryTerms(d.mastery)}</p></div><div class="section topic-introduction"><span class="level-heading standard-h">IAE Topic Definition</span><p>${linkDictionaryTerms(d.intro)}</p></div>`;
+ const mainLecture = `<div class="section main-lecture"><div class="level-heading basic-h">Basic</div><p>${linkلغتTerms(d.basic)}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Standard</div><p>${linkلغتTerms(d.standard)}</p></div><div class="section main-lecture"><div class="level-heading mastery-h">Mastery</div><p>${linkلغتTerms(d.mastery)}</p></div><div class="section topic-introduction"><span class="level-heading standard-h">IAE موضوع Definition</span><p>${linkلغتTerms(d.intro)}</p></div>`;
  show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div></div></div>
- <div class="section visual-choice"><span class="level-heading standard-h">Topic Visual</span>${visualLinkFor(d.visual)}</div>
  ${mainLecture}
- <div class="section"><span class="level-heading standard-h">Related Subtopics</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
+ <div class="section"><span class="level-heading standard-h">Related ذیلی موضوعs</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
 `);
 }
 function returnToPreviousView(){
-  closeDictionaryPopup(false);
+  closeلغتPopup(false);
   const host=getMainHost();
   if(!host)return;
   if(lectureViewStack.length){
     host.innerHTML=lectureViewStack.pop();
     host.scrollTop=0;
-    decorateDictionaryLinks(host);
+    decorateلغتLinks(host);
   }else{
     showPage('homePage');
   }
 }
 function openSub(k){
  const d=subs[k];
- show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkDictionaryTerms(d.title)}</div></div></div>
- <div class="section visual-choice"><span class="level-heading standard-h">Related Visual</span>${visualLinkFor(d.visual)}</div>
- <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkDictionaryTerms(d.basic)}</p></div>
- <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkDictionaryTerms(d.standard)}</p></div>
- <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkDictionaryTerms(d.mastery)}</p></div>
+ show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkلغتTerms(d.title)}</div></div></div>
+ <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkلغتTerms(d.basic)}</p></div>
+ <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkلغتTerms(d.standard)}</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkلغتTerms(d.mastery)}</p></div>
  <div class="diagram">${esc(d.extra)}</div>
 
 `);
 }
-function showVisual(id){
+function showویژول(id){
  const v=visualItems.find(x=>x[0]===id);if(!v)return;
- const src=(visualSource(id)||{}).src;
- if(src){window.open(src,'_blank','noopener,noreferrer');}
+ const src=(visualماخذ(id)||{}).src;if(!src)return;
+ closeویژولPopup(false);
+ const host=getMainHost();if(!host)return;
+ const overlay=document.createElement('div');
+ overlay.className='visual-popup-overlay';
+ overlay.id='visualPopupOverlay';
+ overlay.setAttribute('role','dialog');
+ overlay.setAttribute('aria-modal','true');
+ overlay.setAttribute('aria-label','ویژول');
+ overlay.innerHTML=`<div class="visual-popup-dialog">
+   <button class="visual-popup-close" type="button" aria-label="ویژول بند کریں" title="ویژول بند کریں">×</button>
+   <div class="visual-popup-media"><img class="atlas-img" src="${src}" alt="${esc(v[1])}" loading="eager" decoding="async" referrerpolicy="no-referrer"></div>
+ </div>`;
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.visual-popup-close');
+ const remove=()=>closeویژولPopup(true);
+ close.onclick=remove;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)remove();});
+ window.__iaeویژولPopupOpen=true;
+ close.focus();
 }
-function closeVisualPopup(useHistory=true){const overlay=document.getElementById('visualPopupOverlay');if(overlay)overlay.remove();if(window.__iaeVisualPopupOpen)window.__iaeVisualPopupOpen=false;}
+function closeویژولPopup(useHistory=true){const overlay=document.getElementById('visualPopupOverlay');if(overlay)overlay.remove();if(window.__iaeویژولPopupOpen)window.__iaeویژولPopupOpen=false;}
 
 function practiceReveal(target){const el=typeof target==='string'?document.getElementById(target):target;if(el){el.hidden=false;if(el.style)el.style.display='block';}}
 function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
-function openGuidedPractice(){
+function openGuidedمشق(){
   const recall=questions.slice(0,14);
   const recallHtml=recall.map((q,i)=>`<div class="question-card practice-q"><b>Q${i+1}. ${esc(q[0])}</b><div class="section"><p><b>پہلے خود جواب دیں:</b> options دیکھے بغیر جواب سوچیں۔</p><button class="visual-link" onclick="practiceReveal('pr-a-${i}')">جواب اور وضاحت دیکھیں</button><div id="pr-a-${i}" class="answer-review" hidden><p><b>درست جواب:</b> ${esc(q[1][q[2]])}</p><p>${esc(q[3]||'')}</p></div></div></div>`).join('');
-  const compares=[['Reversible vs Irreversible Change','A reversible reaction can proceed in both forward and reverse directions under the stated conditions, allowing a dynamic equilibrium state.'],['Kc vs Kp','Kc uses equilibrium concentrations, while Kp uses equilibrium partial pressures; their relationship depends on the gas-phase stoichiometry.'],['Dynamic vs Static Equilibrium','Dynamic equilibrium has continuing forward and reverse molecular processes with equal rates; it is not a frozen state.'],['Q vs K','The reaction quotient Q describes the current composition; comparing Q with K indicates the direction of net change toward equilibrium.']];
+  const compares=[['Ksp vs Qsp','Ksp is the equilibrium solubility constant, while Qsp uses the current ion concentrations to test the present state.'],['Qsp vs Ksp','Qsp < Ksp indicates dissolution is favored, Qsp = Ksp is the equilibrium condition, and Qsp > Ksp indicates precipitation.'],['Common-Ion Effect','Adding an ion already present in the dissolution equilibrium generally suppresses dissolution of the sparingly soluble salt.'],['Selective Precipitation','Different Ksp values can produce different precipitation thresholds, enabling controlled separation of ions.']];
   const compareHtml=compares.map((c,i)=>`<div class="question-card"><b>${esc(c[0])}</b><p>${esc(c[1])}</p><button class="visual-link" onclick="practiceReveal('pr-cmp-${i}')">Academy check points دیکھیں</button><div id="pr-cmp-${i}" class="answer-review" hidden><p><b>Check:</b> definition → molecular model → energy/property consequence → application.</p></div></div>`).join('');
-  const visualHtml=visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><span class="visual-id">${esc(v[0])}</span><p>${esc(v[3])}</p><button class="visual-link" type="button" onclick="showVisual('${v[0]}')">Visual دیکھیں</button></div>`).join('');
-  show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>ہر سوال کا جواب پہلے خود دیں، پھر explanation دیکھ کر اپنی reasoning درست کریں۔</p></div>${recallHtml}<div class="section standard"><span class="level-heading standard-h">2. Compare &amp; Contrast</span><p>Bonding models، structure اور materials properties کو definition، molecular mechanism اور observable consequence کے ذریعے compare کریں۔</p></div>${compareHtml}<div class="section standard"><span class="level-heading standard-h">3. Visual Recall</span><p>ہر Visual کو دیکھ کر bonding model، structure، property یا material function اپنے الفاظ میں explain کریں۔</p></div>${visualHtml}<div class="section mastery"><span class="level-heading mastery-h">4. Final Guided Round</span><p>Lecture 22 کے تمام 14 subtopics بغیر notes کے explain کریں۔ جہاں جواب کمزور ہو متعلقہ Subtopic دوبارہ پڑھیں اور پھر readiness test دیں۔</p></div>`);
+  const visualHtml=visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b><p>${esc(v[3])}</p></div>`).join('');
+  show(`<div class="lesson-title">مشق &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>ہر سوال کا جواب پہلے خود دیں، پھر explanation دیکھ کر اپنی reasoning درست کریں۔</p></div>${recallHtml}<div class="section standard"><span class="level-heading standard-h">2. Compare &amp; Contrast</span><p>Bonding models، structure اور materials properties کو definition، molecular mechanism اور observable consequence کے ذریعے compare کریں۔</p></div>${compareHtml}<div class="section standard"><span class="level-heading standard-h">3. ویژول Recall</span><p>ہر ویژول کو دیکھ کر bonding model، structure، property یا material function اپنے الفاظ میں explain کریں۔</p></div>${visualHtml}<div class="section mastery"><span class="level-heading mastery-h">4. Final Guided Round</span><p>Lecture 22 کے تمام 14 subtopics بغیر notes کے explain کریں۔ جہاں جواب کمزور ہو متعلقہ ذیلی موضوع دوبارہ پڑھیں اور پھر readiness test دیں۔</p></div>`);
 }
 let masteryTTSModule=null;
 let masteryTTSReady=true;
@@ -625,7 +659,7 @@ let masteryTTSSegments=[];
 let masteryTTSIndex=0;
 let masteryTTSChunkIndex=0;
 let masteryTTSPreparingPromise=null;
-const MASTERY_TTS_LANG='ur';
+const MASTERY_TTS_LANG='ur-PK';
 const MASTERY_TTS_MAX_CHARS=170;
 
 function masteryTTSSplitText(text){
@@ -661,8 +695,8 @@ function masteryTTSElements(){
  const push=(el,label='')=>{if(el&&clean(el))out.push({el,text:clean(el),label});};
  const vision=root.querySelector('.mastery-vision');
  if(vision){
-   push(vision.querySelector('h2'),'Main Topic');
-   vision.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,i===0?'Definition':'Main Topic Understanding'));
+   push(vision.querySelector('h2'),'Main موضوع');
+   vision.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,i===0?'Definition':'Main موضوع Understanding'));
  }
  const academic=root.querySelector('.mastery-definition');
  if(academic) academic.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,`Academic Understanding ${i+1}`));
@@ -674,19 +708,19 @@ function masteryTTSElements(){
  root.querySelectorAll('.section.mastery[data-mastery-subtopic]').forEach((section,i)=>{
    const n=String(i+1).padStart(2,'0');
    const title=section.querySelector('.level-heading');
-   if(title)push(title,`Subtopic ${n}`);
+   if(title)push(title,`ذیلی موضوع ${n}`);
    const fig=section.querySelector(':scope > .mastery-visual');
    if(fig){
      const cap=fig.querySelector('figcaption');
-     if(cap)push(cap,`Subtopic ${n} Visual`);
+     if(cap)push(cap,`ذیلی موضوع ${n} ویژول`);
    }
-   section.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,`Subtopic ${n}`));
+   section.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,`ذیلی موضوع ${n}`));
  });
- const complete=[...root.querySelectorAll('.mastery-conclusion')].find(el=>/Complete Lecture Mastery/i.test(clean(el)));
+ const complete=[...root.querySelectorAll('.mastery-conclusion')].find(el=>/Complete لیکچر ماسٹری/i.test(clean(el)));
  if(complete){
    const title=complete.querySelector('.level-heading');
-   if(title)push(title,'Complete Lecture Mastery');
-   complete.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,'Complete Lecture Mastery'));
+   if(title)push(title,'Complete لیکچر ماسٹری');
+   complete.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,'Complete لیکچر ماسٹری'));
  }
  return out;
 }
@@ -722,7 +756,9 @@ async function prepareMasteryTTS(){
 function getUrduVoice(){
  if(!('speechSynthesis' in window))return null;
  const voices=speechSynthesis.getVoices?speechSynthesis.getVoices():[];
- return voices.find(v=>/^ur(-|$)/i.test(v.lang))||voices.find(v=>/^ur(-PK|-IN|-AE)?$/i.test(v.lang))||null;
+ return voices.find(v=>String(v.lang||'').toLowerCase()==='ur-pk')
+   || voices.find(v=>/^ur(-|$)/i.test(String(v.lang||'')))
+   || null;
 }
 async function ensureSpeechVoices(){
  if(!('speechSynthesis' in window))return [];
@@ -816,8 +852,9 @@ async function playSpeechSynthesisChunk(item,chunks,chunk){
    const finish=(ok)=>{if(settled)return;settled=true;masteryTTSSpeechResolve=null;masteryTTSUsingSpeechSynthesis=false;ok?resolve():reject(new Error('Speech synthesis failed'));};
    const utter=new SpeechSynthesisUtterance(chunk);
    const voice=getUrduVoice();
-   if(voice)utter.voice=voice;
-   utter.lang=voice?voice.lang:'ur-PK';
+   if(!voice) { finish(false); return; }
+   utter.voice=voice;
+   utter.lang='ur-PK';
    utter.rate=0.9; utter.pitch=1;
    utter.onend=()=>{masteryTTSChunkIndex++;finish(true);};
    utter.onerror=()=>finish(false);
@@ -826,17 +863,33 @@ async function playSpeechSynthesisChunk(item,chunks,chunk){
    setTimeout(()=>{if(!settled){try{speechSynthesis.cancel();}catch(e){}finish(false);}},Math.max(30000,chunk.length*500));
  });
 }
+async function playUrduRemoteChunk(item,chunk){
+ const url=masteryGoogleTTSUrl(chunk);
+ await new Promise((resolve,reject)=>{
+   const audio=new Audio(url);
+   masteryTTSCurrentAudio=audio;
+   masteryTTSUsingSpeechSynthesis=false;
+   audio.preload='auto';
+   audio.onended=()=>{masteryTTSCurrentAudio=null;resolve();};
+   audio.onerror=()=>{masteryTTSCurrentAudio=null;reject(new Error('Urdu remote TTS failed'));};
+   audio.onplay=()=>updateMasteryPausePlayButton();
+   audio.play().catch(reject);
+ });
+}
 async function playNextMasteryChunk(item,chunks){
  if(masteryTTSStop)return;
  if(masteryTTSChunkIndex>=chunks.length){masteryTTSIndex++;await playNextMasterySegment();return;}
  const chunk=chunks[masteryTTSChunkIndex];
  masteryTTSStatus(`${item.label} پڑھا جا رہا ہے…`,true);
  await ensureSpeechVoices();
- if('speechSynthesis' in window && typeof SpeechSynthesisUtterance!=='undefined'){
+ const voice=getUrduVoice();
+ if(voice && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance!=='undefined'){
   try{await playSpeechSynthesisChunk(item,chunks,chunk);await playNextMasteryChunk(item,chunks);return;}
-  catch(err){console.error('Mastery Urdu speech failed.',err);}
+  catch(err){console.warn('Local Urdu speech failed; trying Urdu remote TTS.',err);}
  }
- throw new Error('Urdu speech synthesis is unavailable in this browser/device.');
+ await playUrduRemoteChunk(item,chunk);
+ masteryTTSChunkIndex++;
+ await playNextMasteryChunk(item,chunks);
 }
 
 function applyMasteryFontSize(root,size){
@@ -868,45 +921,45 @@ function resetMasteryFont(){
   applyMasteryFontSize(root,14);
   root.dataset.fontSize='14';
 }
-function openSearch(){
+function openتلاش(){
  const rows=[];
- Object.entries(topics).forEach(([id,t])=>rows.push({type:'Topic',id,title:t.title,detail:t.intro||'' ,open:()=>openTopic(id)}));
- Object.entries(subs).forEach(([id,s])=>rows.push({type:'Subtopic',id,title:s.title,detail:(s.basic||'')+' '+(s.standard||''),open:()=>openSub(id)}));
- Object.keys(dict).forEach(k=>rows.push({type:'Dictionary',id:k,title:k,detail:dict[k][1]||'',open:()=>showDictionaryPopup(k)}));
+ Object.entries(topics).forEach(([id,t])=>rows.push({type:'موضوع',id,title:t.title,detail:t.intro||'' ,open:()=>openموضوع(id)}));
+ Object.entries(subs).forEach(([id,s])=>rows.push({type:'ذیلی موضوع',id,title:s.title,detail:(s.basic||'')+' '+(s.standard||''),open:()=>openSub(id)}));
+ Object.keys(dict).forEach(k=>rows.push({type:'لغت',id:k,title:k,detail:dict[k][1]||'',open:()=>showلغتPopup(k)}));
  const render=(q='')=>{
    const n=String(q).trim().toLowerCase();
    const hits=rows.filter(r=>!n||[r.type,r.id,r.title,r.detail].join(' ').toLowerCase().includes(n));
    const box=document.getElementById('searchResults'); if(!box)return;
-   box.innerHTML=hits.map((r,i)=>`<button type="button" class="search-result" onclick="window.__iaeSearchOpen(${i})"><b>${esc(r.title)}</b><span class="visual-id">${esc(r.type)} · ${esc(r.id)}</span><p>${esc(r.detail.slice(0,220))}</p></button>`).join('') || '<div class="section">No matching result.</div>';
-   window.__iaeSearchRows=hits;
+   box.innerHTML=hits.map((r,i)=>`<button type="button" class="search-result" onclick="window.__iaeتلاشOpen(${i})"><b>${esc(r.title)}</b><span class="visual-id">${esc(r.type)} · ${esc(r.id)}</span><p>${esc(r.detail.slice(0,220))}</p></button>`).join('') || '<div class="section">No matching result.</div>';
+   window.__iaeتلاشRows=hits;
  };
- window.__iaeSearchOpen=i=>{const r=(window.__iaeSearchRows||[])[i];if(r)r.open();};
- show(`<div class="lesson-title">Search</div><p class="lesson-subtitle">Lecture 22 — Topics, Subtopics and Dictionary</p><input class="search" id="academySearch" placeholder="Search Academy content…" oninput="renderAcademySearch(this.value)"><div id="searchResults"></div>`);
- window.renderAcademySearch=render;
+ window.__iaeتلاشOpen=i=>{const r=(window.__iaeتلاشRows||[])[i];if(r)r.open();};
+ show(`<div class="lesson-title">تلاش</div><p class="lesson-subtitle">Lecture 22 — موضوعs, ذیلی موضوعs and لغت</p><input class="search" id="academyتلاش" placeholder="تلاش Academy content…" oninput="renderAcademyتلاش(this.value)"><div id="searchResults"></div>`);
+ window.renderAcademyتلاش=render;
  render('');
 }
-function visualOwnerTitle(id){const k=String(id||''); const v=visualItems.find(x=>x[0]===k); if(!v)return k; const owners=[]; Object.keys(subs).forEach(k2=>{if(subs[k2].visual===k)owners.push(subs[k2].id+' — '+subs[k2].title)}); Object.keys(topics).forEach(k2=>{if(topics[k2].visual===k)owners.unshift(topics[k2].id+' — '+topics[k2].title)}); return owners.length?owners.join(' · '):v[1];}
+function visualOwnerTitle(id){const k=String(id||''); const v=visualItems.find(x=>x[0]===k); if(!v)return k; const clean=s=>String(s||'').replace(/^IAE\d+[A-Z0-9]*\s*[—-]\s*/,'').trim(); const topicKeys=[]; const subItems=[]; Object.keys(subs).forEach(k2=>{if(subs[k2].visual===k){if(!topicKeys.includes(subs[k2].topic))topicKeys.push(subs[k2].topic); subItems.push(clean(subs[k2].title));}}); Object.keys(topics).forEach(k2=>{if(topics[k2].visual===k && !topicKeys.includes(k2))topicKeys.push(k2);}); const topicNames=topicKeys.map(k2=>clean(topics[k2]?.title)).filter(Boolean); return {topics:topicNames,subs:subItems};}
 function openFunctional(k){
   if(k==='dictionary'){
-    show(`<div class="lesson-title">Dictionary</div><p class="lesson-subtitle">Lecture 22 relevant terminology</p><div class="dictionary-search-wrap"><input class="search" id="ds" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" style="text-align:left" placeholder="Type a word or letters…" oninput="updateDictionarySearchDirection(this);renderDict(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();openDictionarySearchPopup(this.value)}"><button type="button" id="dictClear" class="dictionary-clear" aria-label="Clear dictionary search" title="Clear search" onclick="resetDictionarySearch()">×</button></div><div id="dictList"></div>`);
+    show(`<div class="lesson-title">لغت</div><p class="lesson-subtitle">Lecture 22 relevant terminology</p><div class="dictionary-search-wrap"><input class="search" id="ds" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" style="text-align:left" placeholder="Type a word or letters…" oninput="updateلغتتلاشDirection(this);renderDict(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();openلغتتلاشPopup(this.value)}"><button type="button" id="dictClear" class="dictionary-clear" aria-label="Clear dictionary search" title="Clear search" onclick="resetلغتتلاش()">×</button></div><div id="dictList"></div>`);
     const input=document.getElementById('ds'); if(input){input.value='';input.dir='ltr';input.style.textAlign='left';}
     renderDict(''); setTimeout(()=>{if(input){input.focus();input.select();}},0);return;
   }
-  if(k==='visual'){show(`${header()}<div class="page-title">Lecture 22 — Visual Atlas</div><h2 class="lesson-title">Visual Atlas</h2><p class="lesson-subtitle">Lecture 22 Visual Atlas — Topic/Subtopic visuals</p><div class="visual-atlas-grid">${visualItems.map(v=>{const owner=visualOwnerTitle(v[0]);return `<article class="visual-card atlas-card"><h3 class="atlas-heading">${esc(owner)}</h3>${img(v[0])}${visualLinkFor(v[0])}</article>`}).join('')}</div>`);return;}
-  if(k==='search'){openSearch();return;}
-  if(k==='practice'){openGuidedPractice();return;}
+  if(k==='visual'){show(`${header()}<div class="page-title">Lecture 22 — ویژول اٹلس</div><h2 class="lesson-title">ویژول اٹلس</h2><p class="lesson-subtitle">Lecture 22 ویژول اٹلس — موضوع/ذیلی موضوع visuals</p><div class="visual-atlas-grid">${visualItems.map(v=>{const owner=visualOwnerTitle(v[0]);const topicHtml=owner.topics.map(t=>`<h3 class="atlas-heading">${esc(t)}</h3>`).join('');const subHtml=owner.subs.map(st=>`<div class="atlas-subtopic">${esc(st)}</div>`).join('');return `<article class="visual-card atlas-card">${topicHtml}${subHtml}${img(v[0])}</article>`}).join('')}</div>`);return;}
+  if(k==='search'){openتلاش();return;}
+  if(k==='practice'){openGuidedمشق();return;}
   if(k==='readiness'){openAssessment('readiness');return;}
   if(k==='exam'){openAssessment('exam');return;}
   if(k==='revision'){
     const rq=Object.entries(subs).map(([id,d])=>[d.title,d.id,d.title+' کے بنیادی principle اور molecular explanation کو اپنے الفاظ میں بیان کریں۔',d.standard,'Definition → Molecular model → Consequence']);
     const revisionHtml=rq.map((r,i)=>`<div class="question-card revision-q"><div class="pill">${esc(r[1])}</div><h3 style="margin:8px 0;font-size:17px;color:var(--green)">Q${i+1}. ${esc(r[0])}</h3><p><b>سوال:</b> ${esc(r[2])}</p><button class="visual-link" type="button" onclick="practiceReveal('rev-a-${i}')">Model answer دیکھیں</button><div id="rev-a-${i}" class="answer-review" hidden><p><b>جواب:</b> ${esc(r[3])}</p><p><b>Check:</b> ${esc(r[4])}</p></div></div>`).join('');
-    show(`<div class="lesson-title">Revision — Lecture 22</div><p class="lesson-subtitle">14 target subtopics کو active recall، comparison اور molecular reasoning کے ذریعے revise کریں۔</p>${revisionHtml}`);return;
+    show(`<div class="lesson-title">دہرائی — Lecture 22</div><p class="lesson-subtitle">14 target subtopics کو active recall، comparison اور molecular reasoning کے ذریعے revise کریں۔</p>${revisionHtml}`);return;
   }
   if(k==='mastery'){
   const lessons=Object.values(subs).map(x=>({id:x.id,title:x.title,visual:x.visual,def:x.basic,explain:x.standard,mastery:x.mastery,connect:x.extra}));
-  const mainVisual=visualSource('IAE1102070400 + IAE1102070500V')||{};
-  const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Urdu Mastery Sound"><button type="button" onclick="speakMastery()">🔊 اردو میں سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Mastery Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Solubility Equilibria &amp; Precipitation & Common-Ion Applications</h2><p class="mastery-step"><b>بنیادی تصور:</b> Lecture 22 میں concentration، pressure، temperature، Le Chatelier response، Q/K اور industrial equilibrium کو ایک connected molecular-to-thermodynamic model کے طور پر سمجھا جاتا ہے۔</p><p class="mastery-step"><b>Mastery chain:</b> <b>stress → Q/K or enthalpy response → equilibrium shift → yield → industrial optimisation → process control</b>۔</p></div><figure class="mastery-visual"><button type="button" class="visual-preview-button" onclick="showVisual('IAE1102070400 + IAE1102070500V')" aria-label="Open Lecture Mastery visual"><img src="${esc(mainVisual.src||'')}" alt="${esc(mainVisual.title||'Chemical Equilibrium')}" loading="eager" decoding="async" referrerpolicy="no-referrer"></button><figcaption><b>${esc(mainVisual.title||'Chemical Equilibrium')}</b><br>${esc(mainVisual.source||'Approved academic source')} — Lecture Mastery</figcaption></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">پہلے reversible reaction کی direction اور stoichiometry identify کریں، پھر forward اور reverse molecular rates کو سمجھیں۔ Dynamic equilibrium میں دونوں processes جاری رہتے ہیں مگر net macroscopic change صفر ہوتا ہے۔</p><p class="mastery-step">اس کے بعد equilibrium composition سے درست <b>Kc</b> یا <b>Kp</b> expression بنائیں، quantitative relationships استعمال کریں، اور آخر میں K کو thermodynamic meaning سے connect کریں۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Reversible Reactions → Dynamic Equilibrium → Equilibrium Constant → Kc → Kp → Thermodynamic Interpretation → Molecular-Level Equilibrium → Dynamic Equilibrium Modelling → Kc/Kp Relationships → Quantitative Equilibrium Reasoning → Equilibrium Composition → Gas-Phase Equilibrium Analysis → Equilibrium Constant Interpretation → Thermodynamic Meaning of Equilibrium</p></div>${lessons.map((x,i)=>{const v=visualSource(x.visual)||{};return `<div class="section mastery-lesson" data-mastery-subtopic="${esc(x.id)}"><span class="level-heading standard-h">${String(i+1).padStart(2,'0')}. ${esc(x.title)}</span><figure class="mastery-visual"><button type="button" class="visual-preview-button" onclick="showVisual('${esc(x.visual)}')" aria-label="Open ${esc(x.title)} visual"><img src="${esc(v.src||'')}" alt="${esc(v.title||x.title)}" loading="eager" decoding="async" referrerpolicy="no-referrer"></button><figcaption><b>${esc(v.title||x.title)}</b><br>${esc(v.source||'Approved academic source')} — Lecture Mastery</figcaption></figure><p class="mastery-step"><b>Concept:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard:</b> ${esc(x.explain)}</p><p class="mastery-step"><b>Mastery reasoning:</b> ${esc(x.mastery)}</p><p class="mastery-step"><b>Key connection:</b> ${esc(x.connect)}</p></div>`;}).join('')}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete Lecture Mastery</span><p class="mastery-step"><b>Final reasoning:</b> Start with the disturbance, identify its effect on Q/K or the heat term, predict the equilibrium shift, then connect the result to yield and industrial operating conditions.</p></div></div></div>`;show(html);return;}
-  if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Academic applicability</b><p>Lecture 22 میں کوئی separate laboratory procedure supplied نہیں ہے۔ Approved practical architecture retained ہے؛ target-specific academic practical payload N/A ہے.</p></div>`);return;}
+  const mainویژول=visualماخذ('V1')||{};
+  const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Urdu Mastery Sound"><button type="button" onclick="speakMastery()">🔊 اردو میں سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Mastery Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Solubility Equilibria &amp; Precipitation & Common-Ion Applications</h2><p class="mastery-step"><b>بنیادی تصور:</b> Lecture 22 میں Ksp، Qsp، precipitation، common-ion effect اور selective precipitation کو ایک connected ionic-equilibrium model کے طور پر سمجھا جاتا ہے۔</p><p class="mastery-step"><b>Mastery chain:</b> <b>Ksp expression → Qsp calculation → precipitation decision → equilibrium adjustment → common-ion suppression → selective separation</b>۔</p></div><figure class="mastery-visual"><button type="button" class="visual-preview-button" onclick="showویژول('V1')" aria-label="Open لیکچر ماسٹری visual"><img src="${esc(mainویژول.src||'')}" alt="${esc(mainویژول.title||'Chemical Equilibrium')}" loading="eager" decoding="async" referrerpolicy="no-referrer"></button><figcaption><b>${esc(mainویژول.title||'Chemical Equilibrium')}</b><br>${esc(mainویژول.source||'Approved academic source')} — لیکچر ماسٹری</figcaption></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">پہلے sparingly soluble salt کی dissolution equation اور stoichiometry identify کریں، پھر Ksp expression بنائیں۔ Solid کو expression میں شامل نہیں کیا جاتا جبکہ dissolved ions اپنی stoichiometric powers کے ساتھ شامل ہوتے ہیں۔</p><p class="mastery-step">اس کے بعد موجودہ ion concentrations سے Qsp نکالیں اور Qsp کو Ksp سے compare کریں۔ پھر common-ion effect، selective precipitation اور quantitative solubility calculations کو اسی equilibrium condition سے connect کریں۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Solubility Product → Ionic Product → Precipitation → Common-Ion Effect → Advanced Precipitation Equilibria → Quantitative Applications → Selective Precipitation → Ion-Product/Solubility Comparison → Equilibrium-Controlled Precipitation → Common-Ion Suppression → Solubility Equilibrium Calculations → Precipitation Prediction → Quantitative Ion Equilibrium → Analytical Applications of Solubility Equilibria</p></div>${lessons.map((x,i)=>{const v=visualماخذ(x.visual)||{};return `<div class="section mastery-lesson" data-mastery-subtopic="${esc(x.id)}"><span class="level-heading standard-h">${String(i+1).padStart(2,'0')}. ${esc(x.title)}</span><figure class="mastery-visual"><button type="button" class="visual-preview-button" onclick="showویژول('${esc(x.visual)}')" aria-label="Open ${esc(x.title)} visual"><img src="${esc(v.src||'')}" alt="${esc(v.title||x.title)}" loading="eager" decoding="async" referrerpolicy="no-referrer"></button><figcaption><b>${esc(v.title||x.title)}</b><br>${esc(v.source||'Approved academic source')} — لیکچر ماسٹری</figcaption></figure><p class="mastery-step"><b>Concept:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard:</b> ${esc(x.explain)}</p><p class="mastery-step"><b>Mastery reasoning:</b> ${esc(x.mastery)}</p><p class="mastery-step"><b>Key connection:</b> ${esc(x.connect)}</p></div>`;}).join('')}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete لیکچر ماسٹری</span><p class="mastery-step"><b>Final reasoning:</b> Start with the Ksp expression, calculate Qsp from the actual ion concentrations, compare Qsp with Ksp, then connect the result to precipitation, common-ion suppression and selective analytical separation.</p></div></div></div>`;show(html);return;}
+  if(k==='practical'){show(`<div class="lesson-title">عملی کام</div><div class="section"><b>Academic applicability</b><p>Lecture 22 میں کوئی separate laboratory procedure supplied نہیں ہے۔ Approved practical architecture retained ہے؛ target-specific academic practical payload N/A ہے.</p></div>`);return;}
 }
 
 let assessmentAttempt=[], assessmentType='readiness';
@@ -931,43 +984,43 @@ function openAssessment(type){
  if(examMode){
    if(lectureViewStack.length===0 && host.innerHTML.trim()) lectureViewStack.push(host.innerHTML);
    host.innerHTML=`<div class="content-view assessment-fullscreen">
-     <button class="view-close" type="button" aria-label="Close Examination" title="Close" onclick="returnToPreviousView()">×</button>
+     <button class="view-close" type="button" aria-label="بند کریں امتحان" title="بند کریں" onclick="returnToPreviousView()">×</button>
      <div class="assessment-shell">
-       <div class="assessment-head"><div class="assessment-badge">🏛️ FULL EXAMINATION</div><div class="lesson-title">Lecture 22 — Final Examination</div><p>Formal assessment of Lecture 22: concentration, pressure, temperature, Le Chatelier’s principle, quantitative equilibrium shifts, industrial equilibrium, optimisation, modelling, disturbance response and process control. Answer every MCQ, review your answers, then submit.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">100 Marks</span> <span class="pill">60 Minutes</span></div></div>
-       <div class="exam-rules"><b>Examination Protocol</b><ol><li>Answer all questions. Every MCQ has one best answer.</li><li>Select one option for each question.</li><li>You may change an answer before submission.</li><li>Unanswered questions receive 0 marks.</li><li>Review the complete paper before pressing <b>Submit Examination</b>.</li><li>Passing standard: 50%.</li></ol></div>
+       <div class="assessment-head"><div class="assessment-badge">🏛️ FULL EXAMINATION</div><div class="lesson-title">Lecture 22 — Final امتحان</div><p>Formal assessment of Lecture 22: Ksp, Qsp, precipitation, common-ion effect, selective precipitation, quantitative solubility calculations and analytical applications. Answer every MCQ, review your answers, then submit.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">100 Marks</span> <span class="pill">60 Minutes</span></div></div>
+       <div class="exam-rules"><b>امتحان Protocol</b><ol><li>Answer all questions. Every MCQ has one best answer.</li><li>Select one option for each question.</li><li>You may change an answer before submission.</li><li>Unanswered questions receive 0 marks.</li><li>Review the complete paper before pressing <b>Submit امتحان</b>.</li><li>Passing standard: 50%.</li></ol></div>
        <div class="exam-progress"><div class="progress-label"><b>Exam Progress</b><span id="examProgressText">0 / ${assessmentAttempt.length} answered</span></div><div class="progress-track"><div id="examProgressBar" class="progress-bar"></div></div></div>
        <div id="assessmentQuestions" class="assessment-questionnaire">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
-       <div class="assessment-actions"><button class="exam-submit" type="button" onclick="submitAssessment()">Submit Examination</button><button type="button" onclick="openAssessment('exam')">↻ Reset</button></div>
+       <div class="assessment-actions"><button class="exam-submit" type="button" onclick="submitAssessment()">Submit امتحان</button><button type="button" onclick="openAssessment('exam')">↻ Reset</button></div>
        <div id="assessmentResult" class="assessment-result"></div>
      </div>
    </div>`;
    host.scrollTop=0;updateExamProgress();return;
  }
- // Lecture 22 Readiness Test using the same approved assessment architecture.
- show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 READINESS TEST</div><div class="lesson-title">Lecture 22 — Readiness Test</div><p>Diagnostic assessment covering Ksp, Qsp, precipitation, common-ion suppression, selective precipitation and quantitative solubility reasoning.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
+ // Lecture 22 تیاری Test using the same approved assessment architecture.
+ show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 READINESS TEST</div><div class="lesson-title">Lecture 22 — تیاری Test</div><p>Diagnostic assessment covering Ksp, Qsp, precipitation, common-ion suppression, selective precipitation and quantitative solubility reasoning.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
  <div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div>
  <div id="readinessQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
- <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit Readiness Test</button><button onclick="openAssessment('readiness')">↻ Reset</button></div>
+ <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit تیاری Test</button><button onclick="openAssessment('readiness')">↻ Reset</button></div>
  <div id="readinessResult" class="assessment-result"></div>`);
 }
 function shuffle(a){const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
 function submitAssessment(){
  let correct=0,wrong=0,unanswered=0,weak={},review=[];
  assessmentAttempt.forEach((q,i)=>{const sel=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);const s=sel?Number(sel.value):null;if(s===null)unanswered++;else if(s===q[2])correct++;else{wrong++;weak[q[4]]=(weak[q[4]]||0)+1;}review.push({q,selected:s,ok:s===q[2]});});
- const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Pass — Needs Revision','Review weak areas before retest']:['Fail — Foundation Revision Required','Rebuild weak concepts before retest'];
+ const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Pass — Needs دہرائی','Review weak areas before retest']:['Fail — Foundation دہرائی Required','Rebuild weak concepts before retest'];
  let r=document.getElementById(assessmentType==='exam'?'assessmentResult':'readinessResult');if(!r)return;r.className='assessment-result show';
  const topicStats={};assessmentAttempt.forEach((q,i)=>{if(!topicStats[q[4]])topicStats[q[4]]={total:0,correct:0};topicStats[q[4]].total++;if(review[i].ok)topicStats[q[4]].correct++;});
- r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Final Examination Result':'Readiness Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p>${assessmentType==='exam'?`<p><b>Status:</b> ${pct>=50?'PASSED':'NOT PASSED'} &nbsp; · &nbsp; <b>Marks:</b> ${correct*10}/100</p>`:''}</div>
- <div class="recommendation-title">📊 Topic Performance</div>${Object.entries(topicStats).map(([t,v])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${v.correct}/${v.total} correct — ${Math.round(v.correct/v.total*100)}%</p></div>`).join('')}
- <div class="recommendation-title">🎯 Weak Areas &amp; Revision Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
+ r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Final امتحان Result':'تیاری Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p>${assessmentType==='exam'?`<p><b>Status:</b> ${pct>=50?'PASSED':'NOT PASSED'} &nbsp; · &nbsp; <b>Marks:</b> ${correct*10}/100</p>`:''}</div>
+ <div class="recommendation-title">📊 موضوع Performance</div>${Object.entries(topicStats).map(([t,v])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${v.correct}/${v.total} correct — ${Math.round(v.correct/v.total*100)}%</p></div>`).join('')}
+ <div class="recommendation-title">🎯 Weak Areas &amp; دہرائی Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
  <div class="recommendation-title">📝 Detailed Answer Review</div>${review.map((x,i)=>`<div class="answer-review ${x.ok?'':'review-wrong'}"><b>Q${i+1}</b><p>${esc(x.q[0])}</p><p><b>آپ کا جواب:</b> ${x.selected===null?'جواب نہیں دیا':esc(x.q[1][x.selected])}</p><p><b>درست جواب:</b> ${esc(x.q[1][x.q[2]])}</p><p>${esc(x.q[3])}</p></div>`).join('')}`;
  r.scrollIntoView({behavior:'smooth',block:'start'});
 }
-function decorateDictionaryLinks(root=document){
+function decorateلغتLinks(root=document){
  const nodes=[...root.querySelectorAll('.section p,.section li,.topic-head-text p,.subtopic-head-text .lesson-title,.section-card p')];
  nodes.forEach(node=>{
    if(node.dataset.decorated)return;
-   // Do not re-process content that has already been converted into Dictionary links.
+   // Do not re-process content that has already been converted into لغت links.
    // Re-processing nested buttons was the source of visible HTML fragments such as meristem">.
    if(node.querySelector('.linked-word')){node.dataset.decorated='1';return;}
    const text=node.textContent; if(!text.trim())return;
@@ -989,25 +1042,19 @@ function decorateDictionaryLinks(root=document){
    node.dataset.decorated='1';
  });
 }
-// CCSV4 TAB CLICK REPAIR — deterministic delegated activation.
-Object.assign(window,{showPage,openTopic,openSub,openFunctional,showVisual,returnToPreviousView});
+// CCSV4 TAB CLICK REPAIR — native inline-handler activation.
+Object.assign(window,{showPage,openموضوع,openSub,openFunctional,showویژول,returnToPreviousView});
 function ccsv4InvokeClick(el,event){
-  if(!el)return false;
-  const code=(el.getAttribute('onclick')||'').trim();
-  if(!code)return false;
+  if(!el) return false;
   try{
-    const m=code.match(/^([A-Za-z_$][\w$]*)\s*\((.*)\)\s*;?$/s);
-    if(!m)return false;
-    const fn=window[m[1]];
-    if(typeof fn!=='function')return false;
-    const raw=m[2].trim(), values=[];
-    if(raw){
-      const re=/'((?:\\.|[^'])*)'|"((?:\\.|[^"])*)"/g; let x;
-      while((x=re.exec(raw))!==null) values.push(x[1]!==undefined?x[1].replace(/\\'/g,"'"):x[2].replace(/\\"/g,'"'));
-      if(values.length===0)return false;
+    if(typeof el.onclick==='function'){
+      el.onclick.call(el,event);
+      return true;
     }
-    fn(...values); return true;
-  }catch(err){ console.error('CCSV4 tab click activation failed',err,code); return false; }
+  }catch(err){
+    console.error('CCSV4 tab click activation failed',err);
+  }
+  return false;
 }
 document.addEventListener('click',function(e){
   const word=e.target.closest?.('.linked-word');
