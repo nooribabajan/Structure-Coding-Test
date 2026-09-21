@@ -1,7 +1,13 @@
-name: CCSV4 Runtime Chromium — Changed/New Lectures
+name: CCSV4 Runtime Chromium — Last Committed Lecture
 
 on:
   workflow_dispatch:
+    inputs:
+      lecture:
+        description: "Lecture number to test (example: 22)"
+        required: true
+        default: "22"
+
   push:
     branches:
       - main
@@ -13,291 +19,128 @@ permissions:
   contents: read
 
 jobs:
-  detect:
+  runtime:
     runs-on: ubuntu-latest
-    outputs:
-      lectures: ${{ steps.detect.outputs.lectures }}
+    timeout-minutes: 30
 
     steps:
-      - name: Checkout
+      - name: Checkout latest committed repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
-      - name: Detect newly added or modified lecture files
-        id: detect
+      - name: Determine lecture to test
+        id: target
         shell: bash
         run: |
           set -euo pipefail
 
-          files=$(git diff --name-status HEAD^ HEAD -- 'First-Year/Chemi*/**' || true)
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
 
-          lectures=""
+            lecture=$(jq -r '.inputs.lecture // "22"' "$GITHUB_EVENT_PATH")
 
-          while IFS=$'\t' read -r status file; do
-            [ -z "${file:-}" ] && continue
-
-            if [[ "$file" =~ ^First-Year/Chemi([0-9]+)/ ]]; then
-              lecture="${BASH_REMATCH[1]}"
-
-              # A = Added
-              # M = Modified
-              # R = Renamed
-              if [[ "$status" == "A" ||
-                    "$status" == "M" ||
-                    "$status" == R* ]]; then
-
-                if [[ -z "$lectures" ]]; then
-                  lectures="$lecture"
-                elif [[ ",$lectures," != *",$lecture,"* ]]; then
-                  lectures="$lectures,$lecture"
-                fi
-              fi
+            if ! [[ "$lecture" =~ ^[0-9]+$ ]]; then
+              echo "ERROR: Lecture number must be numeric."
+              exit 1
             fi
-          done <<< "$files"
 
-          echo "Detected changed/new lectures: ${lectures:-none}"
-          echo "lectures=$lectures" >> "$GITHUB_OUTPUT"
+            FILE="First-Year/Chemi${lecture}/index.html"
 
-  runtime:
-    needs: detect
-    if: needs.detect.outputs.lectures != ''
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+            if [ ! -f "$FILE" ]; then
+              echo "ERROR: Requested lecture file does not exist:"
+              echo "$FILE"
+              exit 1
+            fi
 
-    strategy:
-      fail-fast: false
-      matrix:
-        lecture: ${{ fromJSON(format('["{0}"]', needs.detect.outputs.lectures)) }}
+            echo "lecture=$lecture" >> "$GITHUB_OUTPUT"
+            echo "file=$FILE" >> "$GITHUB_OUTPUT"
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+            echo "Manual runtime target:"
+            echo "$FILE"
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+          else
 
-      - name: Install Playwright
-        run: |
-          npm init -y
-          npm install playwright
-          npx playwright install --with-deps chromium
+            echo "Finding the most recently committed Chemistry lecture index.html..."
 
-      - name: Validate target lecture
-        shell: bash
-        run: |
-          FILE="First-Year/Chemi${{ matrix.lecture }}/index.html"
+            latest_path=$(
+              git log -1 \
+                --format='%H' \
+                -- ':(glob)First-Year/Chemi*/index.html' |
+              xargs -I{} git show --format= --name-only {} 2>/dev/null |
+              grep -E '^First-Year/Chemi[0-9]+/index\.html$' |
+              head -n 1 || true
+            )
 
-          if [ ! -f "$FILE" ]; then
-            echo "ERROR: Missing $FILE"
-            exit 1
+            if [ -z "$latest_path" ]; then
+              echo "Fallback: selecting highest-numbered Chemistry lecture."
+
+              latest_path=$(
+                find First-Year \
+                  -type f \
+                  -path '*/Chemi*/index.html' |
+                grep -E '/Chemi[0-9]+/index\.html$' |
+                sort -V |
+                tail -n 1 || true
+              )
+            fi
+
+            if [ -z "$latest_path" ]; then
+              echo "ERROR: No Chemistry lecture index.html found."
+              exit 1
+            fi
+
+            lecture=$(echo "$latest_path" |
+              sed -E 's#^First-Year/Chemi([0-9]+)/index\.html$#\1#')
+
+            if ! [[ "$lecture" =~ ^[0-9]+$ ]]; then
+              echo "ERROR: Could not determine lecture number."
+              exit 1
+            fi
+
+            echo "lecture=$lecture" >> "$GITHUB_OUTPUT"
+            echo "file=$latest_path" >> "$GITHUB_OUTPUT"
+
+            echo "Latest committed lecture target:"
+            echo "$latest_path"
+
           fi
 
-          echo "Testing only Lecture ${{ matrix.lecture }}"
-          echo "File: $FILE"
-
-      - name: Start local server
+      - name: Show exact commit under test
+        shell: bash
         run: |
-          npx --yes http-server First-Year -p 4173 > server.log 2>&1 &
-          sleep 3
+          echo "Repository HEAD:"
+          git rev-parse HEAD
 
-      - name: Chromium runtime + tab-function diagnostic
-        env:
-          LECTURE: ${{ matrix.lecture }}
-        run: |
-          node <<'NODE'
-          const { chromium } = require('playwright');
-          const fs = require('fs');
+          echo
+          echo "HEAD commit:"
+          git log -1 --oneline --decorate
 
-          (async () => {
-            const lecture = process.env.LECTURE;
-            const url =
-              `http://127.0.0.1:4173/Chemi${lecture}/index.html`;
+          echo
+          echo "Lecture under test:"
+          echo "${{ steps.target.outputs.lecture }}"
 
-            const browser = await chromium.launch({
-              headless: true
-            });
+          echo
+          echo "File under test:"
+          echo "${{ steps.target.outputs.file }}"
 
-            const page = await browser.newPage();
+          echo
+          echo "File commit history:"
+          git log -5 --oneline -- \
+            "${{ steps.target.outputs.file }}"
 
-            const consoleErrors = [];
-            const pageErrors = [];
-
-            page.on('console', msg => {
-              if (msg.type() === 'error') {
-                consoleErrors.push(msg.text());
-              }
-            });
-
-            page.on('pageerror', err => {
-              pageErrors.push(String(err));
-            });
-
-            await page.goto(url, {
-              waitUntil: 'networkidle'
-            });
-
-            // Record calls to the functions responsible for tab activation.
-            await page.evaluate(() => {
-              window.__ccsv4Calls = [];
-
-              const names = [
-                'showPage',
-                'openTopic',
-                'openSub',
-                'openFunctional',
-                'showVisual',
-                'returnToPreviousView'
-              ];
-
-              for (const name of names) {
-                const original = window[name];
-
-                if (typeof original !== 'function') continue;
-
-                window[name] = function (...args) {
-                  window.__ccsv4Calls.push({
-                    name,
-                    args
-                  });
-
-                  return original.apply(this, args);
-                };
-              }
-            });
-
-            const result = await page.evaluate(async () => {
-
-              const selectors = [
-                '.topic-grid .tab',
-                '.topic-feature-row .tab',
-                '.lecture-navigation .previous-page-tab'
-              ];
-
-              const tabs = [];
-
-              for (const selector of selectors) {
-                for (const el of document.querySelectorAll(selector)) {
-
-                  const before = {
-                    visible: [...document.querySelectorAll(
-                      '[id]'
-                    )]
-                    .filter(x => {
-                      const s = getComputedStyle(x);
-                      return s.display !== 'none' &&
-                             s.visibility !== 'hidden';
-                    })
-                    .map(x => x.id)
-                    .filter(Boolean),
-
-                    text: document.body.innerText.slice(0, 1200)
-                  };
-
-                  window.__ccsv4Calls = [];
-
-                  el.scrollIntoView({
-                    block: 'center'
-                  });
-
-                  el.click();
-
-                  await new Promise(r => setTimeout(r, 400));
-
-                  const after = {
-                    visible: [...document.querySelectorAll(
-                      '[id]'
-                    )]
-                    .filter(x => {
-                      const s = getComputedStyle(x);
-                      return s.display !== 'none' &&
-                             s.visibility !== 'hidden';
-                    })
-                    .map(x => x.id)
-                    .filter(Boolean),
-
-                    text: document.body.innerText.slice(0, 1200)
-                  };
-
-                  const calls = window.__ccsv4Calls;
-
-                  const changed =
-                    JSON.stringify(before.visible) !==
-                      JSON.stringify(after.visible) ||
-                    before.text !== after.text;
-
-                  tabs.push({
-                    selector,
-                    label: el.innerText.trim(),
-                    onclick: el.getAttribute('onclick'),
-                    calls,
-                    stateChanged: changed,
-                    status:
-                      calls.length > 0 && changed
-                        ? 'PASS'
-                        : 'TAB_CLICK_NO_EFFECT'
-                  });
-                }
-              }
-
-              return tabs;
-            });
-
-            fs.mkdirSync('ccsv4-evidence', {
-              recursive: true
-            });
-
-            const evidence = {
-              lecture,
-              url,
-              tabs: result,
-              consoleErrors,
-              pageErrors,
-              generatedAt: new Date().toISOString()
-            };
-
-            fs.writeFileSync(
-              `ccsv4-evidence/lecture-${lecture}.json`,
-              JSON.stringify(evidence, null, 2)
-            );
-
-            console.log(
-              JSON.stringify(evidence, null, 2)
-            );
-
-            const failures = result.filter(
-              x => x.status !== 'PASS'
-            );
-
-            if (failures.length) {
-              console.error(
-                `CCSV4 FAILED: ${failures.length} tab(s) failed.`
-              );
-              process.exit(1);
-            }
-
-            if (consoleErrors.length || pageErrors.length) {
-              console.error(
-                'CCSV4 FAILED: runtime JavaScript errors detected.'
-              );
-              process.exit(1);
-            }
-
-            console.log(
-              `CCSV4 PASS: Lecture ${lecture} tab runtime test passed.`
-            );
-
-            await browser.close();
-          })();
-          NODE
-
-      - name: Upload diagnostic evidence
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
         with:
-          name: CCSV4-runtime-lecture-${{ matrix.lecture }}
-          path: |
-            ccsv4-evidence/
-            server.log
+          node-version: 22
+
+      - name: Install latest Playwright
+        shell: bash
+        run: |
+          npm init -y
+          npm install --save-dev playwright@latest
+
+          echo "Playwright version:"
+          npx playwright --version
+
+          echo
+          echo "Installing bundled
