@@ -1,11 +1,11 @@
-name: CCSV4 Runtime Chromium — Lecture 21
+name: CCSV4 Runtime Chromium
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - 'First-Year/Chemi21/**'
+      - 'First-Year/Chemi22/**'
       - '.github/workflows/ccsv4-runtime.yml'
 
 permissions:
@@ -93,7 +93,7 @@ jobs:
             });
 
             const url =
-              'http://127.0.0.1:4173/First-Year/Chemi21/index.html';
+              'http://127.0.0.1:4173/First-Year/Chemi22/index.html';
 
             const response = await page.goto(url, {
               waitUntil: 'networkidle',
