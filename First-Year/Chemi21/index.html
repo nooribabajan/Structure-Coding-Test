@@ -275,7 +275,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 <body>
 <div class="wrap">
 <section class="page active" id="homePage">
-<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img alt="Imperial Academy logo" src="IAE-Logo-Transparent.png"/></div></div></header>
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header>
 <div class="main-content-container" id="mainContentContainer">
 <div class="content-view" id="homeContentView">
 <div class="view-header"><div class="subject-label chemistry-label">Chemistry · First Year</div></div>
@@ -464,7 +464,7 @@ function linkDictionaryTerms(text){
  }
  return out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
 }
-function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><img src="IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="subject-label">Chemistry</div>`}
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><img src="../IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="subject-label">Chemistry</div>`}
 function getMainHost(){const active=document.querySelector('.page.active .main-content-container');return active||document.getElementById('mainContentContainer');}
 const homeMarkup=getMainHost()?.innerHTML||'';
 let lectureViewStack=[];
