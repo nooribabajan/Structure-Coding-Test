@@ -613,8 +613,12 @@ function showویژول(id){
  overlay.setAttribute('aria-label','ویژول');
  overlay.innerHTML=`<div class="visual-popup-dialog">
    <button class="visual-popup-close" type="button" aria-label="ویژول بند کریں" title="ویژول بند کریں">×</button>
-   <div class="visual-popup-media"><img class="atlas-img" src="${src}" alt="${esc(v[1])}" loading="eager" decoding="async" referrerpolicy="no-referrer"></div>
- </div>`;
+<div class="visual-popup-media">
+  <iframe class="atlas-img" src="${esc(src)}" title="${esc(v[1])}" loading="eager" referrerpolicy="no-referrer"></iframe>
+  <div class="visual-external-fallback">
+    <a href="${esc(src)}" target="_blank" rel="noopener noreferrer">ویژول external page میں کھولیں ↗</a>
+  </div>
+</div>
  host.appendChild(overlay);
  const close=overlay.querySelector('.visual-popup-close');
  const remove=()=>closeویژولPopup(true);
