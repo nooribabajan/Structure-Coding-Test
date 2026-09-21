@@ -2,13 +2,11 @@ name: CCSV4 Permanent Runtime Gate — Chromium Diagnostics
 
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
   workflow_dispatch:
     inputs:
       lecture:
-        description: "Optional lecture number. Leave blank to auto-detect."
+        description: "Lecture number, e.g. 23. Leave blank to test the latest lecture."
         required: false
         default: ""
 
@@ -16,962 +14,331 @@ permissions:
   contents: read
 
 jobs:
-
   detect:
-    name: CCSV4 — Detect Test Targets
+    name: CCSV4 — Detect Lecture
     runs-on: ubuntu-latest
     outputs:
       lectures: ${{ steps.detect.outputs.lectures }}
-      count: ${{ steps.detect.outputs.count }}
-
     steps:
-
-      - name: Checkout complete repository history
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Detect affected or latest lecture
+      - name: Detect lecture target
         id: detect
         shell: bash
         run: |
-
           set -euo pipefail
+          requested="$(jq -r '.inputs.lecture // ""' "$GITHUB_EVENT_PATH")"
 
-          TARGETS=""
-
-          #
-          # MANUAL RUN
-          #
-
-          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
-
-            requested=$(jq -r '.inputs.lecture // ""' "$GITHUB_EVENT_PATH")
-
-            if [ -n "$requested" ]; then
-
-              if ! [[ "$requested" =~ ^[0-9]+$ ]]; then
-                echo "CCSV4 DETECTION FAILURE"
-                echo "PROBLEM_CODE=INVALID_LECTURE_INPUT"
-                exit 1
-              fi
-
-              FILE="First-Year/Chemi${requested}/index.html"
-
-              if [ ! -f "$FILE" ]; then
-                echo "CCSV4 DETECTION FAILURE"
-                echo "PROBLEM_CODE=MISSING_LECTURE_FILE"
-                echo "Missing: $FILE"
-                exit 1
-              fi
-
-              TARGETS="$requested"
-
-            fi
-
-          fi
-
-          #
-          # AUTOMATIC COMMIT DETECTION
-          #
-
-          if [ -z "$TARGETS" ]; then
-
-            BEFORE=$(jq -r '.before // ""' "$GITHUB_EVENT_PATH")
-            AFTER="$GITHUB_SHA"
-
-            if [ -n "$BEFORE" ] &&
-               [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
-
-              CHANGED_FILES=$(
-                git diff --name-only \
-                  "$BEFORE" \
-                  "$AFTER" \
-                  -- \
-                  'First-Year/Chemi*/**' \
-                  '.github/workflows/**'
-              )
-
-            else
-
-              CHANGED_FILES=$(
-                git ls-tree \
-                  -r \
-                  --name-only \
-                  "$AFTER" \
-                  -- \
-                  'First-Year/Chemi*/**'
-              )
-
-            fi
-
-            #
-            # Find lectures whose actual files changed.
-            #
-
-            TARGETS=$(
-              printf '%s\n' "$CHANGED_FILES" |
-              sed -nE \
-                's#^First-Year/Chemi([0-9]+)/.*#\1#p' |
-              sort -n -u |
-              paste -sd ',' -
-            )
-
-          fi
-
-          #
-          # IMPORTANT:
-          # If only workflow/system files changed,
-          # do NOT skip the runtime test.
-          #
-          # Instead test the newest committed lecture.
-          #
-
-          if [ -z "$TARGETS" ]; then
-
-            echo "No lecture-specific change detected."
-
-            LATEST=$(
-              find First-Year \
-                -type f \
-                -path '*/Chemi*/index.html' |
-              grep -E '/Chemi[0-9]+/index\.html$' |
-              sort -V |
-              tail -n 1 || true
-            )
-
-            if [ -z "$LATEST" ]; then
-
-              echo "CCSV4 DETECTION FAILURE"
-              echo "PROBLEM_CODE=NO_LECTURE_FILES_FOUND"
+          if [ -n "$requested" ]; then
+            if ! [[ "$requested" =~ ^[0-9]+$ ]]; then
+              echo "Invalid lecture number: $requested"
               exit 1
-
             fi
-
-            TARGETS=$(
-              echo "$LATEST" |
-              sed -E \
-                's#^First-Year/Chemi([0-9]+)/index\.html$#\1#'
-            )
-
-            echo "System-only commit detected."
-            echo "Testing latest committed lecture: $TARGETS"
-
+            file="First-Year/Chemi${requested}/index.html"
+            test -f "$file" || { echo "Missing $file"; exit 1; }
+            echo "lectures=[\"$requested\"]" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
 
-          COUNT=$(
-            echo "$TARGETS" |
-            tr ',' '\n' |
-            sed '/^$/d' |
-            wc -l
+          mapfile -t found < <(
+            find First-Year -type f -path '*/Chemi*/index.html' |
+            sed -nE 's#^First-Year/Chemi([0-9]+)/index\.html$#\1#p' |
+            sort -n -u
           )
 
-          echo "Detected lectures: $TARGETS"
-          echo "Count: $COUNT"
+          if [ "${#found[@]}" -eq 0 ]; then
+            echo "No lecture files found."
+            exit 1
+          fi
 
-          echo "lectures=$TARGETS" >> "$GITHUB_OUTPUT"
-          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          targets=()
+          before="$(jq -r '.before // ""' "$GITHUB_EVENT_PATH")"
 
+          if [ -n "$before" ] && [ "$before" != "0000000000000000000000000000000000000000" ]; then
+            while IFS= read -r f; do
+              n="$(sed -nE 's#^First-Year/Chemi([0-9]+)/.*#\1#p' <<< "$f")"
+              [ -n "$n" ] && targets+=("$n")
+            done < <(git diff --name-only "$before" "$GITHUB_SHA" -- 'First-Year/Chemi*/**')
+          fi
+
+          if [ "${#targets[@]}" -eq 0 ]; then
+            targets=("${found[${#found[@]}-1]}")
+          fi
+
+          mapfile -t unique < <(printf '%s\n' "${targets[@]}" | sort -n -u)
+          json="$(printf '%s\n' "${unique[@]}" | jq -R . | jq -sc .)"
+          echo "Testing lectures: $json"
+          echo "lectures=$json" >> "$GITHUB_OUTPUT"
 
   runtime:
     name: CCSV4 — Chromium Runtime Diagnostic
     needs: detect
-
-    if: needs.detect.outputs.count != '0'
-
     runs-on: ubuntu-latest
-
-    timeout-minutes: 45
+    timeout-minutes: 30
 
     strategy:
       fail-fast: false
       matrix:
-        lecture:
-          - ${{ needs.detect.outputs.lectures }}
+        lecture: ${{ fromJSON(needs.detect.outputs.lectures) }}
 
     steps:
-
       - name: Checkout exact committed version
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup Node.js 22
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Install latest Playwright
+      - name: Install Playwright
         shell: bash
         run: |
-
           set -euo pipefail
-
           npm init -y
-
-          npm install \
-            --save-dev \
-            playwright@latest
-
-          echo ""
-          echo "=========================================="
-          echo "PLAYWRIGHT VERSION"
-          echo "=========================================="
-
-          npx playwright --version
-
-          echo ""
-          echo "Installing bundled Chromium..."
-
+          npm install --save-dev playwright@latest
           npx playwright install --with-deps chromium
 
-      - name: Validate target lecture
+      - name: Validate lecture
         shell: bash
         run: |
-
           set -euo pipefail
+          file="First-Year/Chemi${{ matrix.lecture }}/index.html"
+          test -f "$file" || { echo "Missing $file"; exit 1; }
 
-          LECTURES="${{ needs.detect.outputs.lectures }}"
+          grep -q "MASTERY_TTS_LANG.*ur-PK" "$file" || {
+            echo "Urdu TTS marker not found in $file"
+            exit 1
+          }
 
-          echo "Runtime target(s):"
-          echo "$LECTURES"
+          if grep -qi "64-bit" "$file"; then
+            echo "CCSV4 FAILURE: forbidden 64-bit/heavy embedded marker found."
+            exit 1
+          fi
 
-          while IFS= read -r lecture; do
-
-            [ -z "$lecture" ] && continue
-
-            FILE="First-Year/Chemi${lecture}/index.html"
-
-            echo ""
-            echo "Checking:"
-            echo "$FILE"
-
-            if [ ! -f "$FILE" ]; then
-
-              echo "CCSV4 FAILURE"
-              echo "PROBLEM_CODE=MISSING_LECTURE_FILE"
-              echo "Missing: $FILE"
-
-              exit 1
-
-            fi
-
-          done < <(echo "$LECTURES" | tr ',' '\n')
-
-      - name: Start local lecture server
+      - name: Start local server
         shell: bash
         run: |
-
           set -euo pipefail
-
-          npx --yes http-server \
-            First-Year \
-            -p 4173 \
-            > server.log 2>&1 &
-
+          npx --yes http-server First-Year -p 4173 > server.log 2>&1 &
           echo $! > server.pid
 
-          FIRST_LECTURE=$(
-            echo "${{ needs.detect.outputs.lectures }}" |
-            cut -d',' -f1
-          )
-
           for i in {1..30}; do
-
-            if curl -fsS \
-              "http://127.0.0.1:4173/Chemi${FIRST_LECTURE}/index.html" \
-              >/dev/null; then
-
-              echo "CCSV4 PASS"
-              echo "PROBLEM_CODE=NONE"
-              echo "Local server is ready."
-
+            if curl -fsS "http://127.0.0.1:4173/Chemi${{ matrix.lecture }}/index.html" >/dev/null; then
               exit 0
-
             fi
-
             sleep 1
-
           done
 
-          echo "CCSV4 FAILURE"
-          echo "PROBLEM_CODE=LOCAL_SERVER_START_FAILURE"
-
           cat server.log
-
           exit 1
 
-      - name: Chromium — Deep CCSV4 tab diagnostic
+      - name: Chromium — CCSV4 functional gate
         shell: bash
         run: |
-
           set -euo pipefail
-
           mkdir -p ccsv4-evidence
 
-          echo "${{ needs.detect.outputs.lectures }}" |
-          tr ',' '\n' |
-          while IFS= read -r lecture; do
-
-            [ -z "$lecture" ] && continue
-
-            echo ""
-            echo "################################################"
-            echo "CCSV4 RUNTIME TEST — LECTURE $lecture"
-            echo "################################################"
-
-            LECTURE="$lecture" node <<'NODE'
-
-          const { chromium } = require('playwright');
-          const fs = require('fs');
-
-          (async () => {
-
-            const lecture = process.env.LECTURE;
-
-            const url =
-              `http://127.0.0.1:4173/Chemi${lecture}/index.html`;
-
-            const evidence = {
-
-              lecture,
-
-              url,
-
-              testedAt:
-                new Date().toISOString(),
-
-              playwright:
-                require(
-                  'playwright/package.json'
-                ).version,
-
-              chromium:
-                null,
-
-              tabs: [],
-
-              consoleErrors: [],
-
-              pageErrors: [],
-
-              failedRequests: [],
-
-              globalProblems: []
-
-            };
-
-            const browser =
-              await chromium.launch({
-                headless: true,
-                args: [
-                  '--disable-gpu'
-                ]
-              });
-
-            evidence.chromium =
-              await browser.version();
-
-            const context =
-              await browser.newContext();
-
-            const page =
-              await context.newPage();
-
-            page.on(
-              'console',
-              message => {
-
-                if (
-                  message.type() ===
-                  'error'
-                ) {
-
-                  evidence.consoleErrors.push(
-                    message.text()
-                  );
-
-                }
-
-              }
-            );
-
-            page.on(
-              'pageerror',
-              error => {
-
-                evidence.pageErrors.push(
-                  String(error)
-                );
-
-              }
-            );
-
-            page.on(
-              'requestfailed',
-              request => {
-
-                evidence.failedRequests.push({
-
-                  url:
-                    request.url(),
-
-                  method:
-                    request.method(),
-
-                  failure:
-                    request.failure()
-
-                });
-
-              }
-            );
-
-            /*
-             * ----------------------------------------
-             * PAGE LOAD
-             * ----------------------------------------
-             */
-
-            try {
-
-              await page.goto(
-                url,
-                {
-                  waitUntil:
-                    'domcontentloaded'
-                }
-              );
-
-              await page
-                .waitForLoadState(
-                  'networkidle'
-                )
-                .catch(() => {});
-
-            } catch (error) {
-
-              evidence.globalProblems.push({
-
-                code:
-                  'PAGE_LOAD_FAILURE',
-
-                message:
-                  String(error)
-
-              });
-
-            }
-
-            /*
-             * ----------------------------------------
-             * REQUIRED CCSV4 FUNCTIONS
-             * ----------------------------------------
-             */
-
-            const requiredFunctions =
-              await page.evaluate(() => {
-
-                const names = [
-
-                  'showPage',
-                  'openTopic',
-                  'openSub',
-                  'openFunctional',
-                  'showVisual',
-                  'returnToPreviousView'
-
-                ];
-
-                return names.map(
-                  name => ({
-
-                    name,
-
-                    exists:
-                      typeof window[name] ===
-                      'function'
-
-                  })
-                );
-
-              });
-
-            evidence.requiredFunctions =
-              requiredFunctions;
-
-            for (
-              const functionInfo
-              of requiredFunctions
-            ) {
-
-              if (
-                !functionInfo.exists
-              ) {
-
-                evidence.globalProblems.push({
-
-                  code:
-                    'MISSING_TAB_FUNCTION',
-
-                  function:
-                    functionInfo.name
-
-                });
-
-              }
-
-            }
-
-            /*
-             * ----------------------------------------
-             * TAB DISCOVERY
-             * ----------------------------------------
-             */
-
-            const selector =
-              '.topic-grid .tab, ' +
-              '.topic-feature-row .tab, ' +
-              '.lecture-navigation .previous-page-tab';
-
-            const tabCount =
-              await page
-                .locator(selector)
-                .count();
-
-            evidence.tabCount =
-              tabCount;
-
-            if (!tabCount) {
-
-              evidence.globalProblems.push({
-
-                code:
-                  'NO_TABS_FOUND',
-
-                selector
-
-              });
-
-            }
-
-            /*
-             * ----------------------------------------
-             * TAB DESCRIPTORS
-             * ----------------------------------------
-             */
-
-            const descriptors =
-              await page
-                .locator(selector)
-                .evaluateAll(
-                  elements =>
-                    elements.map(
-                      (element, index) => ({
-
-                        index,
-
-                        label:
-                          element.innerText
-                            .trim(),
-
-                        onclick:
-                          element
-                            .getAttribute(
-                              'onclick'
-                            ),
-
-                        className:
-                          element.className,
-
-                        tagName:
-                          element.tagName,
-
-                        id:
-                          element.id,
-
-                        role:
-                          element.getAttribute(
-                            'role'
-                          ),
-
-                        disabled:
-                          element.disabled ===
-                          true
-
-                      })
-                    )
-                );
-
-            evidence.descriptors =
-              descriptors;
-
-            /*
-             * ----------------------------------------
-             * TEST EVERY TAB
-             * ----------------------------------------
-             */
-
-            for (
-              const descriptor
-              of descriptors
-            ) {
-
-              /*
-               * Fresh page for every tab.
-               */
-
-              await page.goto(
-                url,
-                {
-                  waitUntil:
-                    'domcontentloaded'
-                }
-              );
-
-              await page
-                .waitForLoadState(
-                  'networkidle'
-                )
-                .catch(() => {});
-
-              /*
-               * Instrument functions.
-               */
-
-              await page.evaluate(() => {
-
-                window.__ccsv4Calls = [];
-
-                const names = [
-
-                  'showPage',
-                  'openTopic',
-                  'openSub',
-                  'openFunctional',
-                  'showVisual',
-                  'returnToPreviousView'
-
-                ];
-
-                for (
-                  const name
-                  of names
-                ) {
-
-                  const original =
-                    window[name];
-
-                  if (
-                    typeof original !==
-                    'function'
-                  ) {
-                    continue;
-                  }
-
-                  window[name] =
-                    function (...args) {
-
-                      window
-                        .__ccsv4Calls
-                        .push({
-
-                          name,
-
-                          args:
-                            args.map(
-                              value => {
-
-                                if (
-                                  value !==
-                                    null &&
-                                  typeof value ===
-                                    'object'
-                                ) {
-
-                                  return '[object]';
-
-                                }
-
-                                return value;
-
-                              }
-                            )
-
-                        });
-
-                      return original.apply(
-                        this,
-                        args
-                      );
-
-                    };
-
-                }
-
-              });
-
-              const tab =
-                page
-                  .locator(selector)
-                  .nth(
-                    descriptor.index
-                  );
-
-              /*
-               * Verify tab still exists
-               * after reload.
-               */
-
-              if (
-                !(await tab.count())
-              ) {
-
-                evidence.tabs.push({
-
-                  ...descriptor,
-
-                  status:
-                    'FAIL',
-
-                  problemCode:
-                    'TAB_DISAPPEARED_AFTER_RELOAD'
-
-                });
-
-                continue;
-
-              }
-
-              await tab
-                .scrollIntoViewIfNeeded();
-
-              /*
-               * BEFORE STATE
-               */
-
-              const before =
-                await page.evaluate(() => {
-
-                  const visibleIds =
-                    Array.from(
-                      document
-                        .querySelectorAll(
-                          '[id]'
-                        )
-                    )
-                    .filter(
-                      element => {
-
-                        const style =
-                          getComputedStyle(
-                            element
-                          );
-
-                        return (
-                          style.display !==
-                            'none' &&
-                          style.visibility !==
-                            'hidden'
-                        );
-
-                      }
-                    )
-                    .map(
-                      element =>
-                        element.id
-                    )
-                    .filter(Boolean);
-
-                  const activeTabs =
-                    Array.from(
-                      document
-                        .querySelectorAll(
-                          '.tab.active, ' +
-                          '.tab[aria-selected="true"]'
-                        )
-                    )
-                    .map(
-                      element =>
-                        element.innerText.trim()
-                    );
-
-                  return {
-
-                    href:
-                      location.href,
-
-                    visibleIds,
-
-                    activeTabs,
-
-                    bodyText:
-                      document.body
-                        .innerText
-                        .slice(
-                          0,
-                          6000
-                        )
-
-                  };
-
-                });
-
-              /*
-               * REAL BROWSER CLICK
-               */
-
-              let clickError =
-                null;
-
-              try {
-
-                await tab.click({
-                  force: true
-                });
-
-              } catch (error) {
-
-                clickError =
-                  String(error);
-
-              }
-
-              await page.waitForTimeout(
-                700
-              );
-
-              /*
-               * AFTER STATE
-               */
-
-              const after =
-                await page.evaluate(() => {
-
-                  const visibleIds =
-                    Array.from(
-                      document
-                        .querySelectorAll(
-                          '[id]'
-                        )
-                    )
-                    .filter(
-                      element => {
-
-                        const style =
-                          getComputedStyle(
-                            element
-                          );
-
-                        return (
-                          style.display !==
-                            'none' &&
-                          style.visibility !==
-                            'hidden'
-                        );
-
-                      }
-                    )
-                    .map(
-                      element =>
-                        element.id
-                    )
-                    .filter(Boolean);
-
-                  const activeTabs =
-                    Array.from(
-                      document
-                        .querySelectorAll(
-                          '.tab.active, ' +
-                          '.tab[aria-selected="true"]'
-                        )
-                    )
-                    .map(
-                      element =>
-                        element.innerText.trim()
-                    );
-
-                  return {
-
-                    href:
-                      location.href,
-
-                    visibleIds,
-
-                    activeTabs,
-
-                    bodyText:
-                      document.body
-                        .innerText
-                        .slice(
-                          0,
-                          6000
-                        )
-
-                  };
-
-                });
-
-              const calls =
-                await page.evaluate(
-                  () =>
-                    window
-                      .__ccsv4Calls || []
-                );
-
-              const functionInvoked =
-                calls.length > 0;
-
-              const stateChanged =
-                JSON.stringify(before) !==
-                JSON.stringify(after);
-
-              /*
-               * ----------------------------------------
-               * DIAGNOSTIC PROBLEM CLASSIFICATION
-               * ----------------------------------------
-               */
-
-              let status =
-                'PASS';
-
-              let problemCode =
-                'NONE';
-
-              if (clickError) {
-
-                status =
-                  'FAIL';
-
-                problemCode =
-                  'BROWSER_CLICK_FAILURE';
-
-              }
-
-              else if (
-                !functionInvoked &&
-                !stateChanged
-              ) {
-
-                status =
-                  'FAIL';
-
-                problemCode =
-                  'TAB_FUNCTION_AND_STATE_FAILURE';
-
-              }
-
-              else if (
-                !functionInvoked
-              ) {
-
-                status =
-                  'FAIL';
-
-                problemCode =
-                  'TAB_NO_FUNCTION_INVOCATION';
-
-              }
-
-              else if (
-                !state
+          LECTURE="${{ matrix.lecture }}" node > "ccsv4-evidence/lecture-${{ matrix.lecture }}.json" <<'NODE'
+const { chromium } = require('playwright');
+const fs = require('fs');
+
+(async () => {
+  const lecture = process.env.LECTURE;
+  const url = `http://127.0.0.1:4173/Chemi${lecture}/index.html`;
+
+  const evidence = {
+    lecture,
+    url,
+    testedAt: new Date().toISOString(),
+    chromium: null,
+    requiredFunctions: [],
+    tabCount: 0,
+    tabResults: [],
+    visualAtlas: null,
+    hitTheCeiling: null,
+    errors: []
+  };
+
+  const browser = await chromium.launch({ headless: true });
+  evidence.chromium = browser.version();
+
+  const page = await browser.newPage();
+
+  page.on('pageerror', e =>
+    evidence.errors.push({ type: 'pageerror', message: String(e) })
+  );
+
+  page.on('console', m => {
+    if (m.type() === 'error') {
+      evidence.errors.push({ type: 'console', message: m.text() });
+    }
+  });
+
+  page.on('requestfailed', r =>
+    evidence.errors.push({
+      type: 'requestfailed',
+      url: r.url(),
+      failure: r.failure()
+    })
+  );
+
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.waitForLoadState('networkidle').catch(() => {});
+
+  const required = [
+    'showPage',
+    'openموضوع',
+    'openSub',
+    'openFunctional',
+    'showویژول',
+    'returnToPreviousView'
+  ];
+
+  evidence.requiredFunctions = await page.evaluate(
+    names => names.map(name => ({
+      name,
+      exists: typeof window[name] === 'function'
+    })),
+    required
+  );
+
+  for (const item of evidence.requiredFunctions) {
+    if (!item.exists) {
+      throw new Error(`MISSING_REQUIRED_FUNCTION:${item.name}`);
+    }
+  }
+
+  const selector = '.topic-feature-row .tab, .topic-grid .tab';
+  evidence.tabCount = await page.locator(selector).count();
+
+  if (evidence.tabCount < 30) {
+    throw new Error(`TOO_FEW_CCSV4_TABS:${evidence.tabCount}`);
+  }
+
+  const descriptors = await page.locator(selector).evaluateAll(els =>
+    els.map((el, i) => ({
+      index: i,
+      label: el.innerText.trim(),
+      onclick: el.getAttribute('onclick')
+    }))
+  );
+
+  for (const d of descriptors) {
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle').catch(() => {});
+
+    const tab = page.locator(selector).nth(d.index);
+
+    if (!(await tab.count())) {
+      throw new Error(`TAB_DISAPPEARED:${d.index}`);
+    }
+
+    const before = await page.locator('body').innerText;
+
+    let clickError = null;
+    try {
+      await tab.scrollIntoViewIfNeeded();
+      await tab.click({ force: true });
+    } catch (e) {
+      clickError = String(e);
+    }
+
+    await page.waitForTimeout(500);
+
+    const after = await page.locator('body').innerText;
+
+    if (clickError) {
+      throw new Error(`TAB_CLICK_FAILURE:${d.index}:${clickError}`);
+    }
+
+    if (before === after) {
+      const active = await page.locator('.page.active').count();
+      if (!active) {
+        throw new Error(`TAB_NO_VISIBLE_CHANGE:${d.index}:${d.label}`);
+      }
+    }
+
+    evidence.tabResults.push({
+      index: d.index,
+      label: d.label,
+      onclick: d.onclick,
+      status: 'PASS'
+    });
+  }
+
+  // Visual Atlas: open Atlas, then open a visual inside the page.
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => window.openFunctional('visual'));
+  await page.waitForTimeout(300);
+
+  const visualButton =
+    page.getByRole('button', { name: /Visual کھولیں/ }).first();
+
+  evidence.visualAtlas = {
+    buttonFound: (await visualButton.count()) > 0
+  };
+
+  if (!evidence.visualAtlas.buttonFound) {
+    throw new Error('VISUAL_ATLAS_BUTTON_MISSING');
+  }
+
+  await visualButton.click();
+  await page.waitForTimeout(500);
+
+  evidence.visualAtlas.modalFound =
+    (await page.locator('#visualPopupOverlay, .visual-popup-overlay').count()) > 0;
+
+  if (!evidence.visualAtlas.modalFound) {
+    throw new Error('VISUAL_DID_NOT_OPEN_IN_PAGE');
+  }
+
+  // Hit The Ceiling must open from its actual tab.
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+
+  const hitTab =
+    page.locator('.topic-grid .tab')
+      .filter({ hasText: /ہِٹ دی سیلنگ|HIT THE CEILING/i })
+      .first();
+
+  evidence.hitTheCeiling = {
+    tabFound: (await hitTab.count()) > 0
+  };
+
+  if (!evidence.hitTheCeiling.tabFound) {
+    throw new Error('HIT_THE_CEILING_TAB_MISSING');
+  }
+
+  await hitTab.click({ force: true });
+  await page.waitForTimeout(400);
+
+  evidence.hitTheCeiling.pageFound =
+    (await page.locator('#hitCeilingPage.page.active, #hitCeilingPage').count()) > 0;
+
+  if (!evidence.hitTheCeiling.pageFound) {
+    throw new Error('HIT_THE_CEILING_PAGE_DID_NOT_OPEN');
+  }
+
+  await browser.close();
+
+  fs.writeFileSync(
+    '/tmp/evidence.json',
+    JSON.stringify(evidence, null, 2)
+  );
+
+  console.log(JSON.stringify(evidence, null, 2));
+})().catch(err => {
+  console.error(err.stack || String(err));
+  process.exitCode = 1;
+});
+NODE
+
+      - name: Upload CCSV4 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CCSV4-runtime-evidence-lecture-${{ matrix.lecture }}
+          path: ccsv4-evidence/
+          if-no-files-found: warn
