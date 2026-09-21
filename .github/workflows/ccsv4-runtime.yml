@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'First-Year/Chemi20/**'
+      - 'First-Year/Chemi21/**'
       - '.github/workflows/ccsv4-runtime.yml'
 
 permissions:
