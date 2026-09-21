@@ -933,7 +933,20 @@ function openFunctional(k){
     const input=document.getElementById('ds'); if(input){input.value='';input.dir='ltr';input.style.textAlign='left';}
     renderDict(''); setTimeout(()=>{if(input){input.focus();input.select();}},0);return;
   }
-  if(k==='visual'){show(`${header()}<div class="page-title">Lecture 23 — ویژول اٹلس</div><h2 class="lesson-title">ویژول اٹلس</h2><p class="lesson-subtitle">Lecture 23 ویژول اٹلس — موضوع/ذیلی موضوع visuals</p><div class="visual-atlas-grid">${visualItems.map(v=>{const owner=visualOwnerTitle(v[0]);const topicHtml=owner.topics.map(t=>`<h3 class="atlas-heading">${esc(t)}</h3>`).join('');const subHtml=owner.subs.map(st=>`<div class="atlas-subtopic">${esc(st)}</div>`).join('');return `<article class="visual-card atlas-card"><div class="atlas-visual-tab">${esc(v[1])}</div>${topicHtml}${subHtml}<p class="atlas-visual-description">${esc(v[2])}</p>${atlasVisualButton(v[0])}</article>`}).join('')}</div>`);return;}
+  if(k==='visual'){const atlasBreaks=[
+  ['Chemistry Break 01','ایک منٹ کی بات','Acid–base chemistry میں اصل سوال اکثر صرف یہ ہوتا ہے: proton کہاں سے آیا اور کہاں گیا؟'],
+  ['Chemistry Break 02','چھوٹی سی یاد دہانی','Acid اور base کی شناخت نام سے نہیں، reaction میں proton کے کردار سے کریں۔'],
+  ['Chemistry Break 03','Light Moment','Chemistry میں proton کبھی واقعی غائب نہیں ہوتا؛ وہ بس ایک مناسب جگہ منتقل ہو جاتا ہے۔ 😄'],
+  ['Chemistry Break 04','ایک دلچسپ نکتہ','ایک ہی amphoteric species مختلف reaction partners کے ساتھ مختلف کردار ادا کر سکتی ہے۔'],
+  ['Chemistry Break 05','Quick Story','ایک طالب علم نے پوچھا: “کون acid ہے؟” استاد نے کہا: “جس نے proton دیا، وہی بتا رہا ہے!” 🧪'],
+  ['Chemistry Break 06','Think About It','Molecular structure کو دیکھیں اور پوچھیں: proton دینے یا لینے کے لیے کون سی جگہ دستیاب ہے؟'],
+  ['Chemistry Break 07','Relax Corner','دو منٹ سانس لیں، پھر reaction کو دوبارہ دیکھیں — proton-transfer ہمیشہ ایک چھوٹا سا clue چھوڑتا ہے۔'],
+  ['Chemistry Break 08','Chemistry History Note','Brønsted اور Lowry کی proton-transfer interpretation نے acid–base chemistry کو ایک مشترک زبان دی۔'],
+  ['Chemistry Break 09','Enjoy Your Chemistry','اگر ابھی visual کی ضرورت نہیں، تو یہ جگہ آپ کے لیے ہے: تھوڑا آرام، پھر واپس chemistry کی طرف۔ 🙂']
+];
+const visualCards=visualItems.map(v=>{const owner=visualOwnerTitle(v[0]);const topicHtml=owner.topics.map(t=>`<h3 class="atlas-heading">${esc(t)}</h3>`).join('');const subHtml=owner.subs.map(st=>`<div class="atlas-subtopic">${esc(st)}</div>`).join('');return `<article class="visual-card atlas-card"><div class="atlas-visual-tab">${esc(v[1])}</div>${topicHtml}${subHtml}<p class="atlas-visual-description">${esc(v[2])}</p>${atlasVisualButton(v[0])}</article>`}).join('');
+const breakCards=atlasBreaks.map(v=>`<article class="visual-card atlas-card atlas-break-card"><div class="atlas-visual-tab">${esc(v[0])}</div><h3 class="atlas-heading">${esc(v[1])}</h3><p class="atlas-visual-description">${esc(v[2])}</p></article>`).join('');
+show(`${header()}<div class="page-title">Lecture 23</div><div class="visual-atlas-grid">${visualCards}${breakCards}</div>`);return;}
   if(k==='search'){openتلاش();return;}
   if(k==='practice'){openGuidedمشق();return;}
   if(k==='readiness'){openAssessment('readiness');return;}
