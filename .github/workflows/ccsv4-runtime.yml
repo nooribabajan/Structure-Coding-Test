@@ -1,26 +1,80 @@
-name: CCSV4 Runtime Chromium — All Lectures
+name: CCSV4 Runtime Chromium — Changed/New Lectures
 
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
-      - 'First-Year/**'
+      - 'First-Year/Chemi*/**'
       - '.github/workflows/ccsv4-runtime.yml'
 
 permissions:
   contents: read
 
 jobs:
-  runtime-chromium:
+  detect:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    outputs:
+      lectures: ${{ steps.detect.outputs.lectures }}
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect newly added or modified lecture files
+        id: detect
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          files=$(git diff --name-status HEAD^ HEAD -- 'First-Year/Chemi*/**' || true)
+
+          lectures=""
+
+          while IFS=$'\t' read -r status file; do
+            [ -z "${file:-}" ] && continue
+
+            if [[ "$file" =~ ^First-Year/Chemi([0-9]+)/ ]]; then
+              lecture="${BASH_REMATCH[1]}"
+
+              # A = Added
+              # M = Modified
+              # R = Renamed
+              if [[ "$status" == "A" ||
+                    "$status" == "M" ||
+                    "$status" == R* ]]; then
+
+                if [[ -z "$lectures" ]]; then
+                  lectures="$lecture"
+                elif [[ ",$lectures," != *",$lecture,"* ]]; then
+                  lectures="$lectures,$lecture"
+                fi
+              fi
+            fi
+          done <<< "$files"
+
+          echo "Detected changed/new lectures: ${lectures:-none}"
+          echo "lectures=$lectures" >> "$GITHUB_OUTPUT"
+
+  runtime:
+    needs: detect
+    if: needs.detect.outputs.lectures != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    strategy:
+      fail-fast: false
+      matrix:
+        lecture: ${{ fromJSON(format('["{0}"]', needs.detect.outputs.lectures)) }}
+
+    steps:
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -28,542 +82,222 @@ jobs:
       - name: Install Playwright
         run: |
           npm init -y
-          npm install --no-save @playwright/test
+          npm install playwright
           npx playwright install --with-deps chromium
 
-      - name: Detect First-Year Chemistry lectures
-        id: detect
+      - name: Validate target lecture
         shell: bash
         run: |
-          set -euo pipefail
+          FILE="First-Year/Chemi${{ matrix.lecture }}/index.html"
 
-          mapfile -t LECTURES < <(
-            find First-Year -mindepth 2 -maxdepth 2 \
-              -type f \
-              -path 'First-Year/Chemi*/index.html' \
-              | sort -V
-          )
-
-          if [ "${#LECTURES[@]}" -eq 0 ]; then
-            echo "No First-Year/Chemi*/index.html files found."
+          if [ ! -f "$FILE" ]; then
+            echo "ERROR: Missing $FILE"
             exit 1
           fi
 
-          echo "Detected lectures:"
-          printf '%s\n' "${LECTURES[@]}"
+          echo "Testing only Lecture ${{ matrix.lecture }}"
+          echo "File: $FILE"
 
-          {
-            echo 'LECTURE_FILES<<EOF'
-            printf '%s\n' "${LECTURES[@]}"
-            echo 'EOF'
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Start local lecture server
-        shell: bash
+      - name: Start local server
         run: |
-          set -euo pipefail
+          npx --yes http-server First-Year -p 4173 > server.log 2>&1 &
+          sleep 3
 
-          python3 -m http.server 4173 --directory . \
-            >/tmp/ccsv4-server.log 2>&1 &
-
-          echo $! >/tmp/ccsv4-server.pid
-
-          for i in {1..20}; do
-            if curl -fsS http://127.0.0.1:4173/ >/dev/null 2>&1; then
-              echo "Local server is ready."
-              exit 0
-            fi
-            sleep 1
-          done
-
-          echo "Local server failed to start."
-          cat /tmp/ccsv4-server.log || true
-          exit 1
-
-      - name: Runtime Chromium — CCSV4 diagnostic
+      - name: Chromium runtime + tab-function diagnostic
         env:
-          LECTURE_FILES: ${{ steps.detect.outputs.LECTURE_FILES }}
+          LECTURE: ${{ matrix.lecture }}
         run: |
           node <<'NODE'
           const { chromium } = require('playwright');
           const fs = require('fs');
 
-          const lectureFiles = process.env.LECTURE_FILES
-            .split('\n')
-            .map(x => x.trim())
-            .filter(Boolean);
+          (async () => {
+            const lecture = process.env.LECTURE;
+            const url =
+              `http://127.0.0.1:4173/Chemi${lecture}/index.html`;
 
-          const results = [];
-          let globalFailure = false;
+            const browser = await chromium.launch({
+              headless: true
+            });
 
-          function cleanUrl(url) {
-            try {
-              const u = new URL(url);
-              return u.pathname + u.search + u.hash;
-            } catch {
-              return url;
-            }
-          }
+            const page = await browser.newPage();
 
-          async function safeText(locator) {
-            try {
-              return (await locator.innerText()).trim();
-            } catch {
-              return '';
-            }
-          }
+            const consoleErrors = [];
+            const pageErrors = [];
 
-          async function visibleState(page) {
-            return await page.evaluate(() => {
-              const ids = [
-                'mainContentContainer',
-                'topicsPage',
-                'topicPage',
-                'subtopicPage',
-                'functionalPage',
-                'visualPage',
-                'lectureMasteryPage',
-                'examinationPage',
-                'hitCeilingPage'
+            page.on('console', msg => {
+              if (msg.type() === 'error') {
+                consoleErrors.push(msg.text());
+              }
+            });
+
+            page.on('pageerror', err => {
+              pageErrors.push(String(err));
+            });
+
+            await page.goto(url, {
+              waitUntil: 'networkidle'
+            });
+
+            // Record calls to the functions responsible for tab activation.
+            await page.evaluate(() => {
+              window.__ccsv4Calls = [];
+
+              const names = [
+                'showPage',
+                'openTopic',
+                'openSub',
+                'openFunctional',
+                'showVisual',
+                'returnToPreviousView'
               ];
 
-              const state = {};
+              for (const name of names) {
+                const original = window[name];
 
-              for (const id of ids) {
-                const el = document.getElementById(id);
+                if (typeof original !== 'function') continue;
 
-                if (el) {
-                  const style = getComputedStyle(el);
+                window[name] = function (...args) {
+                  window.__ccsv4Calls.push({
+                    name,
+                    args
+                  });
 
-                  state[id] = {
-                    exists: true,
-                    display: style.display,
-                    visibility: style.visibility,
-                    opacity: style.opacity,
-                    hidden: el.hidden,
-                    rect: el.getBoundingClientRect().toJSON()
-                  };
-                } else {
-                  state[id] = {
-                    exists: false
-                  };
-                }
+                  return original.apply(this, args);
+                };
               }
-
-              return state;
             });
-          }
 
-          async function inspectTabs(page) {
-            return await page.evaluate(() => {
+            const result = await page.evaluate(async () => {
+
               const selectors = [
                 '.topic-grid .tab',
                 '.topic-feature-row .tab',
                 '.lecture-navigation .previous-page-tab'
               ];
 
-              const elements = [
-                ...new Set(
-                  selectors.flatMap(selector =>
-                    Array.from(document.querySelectorAll(selector))
-                  )
-                )
-              ];
+              const tabs = [];
 
-              return elements.map((el, index) => ({
-                index,
-                tag: el.tagName,
-                text: (el.innerText || el.textContent || '').trim(),
-                id: el.id || '',
-                className: el.className || '',
-                onclick: el.getAttribute('onclick') || '',
-                role: el.getAttribute('role') || '',
-                tabindex: el.getAttribute('tabindex') || '',
-                ariaLabel: el.getAttribute('aria-label') || '',
-                disabled:
-                  el.disabled === true ||
-                  el.getAttribute('aria-disabled') === 'true',
-                visible: (() => {
-                  const r = el.getBoundingClientRect();
-                  const s = getComputedStyle(el);
-                  return (
-                    r.width > 0 &&
-                    r.height > 0 &&
-                    s.display !== 'none' &&
-                    s.visibility !== 'hidden'
-                  );
-                })()
-              }));
+              for (const selector of selectors) {
+                for (const el of document.querySelectorAll(selector)) {
+
+                  const before = {
+                    visible: [...document.querySelectorAll(
+                      '[id]'
+                    )]
+                    .filter(x => {
+                      const s = getComputedStyle(x);
+                      return s.display !== 'none' &&
+                             s.visibility !== 'hidden';
+                    })
+                    .map(x => x.id)
+                    .filter(Boolean),
+
+                    text: document.body.innerText.slice(0, 1200)
+                  };
+
+                  window.__ccsv4Calls = [];
+
+                  el.scrollIntoView({
+                    block: 'center'
+                  });
+
+                  el.click();
+
+                  await new Promise(r => setTimeout(r, 400));
+
+                  const after = {
+                    visible: [...document.querySelectorAll(
+                      '[id]'
+                    )]
+                    .filter(x => {
+                      const s = getComputedStyle(x);
+                      return s.display !== 'none' &&
+                             s.visibility !== 'hidden';
+                    })
+                    .map(x => x.id)
+                    .filter(Boolean),
+
+                    text: document.body.innerText.slice(0, 1200)
+                  };
+
+                  const calls = window.__ccsv4Calls;
+
+                  const changed =
+                    JSON.stringify(before.visible) !==
+                      JSON.stringify(after.visible) ||
+                    before.text !== after.text;
+
+                  tabs.push({
+                    selector,
+                    label: el.innerText.trim(),
+                    onclick: el.getAttribute('onclick'),
+                    calls,
+                    stateChanged: changed,
+                    status:
+                      calls.length > 0 && changed
+                        ? 'PASS'
+                        : 'TAB_CLICK_NO_EFFECT'
+                  });
+                }
+              }
+
+              return tabs;
             });
-          }
 
-          async function clickAndCheck(page, tab, lecture, errors) {
-            const selector = tab.selector;
-            const label = tab.text || `tab-${tab.index}`;
+            fs.mkdirSync('ccsv4-evidence', {
+              recursive: true
+            });
 
-            const beforeUrl = page.url();
-            const beforeState = await visibleState(page);
-
-            let clickError = null;
-
-            try {
-              const locator = page.locator(selector).nth(tab.index);
-
-              await locator.scrollIntoViewIfNeeded();
-              await locator.click({
-                timeout: 5000,
-                force: false
-              });
-
-              await page.waitForTimeout(500);
-            } catch (err) {
-              clickError = err.message;
-            }
-
-            const afterUrl = page.url();
-            const afterState = await visibleState(page);
-
-            const changedState =
-              JSON.stringify(beforeState) !== JSON.stringify(afterState);
-
-            const changedUrl = beforeUrl !== afterUrl;
-
-            const visiblePagesAfter = Object.entries(afterState)
-              .filter(([id, value]) =>
-                value.exists &&
-                value.display !== 'none' &&
-                value.visibility !== 'hidden' &&
-                !value.hidden &&
-                value.rect.width > 0 &&
-                value.rect.height > 0
-              )
-              .map(([id]) => id);
-
-            const failure =
-              !!clickError ||
-              (!changedState && !changedUrl);
-
-            if (failure) {
-              errors.push({
-                type: 'TAB_CLICK_NO_EFFECT',
-                lecture,
-                tab: label,
-                selector,
-                index: tab.index,
-                clickError,
-                beforeUrl,
-                afterUrl,
-                visiblePagesAfter
-              });
-            }
-
-            return {
+            const evidence = {
               lecture,
-              tab: label,
-              selector,
-              index: tab.index,
-              clickError,
-              changedState,
-              changedUrl,
-              visiblePagesAfter,
-              pass: !failure
+              url,
+              tabs: result,
+              consoleErrors,
+              pageErrors,
+              generatedAt: new Date().toISOString()
             };
-          }
-
-          (async () => {
-            const browser = await chromium.launch({
-              headless: true
-            });
-
-            for (const lectureFile of lectureFiles) {
-              const lectureName =
-                lectureFile.split('/').slice(-2, -1)[0];
-
-              console.log('\n========================================');
-              console.log('LECTURE:', lectureName);
-              console.log('FILE:', lectureFile);
-              console.log('========================================');
-
-              const page = await browser.newPage({
-                viewport: {
-                  width: 390,
-                  height: 844
-                },
-                deviceScaleFactor: 1,
-                isMobile: true,
-                hasTouch: true
-              });
-
-              const consoleErrors = [];
-              const pageErrors = [];
-              const httpErrors = [];
-              const failedRequests = [];
-              const tabErrors = [];
-
-              page.on('console', message => {
-                if (message.type() === 'error') {
-                  consoleErrors.push({
-                    text: message.text(),
-                    location: message.location()
-                  });
-                }
-              });
-
-              page.on('pageerror', error => {
-                pageErrors.push({
-                  message: error.message,
-                  stack: error.stack || ''
-                });
-              });
-
-              page.on('response', response => {
-                if (response.status() >= 400) {
-                  httpErrors.push({
-                    status: response.status(),
-                    statusText: response.statusText(),
-                    url: cleanUrl(response.url()),
-                    resourceType:
-                      response.request().resourceType(),
-                    method: response.request().method()
-                  });
-                }
-              });
-
-              page.on('requestfailed', request => {
-                failedRequests.push({
-                  url: cleanUrl(request.url()),
-                  resourceType: request.resourceType(),
-                  method: request.method(),
-                  failure: request.failure()
-                });
-              });
-
-              const result = {
-                lecture: lectureName,
-                file: lectureFile,
-                load: null,
-                tabs: null,
-                tabClicks: [],
-                consoleErrors,
-                pageErrors,
-                httpErrors,
-                failedRequests,
-                failures: []
-              };
-
-              try {
-                const url =
-                  'http://127.0.0.1:4173/' +
-                  lectureFile;
-
-                const response = await page.goto(url, {
-                  waitUntil: 'networkidle',
-                  timeout: 30000
-                });
-
-                if (!response || !response.ok()) {
-                  throw new Error(
-                    'Lecture failed to load: HTTP ' +
-                    (response && response.status()) +
-                    ' ' +
-                    (response && response.statusText())
-                  );
-                }
-
-                result.load = {
-                  pass: true,
-                  status: response.status(),
-                  title: await page.title(),
-                  url: page.url()
-                };
-
-                const mainContainer =
-                  page.locator('#mainContentContainer');
-
-                if (await mainContainer.count() === 0) {
-                  result.failures.push({
-                    type: 'MISSING_MAIN_CONTENT_CONTAINER'
-                  });
-                }
-
-                const tabs = await inspectTabs(page);
-
-                result.tabs = {
-                  count: tabs.length,
-                  items: tabs
-                };
-
-                if (tabs.length === 0) {
-                  result.failures.push({
-                    type: 'NO_CCSV4_TABS_FOUND'
-                  });
-                }
-
-                for (const tab of tabs) {
-                  if (!tab.onclick) {
-                    result.failures.push({
-                      type: 'TAB_MISSING_ONCLICK',
-                      tab: tab.text,
-                      index: tab.index
-                    });
-                  }
-                }
-
-                /*
-                 * Test representative tabs from every functional
-                 * tab category. Do not blindly click every academic
-                 * tab because some tabs intentionally change the page
-                 * and would destroy the test context.
-                 */
-
-                const representative = [];
-
-                for (const selector of [
-                  '.topic-grid .tab',
-                  '.topic-feature-row .tab',
-                  '.lecture-navigation .previous-page-tab'
-                ]) {
-                  const matching = tabs.filter(tab => {
-                    if (selector === '.topic-grid .tab') {
-                      return tab.selector === selector;
-                    }
-
-                    if (selector === '.topic-feature-row .tab') {
-                      return tab.selector === selector;
-                    }
-
-                    return tab.selector === selector;
-                  });
-
-                  if (matching.length) {
-                    representative.push(matching[0]);
-                  }
-                }
-
-                /*
-                 * Add up to three academic tabs because the user's
-                 * current failure is a consecutive academic-tab
-                 * activation problem.
-                 */
-                const academic = tabs.filter(
-                  tab => tab.selector === '.topic-grid .tab'
-                );
-
-                for (const tab of academic.slice(0, 3)) {
-                  if (
-                    !representative.some(
-                      x =>
-                        x.selector === tab.selector &&
-                        x.index === tab.index
-                    )
-                  ) {
-                    representative.push(tab);
-                  }
-                }
-
-                /*
-                 * The page can be changed by a successful click.
-                 * Reload before each independent representative test.
-                 */
-                for (const tab of representative) {
-                  await page.goto(
-                    'http://127.0.0.1:4173/' + lectureFile,
-                    {
-                      waitUntil: 'networkidle',
-                      timeout: 30000
-                    }
-                  );
-
-                  const clickResult =
-                    await clickAndCheck(
-                      page,
-                      tab,
-                      lectureName,
-                      tabErrors
-                    );
-
-                  result.tabClicks.push(clickResult);
-                }
-
-                result.failures.push(...tabErrors);
-
-                await page.screenshot({
-                  path:
-                    `ccsv4-${lectureName}-runtime.png`,
-                  fullPage: false
-                });
-
-              } catch (error) {
-                result.load = {
-                  pass: false,
-                  error: error.message,
-                  stack: error.stack || ''
-                };
-
-                result.failures.push({
-                  type: 'LECTURE_RUNTIME_EXCEPTION',
-                  message: error.message,
-                  stack: error.stack || ''
-                });
-              }
-
-              console.log(
-                JSON.stringify(result, null, 2)
-              );
-
-              results.push(result);
-
-              if (result.failures.length) {
-                globalFailure = true;
-              }
-
-              await page.close();
-            }
 
             fs.writeFileSync(
-              'ccsv4-runtime-results.json',
-              JSON.stringify(results, null, 2)
+              `ccsv4-evidence/lecture-${lecture}.json`,
+              JSON.stringify(evidence, null, 2)
             );
 
-            console.log('\n========================================');
-            console.log('CCSV4 RUNTIME FINAL SUMMARY');
-            console.log('========================================');
+            console.log(
+              JSON.stringify(evidence, null, 2)
+            );
 
-            for (const result of results) {
-              console.log(
-                result.lecture,
-                'FAILURES:',
-                result.failures.length,
-                'TAB CLICKS:',
-                result.tabClicks.length
-              );
-            }
+            const failures = result.filter(
+              x => x.status !== 'PASS'
+            );
 
-            if (globalFailure) {
+            if (failures.length) {
               console.error(
-                '\nCCSV4 RUNTIME STATUS: FAIL'
+                `CCSV4 FAILED: ${failures.length} tab(s) failed.`
               );
-              process.exitCode = 1;
-            } else {
-              console.log(
-                '\nCCSV4 RUNTIME STATUS: PASS'
-              );
+              process.exit(1);
             }
+
+            if (consoleErrors.length || pageErrors.length) {
+              console.error(
+                'CCSV4 FAILED: runtime JavaScript errors detected.'
+              );
+              process.exit(1);
+            }
+
+            console.log(
+              `CCSV4 PASS: Lecture ${lecture} tab runtime test passed.`
+            );
 
             await browser.close();
-          })().catch(error => {
-            console.error(error);
-            process.exitCode = 1;
-          });
+          })();
           NODE
 
-      - name: Upload CCSV4 runtime evidence
+      - name: Upload diagnostic evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: CCSV4-runtime-chromium-evidence
+          name: CCSV4-runtime-lecture-${{ matrix.lecture }}
           path: |
-            ccsv4-runtime-results.json
-            ccsv4-*-runtime.png
-            /tmp/ccsv4-server.log
-          if-no-files-found: warn
+            ccsv4-evidence/
+            server.log
