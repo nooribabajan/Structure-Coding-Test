@@ -142,199 +142,199 @@ jobs:
           mkdir -p ccsv4-evidence
 
           LECTURE="${{ matrix.lecture }}" node > "ccsv4-evidence/lecture-${{ matrix.lecture }}.json" <<'NODE'
-const { chromium } = require('playwright');
+          const { chromium } = require('playwright');
 
-const fs = require('fs');
+          const fs = require('fs');
 
-(async () => {
-  const lecture = process.env.LECTURE;
-  const url = `http://127.0.0.1:4173/Chemi${lecture}/index.html`;
+          (async () => {
+            const lecture = process.env.LECTURE;
+            const url = `http://127.0.0.1:4173/Chemi${lecture}/index.html`;
 
-  const evidence = {
-    lecture,
-    url,
-    testedAt: new Date().toISOString(),
-    chromium: null,
-    requiredFunctions: [],
-    tabCount: 0,
-    tabResults: [],
-    visualAtlas: null,
-    hitTheCeiling: null,
-    errors: []
-  };
+            const evidence = {
+              lecture,
+              url,
+              testedAt: new Date().toISOString(),
+              chromium: null,
+              requiredFunctions: [],
+              tabCount: 0,
+              tabResults: [],
+              visualAtlas: null,
+              hitTheCeiling: null,
+              errors: []
+            };
 
-  const browser = await chromium.launch({ headless: true });
-  evidence.chromium = browser.version();
+            const browser = await chromium.launch({ headless: true });
+            evidence.chromium = browser.version();
 
-  const page = await browser.newPage();
+            const page = await browser.newPage();
 
-  page.on('pageerror', e =>
-    evidence.errors.push({ type: 'pageerror', message: String(e) })
-  );
+            page.on('pageerror', e =>
+              evidence.errors.push({ type: 'pageerror', message: String(e) })
+            );
 
-  page.on('console', m => {
-    if (m.type() === 'error') {
-      evidence.errors.push({ type: 'console', message: m.text() });
-    }
-  });
+            page.on('console', m => {
+              if (m.type() === 'error') {
+                evidence.errors.push({ type: 'console', message: m.text() });
+              }
+            });
 
-  page.on('requestfailed', r =>
-    evidence.errors.push({
-      type: 'requestfailed',
-      url: r.url(),
-      failure: r.failure()
-    })
-  );
+            page.on('requestfailed', r =>
+              evidence.errors.push({
+                type: 'requestfailed',
+                url: r.url(),
+                failure: r.failure()
+              })
+            );
 
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
-  await page.waitForLoadState('networkidle').catch(() => {});
+            await page.goto(url, { waitUntil: 'domcontentloaded' });
+            await page.waitForLoadState('networkidle').catch(() => {});
 
-  const required = [
-    'showPage',
-    'openموضوع',
-    'openSub',
-    'openFunctional',
-    'showویژول',
-    'returnToPreviousView'
-  ];
+            const required = [
+              'showPage',
+              'openموضوع',
+              'openSub',
+              'openFunctional',
+              'showویژول',
+              'returnToPreviousView'
+            ];
 
-  evidence.requiredFunctions = await page.evaluate(
-    names => names.map(name => ({
-      name,
-      exists: typeof window[name] === 'function'
-    })),
-    required
-  );
+            evidence.requiredFunctions = await page.evaluate(
+              names => names.map(name => ({
+                name,
+                exists: typeof window[name] === 'function'
+              })),
+              required
+            );
 
-  for (const item of evidence.requiredFunctions) {
-    if (!item.exists) {
-      throw new Error(`MISSING_REQUIRED_FUNCTION:${item.name}`);
-    }
-  }
+            for (const item of evidence.requiredFunctions) {
+              if (!item.exists) {
+                throw new Error(`MISSING_REQUIRED_FUNCTION:${item.name}`);
+              }
+            }
 
-  const selector = '.topic-feature-row .tab, .topic-grid .tab';
-  evidence.tabCount = await page.locator(selector).count();
+            const selector = '.topic-feature-row .tab, .topic-grid .tab';
+            evidence.tabCount = await page.locator(selector).count();
 
-  if (evidence.tabCount < 30) {
-    throw new Error(`TOO_FEW_CCSV4_TABS:${evidence.tabCount}`);
-  }
+            if (evidence.tabCount < 30) {
+              throw new Error(`TOO_FEW_CCSV4_TABS:${evidence.tabCount}`);
+            }
 
-  const descriptors = await page.locator(selector).evaluateAll(els =>
-    els.map((el, i) => ({
-      index: i,
-      label: el.innerText.trim(),
-      onclick: el.getAttribute('onclick')
-    }))
-  );
+            const descriptors = await page.locator(selector).evaluateAll(els =>
+              els.map((el, i) => ({
+                index: i,
+                label: el.innerText.trim(),
+                onclick: el.getAttribute('onclick')
+              }))
+            );
 
-  for (const d of descriptors) {
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
-    await page.waitForLoadState('networkidle').catch(() => {});
+            for (const d of descriptors) {
+              await page.goto(url, { waitUntil: 'domcontentloaded' });
+              await page.waitForLoadState('networkidle').catch(() => {});
 
-    const tab = page.locator(selector).nth(d.index);
+              const tab = page.locator(selector).nth(d.index);
 
-    if (!(await tab.count())) {
-      throw new Error(`TAB_DISAPPEARED:${d.index}`);
-    }
+              if (!(await tab.count())) {
+                throw new Error(`TAB_DISAPPEARED:${d.index}`);
+              }
 
-    const before = await page.locator('body').innerText;
+              const before = await page.locator('body').innerText;
 
-    let clickError = null;
-    try {
-      await tab.scrollIntoViewIfNeeded();
-      await tab.click({ force: true });
-    } catch (e) {
-      clickError = String(e);
-    }
+              let clickError = null;
+              try {
+                await tab.scrollIntoViewIfNeeded();
+                await tab.click({ force: true });
+              } catch (e) {
+                clickError = String(e);
+              }
 
-    await page.waitForTimeout(500);
+              await page.waitForTimeout(500);
 
-    const after = await page.locator('body').innerText;
+              const after = await page.locator('body').innerText;
 
-    if (clickError) {
-      throw new Error(`TAB_CLICK_FAILURE:${d.index}:${clickError}`);
-    }
+              if (clickError) {
+                throw new Error(`TAB_CLICK_FAILURE:${d.index}:${clickError}`);
+              }
 
-    if (before === after) {
-      const active = await page.locator('.page.active').count();
-      if (!active) {
-        throw new Error(`TAB_NO_VISIBLE_CHANGE:${d.index}:${d.label}`);
-      }
-    }
+              if (before === after) {
+                const active = await page.locator('.page.active').count();
+                if (!active) {
+                  throw new Error(`TAB_NO_VISIBLE_CHANGE:${d.index}:${d.label}`);
+                }
+              }
 
-    evidence.tabResults.push({
-      index: d.index,
-      label: d.label,
-      onclick: d.onclick,
-      status: 'PASS'
-    });
-  }
+              evidence.tabResults.push({
+                index: d.index,
+                label: d.label,
+                onclick: d.onclick,
+                status: 'PASS'
+              });
+            }
 
-  // Visual Atlas: open Atlas, then open a visual inside the page.
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
-  await page.evaluate(() => window.openFunctional('visual'));
-  await page.waitForTimeout(300);
+            // Visual Atlas: open Atlas, then open a visual inside the page.
+            await page.goto(url, { waitUntil: 'domcontentloaded' });
+            await page.evaluate(() => window.openFunctional('visual'));
+            await page.waitForTimeout(300);
 
-  const visualButton =
-    page.getByRole('button', { name: /Visual کھولیں/ }).first();
+            const visualButton =
+              page.getByRole('button', { name: /Visual کھولیں/ }).first();
 
-  evidence.visualAtlas = {
-    buttonFound: (await visualButton.count()) > 0
-  };
+            evidence.visualAtlas = {
+              buttonFound: (await visualButton.count()) > 0
+            };
 
-  if (!evidence.visualAtlas.buttonFound) {
-    throw new Error('VISUAL_ATLAS_BUTTON_MISSING');
-  }
+            if (!evidence.visualAtlas.buttonFound) {
+              throw new Error('VISUAL_ATLAS_BUTTON_MISSING');
+            }
 
-  await visualButton.click();
-  await page.waitForTimeout(500);
+            await visualButton.click();
+            await page.waitForTimeout(500);
 
-  evidence.visualAtlas.modalFound =
-    (await page.locator('#visualPopupOverlay, .visual-popup-overlay').count()) > 0;
+            evidence.visualAtlas.modalFound =
+              (await page.locator('#visualPopupOverlay, .visual-popup-overlay').count()) > 0;
 
-  if (!evidence.visualAtlas.modalFound) {
-    throw new Error('VISUAL_DID_NOT_OPEN_IN_PAGE');
-  }
+            if (!evidence.visualAtlas.modalFound) {
+              throw new Error('VISUAL_DID_NOT_OPEN_IN_PAGE');
+            }
 
-  // Hit The Ceiling must open from its actual tab.
-  await page.goto(url, { waitUntil: 'domcontentloaded' });
+            // Hit The Ceiling must open from its actual tab.
+            await page.goto(url, { waitUntil: 'domcontentloaded' });
 
-  const hitTab =
-    page.locator('.topic-grid .tab')
-      .filter({ hasText: /ہِٹ دی سیلنگ|HIT THE CEILING/i })
-      .first();
+            const hitTab =
+              page.locator('.topic-grid .tab')
+                .filter({ hasText: /ہِٹ دی سیلنگ|HIT THE CEILING/i })
+                .first();
 
-  evidence.hitTheCeiling = {
-    tabFound: (await hitTab.count()) > 0
-  };
+            evidence.hitTheCeiling = {
+              tabFound: (await hitTab.count()) > 0
+            };
 
-  if (!evidence.hitTheCeiling.tabFound) {
-    throw new Error('HIT_THE_CEILING_TAB_MISSING');
-  }
+            if (!evidence.hitTheCeiling.tabFound) {
+              throw new Error('HIT_THE_CEILING_TAB_MISSING');
+            }
 
-  await hitTab.click({ force: true });
-  await page.waitForTimeout(400);
+            await hitTab.click({ force: true });
+            await page.waitForTimeout(400);
 
-  evidence.hitTheCeiling.pageFound =
-    (await page.locator('#hitCeilingPage.page.active, #hitCeilingPage').count()) > 0;
+            evidence.hitTheCeiling.pageFound =
+              (await page.locator('#hitCeilingPage.page.active, #hitCeilingPage').count()) > 0;
 
-  if (!evidence.hitTheCeiling.pageFound) {
-    throw new Error('HIT_THE_CEILING_PAGE_DID_NOT_OPEN');
-  }
+            if (!evidence.hitTheCeiling.pageFound) {
+              throw new Error('HIT_THE_CEILING_PAGE_DID_NOT_OPEN');
+            }
 
-  await browser.close();
+            await browser.close();
 
-  fs.writeFileSync(
-    '/tmp/evidence.json',
-    JSON.stringify(evidence, null, 2)
-  );
+            fs.writeFileSync(
+              '/tmp/evidence.json',
+              JSON.stringify(evidence, null, 2)
+            );
 
-  console.log(JSON.stringify(evidence, null, 2));
-})().catch(err => {
-  console.error(err.stack || String(err));
-  process.exitCode = 1;
-});
-NODE
+            console.log(JSON.stringify(evidence, null, 2));
+          })().catch(err => {
+            console.error(err.stack || String(err));
+            process.exitCode = 1;
+          });
+          NODE
 
       - name: Upload CCSV4 evidence
         if: always()
