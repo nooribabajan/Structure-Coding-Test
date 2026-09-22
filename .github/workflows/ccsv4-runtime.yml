@@ -143,6 +143,7 @@ jobs:
 
           LECTURE="${{ matrix.lecture }}" node > "ccsv4-evidence/lecture-${{ matrix.lecture }}.json" <<'NODE'
 const { chromium } = require('playwright');
+
 const fs = require('fs');
 
 (async () => {
