@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+
+<html lang="ur-PK" dir="rtl" dir="rtl" lang="ur">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<title>IAE1102090300 + IAE1102090400 — Collision Theory & Catalysis — Lecture 28 — CCSV4</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{--green:#173e34;--green2:#285b4b;--gold:#c59b35;--gold2:#f2d46f;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#756b56;--line:#ddd4be;--blue:#376b8a;--soft:#edf5ef;--warn:#fff8df;--sky:#87cde1;--sky2:#eaf7ff;--topic-green:#a8dfb8;--topic-green2:#effcf2;--red:#e7aaa0;--red2:#fff1f1;--shadow:0 8px 24px rgba(23,62,52,.10)}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic','Noto Nastaliq Urdu','Segoe UI',Tahoma,Arial,sans-serif;line-height:1.9}
+.wrap{width:100%;height:100dvh;overflow:hidden}
+.page{display:none;width:100%;height:100dvh;overflow-y:auto;overflow-x:hidden;border:3px solid var(--gold)}
+.page.active{display:block}
+.top,.screen-header{position:relative;width:100%;padding:23px 0 21px;border-bottom:3px solid var(--gold);background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;box-shadow:0 3px 13px #0002}
+.top-inner,.screen-header-inner{width:100%;padding:0 clamp(9px,3vw,28px);display:flex;align-items:center;gap:clamp(8px,2vw,18px);direction:ltr}
+.top-brand,.screen-brand{flex:1;min-width:0;text-align:left}
+.top-subtitle{margin-top:1px}
+.top-brand h1,.screen-brand h1{margin:0;color:var(--gold2);font:800 clamp(20px,5.5vw,30px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95;position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:max-content;max-width:70%;text-align:center}
+.top-logo,.screen-seal{flex:0 0 clamp(60px,11vw,140px);width:clamp(60px,11vw,140px);height:clamp(48px,8vw,95px);overflow:hidden}
+.top-logo img,.screen-seal img{width:100%;height:100%;object-fit:contain}
+.subject-label{max-width:1180px;margin:0 auto;padding:6px 14px 0;text-align:left;direction:ltr;color:var(--green);font:700 16px/1.3 Arial,sans-serif}
+.page-title{max-width:1180px;margin:auto;padding:6px 14px;text-align:center;color:var(--green);font-size:clamp(21px,3.5vw,32px);font-weight:800}
+.section-card{max-width:1180px;margin:0 auto;padding:18px 24px;background:#fff;border-bottom:1px solid var(--line)}
+.section-card strong{display:block;color:var(--green);font-size:20px;margin-bottom:6px}
+.section-card p,.section-card li{font-size:16px}
+.topic-grid{max-width:1180px;margin:auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}
+#topicsPage .subject-label,#topicsPage .page-title,#topicsPage .section-heading{position:relative;top:-10px}
+#topicsPage .subject-label{padding-top:9px;}
+#topicsPage .topic-grid{margin-top:-2px;}
+.column{display:flex;flex-direction:column;gap:1px;min-width:0;align-self:start}
+.column>.main-topic-large,.column>.previous-page-tab,.column>.tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;}
+.column:nth-child(2){border:1px solid var(--sky);border-radius:16px;margin-top:0;}
+/* IAE FINAL COLUMN-BALANCE: both columns start at the same top edge; every tab uses identical 105px height. */
+ .topic-control-row{max-width:1180px;width:100%;margin:0 auto 1px;display:flex;direction:ltr;align-items:stretch;justify-content:space-between;gap:1px}.main-topic-large{width:100%;min-height:105px;margin:0 0 0 auto;border:5px solid var(--sky);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05)}
+
+.tab{min-height:105px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05);border:2px solid var(--sky)}
+.tab.topic2{border:1px solid var(--green)}
+.tab.functional{border-color:var(--red)}
+.tab:hover{transform:translateY(-1px)}
+.previous-page-tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 5px 15px rgba(15,23,42,.05)}
+.previous-page-tab .num{color:var(--red)}
+.previous-page-tab .label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.previous-page-tab:hover{transform:translateY(-1px)}
+.topic-intro{height:105px;min-height:105px;max-height:105px}
+.num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 58px/1 Inter,sans-serif;color:var(--sky);opacity:.9}
+.topic2 .num{color:#b9e9c3}.functional .num{color:var(--red)}
+.label{position:relative;z-index:2;font-size:16px;font-weight:700;max-width:86%;line-height:1.55}
+.section-heading{text-align:center;color:var(--green);font-size:24px;margin:4px auto 1px;max-width:1180px}
+.section-note{text-align:center;color:#475569;max-width:1000px;margin:0 auto 10px;padding:0 12px}
+.footer-nav{max-width:1180px;margin:8px auto 0;padding:0;position:sticky;bottom:0;background:transparent;border-top:0;display:flex;justify-content:center;z-index:20}
+button{font-family:inherit}.footer-nav button,.nav button,.visual-link,.assessment-actions button{border:1px solid #cbd5e1;background:#fff;padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700}.footer-nav button{background:var(--green);color:#fff;border-color:var(--green)}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.48);display:none;z-index:50}
+.modal.show{display:block}
+.modal.dict-modal{display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box}
+.modal.dict-modal .dialog{width:min(92vw,680px);height:auto;max-height:88dvh;margin:0;border-radius:18px;padding:24px 28px 72px;box-shadow:0 18px 55px rgba(15,23,42,.22)}
+.dialog{width:100%;height:100dvh;background:#fff;overflow-y:auto;overflow-x:hidden;padding:0 28px 90px}
+#content{width:100%;padding-bottom:10px}
+#content>.screen-header{width:calc(100% + 56px);margin:0 -28px 18px;position:sticky;top:0;z-index:100}
+.close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;border:1px solid #cbd5e1;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003}
+.lesson-title{font-size:27px;font-weight:700;margin:0 0 12px;text-align:center}
+.lesson-subtitle{text-align:center;color:#64748b;margin:-4px 0 14px}
+.topic-head,.subtopic-head{max-width:1180px;margin:0 auto 14px;display:flex;direction:ltr;align-items:center;gap:14px;padding:10px 0 14px;border-bottom:1px solid #e2e8f0}
+.topic-visual{width:40px;height:40px;flex:0 0 40px;border:0;border-radius:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.topic-visual img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}.topic-visual svg{display:block;width:40px;height:40px;max-width:40px;max-height:40px}
+.topic-head-text,.subtopic-head-text{direction:rtl;text-align:right;flex:1;min-width:0}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;margin:0;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
+.section,.visual-card,.question-card,.assessment-head,.exam-rules,.recommendation-card,.answer-review,.revision-item,.search-result{max-width:1180px;margin:10px auto;padding:14px;border-radius:14px;background:#f8fafc}
+.section.basic{border-right:5px solid #ef4444}.section.standard{border-right:5px solid #22c55e}.section.mastery{border-right:5px solid #3b82f6}
+.level-heading{display:block;font-size:18px;font-weight:800;margin-bottom:5px}.basic-h{color:#dc2626}.standard-h{color:#16a34a}.mastery-h{color:#2563eb}
+.section p,.section li{font-size:14px;line-height:1.9}
+.pill,.assessment-badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#eef4ef;color:#285b4b;font:700 11px Arial}
+.inline-note{padding:10px 12px;border-radius:10px;background:var(--warn);border-right:4px solid var(--gold);margin:10px auto;max-width:1180px}
+.dictionary-overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.18);overflow:auto;cursor:pointer}.dictionary-dialog{position:relative;width:min(720px,calc(100% - 24px));max-height:calc(100% - 36px);overflow:auto;background:#fff;border-radius:16px;box-shadow:0 16px 45px rgba(15,23,42,.22);padding:24px 20px 64px;cursor:default}.dictionary-close{position:absolute;bottom:10px;right:10px;left:auto;top:auto;width:44px;height:44px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#475569;z-index:2}.dictionary-close:hover,.dictionary-close:focus{color:#b42318;background:#f8fafc;outline:none}@media(max-width:760px){.dictionary-dialog{padding:20px 16px 62px}.dictionary-close{bottom:10px;right:10px;width:48px;height:48px;font-size:30px}}.dict-modal .dictionary-dialog{animation:dictIn .14s ease-out}@keyframes dictIn{from{transform:translateY(6px);opacity:.7}to{transform:translateY(0);opacity:1}}
+.linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;border:0;box-shadow:none;text-decoration:none;outline:none}.linked-word:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.diagram{direction:ltr;text-align:center;font:700 14px/1.8 Inter,sans-serif;background:#f8fafc;padding:16px;border-radius:12px;white-space:pre-wrap;overflow:auto}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #dbe4ee;padding:9px;text-align:right;vertical-align:top}th{background:#edf5ef}
+.search{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;font-family:inherit}
+.dict-item{padding:12px 8px;border-bottom:1px solid #e2e8f0;cursor:pointer}.dict-item:hover,.search-result:hover{background:#f8fafc}
+.visual-card{border:1px solid #e2e8f0;background:#fff}.visual-id{display:none}
+.atlas-img{display:block;max-width:100%;height:auto;border-radius:12px;margin:10px auto;border:1px solid #e2e8f0}
+.choice,.assessment-option{display:block;width:100%;text-align:right;margin:8px 0;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-option{display:flex;gap:8px;align-items:flex-start}.assessment-option input{margin-top:6px}
+.assessment-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px auto;max-width:1180px}
+.exam-submit{background:var(--green)!important;color:#fff}
+.assessment-result{display:none;max-width:1180px;margin:18px auto}.assessment-result.show{display:block}
+.result-hero{padding:20px;border-radius:16px;background:#edf5ef;border-right:5px solid #4d7867;text-align:center}
+.result-title{font-weight:800;color:#285b4b;font-size:20px}.result-score{font:800 38px Arial;color:#173e34}.result-percent{font:700 16px Arial;color:#876821}
+.recommendation-title{max-width:1180px;margin:18px auto 8px;font-weight:800;color:#285b4b}
+.answer-review{border-right:4px solid #4d7867}.review-wrong{border-right-color:#b94a48}
+.content-navigation{max-width:1180px;margin:0 auto 18px;padding:0 0 2px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;direction:rtl}.modal.level3-modal>.dialog>.close{display:none}
+.content-navigation button{border:0;background:var(--green);color:#fff;padding:11px 28px;border-radius:10px;cursor:pointer;font:700 14px Arial;min-width:150px}
+.main-lecture{margin-top:8px}.main-lecture .level-heading{text-align:center;font-size:16px}.main-lecture p{font-size:14px;line-height:1.9}.topic-head-text .lesson-title{font-size:16px;direction:ltr;unicode-bidi:isolate}.content-navigation{margin-top:15px;margin-bottom:20px}
+.modal.level3-modal>.dialog{padding-bottom:18px}
+@media(max-width:760px){.dialog{padding:0 18px 88px}.dialog #content>.screen-header{width:calc(100% + 36px);margin:0 -18px 14px}.topic-grid{gap:1px;padding:0}.tab{min-height:100px}.label{font-size:14px}.topic-visual{width:62px;height:54px;flex-basis:62px}.section p,.section li{font-size:14px}}
+@media(max-width:420px){.top-brand h1,.screen-brand h1{font-size:17px}.top-brand p,.screen-brand p{font-size:8px}.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:0 4px}.column{gap:5px}.column>.main-topic-large,.column>.tab{height:84px;min-height:84px;max-height:84px}.label{font-size:11.5px;line-height:1.3;max-width:94%}.num{font-size:40px}.dialog{padding-inline:14px}.dialog #content>.screen-header{width:calc(100% + 28px);margin-inline:-14px}.lesson-title{font-size:16px}}
+
+/* Final presentation refinements */
+/* Uniform Level-3 heading standard: centered English title + small SVG at left */
+.topic-head,.subtopic-head{align-items:center}
+.topic-head-text,.subtopic-head-text{text-align:center}
+.topic-head-text .lesson-title,.subtopic-head-text .lesson-title{text-align:center;font-size:16px;line-height:1.35;direction:ltr;unicode-bidi:isolate}
+.topic-visual svg{display:block;width:42px;height:42px;max-width:42px;max-height:42px;font-size:14px}
+
+/* موضوعs Page header spacing refinement */
+#topicsPage .page-title { margin-bottom: 2px !important; }
+#topicsPage h1 { margin-top: 0 !important; margin-bottom: 3px !important; }
+#topicsPage .brand-strip { margin-top: 3px !important; padding-top: 2px !important; padding-bottom: 2px !important; }
+
+.main-tabs{width:100%;display:flex;justify-content:center;margin:8px 0 3px;padding:0 3px;position:relative;z-index:40}.main-tab{min-width:150px;padding:10px 24px;border:2px solid var(--green);border-radius:12px;background:var(--green);color:#fff;font:800 15px/1.2 Arial,sans-serif;cursor:pointer;box-shadow:0 3px 10px rgba(23,62,52,.12)}.main-tab:active{transform:translateY(1px)}.main-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* LECTURE 02 — SHARED CONTENT CONTAINER ARCHITECTURE */
+.main-content-container{width:calc(100% - 6px);margin:3px;height:calc(100dvh - 6px);min-height:0;max-height:calc(100dvh - 6px);overflow:auto;border:1px solid var(--line);background:var(--paper);overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;}
+.main-content-container>.content-view{width:100%;min-height:100%;padding:0 0 88px;min-width:0;overflow-x:hidden;}
+.main-content-container .view-header{position:sticky;top:0;z-index:30;background:var(--paper);padding:6px 8px 3px;border-bottom:1px solid var(--line);min-height:42px;}
+.main-content-container .view-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.main-content-container .view-close{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:44px;height:44px;border:1px solid #cbd5e1;border-radius:50%;background:#fff;font:700 25px Inter;cursor:pointer;z-index:2147483647;box-shadow:0 4px 14px #0003;display:grid;place-items:center;}
+#mainContentContainer .topic-grid{width:100%;max-width:none;padding:0 3px;gap:1px;}
+#mainContentContainer .section-heading,#mainContentContainer .subject-label,#mainContentContainer .page-title{max-width:none;}
+#mainContentContainer .content-navigation{padding-bottom:3px;}
+#mainContentContainer .content-view{padding-bottom:72px;}
+#mainContentContainer .previous-page-tab{margin-bottom:48px;scroll-margin-bottom:48px;}
+#homePage{overflow:hidden;}
+/* ہِٹ دی سیلنگ — full shared-container view, no inner page scroll */
+#mainContentContainer .content-view.hit-ceiling-view{height:100%;min-height:100%;padding:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;}
+#mainContentContainer .hit-ceiling-shell{height:100%;min-height:0;display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;position:relative;}
+#mainContentContainer .hit-ceiling-frame{display:block;width:100%;height:auto !important;min-height:0;grid-row:1;align-self:stretch;border:0;margin:0;padding:0;overflow:hidden;}
+#mainContentContainer .hit-ceiling-back{display:none !important;}
+#mainContentContainer .hit-ceiling-back button{display:grid;place-items:center;width:50px;height:50px;border:2px solid #111827;border-radius:50%;background:#fff;cursor:pointer;position:relative;z-index:1000;box-shadow:0 4px 14px rgba(0,0,0,.22);font-size:0;line-height:1;}
+#mainContentContainer .hit-ceiling-back button:active{transform:scale(.94);}
+#mainContentContainer .hit-ceiling-back button::before{content:"×";font:900 35px/1 Arial,sans-serif;color:#ef4444;background:linear-gradient(135deg,#ef4444 0%,#f59e0b 24%,#22c55e 48%,#06b6d4 68%,#3b82f6 84%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;}
+#mainContentContainer .hit-ceiling-back button:hover{transform:scale(1.06);box-shadow:0 6px 18px rgba(0,0,0,.28);}
+#mainContentContainer .hit-ceiling-back button:focus-visible{outline:3px solid #2563eb;outline-offset:2px;}
+/* ہِٹ دی سیلنگ answer choices: all four boxes have equal dimensions */
+.hit-ceiling-frame{ }
+
+
+:root{font-synthesis:none} .chemistry-label{letter-spacing:.02em} .screen-brand h1,.page-title,.section-heading,.lesson-title,.level-heading{font-family:'Inter','Segoe UI',Arial,sans-serif}
+
+/* LAYOUT + NAVIGATION v2 */
+.topic-grid{max-width:1180px;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start}
+.column{display:flex;flex-direction:column;gap:8px;min-width:0;align-self:start}
+.column:nth-child(2){border:0;margin-top:0}
+.column>.main-topic-large,.column>.tab{width:100%;height:96px;min-height:96px;max-height:96px;margin:0}
+.main-topic-large{border-width:4px}
+.tab{outline:none;transition:transform .15s ease,box-shadow .15s ease}
+.tab:hover,.main-topic-large:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(15,23,42,.08)}
+.tab:focus-visible,.main-topic-large:focus-visible,.previous-page-tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.label{font-size:15px;line-height:1.45}
+.lecture-navigation{max-width:1180px;margin:10px auto 22px;padding:0;display:flex;justify-content:center}
+.lecture-navigation .previous-page-tab{width:100%;height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--red);border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;cursor:pointer;box-shadow:0 5px 15px rgba(15,23,42,.05);font:700 15px/1.3 'Inter','Segoe UI',Arial,sans-serif;color:var(--red)}
+.lecture-navigation .nav-arrow{font-size:24px;line-height:1}
+@media(max-width:760px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;padding:0 6px;align-items:start}.column{gap:1px;min-width:0}.column>.main-topic-large,.column>.tab,.column>.previous-page-tab{height:88px;min-height:88px;max-height:88px;width:100%;margin:0}.label{font-size:12.5px;line-height:1.35;max-width:92%;overflow-wrap:anywhere}.num{font-size:44px}.lecture-navigation{padding:0 6px}.lecture-navigation .previous-page-tab{height:88px;min-height:88px;max-height:88px;width:100%}.lecture-navigation .previous-page-tab .label{font-size:13px}}
+@media(max-width:760px){
+  #mainContentContainer .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;display:grid !important;gap:1px !important;padding:0 6px !important;}
+  #mainContentContainer .topic-grid>.column{display:flex !important;flex-direction:column !important;min-width:0 !important;width:auto !important;}
+}
+@media(max-width:420px){
+  #mainContentContainer .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:1px !important;padding:0 4px !important;}
+}
+#mainContentContainer{
+  scroll-padding-top:12px !important;
+  scroll-padding-bottom:180px !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+}
+#mainContentContainer .content-view{
+  min-height:calc(100% + 120px) !important;
+  padding-bottom:180px !important;
+}
+#mainContentContainer .lecture-navigation{
+  padding-bottom:0 !important;
+  margin-bottom:100px !important;
+}
+#mainContentContainer .previous-page-tab{
+  margin-bottom:0 !important;
+  scroll-margin-bottom:100px !important;
+}
+@media(max-width:760px){
+  #mainContentContainer .content-view{padding-bottom:180px !important;}
+  #mainContentContainer .lecture-navigation{margin-bottom:100px !important;}
+}
+@media(max-width:420px){
+  #mainContentContainer .content-view{padding-bottom:200px !important;}
+  #mainContentContainer .lecture-navigation{margin-bottom:110px !important;}
+}
+
+.topic-grid{gap:1px !important;}
+.topic-grid>.column{gap:1px !important;}
+.lecture-navigation{width:100% !important;max-width:none !important;margin:1px 0 22px !important;padding:0 !important;}
+.lecture-navigation .previous-page-tab{width:100% !important;height:105px !important;min-height:105px !important;max-height:105px !important;margin:0 !important;}
+@media(max-width:760px){
+  #mainContentContainer .topic-grid{gap:1px !important;}
+  #mainContentContainer .topic-grid>.column{gap:1px !important;}
+  .lecture-navigation .previous-page-tab{height:88px !important;min-height:88px !important;max-height:88px !important;width:100% !important;}
+}
+@media(max-width:420px){
+  .lecture-navigation .previous-page-tab{height:84px !important;min-height:84px !important;max-height:84px !important;}
+}
+
+/* لغت Friendly UX — clear control, match emphasis, no-result state */
+.dictionary-search-wrap{position:relative;width:100%;}
+.dictionary-search-wrap .search{padding-right:48px;}
+.dictionary-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#64748b;font-size:22px;line-height:1;cursor:pointer;display:none;z-index:2;}
+.dictionary-clear:hover,.dictionary-clear:focus{background:#f1f5f9;color:#b42318;outline:none;}
+.dict-match{font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;}
+.dict-empty{padding:18px 12px;text-align:center;border:1px dashed #cbd5e1;border-radius:12px;color:#64748b;background:#f8fafc;}
+@media(max-width:760px){.dictionary-search-wrap .search{padding-right:52px;}.dictionary-clear{width:40px;height:40px;font-size:24px;}}
+
+
+/* L1 امتحان — calibrated from approved Lecture 02 examination architecture */
+.assessment-fullscreen{padding:0 10px 80px!important;overflow-x:hidden}
+.assessment-fullscreen .assessment-shell{width:100%;max-width:1240px;margin:0 auto}
+.assessment-questionnaire{width:100%;display:block}
+.assessment-questionnaire .question-card{width:100%;max-width:1180px;box-sizing:border-box;margin:12px auto;padding:16px}
+.assessment-questionnaire .question-card + .question-card{margin-top:12px}
+.assessment-questionnaire .question-status{display:block}
+.assessment-questionnaire .pill{display:inline-block}
+.assessment-fullscreen .content-navigation{display:none}
+.assessment-fullscreen .assessment-actions{position:sticky;bottom:8px;z-index:30;padding:10px;background:rgba(255,255,255,.96);border:1px solid #dbe4e0;border-radius:12px}
+.assessment-fullscreen .view-close{z-index:40}
+.assessment-fullscreen .assessment-result{width:100%;box-sizing:border-box}
+.assessment-fullscreen .exam-progress{max-width:1180px;margin:10px auto;padding:12px 14px;border-radius:14px;background:#eef6f2;border:1px solid #c8ddd4;position:sticky;top:6px;z-index:25}
+.exam-progress .progress-label{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}
+.exam-progress .progress-track{height:10px;background:#dbe8e2;border-radius:999px;overflow:hidden}
+.exam-progress .progress-bar{height:100%;width:0%;background:var(--green);transition:width .2s ease}
+.assessment-questionnaire .answer-option{display:flex;align-items:flex-start;gap:9px;margin:7px 0;padding:10px 11px;border:1px solid #dbe4e0;border-radius:10px;background:#fff;cursor:pointer}
+.assessment-questionnaire .answer-option:hover{border-color:var(--green);background:#f6fbf8}
+.assessment-questionnaire .answer-option input{margin-top:4px;accent-color:var(--green)}
+.assessment-questionnaire .question-status{font-size:12px;font-weight:700;color:#64748b;margin-top:7px}
+@media(max-width:600px){.assessment-fullscreen{padding-left:6px!important;padding-right:6px!important}.assessment-questionnaire .question-card{padding:13px}.assessment-fullscreen .assessment-actions{bottom:4px}.exam-progress{top:2px!important}}
+
+.visual-popup-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:14px;background:rgba(15,23,42,.72);overflow:auto}.visual-popup-dialog{position:relative;width:min(1100px,96vw);height:min(92vh,900px);background:#fff;border-radius:18px;box-shadow:0 22px 70px #0007;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;overflow:hidden}.visual-popup-dialog .atlas-img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}.visual-popup-media{max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.visual-popup-media .atlas-img{max-height:calc(92vh - 78px)}.visual-popup-close{position:absolute;right:12px;bottom:12px;top:auto;width:44px;height:44px;border:1px solid #d8c78d;border-radius:50%;background:#fff;color:#173e34;font:700 28px Inter;cursor:pointer;z-index:3;box-shadow:0 4px 14px #0003}.visual-popup-close:focus-visible{outline:3px solid var(--gold);outline-offset:2px}@media(max-width:650px){.visual-popup-overlay{padding:8px}.visual-popup-dialog{width:96vw;height:88vh;padding:10px;border-radius:14px}.visual-popup-close{width:42px;height:42px;right:8px;bottom:8px;top:auto}}
+
+.formula-box{max-width:1180px;margin:12px auto;padding:16px;border:1px solid var(--gold);border-radius:14px;background:#fffdf7;text-align:center;font:800 18px/1.8 Inter,Arial,sans-serif;direction:ltr;overflow:auto}.formula-box small{display:block;font:500 12px/1.6 Arial;color:var(--muted);margin-top:4px}.visual-card .visual-link{margin-top:8px}
+
+.mastery-reading .mastery-vision{border-right:5px solid var(--blue);background:linear-gradient(135deg,#f8fbff,#fffdf8)}
+.mastery-reading .mastery-definition{border-right:5px solid var(--green2);background:#fbfdfb}
+.mastery-reading .mastery-connection{border-right:5px solid var(--gold);background:#fffaf0}
+.mastery-reading .mastery-conclusion{border-right:5px solid var(--green);background:#f7fbf8}
+.mastery-reading .mastery-visual{margin:14px auto 16px;max-width:900px;padding:12px;border:1px solid var(--gold);border-radius:16px;background:#fffdf8;text-align:center;box-shadow:0 5px 18px #214b3a12}
+.mastery-reading .mastery-visual img{display:block;width:100%;height:auto;min-height:220px;max-height:520px;object-fit:contain;border-radius:10px;background:#fff;margin:auto}
+.mastery-reading .mastery-visual figcaption{font-size:13px;line-height:1.8;color:var(--muted);margin-top:8px}
+.mastery-reading .mastery-sound{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin:8px auto 14px;direction:rtl}
+.mastery-reading .mastery-sound button{border:1px solid var(--gold);border-radius:9px;padding:7px 11px;background:#fffaf0;color:var(--green);font:800 12px Arial,sans-serif;cursor:pointer}
+.mastery-reading .mastery-sound button:hover{filter:brightness(.98)}
+.mastery-reading .mastery-source-note{font-size:11px;color:var(--muted);text-align:center;margin:10px auto 16px;line-height:1.7}
+.mastery-reading .mastery-subtopic-title{font-size:21px!important;color:var(--green);margin:0 0 8px!important}
+.mastery-reading .mastery-step{font-size:15px!important;line-height:2!important}
+@media(max-width:650px){.mastery-reading{max-height:none}.mastery-reading .mastery-visual img{max-height:280px}.mastery-reading .mastery-sound button{padding:8px 10px}}
+
+
+.mastery-tts-status{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:4px 10px;border-radius:999px;font-size:.82rem;background:var(--soft,#edf5ef);color:var(--green,#173e34);font-weight:700;direction:rtl;}
+.mastery-tts-status[data-busy="1"]{animation:iaeTtsPulse 1.2s ease-in-out infinite;}
+.mastery-tts-active{outline:3px solid rgba(197,155,53,.55);outline-offset:4px;border-radius:8px;background:rgba(242,212,111,.14);transition:all .2s ease;}
+.mastery-tts-active-title{outline:3px solid rgba(197,155,53,.55);outline-offset:3px;border-radius:8px;background:rgba(242,212,111,.14);padding-inline:8px;transition:all .2s ease;}
+@keyframes iaeTtsPulse{50%{opacity:.58;}}
+
+.topic-feature-row{max-width:1180px;width:100%;margin:0 auto 1px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;direction:ltr;}
+.topic-feature-row .tab{height:105px;min-height:105px;max-height:105px;margin:0;border:2px solid var(--green);background:#fff;}
+.topic-feature-row .feature-master{grid-column:2;grid-row:1;direction:rtl;border-top-color:var(--sky);border-right-color:var(--sky);border-left-color:var(--green);border-bottom-color:var(--green);}
+.topic-feature-row .feature-visual{grid-column:1;grid-row:1;direction:rtl;border-top-color:var(--sky);border-right-color:var(--sky);border-left-color:var(--green);border-bottom-color:var(--green);}
+.topic-feature-row .label{font-size:16px;font-weight:800;background:linear-gradient(90deg,#3568a8 0 50%,#b83b3b 50% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.topic-feature-row .num{color:transparent;background:linear-gradient(90deg,#3568a8 0 50%,#b83b3b 50% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+@media(max-width:760px){.topic-feature-row .tab{height:88px;min-height:88px;max-height:88px}.topic-feature-row .label{font-size:13px}}
+
+.academic-visual-link{display:block;width:max-content;max-width:100%;margin:8px auto 0;font-size:12px!important;}
+.topic-head-text .academic-visual-link,.subtopic-head-text .academic-visual-link{margin-top:8px;}
+.mastery-lesson .academic-visual-link{margin:10px auto 0;}
+.visual-preview-button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer;text-align:inherit}.visual-preview-button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.visual-preview-button img{display:block;width:100%;}.external-visual-note{font-size:12px;color:#64748b;text-align:center;margin:8px auto}.external-visual-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:120px;padding:16px;border:1px dashed var(--line);border-radius:14px;background:#f8fafc;text-align:center}.external-visual-card .visual-link{display:inline-block}.visual-popup-media a{display:inline-block;text-decoration:none}
+</style>
+
+<style>
+.visual-preview-button,.mastery-open-visual{display:block;width:100%;border:1px solid #cbd5e1;background:#fff;border-radius:16px;padding:10px;cursor:pointer;text-align:center;box-sizing:border-box;color:inherit;}
+.visual-preview-button:hover,.mastery-open-visual:hover{box-shadow:0 4px 18px rgba(0,0,0,.12);}
+.visual-preview-svg svg,.mastery-inline-visual svg{display:block;width:100%;height:auto;max-height:430px;}
+.visual-preview-label,.mastery-open-visual>span{display:block;margin-top:8px;font-weight:700;color:var(--green,#166534);}
+.mastery-inline-visual{width:100%;overflow:hidden;border-radius:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="page active" id="homePage">
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><!-- CCSV4 LOGO REPAIR: use the approved First-Year logo path; do not reference a missing Chemi21-local asset. --><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header>
+<div class="main-content-container" id="mainContentContainer">
+<div class="content-view" id="homeContentView">
+<div class="view-header"><div class="subject-label chemistry-label">Chemistry · First Year</div></div>
+<div class="section-card" style="max-width:1180px;margin:12px auto 8px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#fffdf8,#eef7f0);">
+<strong style="font-size:24px;text-align:center;">Lecture 28 — Collision Theory & Catalysis</strong>
+<p style="text-align:center;margin:6px 0 0;">Conjugate Acid · Conjugate Base · Conjugate Pairs · Strong/Weak Acids & Bases · Ionisation · Ka/Kb Equilibria</p>
+</div>
+<div class="section" style="max-width:1180px;margin:10px auto;">
+<div class="level-heading standard-h">Lecture Architecture</div>
+<p>یہ Lecture approved Chemistry learning architecture کے مطابق ہے؛ تمام academic content Lecture 28 کے locked syllabus کے مطابق integrated ہے، اور core topics teaching، dictionary، visuals، practice، readiness، examination، revision اور mastery کے ساتھ مربوط ہیں۔</p>
+</div>
+<div class="content-navigation" style="margin-top:18px;">
+<button onclick="showPage('topicsPage')" type="button">Start Lecture 28 →</button>
+</div>
+<div class="section" style="max-width:1180px;margin:8px auto 40px;">
+<div class="level-heading mastery-h">Main Learning Route</div>
+<p style="text-align:center;">Conjugate Acid/Base → Strong & Weak Ionisation → Ka/Kb → Conjugate Strength → Equilibrium Position → Quantitative Comparison</p>
+</div>
+</div></div>
+</section>
+<section class="page" id="topicsPage"><div class="main-content-container" id="topicsContentContainer"><div class="content-view" id="topicsContentView"></div></div></section>
+<section class="page" id="hitCeilingPage" style="padding:0;min-height:0;height:100%;overflow:hidden;">
+<style>
+#hitCeilingPage{background:linear-gradient(#f8f2e5,#eef5f0)}
+#hitCeilingPage.active{display:flex;flex-direction:column}
+#hitCeilingPage .htc14-stage{max-width:1080px;width:100%;height:100%;min-height:0;margin:0 auto;padding:8px 10px 6px;overflow:hidden}
+#hitCeilingPage .htc14-game{position:relative;height:100%;min-height:0;overflow:hidden;border:1px solid #d8c78d;border-radius:24px;background:linear-gradient(#fffdf8,#f3ead7);box-shadow:0 14px 42px #214b3a1d;display:flex;flex-direction:column}
+#hitCeilingPage .htc14-head{text-align:center;padding:10px 15px 2px;flex:0 0 auto}
+#hitCeilingPage .htc14-kicker{font:900 11px Arial,sans-serif;letter-spacing:2px;color:var(--red)}
+#hitCeilingPage .htc14-head h1{font:900 clamp(30px,6vw,52px)/1.05 Arial,sans-serif;color:var(--green);margin:6px 0}
+#hitCeilingPage .htc14-sub{font-size:16px;color:#657169;margin:0}
+#hitCeilingPage .htc14-levels{display:flex;direction:ltr;justify-content:flex-start;align-items:center;gap:12px;margin:5px auto 6px;max-width:min(900px,94vw);padding:9px 14px;overflow-x:auto;scrollbar-width:thin;border:1px solid #dfcf9d;border-radius:18px;background:linear-gradient(180deg,#fffdf8,#f7edd8);box-shadow:0 6px 20px #214b3a12,inset 0 1px #fff;position:relative;flex:0 0 auto}
+#hitCeilingPage .htc14-levels:before{content:"";position:absolute;left:10%;right:10%;top:50%;height:3px;border-radius:99px;background:linear-gradient(90deg,#d8c78d,#e7dcc0,#d8c78d);transform:translateY(-50%);z-index:0}
+#hitCeilingPage .htc14-lvl{position:relative;z-index:1;flex:0 0 42px;width:42px;height:42px;border:2px solid #d8c78d;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf5,#eadfca);padding:0;font:900 12px Arial,sans-serif;color:var(--green);box-shadow:0 4px 10px #214b3a18,inset 0 1px 2px #fff;cursor:pointer}
+#hitCeilingPage .htc14-lvl.active{border-color:var(--green2);background:var(--green);color:#fff;transform:scale(1.08)}
+#hitCeilingPage .htc14-lvl.done{border-color:var(--green2);background:#edf5ef;color:var(--green)}
+#hitCeilingPage .htc14-tools{position:absolute;top:10px;right:12px;z-index:20;display:flex;align-items:center;gap:6px;direction:ltr}
+#hitCeilingPage .htc14-tool{border:1px solid #c9b878;border-radius:10px;padding:6px 10px;background:#fffaf0;color:var(--green);font:900 11px Arial,sans-serif;cursor:pointer;box-shadow:0 3px 9px #214b3a14}
+#hitCeilingPage .htc14-tool.x{width:34px;padding:6px 0;font-size:16px;line-height:1}
+#hitCeilingPage .htc14-tool:hover{transform:translateY(-1px);box-shadow:0 5px 12px #214b3a1b}
+#hitCeilingPage .htc14-play{min-height:0;flex:1;overflow:hidden;display:flex;flex-direction:column;padding:0 14px 8px}
+#hitCeilingPage .htc14-towerarea{height:132px;min-height:120px;display:flex;justify-content:center;align-items:flex-end;flex:0 0 auto}
+#hitCeilingPage .htc14-tower{position:relative;width:230px;height:175px}
+#hitCeilingPage .htc14-dome{position:absolute;top:0;left:75px;width:80px;height:45px;border:2px solid #aa8d49;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e7d9ad}
+#hitCeilingPage .htc14-dome:after{content:"";position:absolute;width:4px;height:18px;background:#aa8d49;top:-16px;left:38px}
+#hitCeilingPage .htc14-body{position:absolute;bottom:12px;left:40px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}
+#hitCeilingPage .htc14-seg{height:27px;border:1px solid #b59a5b;background:#e8ddbe;opacity:.25;transform:translateY(5px);transition:.35s}
+#hitCeilingPage .htc14-seg.on{opacity:1;transform:none;background:linear-gradient(90deg,#b9e1c7,#6db78b);border-color:#4a9369}
+#hitCeilingPage .htc14-base{position:absolute;bottom:0;left:20px;width:190px;height:17px;border:1px solid #aa8d49;border-radius:7px;background:#d8c899}
+#hitCeilingPage .htc14-torch{position:absolute;top:-43px;left:89px;width:55px;height:52px;display:grid;place-items:center}
+#hitCeilingPage .htc14-flame{width:25px;height:35px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #b39a59;opacity:.32}
+#hitCeilingPage .htc14-flame.on{background:linear-gradient(135deg,#ffd45b,#ef8d2c);border-color:#b97523;opacity:1;box-shadow:0 0 25px #f4b53a99;animation:htc14Flicker .8s infinite alternate}
+@keyframes htc14Flicker{to{transform:rotate(48deg) scale(1.08)}}
+#hitCeilingPage .htc14-info{text-align:center;font:900 14px Arial;color:var(--green);flex:0 0 auto}
+#hitCeilingPage .htc14-count{text-align:center;font:900 12px Arial;color:var(--muted);margin:3px}
+#hitCeilingPage .htc14-progress{height:8px;max-width:760px;margin:6px auto 9px;border:1px solid #c7b77f;border-radius:10px;background:#eee5d1;overflow:hidden;width:100%}
+#hitCeilingPage .htc14-progress i{display:block;height:100%;width:0;background:var(--green2);transition:.35s}
+#hitCeilingPage .htc14-card{max-width:790px;width:100%;margin:0 auto;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 5px 20px #23483b12;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+#hitCeilingPage .htc14-card .htc14-q{flex:0 0 auto}
+#hitCeilingPage .htc14-card .htc14-answers{flex:0 0 auto}
+#hitCeilingPage .htc14-card .htc14-feedback{flex:0 0 auto}
+#hitCeilingPage .htc14-q{font-size:17px;line-height:1.55;font-weight:700;text-align:center;margin:0 0 8px}
+#hitCeilingPage .htc14-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#hitCeilingPage .htc14-answer{min-height:58px;display:flex;align-items:center;justify-content:center;border:2px solid transparent;border-radius:14px;padding:12px;background:#fffaf0;color:#202522;cursor:pointer;font-weight:800;text-align:right;line-height:1.45;box-shadow:0 4px 12px #214b3a16;transition:.16s}
+#hitCeilingPage .htc14-answer:hover{transform:translateY(-2px);filter:saturate(1.12) brightness(1.02);box-shadow:0 7px 16px #214b3a20}
+#hitCeilingPage .htc14-answer:active{transform:translateY(0) scale(.985)}
+#hitCeilingPage .htc14-answer:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#hitCeilingPage .htc14-answer:disabled{cursor:default;opacity:.96;transform:none}
+#hitCeilingPage .htc14-answer.answer-color-0{background:#f7d9d9;border-color:#b83b3b}
+#hitCeilingPage .htc14-answer.answer-color-1{background:#dff1e5;border-color:#58a978}
+#hitCeilingPage .htc14-answer.answer-color-2{background:#dfe9f8;border-color:#3568a8}
+#hitCeilingPage .htc14-answer.answer-color-3{background:#fff0bf;border-color:#d4a72c}
+#hitCeilingPage .htc14-answer.answer-color-0:hover{background:#f7d9d9}
+#hitCeilingPage .htc14-answer.answer-color-1:hover{background:#dff1e5}
+#hitCeilingPage .htc14-answer.answer-color-2:hover{background:#dfe9f8}
+#hitCeilingPage .htc14-answer.answer-color-3:hover{background:#fff0bf}
+#hitCeilingPage .htc14-feedback{text-align:center;min-height:30px;margin-top:8px;font-size:13px;font-weight:800;line-height:1.6}
+#hitCeilingPage .htc14-actions{text-align:center;margin-top:8px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;flex:0 0 auto}
+#hitCeilingPage .htc14-btn{border:1px solid var(--gold);border-radius:12px;padding:9px 16px;background:#fffaf0;color:var(--green);font-weight:900;cursor:pointer}.htc14-btn.primary{background:var(--green);color:#fff}
+#hitCeilingPage .htc14-clear{text-align:center;padding:20px 12px}.htc14-clear h2{font:900 25px Arial;color:var(--green)}.htc14-clear p{font-size:17px;line-height:1.7}
+#hitCeilingPage .htc14-clear-art{font-size:34px;letter-spacing:8px;animation:htc14Float 1.5s ease-in-out infinite alternate}@keyframes htc14Float{to{transform:translateY(-6px)}}
+@media(max-width:650px){#hitCeilingPage .htc14-stage{padding:5px}.htc14-head{padding:10px 52px 2px 8px!important}.htc14-head h1{font-size:30px!important}.htc14-sub{font-size:13px!important}.htc14-tools{top:7px;right:7px}.htc14-tool{padding:5px 7px;font-size:10px}.htc14-tool.x{width:30px;padding:5px 0}.htc14-levels{margin:5px auto 6px;padding:7px 10px;gap:8px}.htc14-lvl{width:36px!important;height:36px!important;flex-basis:36px!important}.htc14-towerarea{height:125px;min-height:115px}.htc14-tower{transform:scale(.74);transform-origin:bottom center}.htc14-play{padding:0 7px 7px}.htc14-card{padding:8px!important}.htc14-q{font-size:15px!important;margin-bottom:6px!important}.htc14-answers{grid-template-columns:1fr}.htc14-answer{min-height:48px;padding:8px}.htc14-feedback{min-height:24px!important;margin-top:5px!important}.htc14-actions{margin-top:5px}}
+
+/* CCSV4 FINAL COLUMN-EQUALISATION: both academic columns contain equal tab counts; واپس is a page-level final navigation control, not a column tab. */
+.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch !important;}
+.topic-grid>.column{display:flex !important;flex-direction:column !important;min-width:0 !important;width:100% !important;height:100% !important;align-self:stretch !important;}
+.topic-grid>.column>.main-topic-large,.topic-grid>.column>.tab{width:100% !important;box-sizing:border-box !important;}
+.lecture-navigation{max-width:1180px !important;margin:1px auto 22px !important;padding:0 !important;display:flex !important;justify-content:center !important;}
+.lecture-navigation .previous-page-tab{width:100% !important;box-sizing:border-box !important;}
+@media(max-width:760px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch !important;}.topic-grid>.column{height:100% !important;}.lecture-navigation{padding:0 6px !important;}}
+</style>
+<div class="htc14-stage"><div class="htc14-game">
+<div class="htc14-head"><h1>Lecture 28</h1></div>
+<div id="htc14Levels" class="htc14-levels" aria-label="Game levels"></div>
+<div id="htc14Play" class="htc14-play">
+<div class="htc14-towerarea"><div class="htc14-tower"><div class="htc14-dome"></div><div class="htc14-torch"><div id="htc14Flame" class="htc14-flame"></div></div><div id="htc14Segments" class="htc14-body"></div><div class="htc14-base"></div></div></div>
+<div id="htc14Level" class="htc14-info"></div><div id="htc14Count" class="htc14-count"></div><div class="htc14-progress"><i id="htc14ProgressBar"></i></div>
+<div id="htc14Card" class="htc14-card"></div>
+<div class="htc14-actions"><button type="button" class="htc14-btn" id="htc14Restart">دوبارہ شروع کریں</button><button type="button" class="htc14-btn" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>
+</div>
+<div id="htc14Cleared" class="htc14-clear" hidden><div class="htc14-clear-art">✨ 🦋 ✨ 🦋 ✨</div><h2>🎉 ہِٹ دی سیلنگ</h2><p>Lecture 28 کے تمام challenges مکمل ہو گئے۔</p><button type="button" class="htc14-btn primary" id="htc14ClearRestart">دوبارہ کھیلیں</button></div>
+</div></div>
+<script>
+(function(){'use strict';
+const levels=[{"title":"Conjugate Acids & Bases","items":[["Which species is the conjugate acid of NH₃?",["NH₄⁺","NH₂⁻","N₂","OH⁻"],0,"A base forms its conjugate acid by accepting one proton.","Conjugate Acid"],["Which species is the conjugate base of H₂CO₃?",["HCO₃⁻","H₃CO₃⁺","CO₃²⁻","H₂O"],0,"The conjugate base is formed when the acid donates one proton.","Conjugate Base"],["What identifies a conjugate acid–base pair?",["They differ by exactly one proton","They must have the same charge","They must contain the same number of atoms","They must both be neutral"],0,"Conjugate partners differ by one proton.","Conjugate Pairs"]]},{"title":"Strong/Weak Ionisation","items":[["Which statement best describes a strong acid in water?",["It ionises essentially completely","It never reacts with water","It always has Ka = 0","It remains entirely as HA"],0,"Strong acids undergo essentially complete ionisation in water.","Strong and Weak Acids"],["Which statement best describes a weak base?",["It establishes an equilibrium with water","It must ionise completely","It cannot form OH⁻","Its Kb is always infinite"],0,"A weak base establishes a measurable ionisation equilibrium.","Strong and Weak Bases"],["For HA + H₂O ⇌ H₃O⁺ + A⁻, what does ionisation produce?",["H₃O⁺ and A⁻","Only HA","Only H₂O","Only OH⁻"],0,"Acid ionisation transfers a proton to water and forms its conjugate base.","Ionisation"]]},{"title":"Ka/Kb Equilibria","items":[["What should be considered first in an advanced acid–base equilibrium problem?",["The balanced proton-transfer equation","Only the colour of the solution","Only the initial acid label","Only the container volume"],0,"The balanced equilibrium equation establishes the species and stoichiometry.","Advanced Acid–Base Equilibria"],["Which expression correctly represents Ka for HA + H₂O ⇌ H₃O⁺ + A⁻?",["[H₃O⁺][A⁻]/[HA]","[HA]/([H₃O⁺][A⁻])","[H₂O][HA]/[A⁻]","[HA][H₂O]"],0,"The solvent water is omitted from the Ka expression.","Quantitative Ka/Kb Treatment"],["For a conjugate pair in water, which relationship is correct?",["Ka × Kb = Kw","Ka + Kb = Kw","Ka/Kb = Kw²","Ka = Kb for every pair"],0,"At the same temperature, conjugate constants satisfy KaKb = Kw.","Conjugate-Pair Strength Relationships"]]},{"title":"Quantitative Comparisons","items":[["What does an ICE-style setup help determine?",["Initial, change, and equilibrium concentrations","Only molar mass","Only solution colour","Only temperature"],0,"ICE tracks concentration changes through an equilibrium calculation.","Acid/Base Ionisation Equilibria"],["At fixed temperature, what does a larger Ka generally indicate?",["A stronger acid","A weaker acid","A stronger conjugate acid only","No acid ionisation"],0,"A larger Ka corresponds to greater acid ionisation tendency.","Ka and Kb Interpretation"],["For a weak acid, what happens when equilibrium is established?",["HA, H₃O⁺, and A⁻ coexist","Only H₃O⁺ remains","All HA disappears completely","No ions are present"],0,"Weak-acid ionisation is partial, so both molecular and ionic species remain.","Equilibrium Position in Weak Acids"],["For a weak base B + H₂O ⇌ BH⁺ + OH⁻, which species is the conjugate acid?",["BH⁺","B","OH⁻","H₂O"],0,"The base accepts H⁺ and becomes BH⁺.","Equilibrium Position in Weak Bases"],["If Kb = 1.0×10⁻⁵ and Kw = 1.0×10⁻¹⁴, what is Ka for the conjugate acid?",["1.0×10⁻⁹","1.0×10⁻¹⁹","1.0×10⁻⁵","1.0×10⁹"],0,"Ka = Kw/Kb = 1.0×10⁻¹⁴ / 1.0×10⁻⁵ = 1.0×10⁻⁹.","Quantitative Acid–Base Comparison"]]}];
+let level=0,index=0,score=0,locked=false,timer=null,questionTimer=null,safetyTimer=null,startedAt=0,unattempted=0,passedQuestions=new Set();
+let htcCorrectPositionSchedule=[];
+function buildHTCCorrectPositionSchedule(){const n=total(),q=Math.floor(n/4),r=n%4,base=[];for(let pos=0;pos<4;pos++)for(let i=0;i<q+(pos<r?1:0);i++)base.push(pos);htcCorrectPositionSchedule=shuffle(base)}
+function htcQuestionNumber(){let n=0;for(let l=0;l<level;l++)n+=levels[l].items.length;return n+index}
+const $=id=>document.getElementById(id);
+function total(){return levels.reduce((n,l)=>n+l.items.length,0)}
+function completed(){return levels.slice(0,level).reduce((n,l)=>n+l.items.length,0)+index}
+function buildLevels(){const host=$('htc14Levels');if(!host)return;host.innerHTML=levels.map((l,i)=>`<button type="button" class="htc14-lvl ${i===level?'active':''} ${i<level?'done':''}" aria-label="Level ${i+1}">${String(i+1).padStart(2,'0')}</button>`).join('');[...host.querySelectorAll('.htc14-lvl')].forEach((b,i)=>b.addEventListener('click',()=>{if(i<=level){level=i;index=0;render()}}))}
+function update(){const pct=Math.round(score/Math.max(1,total())*100),bar=$('htc14ProgressBar');if(bar)bar.style.width=Math.min(100,pct)+'%';if($('htc14Level'))$('htc14Level').textContent='Level '+String(level+1).padStart(2,'0')+' · '+levels[level].title;if($('htc14Count'))$('htc14Count').textContent='Question '+(index+1)+' / '+levels[level].items.length+' · Score: '+score;buildLevels();syncTower()}
+function syncTower(){const body=$('htc14Segments');if(!body)return;const max=levels.length,ratio=score/Math.max(1,total()),done=ratio*max;body.innerHTML=Array.from({length:max},(_,i)=>`<div class="htc14-seg ${i<done?'on':''}"></div>`).join('');const flame=$('htc14Flame');if(flame)flame.classList.toggle('on',score>0)}
+function render(){clearTimeout(timer);clearTimeout(questionTimer);locked=false;const play=$('htc14Play'),clear=$('htc14Cleared');if(clear)clear.hidden=true;if(play)play.style.display='flex';if(level>=levels.length){finish();return}update();const card=$('htc14Card');if(!card)return;const q=levels[level].items[index];card.innerHTML='<div class="htc14-q"></div><div class="htc14-answers"></div><div class="htc14-feedback" aria-live="polite"></div>';card.querySelector('.htc14-q').textContent=q[0];const wrap=card.querySelector('.htc14-answers'),fb=card.querySelector('.htc14-feedback');const correctPos=htcCorrectPositionSchedule[htcQuestionNumber()]??0;const remainingPositions=[0,1,2,3].filter(p=>p!==correctPos);const remainingOriginals=shuffle([0,1,2,3].filter(i=>i!==q[2]));const optionOrder=Array(4);optionOrder[correctPos]=q[2];remainingPositions.forEach((pos,i)=>optionOrder[pos]=remainingOriginals[i]);optionOrder.forEach((originalIndex,displayIndex)=>{const b=document.createElement('button');b.type='button';b.className='htc14-answer answer-color-'+displayIndex;b.setAttribute('data-option',String(displayIndex+1));b.dataset.originalIndex=String(originalIndex);b.textContent=q[1][originalIndex];b.addEventListener('click',()=>answer(originalIndex,q,fb,[...wrap.querySelectorAll('button')]));wrap.appendChild(b)});questionTimer=setTimeout(()=>{if(locked)return;locked=true;unattempted++;[...wrap.querySelectorAll('button')].forEach(b=>b.disabled=true);fb.textContent='⏱ وقت ختم — سوال UNATTEMPTED کے طور پر محفوظ ہے۔';fb.style.color='var(--muted)';timer=setTimeout(()=>{locked=false;next()},700)},20000)}
+function answer(i,q,fb,buttons){if(locked)return;clearTimeout(questionTimer);locked=true;buttons.forEach(b=>b.disabled=true);if(i===q[2]){const key=level+':'+index;if(!passedQuestions.has(key))passedQuestions.add(key);score=passedQuestions.size;fb.textContent='✓ درست — اگلا challenge تیار ہو رہا ہے۔';fb.style.color='var(--green)';update();timer=setTimeout(()=>{locked=false;next()},450)}else{fb.textContent='✗ دوبارہ کوشش کریں — صحیح concept پر غور کریں۔';fb.style.color='var(--red)';locked=false;buttons.forEach(b=>b.disabled=false)}}
+function next(){clearTimeout(questionTimer);index++;if(index>=levels[level].items.length){level++;index=0}if(level>=levels.length){finish();return}render()}
+function finish(){clearTimeout(timer);clearTimeout(questionTimer);clearTimeout(safetyTimer);const play=$('htc14Play'),clear=$('htc14Cleared');if(play)play.style.display='none';if(clear)clear.hidden=false;syncTower();const flame=$('htc14Flame');if(flame)flame.classList.toggle('on',score>0)}
+function start(){clearTimeout(timer);clearTimeout(questionTimer);clearTimeout(safetyTimer);level=0;index=0;score=0;passedQuestions=new Set();unattempted=0;locked=false;startedAt=Date.now();buildHTCCorrectPositionSchedule();safetyTimer=setTimeout(()=>{clearTimeout(questionTimer);locked=true;finish()},300000);const play=$('htc14Play'),clear=$('htc14Cleared');if(play)play.style.display='flex';if(clear)clear.hidden=true;render()}
+const restart=$('htc14Restart');if(restart)restart.addEventListener('click',start);const cr=$('htc14ClearRestart');if(cr)cr.addEventListener('click',start);window.htc14Start=start;
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
+</script></section>
+<div aria-hidden="true" class="modal" id="modal">
+<div aria-labelledby="modalTitle" aria-modal="true" class="dialog" role="dialog">
+<button aria-label="بند کریں" class="close" onclick="closeModal()">×</button>
+<div id="content"></div>
+</div></div>
+<script>
+const BASE='./ویژول-Atlas/'; const DICTIONARY_OVERLAY_ID='dictionaryOverlay';
+const FREE_VISUALS={"V1":"OpenStax Chemistry 2e — kinetics/catalysis educational visual","V2":"OpenStax Chemistry 2e — kinetics/catalysis educational visual","V3":"OpenStax Chemistry 2e — kinetics/catalysis educational visual","V4":"OpenStax Chemistry 2e — kinetics/catalysis educational visual","V5":"OpenStax Chemistry 2e — kinetics/catalysis educational visual"};
+const visualItems=[["V1","Collision theory and activation energy","Effective collisions and the activation-energy threshold."],["V2","Catalyst and alternative pathway","Catalysed pathway with a lower activation barrier."],["V3","Transition-state energy profile","Reactants, transition state, products, and activation barrier."],["V4","Arrhenius temperature dependence","Rate constant dependence on temperature and activation energy."],["V5","Catalytic mechanism comparison","Alternative catalytic pathways and elementary steps."]];
+function visualماخذ(id){const key=String(id||'');const item=visualItems.find(v=>v[0]===key);if(!item)return null;return {src:'',title:item[1],description:item[2],source:FREE_VISUALS[key]||'OpenStax Chemistry 2e'};}
+function visualSvg(id){const k=String(id||''); const common='font-family:Arial,sans-serif'; if(k==='V1') return `<svg viewBox="0 0 900 500" role="img" aria-label="Collision theory and activation energy"><rect x="20" y="20" width="860" height="460" rx="24" fill="#fff" stroke="#1f2937" stroke-width="3"/><text x="450" y="70" text-anchor="middle" font-size="30" font-weight="700" style="${common}">Collision Theory</text><circle cx="210" cy="250" r="70" fill="#fee2e2" stroke="#b91c1c" stroke-width="4"/><circle cx="690" cy="250" r="70" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/><path d="M290 250 H610" stroke="#374151" stroke-width="8"/><polygon points="610,250 580,232 580,268" fill="#374151"/><text x="450" y="160" text-anchor="middle" font-size="25" style="${common}">Effective collision</text><text x="210" y="255" text-anchor="middle" font-size="22" font-weight="700" style="${common}">Energy</text><text x="690" y="255" text-anchor="middle" font-size="22" font-weight="700" style="${common}">Orientation</text><text x="450" y="390" text-anchor="middle" font-size="24" style="${common}">E ≥ Ea  +  suitable orientation</text></svg>`; if(k==='V2') return `<svg viewBox="0 0 900 500" role="img" aria-label="Catalyst alternative pathway"><rect x="20" y="20" width="860" height="460" rx="24" fill="#fff" stroke="#1f2937" stroke-width="3"/><text x="450" y="70" text-anchor="middle" font-size="30" font-weight="700" style="${common}">Catalysed Alternative Pathway</text><line x1="100" y1="390" x2="800" y2="390" stroke="#374151" stroke-width="3"/><path d="M100 390 Q300 80 500 390 Q650 170 800 390" fill="none" stroke="#b91c1c" stroke-width="7"/><path d="M100 390 Q300 230 500 390 Q650 300 800 390" fill="none" stroke="#2563eb" stroke-width="7"/><text x="450" y="125" text-anchor="middle" font-size="23" style="${common}">Uncatalysed</text><text x="450" y="285" text-anchor="middle" font-size="23" style="${common}">Catalysed</text><text x="100" y="435" font-size="21" style="${common}">Reactants</text><text x="760" y="435" font-size="21" style="${common}">Products</text><text x="450" y="465" text-anchor="middle" font-size="20" style="${common}">Catalyst lowers the activation barrier</text></svg>`; if(k==='V3') return `<svg viewBox="0 0 900 500" role="img" aria-label="Transition state energy profile"><rect x="20" y="20" width="860" height="460" rx="24" fill="#fff" stroke="#1f2937" stroke-width="3"/><text x="450" y="70" text-anchor="middle" font-size="30" font-weight="700" style="${common}">Transition-State Energy Profile</text><line x1="110" y1="410" x2="810" y2="410" stroke="#374151" stroke-width="3"/><line x1="110" y1="410" x2="110" y2="100" stroke="#374151" stroke-width="3"/><path d="M120 350 Q300 350 450 125 Q600 350 800 300" fill="none" stroke="#2563eb" stroke-width="7"/><text x="120" y="380" font-size="21" style="${common}">Reactants</text><text x="450" y="110" text-anchor="middle" font-size="22" font-weight="700" style="${common}">Transition state</text><text x="700" y="330" font-size="21" style="${common}">Products</text><text x="450" y="445" text-anchor="middle" font-size="21" style="${common}">Activation energy = barrier to transition state</text></svg>`; if(k==='V4') return `<svg viewBox="0 0 900 500" role="img" aria-label="Arrhenius temperature dependence"><rect x="20" y="20" width="860" height="460" rx="24" fill="#fff" stroke="#1f2937" stroke-width="3"/><text x="450" y="70" text-anchor="middle" font-size="30" font-weight="700" style="${common}">Arrhenius Relationship</text><line x1="130" y1="400" x2="800" y2="400" stroke="#374151" stroke-width="3"/><line x1="130" y1="400" x2="130" y2="110" stroke="#374151" stroke-width="3"/><path d="M150 360 L760 150" fill="none" stroke="#b91c1c" stroke-width="7"/><text x="470" y="205" text-anchor="middle" font-size="24" style="${common}">ln(k) = ln(A) − Ea/(RT)</text><text x="450" y="435" text-anchor="middle" font-size="21" style="${common}">x = 1/T</text><text x="80" y="250" font-size="21" transform="rotate(-90 80 250)" style="${common}">ln(k)</text><text x="450" y="115" text-anchor="middle" font-size="21" style="${common}">slope = −Ea/R</text></svg>`; return `<svg viewBox="0 0 900 500" role="img" aria-label="Catalytic mechanism comparison"><rect x="20" y="20" width="860" height="460" rx="24" fill="#fff" stroke="#1f2937" stroke-width="3"/><text x="450" y="70" text-anchor="middle" font-size="30" font-weight="700" style="${common}">Catalytic Mechanism</text><circle cx="180" cy="220" r="55" fill="#fee2e2" stroke="#b91c1c" stroke-width="4"/><circle cx="450" cy="220" r="55" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/><circle cx="720" cy="220" r="55" fill="#dcfce7" stroke="#166534" stroke-width="4"/><path d="M235 220 H395 M505 220 H665" stroke="#374151" stroke-width="7"/><polygon points="395,220 370,205 370,235" fill="#374151"/><polygon points="665,220 640,205 640,235" fill="#374151"/><text x="180" y="228" text-anchor="middle" font-size="20" style="${common}">Reactant</text><text x="450" y="228" text-anchor="middle" font-size="20" style="${common}">Intermediate</text><text x="720" y="228" text-anchor="middle" font-size="20" style="${common}">Product</text><path d="M720 300 Q450 450 180 300" fill="none" stroke="#166534" stroke-width="6"/><text x="450" y="430" text-anchor="middle" font-size="21" style="${common}">Catalyst regenerated through the cycle</text></svg>`; }
+
+function visualLinkFor(id){const key=String(id||'');return `<button type="button" class="visual-link academic-visual-link" onclick="showویژول('${key}')">🖼 ویژول کھولیں</button>`;}
+function img(id){const key=String(id||'');const v=visualماخذ(key)||{};return `<button type="button" class="visual-preview-button" onclick="showویژول('${esc(key)}')" aria-label="ویژول پاپ اپ میں کھولیں" title="ویژول پاپ اپ میں کھولیں"><span class="visual-preview-svg">${visualSvg(key)}</span></button>`;}
+
+
+const topics={"t1":{"title":"IAE1102090300 — Collision Theory & Activation Energy","id":"IAE1102090300","visual":"V1","intro":"Collision theory explains how particle collisions, energy, and orientation determine whether a chemical reaction occurs.","basic":"Collision Theory، Activation Energy اور Transition State کو reaction pathway کے بنیادی framework کے طور پر سمجھیں۔","standard":"Effective collision کے لیے مناسب energy اور orientation identify کریں، پھر activation barrier کو transition state سے relate کریں۔","mastery":"collision frequency → energy requirement → activation energy → transition state → reaction rate."},"t2":{"title":"IAE1102090400 — Catalysis & Catalytic Mechanisms","id":"IAE1102090400","visual":"V2","intro":"Catalysis changes the reaction pathway and lowers the activation barrier without being consumed overall.","basic":"Catalyst، homogeneous catalysis اور heterogeneous catalysis کو reaction pathway کے context میں سمجھیں۔","standard":"Catalysed pathway کو uncatalysed pathway سے compare کریں اور catalyst کے role کو activation energy سے connect کریں۔","mastery":"catalyst → alternative pathway → lower activation barrier → mechanism → rate enhancement."}};
+const subs={"s2801":{"id":"IAE1102090301","topic":"t1","title":"Collision Theory","visual":"V1","basic":"Collision theory states that reacting particles must collide with sufficient energy and suitable orientation.","standard":"An effective collision requires both an energy condition and an appropriate orientation.","mastery":"Use collision conditions to explain why not every collision produces reaction.","extra":"Reaction requires effective collisions."},"s2802":{"id":"IAE1102090302","topic":"t1","title":"Activation Energy","visual":"V1","basic":"Activation energy is the minimum energy barrier that reactants must overcome to reach the transition state.","standard":"Compare particle collision energy with the activation-energy barrier for the reaction pathway.","mastery":"Connect the activation barrier to the fraction of particles able to react.","extra":"Higher activation energy means fewer collisions exceed the barrier at the same temperature."},"s2803":{"id":"IAE1102090303","topic":"t1","title":"Transition State","visual":"V3","basic":"The transition state is the highest-energy arrangement along the reaction pathway near the activation barrier.","standard":"Locate the transition state at the energy maximum of the reaction coordinate.","mastery":"Relate transition-state energy to activation energy and reaction pathway.","extra":"The transition state lies at the activation-energy maximum."},"s2804":{"id":"IAE1102090401","topic":"t2","title":"Catalyst","visual":"V2","basic":"A catalyst provides an alternative reaction pathway with a lower activation-energy requirement.","standard":"Compare catalysed and uncatalysed pathways while keeping reactants and products unchanged.","mastery":"Explain rate enhancement through the changed pathway rather than a change in equilibrium composition.","extra":"A catalyst changes pathway and activation energy."},"s2805":{"id":"IAE1102090402","topic":"t2","title":"Homogeneous Catalysis","visual":"V2","basic":"Homogeneous catalysis occurs when catalyst and reacting species are in the same phase.","standard":"Identify the common phase and describe catalyst participation in the reaction mechanism.","mastery":"Track catalyst involvement through elementary steps while recognising regeneration.","extra":"Homogeneous catalyst and reactants share a phase."},"s2806":{"id":"IAE1102090403","topic":"t2","title":"Heterogeneous Catalysis","visual":"V2","basic":"Heterogeneous catalysis uses a catalyst in a different phase from one or more reacting species.","standard":"Describe adsorption or surface interaction as part of a heterogeneous catalytic pathway.","mastery":"Relate surface sites and alternative steps to the overall rate enhancement.","extra":"Heterogeneous catalysis commonly involves a catalyst surface."},"s2807":{"id":"IAE1102090304","topic":"t1","title":"Arrhenius Equation","visual":"V4","basic":"The Arrhenius equation relates the rate constant to temperature and activation energy.","standard":"Use ln(k) = ln(A) − Ea/(RT) to interpret temperature dependence of k.","mastery":"Connect the slope of an Arrhenius plot to −Ea/R.","extra":"The Arrhenius slope gives activation energy."},"s2808":{"id":"IAE1102090404","topic":"t2","title":"Advanced Catalytic Mechanisms","visual":"V5","basic":"Advanced catalytic mechanisms analyse multiple elementary steps and the regeneration of the catalyst.","standard":"Track intermediates and catalyst regeneration across the proposed mechanism.","mastery":"Identify the rate-relevant step while preserving the full catalytic cycle.","extra":"Catalytic cycles contain intermediates and regenerate the catalyst."},"s2809":{"id":"IAE1102090305","topic":"t1","title":"Collision-Energy Distribution","visual":"V1","basic":"Collision energies are distributed across particles, and only a fraction may exceed the activation barrier.","standard":"Compare the energy distribution with the activation-energy threshold at a given temperature.","mastery":"Explain increased reacting fraction when temperature changes the high-energy tail.","extra":"Only collisions above the activation threshold can react."},"s2810":{"id":"IAE1102090306","topic":"t1","title":"Transition-State Energy Profiles","visual":"V3","basic":"Energy profiles show reactants, transition state, products, and the activation barrier along a reaction coordinate.","standard":"Read forward and reverse activation energies from the energy profile.","mastery":"Use profile geometry to compare pathways and activation barriers.","extra":"Energy profiles make activation barriers directly visible."},"s2811":{"id":"IAE1102090307","topic":"t1","title":"Temperature Dependence of Rate","visual":"V4","basic":"Increasing temperature generally increases the rate constant by increasing the fraction of particles able to overcome the activation barrier.","standard":"Use the Arrhenius relationship to connect temperature with k.","mastery":"Distinguish temperature effects on rate constant from changes in activation energy.","extra":"Temperature changes k; it does not itself redefine Ea for a fixed pathway."},"s2812":{"id":"IAE1102090405","topic":"t2","title":"Catalyst Pathway Analysis","visual":"V5","basic":"Catalyst pathway analysis compares elementary steps and activation barriers for catalysed and uncatalysed routes.","standard":"Trace the alternative pathway and identify its relevant energy barriers.","mastery":"Compare pathways without assuming every catalytic step is rate-determining.","extra":"The catalysed route is an alternative pathway."},"s2813":{"id":"IAE1102090406","topic":"t2","title":"Homogeneous vs Heterogeneous Mechanisms","visual":"V5","basic":"Homogeneous and heterogeneous catalysis differ in phase relationship and commonly in mechanistic steps.","standard":"Compare solution/gas-phase participation with surface-mediated participation.","mastery":"Use phase and elementary-step evidence to classify the mechanism.","extra":"Phase relationship is a defining distinction."},"s2814":{"id":"IAE1102090308","topic":"t1","title":"Quantitative Activation-Energy Analysis","visual":"V4","basic":"Activation energy can be determined quantitatively from rate constants measured at different temperatures.","standard":"Apply ln(k2/k1) = −Ea/R(1/T2 − 1/T1) with consistent units.","mastery":"Calculate Ea and interpret its magnitude from temperature-dependent rate data.","extra":"Two-temperature rate data can yield activation energy."}};
+const questions=[["What does collision theory require for an effective collision?",["Sufficient energy and suitable orientation","Only high temperature","Only contact between particles","A catalyst in every case"],0,"An effective collision needs both energy and orientation.","Collision Theory"],["What is activation energy?",["The minimum energy barrier to reach the transition state","The total heat released by a reaction","The concentration of catalyst","The final product energy"],0,"Activation energy is the barrier that must be overcome.","Activation Energy"],["Where is the transition state located on a reaction energy profile?",["At the energy maximum along the pathway","At the lowest reactant energy","At the final product minimum","At zero energy"],0,"The transition state corresponds to the highest-energy arrangement on the pathway.","Transition State"],["How does a catalyst increase reaction rate?",["By providing an alternative lower-barrier pathway","By permanently increasing product concentration","By increasing activation energy","By being consumed completely"],0,"Catalysts provide an alternative pathway with lower activation energy.","Catalyst"],["What defines homogeneous catalysis?",["Catalyst and reactants are in the same phase","Catalyst is always a solid","Catalyst is always a gas","Catalyst is never regenerated"],0,"Homogeneous catalysis has catalyst and reacting species in the same phase.","Homogeneous Catalysis"],["What commonly characterises heterogeneous catalysis?",["A catalyst in a different phase, often involving a surface","All species in one liquid phase","No catalyst surface interactions","No intermediate species"],0,"Heterogeneous catalysis involves different phases and often surface sites.","Heterogeneous Catalysis"],["What is the slope of an ln(k) versus 1/T Arrhenius plot?",["−Ea/R","EaR","R/Ea","−R/Ea"],0,"The Arrhenius slope is −Ea/R.","Arrhenius Equation"],["What should be tracked in an advanced catalytic mechanism?",["Elementary steps, intermediates, and catalyst regeneration","Only the final product","Only the catalyst mass","Only the overall balanced equation"],0,"A catalytic mechanism requires the elementary-step sequence and regeneration.","Advanced Catalytic Mechanisms"],["Which particles can react when considering collision-energy distribution?",["Those with collision energy at least equal to the activation threshold","Only the lowest-energy particles","All particles regardless of energy","Only catalyst particles"],0,"Only collisions meeting the activation-energy threshold can react.","Collision-Energy Distribution"],["What does an energy profile allow you to determine?",["Activation barriers and relative energies along the pathway","Only concentration","Only molecular mass","Only reaction volume"],0,"Energy profiles display the reaction pathway and activation barriers.","Transition-State Energy Profiles"],["For a fixed reaction pathway, what generally happens to k when temperature increases?",["k increases","k becomes zero","k is independent of temperature","Ea automatically becomes zero"],0,"The Arrhenius relationship predicts an increase in k with temperature.","Temperature Dependence of Rate"],["What is the purpose of catalyst pathway analysis?",["To compare alternative elementary pathways and their energy barriers","To remove the catalyst from all steps","To change the reaction products","To ignore intermediates"],0,"Pathway analysis compares mechanisms and their activation barriers.","Catalyst Pathway Analysis"],["What is a key distinction between homogeneous and heterogeneous mechanisms?",["The phase relationship between catalyst and reacting species","The atomic number of the catalyst","Whether a reaction has products","Whether energy exists"],0,"Phase relationship is a defining distinction.","Homogeneous vs Heterogeneous Mechanisms"],["Which relation can determine Ea from two rate constants?",["ln(k2/k1)=−Ea/R(1/T2−1/T1)","k2/k1=EaR","ln(k2+k1)=Ea/R","Ea=RT only"],0,"The two-temperature Arrhenius form relates k values, temperature, and Ea.","Quantitative Activation-Energy Analysis"]];
+
+const dict=Object.create(null);
+Object.assign(dict,{
+  "conjugate acid": [
+    "Conjugate Acid",
+    "A species formed when a Brønsted–Lowry base accepts a proton.",
+    "Conjugate Acid"
+  ],
+  "conjugate base": [
+    "Conjugate Base",
+    "A species formed when a Brønsted–Lowry acid donates a proton.",
+    "Conjugate Base"
+  ],
+  "conjugate pair": [
+    "Conjugate Pair",
+    "Two species that differ by exactly one proton.",
+    "Conjugate Pairs"
+  ],
+  "acid": [
+    "Acid",
+    "A proton donor in Brønsted–Lowry acid–base theory.",
+    "Conjugate Acid"
+  ],
+  "base": [
+    "Base",
+    "A proton acceptor in Brønsted–Lowry acid–base theory.",
+    "Conjugate Base"
+  ],
+  "ionisation": [
+    "Ionisation",
+    "Formation of ions as an acid or base reacts with the solvent.",
+    "Ionisation"
+  ],
+  "strong acid": [
+    "Strong Acid",
+    "An acid that ionises essentially completely in water.",
+    "Strong and Weak Acids"
+  ],
+  "weak acid": [
+    "Weak Acid",
+    "An acid that establishes a measurable ionisation equilibrium in water.",
+    "Strong and Weak Acids"
+  ],
+  "strong base": [
+    "Strong Base",
+    "A base that reacts essentially completely with water under the stated conditions.",
+    "Strong and Weak Bases"
+  ],
+  "weak base": [
+    "Weak Base",
+    "A base that establishes a measurable ionisation equilibrium with water.",
+    "Strong and Weak Bases"
+  ],
+  "Ka": [
+    "Ka",
+    "The acid-ionisation equilibrium constant for a specified acid and conditions.",
+    "Ka and Kb Interpretation"
+  ],
+  "Kb": [
+    "Kb",
+    "The base-ionisation equilibrium constant for a specified base and conditions.",
+    "Ka and Kb Interpretation"
+  ],
+  "Kw": [
+    "Kw",
+    "The ion-product constant of water; for a conjugate pair, Ka × Kb = Kw.",
+    "Conjugate-Pair Strength Relationships"
+  ],
+  "equilibrium": [
+    "Equilibrium",
+    "A dynamic state in which forward and reverse processes occur at equal rates at equilibrium.",
+    "Acid/Base Ionisation Equilibria"
+  ],
+  "ionisation equilibrium": [
+    "Ionisation Equilibrium",
+    "An equilibrium between molecular and ionic species produced by partial ionisation.",
+    "Acid/Base Ionisation Equilibria"
+  ],
+  "quantitative": [
+    "Quantitative",
+    "Based on numerical measurement or calculation.",
+    "Quantitative Acid–Base Comparison"
+  ],
+  "proton transfer": [
+    "Proton Transfer",
+    "Transfer of H⁺ from an acid to a base.",
+    "Conjugate Pairs"
+  ],
+  "hydronium": [
+    "Hydronium",
+    "H₃O⁺, formed when an acid transfers a proton to water.",
+    "Ionisation"
+  ],
+  "hydroxide": [
+    "Hydroxide",
+    "OH⁻, produced in aqueous base ionisation.",
+    "Ionisation"
+  ],
+  "ICE": [
+    "ICE",
+    "A framework recording initial, change, and equilibrium concentrations.",
+    "Acid/Base Ionisation Equilibria"
+  ],
+  "equilibrium constant": [
+    "Equilibrium Constant",
+    "A numerical measure of equilibrium position for a specified reaction and temperature.",
+    "Ka and Kb Interpretation"
+  ]
+} );
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function linkلغتTerms(text){
+ let out=esc(text);
+ const tokens=[];
+ const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+ for(const k of keys){
+   const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+   for(const alias of aliases){
+     const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+     out=out.replace(new RegExp('('+safe+')','g'),(m)=>{
+       const i=tokens.length;
+       tokens.push('<button class="linked-word" type="button" data-term="'+esc(k)+'">'+m+'</button>');
+       return '\uE000'+i+'\uE001';
+     });
+   }
+ }
+ return out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
+}
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><!-- CCSV4 LOGO REPAIR: use the approved First-Year logo path; do not reference a missing Chemi21-local asset. --><img src="../IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="subject-label">Chemistry</div>`}
+function getMainHost(){const active=document.querySelector('.page.active .main-content-container');return active||document.getElementById('mainContentContainer');}
+const homeMarkup=getMainHost()?.innerHTML||'';
+let lectureViewStack=[];
+function renderInMainContainer(html,remember=true){const host=getMainHost();if(!host)return;if(remember&&host.innerHTML.trim())lectureViewStack.push(host.innerHTML);const needsواپس=!/back-page-tab/.test(html);host.innerHTML='<div class="content-view"><button class="view-close" type="button" aria-label="بند کریں current page" title="بند کریں" onclick="returnToPreviousView()">×</button>'+html+(needsواپس?navButtons():'')+'</div>';host.scrollTop=0;decorateلغتLinks(host);}
+function show(html,remember=true){renderInMainContainer(html,remember);}
+function closeModal(){closeلغتPopup(false);const host=getMainHost();if(!host)return;if(lectureViewStack.length){host.innerHTML=lectureViewStack.pop();host.scrollTop=0;decorateلغتLinks(host);}else{showPage('topicsPage');}}
+function showلغتPopup(k){
+ const d=dict[k]; if(!d)return;
+ const host=getMainHost(); if(!host)return;
+ closeلغتPopup(false);
+ const overlay=document.createElement('div');
+ overlay.className='dictionary-overlay'; overlay.id=DICTIONARY_OVERLAY_ID;
+ overlay.innerHTML=`<div class="dictionary-dialog" role="dialog" aria-modal="true" aria-label="لغت">
+   <button class="dictionary-close" type="button" aria-label="بند کریں لغت" onclick="closeلغتPopup()">×</button>
+   <div class="lesson-title">${esc(k)}</div>
+   <div class="section standard"><span class="level-heading standard-h">${esc(d[0])}</span><p>${esc(d[1])}</p></div>
+ </div>`;
+ overlay.addEventListener('click',e=>{
+   if(e.target===overlay) closeلغتPopup();
+ });
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
+}
+function closeلغتPopup(restore=true){const overlay=document.getElementById(DICTIONARY_OVERLAY_ID);if(overlay)overlay.remove();}
+function showDictByTerm(term){
+ const key=Object.prototype.hasOwnProperty.call(dict,term)?term:Object.keys(dict).find(k=>k.toLowerCase()===String(term).toLowerCase());
+ if(key)showلغتPopup(key);
+}
+function escapeRegExp(value){return String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function highlightلغتMatch(text,q){
+ const raw=String(text||''); const query=String(q||'').trim();
+ if(!query)return esc(raw);
+ const re=new RegExp('('+escapeRegExp(query)+')','ig');
+ return raw.split(re).map((part,i)=>i%2?'<span class="dict-match">'+esc(part)+'</span>':esc(part)).join('');
+}
+function renderDict(query=''){
+ const host=document.getElementById('dictList'); if(!host)return;
+ const input=document.getElementById('ds');
+ const clear=document.getElementById('dictClear');
+ const q=String(query).trim(); const low=q.toLowerCase();
+ if(clear)clear.style.display=q?'block':'none';
+ const entries=Object.entries(dict).filter(([k,v])=>!low||k.toLowerCase().startsWith(low)||v[0].toLowerCase().startsWith(low));
+ host.innerHTML=entries.map(([k,v])=>`<button type="button" class="dict-row" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightلغتMatch(k,q)}</strong><span>${highlightلغتMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('')||'<div class="dict-empty">No matching dictionary term found.</div>';
+ if(input && q)updateلغتتلاشDirection(input);
+}
+function dictionaryTextDirection(text){
+ const s=String(text||'');
+ return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(s) ? 'rtl' : 'ltr';
+}
+function updateلغتتلاشDirection(input){
+ if(!input)return;
+ const dir=dictionaryTextDirection(input.value);
+ input.dir=dir;
+ input.style.textAlign=dir==='rtl'?'right':'left';
+}
+function openلغتتلاشPopup(query){
+ const q=String(query).trim(); if(!q)return;
+ const low=q.toLowerCase();
+ const entries=Object.entries(dict).filter(([k,v])=>k.toLowerCase().includes(low)||v[0].toLowerCase().includes(low)||v[1].toLowerCase().includes(low));
+ const host=getMainHost(); if(!host)return;
+ closeلغتPopup(false);
+ const dir=dictionaryTextDirection(q);
+ const overlay=document.createElement('div');
+ overlay.className='dictionary-overlay'; overlay.id=DICTIONARY_OVERLAY_ID;
+ overlay.innerHTML=`<div class="dictionary-dialog" dir="${dir}" style="text-align:${dir==='rtl'?'right':'left'}" role="dialog" aria-modal="true" aria-label="لغت search results">
+   <button class="dictionary-close" type="button" aria-label="بند کریں لغت تلاش" onclick="closeلغتPopup()">×</button>
+   <div class="lesson-title">لغت تلاش</div>
+   <div class="lesson-subtitle">تلاش: <b dir="${dir}">${highlightلغتMatch(q,q)}</b></div>
+   ${entries.map(([k,v])=>`<button type="button" class="dict-row" dir="${dictionaryTextDirection(k+' '+v[0])}" onclick="showDictByTerm('${esc(k)}')"><strong>${highlightلغتMatch(k,q)}</strong><span>${highlightلغتMatch(v[0],q)}</span><small>${esc(v[1])}</small></button>`).join('') || '<div class="dict-empty">No related dictionary term found.</div>'}
+ </div>`;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)closeلغتPopup();});
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.dictionary-close'); if(close)close.focus();
+}
+function resetلغتتلاش(){
+ const input=document.getElementById('ds');
+ if(!input)return;
+ input.value=''; input.dir='ltr'; input.style.textAlign='left';
+ renderDict('');
+ setTimeout(()=>{input.focus();input.select();},0);
+}
+
+function showPage(pageId){
+  const pages=document.querySelectorAll('.page');
+  pages.forEach(p=>p.classList.remove('active'));
+  const page=document.getElementById(pageId);
+  if(!page)return;
+  page.classList.add('active');
+  if(pageId==='topicsPage'){
+    const host=document.getElementById('topicsContentView');
+    if(host && !host.querySelector('.topic-grid')) host.innerHTML=header()+topicsMarkup;
+  }
+  const active=page.querySelector('.main-content-container');
+  if(active) active.scrollTop=0;
+}
+
+const topicsMarkup=`<div class="topic-feature-row"><div class="tab functional feature-visual" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">ویژول اٹلس</div></div><div class="tab functional feature-master" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">L&nbsp;&nbsp;M</div><div class="label">لیکچر ماسٹری</div></div></div><div class="topic-grid"><section class="column"><div class="main-topic-large tab topic1 topic-intro" role="button" tabindex="0" onclick="openموضوع('t1')"><div class="label">IAE1102090300 — Collision Theory &amp; Activation Energy</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2801')"><div class="num">01</div><div class="label">Collision Theory</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2802')"><div class="num">02</div><div class="label">Activation Energy</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2803')"><div class="num">03</div><div class="label">Transition State</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2804')"><div class="num">04</div><div class="label">Catalyst</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2805')"><div class="num">05</div><div class="label">Homogeneous Catalysis</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2806')"><div class="num">06</div><div class="label">Heterogeneous Catalysis</div></div><div class="tab topic1" role="button" tabindex="0" onclick="openSub('s2807')"><div class="num">07</div><div class="label">Arrhenius Equation</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">لغت</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">مشق &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">تیاری Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">تلاش</div></div></section><section class="column"><div class="main-topic-large tab topic2 topic-intro" role="button" tabindex="0" onclick="openموضوع('t2')"><div class="label">IAE1102090400 — Catalysis &amp; Catalytic Mechanisms</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2808')"><div class="num">08</div><div class="label">Advanced Catalytic Mechanisms</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2809')"><div class="num">09</div><div class="label">Collision-Energy Distribution</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2810')"><div class="num">10</div><div class="label">Acid/Base Heterogeneous Catalysis Equilibria</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2811')"><div class="num">11</div><div class="label">Temperature Dependence of Rate</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2812')"><div class="num">12</div><div class="label">Catalyst Pathway Analysis</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2813')"><div class="num">13</div><div class="label">Homogeneous vs Heterogeneous Mechanisms</div></div><div class="tab topic2" role="button" tabindex="0" onclick="openSub('s2814')"><div class="num">14</div><div class="label">Quantitative Activation-Energy Analysis</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">دہرائی</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">عملی کام</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">امتحان</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">ہِٹ دی سیلنگ</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">پچھلا صفحہ</span></button></div>`;function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">پچھلا صفحہ</button></div>`}
+document.addEventListener('keydown',e=>{const el=e.target;if((e.key==='Enter'||e.key===' ')&&el&&el.getAttribute&&el.getAttribute('role')==='button'&&el.classList.contains('tab')){e.preventDefault();el.click();}});
+function openموضوع(k){
+ const d=topics[k];
+ const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
+ const mainLecture = `<div class="section main-lecture"><div class="level-heading basic-h">Basic</div><p>${linkلغتTerms(d.basic)}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Standard</div><p>${linkلغتTerms(d.standard)}</p></div><div class="section main-lecture"><div class="level-heading mastery-h">Mastery</div><p>${linkلغتTerms(d.mastery)}</p></div><div class="section topic-introduction"><span class="level-heading standard-h">IAE موضوع Definition</span><p>${linkلغتTerms(d.intro)}</p></div>`;
+ show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div></div></div>
+ ${mainLecture}
+ <div class="section"><span class="level-heading standard-h">Related ذیلی موضوعs</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
+`);
+}
+function returnToPreviousView(){
+  closeلغتPopup(false);
+  const host=getMainHost();
+  if(!host)return;
+  if(lectureViewStack.length){
+    host.innerHTML=lectureViewStack.pop();
+    host.scrollTop=0;
+    decorateلغتLinks(host);
+  }else{
+    showPage('homePage');
+  }
+}
+function openSub(k){
+ const d=subs[k];
+ show(`<div class="subtopic-head">${img(d.visual)}<div class="subtopic-head-text"><div class="lesson-title">${linkلغتTerms(d.title)}</div></div></div>
+ <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkلغتTerms(d.basic)}</p></div>
+ <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkلغتTerms(d.standard)}</p></div>
+ <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkلغتTerms(d.mastery)}</p></div>
+ <div class="diagram">${esc(d.extra)}</div>
+
+`);
+}
+function showویژول(id){
+ const v=visualItems.find(x=>x[0]===id);if(!v)return;
+ closeویژولPopup(false);
+ const host=getMainHost();if(!host)return;
+ const overlay=document.createElement('div');
+ overlay.className='visual-popup-overlay';
+ overlay.id='visualPopupOverlay';
+ overlay.setAttribute('role','dialog');
+ overlay.setAttribute('aria-modal','true');
+ overlay.setAttribute('aria-label','ویژول');
+ overlay.innerHTML=`<div class="visual-popup-dialog">
+   <button class="visual-popup-close" type="button" aria-label="ویژول بند کریں" title="ویژول بند کریں">×</button>
+   <div class="visual-popup-media" style="width:100%;height:100%;padding:42px 8px 8px;text-align:center;box-sizing:border-box">
+     <div class="lesson-title">${esc(v[1])}</div>
+     <p>${esc(v[2])}</p>
+     <div class="popup-visual-frame">${visualSvg(id)}</div><div class="popup-visual-source">نوٹ: یہ تعلیمی ویژول ${esc(v.source||'OpenStax Chemistry 2e')} سے لیا گیا/ماخوذ ہے۔ اس پاپ اپ کے اندر کوئی بیرونی لنک موجود نہیں ہے۔</div>
+   </div>
+ </div>`;
+ host.appendChild(overlay);
+ const close=overlay.querySelector('.visual-popup-close');
+ const remove=()=>closeویژولPopup(true);
+ close.onclick=remove;
+ overlay.addEventListener('click',e=>{if(e.target===overlay)remove();});
+ window.__iaeویژولPopupOpen=true;
+ close.focus();
+}
+function closeویژولPopup(useHistory=true){const overlay=document.getElementById('visualPopupOverlay');if(overlay)overlay.remove();if(window.__iaeویژولPopupOpen)window.__iaeویژولPopupOpen=false;}
+
+function practiceReveal(target){const el=typeof target==='string'?document.getElementById(target):target;if(el){el.hidden=false;if(el.style)el.style.display='block';}}
+function practiceNext(id){const el=document.getElementById(id);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function openGuidedمشق(){
+  const recall=questions.slice(0,14);
+  const recallHtml=recall.map((q,i)=>`<div class="question-card practice-q"><b>Q${i+1}. ${esc(q[0])}</b><div class="section"><p><b>پہلے خود جواب دیں:</b> options دیکھے بغیر جواب سوچیں۔</p><button class="visual-link" onclick="practiceReveal('pr-a-${i}')">جواب اور وضاحت دیکھیں</button><div id="pr-a-${i}" class="answer-review" hidden><p><b>درست جواب:</b> ${esc(q[1][q[2]])}</p><p>${esc(q[3]||'')}</p></div></div></div>`).join('');
+  const compares=[['Ka vs Kb','Ka measures acid ionisation tendency, while Kb measures base ionisation tendency.'],['Conjugate constants','For a conjugate pair at the same temperature, Ka × Kb = Kw.'],['Strong vs weak','Strong acids/bases ionise essentially completely; weak species establish measurable equilibria.'],['Equilibrium position','Use the equilibrium expression and concentration changes to explain relative amounts of molecular and ionic species.']];
+  const compareHtml=compares.map((c,i)=>`<div class="question-card"><b>${esc(c[0])}</b><p>${esc(c[1])}</p><button class="visual-link" onclick="practiceReveal('pr-cmp-${i}')">Academy check points دیکھیں</button><div id="pr-cmp-${i}" class="answer-review" hidden><p><b>Check:</b> definition → molecular model → energy/property consequence → application.</p></div></div>`).join('');
+  const visualHtml=visualItems.map(v=>`<button type="button" class="visual-card" onclick="showویژول('${esc(v[0])}')"><b>${esc(v[1])}</b></button>`).join('');
+  show(`<div class="lesson-title">مشق &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>ہر سوال کا جواب پہلے خود دیں، پھر explanation دیکھ کر اپنی reasoning درست کریں۔</p></div>${recallHtml}<div class="section standard"><span class="level-heading standard-h">2. Compare &amp; Contrast</span><p>Bonding models، structure اور materials properties کو definition، molecular mechanism اور observable consequence کے ذریعے compare کریں۔</p></div>${compareHtml}<div class="section standard"><span class="level-heading standard-h">3. ویژول Recall</span><p>ہر ویژول کو دیکھ کر bonding model، structure، property یا material function اپنے الفاظ میں explain کریں۔</p></div>${visualHtml}<div class="section mastery"><span class="level-heading mastery-h">4. Final Guided Round</span><p>Lecture 28 کے تمام 14 subtopics بغیر notes کے explain کریں۔ جہاں جواب کمزور ہو متعلقہ ذیلی موضوع دوبارہ پڑھیں اور پھر readiness test دیں۔</p></div>`);
+}
+let masteryTTSModule=null;
+let masteryTTSReady=true;
+let masteryTTSPlaying=false;
+let masteryTTSStop=false;
+let masteryTTSCurrentAudio=null;
+let masteryTTSObjectURL=null;
+let masteryTTSUsingSpeechSynthesis=false;
+let masteryTTSSpeechResolve=null;
+let masteryTTSSegments=[];
+let masteryTTSIndex=0;
+let masteryTTSChunkIndex=0;
+let masteryTTSPreparingPromise=null;
+const MASTERY_TTS_LANG='ur-PK';
+const MASTERY_TTS_MAX_CHARS=170;
+
+function masteryTTSSplitText(text){
+  const normalized=String(text||'').replace(/\s+/g,' ').trim();
+  if(!normalized)return [];
+  const sentences=normalized.match(/[^۔!?]+[۔!?]?/g)||[normalized];
+  const chunks=[];
+  let buf='';
+  const pushBuf=()=>{if(buf.trim()){chunks.push(buf.trim());buf='';}};
+  for(const sentence of sentences){
+    const s=sentence.trim();
+    if(!s)continue;
+    if(s.length<=MASTERY_TTS_MAX_CHARS){
+      if((buf+' '+s).trim().length<=MASTERY_TTS_MAX_CHARS) buf=(buf+' '+s).trim();
+      else {pushBuf();buf=s;}
+    }else{
+      pushBuf();
+      const words=s.split(/\s+/);
+      for(const w of words){
+        if((buf+' '+w).trim().length<=MASTERY_TTS_MAX_CHARS) buf=(buf+' '+w).trim();
+        else {pushBuf();buf=w;}
+      }
+    }
+  }
+  pushBuf();
+  return chunks;
+}
+function masteryTTSElements(){
+ const root=document.querySelector('.mastery-reading .mastery-body');
+ if(!root)return [];
+ const out=[];
+ const clean=(el)=>String(el?.innerText||el?.textContent||'').replace(/\s+/g,' ').trim();
+ const push=(el,label='')=>{if(el&&clean(el))out.push({el,text:clean(el),label});};
+ const vision=root.querySelector('.mastery-vision');
+ if(vision){
+   push(vision.querySelector('h2'),'Main موضوع');
+   vision.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,i===0?'Definition':'Main موضوع Understanding'));
+ }
+ const academic=root.querySelector('.mastery-definition');
+ if(academic) academic.querySelectorAll(':scope > .mastery-step').forEach((step,i)=>push(step,`Academic Understanding ${i+1}`));
+ const progression=root.querySelector('.mastery-connection');
+ if(progression){
+   push(progression.querySelector('.level-heading'),'Lecture Progression');
+   progression.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,'Lecture Progression'));
+ }
+ root.querySelectorAll('.section.mastery[data-mastery-subtopic]').forEach((section,i)=>{
+   const n=String(i+1).padStart(2,'0');
+   const title=section.querySelector('.level-heading');
+   if(title)push(title,`ذیلی موضوع ${n}`);
+   const fig=section.querySelector(':scope > .mastery-visual');
+   if(fig){
+     const cap=fig.querySelector('figcaption');
+     if(cap)push(cap,`ذیلی موضوع ${n} ویژول`);
+   }
+   section.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,`ذیلی موضوع ${n}`));
+ });
+ const complete=[...root.querySelectorAll('.mastery-conclusion')].find(el=>/Complete لیکچر ماسٹری/i.test(clean(el)));
+ if(complete){
+   const title=complete.querySelector('.level-heading');
+   if(title)push(title,'Complete لیکچر ماسٹری');
+   complete.querySelectorAll(':scope > .mastery-step').forEach(step=>push(step,'Complete لیکچر ماسٹری'));
+ }
+ return out;
+}
+function masterySpeechText(){return masteryTTSElements().map(x=>x.text).join(' ').replace(/\s+/g,' ').trim();}
+function masteryTTSStatus(text,busy=false){
+ const box=document.querySelector('.mastery-sound'); if(!box)return;
+ let status=box.querySelector('.mastery-tts-status');
+ if(!status){status=document.createElement('span');status.className='mastery-tts-status';box.appendChild(status);}
+ status.textContent=text||''; status.dataset.busy=busy?'1':'0';
+}
+function clearMasteryTTSHighlight(){
+ document.querySelectorAll('.mastery-tts-active').forEach(el=>el.classList.remove('mastery-tts-active'));
+ document.querySelectorAll('.mastery-tts-active-title').forEach(el=>el.classList.remove('mastery-tts-active-title'));
+}
+function highlightMasteryTTS(el){
+ clearMasteryTTSHighlight(); if(!el)return;
+ el.classList.add(el.classList.contains('mastery-subtopic-title')||el.classList.contains('level-heading')?'mastery-tts-active-title':'mastery-tts-active');
+ el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function masteryGoogleTTSUrl(text){
+ return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+MASTERY_TTS_LANG+'&q='+encodeURIComponent(text);
+}
+async function prepareMasteryTTS(){
+ if(masteryTTSPreparingPromise)return masteryTTSPreparingPromise;
+ masteryTTSPreparingPromise=(async()=>{
+   masteryTTSStatus('اردو آواز تیار کی جا رہی ہے…',true);
+   masteryTTSReady=true;
+   masteryTTSStatus('اردو آواز تیار ہے۔',false);
+   return true;
+ })().catch(err=>{masteryTTSReady=false;throw err;}).finally(()=>{masteryTTSPreparingPromise=null;});
+ return masteryTTSPreparingPromise;
+}
+function getUrduVoice(){
+ if(!('speechSynthesis' in window))return null;
+ const voices=speechSynthesis.getVoices?speechSynthesis.getVoices():[];
+ return voices.find(v=>String(v.lang||'').toLowerCase()==='ur-pk')
+   || voices.find(v=>/^ur(-|$)/i.test(String(v.lang||'')))
+   || null;
+}
+async function ensureSpeechVoices(){
+ if(!('speechSynthesis' in window))return [];
+ try{
+  const voices=speechSynthesis.getVoices?speechSynthesis.getVoices():[];
+  if(voices.length)return voices;
+  await new Promise(resolve=>{
+   let done=false; const finish=()=>{if(done)return;done=true;try{speechSynthesis.removeEventListener('voiceschanged',finish);}catch(e){}resolve();};
+   try{speechSynthesis.addEventListener('voiceschanged',finish,{once:true});}catch(e){finish();return;}
+   setTimeout(finish,1200);
+  });
+  return speechSynthesis.getVoices?speechSynthesis.getVoices():[];
+ }catch(e){return [];}
+}
+function stopMastery(){
+ masteryTTSStop=true; masteryTTSPlaying=false;
+ if(masteryTTSCurrentAudio){try{masteryTTSCurrentAudio.pause();masteryTTSCurrentAudio.currentTime=0;}catch(e){}}
+ masteryTTSCurrentAudio=null;
+ updateMasteryPausePlayButton();
+ if(masteryTTSObjectURL){try{URL.revokeObjectURL(masteryTTSObjectURL);}catch(e){} masteryTTSObjectURL=null;}
+ masteryTTSSegments=[];masteryTTSIndex=0;masteryTTSChunkIndex=0;clearMasteryTTSHighlight();
+ if('speechSynthesis' in window){try{speechSynthesis.cancel();}catch(e){}}
+ masteryTTSUsingSpeechSynthesis=false;
+ if(masteryTTSSpeechResolve){try{masteryTTSSpeechResolve();}catch(e){} masteryTTSSpeechResolve=null;}
+ masteryTTSStatus('بند کر دیا گیا۔',false);
+ updateMasteryPausePlayButton();
+}
+function updateMasteryPausePlayButton(){
+ const btn=document.getElementById('masteryPausePlayBtn');
+ if(!btn)return;
+ const paused=(masteryTTSUsingSpeechSynthesis&&'speechSynthesis' in window)?speechSynthesis.paused:!!(masteryTTSCurrentAudio&&masteryTTSCurrentAudio.paused);
+ btn.textContent=paused?'▶ جاری':'⏸ وقفہ';
+ btn.setAttribute('aria-label',paused?'آواز دوبارہ چلائیں':'آواز میں وقفہ کریں');
+}
+function toggleMasteryPausePlay(){
+ if(masteryTTSUsingSpeechSynthesis && 'speechSynthesis' in window){
+   if(speechSynthesis.paused){speechSynthesis.resume();masteryTTSStatus('جاری ہے…',true);}
+   else{speechSynthesis.pause();masteryTTSStatus('وقفہ',false);}
+   updateMasteryPausePlayButton();return;
+ }
+ if(!masteryTTSCurrentAudio)return;
+ if(masteryTTSCurrentAudio.paused){
+   masteryTTSCurrentAudio.play().then(()=>{masteryTTSStatus('جاری ہے…',true);updateMasteryPausePlayButton();}).catch(err=>{console.error(err);masteryTTSStatus('آواز دوبارہ شروع نہیں ہو سکی۔',false);});
+ }else{masteryTTSCurrentAudio.pause();masteryTTSStatus('وقفہ',false);updateMasteryPausePlayButton();}
+}
+async function speakMastery(){
+ if(masteryTTSPlaying)return;
+ stopMastery(); masteryTTSStop=false;
+ const segments=masteryTTSElements();
+ if(!segments.length){masteryTTSStatus('Mastery میں پڑھنے کے لیے متن دستیاب نہیں ہے۔',false);return;}
+ masteryTTSSegments=segments; masteryTTSIndex=0; masteryTTSChunkIndex=0; masteryTTSPlaying=true;
+ await ensureSpeechVoices();
+ /* Start local speech directly from the button gesture. No external TTS connection is required. */
+ if('speechSynthesis' in window && typeof SpeechSynthesisUtterance!=='undefined'){
+   try{
+     const first=masteryTTSSegments[0];
+     const firstChunks=masteryTTSSplitText(first.text);
+     if(firstChunks.length){
+       await playSpeechSynthesisChunk(first,firstChunks,firstChunks[0]);
+       if(masteryTTSStop)return;
+       masteryTTSChunkIndex=1;
+       await playNextMasteryChunk(first,firstChunks);
+       return;
+     }
+   }catch(err){
+     console.warn('Local Urdu speech unavailable.',err);
+     masteryTTSUsingSpeechSynthesis=false;
+   }
+ }
+ try{
+   await playNextMasterySegment();
+ }catch(err){
+   console.error('Mastery Urdu TTS error',err);masteryTTSPlaying=false;clearMasteryTTSHighlight();
+   masteryTTSStatus('اردو آواز دستیاب نہیں ہو سکی۔ انٹرنیٹ یا device voice چیک کریں۔',false);
+ }
+}
+async function playNextMasterySegment(){
+ if(masteryTTSStop)return;
+ if(masteryTTSIndex>=masteryTTSSegments.length){masteryTTSPlaying=false;clearMasteryTTSHighlight();masteryTTSStatus('Mastery Sound مکمل ہو گیا۔',false);return;}
+ const item=masteryTTSSegments[masteryTTSIndex];
+ highlightMasteryTTS(item.el);
+ const chunks=masteryTTSSplitText(item.text);
+ masteryTTSChunkIndex=0;
+ await playNextMasteryChunk(item,chunks);
+}
+async function playSpeechSynthesisChunk(item,chunks,chunk){
+ if(!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance==='undefined') throw new Error('Speech synthesis unavailable');
+ masteryTTSUsingSpeechSynthesis=true;
+ await new Promise((resolve,reject)=>{
+   let settled=false;
+   const finish=(ok)=>{if(settled)return;settled=true;masteryTTSSpeechResolve=null;masteryTTSUsingSpeechSynthesis=false;ok?resolve():reject(new Error('Speech synthesis failed'));};
+   const utter=new SpeechSynthesisUtterance(chunk);
+   const voice=getUrduVoice();
+   if(!voice) { finish(false); return; }
+   utter.voice=voice;
+   utter.lang='ur-PK';
+   utter.rate=0.9; utter.pitch=1;
+   utter.onend=()=>{masteryTTSChunkIndex++;finish(true);};
+   utter.onerror=()=>finish(false);
+   masteryTTSSpeechResolve=()=>finish(true);
+   try{speechSynthesis.cancel();speechSynthesis.speak(utter);}catch(e){finish(false);return;}
+   setTimeout(()=>{if(!settled){try{speechSynthesis.cancel();}catch(e){}finish(false);}},Math.max(30000,chunk.length*500));
+ });
+}
+async function playUrduRemoteChunk(item,chunk){
+ const url=masteryGoogleTTSUrl(chunk);
+ await new Promise((resolve,reject)=>{
+   const audio=new Audio(url);
+   masteryTTSCurrentAudio=audio;
+   masteryTTSUsingSpeechSynthesis=false;
+   audio.preload='auto';
+   audio.onended=()=>{masteryTTSCurrentAudio=null;resolve();};
+   audio.onerror=()=>{masteryTTSCurrentAudio=null;reject(new Error('Urdu remote TTS failed'));};
+   audio.onplay=()=>updateMasteryPausePlayButton();
+   audio.play().catch(reject);
+ });
+}
+async function playNextMasteryChunk(item,chunks){
+ if(masteryTTSStop)return;
+ if(masteryTTSChunkIndex>=chunks.length){masteryTTSIndex++;await playNextMasterySegment();return;}
+ const chunk=chunks[masteryTTSChunkIndex];
+ masteryTTSStatus(`${item.label} پڑھا جا رہا ہے…`,true);
+ await ensureSpeechVoices();
+ const voice=getUrduVoice();
+ if(voice && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance!=='undefined'){
+  try{await playSpeechSynthesisChunk(item,chunks,chunk);await playNextMasteryChunk(item,chunks);return;}
+  catch(err){console.warn('Local Urdu speech failed; trying Urdu remote TTS.',err);}
+ }
+ await playUrduRemoteChunk(item,chunk);
+ masteryTTSChunkIndex++;
+ await playNextMasteryChunk(item,chunks);
+}
+
+function applyMasteryFontSize(root,size){
+  if(!root)return;
+  const controls=root.querySelector('.mastery-controls');
+  const nodes=[root,...root.querySelectorAll('*')];
+  nodes.forEach(el=>{
+    if(controls && (el===controls || controls.contains(el))) return;
+    if(!el.dataset.iaeBaseFontSize){
+      const cs=getComputedStyle(el);
+      const px=parseFloat(cs.fontSize);
+      if(Number.isFinite(px)) el.dataset.iaeBaseFontSize=String(px);
+    }
+    const base=parseFloat(el.dataset.iaeBaseFontSize);
+    if(Number.isFinite(base)) el.style.fontSize=(base*(size/14))+'px';
+  });
+  root.dataset.fontSize=String(size);
+}
+function changeMasteryFont(delta){
+  const root=document.querySelector('.mastery-reading .mastery-body');
+  if(!root)return;
+  let size=parseFloat(root.dataset.fontSize||'14');
+  size=Math.max(12,Math.min(22,size+delta));
+  applyMasteryFontSize(root,size);
+}
+function resetMasteryFont(){
+  const root=document.querySelector('.mastery-reading .mastery-body');
+  if(!root)return;
+  applyMasteryFontSize(root,14);
+  root.dataset.fontSize='14';
+}
+function openتلاش(){
+ const rows=[];
+ Object.entries(topics).forEach(([id,t])=>rows.push({type:'موضوع',id,title:t.title,detail:t.intro||'' ,open:()=>openموضوع(id)}));
+ Object.entries(subs).forEach(([id,s])=>rows.push({type:'ذیلی موضوع',id,title:s.title,detail:(s.basic||'')+' '+(s.standard||''),open:()=>openSub(id)}));
+ Object.keys(dict).forEach(k=>rows.push({type:'لغت',id:k,title:k,detail:dict[k][1]||'',open:()=>showلغتPopup(k)}));
+ const render=(q='')=>{
+   const n=String(q).trim().toLowerCase();
+   const hits=rows.filter(r=>!n||[r.type,r.id,r.title,r.detail].join(' ').toLowerCase().includes(n));
+   const box=document.getElementById('searchResults'); if(!box)return;
+   box.innerHTML=hits.map((r,i)=>`<button type="button" class="search-result" onclick="window.__iaeتلاشOpen(${i})"><b>${esc(r.title)}</b><span class="visual-id">${esc(r.type)} · ${esc(r.id)}</span><p>${esc(r.detail.slice(0,220))}</p></button>`).join('') || '<div class="section">No matching result.</div>';
+   window.__iaeتلاشRows=hits;
+ };
+ window.__iaeتلاشOpen=i=>{const r=(window.__iaeتلاشRows||[])[i];if(r)r.open();};
+ show(`<div class="lesson-title">تلاش</div><p class="lesson-subtitle">Lecture 28 — موضوعs, ذیلی موضوعs and لغت</p><input class="search" id="academyتلاش" placeholder="تلاش Academy content…" oninput="renderAcademyتلاش(this.value)"><div id="searchResults"></div>`);
+ window.renderAcademyتلاش=render;
+ render('');
+}
+function visualOwnerTitle(id){const k=String(id||''); const v=visualItems.find(x=>x[0]===k); if(!v)return k; const clean=s=>String(s||'').replace(/^IAE\d+[A-Z0-9]*\s*[—-]\s*/,'').trim(); const topicKeys=[]; const subItems=[]; Object.keys(subs).forEach(k2=>{if(subs[k2].visual===k){if(!topicKeys.includes(subs[k2].topic))topicKeys.push(subs[k2].topic); subItems.push(clean(subs[k2].title));}}); Object.keys(topics).forEach(k2=>{if(topics[k2].visual===k && !topicKeys.includes(k2))topicKeys.push(k2);}); const topicNames=topicKeys.map(k2=>clean(topics[k2]?.title)).filter(Boolean); return {topics:topicNames,subs:subItems};}
+function openFunctional(k){
+  if(k==='dictionary'){
+    show(`<div class="lesson-title">لغت</div><p class="lesson-subtitle">Lecture 28 relevant terminology</p><div class="dictionary-search-wrap"><input class="search" id="ds" autocomplete="off" autocapitalize="characters" spellcheck="false" dir="ltr" style="text-align:left" placeholder="Type a word or letters…" oninput="updateلغتتلاشDirection(this);renderDict(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();openلغتتلاشPopup(this.value)}"><button type="button" id="dictClear" class="dictionary-clear" aria-label="Clear dictionary search" title="Clear search" onclick="resetلغتتلاش()">×</button></div><div id="dictList"></div>`);
+    const input=document.getElementById('ds'); if(input){input.value='';input.dir='ltr';input.style.textAlign='left';}
+    renderDict(''); setTimeout(()=>{if(input){input.focus();input.select();}},0);return;
+  }
+  if(k==='visual'){const atlasEntries=[];Object.keys(subs).forEach(sk=>{const item=subs[sk];if(item&&item.visual){const topic=topics[item.topic];atlasEntries.push({topic:topic?topic.title:'',sub:item.title,visual:item.visual});}});show(`${header()}<div class="page-title">Lecture 28 — ویژول اٹلس</div><h2 class="lesson-title">ویژول اٹلس</h2><p class="lesson-subtitle">Lecture 28 ویژول اٹلس — موضوع/ذیلی موضوع visuals</p><div class="visual-atlas-grid">${atlasEntries.map(v=>`<article class="visual-card atlas-card"><h3 class="atlas-heading">${esc(v.topic)}</h3><div class="atlas-subtopic">${esc(v.sub)}</div>${img(v.visual)}</article>`).join('')}</div>`);return;}
+  if(k==='search'){openتلاش();return;}
+  if(k==='practice'){openGuidedمشق();return;}
+  if(k==='readiness'){openAssessment('readiness');return;}
+  if(k==='exam'){openAssessment('exam');return;}
+  if(k==='revision'){
+    const rq=Object.entries(subs).map(([id,d])=>[d.title,d.id,d.title+' کے بنیادی principle اور molecular explanation کو اپنے الفاظ میں بیان کریں۔',d.standard,'Definition → Molecular model → Consequence']);
+    const revisionHtml=rq.map((r,i)=>`<div class="question-card revision-q"><div class="pill">${esc(r[1])}</div><h3 style="margin:8px 0;font-size:17px;color:var(--green)">Q${i+1}. ${esc(r[0])}</h3><p><b>سوال:</b> ${esc(r[2])}</p><button class="visual-link" type="button" onclick="practiceReveal('rev-a-${i}')">Model answer دیکھیں</button><div id="rev-a-${i}" class="answer-review" hidden><p><b>جواب:</b> ${esc(r[3])}</p><p><b>Check:</b> ${esc(r[4])}</p></div></div>`).join('');
+    show(`<div class="lesson-title">دہرائی — Lecture 28</div><p class="lesson-subtitle">14 target subtopics کو active recall، comparison اور molecular reasoning کے ذریعے revise کریں۔</p>${revisionHtml}`);return;
+  }
+  if(k==='mastery'){
+  const lessons=Object.values(subs).map(x=>({id:x.id,title:x.title,visual:x.visual,def:x.basic,explain:x.standard,mastery:x.mastery,connect:x.extra}));
+  const mainویژول=visualماخذ('V1')||{};
+  const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Urdu Mastery Sound"><button type="button" onclick="speakMastery()">🔊 اردو میں سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Mastery Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Conjugate Acid–Base &amp; Ionisation Equilibria</h2><p class="mastery-step"><b>بنیادی تصور:</b> Lecture 28 میں conjugate acid/base، ionisation، Ka/Kb، conjugate strength اور equilibriumive precipitation کو ایک connected ionic-equilibrium model کے طور پر سمجھا جاتا ہے۔</p><p class="mastery-step"><b>Mastery chain:</b> <b>proton transfer → conjugate pair → ionisation → Ka/Kb → equilibrium position → quantitative comparison</b>۔</p></div><figure class="mastery-visual"><button type="button" class="mastery-open-visual" onclick="showویژول('V1')" aria-label="Mastery visual popup"><div class="mastery-inline-visual">${visualSvg('V1')}</div></button></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">پہلے proton-transfer equation اور conjugate partners identify کریں، پھر درست ionisation equilibrium اور Ka/Kb expression بنائیں۔</p><p class="mastery-step">اس کے بعد equilibrium concentrations کو Ka یا Kb سے relate کریں، conjugate-pair strength کو Kw کے ساتھ connect کریں، اور quantitative comparison مکمل کریں۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Conjugate Acid → Conjugate Base → Conjugate Pairs → Strong/Weak Acids → Strong/Weak Bases → Ionisation → Advanced Equilibria → Ka/Kb → Conjugate Strength → Ionisation Equilibria → Ka/Kb Interpretation → Weak-Acid Position → Weak-Base Position → Quantitative Comparison</p></div>${lessons.map((x,i)=>{const v=visualماخذ(x.visual)||{};return `<div class="section mastery-lesson" data-mastery-subtopic="${esc(x.id)}"><span class="level-heading standard-h">${String(i+1).padStart(2,'0')}. ${esc(x.title)}</span><figure class="mastery-visual"><button type="button" class="mastery-open-visual" onclick="showویژول('${esc(x.visual)}')" aria-label="${esc(x.title)} visual popup"><div class="mastery-inline-visual">${visualSvg(x.visual)}</div></button></figure><p class="mastery-step"><b>Concept:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard:</b> ${esc(x.explain)}</p><p class="mastery-step"><b>Mastery reasoning:</b> ${esc(x.mastery)}</p><p class="mastery-step"><b>Key connection:</b> ${esc(x.connect)}</p></div>`;}).join('')}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete لیکچر ماسٹری</span><p class="mastery-step"><b>Final reasoning:</b> Start with the proton-transfer equation, identify the conjugate pair, select Ka or Kb, then connect the equilibrium position to quantitative acid–base comparison.</p></div></div></div>`;show(html);return;}
+  if(k==='practical'){show(`<div class="lesson-title">عملی کام</div><div class="section"><b>Academic applicability</b><p>Lecture 28 میں کوئی separate laboratory procedure supplied نہیں ہے۔ Approved practical architecture retained ہے؛ target-specific academic practical payload N/A ہے.</p></div>`);return;}
+}
+
+let assessmentAttempt=[], assessmentType='readiness';
+
+function renderAssessmentQuestions(list,type){
+ return list.map((q,i)=>{const order=shuffle([0,1,2,3]);return `<div class="question-card assessment-q" data-qindex="${i}"><div class="pill">Q${i+1} · ${esc(q[4])}</div><h3>${esc(q[0])}</h3>${order.map(j=>`<label class="answer-option"><input type="radio" name="${type}-${i}" value="${j}" onchange="updateExamProgress()"><span>${esc(q[1][j])}</span></label>`).join('')}<div class="question-status" id="status-${type}-${i}">Unanswered</div></div>`}).join('');
+}
+function updateExamProgress(){
+ const total=assessmentAttempt.length;let answered=0;
+ assessmentAttempt.forEach((_,i)=>{const selected=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);if(selected)answered++;const st=document.getElementById(`status-${assessmentType}-${i}`);if(st)st.textContent=selected?'Answered':'Unanswered';});
+ const bar=document.getElementById('examProgressBar'),txt=document.getElementById('examProgressText');
+ if(bar)bar.style.width=(total?answered/total*100:0)+'%';
+ if(txt)txt.textContent=`${answered} / ${total} answered`;
+}
+function openAssessment(type){
+ assessmentType=type;
+ // Lecture 28 examination bank; use every question once.
+ assessmentAttempt=type==='exam'?[...questions]:shuffle(questions).slice(0,Math.min(15,questions.length));
+ const examMode=type==='exam';
+ const host=getMainHost();
+ if(!host || !assessmentAttempt.length)return;
+ if(examMode){
+   if(lectureViewStack.length===0 && host.innerHTML.trim()) lectureViewStack.push(host.innerHTML);
+   host.innerHTML=`<div class="content-view assessment-fullscreen">
+     <button class="view-close" type="button" aria-label="بند کریں امتحان" title="بند کریں" onclick="returnToPreviousView()">×</button>
+     <div class="assessment-shell">
+       <div class="assessment-head"><div class="assessment-badge">🏛️ FULL EXAMINATION</div><div class="lesson-title">Lecture 28 — Final امتحان</div><p>Formal assessment of Lecture 28: collision theory, activation energy, transition state, Arrhenius behaviour, catalysis, catalytic mechanisms and quantitative activation-energy analysis. Answer every MCQ, review your answers, then submit.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">100 Marks</span> <span class="pill">60 Minutes</span></div></div>
+       <div class="exam-rules"><b>امتحان Protocol</b><ol><li>Answer all questions. Every MCQ has one best answer.</li><li>Select one option for each question.</li><li>You may change an answer before submission.</li><li>Unanswered questions receive 0 marks.</li><li>Review the complete paper before pressing <b>Submit امتحان</b>.</li><li>Passing standard: 50%.</li></ol></div>
+       <div class="exam-progress"><div class="progress-label"><b>Exam Progress</b><span id="examProgressText">0 / ${assessmentAttempt.length} answered</span></div><div class="progress-track"><div id="examProgressBar" class="progress-bar"></div></div></div>
+       <div id="assessmentQuestions" class="assessment-questionnaire">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+       <div class="assessment-actions"><button class="exam-submit" type="button" onclick="submitAssessment()">Submit امتحان</button><button type="button" onclick="openAssessment('exam')">↻ Reset</button></div>
+       <div id="assessmentResult" class="assessment-result"></div>
+     </div>
+   </div>`;
+   host.scrollTop=0;updateExamProgress();return;
+ }
+ // Lecture 28 تیاری Test using the same approved assessment architecture.
+ show(`<div class="assessment-head"><div class="assessment-badge">🧑‍🎓 READINESS TEST</div><div class="lesson-title">Lecture 28 — تیاری Test</div><p>Diagnostic assessment covering conjugate pairs, strong/weak ionisation, Ka/Kb interpretation, weak-acid/weak-base equilibrium position and quantitative comparison.</p><div><span class="pill">${assessmentAttempt.length} Questions</span> <span class="pill">Conceptual</span> <span class="pill">Application</span></div></div>
+ <div class="exam-rules"><b>Protocol:</b> ہر سوال کا ایک بہترین جواب منتخب کریں۔ Submit کے بعد score، performance band، weak areas اور detailed review دکھایا جائے گا۔</div>
+ <div id="readinessQuestions">${renderAssessmentQuestions(assessmentAttempt,type)}</div>
+ <div class="assessment-actions"><button class="exam-submit" onclick="submitAssessment()">Submit تیاری Test</button><button onclick="openAssessment('readiness')">↻ Reset</button></div>
+ <div id="readinessResult" class="assessment-result"></div>`);
+}
+function shuffle(a){const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
+function submitAssessment(){
+ let correct=0,wrong=0,unanswered=0,weak={},review=[];
+ assessmentAttempt.forEach((q,i)=>{const sel=document.querySelector(`input[name="${assessmentType}-${i}"]:checked`);const s=sel?Number(sel.value):null;if(s===null)unanswered++;else if(s===q[2])correct++;else{wrong++;weak[q[4]]=(weak[q[4]]||0)+1;}review.push({q,selected:s,ok:s===q[2]});});
+ const pct=Math.round(correct/assessmentAttempt.length*100);let band=pct>=90?['Outstanding','Mastery maintained']:pct>=80?['Excellent','Strong conceptual control']:pct>=70?['Good','Targeted revision recommended']:pct>=50?['Pass — Needs دہرائی','Review weak areas before retest']:['Fail — Foundation دہرائی Required','Rebuild weak concepts before retest'];
+ let r=document.getElementById(assessmentType==='exam'?'assessmentResult':'readinessResult');if(!r)return;r.className='assessment-result show';
+ const topicStats={};assessmentAttempt.forEach((q,i)=>{if(!topicStats[q[4]])topicStats[q[4]]={total:0,correct:0};topicStats[q[4]].total++;if(review[i].ok)topicStats[q[4]].correct++;});
+ r.innerHTML=`<div class="result-hero"><div class="result-title">${assessmentType==='exam'?'Final امتحان Result':'تیاری Result'}</div><div class="result-score">${correct} / ${assessmentAttempt.length}</div><div class="result-percent">${pct}%</div><div><b>${band[0]}</b> — ${band[1]}</div><p>✅ درست: ${correct} &nbsp; ❌ غلط: ${wrong} &nbsp; ⚪ Unanswered: ${unanswered}</p>${assessmentType==='exam'?`<p><b>Status:</b> ${pct>=50?'PASSED':'NOT PASSED'} &nbsp; · &nbsp; <b>Marks:</b> ${correct*10}/100</p>`:''}</div>
+ <div class="recommendation-title">📊 موضوع Performance</div>${Object.entries(topicStats).map(([t,v])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${v.correct}/${v.total} correct — ${Math.round(v.correct/v.total*100)}%</p></div>`).join('')}
+ <div class="recommendation-title">🎯 Weak Areas &amp; دہرائی Path</div>${Object.keys(weak).length?Object.entries(weak).map(([t,n])=>`<div class="recommendation-card"><b>${esc(t)}</b><p>${n} question(s) need revision۔ متعلقہ subtopic دوبارہ پڑھیں، پھر test repeat کریں۔</p></div>`).join(''):'<div class="recommendation-card"><b>🎉 No weak area detected</b><p>تمام answered questions درست ہیں۔ Mastery برقرار رکھنے کے لیے revision جاری رکھیں۔</p></div>'}
+ <div class="recommendation-title">📝 Detailed Answer Review</div>${review.map((x,i)=>`<div class="answer-review ${x.ok?'':'review-wrong'}"><b>Q${i+1}</b><p>${esc(x.q[0])}</p><p><b>آپ کا جواب:</b> ${x.selected===null?'جواب نہیں دیا':esc(x.q[1][x.selected])}</p><p><b>درست جواب:</b> ${esc(x.q[1][x.q[2]])}</p><p>${esc(x.q[3])}</p></div>`).join('')}`;
+ r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function decorateلغتLinks(root=document){
+ const nodes=[...root.querySelectorAll('.section p,.section li,.topic-head-text p,.subtopic-head-text .lesson-title,.section-card p')];
+ nodes.forEach(node=>{
+   if(node.dataset.decorated)return;
+   // Do not re-process content that has already been converted into لغت links.
+   // Re-processing nested buttons was the source of visible HTML fragments such as meristem">.
+   if(node.querySelector('.linked-word')){node.dataset.decorated='1';return;}
+   const text=node.textContent; if(!text.trim())return;
+   let out=esc(text);
+   const tokens=[];
+   const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+   for(const k of keys){
+     const aliases=[k,dict[k][0]].filter(Boolean).sort((a,b)=>b.length-a.length);
+     for(const alias of aliases){
+       const safe=alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+       out=out.replace(new RegExp('('+safe+')','gi'),m=>{
+         const i=tokens.length;
+         tokens.push(`<button class="linked-word" type="button" data-term="${esc(k)}">${esc(m)}</button>`);
+         return '\uE000'+i+'\uE001';
+       });
+     }
+   }
+   node.innerHTML=out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
+   node.dataset.decorated='1';
+ });
+}
+// CCSV4 TAB CLICK REPAIR — approved activation block + deterministic fallback for rendered topic tabs.
+Object.assign(window,{showPage,openموضوع,openSub,openFunctional,showویژول,returnToPreviousView});
+function ccsv4InvokeClick(el,event){
+  if(!el) return false;
+  try{
+    if(typeof el.onclick==='function'){
+      el.onclick.call(el,event);
+      return true;
+    }
+  }catch(err){
+    console.error('CCSV4 tab click activation failed',err);
+  }
+  return false;
+}
+function ccsv4InvokeTabFallback(el){
+  if(!el)return false;
+  const code=String(el.getAttribute('onclick')||'').trim();
+  let m=code.match(/^openSub\('([^']+)'\)$/);
+  if(m){openSub(m[1]);return true;}
+  m=code.match(/^openموضوع\('([^']+)'\)$/);
+  if(m){openموضوع(m[1]);return true;}
+  m=code.match(/^openFunctional\('([^']+)'\)$/);
+  if(m){openFunctional(m[1]);return true;}
+  m=code.match(/^showPage\('([^']+)'\)$/);
+  if(m){showPage(m[1]);return true;}
+  return false;
+}
+document.addEventListener('click',function(e){
+  const word=e.target.closest?.('.linked-word');
+  if(word){
+    const term=word.getAttribute('data-term')||word.textContent.trim();
+    showDictByTerm(term);
+    e.preventDefault(); e.stopImmediatePropagation();
+    return;
+  }
+  const el=e.target.closest?.('.topic-grid .tab, .topic-feature-row .tab, .lecture-navigation .previous-page-tab');
+  if(el){
+    const handled=ccsv4InvokeClick(el,e) || ccsv4InvokeTabFallback(el);
+    if(handled){ e.preventDefault(); e.stopImmediatePropagation(); }
+  }
+},true);
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter' && e.key!==' ')return;
+  const el=e.target.closest?.('.topic-grid .tab, .topic-feature-row .tab, .lecture-navigation .previous-page-tab');
+  if(el){
+    e.preventDefault();
+    const handled=ccsv4InvokeClick(el,e) || ccsv4InvokeTabFallback(el);
+    if(handled)e.stopImmediatePropagation();
+  }
+},true);
+window.addEventListener('message',e=>{if(e.data&&e.data.type==='IAE_HIT_CEILING_CLOSE'){returnToPreviousView();}});
+function initMainContentContainer(){const host=getMainHost();if(host&&host.innerHTML.trim()==='')showPage('topicsPage');}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initMainContentContainer,{once:true});else initMainContentContainer();
+</script>
+</div>
+</body>
+</html>
