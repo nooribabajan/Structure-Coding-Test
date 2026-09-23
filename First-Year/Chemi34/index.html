@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ur-PK" dir="rtl" dir="rtl" lang="ur">
+<html lang="ur-PK" dir="rtl">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
@@ -18,7 +18,7 @@ body{background:var(--cream);color:var(--ink);font-family:'Noto Naskh Arabic','N
 .top-inner,.screen-header-inner{width:100%;padding:0 clamp(9px,3vw,28px);display:flex;align-items:center;gap:clamp(8px,2vw,18px);direction:ltr}
 .top-brand,.screen-brand{flex:1;min-width:0;text-align:left}
 .top-subtitle{margin-top:1px}
-.top-brand h1,.screen-brand h1{margin:0;color:var(--green2);font:800 clamp(20px,5.5vw,30px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
+.top-brand h1,.screen-brand h1{margin:0;color:#fff;font:800 clamp(20px,5.5vw,30px)/1.2 Arial,sans-serif;overflow-wrap:anywhere}
 .top-brand p,.screen-brand p{margin:4px 0 0;font:10px/1.35 Arial,sans-serif;opacity:.95;position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:max-content;max-width:70%;text-align:center}
 .top-logo,.screen-seal{flex:0 0 clamp(60px,11vw,140px);width:clamp(60px,11vw,140px);height:clamp(48px,8vw,95px);overflow:hidden}
 .top-logo img,.screen-seal img{width:100%;height:100%;object-fit:contain}
@@ -270,6 +270,117 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 .topic-head-text .academic-visual-link,.subtopic-head-text .academic-visual-link{margin-top:8px;}
 .mastery-lesson .academic-visual-link{margin:10px auto 0;}
 .visual-preview-button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer;text-align:inherit}.visual-preview-button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.visual-preview-button img{display:block;width:100%;}.external-visual-note{font-size:12px;color:#64748b;text-align:center;margin:8px auto}.external-visual-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:120px;padding:16px;border:1px dashed var(--line);border-radius:14px;background:#f8fafc;text-align:center}.external-visual-card .visual-link{display:inline-block}.visual-popup-media a{display:inline-block;text-decoration:none}
+
+
+/* CCSV4 CROSS-PLATFORM RESPONSIVE NORMALIZATION
+   Target: Android WebView/Acode + Chrome + iPhone/Safari + tablet + desktop.
+   This layer preserves the existing CCSV4 architecture and only normalizes
+   viewport, sizing, overflow, text scaling and embedded-view behavior. */
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;
+}
+body{
+  min-width:0;
+  max-width:100%;
+  -webkit-font-smoothing:antialiased;
+  -webkit-overflow-scrolling:touch;
+}
+img,svg,video,canvas,iframe{
+  max-width:100%;
+}
+button,input,select,textarea{
+  max-width:100%;
+  -webkit-appearance:none;
+}
+button,.tab,.main-topic-large,.previous-page-tab,.visual-link,.choice,.assessment-option{
+  touch-action:manipulation;
+}
+
+/* Stable mobile viewport units: svh is the safe baseline, dvh follows the
+   live browser chrome where supported, and vh remains the legacy fallback. */
+.wrap{height:100vh;height:100svh;height:100dvh;}
+.page{height:100vh;height:100svh;height:100dvh;}
+.dialog{height:100vh;height:100svh;height:100dvh;}
+.main-content-container{
+  height:calc(100vh - 6px);
+  height:calc(100svh - 6px);
+  height:calc(100dvh - 6px);
+  max-height:calc(100vh - 6px);
+  max-height:calc(100svh - 6px);
+  max-height:calc(100dvh - 6px);
+}
+
+/* Prevent flex/grid children from forcing a narrow WebView to overflow. */
+.top-inner,.screen-header-inner,.topic-grid,.column,.main-content-container,
+.content-view,.content-view > *,#content,.dialog{
+  min-width:0;
+}
+
+/* iPhone safe areas. */
+@supports(padding:max(0px)){
+  .page{padding-bottom:max(0px,env(safe-area-inset-bottom));}
+  .main-content-container{margin-left:max(3px,env(safe-area-inset-left));margin-right:max(3px,env(safe-area-inset-right));}
+}
+
+/* Responsive topic grid: keep the established two-column CCSV4 map, but let
+   narrow screens shrink safely instead of enlarging or clipping the cards. */
+@media(max-width:760px){
+  .topic-grid{width:100%;max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .column>.main-topic-large,.column>.tab,.column>.previous-page-tab,
+  .lecture-navigation .previous-page-tab{
+    width:100%;max-width:100%;
+  }
+  .main-topic-large,.tab,.previous-page-tab{overflow:hidden;}
+  .label{overflow-wrap:anywhere;word-break:normal;}
+  .num{max-width:100%;}
+  .dialog{width:100%;max-width:100%;}
+  .main-content-container .content-view{width:100%;max-width:100%;}
+}
+
+/* Very narrow phones: reduce only presentation scale, never the topic map. */
+@media(max-width:420px){
+  .top-inner,.screen-header-inner{padding-inline:7px;}
+  .top-logo,.screen-seal{flex-basis:54px;width:54px;height:46px;}
+  .top-brand h1,.screen-brand h1{font-size:clamp(15px,4.8vw,19px);}
+  .top-brand p,.screen-brand p{max-width:62%;font-size:7.5px;}
+  .section,.visual-card,.question-card,.assessment-head,.exam-rules,
+  .recommendation-card,.answer-review,.revision-item,.search-result{padding:11px;}
+  table{font-size:12px;}
+  th,td{padding:6px;}
+}
+
+/* Embedded Hit The Ceiling view: use the available container rather than a
+   desktop-sized intrinsic iframe height. */
+#mainContentContainer .hit-ceiling-frame{
+  width:100%;
+  max-width:100%;
+  height:100% !important;
+  min-height:0;
+  box-sizing:border-box;
+}
+@media(max-width:760px){
+  #mainContentContainer .hit-ceiling-view,
+  #mainContentContainer .hit-ceiling-shell,
+  #mainContentContainer .hit-ceiling-frame{
+    width:100%;
+    max-width:100%;
+  }
+}
+
+/* WebKit/WebView containment: descendants must not create horizontal page
+   expansion when a long label, table or SVG is present. */
+.page,.main-content-container,.content-view,#content,.dialog{
+  overflow-x:hidden;
+}
+.section,.visual-card,.question-card,.assessment-head,.exam-rules,
+.recommendation-card,.answer-review,.revision-item,.search-result,
+.topic-head,.subtopic-head,.content-navigation{
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+
 </style>
 
 <style>
@@ -283,7 +394,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 <body>
 <div class="wrap">
 <section class="page active" id="homePage">
-<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><!-- CCSV4 LOGO REPAIR: use the approved First-Year logo path; do not reference a missing Chemi21-local asset. --><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header>
+<header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header>
 <div class="main-content-container" id="mainContentContainer">
 <div class="content-view" id="homeContentView">
 <div class="view-header"><div class="subject-label chemistry-label">Chemistry · First Year</div></div>
@@ -445,7 +556,7 @@ function linkلغتTerms(text){
  }
  return out.replace(/\uE000(\d+)\uE001/g,(_,i)=>tokens[Number(i)]);
 }
-function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><!-- CCSV4 LOGO REPAIR: use the approved First-Year logo path; do not reference a missing Chemi21-local asset. --><img src="../IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="subject-label">Chemistry</div>`}
+function header(){return `<header class="screen-header"><div class="screen-header-inner"><div class="screen-brand"><h1>Imperial Academy of Education</h1><div class="screen-subtitle">Interactive Academic Learning System</div></div><div class="screen-seal"><img src="../IAE-Logo-Transparent.png" alt="Imperial Academy of Education logo"></div></div></header><div class="subject-label">Chemistry</div>`}
 function getMainHost(){const active=document.querySelector('.page.active .main-content-container');return active||document.getElementById('mainContentContainer');}
 const homeMarkup=getMainHost()?.innerHTML||'';
 let lectureViewStack=[];
@@ -542,7 +653,7 @@ function showPage(pageId){
   if(active) active.scrollTop=0;
 }
 
-const topicsMarkup=`<div class="topic-feature-row"><div class="tab functional feature-visual" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional feature-master" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">L&nbsp;&nbsp;M</div><div class="label">Lecture Mastery</div></div></div><div class="topic-grid"><section class="column"><div class="main-topic-large tab t1 topic-intro" role="button" tabindex="0" onclick="openموضوع('t1')"><div class="label">IAE1102110500 — Standard State &amp; Enthalpy</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34001')"><div class="num">01</div><div class="label">Standard State</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34002')"><div class="num">02</div><div class="label">Enthalpy</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34003')"><div class="num">03</div><div class="label">Enthalpy Change</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34004')"><div class="num">04</div><div class="label">Standard Enthalpy Cycles</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34005')"><div class="num">05</div><div class="label">Standard-State Interpretation</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34006')"><div class="num">06</div><div class="label">Enthalpy as a State Function</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34007')"><div class="num">07</div><div class="label">Enthalpy–Temperature Relationships</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">Search</div></div></section><section class="column"><div class="main-topic-large tab t2 topic-intro" role="button" tabindex="0" onclick="openموضوع('t2')"><div class="label">IAE1102110600 — Heat Capacity</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34008')"><div class="num">08</div><div class="label">Thermochemical Data Interpretation</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34009')"><div class="num">09</div><div class="label">Heat Capacity</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34010')"><div class="num">10</div><div class="label">Specific Heat Capacity</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34011')"><div class="num">11</div><div class="label">Advanced Calorimetric Treatment</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34012')"><div class="num">12</div><div class="label">Heat Capacity and Energy Transfer</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34013')"><div class="num">13</div><div class="label">Specific Heat Calculations</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34014')"><div class="num">14</div><div class="label">Quantitative Heat-Capacity Analysis</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">Hit The Ceiling</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Back</span></button></div>`;;function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">Back</button></div>`}
+const topicsMarkup=`<div class="subject-label chemistry-label">Chemistry</div><h1 class="section-heading">First Year Chemistry — Lecture 34 · IAE1102110500 + IAE1102110600</h1><div class="topic-feature-row"><div class="tab functional feature-visual" role="button" tabindex="0" onclick="openFunctional('visual')"><div class="num">V</div><div class="label">Visual Atlas</div></div><div class="tab functional feature-master" role="button" tabindex="0" onclick="openFunctional('mastery')"><div class="num">L&nbsp;&nbsp;M</div><div class="label">Lecture Mastery</div></div></div><div class="topic-grid"><section class="column"><div class="main-topic-large tab t1 topic-intro" role="button" tabindex="0" onclick="openموضوع('t1')"><div class="label">IAE1102110500 — Standard State &amp; Enthalpy</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34001')"><div class="num">01</div><div class="label">Standard State</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34002')"><div class="num">02</div><div class="label">Enthalpy</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34003')"><div class="num">03</div><div class="label">Enthalpy Change</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34004')"><div class="num">04</div><div class="label">Standard Enthalpy Cycles</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34005')"><div class="num">05</div><div class="label">Standard-State Interpretation</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34006')"><div class="num">06</div><div class="label">Enthalpy as a State Function</div></div><div class="tab t1" role="button" tabindex="0" onclick="openSub('s34007')"><div class="num">07</div><div class="label">Enthalpy–Temperature Relationships</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('dictionary')"><div class="num">D</div><div class="label">Dictionary</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practice')"><div class="num">T</div><div class="label">Practice &amp; Test Strategies</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('readiness')"><div class="num">R</div><div class="label">Readiness Test</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('search')"><div class="num">S</div><div class="label">Search</div></div></section><section class="column"><div class="main-topic-large tab t2 topic-intro" role="button" tabindex="0" onclick="openموضوع('t2')"><div class="label">IAE1102110600 — Heat Capacity</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34008')"><div class="num">08</div><div class="label">Thermochemical Data Interpretation</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34009')"><div class="num">09</div><div class="label">Heat Capacity</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34010')"><div class="num">10</div><div class="label">Specific Heat Capacity</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34011')"><div class="num">11</div><div class="label">Advanced Calorimetric Treatment</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34012')"><div class="num">12</div><div class="label">Heat Capacity and Energy Transfer</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34013')"><div class="num">13</div><div class="label">Specific Heat Calculations</div></div><div class="tab t2" role="button" tabindex="0" onclick="openSub('s34014')"><div class="num">14</div><div class="label">Quantitative Heat-Capacity Analysis</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('revision')"><div class="num">↻</div><div class="label">Revision</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('practical')"><div class="num">P</div><div class="label">Practical Work</div></div><div class="tab functional" role="button" tabindex="0" onclick="openFunctional('exam')"><div class="num">E</div><div class="label">Examination</div></div><div class="tab functional" role="button" tabindex="0" onclick="showPage('hitCeilingPage')"><div class="num">🏆</div><div class="label">Hit The Ceiling</div></div></section></div><div class="lecture-navigation"><button type="button" class="previous-page-tab" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Back</span></button></div>`;;function navButtons(){return `<div class="content-navigation"><button class="back-page-tab" type="button" onclick="returnToPreviousView()">Back</button></div>`}
 document.addEventListener('keydown',e=>{const el=e.target;if((e.key==='Enter'||e.key===' ')&&el&&el.getAttribute&&el.getAttribute('role')==='button'&&el.classList.contains('tab')){e.preventDefault();el.click();}});
 function openموضوع(k){
  const d=topics[k];
@@ -1008,7 +1119,7 @@ function decorateلغتLinks(root=document){
    node.dataset.decorated='1';
  });
 }
-// CCSV4 TAB CLICK REPAIR — native inline-handler activation.
+// CCSV4 TAB CLICK ACTIVATION — native inline-handler activation.
 Object.assign(window,{showPage,openموضوع,openSub,openFunctional,showویژول,returnToPreviousView});
 function ccsv4InvokeClick(el,event){
   if(!el) return false;
