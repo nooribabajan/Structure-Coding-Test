@@ -269,7 +269,7 @@ table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid
 .academic-visual-link{display:block;width:max-content;max-width:100%;margin:8px auto 0;font-size:12px!important;}
 .topic-head-text .academic-visual-link,.subtopic-head-text .academic-visual-link{margin-top:8px;}
 .mastery-lesson .academic-visual-link{margin:10px auto 0;}
-.visual-preview-button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer;text-align:inherit}.visual-preview-button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.visual-preview-button img{display:block;width:100%;}.external-visual-note{font-size:12px;color:#64748b;text-align:center;margin:8px auto}.external-visual-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:120px;padding:16px;border:1px dashed var(--line);border-radius:14px;background:#f8fafc;text-align:center}.external-visual-card .visual-link{display:inline-block}.visual-popup-media a{display:inline-block;text-decoration:none}
+.visual-preview-button{display:block;width:100%;padding:0;border:0;background:transparent;text-align:inherit;cursor:default}.visual-preview-button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.visual-preview-button img{display:block;width:100%;}.external-visual-note{font-size:12px;color:#64748b;text-align:center;margin:8px auto}.external-visual-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:120px;padding:16px;border:1px dashed var(--line);border-radius:14px;background:#f8fafc;text-align:center}.external-visual-card .visual-link{display:inline-block}.visual-popup-media a{display:inline-block;text-decoration:none}
 
 
 /* CCSV4 CROSS-PLATFORM RESPONSIVE NORMALIZATION
@@ -384,11 +384,121 @@ button,.tab,.main-topic-large,.previous-page-tab,.visual-link,.choice,.assessmen
 </style>
 
 <style>
-.visual-preview-button,.mastery-open-visual{display:block;width:100%;border:1px solid #cbd5e1;background:#fff;border-radius:16px;padding:10px;cursor:pointer;text-align:center;box-sizing:border-box;color:inherit;}
+.visual-preview-button,.mastery-open-visual{display:block;width:100%;border:1px solid #cbd5e1;background:#fff;border-radius:16px;padding:10px;cursor:default;text-align:center;box-sizing:border-box;color:inherit;}
 .visual-preview-button:hover,.mastery-open-visual:hover{box-shadow:0 4px 18px rgba(0,0,0,.12);}
 .visual-preview-svg svg,.mastery-inline-visual svg{display:block;width:100%;height:auto;max-height:430px;}
 .visual-preview-label,.mastery-open-visual>span{display:block;margin-top:8px;font-weight:700;color:var(--green,#166534);}
 .mastery-inline-visual{width:100%;overflow:hidden;border-radius:12px;}
+</style>
+<style>
+/* L36 Topic 1/2 visual geometry: keep the topic visuals visible and compact, using the same bounded footprint as the Atlas preview. */
+.topic-head > .visual-preview-button{
+  display:block;
+  width:280px;
+  max-width:100%;
+  flex:0 1 280px;
+  min-width:0;
+  margin:0;
+  box-sizing:border-box;
+}
+.topic-head > .visual-preview-button .visual-preview-svg{
+  display:block;
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+}
+.topic-head > .visual-preview-button .visual-preview-svg svg{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  max-height:160px;
+}
+@media(max-width:760px){
+  .topic-head > .visual-preview-button{
+    width:220px;
+    flex-basis:220px;
+  }
+  .topic-head > .visual-preview-button .visual-preview-svg svg{max-height:125px;}
+}
+</style>
+<style>
+/* Topic 1: mirror the Subtopic-1 visual presentation, but use the requested
+   mobile geometry: visual occupies roughly the upper third of the view;
+   topic name + introduction occupy the remaining area. */
+.topic-main-view{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0;
+  text-align:center;
+}
+.topic-main-view .topic-main-visual{
+  width:68%;
+  height:30vh;
+  min-height:180px;
+  max-height:320px;
+  margin:0 auto 8px;
+  padding:0;
+  border:0;
+  background:transparent;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  overflow:hidden;
+  cursor:pointer;
+}
+.topic-main-view .topic-main-visual .visual-preview-svg{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+.topic-main-view .topic-main-visual .visual-preview-svg svg{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+}
+.topic-main-view .topic-main-title{
+  margin:4px 0 10px;
+  font-size:16px;
+  line-height:1.35;
+  font-weight:700;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+.topic-main-view .topic-main-definition{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  border-radius:14px;
+  background:#f8fafc;
+  text-align:right;
+  direction:rtl;
+}
+.topic-main-view .topic-main-definition .level-heading{margin-bottom:4px}
+.topic-main-view .topic-main-definition p{margin:0;font-size:14px;line-height:1.9}
+@media(max-width:760px){
+  .topic-main-view .topic-main-visual{
+    width:68%;
+    height:30vh;
+    min-height:150px;
+    max-height:260px;
+    margin-bottom:6px;
+  }
+  .topic-main-view .topic-main-title{font-size:16px;margin:3px 0 8px}
+  .topic-main-view .topic-main-definition{padding:9px 12px}
+}
+@media(max-width:420px){
+  .topic-main-view .topic-main-visual{
+    width:68%;
+    height:30vh;
+    min-height:135px;
+    max-height:220px;
+  }
+  .topic-main-view .topic-main-definition{padding:8px 10px}
+}
 </style>
 </head>
 <body>
@@ -531,7 +641,7 @@ const visualItems=[["V1","Born–Haber Cycle system","Heat transfer measured thr
 function visualماخذ(id){const key=String(id||'');const item=visualItems.find(v=>v[0]===key);if(!item)return null;return {src:'',title:item[1],description:item[2],source:FREE_VISUALS[key]||'OpenStax Chemistry 2e'};}
 function visualSvg(id){const k=String(id||''); const common='font-family:Arial,sans-serif'; const base='<svg viewBox="0 0 900 500" role="img"><rect x="20" y="20" width="860" height="460" rx="24" fill="#fff" stroke="#1f2937" stroke-width="3"/>'; if(k==='V1') return base+'<text x="450" y="145" text-anchor="middle" font-size="30" font-weight="700" style="'+common+'">Born–Haber Cycle System</text><rect x="260" y="205" width="380" height="155" rx="22" fill="#eef7f0" stroke="#166534" stroke-width="5"/><text x="450" y="275" text-anchor="middle" font-size="26" style="'+common+'">q = CΔT</text><text x="450" y="325" text-anchor="middle" font-size="22" style="'+common+'">Measured heat transfer</text></svg>'; if(k==='V2') return base+'<text x="450" y="145" text-anchor="middle" font-size="30" font-weight="700" style="'+common+'">Experimental Heat Change</text><circle cx="280" cy="270" r="48" fill="#2563eb"/><circle cx="620" cy="270" r="48" fill="#2563eb"/><path d="M335 270 H565" stroke="#374151" stroke-width="5" marker-end="url(#arrow)"/><text x="450" y="390" text-anchor="middle" font-size="24" style="'+common+'">Temperature data → heat change</text></svg>'; if(k==='V3') return base+'<text x="450" y="145" text-anchor="middle" font-size="30" font-weight="700" style="'+common+'">Error &amp; Uncertainty</text><line x1="170" y1="300" x2="730" y2="300" stroke="#2563eb" stroke-width="6"/><circle cx="360" cy="300" r="18" fill="#2563eb"/><circle cx="450" cy="300" r="18" fill="#2563eb"/><circle cx="540" cy="300" r="18" fill="#2563eb"/><text x="450" y="390" text-anchor="middle" font-size="23" style="'+common+'">Measured value ± uncertainty</text></svg>'; if(k==='V4') return base+'<text x="450" y="140" text-anchor="middle" font-size="30" font-weight="700" style="'+common+'">Advanced Lattice-Energy Analysis Cycle</text><circle cx="250" cy="290" r="45" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/><circle cx="650" cy="290" r="45" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/><path d="M295 260 C400 150 500 150 605 260" fill="none" stroke="#374151" stroke-width="5"/><path d="M295 320 C400 430 500 430 605 320" fill="none" stroke="#b91c1c" stroke-width="5"/><text x="450" y="390" text-anchor="middle" font-size="23" style="'+common+'">Different paths, same overall ΔH</text></svg>'; return base+'<text x="450" y="145" text-anchor="middle" font-size="30" font-weight="700" style="'+common+'">Thermochemical Cycle Interpretation</text><rect x="180" y="205" width="540" height="60" rx="14" fill="#dbeafe"/><rect x="180" y="300" width="540" height="60" rx="14" fill="#eef7f0"/><text x="450" y="243" text-anchor="middle" font-size="23" style="'+common+'">Known reactions + ΔH data</text><text x="450" y="338" text-anchor="middle" font-size="23" style="'+common+'">Target reaction + required ΔH</text></svg>'; }
 function visualLinkFor(id){const key=String(id||'');return `<button type="button" class="visual-link academic-visual-link" onclick="showویژول('${key}')">🖼 ویژول کھولیں</button>`;}
-function img(id){const key=String(id||'');const v=visualماخذ(key)||{};return `<button type="button" class="visual-preview-button" onclick="showویژول('${esc(key)}')" aria-label="ویژول پاپ اپ میں کھولیں" title="ویژول پاپ اپ میں کھولیں"><span class="visual-preview-svg">${visualSvg(key)}</span></button>`;}
+function img(id){const key=String(id||'');return `<div class="visual-preview-button" aria-label="ویژول"><span class="visual-preview-svg">${visualSvg(key)}</span></div>`;}
 
 
 const topics={"t1":{"title":"IAE1102110900 — Born–Haber Cycle","id":"IAE1102110900","visual":"V1","intro":"Born–Haber Cycle connects measured temperature change with heat transfer and experimental determination of heat change.","basic":"Born–Haber Cycle، heat change اور experimental measurement کو ایک connected thermochemical framework میں سمجھیں۔","standard":"Interpret calorimetric measurements، design reliable experiments، and evaluate heat-loss and uncertainty effects.","mastery":"calorimetry → heat change → experimental design → correction → uncertainty → enthalpy comparison."},"t2":{"title":"IAE1102110900 — Born–Haber Cycle","id":"IAE1102110900","visual":"V4","intro":"Advanced Lattice-Energy Analysis uses the state-function nature of enthalpy to combine known thermochemical changes and determine unknown enthalpy values.","basic":"Advanced Lattice-Energy Analysis، enthalpy calculations اور thermochemical cycles کو reaction-path relationships کے ذریعے سمجھیں۔","standard":"Construct Hess cycles، combine thermochemical data، and determine enthalpy changes indirectly and quantitatively.","mastery":"Advanced Lattice-Energy Analysis → enthalpy calculation → cycle construction → indirect determination → data combination → advanced problem solving."}};
@@ -672,12 +782,22 @@ document.addEventListener('keydown',e=>{const el=e.target;if((e.key==='Enter'||e
 function openموضوع(k){
  const d=topics[k];
  const ids=Object.entries(subs).filter(([id,s])=>s.topic===k).map(([id])=>id);
- const mainLecture = `<div class="section main-lecture"><div class="level-heading basic-h">Basic</div><p>${linkلغتTerms(d.basic)}</p></div><div class="section main-lecture"><div class="level-heading standard-h">Standard</div><p>${linkلغتTerms(d.standard)}</p></div><div class="section main-lecture"><div class="level-heading mastery-h">Mastery</div><p>${linkلغتTerms(d.mastery)}</p></div><div class="section topic-introduction"><span class="level-heading standard-h">IAE موضوع Definition</span><p>${linkلغتTerms(d.intro)}</p></div>`;
- show(`<div class="topic-head">${img(d.visual)}<div class="topic-head-text"><div class="lesson-title">${esc(d.title)}</div></div></div>
- ${mainLecture}
- <div class="section"><span class="level-heading standard-h">Related ذیلی موضوعs</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
-`);
+ show(`<div class="topic-main-view">
+   <div class="topic-main-visual" aria-label="ویژول">
+     <span class="visual-preview-svg">${visualSvg(d.visual)}</span>
+   </div>
+   <div class="topic-main-title">${linkلغتTerms(d.title)}</div>
+   <div class="topic-main-definition">
+     <span class="level-heading standard-h">Topic Introduction</span>
+     <p>${linkلغتTerms(d.intro)}</p>
+   </div>
+   <div class="section basic"><span class="level-heading basic-h">Basic</span><p>${linkلغتTerms(d.basic)}</p></div>
+   <div class="section standard"><span class="level-heading standard-h">Standard</span><p>${linkلغتTerms(d.standard)}</p></div>
+   <div class="section mastery"><span class="level-heading mastery-h">Mastery</span><p>${linkلغتTerms(d.mastery)}</p></div>
+   <div class="section"><span class="level-heading standard-h">Related ذیلی موضوعs</span>${ids.map((id,i)=>`<button class="visual-link" onclick="openSub('${id}')">${i+1}. ${esc(subs[id].title)}</button>`).join('')}</div>
+ </div>`);
 }
+
 function returnToPreviousView(){
   closeلغتPopup(false);
   const host=getMainHost();
@@ -715,7 +835,7 @@ function showویژول(id){
    <div class="visual-popup-media" style="width:100%;height:100%;padding:42px 8px 8px;text-align:center;box-sizing:border-box">
      <div class="lesson-title">${esc(v[1])}</div>
      <p>${esc(v[2])}</p>
-     <div class="popup-visual-frame">${visualSvg(id)}</div><div class="popup-visual-source">نوٹ: یہ تعلیمی ویژول ${esc(v.source||'OpenStax Chemistry 2e')} سے لیا گیا/ماخوذ ہے۔ اس پاپ اپ کے اندر کوئی بیرونی لنک موجود نہیں ہے۔</div>
+     <div class="popup-visual-frame">${visualSvg(id)}</div>
    </div>
  </div>`;
  host.appendChild(overlay);
@@ -735,7 +855,7 @@ function openGuidedمشق(){
   const recallHtml=recall.map((q,i)=>`<div class="question-card practice-q"><b>Q${i+1}. ${esc(q[0])}</b><div class="section"><p><b>پہلے خود جواب دیں:</b> options دیکھے بغیر جواب سوچیں۔</p><button class="visual-link" onclick="practiceReveal('pr-a-${i}')">جواب اور وضاحت دیکھیں</button><div id="pr-a-${i}" class="answer-review" hidden><p><b>درست جواب:</b> ${esc(q[1][q[2]])}</p><p>${esc(q[3]||'')}</p></div></div></div>`).join('');
   const compares=[['Formation Enthalpy Relationships','Compare values only when the experimental and theoretical quantities refer to equivalent conditions, units and reaction definitions.'],['Ionic Solid Stability','Identify energy exchanged with the surroundings and account for it when the calorimetric model requires a correction.'],['Error vs Uncertainty','Separate a systematic or procedural error from the uncertainty associated with measured quantities.'],['Sublimation and Atomisation Contributions','Match the target reaction by reversing, scaling and adding supporting reactions while tracking every ΔH change.']];
   const compareHtml=compares.map((c,i)=>`<div class="question-card"><b>${esc(c[0])}</b><p>${esc(c[1])}</p><button class="visual-link" onclick="practiceReveal('pr-cmp-${i}')">Academy check points دیکھیں</button><div id="pr-cmp-${i}" class="answer-review" hidden><p><b>Check:</b> definition → molecular model → energy/property consequence → application.</p></div></div>`).join('');
-  const visualHtml=visualItems.map(v=>`<button type="button" class="visual-card" onclick="showویژول('${esc(v[0])}')"><b>${esc(v[1])}</b></button>`).join('');
+  const visualHtml=visualItems.map(v=>`<div class="visual-card"><b>${esc(v[1])}</b></div>`).join('');
   show(`<div class="lesson-title">Practice &amp; Test Strategies</div><div class="section basic"><span class="level-heading basic-h">1. Guided Recall</span><p>ہر سوال کا جواب پہلے خود دیں، پھر explanation دیکھ کر اپنی reasoning درست کریں۔</p></div>${recallHtml}<div class="section standard"><span class="level-heading standard-h">2. Compare &amp; Contrast</span><p>Born–Haber Cycle، heat change، uncertainty، heat-loss correction، enthalpy comparison اور Advanced Lattice-Energy Analysis کو definitions، equations، signs، stoichiometry اور units کے ذریعے compare کریں۔</p></div>${compareHtml}<div class="section standard"><span class="level-heading standard-h">3. ویژول Recall</span><p>ہر ویژول کو دیکھ کر calorimetric system، heat-change measurement، uncertainty، heat-loss correction، Hess cycle یا thermochemical data combination اپنے الفاظ میں explain کریں۔</p></div>${visualHtml}<div class="section mastery"><span class="level-heading mastery-h">4. Final Guided Round</span><p>Lecture 36 کے تمام 14 subtopics بغیر notes کے explain کریں۔ جہاں جواب کمزور ہو متعلقہ ذیلی موضوع دوبارہ پڑھیں اور پھر readiness test دیں۔</p></div>`);
 }
 let masteryTTSModule=null;
@@ -1049,7 +1169,7 @@ function openFunctional(k){
   if(k==='mastery'){
   const lessons=Object.values(subs).map(x=>({id:x.id,title:x.title,visual:x.visual,def:x.basic,explain:x.standard,mastery:x.mastery,connect:x.extra}));
   const mainویژول=visualماخذ('V1')||{};
-  const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Urdu Mastery Sound"><button type="button" onclick="speakMastery()">🔊 اردو میں سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Mastery Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Born–Haber Cycle, Enthalpy &amp; Advanced Lattice-Energy Analysis</h2><p class="mastery-step"><b>بنیادی تصور:</b> Lecture 36 میں calorimetry، experimental heat change، uncertainty، heat-loss correction، enthalpy comparison اور Advanced Lattice-Energy Analysis کو ایک connected thermochemical framework کے طور پر سمجھا جاتا ہے۔</p><p class="mastery-step"><b>Mastery chain:</b> <b>calorimetry → heat change → uncertainty → correction → enthalpy comparison → Advanced Lattice-Energy Analysis → thermochemical data combination</b>۔</p></div><figure class="mastery-visual"><button type="button" class="mastery-open-visual" onclick="showویژول('V1')" aria-label="Mastery visual popup"><div class="mastery-inline-visual">${visualSvg('V1')}</div></button></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">پہلے calorimetric system اور measured heat change identify کریں، پھر experimental design، uncertainty اور heat-loss effects کو connect کریں۔</p><p class="mastery-step">اس کے بعد Advanced Lattice-Energy Analysis، enthalpy calculations، cycle construction، indirect determination اور thermochemical data combination کو stoichiometry، signs اور units کے ساتھ relate کریں۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Born–Haber Cycle → Lattice-Energy Relationship → Enthalpy-Cycle Construction → Born–Haber Quantitative Analysis → Ionic Solid Stability → Formation Enthalpy Relationships → Lattice-Energy Comparison → Advanced Lattice-Energy Analysis → Ionic-Lattice Formation Energetics → Lattice Energy from Experimental Data → Sublimation and Atomisation Contributions → Ionisation and Electron-Affinity Contributions → Thermochemical Cycle Interpretation → Advanced Born–Haber Problem Solving</p></div>${lessons.map((x,i)=>{const v=visualماخذ(x.visual)||{};return `<div class="section mastery-lesson" data-mastery-subtopic="${esc(x.id)}"><span class="level-heading standard-h">${String(i+1).padStart(2,'0')}. ${esc(x.title)}</span><figure class="mastery-visual"><button type="button" class="mastery-open-visual" onclick="showویژول('${esc(x.visual)}')" aria-label="${esc(x.title)} visual popup"><div class="mastery-inline-visual">${visualSvg(x.visual)}</div></button></figure><p class="mastery-step"><b>Concept:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard:</b> ${esc(x.explain)}</p><p class="mastery-step"><b>Mastery reasoning:</b> ${esc(x.mastery)}</p><p class="mastery-step"><b>Key connection:</b> ${esc(x.connect)}</p></div>`;}).join('')}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete لیکچر ماسٹری</span><p class="mastery-step"><b>Final reasoning:</b> Start with calorimetric measurement and experimental heat change, then connect uncertainty, heat-loss correction, enthalpy comparison, Advanced Lattice-Energy Analysis, cycle construction and thermochemical data combination.</p></div></div></div>`;show(html);return;}
+  const html=`<div class="mastery-reading"><div class="mastery-body"><div class="mastery-sound" aria-label="Urdu Mastery Sound"><button type="button" onclick="speakMastery()">🔊 اردو میں سنیں</button><button type="button" id="masteryPausePlayBtn" onclick="toggleMasteryPausePlay()">⏸ وقفہ</button><button type="button" onclick="stopMastery()">⏹ بند</button></div><div class="section mastery-vision"><span class="level-heading mastery-h">Mastery Vision</span><h2 style="margin:6px 0 10px;text-align:center;color:var(--green);">Born–Haber Cycle, Enthalpy &amp; Advanced Lattice-Energy Analysis</h2><p class="mastery-step"><b>بنیادی تصور:</b> Lecture 36 میں calorimetry، experimental heat change، uncertainty، heat-loss correction، enthalpy comparison اور Advanced Lattice-Energy Analysis کو ایک connected thermochemical framework کے طور پر سمجھا جاتا ہے۔</p><p class="mastery-step"><b>Mastery chain:</b> <b>calorimetry → heat change → uncertainty → correction → enthalpy comparison → Advanced Lattice-Energy Analysis → thermochemical data combination</b>۔</p></div><figure class="mastery-visual"><div class="mastery-inline-visual" aria-label="Mastery visual">${visualSvg('V1')}</div></figure><div class="section mastery-definition"><span class="level-heading mastery-h">Academic Understanding</span><p class="mastery-step">پہلے calorimetric system اور measured heat change identify کریں، پھر experimental design، uncertainty اور heat-loss effects کو connect کریں۔</p><p class="mastery-step">اس کے بعد Advanced Lattice-Energy Analysis، enthalpy calculations، cycle construction، indirect determination اور thermochemical data combination کو stoichiometry، signs اور units کے ساتھ relate کریں۔</p></div><div class="section mastery-connection"><span class="level-heading mastery-h">Lecture Progression</span><p class="mastery-step" style="text-align:center;">Born–Haber Cycle → Lattice-Energy Relationship → Enthalpy-Cycle Construction → Born–Haber Quantitative Analysis → Ionic Solid Stability → Formation Enthalpy Relationships → Lattice-Energy Comparison → Advanced Lattice-Energy Analysis → Ionic-Lattice Formation Energetics → Lattice Energy from Experimental Data → Sublimation and Atomisation Contributions → Ionisation and Electron-Affinity Contributions → Thermochemical Cycle Interpretation → Advanced Born–Haber Problem Solving</p></div>${lessons.map((x,i)=>{const v=visualماخذ(x.visual)||{};return `<div class="section mastery-lesson" data-mastery-subtopic="${esc(x.id)}"><span class="level-heading standard-h">${String(i+1).padStart(2,'0')}. ${esc(x.title)}</span><figure class="mastery-visual"><div class="mastery-inline-visual" aria-label="${esc(x.title)} visual">${visualSvg(x.visual)}</div></figure><p class="mastery-step"><b>Concept:</b> ${esc(x.def)}</p><p class="mastery-step"><b>Standard:</b> ${esc(x.explain)}</p><p class="mastery-step"><b>Mastery reasoning:</b> ${esc(x.mastery)}</p><p class="mastery-step"><b>Key connection:</b> ${esc(x.connect)}</p></div>`;}).join('')}<div class="section mastery-conclusion"><span class="level-heading mastery-h">Complete لیکچر ماسٹری</span><p class="mastery-step"><b>Final reasoning:</b> Start with calorimetric measurement and experimental heat change, then connect uncertainty, heat-loss correction, enthalpy comparison, Advanced Lattice-Energy Analysis, cycle construction and thermochemical data combination.</p></div></div></div>`;show(html);return;}
   if(k==='practical'){show(`<div class="lesson-title">Practical Work</div><div class="section"><b>Academic applicability</b><p>Lecture 36 میں کوئی separate laboratory procedure supplied نہیں ہے۔ Approved practical architecture retained ہے؛ target-specific academic practical payload N/A ہے.</p></div>`);return;}
 }
 
