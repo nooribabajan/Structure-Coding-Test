@@ -85,7 +85,7 @@
             bottom: -90px;
         }
 
-        /* LOGO — transparent IAE PNG, existing header/background preserved */
+        /* LOGO — transparent IAE PNG */
         .logo {
             position: relative;
             z-index: 2;
@@ -106,6 +106,8 @@
             max-height: 118px;
             object-fit: contain;
             background: transparent;
+            border: 0;
+            box-shadow: none;
         }
 
         .academy-name {
@@ -244,16 +246,18 @@
             opacity: .88;
         }
 
-        /* FOUR ORIGINAL LINKS — NOTHING REMOVED */
+        /* FOUR ORIGINAL LINKS */
         .memory {
             background: linear-gradient(135deg, #315f55, #174238);
         }
 
-        .subject {
+        /* UPDATED CSS — MATCHES HTML CLASS */
+        .Biology {
             background: linear-gradient(135deg, #246da6, #154a79);
         }
 
-        .first-year {
+        /* UPDATED CSS — MATCHES HTML CLASS */
+        .Chemistry {
             background: linear-gradient(135deg, #8a5ab5, #5a347f);
         }
 
@@ -389,7 +393,7 @@
 
         <!-- Imperial Academy of Education Logo — transparent PNG -->
         <div class="logo">
-        <img src="../IAE-Logo-Transparent.png" alt="Imperial Academy of Education">
+            <img src="../IAE-Logo-Transparent.png" alt="Imperial Academy of Education">
         </div>
 
         <h1 class="academy-name">Imperial Academy of Education</h1>
@@ -426,7 +430,7 @@
                 <div class="nav-icon">Bio</div>
                 <div class="nav-title">Biology</div>
                 <div class="nav-description">
-                    Biology Lectures 
+                    Biology Lectures
                 </div>
             </a>
 
@@ -434,7 +438,7 @@
                 <div class="nav-icon">Chemi</div>
                 <div class="nav-title">Chemistry</div>
                 <div class="nav-description">
-                    Chemistry Lectures ⚗️ 
+                    Chemistry Lectures ⚗️
                 </div>
             </a>
 
