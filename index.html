@@ -56,7 +56,8 @@
             padding: 38px 20px 32px;
             text-align: center;
             background:
-                linear-gradient(135deg,
+                linear-gradient(
+                    135deg,
                     rgba(18,60,52,.98),
                     rgba(31,102,84,.96)
                 );
@@ -85,7 +86,7 @@
             bottom: -90px;
         }
 
-        /* LOGO — transparent IAE PNG */
+        /* LOGO */
         .logo {
             position: relative;
             z-index: 2;
@@ -246,22 +247,21 @@
             opacity: .88;
         }
 
-        /* FOUR ORIGINAL LINKS */
-        .memory {
+        /* FOUR ACADEMIC DESTINATIONS */
+
+        .English {
             background: linear-gradient(135deg, #315f55, #174238);
         }
 
-        /* UPDATED CSS — MATCHES HTML CLASS */
         .Biology {
             background: linear-gradient(135deg, #246da6, #154a79);
         }
 
-        /* UPDATED CSS — MATCHES HTML CLASS */
         .Chemistry {
             background: linear-gradient(135deg, #8a5ab5, #5a347f);
         }
 
-        .second-year {
+        .Physics {
             background: linear-gradient(135deg, #c35459, #8b2937);
         }
 
@@ -391,12 +391,15 @@
 
     <header>
 
-        <!-- Imperial Academy of Education Logo — transparent PNG -->
+        <!-- Imperial Academy of Education Logo -->
         <div class="logo">
-            <img src="../IAE-Logo-Transparent.png" alt="Imperial Academy of Education">
+            <img src="../IAE-Logo-Transparent.png"
+                 alt="Imperial Academy of Education">
         </div>
 
-        <h1 class="academy-name">Imperial Academy of Education</h1>
+        <h1 class="academy-name">
+            Imperial Academy of Education
+        </h1>
 
         <div class="academy-subtitle">
             Knowledge • Character • Excellence
@@ -412,20 +415,24 @@
 
         <section class="welcome">
             <h2>Welcome to Imperial Academy of Education</h2>
-            <p>Academic knowledge, organized for learning, practice and mastery.</p>
+            <p>
+                Academic knowledge, organized for learning, practice and mastery.
+            </p>
         </section>
 
-        <!-- ORIGINAL FOUR DESTINATIONS — ALL PRESERVED -->
+        <!-- FOUR ACADEMIC DESTINATIONS -->
         <nav class="academy-nav">
 
-            <a href="Memory./" class="nav-card memory">
-                <div class="nav-icon">M</div>
-                <div class="nav-title">Memory</div>
+            <!-- ENGLISH -->
+            <a href="English/" class="nav-card English">
+                <div class="nav-icon">E</div>
+                <div class="nav-title">English</div>
                 <div class="nav-description">
-                    Academy records & development
+                    English Learning & Lectures
                 </div>
             </a>
 
+            <!-- BIOLOGY -->
             <a href="Biology/" class="nav-card Biology">
                 <div class="nav-icon">Bio</div>
                 <div class="nav-title">Biology</div>
@@ -434,19 +441,21 @@
                 </div>
             </a>
 
+            <!-- CHEMISTRY -->
             <a href="Chemistry/" class="nav-card Chemistry">
                 <div class="nav-icon">Chemi</div>
                 <div class="nav-title">Chemistry</div>
                 <div class="nav-description">
-                    Chemistry Lectures
+                    Chemistry Lectures ⚗️
                 </div>
             </a>
 
-            <a href="Second-Year/" class="nav-card second-year">
-                <div class="nav-icon">II</div>
-                <div class="nav-title">Second Year</div>
+            <!-- PHYSICS -->
+            <a href="Physics/" class="nav-card Physics">
+                <div class="nav-icon">Phy</div>
+                <div class="nav-title">Physics</div>
                 <div class="nav-description">
-                    Second Year academic section
+                    Physics Lectures
                 </div>
             </a>
 
@@ -454,16 +463,22 @@
 
         <div class="motto-strip">
             <strong>IMPERIAL ACADEMY OF EDUCATION</strong>
-            <span>Building knowledge. Developing minds. Creating excellence.</span>
+            <span>
+                Building knowledge. Developing minds. Creating excellence.
+            </span>
         </div>
 
     </main>
 
     <footer>
-        <div class="footer-name">IMPERIAL ACADEMY OF EDUCATION</div>
+        <div class="footer-name">
+            IMPERIAL ACADEMY OF EDUCATION
+        </div>
+
         <div class="footer-motto">
             Learn with Purpose • Lead with Knowledge
         </div>
+
         <div class="copyright">
             Academic Portal
         </div>
