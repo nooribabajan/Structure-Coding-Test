@@ -2,12 +2,18 @@
 
 
 <!DOCTYPE html>
-<html lang="ur-PK" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Physics Lecture-Making Container</title>
-<style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic{display:none!important;}#htcInfo{display:none!important;}</style>
+<style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic{display:none!important;}#htcInfo{display:none!important;}
+.academic-language-row,.mastery-language-row{display:flex;justify-content:center;align-items:center;margin:0 0 12px}.academic-language-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.academic-language-switcher button{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--green);padding:8px 14px;font-weight:900;cursor:pointer}.academic-language-switcher button.active{background:var(--green);color:#fff}.dictionary-entry-pashto{direction:rtl;text-align:right}.dictionary-entry strong{font-weight:900;color:var(--green)}
+@media(max-width:760px){.dictionary-entry{grid-template-columns:1fr}.dictionary-entry-pashto{direction:rtl;text-align:right}}
+</style>
+<style>
+.inline-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;}
+</style>
 <style>
 :root{--green:#173e34;--green2:#285b4b;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#64748b;--line:#d7dedb;--red:#b83b3b}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;color:var(--ink);background:var(--cream)}
@@ -77,9 +83,9 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .dictionary-entries{padding:10px}
 .dictionary-letter-section{margin:0 0 12px;border:1px solid #d9e4df;border-radius:12px;overflow:hidden;scroll-margin-top:12px}
 .dictionary-letter-head{padding:10px 14px;background:#f3f8f5;color:var(--green);font-size:20px;font-weight:900;text-align:left;border-bottom:2px solid var(--green)}
-.dictionary-entry{display:grid;grid-template-columns:minmax(150px,1fr) minmax(260px,2fr) minmax(150px,1fr) minmax(150px,1fr);align-items:start;gap:12px;width:100%;padding:10px 12px;border:0;border-top:1px solid #edf1ef;background:#fff;text-align:left;cursor:pointer;direction:ltr}
+.dictionary-entry{display:grid;grid-template-columns:minmax(130px,1fr) minmax(240px,2fr) minmax(190px,1.5fr) minmax(190px,1.5fr);align-items:start;gap:12px;width:100%;padding:10px 12px;border:0;border-top:1px solid #edf1ef;background:#fff;text-align:left;cursor:pointer;direction:ltr}
 .dictionary-entry:hover{background:#fafcfb}
-.dictionary-term{font-weight:900;color:var(--green);text-align:left}.dictionary-entry-explanation{color:#334155;line-height:1.55;text-align:left}.dictionary-entry-urdu{color:#334155;line-height:1.55;text-align:right;direction:rtl}.dictionary-entry-synonyms{color:#64748b;line-height:1.55;text-align:left}
+.dictionary-term{font-weight:900;color:var(--green);text-align:left}.dictionary-entry-explanation{color:#334155;line-height:1.55;text-align:left}.dictionary-entry-urdu{color:#334155;line-height:1.55;text-align:right;direction:rtl}.dictionary-entry-pashto{color:#334155;line-height:1.55;text-align:right;direction:rtl}.dictionary-entry-synonyms{color:#64748b;line-height:1.55;text-align:left}
 .dictionary-entry-meta{font-size:11px;color:#64748b;text-align:right}
 .dictionary-empty{padding:28px 16px;text-align:center;color:#64748b}
 .dictionary-nav{display:flex;justify-content:center;gap:8px;margin:12px 0 4px}
@@ -196,6 +202,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .guided-content[dir="rtl"],.mastery-topic-definition[dir="rtl"],.mastery-subtopic-definition[dir="rtl"],.mastery-subtopic-focus[dir="rtl"],.academic-definition[dir="rtl"],.definition-text[dir="rtl"]{direction:rtl!important;text-align:right!important;unicode-bidi:plaintext}
 .guided-content[dir="ltr"],.mastery-topic-definition[dir="ltr"],.mastery-subtopic-definition[dir="ltr"],.mastery-subtopic-focus[dir="ltr"],.academic-definition[dir="ltr"],.definition-text[dir="ltr"]{direction:ltr!important;text-align:left!important;unicode-bidi:plaintext}
 .inline-ltr{direction:ltr;unicode-bidi:isolate;display:inline;white-space:nowrap}
+.academic-ltr-run{direction:ltr;unicode-bidi:isolate;display:inline;white-space:nowrap}
 </style>
 <style>
 #homePage .guided-label.sr-only{display:none!important}
@@ -342,7 +349,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 </style>
 
 <style id="global-font-18-system">
-/* Fresh rebuild: 18px system. Only DCS/Dictionary and Hit The Ceiling are excluded. Navigation tabs remain frozen. */
+
 #homeContentView p, #homeContentView span, #homeContentView div, #homeContentView a,
 #topicContentView p, #topicContentView span, #topicContentView div, #topicContentView a,
 #functionalContentView > :not(:has(.dictionary-book)) p,
@@ -355,9 +362,89 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .tab .num { font-size:54px !important; }
 </style>
 <style id="tab-symbol-font-final">
-/* Targeted tab symbol sizing: LM, VA, 1–9, D/E/R/T, etc. */
+
 .tab .num { font-size:54px !important; line-height:1 !important; padding-top:20px !important; padding-bottom:20px !important; }
 </style>
+
+<style id="multilingual-language-tabs-equal-width">
+
+.academic-language-switcher{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:nowrap;}
+.academic-language-switcher > button{
+  flex:0 0 96px !important;
+  width:96px !important;
+  min-width:96px !important;
+  max-width:96px !important;
+  height:40px !important;
+  min-height:40px !important;
+  max-height:40px !important;
+  box-sizing:border-box !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+}
+</style>
+
+<style id="global-font-system-final">
+
+#homeContentView *, #topicContentView *, #functionalContentView *, #hitCeilingPage .htc-shell * {
+  font-size:18px !important;
+}
+
+/* Main headings */
+#homeContentView h1, #homeContentView h2,
+#topicContentView h1, #topicContentView h2,
+#functionalContentView h1, #functionalContentView h2,
+#hitCeilingPage .htc-shell h1, #hitCeilingPage .htc-shell h2,
+#homeContentView .guided-label,
+#topicContentView .guided-label,
+#functionalContentView .page-main-heading,
+#functionalContentView .mastery-topic-title,
+#functionalContentView .revision-title,
+#functionalContentView .exam-title,
+#functionalContentView .practice-title,
+#functionalContentView .readiness-title,
+#functionalContentView .practical-title,
+#functionalContentView .search-title {
+  font-size:22px !important;
+  line-height:1.45 !important;
+}
+
+/* Subheadings */
+#homeContentView h3, #homeContentView h4,
+#topicContentView h3, #topicContentView h4,
+#functionalContentView h3, #functionalContentView h4,
+#hitCeilingPage .htc-shell h3, #hitCeilingPage .htc-shell h4,
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-topic-head,
+#functionalContentView .mastery-subtopics-head,
+#functionalContentView .revision-card-title,
+#functionalContentView .exam-section-head,
+#functionalContentView .exam-qtype,
+#functionalContentView .practice-subtopic-title,
+#functionalContentView .readiness-head,
+#functionalContentView .readiness-source,
+#functionalContentView .practical-card-head,
+#functionalContentView .dictionary-letter-head,
+#functionalContentView .search-result-head {
+  font-size:20px !important;
+  line-height:1.5 !important;
+}
+
+/* Small metadata/control text stays readable but is not part of the academic reading scale. */
+#homeContentView .guided-forward button,
+#topicContentView button,
+#functionalContentView button,
+#functionalContentView input,
+#functionalContentView select,
+#functionalContentView textarea {
+  font-size:initial !important;
+}
+</style>
+
 </head>
 <body>
 <div class="wrap">
@@ -386,7 +473,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 <section class="page" id="functionalPage"><header class="top"><div class="top-inner"><div class="top-brand"><h1>Imperial Academy of Education</h1><div class="top-subtitle">Interactive Academic Learning System</div></div><div class="top-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"></div></div></header><div class="main-content-container"><div class="content-view" id="functionalContentView"></div></div></section>
 
 <section class="page" id="hitCeilingPage">
-<div class="htc-shell"><div class="htc-head"><h1>Hit The Ceiling</h1></div><div class="htc-levels" id="htcLevels"></div><div class="htc-play"><div class="htc-tower"><div class="htc-dome"></div><div class="htc-torch"><div class="htc-flame" id="htcFlame"></div></div><div class="htc-body" id="htcBody"></div><div class="htc-base"></div></div><div class="htc-info" id="htcInfo">Level 01</div><div class="htc-card" id="htcCard">Academic questions will be placed here.</div><div class="htc-actions"><button class="htc-btn" type="button" onclick="resetHitCeiling()">دوبارہ شروع کریں</button><button class="htc-btn" type="button" onclick="showPage('topicsPage')">پچھلا صفحہ</button></div></div></div>
+<div class="htc-shell"><div class="htc-head"><h1>Hit The Ceiling</h1></div><div class="htc-levels" id="htcLevels"></div><div class="htc-play"><div class="htc-tower"><div class="htc-dome"></div><div class="htc-torch"><div class="htc-flame" id="htcFlame"></div></div><div class="htc-body" id="htcBody"></div><div class="htc-base"></div></div><div class="htc-info" id="htcInfo">Level 01</div><div class="htc-card" id="htcCard">Academic questions will be placed here.</div><div class="htc-actions"><button class="htc-btn" type="button" onclick="resetHitCeiling()">Restart</button><button class="htc-btn" type="button" onclick="showPage('topicsPage')">Previous Page</button></div></div></div>
 </section>
 </div>
 <script>
@@ -403,6 +490,8 @@ topicData[5].academic={"title":"1.5 Errors and Uncertainties — پیمائش م
 topicData[6].academic={"title":"1.6 Significant Figures — اہم ہندسے اور راؤنڈنگ آف کے اصول","definition":"Significant figures وہ digits ہیں جو measured quantity کی precision کے بارے میں meaningful information دیتے ہیں۔ Rounding rules کے ذریعے result کو مناسب precision تک محدود کیا جاتا ہے۔","subtopics":[{"title":"Counting Significant Figures","definition":"Non-zero digits significant ہوتے ہیں؛ zeros کی significance ان کی position پر depend کرتی ہے۔"},{"title":"Leading Zeros","definition":"Leading zeros صرف decimal position بتاتے ہیں اور عام طور پر significant figures میں شمار نہیں ہوتے۔"},{"title":"Trailing Zeros","definition":"Trailing zeros significant ہو سکتے ہیں اگر decimal notation یا context انہیں measurement precision کا حصہ بنائے۔"},{"title":"Rounding","definition":"Final result کو مطلوبہ significant figures تک round کیا جاتا ہے، اور اگلے digit کی بنیاد پر last retained digit adjust کیا جاتا ہے۔"},{"title":"Calculations","definition":"Multiplication اور division میں result کی significant figures عام طور پر least precise factor کے مطابق رکھی جاتی ہیں، جبکہ addition/subtraction میں decimal places اہم ہوتے ہیں۔"}]};
 topicData[7].academic={"title":"1.7 Precision and Accuracy — صحت اور درستگی","definition":"Accuracy اس بات سے متعلق ہے کہ measurement accepted یا true value کے کتنا قریب ہے، جبکہ precision repeated measurements کے آپس میں کتنا قریب ہونے کو ظاہر کرتی ہے۔","subtopics":[{"title":"Accuracy","definition":"High accuracy کا مطلب ہے measured value accepted value کے قریب ہو۔"},{"title":"Precision","definition":"High precision کا مطلب ہے repeated measurements ایک دوسرے کے بہت قریب ہوں۔"},{"title":"Accurate but Not Precise","definition":"Measurements true value کے اردگرد ہوں مگر ایک دوسرے سے کافی مختلف ہوں تو accuracy زیادہ اور precision کم ہو سکتی ہے۔"},{"title":"Precise but Not Accurate","definition":"Measurements ایک دوسرے کے قریب ہوں مگر true value سے دور ہوں تو precision زیادہ اور accuracy کم ہو سکتی ہے۔"},{"title":"Improving Measurement Quality","definition":"Calibration systematic error کو کم کرنے میں مدد دیتی ہے، جبکہ repeated measurements random variation کو assess کرنے میں مدد دیتے ہیں۔"}]};
 topicData[8].academic={"title":"1.8 Dimensions of Physical Quantities — طبعی مقداروں کے ابعاد اور ابعادی تجزیئے کے اطلاقات","definition":"Dimensions express physical quantities in terms of fundamental quantities such as mass (M)، length (L) and time (T). Dimensional analysis equations اور units کی consistency check کرنے کا اہم طریقہ ہے۔","subtopics":[{"title":"Fundamental Dimensions","definition":"Mechanics میں بنیادی dimensions عموماً mass M، length L اور time T سے ظاہر کیے جاتے ہیں۔"},{"title":"Dimensional Formula","definition":"Velocity کی dimensional formula [LT⁻¹]، acceleration کی [LT⁻²] اور force کی [MLT⁻²] ہے۔"},{"title":"Dimensional Homogeneity","definition":"کسی physically meaningful equation کے دونوں sides کی dimensions یکساں ہونی چاہئیں۔"},{"title":"Checking Equations","definition":"Dimensional analysis سے equations میں dimensional inconsistency کو identify کیا جا سکتا ہے۔"},{"title":"Deriving Relationships","definition":"مناسب assumptions کے ساتھ dimensional analysis quantities کے درمیان possible relationships یا dependence معلوم کرنے میں مدد دے سکتا ہے۔"},{"title":"Limitations","definition":"Dimensional analysis numerical constants، signs یا بعض trigonometric/logarithmic forms کو مکمل طور پر determine نہیں کر سکتا۔"}]};
+const academicLanguageData={"1":{"en":{"title":"1.1 Introduction to Physics","definition":"Physics is the branch of science that studies matter, energy, motion, forces, interactions, and the laws that describe natural phenomena. It uses observation, experiment, measurement, and mathematical models to understand nature.","subtopics":[["Scope of Physics","Physics includes major areas such as mechanics, heat, waves, optics, electricity, magnetism, atomic physics, and nuclear physics."],["Physical Quantities","Physical phenomena are described using measurable quantities such as length, mass, time, temperature, and electric current."],["Observation and Experiment","In Physics, hypotheses are tested through observations, experiments, and repeatable measurements."],["Laws and Models","Physical laws describe natural relationships in mathematical form, while models help us understand complex systems."],["Physics in Daily Life","The principles of Physics are widely used in technology, engineering, communication, transport, medicine, and energy systems."]]},"ps":{"title":"۱.۱ د فزکس پېژندنه — Introduction to Physics","definition":"فزکس — Physics د ساینس هغه څانګه ده چې ماده — Matter، انرژي — Energy، حرکت — Motion، قوه — Force، متقابلې اغېزې — Interactions او د طبیعي پدیدو قوانین څېړي. فزکس د مشاهدې — Observation، تجربې — Experiment، اندازه کولو — Measurement او ریاضيکي ماډلونو — Mathematical Models له لارې د طبیعت د پوهېدو هڅه کوي.","subtopics":[["د فزکس ساحه — Scope of Physics","په فزکس کې میخانیک — Mechanics، تودوخه — Heat، څپې — Waves، اپټکس — Optics، برېښنا — Electricity، مقناطیسیت — Magnetism، اټومي فزکس — Atomic Physics او هستوي فزکس — Nuclear Physics شامل دي."],["فزیکي کمیتونه — Physical Quantities","فزیکي پدیدې د اندازه کېدونکو کمیتونو لکه اوږدوالی، کتله، وخت، تودوخه او برېښنايي جریان — Electric Current په وسیله بیانېږي."],["مشاهده او تجربه — Observation and Experiment","په فزکس کې فرضیې — Hypotheses د مشاهدې، تجربو او تکرارېدونکو اندازه ګیریو — Repeated Measurements له لارې ازمویل کېږي."],["قوانین او ماډلونه — Laws and Models","فزیکي قوانین — Physical Laws طبیعي اړیکې په ریاضيکي بڼه بیانوي، او ماډلونه — Models د پېچلو سیستمونو په پوهېدو کې مرسته کوي."],["فزکس په ورځني ژوند کې — Physics in Daily Life","د فزکس اصول په ټکنالوژۍ، انجینرۍ، اړیکو، ترانسپورټ، طب او انرژۍ سیستمونو کې پراخ استعمال لري."]]}},"2":{"en":{"title":"1.2 International System of Units (SI)","definition":"The International System of Units (SI) provides internationally agreed units for measuring physical quantities. It includes base SI units and derived units obtained from them.","subtopics":[["SI Base Units","The seven base units are metre (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole (mol), and candela (cd)."],["Derived Units","Derived units are formed from base units, for example m/s for velocity and newton (N) for force."],["Unit Symbols","Unit symbols are short, standardized forms used with the numerical value of a physical quantity."],["Prefixes","Prefixes such as kilo, mega, milli, micro, and nano represent larger or smaller scales using powers of ten."],["SI and Measurement","The SI system makes measurements consistent and internationally comparable."]]},"ps":{"title":"۱.۲ د واحدونو نړیوال سیستم — International System of Units — SI","definition":"د واحدونو نړیوال سیستم — International System of Units یا SI د فزیکي کمیتونو — Physical Quantities د اندازه کولو لپاره نړیوال منل شوي واحدونه برابروي. په دې سیستم کې بنسټیز واحدونه — Base Units او مشتق واحدونه — Derived Units شامل دي.","subtopics":[["د SI بنسټیز واحدونه — SI Base Units","اووه بنسټیز واحدونه متر — metre، کیلوګرام — kilogram، ثانیه — second، امپیر — ampere، کلوین — kelvin، مول — mole او کاندېلا — candela دي."],["مشتق واحدونه — Derived Units","مشتق واحدونه له بنسټیزو واحدونو څخه جوړېږي؛ لکه د سرعت — Velocity لپاره m/s او د قوې — Force لپاره نیوټن — newton، N."],["د واحدونو سمبولونه — Unit Symbols","د واحدونو سمبولونه — Unit Symbols لنډې او معیاري بڼې دي چې د فزیکي کمیت له عددي ارزښت سره کارېږي."],["پریفکسونه — Prefixes","کیلو، مېګا، ملي، مایکرو او نانو په څېر پریفکسونه — Prefixes د لس د توانونو په وسیله د واحدونو لویې او وړې کچې ښيي."],["SI او اندازه کول — SI and Measurement","SI سیستم اندازه کول منظموي او د بېلابېلو ځایونو اندازه ګیرۍ د یو بل سره د پرتله کولو وړ ګرځوي."]]}},"3":{"en":{"title":"1.3 Supplementary Units","definition":"Supplementary units historically included the units for plane angle and solid angle. These were radian and steradian, used to describe angular measurements.","subtopics":[["Radian","The radian is the SI unit of plane angle. One radian is the angle at the centre of a circle subtended by an arc whose length equals the radius."],["Steradian","The steradian is the unit of solid angle and describes three-dimensional angular spread."],["Plane Angle","A plane angle represents the angular separation between two lines or radii."],["Solid Angle","A solid angle quantifies the spread from a point in three dimensions."],["Use in Physics","Radians are important in rotational motion and trigonometry, while steradians are used in spherical geometry and radiation-related measurements."]]},"ps":{"title":"۱.۳ تکمیلي واحدونه — Supplementary Units","definition":"تکمیلي واحدونو — Supplementary Units په تاریخي ډول د مستوي زاویې او فضایي زاویې لپاره رېډین — Radian او سټېرېډین — Steradian شاملول. دا واحدونه د زاویوي اندازه ګیرۍ — Angular Measurement د بیان لپاره کارېږي.","subtopics":[["رېډین — Radian","رېډین — Radian د مستوي زاویې — Plane Angle واحد دی. یو رېډین هغه زاویه ده چې د دایرې په مرکز کې د داسې قوس له خوا جوړېږي چې اوږدوالی یې د شعاع له اوږدوالي سره برابر وي."],["سټېرېډین — Steradian","سټېرېډین — Steradian د فضایي زاویې — Solid Angle واحد دی او په درې بعدونو کې د زاویوي خپرېدو اندازه بیانوي."],["مستوي زاویه — Plane Angle","مستوي زاویه — Plane Angle د دوو کرښو یا شعاعو ترمنځ زاویوي واټن څرګندوي."],["فضایي زاویه — Solid Angle","فضایي زاویه — Solid Angle له یوې نقطې څخه په درې بعدونو کې د خپرېدو اندازه څرګندوي."],["په فزکس کې استعمال — Use in Physics","رېډین — Radian په دوراني حرکت — Rotational Motion او مثلثاتو — Trigonometry کې مهم دی، او سټېرېډین — Steradian په کروي هندسه — Spherical Geometry او د وړانګو اړوندو اندازه ګیریو کې کارېږي."]]}},"4":{"en":{"title":"1.4 Conventions for Indicating Units","definition":"Standard conventions are used for writing SI unit symbols and names so that scientific communication remains clear and consistent.","subtopics":[["Unit Symbols","Unit symbols are normally abbreviated forms. A full stop is not placed after a symbol unless it is required by sentence punctuation."],["Capitalization","Capitalization of unit symbols follows standard rules; for example, the symbol for metre is m and the symbol for kelvin is K."],["Spacing","A space is normally placed between a numerical value and its unit symbol, for example 25 m."],["Names of Units","Unit names are normally written in lowercase, even when the unit is derived from a scientist's name."],["Products and Quotients","Combined units are written using appropriate notation, such as N m, m/s, or m s⁻¹."]]},"ps":{"title":"۱.۴ د واحدونو د لیکلو اصول — Conventions for Indicating Units","definition":"د SI واحدونو د سمبولونو او نومونو د لیکلو لپاره معیاري اصول — Standard Conventions کارېږي، څو علمي اړیکه روښانه او یوشان پاتې شي.","subtopics":[["د واحدونو سمبولونه — Unit Symbols","د واحدونو سمبولونه — Unit Symbols عموماً لنډې بڼې وي. د سمبول په پای کې نقطه نه لیکل کېږي، مګر که د جملې د نښې لپاره اړینه وي."],["لوی او واړه توري — Capitalization","د واحدونو د سمبولونو لوی او واړه توري د معیاري اصولو له مخې ټاکل کېږي؛ لکه د متر لپاره m او د کلوین لپاره K."],["فاصله — Spacing","د عددي ارزښت او د واحد د سمبول ترمنځ عموماً یوه فاصله لیکل کېږي؛ لکه 25 m."],["د واحدونو نومونه — Names of Units","د واحدونو نومونه عموماً په کوچنیو تورو لیکل کېږي، حتی که واحد د یوه ساینس پوه له نوم څخه اخیستل شوی وي."],["مرکب واحدونه — Products and Quotients","مرکب واحدونه — Combined Units په مناسبه نښه لیکل کېږي؛ لکه N m، m/s یا m s⁻¹."]]}},"5":{"en":{"title":"1.5 Errors and Uncertainties","definition":"Every measurement has limitations. Measurement error and uncertainty describe how a measured value may differ from a true or accepted value and how much doubt is associated with the measurement.","subtopics":[["Random Errors","Random errors cause repeated measurements to vary in different directions and amounts. Repeated readings and averaging can reduce their effect."],["Systematic Errors","A systematic error can shift measurements consistently in one direction, for example because of zero error or calibration error."],["Uncertainty","Uncertainty expresses the possible range or degree of doubt associated with a measured result."],["Absolute and Relative Uncertainty","Absolute uncertainty may be given in the units of the measurement, while relative uncertainty compares the uncertainty with the measured value."],["Reducing Measurement Error","Proper calibration, suitable instruments, repeated readings, and controlled experimental conditions can improve measurement quality."],["Reporting Results","A measured value should be reported with an appropriate number of significant figures and its uncertainty."]]},"ps":{"title":"۱.۵ د اندازه ګیرۍ تېروتنې او نامعلوموالی — Errors and Uncertainties","definition":"هره اندازه ګیري — Measurement محدودیتونه لري. د اندازه ګیرۍ تېروتنه — Measurement Error او نامعلوموالی — Uncertainty ښيي چې اندازه شوی ارزښت له ریښتیني یا منل شوي ارزښت څخه څومره توپیر کولی شي او په اندازه ګیرۍ کې څومره شک موجود دی.","subtopics":[["تصادفي تېروتنې — Random Errors","تصادفي تېروتنې — Random Errors د تکراري اندازه ګیریو ارزښتونه په بېلابېلو لورو او اندازو کې بدلوي. د څو لوستنو او اوسط اخیستلو له لارې یې اغېز کمېدای شي."],["سیستماتیکې تېروتنې — Systematic Errors","سیستماتیکه تېروتنه — Systematic Error اندازه ګیري په یوه ثابت لوري کې بدلولی شي؛ لکه د صفر تېروتنه یا د کالیبریشن تېروتنه — Calibration Error."],["نامعلوموالی — Uncertainty","نامعلوموالی — Uncertainty د اندازه شوې پایلې احتمالي حد یا له هغې سره تړلی شک څرګندوي."],["مطلق او نسبي نامعلوموالی — Absolute and Relative Uncertainty","مطلق نامعلوموالی — Absolute Uncertainty د اندازه ګیرۍ په واحدونو کې ورکول کېدای شي، خو نسبي نامعلوموالی — Relative Uncertainty نامعلوموالی له اندازه شوي ارزښت سره پرتله کوي."],["د اندازه ګیرۍ د تېروتنې کمول — Reducing Measurement Error","سم کالیبریشن — Calibration، مناسب وسایل، تکراري لوستنې او کنټرول شوي تجربوي شرایط د اندازه ګیرۍ کیفیت ښه کوي."],["د پایلو راپور ورکول — Reporting Results","اندازه شوی ارزښت باید د مناسبو بامعنا ارقامو — Significant Figures او نامعلوموالي سره راپور شي."]]}},"6":{"en":{"title":"1.6 Significant Figures","definition":"Significant figures are the digits that provide meaningful information about the precision of a measured quantity. Rounding rules are used to report a result to an appropriate precision.","subtopics":[["Counting Significant Figures","Non-zero digits are significant. The significance of zeros depends on their position."],["Leading Zeros","Leading zeros only locate the decimal point and are generally not counted as significant figures."],["Trailing Zeros","Trailing zeros can be significant when the notation or context shows that they are part of the measurement precision."],["Rounding","A final result is rounded to the required number of significant figures, using the next digit to decide whether the last retained digit should change."],["Calculations","For multiplication and division, the result usually follows the factor with the fewest significant figures. For addition and subtraction, decimal places are important."]]},"ps":{"title":"۱.۶ مهم ارقام — Significant Figures","definition":"مهم ارقام — Significant Figures هغه شمېرې دي چې د اندازه شوي کمیت د دقت په اړه مانا لرونکي معلومات ورکوي. د رونډنګ — Rounding اصول کارېږي څو پایله مناسب دقت ته محدوده شي.","subtopics":[["د مهمو ارقامو شمېرل — Counting Significant Figures","غیر صفر شمېرې مهمې دي؛ د صفرونو اهمیت د هغوی په موقعیت پورې تړلی وي."],["مخکښ صفرونه — Leading Zeros","مخکښ صفرونه — Leading Zeros یوازې اعشاري موقعیت ښيي او عموماً په مهمو ارقامو کې نه شمېرل کېږي."],["وروستي صفرونه — Trailing Zeros","وروستي صفرونه — Trailing Zeros هغه وخت مهم کېدای شي چې لیکدود یا د موضوع حالت وښيي چې دا صفرونه د اندازه ګیرۍ د دقت برخه دي."],["رونډنګ — Rounding","وروستۍ پایله د اړینو مهمو ارقامو تر شمېر پورې ګردېږي، او راتلونکی رقم ټاکي چې وروستی ساتل شوی رقم بدل شي که نه."],["په محاسبو کې استعمال — Calculations","په ضرب او تقسیم کې پایله عموماً د هغه عامل د مهمو ارقامو له شمېر سره برابره ساتل کېږي چې تر ټولو لږ مهم ارقام ولري؛ په جمع او تفریق کې اعشاري ځایونه مهم دي."]]}},"7":{"en":{"title":"1.7 Precision and Accuracy","definition":"Accuracy describes how close a measurement is to an accepted or true value, while precision describes how close repeated measurements are to one another.","subtopics":[["Accuracy","High accuracy means that a measured value is close to the accepted value."],["Precision","High precision means that repeated measurements are very close to one another."],["Accurate but Not Precise","Measurements may be close to the true value but widely separated from one another, giving high accuracy but low precision."],["Precise but Not Accurate","Measurements may be close to one another but far from the true value, giving high precision but low accuracy."],["Improving Measurement Quality","Calibration helps reduce systematic error, while repeated measurements help assess random variation."]]},"ps":{"title":"۱.۷ دقت او سمون — Accuracy and Precision","definition":"Accuracy ښيي چې اندازه شوی ارزښت له ریښتیني یا منل شوي ارزښت سره څومره نږدې دی، خو Precision ښيي چې تکراري اندازه ګیرۍ له یو بل سره څومره نږدې دي.","subtopics":[["Accuracy — دقت","لوړ Accuracy دا معنا لري چې اندازه شوی ارزښت منل شوي ارزښت ته نږدې وي."],["Precision — تکراري یکسانیت","لوړ Precision دا معنا لري چې تکراري اندازه ګیرۍ له یو بل سره ډېرې نږدې وي."],["لوړ Accuracy خو ټیټ Precision — Accurate but Not Precise","کېدای شي اندازه ګیرۍ ریښتیني ارزښت ته نږدې وي، خو له یو بل څخه ډېرې لرې وي؛ په دې حالت کې Accuracy لوړه او Precision ټیټه وي."],["لوړ Precision خو ټیټ Accuracy — Precise but Not Accurate","کېدای شي اندازه ګیرۍ له یو بل سره نږدې وي، خو له ریښتیني ارزښت څخه لرې وي؛ په دې حالت کې Precision لوړه او Accuracy ټیټه وي."],["د اندازه ګیرۍ د کیفیت ښه کول — Improving Measurement Quality","کالیبریشن — Calibration د سیستماتیکې تېروتنې — Systematic Error په کمولو کې مرسته کوي، او تکراري اندازه ګیرۍ د تصادفي بدلون په ارزونه کې مرسته کوي."]]}},"8":{"en":{"title":"1.8 Dimensions of Physical Quantities","definition":"Dimensions describe the physical nature of a quantity in terms of base quantities such as mass, length, and time. Dimensional analysis uses these dimensions to check equations and study physical relationships.","subtopics":[["What are Dimensions?","The dimensions of a physical quantity show how it depends on fundamental quantities."],["Base Dimensions","Common base dimensions include mass [M], length [L], time [T], electric current [I], temperature [Θ], amount of substance [N], and luminous intensity [J]."],["Dimensional Formula","A dimensional formula expresses a physical quantity as powers of its fundamental dimensions."],["Dimensions of Derived Quantities","Derived quantities such as velocity, acceleration, force, and energy can be expressed in terms of base dimensions."],["Principle of Dimensional Homogeneity","A physically meaningful equation must have the same dimensions on both sides."],["Dimensional Checking and Unit Derivation","Dimensional analysis can check the consistency of equations and help derive or convert units, but it cannot determine dimensionless numerical constants or prove every physical relation."]]},"ps":{"title":"۱.۸ د فزیکي کمیتونو ابعاد — Dimensions of Physical Quantities","definition":"ابعاد — Dimensions د یوه کمیت فزیکي ماهیت د بنسټیزو کمیتونو لکه کتلې، اوږدوالي او وخت له مخې بیانوي. ابعادي تحلیل — Dimensional Analysis د معادلو د کتنې او د فزیکي اړیکو د مطالعې لپاره له دغو ابعادو څخه کار اخلي.","subtopics":[["ابعاد څه دي؟ — What are Dimensions?","د فزیکي کمیت ابعاد — Dimensions ښيي چې هغه کمیت له بنسټیزو کمیتونو سره څنګه تړاو لري."],["بنسټیز ابعاد — Base Dimensions","عام بنسټیز ابعاد — Base Dimensions کتله [M]، اوږدوالی [L]، وخت [T]، برېښنايي جریان [I]، تودوخه [Θ]، د مادې مقدار [N] او روښنایي شدت [J] دي."],["ابعادي فورمول — Dimensional Formula","ابعادي فورمول — Dimensional Formula یو فزیکي کمیت د بنسټیزو ابعادو د توانونو په بڼه بیانوي."],["د مشتق کمیتونو ابعاد — Dimensions of Derived Quantities","مشتق کمیتونه لکه سرعت — Velocity، اسراع — Acceleration، قوه — Force او انرژي — Energy د بنسټیزو ابعادو له مخې بیانېدای شي."],["د ابعادي همجنسۍ اصل — Principle of Dimensional Homogeneity","یوه فزیکي معناداره معادله باید په دواړو خواوو کې یو شان ابعاد ولري."],["ابعادي کتنه او د واحدونو ترلاسه کول — Dimensional Checking and Unit Derivation","ابعادي تحلیل — Dimensional Analysis د معادلو د مطابقت په کتنه او د واحدونو په ترلاسه کولو یا بدلون کې مرسته کوي، خو بې بعده عددي ثابتونه نه شي ټاکلی او هره فزیکي اړیکه نه شي ثابتولی."]]}}};
+
 function addTopicVisual(topic,src,alt=''){const visuals=topicData[topic]?.visuals;if(!visuals)return false;const position=visuals.length+1;visuals.push({id:`T${topic}-V${String(position).padStart(2,'0')}`,position,src:src||'',alt:alt||''});return true;}
 function showPage(id){if(typeof academicTTSHide==='function')academicTTSHide();document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const p=document.getElementById(id);if(p)p.classList.add('active');if(id==='topicsPage')renderTopics();if(typeof initGlobalNavigation==='function')initGlobalNavigation(id);}
 function renderTopics(){
@@ -414,7 +503,7 @@ function renderTopics(){
  for(let n=1;n<=topicCount;n++){
   const target=n%2===0?right:left;
   const academic=getAcademicTopic(n);
-  const topicLabel=topicPageEnglishHeading(academic?.title||`Topic ${n}`);
+  const topicLabel=academicLanguageData[String(n)]?.en?.title || topicPageEnglishHeading(academic?.title||`Topic ${n}`);
   target.insertAdjacentHTML('beforeend',`<button class="tab main-topic-large" type="button" onclick="openTopic(${n})"><span class="num">${n}</span><span class="label">${academicEsc(topicLabel)}</span></button>`);
  }
  right.insertAdjacentHTML('afterbegin',`<button class="tab functional feature-visual" type="button" onclick="openFunctional('visual')"><span class="num">VA</span><span class="label">Visual Atlas</span></button>`);
@@ -427,7 +516,7 @@ function renderTopics(){
   }
  }
  right.insertAdjacentHTML('beforeend',`<button class="tab functional" type="button" onclick="showPage('hitCeilingPage')"><span class="num">🏆</span><span class="label">Hit The Ceiling</span></button>`);
- right.insertAdjacentHTML('beforeend',`<button class="tab functional previous-page-tab" type="button" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">پچھلا صفحہ</span></button>`);
+ right.insertAdjacentHTML('beforeend',`<button class="tab functional previous-page-tab" type="button" onclick="showPage('homePage')"><span class="nav-arrow">←</span><span class="label">Previous Page</span></button>`);
  const topicTabs=Array.from(topicGrid.querySelectorAll(':scope > .column > .tab'));
  if(topicTabs.length % 2 === 1){
   const lastTab=topicTabs[topicTabs.length-1];
@@ -439,11 +528,14 @@ function renderTopics(){
 function getTopicVisualSlots(topic){return (topicData[topic]?.visuals||[]).map(v=>{const g=topicRegistry[topic]?.visuals?.find(x=>x.id===v.id)||{};return {...g,...v};});}
 function visualMarkup(topic){return getTopicVisualSlots(topic).map(v=>`<div class="visual-atlas-container" data-visual-id="${v.id}" data-position="${v.position}" style="--va-x:${v.x||0}%;--va-y:${v.y||0}%;--va-w:${v.w||100}%;--va-h:${v.h||100}%;--va-ratio:${v.ratio||'auto'}"><div class="visual-atlas-slot-mark">IAE</div>${v.src?`<img class="visual-atlas-visual" src="${v.src}" alt="${v.alt||''}">`:''}</div>`).join('');}
 function setTopicVisual(topic,position,src,alt=''){const slots=topicData[topic]?.visuals||[];const v=slots.find(x=>Number(x.position)===Number(position));if(!v)return addTopicVisual(topic,src,alt);v.src=src||'';v.alt=alt||'';return true;}
-function academicEsc(v){return String(v??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));}
+function academicEsc(v){
+ const escaped=String(v??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
+ return escaped.replace(/(\([A-Za-z][A-Za-z0-9 .,+\-\/]*\)|[A-Za-z][A-Za-z0-9.+\-\/]*)/g,'<bdi class="academic-ltr-run" dir="ltr">$1</bdi>');
+}
 function academicDirectionClass(v){return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(String(v??''))?'urdu-medium':'english-only';}
 function getAcademicTopic(n){return topicData?.[n]?.academic||{};}
 function applyGlobalAcademicTextDirection(root=document){
- const nodes=root.querySelectorAll?.('.guided-content, .mastery-topic-definition, .mastery-subtopic-definition, .mastery-subtopic-focus, .academic-definition, .definition-text')||[];
+ const nodes=root.querySelectorAll?.('.guided-content, .guided-label, .mastery-topic-definition, .mastery-topic-title, .mastery-subtopic h3, .mastery-subtopic-definition, .mastery-subtopic-focus, .academic-definition, .definition-text')||[];
  const urduRe=/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/;
  nodes.forEach(el=>{
    const text=el.textContent||'', mixed=urduRe.test(text);
@@ -453,9 +545,16 @@ function applyGlobalAcademicTextDirection(root=document){
    while(node=walker.nextNode()){if(!node.parentElement?.closest('.inline-ltr'))list.push(node);}
    list.forEach(t=>{
      const value=t.nodeValue;if(!value||!urduRe.test(value))return;
-     const frag=document.createDocumentFragment();let last=0,m;const re=/(?:[A-Za-z][A-Za-z0-9]*(?:[\-\/][A-Za-z0-9]+)*)/g;
-     while((m=re.exec(value))){if(m.index>last)frag.appendChild(document.createTextNode(value.slice(last,m.index)));const b=document.createElement('bdi');b.className='inline-ltr';b.dir='ltr';b.textContent=m[0];frag.appendChild(b);last=m.index+m[0].length;}
-     if(last<value.length)frag.appendChild(document.createTextNode(value.slice(last)));if(frag.childNodes.length)t.parentNode.replaceChild(frag,t);
+     const frag=document.createDocumentFragment();let last=0,m;
+     /* Keep English translations and their parentheses together in LTR order inside RTL Urdu. */
+     const re=/\([A-Za-z][^()]*\)|(?:[A-Za-z][A-Za-z0-9]*(?:[\-\/][A-Za-z0-9]+)*)/g;
+     while((m=re.exec(value))){
+       if(m.index>last)frag.appendChild(document.createTextNode(value.slice(last,m.index)));
+       const b=document.createElement('bdi');b.className='inline-ltr';b.dir='ltr';b.textContent=m[0];frag.appendChild(b);
+       last=m.index+m[0].length;
+     }
+     if(last<value.length)frag.appendChild(document.createTextNode(value.slice(last)));
+     if(frag.childNodes.length)t.parentNode.replaceChild(frag,t);
    });
  });
 }
@@ -467,22 +566,13 @@ function topicPageEnglishHeading(v){
  return masteryEnglishHeading(raw);
 }
 function openTopic(n){
- const academic=getAcademicTopic(n);
- const visuals=visualMarkup(n);
- const subs=Array.isArray(academic.subtopics)?academic.subtopics:[];
- const visualBlock=visuals?`<section class="guided-container visual-container"><div class="guided-label">Visual</div><div class="guided-content"><div class="linked-visual-grid">${visuals}</div></div></section>`:'';
- const subBlocks=subs.map((sub,i)=>`<section class="guided-container"><div class="guided-label">${academicEsc(topicPageEnglishHeading(sub.title||`Subtopic ${i+1}`))}</div>${sub.definition?`<div class="guided-content ${academicDirectionClass(sub.definition)}">${academicEsc(sub.definition)}</div>`:''}</section>`).join('');
- const topicMarkup=`<div class="topic-document guided-document">${visualBlock}<section class="guided-container"><div class="guided-label">${academicEsc(topicPageEnglishHeading(academic.title||`Topic ${n}`))}</div><div class="guided-content ${academicDirectionClass(academic.definition)}" id="topicDefinition">${academicEsc(academic.definition||'')}</div></section>${subBlocks}</div>`;
- if(!window.__dictionaryTopicMarkupCache)window.__dictionaryTopicMarkupCache={};
- if(!window.__dictionaryTopicMarkupCache[n])window.__dictionaryTopicMarkupCache[n]=dictionaryLinkMarkupOnce(topicMarkup);
- document.getElementById('topicContentView').innerHTML=window.__dictionaryTopicMarkupCache[n];
- showPage('topicPage');scheduleGlobalAcademicTextDirection();
+ window.__activeTopicNumber=n; activeAcademicLanguage=localStorage.getItem('phy01AcademicLanguageV2')||'en'; renderTopicLanguage(n); showPage('topicPage'); scheduleGlobalAcademicTextDirection();
 }
 function renderChapterAcademic(){
  const measurementDefinition='Measurement is the process of determining the value of a physical quantity by comparing it with an accepted standard unit.';
- const learningOutcomes='اس Chapter کے بعد طالب علم Physics کے بنیادی scope اور اہم شعبوں کو بیان کر سکے گا؛ SI base اور derived units کو پہچان اور استعمال کر سکے گا؛ supplementary units radian اور steradian کی وضاحت کر سکے گا؛ units کے symbols اور names لکھنے کے standard conventions apply کر سکے گا؛ random اور systematic errors اور measurement uncertainty کو distinguish کر سکے گا؛ significant figures اور rounding rules استعمال کر سکے گا؛ precision اور accuracy میں فرق بیان کر سکے گا؛ اور dimensions و dimensional analysis کو equations کی checking اور physical relationships کے مطالعے میں استعمال کر سکے گا۔';
+ const learningOutcomes='By the end of this chapter, the student will be able to describe the basic scope and major fields of Physics; identify and use SI base and derived units; explain the supplementary units radian and steradian; apply standard conventions for writing unit symbols and names; distinguish random and systematic errors and measurement uncertainty; use significant figures and rounding rules; explain the difference between precision and accuracy; and use dimensions and dimensional analysis to check equations and study physical relationships.';
  const h=document.getElementById('chapterHeadingContent'),d=document.getElementById('chapterDefinitionContent'),o=document.getElementById('learningOutcomesContent');
- if(h)h.textContent='Measurement'; if(d){d.textContent='Measurement کسی physical quantity کی value معلوم کرنے کا عمل ہے، جس میں اسے ایک accepted standard unit کے ساتھ compare کیا جاتا ہے۔ اس Chapter میں Physics کا تعارف، SI units، unit conventions، errors and uncertainties، significant figures، precision and accuracy اور dimensions کا منظم مطالعہ کیا جاتا ہے۔';d.classList.remove('urdu-medium');} if(o){o.textContent=learningOutcomes;o.classList.add('urdu-medium');}
+ if(h)h.textContent='Measurement'; if(d){d.textContent='Measurement is the process of determining the value of a physical quantity by comparing it with an accepted standard unit. This chapter introduces Physics, SI units, unit conventions, errors and uncertainties, significant figures, precision and accuracy, and dimensions.';d.classList.remove('urdu-medium');} if(o){o.textContent=learningOutcomes;o.classList.add('urdu-medium');}
 }
 let topicScrollHandler=null;
 function initTopicNavigation(){const scroller=document.querySelector('#topicPage .main-content-container');const btn=document.getElementById('topicReturnTop');const back=document.getElementById('topicStopBack');if(!scroller||!btn||!back)return;if(topicScrollHandler)scroller.removeEventListener('scroll',topicScrollHandler);let lastY=scroller.scrollTop;let stopTimer=null;const showStopped=()=>{btn.classList.remove('visible');back.classList.add('visible');};topicScrollHandler=()=>{const y=scroller.scrollTop;const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);const atTop=y<=20,atBottom=y>=max-8;back.classList.remove('visible');if(stopTimer)clearTimeout(stopTimer);if(atTop||atBottom){btn.classList.remove('visible');}else{const goingUp=y<lastY;btn.querySelector('.nav-arrow').textContent=goingUp?'↑':'↓';btn.setAttribute('aria-label',goingUp?'Scroll up':'Scroll down');btn.classList.add('visible');}lastY=y;stopTimer=setTimeout(showStopped,2000);};scroller.addEventListener('scroll',topicScrollHandler,{passive:true});showStopped();}
@@ -521,101 +611,118 @@ function dedupeMasterySubtopicHeadings(root=document){
   for(let i=1;i<heads.length;i++){ if(heads[i].textContent.trim()===heads[0].textContent.trim()) heads[i].remove(); }
  });
 }
+let activeAcademicLanguage='en';
+function setAcademicLanguage(lang){
+ activeAcademicLanguage=['en','ur','ps'].includes(lang)?lang:'en';
+ localStorage.setItem('phy01AcademicLanguageV2',activeAcademicLanguage);
+ renderActiveAcademicLanguage();
+}
+function getAcademicLanguage(){return activeAcademicLanguage;}
+const academicUrduData={
+"1":{title:"1.1 طبیعیات کا تعارف — Introduction to Physics",definition:"Physics یعنی طبیعیات سائنس کی وہ شاخ ہے جس میں Matter یعنی مادہ، Energy یعنی توانائی، Motion یعنی حرکت، Force یعنی قوت، باہمی اثرات اور قدرتی مظاہر کے قوانین کا مطالعہ کیا جاتا ہے۔ طبیعیات میں مشاہدہ، تجربہ، Measurement یعنی پیمائش اور ریاضیاتی ماڈلز کے ذریعے فطرت کو سمجھا جاتا ہے۔",subtopics:[
+["طبیعیات کا دائرۂ کار — Scope of Physics","طبیعیات میں میکانکس، حرارت، لہریں، آپٹکس، بجلی، مقناطیسیت، ایٹمی فزکس اور نیوکلیئر فزکس جیسے اہم شعبے شامل ہیں۔ یہ شعبے مختلف قدرتی مظاہر کو سمجھنے کے لیے بنیادی اصول فراہم کرتے ہیں۔"],
+["فزیکل کمیتیں — Physical Quantities","قدرتی مظاہر کو بیان کرنے کے لیے ایسی کمیتیں استعمال ہوتی ہیں جنہیں میپا جا سکتا ہے، مثلاً لمبائی، Mass یعنی کمیت، وقت، درجۂ حرارت اور برقی رو — Electric Current۔"],
+["مشاہدہ اور تجربہ — Observation and Experiment","طبیعیات میں کسی مفروضے کو صرف خیال کی بنیاد پر قبول نہیں کیا جاتا۔ اسے مشاہدے، تجربے اور بار بار کی جانے والی پیمائش کے ذریعے جانچا جاتا ہے۔"],
+["قوانین اور ماڈلز — Laws and Models","فزیکل قوانین قدرتی تعلقات کو واضح کرتے ہیں اور اکثر انہیں ریاضیاتی شکل میں لکھا جاتا ہے۔ ماڈلز پیچیدہ نظام کو سادہ انداز میں سمجھنے میں مدد دیتے ہیں۔"],
+["روزمرہ زندگی میں طبیعیات — Physics in Daily Life","طبیعیات کے اصول ٹیکنالوجی، انجینئرنگ، مواصلات، ٹرانسپورٹ، طب اور انرجی کے نظاموں میں بڑے پیمانے پر استعمال ہوتے ہیں۔"]]},
+"2":{title:"1.2 اکائیوں کا بین الاقوامی نظام — International System of Units — SI",definition:"اکائیوں کا بین الاقوامی نظام — International System of Units, SI فزیکل کمیتوں کی پیمائش کے لیے عالمی طور پر منظور شدہ اکائیاں فراہم کرتا ہے۔ اس میں بنیادی SI اکائیاں اور ان سے بننے والی مشتق اکائیاں شامل ہیں۔",subtopics:[
+["SI کی بنیادی اکائیاں — SI Base Units","SI کی سات بنیادی اکائیاں میٹر — m، کلوگرام — kg، سیکنڈ — s، ایمپیئر — A، کیلون — K، مول — mol اور کینڈیلا — cd ہیں۔"],
+["مشتق اکائیاں — Derived Units","مشتق اکائیاں بنیادی اکائیوں سے بنائی جاتی ہیں۔ مثال کے طور پر Velocity یعنی سمتی رفتار کے لیے m/s اور Force یعنی قوت کے لیے نیوٹن — N استعمال ہوتا ہے۔"],
+["اکائیوں کی علامات — Unit Symbols","Unit Symbols فزیکل کمیت کی عددی قدر کے ساتھ استعمال ہونے والی مختصر اور معیاری شکلیں ہیں۔ ان کی لکھائی کے اصول ہر جگہ یکساں رکھے جاتے ہیں۔"],
+["پریفکس — Prefixes","کلو، میگا، ملی، مائیکرو اور نینو جیسے Prefixes دس کی طاقتوں کے ذریعے کسی اکائی کی بڑی یا چھوٹی مقدار ظاہر کرتے ہیں۔"],
+["SI اور میجرمنٹ — SI and Measurement","SI نظام پیمائش کو منظم اور یکساں بناتا ہے، اس لیے مختلف جگہوں پر حاصل کی گئی فزیکل قدروں کا آپس میں تقابل آسان ہو جاتا ہے۔"]]},
+"3":{title:"1.3 تکمیلی اکائیاں — Supplementary Units",definition:"تاریخی طور پر تکمیلی اکائیوں میں Plane Angle اور Solid Angle کے لیے Radian اور Steradian شامل تھے۔ یہ اکائیاں زاویائی پیمائش کو بیان کرنے کے لیے استعمال ہوتی ہیں۔",subtopics:[
+["ریڈین — Radian","ریڈین Plane Angle یعنی مستوی زاویے کی SI اکائی ہے۔ ایک ریڈین وہ زاویہ ہے جو دائرے کے مرکز پر ایسے قوس — Arc سے بنتا ہے جس کی لمبائی دائرے کے Radius کے برابر ہو۔"],
+["سٹیریڈین — Steradian","سٹیریڈین Solid Angle کی اکائی ہے۔ یہ کسی نقطے سے تین ابعادی — Three-dimensional سمتوں میں پھیلاؤ کو بیان کرتی ہے۔"],
+["Plane Angle", "Plane Angle دو خطوط یا دو شعاعوں کے درمیان زاویائی جدائی کو ظاہر کرتا ہے۔ اسے عموماً ریڈین میں میپا جاتا ہے۔"],
+["Solid Angle", "Solid Angle کسی نقطے سے تین ابعادی فضا میں زاویائی پھیلاؤ کی مقدار کو ظاہر کرتا ہے۔"],
+["طبیعیات میں استعمال — Use in Physics","ریڈین Rotational Motion اور Trigonometry میں اہم ہے، جبکہ Steradian کروی جیومیٹری اور Radiation سے متعلق پیمائش میں استعمال ہوتا ہے۔"]]},
+"4":{title:"1.4 اکائیوں کو ظاہر کرنے کے اصول — Conventions for Indicating Units",definition:"SI اکائیوں کے نام اور symbols لکھنے کے لیے معیاری اصول استعمال کیے جاتے ہیں تاکہ سائنسی معلومات ہر جگہ واضح، درست اور یکساں رہیں۔",subtopics:[
+["اکائیوں کے Symbols — Unit Symbols","Unit Symbols عموماً مختصر شکل میں لکھے جاتے ہیں۔ Symbol کے بعد Full Stop نہیں لگایا جاتا، سوائے اس صورت کے جب جملے کی punctuation کے لیے ضروری ہو۔"],
+["بڑے اور چھوٹے حروف — Capitalization","Unit Symbols میں Capital اور Small Letters کا استعمال مقررہ اصولوں کے مطابق ہوتا ہے؛ مثلاً میٹر کے لیے m اور کیلون کے لیے K لکھا جاتا ہے۔"],
+["فاصلہ — Spacing","عددی قدر اور Unit Symbol کے درمیان عموماً ایک Space رکھی جاتی ہے، مثلاً 25 m۔"],
+["اکائیوں کے نام — Names of Units","اکائیوں کے نام عموماً Small Letters میں لکھے جاتے ہیں، چاہے اکائی کسی سائنس دان کے نام سے ہی کیوں نہ نکلی ہو۔"],
+["حاصل ضرب اور نسبت — Products and Quotients","مرکب اکائیوں کو مناسب notation کے ساتھ لکھا جاتا ہے، مثلاً N m، m/s یا m s⁻¹۔"]]},
+"5":{title:"1.5 پیمائش کی غلطیاں اور غیر یقینی — Errors and Uncertainties",definition:"ہر پیمائش کی کچھ حدود ہوتی ہیں۔ Measurement Error اور Uncertainty یہ بتاتے ہیں کہ حاصل کی گئی قدر حقیقی یا منظور شدہ قدر سے کتنی مختلف ہو سکتی ہے اور اس نتیجے میں کتنا شک موجود ہے۔",subtopics:[
+["رینڈم ایررز — Random Errors","Random Errors کی وجہ سے ایک ہی مقدار کی بار بار کی گئی پیمائش میں مختلف سمتوں اور مختلف مقداروں سے فرق آ سکتا ہے۔ بار بار readings لینے اور average نکالنے سے ان کے اثر کو کم کیا جا سکتا ہے۔"],
+["سسٹیمیٹک ایررز — Systematic Errors","Systematic Error پیمائش کو مسلسل ایک ہی سمت میں بدل سکتا ہے، مثلاً Zero Error یا Calibration Error کی وجہ سے۔"],
+["غیر یقینی — Uncertainty","Uncertainty کسی measured result کے ساتھ وابستہ ممکنہ حد یا شک کی مقدار کو ظاہر کرتی ہے۔ یہ ہمیں بتاتی ہے کہ نتیجے کو کس حد تک قابلِ اعتماد سمجھا جا سکتا ہے۔"],
+["Absolute اور Relative Uncertainty", "Absolute Uncertainty پیمائش کی اپنی اکائی میں دی جا سکتی ہے، جبکہ Relative Uncertainty، Uncertainty کو measured value کے مقابلے میں بیان کرتی ہے۔"],
+["پیمائش کی غلطی کم کرنا — Reducing Measurement Error","درست Calibration، مناسب instruments، repeated readings اور controlled experimental conditions پیمائش کے معیار کو بہتر بنا سکتے ہیں۔"],
+["نتائج لکھنا — Reporting Results","Measured value کو مناسب Significant Figures اور اس کی Uncertainty کے ساتھ report کرنا چاہیے، تاکہ نتیجہ اپنی حقیقی precision کے مطابق ظاہر ہو۔"]]},
+"6":{title:"1.6 بامعنی ہندسے — Significant Figures",definition:"Significant Figures وہ digits ہیں جو کسی measured quantity کی precision کے بارے میں بامعنی معلومات فراہم کرتے ہیں۔ Rounding کے اصول استعمال کر کے نتیجہ مناسب precision کے ساتھ لکھا جاتا ہے۔",subtopics:[
+["Significant Figures گننا — Counting Significant Figures","Non-zero digits ہمیشہ significant ہوتے ہیں۔ Zero کی اہمیت اس کی position پر منحصر ہوتی ہے۔"],
+["ابتدائی صفر — Leading Zeros","Leading Zeros صرف decimal point کی جگہ واضح کرتے ہیں، اس لیے عموماً انہیں Significant Figures میں شمار نہیں کیا جاتا۔"],
+["آخری صفر — Trailing Zeros","Trailing Zeros اس وقت significant ہو سکتے ہیں جب notation یا context سے واضح ہو کہ وہ پیمائش کی precision کا حصہ ہیں۔"],
+["راؤنڈنگ — Rounding","نتیجے کو مطلوبہ تعداد میں Significant Figures تک round کیا جاتا ہے۔ اس کے لیے اگلے digit کو دیکھا جاتا ہے کہ آخری برقرار رہنے والے digit میں تبدیلی ضروری ہے یا نہیں۔"],
+["حسابات — Calculations","Multiplication اور Division میں نتیجہ عموماً اس factor کے مطابق Significant Figures رکھتا ہے جس میں سب سے کم Significant Figures ہوں۔ Addition اور Subtraction میں Decimal Places اہم ہوتے ہیں۔"]]},
+"7":{title:"1.7 درستگی اور تکراری یکسانیت — Accuracy and Precision",definition:"Accuracy بتاتی ہے کہ measured value حقیقی یا منظور شدہ value کے کتنی قریب ہے، جبکہ Precision بتاتی ہے کہ بار بار کی گئی measurements ایک دوسرے کے کتنی قریب ہیں۔",subtopics:[
+["Accuracy", "High Accuracy کا مطلب ہے کہ measured value منظور شدہ یا حقیقی value کے قریب ہے۔"],
+["Precision", "High Precision کا مطلب ہے کہ repeated measurements ایک دوسرے کے بہت قریب ہیں، چاہے وہ حقیقی value کے قریب ہوں یا نہ ہوں۔"],
+["Accuracy زیادہ، Precision کم", "کچھ measurements حقیقی value کے قریب ہو سکتی ہیں لیکن ایک دوسرے سے کافی دور ہوں۔ ایسی صورت میں Accuracy زیادہ اور Precision کم ہوتی ہے۔"],
+["Precision زیادہ، Accuracy کم", "کچھ measurements ایک دوسرے کے قریب ہو سکتی ہیں لیکن حقیقی value سے دور ہوں۔ ایسی صورت میں Precision زیادہ اور Accuracy کم ہوتی ہے۔"],
+["پیمائش کے معیار کو بہتر بنانا — Improving Measurement Quality","Calibration Systematic Error کو کم کرنے میں مدد دیتی ہے، جبکہ repeated measurements Random Variation کا اندازہ لگانے میں مدد دیتی ہیں۔"]]},
+"8":{title:"1.8 فزیکل کمیتوں کے ابعاد — Dimensions of Physical Quantities",definition:"Dimensions کسی فزیکل کمیت کی بنیادی نوعیت کو Mass، Length اور Time جیسی بنیادی کمیتوں کی مدد سے بیان کرتے ہیں۔ Dimensional Analysis کے ذریعے equations کی جانچ اور فزیکل تعلقات کا مطالعہ کیا جاتا ہے۔",subtopics:[
+["Dimensions کیا ہیں؟ (What are Dimensions?)","کسی فزیکل کمیت کے Dimensions یہ ظاہر کرتے ہیں کہ وہ Fundamental Quantities پر کس طرح منحصر ہے۔"],
+["بنیادی Dimensions — Base Dimensions","عام بنیادی Dimensions میں Mass [M]، Length [L]، Time [T]، Electric Current [I]، Temperature [Θ]، Amount of Substance [N] اور Luminous Intensity [J] شامل ہیں۔"],
+["Dimensional Formula", "Dimensional Formula کسی فزیکل کمیت کو بنیادی Dimensions کی powers کی صورت میں ظاہر کرتا ہے۔"],
+["Derived Quantities کے Dimensions", "Velocity، Acceleration، Force اور Energy جیسی Derived Quantities کو بنیادی Dimensions کی مدد سے ظاہر کیا جا سکتا ہے۔"],
+["Dimensional Homogeneity کا اصول", "ایک بامعنی فزیکل equation کے دونوں طرف Dimensions ایک جیسے ہونے چاہئیں۔ اگر دونوں طرف Dimensions مختلف ہوں تو equation فزیکلی درست نہیں ہو سکتی۔"],
+["Dimensional Checking اور Unit Derivation", "Dimensional Analysis equations کی consistency جانچنے اور units حاصل یا convert کرنے میں مدد دیتی ہے، لیکن یہ dimensionless numerical constants طے نہیں کر سکتی اور ہر فزیکل relation کو ثابت بھی نہیں کر سکتی۔"]]}
+};
+function academicLangPack(n){
+ const base=topicData?.[n]?.academic||{};
+ if(activeAcademicLanguage==='ur') { const u=academicUrduData[String(n)]; if(u) return {title:u.title,definition:u.definition,subtopics:u.subtopics.map(x=>({title:x[0],definition:x[1]}))}; return {title:base.title||`Topic ${n}`,definition:base.definition||'',subtopics:Array.isArray(base.subtopics)?base.subtopics.map(x=>({title:x.title,definition:x.definition})):[]}; }
+ const d=academicLanguageData[String(n)]?.[activeAcademicLanguage];
+ return d?{title:d.title,definition:d.definition,subtopics:d.subtopics.map(x=>({title:x[0],definition:x[1]}))}:{title:base.title||`Topic ${n}`,definition:base.definition||'',subtopics:[]};
+}
+function academicLanguageControls(scope='lecture'){
+ const active=activeAcademicLanguage;
+ return `<div class="academic-language-switcher" role="group" aria-label="Lecture language"><button type="button" class="${active==='en'?'active':''}" onclick="setAcademicLanguage('en')">English</button><button type="button" class="${active==='ur'?'active':''}" onclick="setAcademicLanguage('ur')">اردو</button><button type="button" class="${active==='ps'?'active':''}" onclick="setAcademicLanguage('ps')">پښتو</button></div>`;
+}
 function masteryTopicData(n){
- const base=topicData?.[n]||{}, academic=base.academic||{};
- const title=academic.title||base.title||`Topic ${n}`;
- const definition=academic.definition||base.definition||'';
- const subs=Array.isArray(academic.subtopics)?academic.subtopics:[];
- return {n,title,definition,subs};
+ const pack=academicLangPack(n);
+ return {n,title:pack.title,definition:pack.definition,subs:pack.subtopics};
 }
 function masteryVisualFrames(count){return Array.from({length:count},(_,i)=>`<div class="mastery-visual-frame">Visual ${i+1}</div>`).join('');}
 function masteryLearningLead(n){
- const t=masteryTopicData(n);
- const count=t.subs.length;
+ const t=masteryTopicData(n); const count=t.subs.length;
+ if(activeAcademicLanguage==='ps') return count?`په دې Topic کې ${count} بنسټیز subtopics د concept → application → checking په تسلسل کې درک کړئ.`:'د دې Topic بنسټیز concept د تعریف، بېلګې او application له لارې درک کړئ.';
+ if(activeAcademicLanguage==='en') return count?`Understand the ${count} core subtopics through a sequence of concept, application, and checking.`:'Understand the core concept through its definition, example, and application.';
  return count?`اس Topic میں ${count} بنیادی subtopics کو concept → application → checking کے تسلسل میں سمجھیں۔`:'اس Topic کے بنیادی concept کو definition، مثال اور application کے ذریعے سمجھیں۔';
 }
-function masteryEnglishHeading(v){
- const raw=String(v??'').trim();
- const topicPart=raw.split('—')[0].trim();
- if(/^\d+\.\d+\s+/.test(topicPart))return topicPart.replace(/^\d+\.\d+\s+/,'').trim();
- const map={
-  'فزکس کیا ہے؟':'What is Physics?',
-  'فزکس کا دائرۂ کار':'Scope of Physics',
-  'Physical Quantities اور Measurement':'Physical Quantities and Measurement',
-  'Observation، Experiment اور Evidence':'Observation, Experiment and Evidence',
-  'Mathematical Modelling':'Mathematical Modelling',
-  'Physics کے اہم شعبے':'Major Branches of Physics',
-  'SI کی ضرورت':'Need for SI',
-  'SI Base Quantities':'SI Base Quantities',
-  'SI Base Units':'SI Base Units',
-  'Derived Quantities and Units':'Derived Quantities and Units',
-  'SI Prefixes':'SI Prefixes',
-  'Unit Conversion':'Unit Conversion',
-  'Standard Form':'Standard Form',
-  'Plane Angle':'Plane Angle',
-  'Radian (rad)':'Radian (rad)',
-  'Radian اور Arc Length':'Radian and Arc Length',
-  'Steradian (sr)':'Steradian (sr)',
-  'Solid Angle':'Solid Angle',
-  'Applications':'Applications',
-  'Unit Symbols':'Unit Symbols',
-  'Unit Names':'Unit Names',
-  'Named Units':'Named Units',
-  'Space Between Number and Unit':'Space Between Number and Unit',
-  'Plural اور Full Stop':'Plurals and Full Stops',
-  'Prefixes کے ساتھ Symbols':'Symbols with Prefixes',
-  'Compound Units':'Compound Units',
-  'Measurement Error اور Uncertainty':'Measurement Error and Uncertainty',
-  'Random Error':'Random Error',
-  'Systematic Error':'Systematic Error',
-  'Instrument Resolution اور Least Count':'Instrument Resolution and Least Count',
-  'Absolute Uncertainty':'Absolute Uncertainty',
-  'Fractional اور Percentage Uncertainty':'Fractional and Percentage Uncertainty',
-  'Uncertainty in Calculations':'Uncertainty in Calculations',
-  'Error Bars اور Experimental Data':'Error Bars and Experimental Data',
-  'Significant Figures کی تعریف':'Definition of Significant Figures',
-  'Non-zero Digits':'Non-zero Digits',
-  'Zeros کے اصول':'Rules for Zeros',
-  'Exact اور Measured Numbers':'Exact and Measured Numbers',
-  'Rounding Off':'Rounding Off',
-  'Calculations میں Significant Figures':'Significant Figures in Calculations',
-  'Addition اور Subtraction':'Addition and Subtraction',
-  'Scientific Notation میں Significance':'Significance in Scientific Notation',
-  'Accuracy':'Accuracy',
-  'Precision':'Precision',
-  'Repeatability':'Repeatability',
-  'Reproducibility':'Reproducibility',
-  'Accuracy اور Precision میں فرق':'Difference Between Accuracy and Precision',
-  'Systematic اور Random Error سے تعلق':'Relation to Systematic and Random Error',
-  'Reporting Results':'Reporting Results',
-  'Dimensions کیا ہیں؟':'What are Dimensions?',
-  'Base Dimensions':'Base Dimensions',
-  'Dimensional Formula':'Dimensional Formula',
-  'Derived Quantities کی Dimensions':'Dimensions of Derived Quantities',
-  'Principle of Dimensional Homogeneity':'Principle of Dimensional Homogeneity',
-  'Equation کی Dimensional Checking':'Dimensional Checking of an Equation',
-  'Unit Derivation اور Conversion':'Unit Derivation and Conversion',
-  'Dimensional Analysis کی حدود':'Limitations of Dimensional Analysis'
- };
- return map[raw]||raw.replace(/\s+اور\s+/g,' and ').replace(/\s+کی\s+/g,' ').replace(/\s+کے\s+/g,' ').replace(/\s+میں\s+/g,' in ').replace(/\s+کا\s+/g,' of ').trim();
+function masteryEnglishHeading(v){ return String(v??'').trim(); }
+function masteryText(v){
+ if(activeAcademicLanguage==='en') return `<span class="mastery-text-flow english-only" dir="ltr">${masteryEsc(v)}</span>`;
+ return masteryRTLText(v);
 }
 function masteryTopicTemplate(topicNumber){
- const t=masteryTopicData(topicNumber);
- const visuals=visualMarkup(topicNumber);
+ const t=masteryTopicData(topicNumber); const visuals=visualMarkup(topicNumber);
  const visualBlock=visuals?`<div class="mastery-visual-container"><div class="mastery-visual-grid linked-visual-grid">${visuals}</div></div>`:'';
- const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic" id="masteryTopic${topicNumber}Sub${i+1}">
-   <h3>${masteryEsc(masteryEnglishHeading(sub.title||`Subtopic ${i+1}`))}</h3>
-   <div class="mastery-subtopic-definition">${masteryRTLText(sub.definition||'')}</div>
-   <div class="mastery-subtopic-focus"><span>Learning focus</span><strong>Concept کو سمجھیں، پھر اسے measurement / reasoning / application میں استعمال کریں۔</strong></div>
-   ${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}
- </article>`).join('');
- return `<section class="mastery-topic" id="masteryTopic${topicNumber}" data-topic="${topicNumber}">
-   <div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><div class="mastery-topic-title">${masteryEsc(masteryEnglishHeading(t.title))}</div></div><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">✓ Mark as read</button></div></div>
-   <div class="mastery-topic-overview"><div class="mastery-section-label">Definition</div><div>${masteryRTLText(t.definition)}</div><div class="mastery-learning-lead">${masteryRTLText(masteryLearningLead(topicNumber))}</div></div>
-   ${visualBlock}
-   <div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div>
-   <div class="mastery-subtopics">${subMarkup}</div>
- </section>`;
+ const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic" id="masteryTopic${topicNumber}Sub${i+1}"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><div class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</div><div class="mastery-subtopic-focus"><span>${activeAcademicLanguage==='en'?'Learning focus':activeAcademicLanguage==='ps'?'د زده کړې تمرکز':'Learning focus'}</span><strong>${activeAcademicLanguage==='en'?'Understand the concept, then use it in measurement, reasoning, and application.':activeAcademicLanguage==='ps'?'لومړی concept درک کړئ، بیا یې په اندازه کولو، استدلال او application کې وکاروئ.':'Concept کو سمجھیں، پھر اسے measurement / reasoning / application میں استعمال کریں۔'}</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
+ return `<section class="mastery-topic" id="masteryTopic${topicNumber}" data-topic="${topicNumber}"><div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><div class="mastery-topic-title">${masteryEsc(t.title)}</div></div><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">✓ Mark as read</button></div></div><div class="mastery-topic-overview"><div class="mastery-section-label">Definition</div><div>${masteryText(t.definition)}</div><div class="mastery-learning-lead">${masteryText(masteryLearningLead(topicNumber))}</div></div>${visualBlock}<div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div><div class="mastery-subtopics">${subMarkup}</div></section>`;
+}
+function renderActiveAcademicLanguage(){
+ const mastery=document.querySelector('#functionalContentView .mastery-document');
+ if(mastery){
+  const keepProgress=mastery.querySelector('.mastery-progress-bar')?.parentElement?.outerHTML||'';
+  const oldScroll=document.querySelector('#functionalPage .main-content-container')?.scrollTop||0;
+  mastery.innerHTML=`<div class="view-header"><div class="subject-label page-main-heading">Lecture Mastery</div></div><div class="mastery-language-row">${academicLanguageControls('mastery')}</div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span>${activeAcademicLanguage==='en'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'en\')">🔊 English TTS</button>':activeAcademicLanguage==='ps'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ps\')">🔊 پښتو TTS</button>':'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ur\')">🔊 اردو TTS</button>'}</div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>${activeAcademicLanguage==='en'?'Lecture Mastery presents each Topic as a continuous learning path using its academic content and subtopics.':activeAcademicLanguage==='ps'?'Lecture Mastery هر Topic د هغه د علمي محتوا او ټولو subtopics له لارې د زده کړې په پرله‌پسې مسیر کې وړاندې کوي.':'Lecture Mastery ہر Topic کو اس کے academic content اور تمام subtopics سے ایک مسلسل learning path میں پیش کرتا ہے۔'}</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div>`;
+  renderMasteryState(); dedupeMasterySubtopicHeadings(mastery); dictionaryBuildAndLinkOnce(); linkDictionaryTerms(mastery); applyGlobalAcademicDirection(mastery);
+  if(activeAcademicLanguage==='ps')setTimeout(syncPashtoLectureReadingArea,0);
+  const sc=document.querySelector('#functionalPage .main-content-container'); if(sc)sc.scrollTop=oldScroll;
+ }
+ const topic=document.querySelector('#topicPage .topic-document');
+ if(topic){
+  const n=Number(topic.dataset.topic||window.__activeTopicNumber||0); if(n)renderTopicLanguage(n);
+ }
+}
+function renderTopicLanguage(n){
+ const academic=academicLangPack(n), visuals=visualMarkup(n), subs=academic.subtopics||[];
+ const visualBlock=visuals?`<section class="guided-container visual-container"><div class="guided-label">Visual</div><div class="guided-content"><div class="linked-visual-grid">${visuals}</div></div></section>`:'';
+ const subBlocks=subs.map(sub=>`<section class="guided-container"><div class="guided-label">${academicEsc(sub.title)}</div><div class="guided-content ${academicDirectionClass(sub.definition)}">${academicEsc(sub.definition)}</div></section>`).join('');
+ const markup=`<div class="topic-document guided-document" data-topic="${n}"><div class="academic-language-row">${academicLanguageControls('topic')}</div>${visualBlock}<section class="guided-container"><div class="guided-label">${academicEsc(academic.title)}</div><div class="guided-content ${academicDirectionClass(academic.definition)}" id="topicDefinition">${academicEsc(academic.definition)}</div></section>${subBlocks}</div>`;
+ document.getElementById('topicContentView').innerHTML=markup; dictionaryBuildAndLinkOnce(); linkDictionaryTerms(document.getElementById('topicContentView')); applyGlobalAcademicDirection(document.getElementById('topicContentView'));
 }
 function openMasterySubtopic(topicNumber,subNumber){document.getElementById(`masteryTopic${topicNumber}Sub${subNumber}`)?.scrollIntoView({behavior:'smooth',block:'center'});}
 function renderMasteryState(){const p=getMasteryProgress();document.querySelectorAll('.mastery-topic').forEach(sec=>{const n=Number(sec.dataset.topic),read=!!p[n];sec.classList.toggle('is-read',read);const b=sec.querySelector('.mastery-read-btn');if(b)b.textContent=read?'✓ Read':'✓ Mark as read';const nav=document.querySelector(`.mastery-nav button[data-topic="${n}"]`);if(nav)nav.classList.toggle('read',read)});const done=Object.keys(p).filter(k=>p[k]).length;const fill=document.getElementById('masteryProgressFill');const textEl=document.getElementById('masteryProgressText');if(fill)fill.style.width=(done/topicCount*100)+'%';if(textEl)textEl.textContent=`${done}/${topicCount} Topics read`;}
@@ -764,7 +871,7 @@ function openFunctional(k){
  if(k==='hit'){showPage('hitCeilingPage');return;}
  const labels={dictionary:'Dictionary',practice:'Practice & Test Strategies',readiness:'Readiness Test',search:'Search',revision:'Revision',practical:'Practical Work',exam:'Examination',visual:'Visual Atlas',mastery:'Lecture Mastery'};
  if(k==='mastery'){
-  document.getElementById('functionalContentView').innerHTML=`<div class="mastery-document"><div class="view-header"><div class="subject-label page-main-heading">Lecture Mastery</div></div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span><button class="mastery-tts-global-btn" type="button" onclick="globalAcademicUrduTTS()" aria-label="پورا اکیڈمک لیکچر اردو میں سنیں">🔊 اردو میں سنیں</button></div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>Lecture Mastery ہر Topic کو اس کے اصل academic content اور تمام subtopics سے خودکار طور پر ایک مسلسل learning path میں پیش کرتا ہے۔</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div></div>`;
+  document.getElementById('functionalContentView').innerHTML=`<div class="mastery-document"></div>`; activeAcademicLanguage=localStorage.getItem('phy01AcademicLanguageV2')||'en'; renderActiveAcademicLanguage();
   renderMasteryState();
   dedupeMasterySubtopicHeadings(document.getElementById('functionalContentView'));
   dictionaryBuildAndLinkOnce();
@@ -833,10 +940,80 @@ function setDictionaryTerms(entries){
   const term=String(e?.term||'').trim();
   const definition=String(e?.definition||'').trim();
   if(!term||!definition)return;
-  dictionaryTerms.push({term,definition,urduMeaning:String(e?.urduMeaning||e?.meaningUrdu||e?.urdu||'').trim(),synonyms:Array.isArray(e?.synonyms)?e.synonyms.slice(0,3).map(x=>String(x).trim()).filter(Boolean):String(e?.synonyms||'').split(/[,;|]/).map(x=>x.trim()).filter(Boolean).slice(0,3),topic:e?.topic||'',subtopic:e?.subtopic||''});
+  dictionaryTerms.push({term,definition,urduMeaning:String(e?.urduMeaning||e?.meaningUrdu||e?.urdu||dictionaryLocalizedMeaning(dictionaryUrduMeanings,term)||'').trim(),pashtoMeaning:String(e?.pashtoMeaning||e?.meaningPashto||e?.pashto||dictionaryLocalizedMeaning(dictionaryPashtoMeanings,term)||'').trim(),englishDefinition:String(e?.englishDefinition||e?.definitionEnglish||e?.english||definition).trim(),synonyms:Array.isArray(e?.synonyms)?e.synonyms.slice(0,3).map(x=>String(x).trim()).filter(Boolean):String(e?.synonyms||'').split(/[,;|]/).map(x=>x.trim()).filter(Boolean).slice(0,3),topic:e?.topic||'',subtopic:e?.subtopic||''});
  });
  dictionaryTerms.sort((a,b)=>a.term.localeCompare(b.term,undefined,{sensitivity:'base'}));
 }
+
+const dictionaryPashtoMeanings={
+ 'Acceleration':'تعجیل د وخت په تېرېدو سره د ویلاسټي د بدلون کچه ده.',
+ 'Velocity':'ویلاسټي د وخت په تېرېدو سره د ډسپلیسمنټ د بدلون کچه ده.',
+ 'Displacement':'ډسپلیسمنټ له لومړي موقعیت څخه تر وروستي موقعیت پورې له سمت سره مستقیم واټن دی.',
+ 'Distance':'فاصله د دوو موقعیتونو ترمنځ د واټن اندازه ده.',
+ 'Speed':'سرعت د وخت په واحد کې د وهلو شوې فاصلې اندازه ده.',
+ 'Force':'فورس هغه اغېز دی چې د جسم د حرکت حالت بدلولی شي.',
+ 'Motion':'حرکت د وخت په تېرېدو سره د جسم د موقعیت بدلون دی.',
+ 'Energy':'انرژي د کار کولو وړتیا ده.',
+ 'Work':'کار هغه وخت ترسره کېږي چې فورس د جسم د ځای بدلون سبب شي.',
+ 'Power':'پاور د کار د ترسره کېدو کچه ده.',
+ 'Momentum':'مومنټم د جسم د کتلې او ویلاسټي حاصل ضرب دی.',
+ 'Vector':'ویکټر هغه کمیت دی چې اندازه او سمت دواړه لري.',
+ 'Scalar':'سکیلر هغه کمیت دی چې یوازې اندازه لري او سمت نه لري.',
+ 'Measurement':'اندازه کول د یوې فزیکي کمیت د ارزښت معلومول دي.',
+ 'Mass':'کتله د مادې د مقدار اندازه ده.',
+ 'Time':'وخت د پېښو د ترتیب او مودې اندازه ده.',
+ 'Length':'اوږدوالی د دوو نقطو ترمنځ د فاصلې اندازه ده.',
+ 'Temperature':'تودوخه د جسم د حرارتي حالت د معلومولو اندازه ده.',
+ 'Current':'برېښنايي جریان د برېښنايي چارج د تېرېدو کچه ده.',
+ 'Charge':'چارج د مادې یوه فزیکي ځانګړنه ده چې برېښنايي تعاملات رامنځته کوي.',
+ 'Voltage':'ولټاژ د برېښنايي پوتنسیال د توپیر اندازه ده.',
+ 'Resistance':'مقاومت د برېښنايي جریان پر وړاندې د مدار د مخالفت اندازه ده.',
+ 'Pressure':'فشار پر واحده مساحت وارد شوی فورس دی.',
+ 'Density':'کثافت د واحد حجم په هره اندازه کې د کتلې مقدار دی.',
+ 'Volume':'حجم هغه فضا ده چې یو جسم یې نیسي.',
+ 'Frequency':'فریکونسي په یوه ثانیه کې د تکرارونو شمېر دی.',
+ 'Wavelength':'څپه‌اوږدوالی د څپې د دوو پرله‌پسې ورته نقطو ترمنځ واټن دی.',
+ 'Uncertainty':'ناڅرګندتیا د یوې میجرمنټ د ارزښت په اړه د ممکنه بدلون اندازه ده.',
+ 'Error':'خطا د اندازه شوي ارزښت او حقیقي یا منل شوي ارزښت ترمنځ توپیر دی.',
+ 'Accuracy':'درستوالی ښيي چې اندازه شوی ارزښت حقیقي ارزښت ته څومره نږدې دی.',
+ 'Precision':'تکراري یکسانیت ښيي چې تکراري میجرمنټونه یو له بل سره څومره نږدې دي.',
+ 'Dimension':'ابعاد د فزیکي کمیت د بنسټیزو کمیتونو په مرسته د ښودلو بڼه ده.'
+};
+const dictionaryUrduMeanings={
+ 'Acceleration':'اسراع وہ شرح ہے جس سے وقت کے ساتھ رفتار تبدیل ہوتی ہے۔',
+ 'Velocity':'سمتی رفتار وقت کے ساتھ نقل مکانی کی تبدیلی کی شرح ہے۔',
+ 'Displacement':'نقل مکانی ابتدائی مقام سے آخری مقام تک سمت سمیت براہِ راست فاصلہ ہے۔',
+ 'Distance':'فاصلہ دو مقامات کے درمیان طے کیے گئے راستے کی مقدار ہے۔',
+ 'Speed':'رفتار وقت کی فی اکائی میں طے کیا گیا فاصلہ ہے۔',
+ 'Force':'قوت وہ اثر ہے جو کسی جسم کی حرکت کی حالت تبدیل کر سکتا ہے۔',
+ 'Motion':'حرکت وقت کے ساتھ جسم کی پوزیشن میں تبدیلی ہے۔',
+ 'Energy':'توانائی کام کرنے کی صلاحیت ہے۔',
+ 'Work':'کام اس وقت ہوتا ہے جب قوت جسم میں نقل مکانی پیدا کرے۔',
+ 'Power':'قدرتی شرحِ کار یا پاور کام انجام دینے کی شرح ہے۔',
+ 'Momentum':'مومینٹم جسم کی کمیت اور سمتی رفتار کا حاصلِ ضرب ہے۔',
+ 'Vector':'ویکٹر وہ مقدار ہے جس میں مقدار اور سمت دونوں ہوتی ہیں۔',
+ 'Scalar':'اسکیلر وہ مقدار ہے جس میں صرف مقدار ہوتی ہے، سمت نہیں۔',
+ 'Measurement':'پیمائش کسی طبعی کمیت کی قدر معلوم کرنے کا عمل ہے۔',
+ 'Mass':'کمیت مادے کی مقدار کا پیمانہ ہے۔',
+ 'Time':'وقت واقعات کی ترتیب اور مدت کا پیمانہ ہے۔',
+ 'Length':'لمبائی دو نقاط کے درمیان فاصلے کا پیمانہ ہے۔',
+ 'Temperature':'درجہ حرارت کسی جسم کی حرارتی حالت کا پیمانہ ہے۔',
+ 'Current':'برقی رو برقی چارج کے بہاؤ کی شرح ہے۔',
+ 'Charge':'چارج مادے کی وہ طبعی خاصیت ہے جو برقی تعاملات پیدا کرتی ہے۔',
+ 'Voltage':'وولٹیج برقی پوٹینشل کے فرق کی مقدار ہے۔',
+ 'Resistance':'مزاحمت برقی رو کے بہاؤ کے خلاف مزاحمت کی مقدار ہے۔',
+ 'Pressure':'دباؤ فی اکائی رقبہ پر لگنے والی قوت ہے۔',
+ 'Density':'کثافت فی اکائی حجم کمیت کی مقدار ہے۔',
+ 'Volume':'حجم وہ جگہ ہے جس پر کوئی جسم قابض ہوتا ہے۔',
+ 'Frequency':'تعدد ایک سیکنڈ میں ہونے والی تکراروں کی تعداد ہے۔',
+ 'Wavelength':'طولِ موج ایک موج کے دو مسلسل یکساں نقاط کے درمیان فاصلہ ہے۔',
+ 'Uncertainty':'غیر یقینی پیمائش کی قدر میں ممکنہ تبدیلی کی حد کو ظاہر کرتی ہے۔',
+ 'Error':'غلطی ناپی گئی قدر اور حقیقی یا منظور شدہ قدر کے درمیان فرق ہے۔',
+ 'Accuracy':'درستگی بتاتی ہے کہ ناپی گئی قدر حقیقی قدر کے کتنی قریب ہے۔',
+ 'Precision':'تکراری یکسانیت بتاتی ہے کہ بار بار کی گئی پیمائشیں ایک دوسرے کے کتنی قریب ہیں۔',
+ 'Dimension':'ابعاد کسی طبعی کمیت کو بنیادی کمیتوں کی مدد سے ظاہر کرنے کی صورت ہیں۔'
+};
+function dictionaryLocalizedMeaning(map,term){const key=String(term||'').trim();if(map[key])return map[key];const hit=Object.keys(map).find(k=>k.toLowerCase()===key.toLowerCase());return hit?map[hit]:'';}
 function getDictionaryTerms(){return [...dictionaryTerms];}
 function dictionaryEscapeRegExp(value){return String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
 function buildAutomaticDictionaryTerms(){
@@ -903,8 +1080,6 @@ function linkDictionaryTerms(root){
 function dictionaryLinkClickHandler(e){const word=e.target.closest?.('.linked-word');if(!word)return;const term=word.getAttribute('data-term')||word.textContent.trim();openDictionaryTerm(term);e.preventDefault();e.stopImmediatePropagation();}
 if(!window.__dictionaryLinkHandlerInstalled){document.addEventListener('click',dictionaryLinkClickHandler,true);window.__dictionaryLinkHandlerInstalled=true;}
 
-if(!window.__dictionaryLinkHandlerInstalled){document.addEventListener('click',dictionaryLinkClickHandler,true);window.__dictionaryLinkHandlerInstalled=true;}
-
 function dictionaryBuildAndLinkOnce(){
  if(window.__dictionaryBuildComplete)return;
  buildAutomaticDictionaryTerms();
@@ -924,7 +1099,7 @@ function dictionaryRender(query=''){
  const groups={};
  filtered.forEach(e=>{const letter=e.term.charAt(0).toUpperCase();if(!/^[A-Z]$/.test(letter))return;(groups[letter]??=[]).push(e);});
  const letters=Object.keys(groups).sort();
- root.innerHTML=letters.length?letters.map(letter=>`<section class="dictionary-letter-section" id="dictionaryLetter${letter}"><div class="dictionary-letter-head">${letter}</div>${groups[letter].map(e=>`<button class="dictionary-entry" type="button" onclick="openDictionaryTerm(${JSON.stringify(e.term).replace(/</g,'\u003c')})"><span class="dictionary-term">${e.term}</span><span class="dictionary-entry-explanation">${escapeDictionaryHtml(e.definition||'')}</span><span class="dictionary-entry-urdu">${escapeDictionaryHtml(e.urduMeaning||'—')}</span><span class="dictionary-entry-synonyms">${escapeDictionaryHtml(e.synonyms?.length?e.synonyms.slice(0,3).join(' • '):'—')}</span><span class="dictionary-entry-meta">${e.topic?e.topic:''}${e.subtopic?` · ${e.subtopic}`:''}</span></button>`).join('')}</section>`).join(''):`<div class="dictionary-empty">${q?'No matching terminology found.':'Technical terminology from Topics and Subtopics will appear here automatically.'}</div>`;
+ root.innerHTML=letters.length?letters.map(letter=>`<section class="dictionary-letter-section" id="dictionaryLetter${letter}"><div class="dictionary-letter-head">${letter}</div>${groups[letter].map(e=>`<button class="dictionary-entry" type="button" onclick="openDictionaryTerm(${JSON.stringify(e.term).replace(/</g,'\u003c')})"><span class="dictionary-term">${e.term}</span><span class="dictionary-entry-explanation"><strong>English:</strong> ${escapeDictionaryHtml(e.englishDefinition||e.definition||'—')}</span><span class="dictionary-entry-urdu"><strong>اردو:</strong> ${escapeDictionaryHtml(e.urduMeaning||'—')}</span><span class="dictionary-entry-pashto"><strong>پښتو:</strong> ${escapeDictionaryHtml(e.pashtoMeaning||'—')}</span><span class="dictionary-entry-meta">${e.topic?e.topic:''}${e.subtopic?` · ${e.subtopic}`:''}</span></button>`).join('')}</section>`).join(''):`<div class="dictionary-empty">${q?'No matching terminology found.':'Technical terminology from Topics and Subtopics will appear here automatically.'}</div>`;
  const status=document.getElementById('dictionarySearchStatus');if(status)status.textContent=q?`${filtered.length} matching term${filtered.length===1?'':'s'} found`:'';
 }
 function openDictionary(){
@@ -941,7 +1116,7 @@ function searchDictionary(){const input=document.getElementById('dictionarySearc
 function clearDictionarySearch(){const input=document.getElementById('dictionarySearchInput');if(input)input.value='';document.getElementById('dictionarySearchWrap')?.classList.remove('has-value');dictionaryRender();if(input)input.focus();}
 function escapeDictionaryHtml(value){return String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));}
 function ensureDictionaryModal(){let modal=document.getElementById('dictionaryModal');if(modal)return modal;modal=document.createElement('div');modal.id='dictionaryModal';modal.className='dictionary-modal';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');modal.setAttribute('aria-label','Dictionary definition');modal.addEventListener('click',e=>{if(e.target===modal)closeDictionaryTerm();});modal.innerHTML=`<div class="dictionary-card"><div class="dictionary-card-head"><span>Dictionary</span><button class="dictionary-card-close" type="button" onclick="closeDictionaryTerm()">×</button></div><div class="dictionary-card-term" data-dictionary-modal-term></div><div class="dictionary-card-definition" data-dictionary-modal-definition></div><div class="dictionary-card-source" data-dictionary-modal-source></div></div>`;document.body.appendChild(modal);modal.querySelector('[data-dictionary-modal-term]').id='dictionaryModalTerm';modal.querySelector('[data-dictionary-modal-definition]').id='dictionaryModalDefinition';modal.querySelector('[data-dictionary-modal-source]').id='dictionaryModalSource';return modal;}
-function openDictionaryTerm(term){const e=getDictionaryTerms().find(x=>x.term.toLowerCase()===String(term).toLowerCase());if(!e)return;ensureDictionaryModal();const title=document.getElementById('dictionaryModalTerm'),def=document.getElementById('dictionaryModalDefinition'),src=document.getElementById('dictionaryModalSource');if(!title||!def||!src)return;title.textContent=e.term;def.innerHTML=`<div><strong>Meaning:</strong> ${escapeDictionaryHtml(e.definition)}</div><div style="margin-top:10px"><strong>اردو معنی:</strong> ${escapeDictionaryHtml(e.urduMeaning||'—')}</div><div style="margin-top:10px"><strong>Synonyms:</strong> ${escapeDictionaryHtml(e.synonyms.length?e.synonyms.join(' • '):'—')}</div>`;src.textContent=[e.topic,e.subtopic].filter(Boolean).join(' · ');ensureDictionaryModal().classList.add('open');}
+function openDictionaryTerm(term){const e=getDictionaryTerms().find(x=>x.term.toLowerCase()===String(term).toLowerCase());if(!e)return;ensureDictionaryModal();const title=document.getElementById('dictionaryModalTerm'),def=document.getElementById('dictionaryModalDefinition'),src=document.getElementById('dictionaryModalSource');if(!title||!def||!src)return;title.textContent=e.term;def.innerHTML=`<div><strong>English:</strong> ${escapeDictionaryHtml(e.englishDefinition||e.definition)}</div><div style="margin-top:10px;direction:rtl;text-align:right"><strong>اردو:</strong> ${escapeDictionaryHtml(e.urduMeaning||'—')}</div><div style="margin-top:10px;direction:rtl;text-align:right"><strong>پښتو:</strong> ${escapeDictionaryHtml(e.pashtoMeaning||'—')}</div>`;src.textContent=[e.topic,e.subtopic].filter(Boolean).join(' · ');ensureDictionaryModal().classList.add('open');}
 function closeDictionaryTerm(){document.getElementById('dictionaryModal')?.classList.remove('open');}
 
 function initDictionaryNavigation(){const btn=document.getElementById('dictionaryReturn');const scroller=document.querySelector('#functionalPage .main-content-container');const input=document.getElementById('dictionarySearchInput');if(!btn||!scroller)return;if(dictionaryScrollHandler)scroller.removeEventListener('scroll',dictionaryScrollHandler);let keyboardOpen=false;let baseViewportHeight=Math.max(window.innerHeight,window.visualViewport?.height||0);const setKeyboardState=(open)=>{keyboardOpen=!!open;const page=document.getElementById('functionalPage');if(keyboardOpen){page?.classList.add('dictionary-keyboard-active');btn.classList.remove('visible');}else{page?.classList.remove('dictionary-keyboard-active');btn.classList.remove('visible');}};const onFocus=()=>{baseViewportHeight=Math.max(baseViewportHeight,window.innerHeight,window.visualViewport?.height||0);setKeyboardState(true);};const refreshKeyboard=()=>{const focused=!!(input&&document.activeElement===input);const current=Math.max(0,window.visualViewport?.height||window.innerHeight);if(!focused){setKeyboardState(false);return;}if(current<baseViewportHeight-100){setKeyboardState(true);}else if(current>=baseViewportHeight-40){setKeyboardState(false);}else{setKeyboardState(true);}};const onBlur=()=>setTimeout(()=>setKeyboardState(false),150);input?.addEventListener('focus',onFocus);input?.addEventListener('blur',onBlur);window.visualViewport?.addEventListener('resize',refreshKeyboard);window.visualViewport?.addEventListener('scroll',refreshKeyboard);dictionaryScrollHandler=refreshKeyboard;scroller.addEventListener('scroll',dictionaryScrollHandler,{passive:true});setKeyboardState(false);}
@@ -1195,12 +1370,12 @@ function initGlobalNavigation(pageId){
   const back=document.createElement('button');
   back.type='button';
   back.className='global-previous-page-tab';
-  back.setAttribute('aria-label','پچھلا صفحہ');
-  back.innerHTML='<span class="global-nav-arrow-symbol" aria-hidden="true">↓</span><span class="global-nav-label"><span aria-hidden="true">←</span><span>پچھلا صفحہ</span></span>';
+  back.setAttribute('aria-label','Previous Page');
+  back.innerHTML='<span class="global-nav-arrow-symbol" aria-hidden="true">↓</span><span class="global-nav-label"><span aria-hidden="true">←</span><span>Previous Page</span></span>';
   back.addEventListener('click',()=>{ if(typeof academicTTSHide==='function')academicTTSHide(); if(back.classList.contains('scrolling')){globalNavStep(scroller,back);}else{showPage('topicsPage');} });
   page.append(back);
   let lastY=scroller.scrollTop;
-  const showStopped=()=>{back.classList.remove('scrolling');back.setAttribute('aria-label','پچھلا صفحہ');};
+  const showStopped=()=>{back.classList.remove('scrolling');back.setAttribute('aria-label','Previous Page');};
   const onScroll=()=>{
     const y=scroller.scrollTop,max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);
     if(y<=8&&y<=lastY){back.classList.remove('scrolling');}
@@ -1226,131 +1401,183 @@ function globalNavStep(scroller,back){
 </script>
 
 
-<div id="masteryTTSPanel" class="mastery-tts-panel" aria-live="polite"><span class="mastery-tts-status" id="masteryTTSStatus">اردو میں سنیں</span><button type="button" onclick="academicTTSPausePlay()">Ⅱ/▶</button><button type="button" onclick="academicTTSStop()">■ Stop</button><button type="button" onclick="academicTTSHide()">×</button></div>
+<div id="masteryTTSPanel" class="mastery-tts-panel" aria-live="polite"><span class="mastery-tts-status" id="masteryTTSStatus">Select language</span><button type="button" onclick="academicTTSPausePlay()">Ⅱ/▶</button><button type="button" onclick="academicTTSStop()">■ Stop</button><button type="button" onclick="academicTTSHide()">×</button></div>
 <script>
-
-const ACADEMIC_TTS_LANG='ur-PK';
-const ACADEMIC_TTS_REMOTE_LANG='ur';
+/* Lecture Mastery TTS — English / Pashto / Urdu. Pashto uses the verified native
+   Web Speech route (ps-PK) from the standalone tested Pashto TTS implementation. */
+const ACADEMIC_TTS_LANGS={en:{lang:'en-US',remote:'en',label:'English'},ps:{lang:'ps-PK',remote:'ps',label:'پښتو'},ur:{lang:'ur-PK',remote:'ur',label:'اردو'}};
 const ACADEMIC_TTS_MAX_CHARS=180;
-let academicTTSChunks=[],academicTTSIndex=0,academicTTSPlaying=false,academicTTSPaused=false,academicTTSVoice=null,academicTTSVoiceWaitTimer=null,academicTTSAudio=null,academicTTSMode='',currentUtteranceReference=null,academicTTSHighlight=null;
+let academicTTSChunks=[],academicTTSIndex=0,academicTTSPlaying=false,academicTTSPaused=false,academicTTSVoice=null,academicTTSAudio=null,academicTTSMode='',academicTTSLanguage='en',currentUtteranceReference=null,academicTTSHighlight=null;
+
 function academicTTSText(){
  const root=document.querySelector('#functionalContentView .mastery-document');
  if(!root)return '';
  return Array.from(root.querySelectorAll('.mastery-topic-title,.mastery-topic-overview,.mastery-subtopic h3,.mastery-subtopic-definition'))
-  .map(e=>e.innerText.trim()).filter(Boolean).join('۔ ');
+  .map(e=>e.innerText.trim()).filter(Boolean).join(activeAcademicLanguage==='en'?'. ':'۔ ');
 }
 function academicTTSSplit(text){
- const out=[]; const parts=String(text).split(/(?<=[۔.!?؟])/); let buf='';
+ const out=[];const parts=String(text).split(/(?<=[۔.!?؟])/);let buf='';
  for(const part of parts){if(!part)continue;if((buf+' '+part).trim().length<=ACADEMIC_TTS_MAX_CHARS)buf=(buf+' '+part).trim();else{if(buf)out.push(buf);buf=part;}}
- if(buf)out.push(buf); return out;
+ if(buf)out.push(buf);return out;
+}
+function academicTTSVoices(){return window.speechSynthesis?.getVoices?.()||[];}
+function academicTTSVoiceFor(langKey){
+ const cfg=ACADEMIC_TTS_LANGS[langKey]||ACADEMIC_TTS_LANGS.en;
+ const target=cfg.lang.toLowerCase();
+ const voices=academicTTSVoices();
+ return voices.find(v=>String(v?.lang||'').toLowerCase()===target)||
+        voices.find(v=>String(v?.lang||'').toLowerCase().startsWith(target.split('-')[0]+'-'))||null;
+}
+function academicTTSStatus(t){const e=document.getElementById('masteryTTSStatus');if(e)e.textContent=t;}
+function academicTTSButton(active){document.querySelector('.mastery-tts-global-btn')?.classList.toggle('active',!!active);}
+function academicTTSRemoteURL(text){
+ const cfg=ACADEMIC_TTS_LANGS[academicTTSLanguage]||ACADEMIC_TTS_LANGS.en;
+ return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+encodeURIComponent(cfg.remote)+'&q='+encodeURIComponent(text);
 }
 function academicTTSBuildChunks(){
- const root=document.querySelector('#functionalContentView .mastery-document');
- if(!root)return [];
+ const root=document.querySelector('#functionalContentView .mastery-document');if(!root)return [];
  const chunks=[];
- academicTTSSources().forEach(element=>{
-  const parts=academicTTSSplit(element.innerText.trim());
-  parts.forEach(text=>{if(String(text).trim())chunks.push({text:String(text).trim(),element});});
- });
+ Array.from(root.querySelectorAll('.mastery-topic-title,.mastery-topic-overview,.mastery-subtopic h3,.mastery-subtopic-definition')).forEach(element=>
+  academicTTSSplit(element.innerText.trim()).forEach(text=>{if(String(text).trim())chunks.push({text:String(text).trim(),element});})
+ );
  return chunks;
-}
-function academicTTSSources(){
- const root=document.querySelector('#functionalContentView .mastery-document');
- if(!root)return [];
- return Array.from(root.querySelectorAll('.mastery-topic-title,.mastery-topic-overview,.mastery-subtopic h3,.mastery-subtopic-definition')).filter(e=>e.textContent.trim());
 }
 function academicTTSHighlightChunk(element){
  if(academicTTSHighlight)academicTTSHighlight.classList.remove('mastery-tts-reading-highlight');
  academicTTSHighlight=element||null;
  if(academicTTSHighlight){academicTTSHighlight.classList.add('mastery-tts-reading-highlight');academicTTSHighlight.scrollIntoView({behavior:'smooth',block:'center'});}
 }
-function academicTTSClearHighlight(){
- if(academicTTSHighlight)academicTTSHighlight.classList.remove('mastery-tts-reading-highlight');
- academicTTSHighlight=null;
+function academicTTSClearHighlight(){if(academicTTSHighlight)academicTTSHighlight.classList.remove('mastery-tts-reading-highlight');academicTTSHighlight=null;}
+
+/* This is intentionally modelled on the separately verified Pashto test:
+   SpeechSynthesisUtterance + lang=ps-PK, without forcing an English voice. */
+function academicTTSPlayBrowser(text,cfg){
+ currentUtteranceReference=new SpeechSynthesisUtterance(text);
+ const u=currentUtteranceReference;
+ u.lang=cfg.lang;
+ u.rate=cfg.lang==='ps-PK'?.85:.9;
+ u.pitch=1;
+ u.volume=1;
+ /* For Pashto, do NOT assign an English/base-language voice. Let the browser
+    select its installed Pashto voice exactly as in the verified test file. */
+ if(academicTTSLanguage!=='ps')u.voice=academicTTSVoice;
+ u.onstart=()=>academicTTSStatus(cfg.label+' TTS جاري دی');
+ u.onend=()=>{currentUtteranceReference=null;setTimeout(academicTTSPlayNext,60);};
+ u.onerror=()=>{
+  currentUtteranceReference=null;
+  if(academicTTSLanguage==='ps'){
+   academicTTSStatus('Pashto voice could not be started');
+   academicTTSStop();
+   return;
+  }
+  academicTTSVoice=null;academicTTSMode='remote';academicTTSIndex=Math.max(0,academicTTSIndex-1);setTimeout(academicTTSPlayNext,80);
+ };
+ window.speechSynthesis.speak(u);
 }
-function academicTTSVoices(){return window.speechSynthesis?.getVoices?.()||[];}
-function academicUrduVoice(){
- const voices=academicTTSVoices();
- const urdu=voices.filter(v=>{const l=String(v?.lang||'').toLowerCase();return l==='ur-pk'||l==='ur'||l.startsWith('ur-');});
- return urdu.find(v=>String(v.lang).toLowerCase()==='ur-pk')||urdu.find(v=>String(v.lang).toLowerCase()==='ur')||urdu[0]||null;
+function academicTTSPlayRemote(text,cfg){
+ if(academicTTSAudio){try{academicTTSAudio.pause();}catch(e){}}
+ const audio=new Audio(academicTTSRemoteURL(text));
+ academicTTSAudio=audio;audio.preload='auto';audio.volume=1;
+ audio.onplay=()=>academicTTSStatus(cfg.label+' TTS جاري دی');
+ audio.onended=()=>setTimeout(academicTTSPlayNext,80);
+ audio.onerror=()=>{academicTTSStatus(cfg.label+' audio could not be loaded');academicTTSStop();};
+ audio.play().catch(()=>{academicTTSStatus(cfg.label+' audio could not be started');academicTTSStop();});
 }
-function academicTTSStatus(t){const e=document.getElementById('masteryTTSStatus');if(e)e.textContent=t;}
-function academicTTSButton(active){document.querySelector('.mastery-tts-global-btn')?.classList.toggle('active',!!active);}
-function academicTTSPrepareVoice(){academicTTSVoice=academicUrduVoice();return academicTTSVoice;}
-function academicTTSRemoteURL(text){return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+encodeURIComponent(ACADEMIC_TTS_REMOTE_LANG)+'&q='+encodeURIComponent(text);}
-function academicTTSWaitForUrduVoice(attempt=0){
- if(!academicTTSPlaying)return;
- academicTTSVoice=academicUrduVoice();
- if(academicTTSVoice){academicTTSMode='browser';academicTTSStatus('اردو (ur-PK) TTS جاری ہے');academicTTSPlayNext();return;}
- 
- academicTTSMode='remote';academicTTSStatus('اردو آواز شروع ہو رہی ہے…');academicTTSPlayNext();
-}
-function globalAcademicUrduTTS(){
- if(!('SpeechSynthesisUtterance' in window) && !('Audio' in window)){academicTTSStatus('اس ڈیوائس میں آڈیو TTS دستیاب نہیں');document.getElementById('masteryTTSPanel')?.classList.add('visible');return;}
+function globalAcademicTTS(langKey){
+ const cfg=ACADEMIC_TTS_LANGS[langKey];if(!cfg)return;
  const text=academicTTSText();
- if(!text){academicTTSStatus('Academic content دستیاب نہیں');document.getElementById('masteryTTSPanel')?.classList.add('visible');return;}
+ if(!text){academicTTSStatus('Academic content unavailable');document.getElementById('masteryTTSPanel')?.classList.add('visible');return;}
  academicTTSStop();
- academicTTSVoice=academicUrduVoice();academicTTSChunks=academicTTSBuildChunks();academicTTSIndex=0;academicTTSPlaying=true;academicTTSPaused=false;
+ academicTTSLanguage=langKey;
+ academicTTSVoice=langKey==='ps'?null:academicTTSVoiceFor(langKey);
+ academicTTSChunks=academicTTSBuildChunks();academicTTSIndex=0;academicTTSPlaying=true;academicTTSPaused=false;
  document.getElementById('masteryTTSPanel')?.classList.add('visible');academicTTSButton(true);
- if(academicTTSVoice){academicTTSMode='browser';academicTTSStatus('اردو (ur-PK) TTS شروع ہو رہا ہے…');setTimeout(academicTTSPlayNext,120);}
- else{academicTTSMode='remote';academicTTSStatus('اردو آواز شروع ہو رہی ہے…');setTimeout(academicTTSPlayNext,120);}
+ academicTTSMode=(langKey==='ps'||academicTTSVoice)?'browser':'remote';
+ academicTTSStatus(cfg.label+' TTS starting…');
+ /* Start directly from the button call. This preserves user activation on mobile. */
+ academicTTSPlayNext();
 }
 function academicTTSPlayNext(){
  if(!academicTTSPlaying||academicTTSPaused)return;
  if(academicTTSIndex>=academicTTSChunks.length){academicTTSStop();return;}
- const chunk=academicTTSChunks[academicTTSIndex++];
- const text=typeof chunk==='string'?chunk:chunk.text;
- academicTTSHighlightChunk(typeof chunk==='string'?null:chunk.element);
- if(academicTTSMode==='browser'&&academicTTSVoice){
-  currentUtteranceReference=new SpeechSynthesisUtterance(text);const u=currentUtteranceReference;u.lang=ACADEMIC_TTS_LANG;u.rate=.9;u.pitch=1;u.volume=1;u.voice=academicTTSVoice;
-  u.onstart=()=>academicTTSStatus('اردو (ur-PK) TTS جاری ہے');
-  u.onend=()=>{currentUtteranceReference=null;setTimeout(academicTTSPlayNext,60);};
-  u.onerror=()=>{currentUtteranceReference=null;academicTTSMode='remote';academicTTSIndex=Math.max(0,academicTTSIndex-1);academicTTSStatus('اردو آواز شروع ہو رہی ہے…');setTimeout(academicTTSPlayNext,80);};
-  window.speechSynthesis.speak(u);return;
- }
- academicTTSMode='remote';
- if(academicTTSAudio){try{academicTTSAudio.pause();}catch(e){}}
- const audio=new Audio(academicTTSRemoteURL(text));academicTTSAudio=audio;audio.preload='auto';audio.volume=1;
- audio.onplay=()=>academicTTSStatus('اردو TTS جاری ہے');
- audio.onended=()=>setTimeout(academicTTSPlayNext,80);
- audio.onerror=()=>{academicTTSStatus('اردو آڈیو لوڈ نہیں ہو سکی');academicTTSStop();};
- audio.play().catch(()=>{academicTTSStatus('اردو آڈیو شروع نہیں ہو سکی');academicTTSStop();});
+ const chunk=academicTTSChunks[academicTTSIndex++];const text=chunk.text;const cfg=ACADEMIC_TTS_LANGS[academicTTSLanguage];
+ academicTTSHighlightChunk(chunk.element);
+ if(academicTTSMode==='browser'){academicTTSPlayBrowser(text,cfg);return;}
+ academicTTSPlayRemote(text,cfg);
 }
 function academicTTSPausePlay(){
  if(!academicTTSPlaying)return;
- if(academicTTSMode==='remote'&&academicTTSAudio){if(!academicTTSAudio.paused){academicTTSAudio.pause();academicTTSPaused=true;academicTTSStatus('اردو TTS موقوف ہے');}else{academicTTSAudio.play().then(()=>{academicTTSPaused=false;academicTTSStatus('اردو TTS جاری ہے');}).catch(()=>{});}return;}
- if(window.speechSynthesis.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();academicTTSPaused=true;academicTTSStatus('اردو TTS موقوف ہے');}
- else if(window.speechSynthesis.paused){window.speechSynthesis.resume();academicTTSPaused=false;academicTTSStatus('اردو TTS جاری ہے');}
+ if(academicTTSMode==='remote'&&academicTTSAudio){
+  if(!academicTTSAudio.paused){academicTTSAudio.pause();academicTTSPaused=true;}
+  else{academicTTSAudio.play().then(()=>academicTTSPaused=false).catch(()=>{});}return;
+ }
+ if(window.speechSynthesis?.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();academicTTSPaused=true;}
+ else if(window.speechSynthesis?.paused){window.speechSynthesis.resume();academicTTSPaused=false;}
  else academicTTSPlayNext();
 }
 function academicTTSStop(){
- academicTTSPlaying=false;academicTTSPaused=false;if(academicTTSVoiceWaitTimer)clearTimeout(academicTTSVoiceWaitTimer);
- try{window.speechSynthesis?.cancel();}catch(e){} currentUtteranceReference=null;academicTTSClearHighlight(); if(academicTTSAudio){try{academicTTSAudio.pause();academicTTSAudio.src='';}catch(e){}}academicTTSAudio=null;academicTTSIndex=0;academicTTSChunks=[];academicTTSButton(false);academicTTSStatus('اردو میں سنیں');
+ academicTTSPlaying=false;academicTTSPaused=false;
+ try{window.speechSynthesis?.cancel();}catch(e){}
+ currentUtteranceReference=null;academicTTSClearHighlight();
+ if(academicTTSAudio){try{academicTTSAudio.pause();academicTTSAudio.src='';}catch(e){}}
+ academicTTSAudio=null;academicTTSIndex=0;academicTTSChunks=[];academicTTSMode='';academicTTSButton(false);academicTTSStatus('Select language');
 }
 function academicTTSHide(){academicTTSStop();document.getElementById('masteryTTSPanel')?.classList.remove('visible');}
-window.speechSynthesis?.addEventListener?.('voiceschanged',academicTTSPrepareVoice);setTimeout(academicTTSPrepareVoice,500);
-function masterySpeakTopic(){globalAcademicUrduTTS();}function masteryPausePlay(){academicTTSPausePlay();}function masteryStop(){academicTTSStop();}function masteryHidePanel(){academicTTSHide();}
-</script><script>document.addEventListener('DOMContentLoaded',()=>initGlobalAcademicTextDirection());</script><script>
-
-(function(){
-  const originalOpenFunctional=window.openFunctional;
-  window.openFunctional=function(k){
-    if(k==='practice'||k==='readiness'){
-      try{
-        if(typeof academicTTSHide==='function')academicTTSHide();
-        showPage('functionalPage');
-        if(k==='practice') practiceRender();
-        else readinessRender();
+function globalAcademicUrduTTS(){globalAcademicTTS('ur');}
+function masterySpeakTopic(){globalAcademicTTS(activeAcademicLanguage||'en');}
+function masteryPausePlay(){academicTTSPausePlay();}
+function masteryStop(){academicTTSStop();}
+function masteryHidePanel(){academicTTSHide();}
+window.speechSynthesis?.addEventListener?.('voiceschanged',()=>{if(academicTTSLanguage!=='ps')academicTTSVoice=academicTTSVoiceFor(academicTTSLanguage);});
+</script><script>document.addEventListener('DOMContentLoaded',()=>initGlobalAcademicTextDirection());</script>
+<div id="pashtoSandboxWrapper" style="display: none;"><iframe id="pashtoEngineSandbox" src=""></iframe></div>
+<div id="pashtoLectureReadingArea" style="display:none"></div>
+<script>
+function syncPashtoLectureReadingArea(){
+    var root=document.querySelector('#functionalContentView .mastery-document');
+    var area=document.getElementById('pashtoLectureReadingArea');
+    if(!root||!area)return;
+    area.innerText=Array.from(root.querySelectorAll('.mastery-topic-title,.mastery-topic-overview,.mastery-subtopic h3,.mastery-subtopic-definition')).map(function(e){return e.innerText.trim();}).filter(Boolean).join('۔ ');
+}
+function executePashtoMasterTTS(elementId) {
+    syncPashtoLectureReadingArea();
+    var textContent = document.getElementById(elementId).innerText.trim();
+    if (!textContent) {
+        alert("متن پیدا نشو (Text not found!)");
         return;
-      }catch(err){
-        const root=document.getElementById('functionalContentView');
-        if(root)root.innerHTML='<div class="guided-document"><section class="guided-container"><div class="guided-label">'+(k==='practice'?'Practice & Test Strategies':'Readiness Test')+'</div><div class="guided-content">Section could not be rendered. Please reopen this tab.</div></section></div>';
-        return;
-      }
     }
-    return originalOpenFunctional(k);
-  };
-})();
+    var secureStreamUrl = "https://google.com" + encodeURIComponent(textContent);
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        var utterance = new SpeechSynthesisUtterance(textContent);
+        utterance.lang = 'ps-PK';
+        utterance.rate = 0.85;
+        var isSpeaking = false;
+        utterance.onstart = function() { isSpeaking = true; };
+        window.speechSynthesis.speak(utterance);
+        setTimeout(function() {
+            if (!isSpeaking && !window.speechSynthesis.speaking) {
+                console.log("Local system locked. Initializing backup audio routing.");
+                triggerPashtoFallback(secureStreamUrl);
+            }
+        }, 250);
+    } else {
+        triggerPashtoFallback(secureStreamUrl);
+    }
+}
+function triggerPashtoFallback(streamUrl) {
+    var audioObject = new Audio();
+    audioObject.src = streamUrl;
+    audioObject.play().catch(function() {
+        var sandboxFrame = document.getElementById('pashtoEngineSandbox');
+        var container = document.getElementById('pashtoSandboxWrapper');
+        sandboxFrame.src = streamUrl;
+        container.style.display = "block";
+    });
+}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){syncPashtoLectureReadingArea();});
 </script>
 </body>
 </html>
