@@ -1,12 +1,11 @@
 
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Physics Lecture-Making Container</title>
+<title>PHY01</title>
 <style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic{display:none!important;}#htcInfo{display:none!important;}
 .academic-language-row,.mastery-language-row{display:flex;justify-content:center;align-items:center;margin:0 0 12px}.academic-language-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.academic-language-switcher button{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--green);padding:8px 14px;font-weight:900;cursor:pointer}.academic-language-switcher button.active{background:var(--green);color:#fff}.dictionary-entry-pashto{direction:rtl;text-align:right}.dictionary-entry strong{font-weight:900;color:var(--green)}
 @media(max-width:760px){.dictionary-entry{grid-template-columns:1fr}.dictionary-entry-pashto{direction:rtl;text-align:right}}
@@ -18,8 +17,7 @@
 :root{--green:#173e34;--green2:#285b4b;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#64748b;--line:#d7dedb;--red:#b83b3b}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;color:var(--ink);background:var(--cream)}
 body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page.active{display:block}.top{background:var(--green);color:#fff;border-bottom:4px solid #c9a95b}.top-inner{min-height:76px;max-width:1240px;margin:auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px;direction:ltr}.top-brand{text-align:left;order:1}.top-logo{order:2}.top-brand h1{margin:0;font-size:22px}.top-subtitle{font-size:12px;opacity:.85;margin-top:3px}.top-logo img{display:block;width:58px;height:58px;object-fit:contain}
-.main-content-container{height:calc(100% - 80px);max-width:1240px;margin:auto;padding:6px;background:var(--paper);border:1px solid var(--line);overflow:auto}.content-view{min-height:100%;padding:4px 8px 34px}.view-header{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.subject-label{font-weight:800;color:var(--green);font-size:14px} .page-main-heading{text-align:center}
-
+.main-content-container{height:calc(100% - 80px);width:100%;max-width:none;margin:0;padding:6px 2px;background:var(--paper);border:1px solid var(--line);overflow:auto}.content-view{min-height:100%;padding:4px 8px 34px}.view-header{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.subject-label{font-weight:800;color:var(--green);font-size:14px} .page-main-heading{text-align:center}
 
 #topicPage .guided-container .guided-label,
 #topicPage #topicHeading,
@@ -30,7 +28,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .mastery-subtopics-head,
 .mastery-subtopic h3 { text-align:center; direction:ltr; }
 
-
 .mastery-topic-definition,
 .mastery-subtopic-definition,
 .mastery-topic-overview { direction:rtl; text-align:right; unicode-bidi:plaintext; }
@@ -40,7 +37,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .mastery-topic-head-row > div { text-align:center; }
 .mastery-topic-number,
 .mastery-subtopic-kicker { display:none; }
-
 
 .guided-container .guided-content,
 .mastery-topic-definition,
@@ -54,7 +50,8 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .guided-document{max-width:1180px;margin:auto}.guided-container{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.guided-label{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);font-weight:800;color:var(--green);text-align:right}.guided-content{min-height:55px;padding:14px;line-height:1.8}.chapter-heading-container .guided-content,.chapter-definition-container .guided-content,.learning-outcomes-container .guided-content{min-height:90px}
 .guided-forward{text-align:center;margin:10px 0 14px}.guided-forward button,.functional{border:1px solid var(--green);border-radius:12px;background:#fff;color:var(--green);font-weight:800;cursor:pointer;box-sizing:border-box}.guided-forward button{padding:11px 28px;background:var(--green);color:#fff}.guided-forward button:hover,.tab:hover{transform:translateY(-1px)}
 .topic-template-page{max-width:1180px;margin:auto}.topic-feature-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-bottom:2px}.tab{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;user-select:none;box-shadow:0 2px 8px rgba(15,23,42,.05);transition:.12s}.tab .num{font-weight:900;min-width:30px;text-align:center;font-size:clamp(54px,9vw,96px);line-height:1;padding:20px 0;box-sizing:border-box}.tab .label{font-weight:800;text-align:center}.feature-visual{border-color:#c8ddd4}.feature-master{border-color:#cbd8e8}
-.topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;align-items:stretch}.topic-grid > .odd-last-tab{grid-column:1 / -1;width:100%;box-sizing:border-box}.column{display:flex;flex-direction:column;gap:2px;min-width:0}.main-topic-large{width:100%;min-height:54px}
+.topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;align-items:stretch}
+#topicsPage .topic-grid > .column{margin:0;padding:0;width:100%;box-sizing:border-box;align-self:stretch;}.topic-grid > .odd-last-tab{grid-column:1 / -1;width:100%;box-sizing:border-box}.column{display:flex;flex-direction:column;gap:2px;min-width:0}.main-topic-large{width:100%;min-height:54px}
 .functional-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-top:2px}.functional{min-height:54px;height:54px}.functional .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 clamp(54px,9vw,96px)/1 Inter,sans-serif;color:var(--red);opacity:.9;min-width:0;z-index:0;padding:20px 0;box-sizing:border-box}.functional-row .functional{width:100%;box-sizing:border-box}
 .topic-document{max-width:1180px;margin:auto}.topic-return-top{position:fixed;left:50%;bottom:62px;transform:translate(-50%,10px);z-index:20;width:40px;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid #800000;border-radius:50%;background:#fff;color:#800000;font-size:22px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.topic-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.topic-return-top:hover{transform:translate(-50%,-1px)}.topic-stop-back{display:none;position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:20;align-items:center;justify-content:center;gap:6px;width:150px;max-width:150px;min-width:150px;min-height:42px;height:42px;white-space:nowrap;margin:0;padding:0 14px;border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);font-weight:800;cursor:pointer;box-sizing:border-box}.topic-stop-back.visible{display:flex}.topic-stop-back:hover{transform:translateX(-50%) translateY(-1px)}.topic-document .visual-container{height:33vh;min-height:170px}.topic-document .visual-container .guided-content{height:calc(33vh - 48px);display:flex;align-items:center;justify-content:center;border:0}.visual-placeholder{width:100%;height:100%;border:2px dashed #cbd5e1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800;font-size:20px;background:#fafafa}.topic-document .guided-content{min-height:60px}
 .mastery-document{max-width:1180px;margin:auto;padding-bottom:24px} .mastery-course-intro,.mastery-topic-overview{margin:0 0 10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;line-height:1.8}.mastery-section-label{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:4px}.mastery-learning-lead{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);font-weight:700;color:var(--green)}.mastery-topic-number{font-size:9px;letter-spacing:.08em;opacity:.72}.mastery-topic-title{font-size:15px;line-height:1.5}.mastery-subtopics-head{display:flex;justify-content:space-between;gap:8px;padding:9px 14px;background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:11px;font-weight:900;color:var(--green)}.mastery-subtopics{padding:10px 12px}.mastery-subtopic{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;margin-bottom:9px}.mastery-subtopic:last-child{margin-bottom:0}.mastery-subtopic-kicker{font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:2px}.mastery-subtopic h3{margin:0 0 6px;font-size:14px;color:var(--green);line-height:1.5}.mastery-subtopic-definition{line-height:1.8}.mastery-subtopic-focus{margin-top:8px;padding:7px 9px;border-radius:8px;background:#f7f9f8;line-height:1.65}.mastery-subtopic-focus span{display:block;font-size:9px;font-weight:900;text-transform:uppercase;color:var(--red);margin-bottom:2px}.mastery-subtopic-focus strong{font-size:11px}.mastery-visual-container:empty{display:none}.mastery-toolbar{position:sticky;top:0;z-index:5;margin-bottom:10px;padding:8px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 2px 8px rgba(15,23,42,.06)}.mastery-progress{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;color:var(--green)}.mastery-progress-bar{height:7px;margin-top:6px;border-radius:99px;background:#e8ecea;overflow:hidden}.mastery-progress-fill{height:100%;width:0;background:var(--green2);transition:width .2s}.mastery-nav{display:none!important}.mastery-nav button:nth-child(1){background:#f3f7fb;border-color:#d5e1ee}.mastery-nav button:nth-child(2){background:#f7f3fb;border-color:#e1d6ef}.mastery-nav button:nth-child(3){background:#f3f8f5;border-color:#d4e5da}.mastery-nav button:nth-child(4){background:#fbf6ef;border-color:#eadfce}.mastery-nav button:nth-child(5){background:#f4f5fb;border-color:#dcdfee}.mastery-nav button:nth-child(6){background:#f8f3f6;border-color:#e6d8df}.mastery-nav button:nth-child(7){background:#f2f7f8;border-color:#d4e5e8}.mastery-nav button:nth-child(8){background:#faf6f1;border-color:#e8dfd4}.mastery-nav button:nth-child(9){background:#f4f7f3;border-color:#d9e4d7}.mastery-nav button.read{background:#edf5ef;border-color:#b9d3c4}.mastery-topic{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;scroll-margin-top:90px}.mastery-topic-head{padding:9px 14px;border-bottom:1px solid var(--line);font-weight:800;color:var(--green);text-align:right}.mastery-topic:nth-of-type(1) .mastery-topic-head{background:#f3f7fb}.mastery-topic:nth-of-type(2) .mastery-topic-head{background:#f7f3fb}.mastery-topic:nth-of-type(3) .mastery-topic-head{background:#f3f8f5}.mastery-topic:nth-of-type(4) .mastery-topic-head{background:#fbf6ef}.mastery-topic:nth-of-type(5) .mastery-topic-head{background:#f4f5fb}.mastery-topic:nth-of-type(6) .mastery-topic-head{background:#f8f3f6}.mastery-topic:nth-of-type(7) .mastery-topic-head{background:#f2f7f8}.mastery-topic:nth-of-type(8) .mastery-topic-head{background:#faf6f1}.mastery-topic:nth-of-type(9) .mastery-topic-head{background:#f4f7f3}.mastery-topic.is-read .mastery-topic-head{box-shadow:inset 5px 0 0 var(--green2)}.mastery-topic-head-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.mastery-read-btn{border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:4px 8px;font-size:11px;font-weight:800;color:var(--green);cursor:pointer}.mastery-topic.is-read .mastery-read-btn{background:#eaf3ed;border-color:#a9c9b6}.mastery-visual-container{height:30vh;min-height:1.8in;width:100%;display:flex;align-items:center;justify-content:center;padding:10px;overflow:hidden}.mastery-visual-grid{width:100%;height:100%;display:grid;gap:8px;align-items:center;justify-items:center}.mastery-visual-grid.visuals-1{grid-template-columns:1fr}.mastery-visual-grid.visuals-2{grid-template-columns:repeat(2,minmax(0,1fr))}.mastery-visual-grid.visuals-3{grid-template-columns:repeat(3,minmax(0,1fr))}.mastery-visual-grid.visuals-4{grid-template-columns:repeat(4,minmax(0,1fr))}.mastery-visual-frame{width:min(2.6in,100%);height:1.8in;max-height:100%;border:2px dashed #cbd5e1;border-radius:12px;background:#fafafa;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800;text-align:center;overflow:hidden}.mastery-topic-definition{min-height:70px;padding:14px;line-height:1.8}.mastery-templates{display:none}.mastery-return-top{display:none!important;position:fixed;left:50%;bottom:14px;transform:translate(-50%,10px);z-index:20;width:52px;height:52px;min-height:0;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);font-size:26px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.mastery-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.mastery-return-top:hover{transform:translate(-50%,-1px)} .mastery-step-arrow{display:none!important}.mastery-footer{margin:18px 0 10px;display:flex;justify-content:center}
@@ -72,7 +69,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .visual-atlas-footer{margin:18px 0 10px;display:flex;justify-content:center}
 
 @media(max-width:760px){.visual-atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:6px}.visual-atlas-container{min-height:150px;height:26vh}}
-#hitCeilingPage{background:linear-gradient(#f8f2e5,#eef5f0);padding:8px;overflow:hidden}.htc-shell{width:100%;height:100%;max-width:1100px;margin:auto;border:1px solid #cbd5e1;border-radius:22px;background:linear-gradient(#fffdf8,#f3ead7);display:flex;flex-direction:column;overflow:hidden}.htc-head{text-align:center;padding:12px}.htc-head h1{margin:0;color:var(--green);font-size:clamp(26px,5vw,44px)}.htc-levels{display:flex;gap:10px;justify-content:center;align-items:center;padding:8px 12px;border-top:1px solid #dfcf9d;border-bottom:1px solid #dfcf9d;overflow-x:auto}.htc-level{width:42px;height:42px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;color:var(--green);font-weight:900;cursor:pointer}.htc-level.active{background:var(--green);color:#fff;border-color:var(--green2)}.htc-play{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:8px 10px 62px}.htc-tower{position:relative;width:210px;height:175px;margin-top:20px}.htc-dome{position:absolute;top:0;left:65px;width:80px;height:45px;border:2px solid #64748b;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e2e8f0}.htc-torch{position:absolute;top:-42px;left:78px;width:55px;height:52px;display:grid;place-items:center}.htc-flame{width:24px;height:34px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #94a3b8;opacity:.5}.htc-body{position:absolute;bottom:12px;left:30px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}.htc-seg{height:25px;border:1px solid #94a3b8;background:#e2e8f0;opacity:.35}.htc-base{position:absolute;bottom:0;left:10px;width:190px;height:17px;border:1px solid #64748b;border-radius:7px;background:#cbd5e1}.htc-info{text-align:center;color:var(--green);font-weight:900}.htc-card{width:min(790px,95%);min-height:78px;border:1px solid var(--line);border-radius:16px;background:#fffdf8;padding:12px;text-align:center;color:#64748b;margin-bottom:0}.htc-question{margin-bottom:10px}.htc-question strong{display:block;color:var(--green);font-size:12px;margin-bottom:5px}.htc-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.5px;margin-top:9px;direction:ltr}.htc-option{width:calc(100% - 2px);box-sizing:border-box;position:relative;display:flex;align-items:center;gap:7px;min-height:38px;padding:6px 8px;border:1px solid var(--line);border-radius:10px;cursor:pointer;text-align:left;font-size:11px;font-weight:800;line-height:1.25;transition:.12s;overflow:hidden}.htc-option:nth-child(1){background:#f3f7fb;border-color:#b9cfe3}.htc-option:nth-child(2){background:#f7f3fb;border-color:#d1c0e2}.htc-option:nth-child(3){background:#f3f8f5;border-color:#b9d4c3}.htc-option:nth-child(4){background:#fbf6ef;border-color:#dfc9a8}.htc-option:hover{transform:translateY(-1px)}.htc-option input{accent-color:var(--green);width:15px;height:15px;flex:0 0 auto}.htc-option.htc-correct{outline:2px solid var(--green2);background:#eaf3ed!important}.htc-option.htc-wrong{outline:2px solid var(--red);background:#fceeee!important}.htc-feedback{min-height:18px;margin-top:8px;font-size:11px;font-weight:900}.htc-source{margin-top:8px;font-size:10px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.htc-actions{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;justify-content:center;gap:8px;padding:0;margin:0}.htc-btn{width:150px;height:42px;border:1px solid var(--line);border-radius:10px;padding:9px 16px;background:#fff;color:var(--green);font-weight:900;cursor:pointer;box-sizing:border-box}
+#hitCeilingPage{background:linear-gradient(#f8f2e5,#eef5f0);padding:8px;overflow:hidden}.htc-shell{width:100%;height:100%;max-width:1100px;margin:auto;border:1px solid #cbd5e1;border-radius:22px;background:linear-gradient(#fffdf8,#f3ead7);display:flex;flex-direction:column;overflow:hidden}.htc-head{text-align:center;padding:12px}.htc-head h1{margin:0;color:var(--green);font-size:clamp(26px,5vw,44px)}.htc-levels{display:flex;gap:10px;justify-content:center;align-items:center;padding:8px 12px;border-top:1px solid #dfcf9d;border-bottom:1px solid #dfcf9d;overflow-x:auto}.htc-level{width:42px;height:42px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;color:var(--green);font-weight:900;cursor:pointer}.htc-level.active{background:var(--green);color:#fff;border-color:var(--green2)}.htc-play{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:8px 10px 62px}.htc-tower{position:relative;width:210px;height:175px;margin-top:20px}.htc-dome{position:absolute;top:0;left:65px;width:80px;height:45px;border:2px solid #64748b;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e2e8f0}.htc-torch{position:absolute;top:-42px;left:78px;width:55px;height:52px;display:grid;place-items:center}.htc-flame{width:24px;height:34px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #94a3b8;opacity:.5}.htc-body{position:absolute;bottom:12px;left:30px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}.htc-seg{height:25px;border:1px solid #94a3b8;background:#e2e8f0;opacity:.35}.htc-base{position:absolute;bottom:0;left:10px;width:190px;height:17px;border:1px solid #64748b;border-radius:7px;background:#cbd5e1}.htc-info{text-align:center;color:var(--green);font-weight:900}.htc-card{width:min(790px,95%);min-height:78px;border:1px solid var(--line);border-radius:16px;background:#fffdf8;padding:12px;text-align:center;color:#64748b;margin-bottom:0}.htc-question{margin-bottom:10px}.htc-question strong{display:block;color:var(--green);font-size:12px;margin-bottom:5px}.htc-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.5px;margin-top:9px;direction:ltr}.htc-option{width:100%;box-sizing:border-box;position:relative;display:flex;align-items:flex-start;gap:7px;min-height:78px;padding:10px 8px;border:1px solid var(--line);border-radius:10px;cursor:pointer;text-align:left;font-size:11px;font-weight:800;line-height:1.25;transition:.12s;overflow-wrap:anywhere;white-space:normal}.htc-option:nth-child(1){background:#f3f7fb;border-color:#b9cfe3}.htc-option:nth-child(2){background:#f7f3fb;border-color:#d1c0e2}.htc-option:nth-child(3){background:#f3f8f5;border-color:#b9d4c3}.htc-option:nth-child(4){background:#fbf6ef;border-color:#dfc9a8}.htc-option:hover{transform:translateY(-1px)}.htc-option:focus-visible{outline:2px solid var(--green2);outline-offset:1px}.htc-option.htc-correct{outline:2px solid var(--green2);background:#eaf3ed!important}.htc-option.htc-wrong{outline:2px solid var(--red);background:#fceeee!important}.htc-feedback{min-height:18px;margin-top:8px;font-size:11px;font-weight:900}.htc-source{margin-top:8px;font-size:10px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.htc-actions{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;justify-content:center;gap:8px;padding:0;margin:0}.htc-btn{width:155px;height:47px;border:1px solid var(--line);border-radius:10px;padding:9px 16px;background:#fff;color:var(--green);font-weight:900;cursor:pointer;box-sizing:border-box}
 .tab{position:relative;overflow:hidden}.tab.main-topic-large{border:1px solid #8bb8d8}.tab.functional{border-color:var(--red)}.tab.functional .num{color:#a8d5b5 !important}.tab.main-topic-large .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 clamp(48px,7vw,88px)/1 Inter,sans-serif;color:#8bb8d8;opacity:.9;min-width:0;z-index:0;padding:10px 0;box-sizing:border-box}.tab .label{position:relative;z-index:2}
 @media(max-width:760px){.top-inner{min-height:68px;padding:8px 10px}.top-brand h1{font-size:18px}.top-logo img{width:48px;height:48px}.main-content-container{height:calc(100% - 72px);padding:4px}.topic-grid,.topic-feature-row,.functional-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.tab{min-height:52px;padding:8px 6px}.tab .label{font-size:13px}.topic-document .visual-container{height:33vh;min-height:150px}.htc-tower{transform:scale(.8);transform-origin:bottom center}.htc-level{width:36px;height:36px}}
 
@@ -107,13 +104,9 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 
 .global-previous-page-tab{display:flex;position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9999;align-items:center;justify-content:center;gap:7px;width:150px;height:42px;box-sizing:border-box;margin:0;padding:0 14px;border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);font-size:14px;font-weight:800;line-height:1;white-space:nowrap;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:1;visibility:visible;pointer-events:auto;transition:opacity .18s,visibility .18s,transform .18s}.global-previous-page-tab:hover{transform:translateX(-50%) translateY(-1px)}.global-previous-page-tab .global-nav-label{display:inline}.global-previous-page-tab .global-nav-arrow-symbol{display:none;font-size:24px;font-weight:900;line-height:1}.global-previous-page-tab.scrolling .global-nav-label{display:none}.global-previous-page-tab.scrolling .global-nav-arrow-symbol{display:inline}.global-previous-page-tab.hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,10px)}@media(max-width:760px){.global-previous-page-tab{width:150px;height:42px;bottom:10px;font-size:13px}.global-previous-page-tab .global-nav-arrow-symbol{font-size:22px}}
 
-
 .practice-tier3{max-width:1180px;margin:auto;padding-bottom:28px}.practice-tier3 .practice-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practice-tier3 .practice-title{font-weight:900;color:var(--green);font-size:20px}.practice-tier3 .practice-note{margin-top:3px;color:var(--muted);font-size:12px}.practice-tier3 .practice-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;font-size:12px}.practice-tier3 .practice-source .ok{font-weight:800;color:var(--green2)}.practice-tier3 .practice-source .count{color:var(--muted)}.practice-tier3 .practice-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.practice-tier3 .practice-topic{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}.practice-tier3 .practice-topic-head{width:100%;border:0;border-bottom:1px solid var(--line);background:#f8faf9;color:var(--green);padding:9px 11px;text-align:right;font-weight:900;cursor:pointer}.practice-tier3 .practice-topic-head.active{background:#edf5ef}.practice-tier3 .practice-topic-body{padding:9px;display:none}.practice-tier3 .practice-topic-body.open{display:block}.practice-tier3 .practice-subtopic{border:1px solid var(--line);border-radius:9px;padding:8px;margin:0 0 7px;background:#fffdf8}.practice-tier3 .practice-subtopic-title{font-weight:800;color:var(--green)}.practice-tier3 .practice-question{margin-top:7px;padding:8px;border-radius:8px;background:#f7f8f8;color:var(--ink);font-size:12px;line-height:1.55}.practice-tier3 .practice-answer{margin-top:5px;padding:7px;border-left:3px solid var(--green2);background:#f1f5f3;font-size:12px;line-height:1.5}.practice-tier3 .practice-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:8px}.practice-tier3 .practice-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);font-weight:800;cursor:pointer}.practice-tier3 .practice-empty{padding:12px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);text-align:center}@media(max-width:760px){.practice-tier3 .practice-topics{grid-template-columns:1fr}}
 
-
-
 .practical-tier3{max-width:900px;margin:auto;padding-bottom:28px}.practical-tier3 .practical-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practical-tier3 .practical-title{font-weight:900;color:var(--green);font-size:20px}.practical-tier3 .practical-note{display:none}.practical-tier3 .practical-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin-bottom:10px}.practical-tier3 .practical-card-head{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);font-weight:900;color:var(--green)}.practical-tier3 .practical-card-body{padding:14px;line-height:1.8;color:var(--ink)}.practical-tier3 .practical-meta{font-size:11px;color:var(--muted);margin-bottom:8px}.practical-tier3 .practical-step{margin:7px 0;padding:8px 10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8}.practical-tier3 .practical-fallback{text-align:center}.practical-tier3 .practical-fallback .breath-title{font-size:18px;font-weight:900;color:var(--green);margin-bottom:8px}.practical-tier3 .practical-fallback .breath-line{margin:6px 0}.practical-tier3 .practical-footer{margin-top:10px}
-
 
 .readiness-tier3{max-width:1180px;margin:auto;padding-bottom:28px}.readiness-tier3 .readiness-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.readiness-tier3 .readiness-title{font-weight:900;color:var(--green);font-size:20px}.readiness-tier3 .readiness-note{margin-top:3px;color:var(--muted);font-size:12px}.readiness-tier3 .readiness-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;font-size:12px}.readiness-tier3 .ok{font-weight:800;color:var(--green2)}.readiness-tier3 .count{color:var(--muted)}.readiness-tier3 .readiness-list{display:grid;gap:8px}.readiness-tier3 .readiness-item{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}.readiness-tier3 .readiness-q{font-weight:800;color:var(--ink);line-height:1.5}.readiness-tier3 .readiness-meta{font-size:11px;color:var(--muted);margin-bottom:5px}.readiness-tier3 .readiness-answer{display:none;margin-top:7px;padding:7px 9px;border-left:3px solid var(--green2);background:#f1f5f3;font-size:12px;line-height:1.5}.readiness-tier3.show-answers .readiness-answer{display:block}.readiness-tier3 .readiness-actions{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;margin-top:9px;text-align:center}.readiness-tier3 .readiness-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);font-weight:800;cursor:pointer}.readiness-tier3 .readiness-empty{padding:16px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);text-align:center}
 
@@ -124,18 +117,13 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 
 .topic-grid,.topic-feature-row,.functional-row{gap:2px}
 .topic-grid .column{gap:2px}
-.topic-grid .tab,.functional-row .tab{width:100%;height:54px;min-height:54px;padding:10px 12px;border-width:1px}
-
-
-#topicsPage .previous-page-tab{height:54px!important;min-height:54px!important;max-height:54px!important;box-sizing:border-box!important}
-
+#topicsPage .topic-grid .tab,#topicsPage .functional-row .tab{width:100%;height:auto;min-height:54px;padding:10px 12px;border-width:1px;box-sizing:border-box}
+#topicsPage .topic-grid .main-topic-large .label{color:#166534;font-weight:900;text-shadow:none;filter:none;line-height:1.35;white-space:normal;overflow:visible}
 
 .exam-tier3{max-width:900px;margin:auto;padding:8px 0 80px;direction:ltr;text-align:left}.exam-head{padding:8px 4px 12px;border-bottom:1px solid var(--line);margin-bottom:12px}.exam-title{font-weight:900;color:var(--red);font-size:20px}.exam-note{margin-top:4px;color:var(--muted);font-size:12px;text-align:left}.exam-source{display:flex;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin:10px 0}.exam-source span{padding:6px 9px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:12px}.exam-source .ok{font-weight:800;color:var(--green)}.exam-section{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin:12px 0;text-align:left}.exam-section-head{padding:10px 14px;background:#f7eeee;border-bottom:1px solid var(--line);font-weight:900;color:var(--red);text-align:left}.exam-question{padding:12px 14px;border-bottom:1px solid #edf0ef;line-height:1.7;text-align:left}.exam-question:last-child{border-bottom:0}.exam-qtype{display:inline-block;font-size:11px;font-weight:900;color:var(--muted);margin-bottom:5px}.exam-qtext{font-weight:700;text-align:left}.exam-options{margin:8px 0 0 18px;padding:0 0 0 18px}.exam-options li{margin:4px 0}.exam-answer{margin-top:8px;padding:8px 10px;border-left:3px solid var(--green);background:#f6faf7;text-align:left}.exam-passage{margin:8px 0;padding:10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8;font-weight:600;text-align:left}.exam-actions{display:flex;justify-content:flex-start;gap:8px;flex-wrap:wrap;margin:12px 0}.exam-btn{border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);padding:9px 14px;font-weight:800;cursor:pointer}.exam-options{display:flex;flex-direction:column;gap:8px;margin:12px 0}.exam-option{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}.exam-option input{margin-top:3px;accent-color:var(--red)}.exam-option:has(input:checked){border-color:var(--red);box-shadow:0 0 0 1px var(--red)}.exam-question-status{font-size:12px;font-weight:700;color:var(--muted);margin-top:5px}.exam-progress-line{font-weight:800;min-width:120px}.exam-result{margin-top:14px}.exam-result-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;line-height:1.8}.exam-result-note{margin-top:6px;color:var(--muted)}
 .exam-empty{padding:16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:left}.exam-footer{height:0!important;margin:0!important;padding:0!important}
 
-
 .page:not(#topicsPage):not(#hitCeilingPage){padding-bottom:72px!important}
-
 
 .global-previous-page-tab{display:flex;position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9999;align-items:center;justify-content:center;gap:7px;width:150px;height:42px;box-sizing:border-box;margin:0;padding:0 14px;border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);font-size:14px;font-weight:800;line-height:1;white-space:nowrap;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:1;visibility:visible;pointer-events:auto;transition:opacity .18s,visibility .18s,transform .18s}
 .global-previous-page-tab:hover{transform:translateX(-50%) translateY(-1px)}
@@ -145,8 +133,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .global-previous-page-tab.scrolling .global-nav-arrow-symbol{display:inline}
 .global-previous-page-tab.hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,10px)}
 @media(max-width:760px){.global-previous-page-tab{width:150px;height:42px;bottom:10px;font-size:13px}.global-previous-page-tab .global-nav-arrow-symbol{font-size:22px}}
-
-
 
 .mastery-topic-overview,
 .mastery-topic-overview > div:not(.mastery-section-label),
@@ -189,7 +175,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   text-align: center;
 }
 
-
 .academic-content, .guided-content, .mastery-topic-definition, .mastery-subtopic-definition, .topic-definition, .subtopic-definition, .definition, .definition-text, .academic-definition { unicode-bidi: plaintext; }
 .academic-content[dir="rtl"], .guided-content[dir="rtl"], .mastery-topic-definition[dir="rtl"], .mastery-subtopic-definition[dir="rtl"], .topic-definition[dir="rtl"], .subtopic-definition[dir="rtl"], .definition[dir="rtl"], .definition-text[dir="rtl"], .academic-definition[dir="rtl"] { direction:rtl; text-align:right; }
 .academic-content[dir="ltr"], .guided-content[dir="ltr"], .mastery-topic-definition[dir="ltr"], .mastery-subtopic-definition[dir="ltr"], .topic-definition[dir="ltr"], .subtopic-definition[dir="ltr"], .definition[dir="ltr"], .definition-text[dir="ltr"], .academic-definition[dir="ltr"] { direction:ltr; text-align:left; }
@@ -209,7 +194,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 #homePage .guided-forward{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9999;margin:0;width:150px;height:42px;display:flex;align-items:center;justify-content:center}
 #homePage .guided-forward button{width:150px;height:42px;box-sizing:border-box;margin:0}
 </style>
-
 
 <style>
 
@@ -271,8 +255,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 
 <style>
 
-
-
 #topicPage .guided-label,
 #functionalContentView .mastery-topic-title,
 #functionalContentView .revision-title,
@@ -282,7 +264,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   font-size:22px !important;
   line-height:1.45 !important;
 }
-
 
 #functionalContentView .mastery-subtopic h3,
 #functionalContentView .mastery-topic-head,
@@ -296,7 +277,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   font-size:20px !important;
   line-height:1.5 !important;
 }
-
 
 #topicPage .guided-content,
 #functionalContentView .mastery-course-intro,
@@ -321,7 +301,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   line-height:1.75 !important;
 }
 
-
 #functionalContentView .mastery-section-label,
 #functionalContentView .mastery-topic-number,
 #functionalContentView .mastery-subtopic-kicker,
@@ -333,7 +312,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 #functionalContentView .readiness-live-meta {
   font-size:11px !important;
 }
-
 
 #functionalContentView .mastery-nav,
 #functionalContentView .mastery-nav button,
@@ -394,7 +372,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   font-size:18px !important;
 }
 
-/* Main headings */
 #homeContentView h1, #homeContentView h2,
 #topicContentView h1, #topicContentView h2,
 #functionalContentView h1, #functionalContentView h2,
@@ -413,7 +390,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   line-height:1.45 !important;
 }
 
-/* Subheadings */
 #homeContentView h3, #homeContentView h4,
 #topicContentView h3, #topicContentView h4,
 #functionalContentView h3, #functionalContentView h4,
@@ -434,7 +410,6 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   line-height:1.5 !important;
 }
 
-/* Small metadata/control text stays readable but is not part of the academic reading scale. */
 #homeContentView .guided-forward button,
 #topicContentView button,
 #functionalContentView button,
@@ -445,6 +420,152 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 }
 </style>
 
+<style id="full-width-dynamic-content">
+.main-content-container{width:100%;max-width:none;box-sizing:border-box;padding-left:2px;padding-right:2px;}
+.content-view,.guided-document,.topic-document,.mastery-document,.visual-atlas-document{max-width:none;width:100%;box-sizing:border-box;}
+.guided-container,.guided-content,.mastery-course-intro,.mastery-topic-overview,.mastery-topic,.mastery-subtopic,.mastery-topic-definition{box-sizing:border-box;}
+.guided-container,.mastery-course-intro,.mastery-topic-overview,.mastery-topic,.mastery-subtopic{height:auto;min-height:0;}
+.guided-content,.mastery-topic-definition{height:auto;min-height:0;overflow:visible;}
+.topic-document .visual-container,.topic-document .visual-container .guided-content,.mastery-visual-container{height:auto;min-height:0;}
+</style>
+
+<style id="all-true-content-width-dynamic">
+#topicPage .main-content-container,
+#functionalPage .main-content-container{
+  width:100% !important; max-width:none !important; box-sizing:border-box !important;
+  padding-left:2px !important; padding-right:2px !important;
+}
+#topicPage .content-view,
+#functionalContentView .content-view,
+#topicPage .topic-document,
+#functionalContentView .mastery-document{
+  width:100% !important; max-width:none !important; box-sizing:border-box !important;
+  margin-left:0 !important; margin-right:0 !important;
+  padding-left:0 !important; padding-right:0 !important;
+}
+#topicPage .guided-document,
+#topicPage .guided-container,
+#topicPage .guided-content,
+#topicPage .chapter-heading-container,
+#topicPage .chapter-definition-container,
+#topicPage .learning-outcomes-container,
+#functionalContentView .mastery-course-intro,
+#functionalContentView .mastery-topic-overview,
+#functionalContentView .mastery-topic,
+#functionalContentView .mastery-subtopic,
+#functionalContentView .mastery-topic-definition,
+#functionalContentView .mastery-subtopic-definition,
+#functionalContentView .mastery-subtopic-focus,
+#functionalContentView .revision-card-definition,
+#functionalContentView .exam-question,
+#functionalContentView .exam-passage,
+#functionalContentView .readiness-live-q,
+#functionalContentView .readiness-user-answer,
+#functionalContentView .readiness-feedback,
+#functionalContentView .practice-question,
+#functionalContentView .practice-answer,
+#functionalContentView .exam-answer{
+  width:100% !important; max-width:none !important;
+  box-sizing:border-box !important;
+  height:auto !important; min-height:0 !important; max-height:none !important;
+  overflow:visible !important;
+}
+#topicPage .guided-content p,
+#topicPage .topic-document p,
+#functionalContentView .mastery-document p,
+#functionalContentView .mastery-document .mastery-topic-definition *,
+#functionalContentView .mastery-document .mastery-subtopic-definition *{
+  box-sizing:border-box;
+  max-width:100%;
+  height:auto !important; min-height:0 !important; max-height:none !important;
+}
+</style>
+
+<style id="lecture-mastery-uniform-rtl-containers">
+#functionalContentView .mastery-document,
+#functionalContentView .mastery-topic,
+#functionalContentView .mastery-subtopics,
+#functionalContentView .mastery-topic-head,
+#functionalContentView .mastery-topic-overview,
+#functionalContentView .mastery-subtopic,
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopic-definition,
+#functionalContentView .mastery-subtopic-definition > .mastery-text-flow {
+  width:100% !important;
+  max-width:none !important;
+  box-sizing:border-box !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:visible !important;
+}
+#functionalContentView .mastery-subtopics { padding-left:0 !important; padding-right:0 !important; }
+#functionalContentView .mastery-topic-overview,
+#functionalContentView .mastery-subtopic { padding-left:2px !important; padding-right:2px !important; }
+#functionalContentView .mastery-topic-head { padding-left:2px !important; padding-right:2px !important; }
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopic-definition,
+#functionalContentView .mastery-subtopic-definition > .mastery-text-flow {
+  margin-left:0 !important; margin-right:0 !important;
+  padding-left:0 !important; padding-right:0 !important;
+  display:block !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+}
+#functionalContentView .mastery-topic-overview > div:not(.mastery-section-label),
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopic-definition {
+  direction:rtl !important; text-align:right !important;
+}
+</style>
+<style id="lecture-mastery-rtl-paragraph-containers">
+#functionalContentView .mastery-topic-head,
+#functionalContentView .mastery-topic-head-row,
+#functionalContentView .mastery-topic-title,
+#functionalContentView .mastery-topic-overview > div:not(.mastery-section-label),
+#functionalContentView .mastery-subtopic,
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopic-definition,
+#functionalContentView .mastery-subtopic-definition > .mastery-text-flow,
+#functionalContentView .mastery-document p {
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  padding-left:2px !important;
+  padding-right:2px !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:visible !important;
+}
+ #functionalContentView .mastery-topic-head,
+#functionalContentView .mastery-topic-head-row,
+#functionalContentView .mastery-topic-title,
+#functionalContentView .mastery-topic-overview > div:not(.mastery-section-label),
+#functionalContentView .mastery-subtopic,
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopic-definition {
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+ #functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopic-definition .mastery-text-flow {
+  display:block !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+}
+ #functionalContentView .mastery-topic-head,
+#functionalContentView .mastery-topic-title,
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopic-definition,
+#functionalContentView .mastery-topic-overview > div:not(.mastery-section-label) {
+  direction:rtl;
+  text-align:right;
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -503,7 +624,8 @@ function renderTopics(){
  for(let n=1;n<=topicCount;n++){
   const target=n%2===0?right:left;
   const academic=getAcademicTopic(n);
-  const topicLabel=academicLanguageData[String(n)]?.en?.title || topicPageEnglishHeading(academic?.title||`Topic ${n}`);
+  const topicLabelRaw=academicLanguageData[String(n)]?.en?.title || topicPageEnglishHeading(academic?.title||`Topic ${n}`);
+  const topicLabel=topicLabelRaw.replace(/^\s*[0-9۰-۹]+(?:\.[0-9۰-۹]+)*\s*/,"");
   target.insertAdjacentHTML('beforeend',`<button class="tab main-topic-large" type="button" onclick="openTopic(${n})"><span class="num">${n}</span><span class="label">${academicEsc(topicLabel)}</span></button>`);
  }
  right.insertAdjacentHTML('afterbegin',`<button class="tab functional feature-visual" type="button" onclick="openFunctional('visual')"><span class="num">VA</span><span class="label">Visual Atlas</span></button>`);
@@ -523,8 +645,21 @@ function renderTopics(){
   lastTab.classList.add('odd-last-tab');
   topicGrid.appendChild(lastTab);
  }
+ equalizeTopicTabs();
 }
 
+function syncAllTopicPageTabHeights(){ equalizeTopicTabs(); }
+
+function equalizeTopicTabs(){
+ const page=document.getElementById("topicsPage");
+ if(!page || !page.classList.contains("active"))return;
+ const tabs=Array.from(page.querySelectorAll(".tab"));
+ if(!tabs.length)return;
+ tabs.forEach(t=>{t.style.width="100%";t.style.height="auto";});
+ const maxH=Math.max(...tabs.map(t=>Math.ceil(t.getBoundingClientRect().height)));
+ tabs.forEach(t=>{t.style.width="100%";t.style.height=maxH+"px";t.style.boxSizing="border-box";});
+}
+window.addEventListener("resize",()=>requestAnimationFrame(equalizeTopicTabs));
 function getTopicVisualSlots(topic){return (topicData[topic]?.visuals||[]).map(v=>{const g=topicRegistry[topic]?.visuals?.find(x=>x.id===v.id)||{};return {...g,...v};});}
 function visualMarkup(topic){return getTopicVisualSlots(topic).map(v=>`<div class="visual-atlas-container" data-visual-id="${v.id}" data-position="${v.position}" style="--va-x:${v.x||0}%;--va-y:${v.y||0}%;--va-w:${v.w||100}%;--va-h:${v.h||100}%;--va-ratio:${v.ratio||'auto'}"><div class="visual-atlas-slot-mark">IAE</div>${v.src?`<img class="visual-atlas-visual" src="${v.src}" alt="${v.alt||''}">`:''}</div>`).join('');}
 function setTopicVisual(topic,position,src,alt=''){const slots=topicData[topic]?.visuals||[];const v=slots.find(x=>Number(x.position)===Number(position));if(!v)return addTopicVisual(topic,src,alt);v.src=src||'';v.alt=alt||'';return true;}
@@ -546,7 +681,6 @@ function applyGlobalAcademicTextDirection(root=document){
    list.forEach(t=>{
      const value=t.nodeValue;if(!value||!urduRe.test(value))return;
      const frag=document.createDocumentFragment();let last=0,m;
-     /* Keep English translations and their parentheses together in LTR order inside RTL Urdu. */
      const re=/\([A-Za-z][^()]*\)|(?:[A-Za-z][A-Za-z0-9]*(?:[\-\/][A-Za-z0-9]+)*)/g;
      while((m=re.exec(value))){
        if(m.index>last)frag.appendChild(document.createTextNode(value.slice(last,m.index)));
@@ -563,7 +697,7 @@ function initGlobalAcademicTextDirection(){applyGlobalAcademicTextDirection(docu
 function scheduleGlobalAcademicTextDirection(){requestAnimationFrame(()=>applyGlobalAcademicTextDirection(document));}
 function topicPageEnglishHeading(v){
  const raw=String(v??'').trim();
- return masteryEnglishHeading(raw);
+ return masteryEnglishHeading(raw).replace(/^\s*\d+(?:\.\d+)*\s*[-—–:]?\s*/u,'').trim();
 }
 function openTopic(n){
  window.__activeTopicNumber=n; activeAcademicLanguage=localStorage.getItem('phy01AcademicLanguageV2')||'en'; renderTopicLanguage(n); showPage('topicPage'); scheduleGlobalAcademicTextDirection();
@@ -687,7 +821,7 @@ function masteryTopicData(n){
 function masteryVisualFrames(count){return Array.from({length:count},(_,i)=>`<div class="mastery-visual-frame">Visual ${i+1}</div>`).join('');}
 function masteryLearningLead(n){
  const t=masteryTopicData(n); const count=t.subs.length;
- if(activeAcademicLanguage==='ps') return count?`په دې Topic کې ${count} بنسټیز subtopics د concept → application → checking په تسلسل کې درک کړئ.`:'د دې Topic بنسټیز concept د تعریف، بېلګې او application له لارې درک کړئ.';
+ if(activeAcademicLanguage==='ps') return count?`په دې Topic کې ${count} بنسټیز subtopics دا concept → application → checking په تسلسل کې درک کړئ.`:'دا دې Topic بنسټیز concept دا تعریف، بېلګې او application له لارې درک کړئ.';
  if(activeAcademicLanguage==='en') return count?`Understand the ${count} core subtopics through a sequence of concept, application, and checking.`:'Understand the core concept through its definition, example, and application.';
  return count?`اس Topic میں ${count} بنیادی subtopics کو concept → application → checking کے تسلسل میں سمجھیں۔`:'اس Topic کے بنیادی concept کو definition، مثال اور application کے ذریعے سمجھیں۔';
 }
@@ -699,7 +833,7 @@ function masteryText(v){
 function masteryTopicTemplate(topicNumber){
  const t=masteryTopicData(topicNumber); const visuals=visualMarkup(topicNumber);
  const visualBlock=visuals?`<div class="mastery-visual-container"><div class="mastery-visual-grid linked-visual-grid">${visuals}</div></div>`:'';
- const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic" id="masteryTopic${topicNumber}Sub${i+1}"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><div class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</div><div class="mastery-subtopic-focus"><span>${activeAcademicLanguage==='en'?'Learning focus':activeAcademicLanguage==='ps'?'د زده کړې تمرکز':'Learning focus'}</span><strong>${activeAcademicLanguage==='en'?'Understand the concept, then use it in measurement, reasoning, and application.':activeAcademicLanguage==='ps'?'لومړی concept درک کړئ، بیا یې په اندازه کولو، استدلال او application کې وکاروئ.':'Concept کو سمجھیں، پھر اسے measurement / reasoning / application میں استعمال کریں۔'}</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
+ const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic" id="masteryTopic${topicNumber}Sub${i+1}"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><div class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</div><div class="mastery-subtopic-focus"><span>${activeAcademicLanguage==='en'?'Learning focus':activeAcademicLanguage==='ps'?'دا زدا کړې تمرکز':'Learning focus'}</span><strong>${activeAcademicLanguage==='en'?'Understand the concept, then use it in measurement, reasoning, and application.':activeAcademicLanguage==='ps'?'لومړی concept درک کړئ، بیا یې په اندازه کولو، استدلال او application کې وکاروئ.':'Concept کو سمجھیں، پھر اسے measurement / reasoning / application میں استعمال کریں۔'}</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
  return `<section class="mastery-topic" id="masteryTopic${topicNumber}" data-topic="${topicNumber}"><div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><div class="mastery-topic-title">${masteryEsc(t.title)}</div></div><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">✓ Mark as read</button></div></div><div class="mastery-topic-overview"><div class="mastery-section-label">Definition</div><div>${masteryText(t.definition)}</div><div class="mastery-learning-lead">${masteryText(masteryLearningLead(topicNumber))}</div></div>${visualBlock}<div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div><div class="mastery-subtopics">${subMarkup}</div></section>`;
 }
 function renderActiveAcademicLanguage(){
@@ -707,7 +841,7 @@ function renderActiveAcademicLanguage(){
  if(mastery){
   const keepProgress=mastery.querySelector('.mastery-progress-bar')?.parentElement?.outerHTML||'';
   const oldScroll=document.querySelector('#functionalPage .main-content-container')?.scrollTop||0;
-  mastery.innerHTML=`<div class="view-header"><div class="subject-label page-main-heading">Lecture Mastery</div></div><div class="mastery-language-row">${academicLanguageControls('mastery')}</div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span>${activeAcademicLanguage==='en'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'en\')">🔊 English TTS</button>':activeAcademicLanguage==='ps'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ps\')">🔊 پښتو TTS</button>':'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ur\')">🔊 اردو TTS</button>'}</div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>${activeAcademicLanguage==='en'?'Lecture Mastery presents each Topic as a continuous learning path using its academic content and subtopics.':activeAcademicLanguage==='ps'?'Lecture Mastery هر Topic د هغه د علمي محتوا او ټولو subtopics له لارې د زده کړې په پرله‌پسې مسیر کې وړاندې کوي.':'Lecture Mastery ہر Topic کو اس کے academic content اور تمام subtopics سے ایک مسلسل learning path میں پیش کرتا ہے۔'}</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div>`;
+  mastery.innerHTML=`<div class="view-header"><div class="subject-label page-main-heading">Lecture Mastery</div></div><div class="mastery-language-row">${academicLanguageControls('mastery')}</div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span>${activeAcademicLanguage==='en'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'en\')">🔊 English TTS</button>':activeAcademicLanguage==='ps'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ps\')">🔊 پښتو TTS</button>':'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ur\')">🔊 اردو TTS</button>'}</div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>${activeAcademicLanguage==='en'?'Lecture Mastery presents each Topic as a continuous learning path using its academic content and subtopics.':activeAcademicLanguage==='ps'?'Lecture Mastery هر Topic دا هغه دا علمي محتوا او ټولو subtopics له لارې دا زدا کړې په پرله-پسې مسیر کې وړاندې کوي.':'Lecture Mastery ہر Topic کو اس کے academic content اور تمام subtopics سے ایک مسلسل learning path میں پیش کرتا ہے۔'}</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div>`;
   renderMasteryState(); dedupeMasterySubtopicHeadings(mastery); dictionaryBuildAndLinkOnce(); linkDictionaryTerms(mastery); applyGlobalAcademicDirection(mastery);
   if(activeAcademicLanguage==='ps')setTimeout(syncPashtoLectureReadingArea,0);
   const sc=document.querySelector('#functionalPage .main-content-container'); if(sc)sc.scrollTop=oldScroll;
@@ -773,7 +907,7 @@ function readinessRenderCurrent(){
  if(!q){readinessRenderResult();return;}
  const total=readinessState.questions.length,i=readinessState.index;
  const answer=practiceEsc(q.a||'Answer will be supplied from the academic source.');
- const guide=`<div class="readiness-guide"><div><strong>سوال کی تشریح:</strong> یہ ایک مکمل سوال ہے۔ یہ ہم سے پوچھ رہا ہے کہ اس موضوع کی بنیادی حقیقت یا تعریف کیا ہے۔</div><div><strong>سوال کو پرکھیں:</strong> سوال مختصر اور واضح ہے یا اس میں اضافی الفاظ کے ذریعے الجھن پیدا ہو رہی ہے؟ پہلے اصل علمی بات پہچانیں۔</div><div><strong>اگر لفظی الجھن ہو:</strong> معمولی spelling یا clerical غلطی سے فوراً مفہوم نہ بدلیں۔ پورا سوال پڑھیں؛ اگر academic مفہوم واضح ہے تو اسی مفہوم کے مطابق جواب دیں۔</div><div><strong>اگر سوال گھما کر پوچھا جائے:</strong> اضافی الفاظ الگ رکھیں اور دیکھیں کہ اصل میں کون سا concept، تعلق یا نتیجہ پوچھا جا رہا ہے۔</div><div><strong>آخر میں جواب:</strong> پہلے خود جواب دیں، پھر نیچے دیا گیا درست academic جواب دیکھ کر اپنی سمجھ چیک کریں۔</div></div>`;
+ const guide=`<div class="readiness-guide"><div><strong>سوال کی تشریح:</strong> یہ ایک مکمل سوال ہے۔ یہ ہم سے پوچھ رہا ہے کہ اس موضوع کی بنیادی حقیقت یا تعریف کیا ہے۔</div><div><strong>سوال کو پرکھیں:</strong> سوال مختصر اور واضح ہے یا اس میں اضافی الفاظ کے ذریعے الجھن پیدا ہو رہی ہے؟ پہلے اصل علمی بات پہچانیں۔</div><div><strong>اگر لفظی الجھن ہو:</strong> معمولی spelling یا clerical غلطی سے فوراً مفہوم نہ بدلیں۔ پورا سوال پڑھیں؛ اگر academic مفہوم واضح ہے تو اسی مفہوم کے مطابق جواب دیں۔</div><div><strong>اگر سوال گھما کر پوچھا جائے:</strong> اضافی الفاظ الگ رکھیں اور دیکھیں کہ اصل میں کون سا concept، تعلق یا نتیجہ پوچھا جا رہا ہے۔</div><div><strong>آخر میں جواب:</strong> پہلے خودا جواب دیں، پھر نیچے دیا گیا درست academic جواب دیکھ کر اپنی سمجھ چیک کریں۔</div></div>`;
  f.innerHTML=`<div class="readiness-flow ${readinessState.checked?'checked':''}"><div class="readiness-progress">Question ${i+1} of ${total}</div><div class="readiness-live-meta">Topic ${q.topic} · ${practiceEsc(q.subTitle)}</div><div class="readiness-live-q">${practiceEsc(q.q)}</div>${guide}<textarea id="readinessUserAnswer" class="readiness-user-answer" placeholder="اپنا جواب یہاں لکھیں..."></textarea><div class="readiness-feedback"><strong>Answer:</strong> ${answer}</div><div class="readiness-actions"><button class="readiness-btn" type="button" onclick="readinessCheckAnswer()">جواب دیکھیں</button>${readinessState.checked?`<button class="readiness-btn" type="button" onclick="readinessMark(${i},true)">✓ سمجھ گیا / درست</button><button class="readiness-btn" type="button" onclick="readinessMark(${i},false)">↻ دوبارہ دیکھیں</button>`:''}</div></div>`;
 }
 function readinessCheckAnswer(){readinessState.checked=true;readinessRenderCurrent();}
@@ -909,7 +1043,7 @@ function practicalNormalizeSubs(raw){if(Array.isArray(raw))return raw.map((x,i)=
 function practicalValue(v){if(v===undefined||v===null)return '';if(typeof v==='string')return practicalText(v);if(Array.isArray(v))return v.map(practicalValue).filter(Boolean).join('\n');if(typeof v==='object'){for(const k of ['procedure','method','steps','activity','experiment','description','definition','content','explanation','practicalWork','practical']){const x=practicalValue(v[k]);if(x)return x;}return '';}return practicalText(v);}
 function practicalFromObject(o){if(!o||typeof o!=='object')return '';for(const k of ['practical','practicalWork','experiment','activity']){if(o[k]!==undefined&&o[k]!==null){const x=practicalValue(o[k]);if(x)return x;}}return '';}
 function getPracticalAcademicSource(){const out=[];for(let n=1;n<=topicCount;n++){const base=topicData?.[n]||{},reg=topicRegistry?.[n]||{},academic=base.academic||reg.academic||{};const title=practicalFirst(academic,['title','name','heading'])||practicalFirst(base,['title','name','heading','topicTitle'])||practicalFirst(reg,['title','name','heading'])||`Topic ${n}`;const rawSubs=academic.subtopics??base.subtopics??reg.subtopics??base.subTopics??reg.subTopics??[];const topicPractical=practicalFromObject(academic)||practicalFromObject(base)||practicalFromObject(reg);const subtopics=practicalNormalizeSubs(rawSubs).map(sub=>({title:sub.title,practical:practicalFromObject(sub.practical)})).filter(x=>x.practical);if(topicPractical||subtopics.length)out.push({number:n,title,practical:topicPractical,subtopics});}return out;}
-function practicalRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticalAcademicSource();if(topics.length){root.innerHTML=`<div class="practical-tier3"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">Practical content is read automatically from Topics and their corresponding Subtopics.</div></div>${topics.map(t=>`<article class="practical-card"><div class="practical-card-head">Topic ${t.number} — ${practicalEsc(t.title)}</div><div class="practical-card-body">${t.practical?`<div class="practical-meta">Topic Practical</div><div>${practicalEsc(t.practical).replace(/\n/g,'<br>')}</div>`:''}${t.subtopics.map(s=>`<div class="practical-step"><strong>${practicalEsc(s.title)}</strong><div>${practicalEsc(s.practical).replace(/\n/g,'<br>')}</div></div>`).join('')}</div></article>`).join('')}<div class="practical-footer"></div></div>`;return;}root.innerHTML=`<div class="practical-tier3"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">No Practical was found in the current Topics/Subtopics, so the student exercise below is shown as the fallback.</div></div><article class="practical-card practical-fallback"><div class="practical-card-body"><div class="breath-title">🌿 ذرا ریلیکس ہو جائیں!</div><div class="breath-line">آرام سے ایک لمبی، گہری سانس لیں…</div><div class="breath-line">چند لمحے روکیں…</div><div class="breath-line">اور پھر آہستہ آہستہ سانس باہر چھوڑ دیں۔</div><div class="breath-line">ایک بار پھر… 🌱</div><div class="breath-line">سانس اندر — تھوڑا توقف — سانس باہر۔</div><div class="breath-line">اب ذہن تازہ، توجہ حاضر ✨</div><div class="breath-line">اگر آپ کو بہتر محسوس ہوا تو پورا مشق دوبارہ کیجئے۔ 🌿</div></div></article><div class="practical-footer"></div></div>`;}
+function practicalRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticalAcademicSource();if(topics.length){root.innerHTML=`<div class="practical-tier3"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">Practical content is read automatically from Topics and their corresponding Subtopics.</div></div>${topics.map(t=>`<article class="practical-card"><div class="practical-card-head">Topic ${t.number} — ${practicalEsc(t.title)}</div><div class="practical-card-body">${t.practical?`<div class="practical-meta">Topic Practical</div><div>${practicalEsc(t.practical).replace(/\n/g,'<br>')}</div>`:''}${t.subtopics.map(s=>`<div class="practical-step"><strong>${practicalEsc(s.title)}</strong><div>${practicalEsc(s.practical).replace(/\n/g,'<br>')}</div></div>`).join('')}</div></article>`).join('')}<div class="practical-footer"></div></div>`;return;}root.innerHTML=`<div class="practical-tier3"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">No Practical was found in the current Topics/Subtopics, so the student exercise below is shown as the fallback.</div></div><article class="practical-card practical-fallback"><div class="practical-card-body"><div class="breath-title">🌿 ذرا ریلیکس ہو جائیں!</div><div class="breath-line">آرام سے ایک لمبی، گہری سانس لیں…</div><div class="breath-line">چندا لمحے روکیں…</div><div class="breath-line">اور پھر آہستہ آہستہ سانس باہر چھوڑ دیں۔</div><div class="breath-line">ایک بار پھر… 🌱</div><div class="breath-line">سانس اندر — تھوڑا توقف — سانس باہر۔</div><div class="breath-line">اب ذہن تازہ، توجہ حاضر ✨</div><div class="breath-line">اگر آپ کو بہتر محسوس ہوا تو پورا مشق دوبارہ کیجئے۔ 🌿</div></div></article><div class="practical-footer"></div></div>`;}
 
 function revisionText(v){return String(v??'').replace(/\s+/g,' ').trim();}
 function revisionFirst(obj,keys){for(const k of keys){const v=revisionText(obj?.[k]);if(v)return v;}return '';}
@@ -946,38 +1080,38 @@ function setDictionaryTerms(entries){
 }
 
 const dictionaryPashtoMeanings={
- 'Acceleration':'تعجیل د وخت په تېرېدو سره د ویلاسټي د بدلون کچه ده.',
- 'Velocity':'ویلاسټي د وخت په تېرېدو سره د ډسپلیسمنټ د بدلون کچه ده.',
+ 'Acceleration':'تعجیل دا وخت په تېرېدو سره دا ویلاسټي دا بدلون کچه دا.',
+ 'Velocity':'ویلاسټي دا وخت په تېرېدو سره دا ډسپلیسمنټ دا بدلون کچه دا.',
  'Displacement':'ډسپلیسمنټ له لومړي موقعیت څخه تر وروستي موقعیت پورې له سمت سره مستقیم واټن دی.',
- 'Distance':'فاصله د دوو موقعیتونو ترمنځ د واټن اندازه ده.',
- 'Speed':'سرعت د وخت په واحد کې د وهلو شوې فاصلې اندازه ده.',
- 'Force':'فورس هغه اغېز دی چې د جسم د حرکت حالت بدلولی شي.',
- 'Motion':'حرکت د وخت په تېرېدو سره د جسم د موقعیت بدلون دی.',
- 'Energy':'انرژي د کار کولو وړتیا ده.',
- 'Work':'کار هغه وخت ترسره کېږي چې فورس د جسم د ځای بدلون سبب شي.',
- 'Power':'پاور د کار د ترسره کېدو کچه ده.',
- 'Momentum':'مومنټم د جسم د کتلې او ویلاسټي حاصل ضرب دی.',
+ 'Distance':'فاصله دا دوو موقعیتونو ترمنځ دا واټن اندازه دا.',
+ 'Speed':'سرعت دا وخت په واحدا کې دا وهلو شوې فاصلې اندازه دا.',
+ 'Force':'فورس هغه اغېز دی چې دا جسم دا حرکت حالت بدلولی شي.',
+ 'Motion':'حرکت دا وخت په تېرېدو سره دا جسم دا موقعیت بدلون دی.',
+ 'Energy':'انرژي دا کار کولو وړتیا دا.',
+ 'Work':'کار هغه وخت ترسره کېږي چې فورس دا جسم دا ځای بدلون سبب شي.',
+ 'Power':'پاور دا کار دا ترسره کېدو کچه دا.',
+ 'Momentum':'مومنټم دا جسم دا کتلې او ویلاسټي حاصل ضرب دی.',
  'Vector':'ویکټر هغه کمیت دی چې اندازه او سمت دواړه لري.',
  'Scalar':'سکیلر هغه کمیت دی چې یوازې اندازه لري او سمت نه لري.',
- 'Measurement':'اندازه کول د یوې فزیکي کمیت د ارزښت معلومول دي.',
- 'Mass':'کتله د مادې د مقدار اندازه ده.',
- 'Time':'وخت د پېښو د ترتیب او مودې اندازه ده.',
- 'Length':'اوږدوالی د دوو نقطو ترمنځ د فاصلې اندازه ده.',
- 'Temperature':'تودوخه د جسم د حرارتي حالت د معلومولو اندازه ده.',
- 'Current':'برېښنايي جریان د برېښنايي چارج د تېرېدو کچه ده.',
- 'Charge':'چارج د مادې یوه فزیکي ځانګړنه ده چې برېښنايي تعاملات رامنځته کوي.',
- 'Voltage':'ولټاژ د برېښنايي پوتنسیال د توپیر اندازه ده.',
- 'Resistance':'مقاومت د برېښنايي جریان پر وړاندې د مدار د مخالفت اندازه ده.',
- 'Pressure':'فشار پر واحده مساحت وارد شوی فورس دی.',
- 'Density':'کثافت د واحد حجم په هره اندازه کې د کتلې مقدار دی.',
- 'Volume':'حجم هغه فضا ده چې یو جسم یې نیسي.',
- 'Frequency':'فریکونسي په یوه ثانیه کې د تکرارونو شمېر دی.',
- 'Wavelength':'څپه‌اوږدوالی د څپې د دوو پرله‌پسې ورته نقطو ترمنځ واټن دی.',
- 'Uncertainty':'ناڅرګندتیا د یوې میجرمنټ د ارزښت په اړه د ممکنه بدلون اندازه ده.',
- 'Error':'خطا د اندازه شوي ارزښت او حقیقي یا منل شوي ارزښت ترمنځ توپیر دی.',
+ 'Measurement':'اندازه کول دا یوې فزیکي کمیت دا ارزښت معلومول دي.',
+ 'Mass':'کتله دا مادې دا مقدار اندازه دا.',
+ 'Time':'وخت دا پېښو دا ترتیب او مودې اندازه دا.',
+ 'Length':'اوږدوالی دا دوو نقطو ترمنځ دا فاصلې اندازه دا.',
+ 'Temperature':'تودوخه دا جسم دا حرارتي حالت دا معلومولو اندازه دا.',
+ 'Current':'برېښنايي جریان دا برېښنايي چارج دا تېرېدو کچه دا.',
+ 'Charge':'چارج دا مادې یوه فزیکي ځانګړنه دا چې برېښنايي تعاملات رامنځته کوي.',
+ 'Voltage':'ولټاژ دا برېښنايي پوتنسیال دا توپیر اندازه دا.',
+ 'Resistance':'مقاومت دا برېښنايي جریان پر وړاندې دا مدار دا مخالفت اندازه دا.',
+ 'Pressure':'فشار پر واحدا مساحت واردا شوی فورس دی.',
+ 'Density':'کثافت دا واحدا حجم په هره اندازه کې دا کتلې مقدار دی.',
+ 'Volume':'حجم هغه فضا دا چې یو جسم یې نیسي.',
+ 'Frequency':'فریکونسي په یوه ثانیه کې دا تکرارونو شمېر دی.',
+ 'Wavelength':'څپه-اوږدوالی دا څپې دا دوو پرله-پسې ورته نقطو ترمنځ واټن دی.',
+ 'Uncertainty':'ناڅرګندتیا دا یوې میجرمنټ دا ارزښت په اړه دا ممکنه بدلون اندازه دا.',
+ 'Error':'خطا دا اندازه شوي ارزښت او حقیقي یا منل شوي ارزښت ترمنځ توپیر دی.',
  'Accuracy':'درستوالی ښيي چې اندازه شوی ارزښت حقیقي ارزښت ته څومره نږدې دی.',
  'Precision':'تکراري یکسانیت ښيي چې تکراري میجرمنټونه یو له بل سره څومره نږدې دي.',
- 'Dimension':'ابعاد د فزیکي کمیت د بنسټیزو کمیتونو په مرسته د ښودلو بڼه ده.'
+ 'Dimension':'ابعادا دا فزیکي کمیت دا بنسټیزو کمیتونو په مرسته دا ښودلو بڼه دا.'
 };
 const dictionaryUrduMeanings={
  'Acceleration':'اسراع وہ شرح ہے جس سے وقت کے ساتھ رفتار تبدیل ہوتی ہے۔',
@@ -1005,13 +1139,13 @@ const dictionaryUrduMeanings={
  'Pressure':'دباؤ فی اکائی رقبہ پر لگنے والی قوت ہے۔',
  'Density':'کثافت فی اکائی حجم کمیت کی مقدار ہے۔',
  'Volume':'حجم وہ جگہ ہے جس پر کوئی جسم قابض ہوتا ہے۔',
- 'Frequency':'تعدد ایک سیکنڈ میں ہونے والی تکراروں کی تعداد ہے۔',
+ 'Frequency':'تعددا ایک سیکنڈ میں ہونے والی تکراروں کی تعدادا ہے۔',
  'Wavelength':'طولِ موج ایک موج کے دو مسلسل یکساں نقاط کے درمیان فاصلہ ہے۔',
- 'Uncertainty':'غیر یقینی پیمائش کی قدر میں ممکنہ تبدیلی کی حد کو ظاہر کرتی ہے۔',
- 'Error':'غلطی ناپی گئی قدر اور حقیقی یا منظور شدہ قدر کے درمیان فرق ہے۔',
+ 'Uncertainty':'غیر یقینی پیمائش کی قدر میں ممکنہ تبدیلی کی حدا کو ظاہر کرتی ہے۔',
+ 'Error':'غلطی ناپی گئی قدر اور حقیقی یا منظور شدا قدر کے درمیان فرق ہے۔',
  'Accuracy':'درستگی بتاتی ہے کہ ناپی گئی قدر حقیقی قدر کے کتنی قریب ہے۔',
  'Precision':'تکراری یکسانیت بتاتی ہے کہ بار بار کی گئی پیمائشیں ایک دوسرے کے کتنی قریب ہیں۔',
- 'Dimension':'ابعاد کسی طبعی کمیت کو بنیادی کمیتوں کی مدد سے ظاہر کرنے کی صورت ہیں۔'
+ 'Dimension':'ابعادا کسی طبعی کمیت کو بنیادی کمیتوں کی مددا سے ظاہر کرنے کی صورت ہیں۔'
 };
 function dictionaryLocalizedMeaning(map,term){const key=String(term||'').trim();if(map[key])return map[key];const hit=Object.keys(map).find(k=>k.toLowerCase()===key.toLowerCase());return hit?map[hit]:'';}
 function getDictionaryTerms(){return [...dictionaryTerms];}
@@ -1121,7 +1255,6 @@ function closeDictionaryTerm(){document.getElementById('dictionaryModal')?.class
 
 function initDictionaryNavigation(){const btn=document.getElementById('dictionaryReturn');const scroller=document.querySelector('#functionalPage .main-content-container');const input=document.getElementById('dictionarySearchInput');if(!btn||!scroller)return;if(dictionaryScrollHandler)scroller.removeEventListener('scroll',dictionaryScrollHandler);let keyboardOpen=false;let baseViewportHeight=Math.max(window.innerHeight,window.visualViewport?.height||0);const setKeyboardState=(open)=>{keyboardOpen=!!open;const page=document.getElementById('functionalPage');if(keyboardOpen){page?.classList.add('dictionary-keyboard-active');btn.classList.remove('visible');}else{page?.classList.remove('dictionary-keyboard-active');btn.classList.remove('visible');}};const onFocus=()=>{baseViewportHeight=Math.max(baseViewportHeight,window.innerHeight,window.visualViewport?.height||0);setKeyboardState(true);};const refreshKeyboard=()=>{const focused=!!(input&&document.activeElement===input);const current=Math.max(0,window.visualViewport?.height||window.innerHeight);if(!focused){setKeyboardState(false);return;}if(current<baseViewportHeight-100){setKeyboardState(true);}else if(current>=baseViewportHeight-40){setKeyboardState(false);}else{setKeyboardState(true);}};const onBlur=()=>setTimeout(()=>setKeyboardState(false),150);input?.addEventListener('focus',onFocus);input?.addEventListener('blur',onBlur);window.visualViewport?.addEventListener('resize',refreshKeyboard);window.visualViewport?.addEventListener('scroll',refreshKeyboard);dictionaryScrollHandler=refreshKeyboard;scroller.addEventListener('scroll',dictionaryScrollHandler,{passive:true});setKeyboardState(false);}
 function moveDictionaryStep(){const scroller=document.querySelector('#functionalPage .main-content-container');const btn=document.getElementById('dictionaryReturn');if(!scroller||!btn)return;const y=scroller.scrollTop,max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);const up=btn.querySelector('.nav-arrow').textContent==='↑';scroller.scrollTo({top:up?0:max,behavior:'smooth'});}
-// Visual Atlas: original two-container-per-topic system restored. Only its opening link is connected from Topics.
 const visualAtlasData=topicData;
 const visualAtlasTopics=Array.from({length:topicCount},(_,i)=>({topic:i+1}));
 let visualAtlasScrollHandler=null;
@@ -1129,7 +1262,6 @@ function visualAtlasContainer(v){return `<div class="visual-atlas-container" dat
 function openVisualAtlas(){document.getElementById('functionalContentView').innerHTML=`<div class="visual-atlas-document"><div class="view-header"><div class="subject-label page-main-heading">Visual Atlas</div></div>${visualAtlasTopics.map(t=>{const slots=getTopicVisualSlots(t.topic);return `<section class="visual-atlas-topic" id="visualAtlasTopic${t.topic}"><div class="visual-atlas-topic-head">Topic ${t.topic}</div><div class="visual-atlas-grid">${slots.map(visualAtlasContainer).join('')}</div></section>`;}).join('')}<div class="visual-atlas-footer"></div></div>`;initVisualAtlasReturnTop();showPage('functionalPage');}
 function initVisualAtlasReturnTop(){const btn=document.getElementById('visualAtlasReturnTop');const back=document.getElementById('visualAtlasStopBack');const scroller=document.querySelector('#functionalPage .main-content-container');if(!btn||!back||!scroller)return;if(visualAtlasScrollHandler)scroller.removeEventListener('scroll',visualAtlasScrollHandler);let lastY=scroller.scrollTop;let stopTimer=null;const showStopped=()=>{btn.classList.remove('visible');back.classList.add('visible');};back.classList.add('visible');btn.classList.remove('visible');visualAtlasScrollHandler=()=>{const y=scroller.scrollTop;const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);const atTop=y<=20,atBottom=y>=max-8;back.classList.remove('visible');if(stopTimer)clearTimeout(stopTimer);if(atTop||atBottom){btn.classList.remove('visible');}else{btn.classList.add('visible');btn.querySelector('.nav-arrow').textContent=y<lastY?'↑':'↓';btn.setAttribute('aria-label',y<lastY?'Scroll up':'Scroll down');}lastY=y;stopTimer=setTimeout(showStopped,2000);};scroller.addEventListener('scroll',visualAtlasScrollHandler,{passive:true});}
 function returnVisualAtlasTop(){const scroller=document.querySelector('#functionalPage .main-content-container');const btn=document.getElementById('visualAtlasReturnTop');if(!scroller||!btn)return;const y=scroller.scrollTop;const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);scroller.scrollTo({top:(y>=max-8||btn.querySelector('.nav-arrow').textContent==='↑')?Math.max(0,y-scroller.clientHeight*.85):Math.min(max,y+scroller.clientHeight*.85),behavior:'smooth'});}
-
 
 let practiceTier3State={openTopic:null,showAnswers:false};
 let practiceScrollHandler=null;
@@ -1149,17 +1281,16 @@ function practiceMakeQuestions(topic,sub){
   {name:'3. سوال کو academic content سے ملاؤ',explain:'جو بات سوال میں پوچھی گئی ہے اسے اپنے پڑھے ہوئے academic material کے متعلقہ حصے سے جوڑو۔',activity:`اپنے ذہن میں ${practiceEsc(title)} کو اس وضاحت کے ساتھ ملاؤ اور دیکھو کہ کون سی بات براہِ راست اسی concept کو سمجھاتی ہے۔`},
   {name:'4. اضافی الفاظ الگ رکھو',explain:'اگر سوال لمبا یا گھمایا ہوا ہو تو غیر ضروری الفاظ سے الجھو نہیں؛ اصل علمی demand الگ کرو۔',activity:'سوال دوبارہ پڑھو اور اپنے الفاظ میں صرف ایک مختصر جملہ بناؤ: “مجھ سے اصل میں یہ پوچھا جا رہا ہے کہ …”'},
   {name:'5. جواب کو ثبوت سے ملاؤ',explain:'جواب صرف اس لیے درست نہ سمجھو کہ وہ اچھا لگتا ہے۔ اسے academic information سے ملا کر دیکھو۔',activity:`اپنے ممکنہ جواب کو ${practiceEsc(title)} کی دی گئی academic وضاحت سے ملاؤ۔ کیا جواب اسی معلومات سے support ہوتا ہے؟`},
-  {name:'6. آخر میں خود کو check کرو',explain:'جواب دینے کے بعد ایک آخری نظر ڈالو: کیا میں نے وہی جواب دیا ہے جو سوال نے مانگا تھا؟',activity:'اپنے جواب کو دو باتوں سے check کرو: کیا concept درست پہچانا؟ اور کیا جواب سوال کی اصل طلب پوری کرتا ہے؟'}
+  {name:'6. آخر میں خودا کو check کرو',explain:'جواب دینے کے بعدا ایک آخری نظر ڈالو: کیا میں نے وہی جواب دیا ہے جو سوال نے مانگا تھا؟',activity:'اپنے جواب کو دو باتوں سے check کرو: کیا concept درست پہچانا؟ اور کیا جواب سوال کی اصل طلب پوری کرتا ہے؟'}
  ];
  return strategies.map(x=>({q:x.name,a:`${x.explain} ${x.activity}`}));
 }
 
-function practiceRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticeAcademicSource(),subCount=topics.reduce((a,t)=>a+t.subtopics.length,0);root.innerHTML=`<div class="practice-tier3"><div class="practice-head"><div class="practice-title page-main-heading">Practice & Test Strategies</div></div><div class="practice-source"><span class="ok">✓ Academic content is used as the practice source</span><span class="count">${topics.length} Topics · ${subCount} Subtopics</span></div><div class="practice-intro"><strong>اس حصے کا مقصد:</strong> بچے کو یہ مشق کرانا کہ academic سوال کو کیسے سمجھنا ہے، متعلقہ concept کیسے پہچاننا ہے، جواب تک کیسے پہنچنا ہے اور آخر میں جواب کو کیسے check کرنا ہے۔ یہاں نیا academic syllabus نہیں بنایا جاتا؛ موجودہ lecture content ہی practice کا source ہے۔</div><div class="practice-topics">${topics.map(t=>`<article class="practice-topic"><button class="practice-topic-head" type="button" onclick="practiceOpenTopic(${t.number})">Topic ${t.number} — ${practiceEsc(t.title)}</button><div class="practice-topic-body" id="practiceTopicBody${t.number}">${t.definition?`<div class="practice-question"><strong>Academic source:</strong> ${practiceEsc(t.definition)}</div>`:''}${t.subtopics.length?t.subtopics.map(sub=>{const qs=practiceMakeQuestions(t,sub);return `<div class="practice-subtopic"><div class="practice-subtopic-title">${practiceEsc(sub.title)}</div>${sub.definition?`<div class="practice-question"><strong>Academic content:</strong> ${practiceEsc(sub.definition)}</div>`:''}<div class="practice-strategy-list">${qs.map((x,k)=>`<div class="practice-question"><strong>${practiceEsc(x.q)}</strong>${practiceTier3State.showAnswers&&x.a?`<div class="practice-answer"><strong>بچے کے لیے طریقہ:</strong> ${practiceEsc(x.a)}</div>`:''}</div>`).join('')}</div></div>`;}).join(''):`<div class="practice-empty">This Topic has no academic Subtopic data in the current source yet.</div>`}</div></article>`).join('')}</div><div class="practice-actions"><button class="practice-btn" type="button" onclick="practiceToggleAnswers()">Show / Hide Strategy Guidance</button><button class="practice-btn" type="button" onclick="practiceOpenFirst()">Open First Topic</button></div><div class="practice-footer"></div></div>`;initPracticeNavigation();}
+function practiceRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticeAcademicSource(),subCount=topics.reduce((a,t)=>a+t.subtopics.length,0);root.innerHTML=`<div class="practice-tier3"><div class="practice-head"><div class="practice-title page-main-heading">Practice & Test Strategies</div></div><div class="practice-source"><span class="ok">✓ Academic content is used as the practice source</span><span class="count">${topics.length} Topics · ${subCount} Subtopics</span></div><div class="practice-intro"><strong>اس حصے کا مقصد:</strong> بچے کو یہ مشق کرانا کہ academic سوال کو کیسے سمجھنا ہے، متعلقہ concept کیسے پہچاننا ہے، جواب تک کیسے پہنچنا ہے اور آخر میں جواب کو کیسے check کرنا ہے۔ یہاں نیا academic syllabus نہیں بنایا جاتا؛ موجودا lecture content ہی practice کا source ہے۔</div><div class="practice-topics">${topics.map(t=>`<article class="practice-topic"><button class="practice-topic-head" type="button" onclick="practiceOpenTopic(${t.number})">Topic ${t.number} — ${practiceEsc(t.title)}</button><div class="practice-topic-body" id="practiceTopicBody${t.number}">${t.definition?`<div class="practice-question"><strong>Academic source:</strong> ${practiceEsc(t.definition)}</div>`:''}${t.subtopics.length?t.subtopics.map(sub=>{const qs=practiceMakeQuestions(t,sub);return `<div class="practice-subtopic"><div class="practice-subtopic-title">${practiceEsc(sub.title)}</div>${sub.definition?`<div class="practice-question"><strong>Academic content:</strong> ${practiceEsc(sub.definition)}</div>`:''}<div class="practice-strategy-list">${qs.map((x,k)=>`<div class="practice-question"><strong>${practiceEsc(x.q)}</strong>${practiceTier3State.showAnswers&&x.a?`<div class="practice-answer"><strong>بچے کے لیے طریقہ:</strong> ${practiceEsc(x.a)}</div>`:''}</div>`).join('')}</div></div>`;}).join(''):`<div class="practice-empty">This Topic has no academic Subtopic data in the current source yet.</div>`}</div></article>`).join('')}</div><div class="practice-actions"><button class="practice-btn" type="button" onclick="practiceToggleAnswers()">Show / Hide Strategy Guidance</button><button class="practice-btn" type="button" onclick="practiceOpenFirst()">Open First Topic</button></div><div class="practice-footer"></div></div>`;initPracticeNavigation();}
 
 function practiceOpenTopic(n){document.querySelectorAll('.practice-topic-body').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.practice-topic-head').forEach(x=>x.classList.remove('active'));const body=document.getElementById(`practiceTopicBody${n}`);if(body){body.classList.add('open');body.previousElementSibling?.classList.add('active');practiceTier3State.openTopic=n;}}
 function practiceOpenFirst(){document.querySelector('.practice-topic-head')?.click();}
 function practiceToggleAnswers(){practiceTier3State.showAnswers=!practiceTier3State.showAnswers;const n=practiceTier3State.openTopic;practiceRender();if(n)practiceOpenTopic(n);}
-
 
 let examinationState={showAnswers:false};
 let examinationScrollHandler=null;
@@ -1238,8 +1369,6 @@ function examinationToggleAnswers(){examinationState.showAnswers=!examinationSta
 function initExaminationNavigation(){const btn=document.getElementById('examinationReturn');const back=document.getElementById('examinationStopBack');const scroller=document.querySelector('#functionalPage .main-content-container');if(!btn||!back||!scroller)return;if(examinationScrollHandler)scroller.removeEventListener('scroll',examinationScrollHandler);let lastY=scroller.scrollTop;let stopTimer=null;const showStopped=()=>{btn.classList.remove('visible');back.classList.add('visible');};back.classList.add('visible');btn.classList.remove('visible');examinationScrollHandler=()=>{const y=scroller.scrollTop;const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);back.classList.remove('visible');if(stopTimer)clearTimeout(stopTimer);if(y<=20||y>=max-8){btn.classList.remove('visible');}else{btn.classList.add('visible');btn.querySelector('.nav-arrow').textContent=y<lastY?'↑':'↓';btn.setAttribute('aria-label',y<lastY?'Scroll up':'Scroll down');}lastY=y;stopTimer=setTimeout(showStopped,2000);};scroller.addEventListener('scroll',examinationScrollHandler,{passive:true});}
 function moveExaminationStep(){const scroller=document.querySelector('#functionalPage .main-content-container');const btn=document.getElementById('examinationReturn');if(!scroller||!btn)return;const y=scroller.scrollTop,max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);const up=btn.querySelector('.nav-arrow').textContent==='↑';scroller.scrollTo({top:up?0:max,behavior:'smooth'});}
 
-
-
 let hitCeilingState={level:1,pool:[],questionNumber:1};
 function htcText(v){return String(v??'').replace(/\s+/g,' ').trim();}
 function htcEsc(v){return String(v??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));}
@@ -1263,43 +1392,128 @@ function getHitCeilingAcademicPool(){
 }
 function htcShortAnswer(text){
  const x=htcText(text).replace(/^[•\-–—]+\s*/,'');
- const first=(x.match(/^.*?[۔.!?](?:\s|$)/)||[x])[0].trim();
- return first.length>120?first.slice(0,117).replace(/\s+\S*$/,'')+'…':first;
+ const sentences=x.match(/[^.!?۔؟]+[.!?۔؟]?/gu)||[x];
+ let out='';
+ for(const s of sentences){
+  const t=htcText(s);
+  if(!t)continue;
+  const candidate=(out+' '+t).trim();
+  if(candidate.length>210)break;
+  out=candidate;
+  if(out.length>=120)break;
+ }
+ if(!out)out=x.slice(0,210);
+ if(out.length>210)out=out.slice(0,207).replace(/\s+\S*$/,'')+'…';
+ return out;
+}
+function htcIsNumerical(item){
+ const text=htcText(item.answer);
+ return /\d|%|\b(?:SI|kg|g|m|s|N|J|Pa|rad|sr|cm|mm|km|mol|K|°)\b|=|\+|×|÷|\//i.test(text);
+}
+function htcStripSerial(text){
+ return htcText(text).replace(/^(?:\d+(?:\.\d+)*[.)]?|[IVXLC]+[.)])\s*/i,'').trim();
 }
 function htcQuestion(item){
- const variants=[
-  `What is ${item.subtopic}?`,
-  `Which statement best describes ${item.subtopic}?`,
-  `What does ${item.subtopic} mean?`
- ];
- return variants[(item.variant||0)%variants.length];
+ const q=htcText(item?.question);
+ const words=q.split(/\s+/).filter(Boolean);
+ return words.length>=3?q:'What is this physical quantity?';
+}
+function htcCleanFactText(text){
+ const x=htcText(text).replace(/[“”]/g,'"').replace(/[‘’]/g,"'");
+ return x.replace(/\b\d+(?:\.\d+)*[.)]\s*/g,'').replace(/\s+/g,' ').trim();
+}
+function htcFirstEnglishTerm(text){
+ const x=htcCleanFactText(text);
+ const m=x.match(/([A-Za-z][A-Za-z -]{1,42})/);
+ return m?htcText(m[1]):'';
+}
+function htcExtractFacts(item,pool){
+ const t=htcStripSerial(item.subtopic), d=htcCleanFactText(item.answer), facts=[];
+ const push=(question,answer,options,numeric=false)=>{
+  const q=htcText(question);
+  if(q.split(/\s+/).filter(Boolean).length<3)return;
+  if(!answer||!Array.isArray(options)||options.length<4)return;
+  const clean=[...new Set(options.map(htcText).filter(Boolean))];
+  if(!clean.includes(htcText(answer)))clean.unshift(htcText(answer));
+  while(clean.length<4)clean.push('None of these');
+  facts.push({question,answer:htcText(answer),options:clean.slice(0,4),numeric});
+ };
+ let m;
+ if((m=d.match(/Seven base units?\s+(.+?)(?:\s+are|\s+ہیں)\s+(.+?)(?:\.|$)/i))){
+  push('How many SI base units are there?','Seven',['Five','Six','Seven','Eight'],true);
+ }
+ if(/derived units/i.test(t)||/derived units/i.test(d)){
+  push('Force is measured in',['newton (N)'][0],['newton (N)','joule (J)','watt (W)','pascal (Pa)'],true);
+ }
+ if(/radian/i.test(t)&&/plane angle/i.test(d)) push('Radian is the SI unit of','plane angle',['plane angle','solid angle','mass','temperature']);
+ if(/steradian/i.test(t)&&/solid angle/i.test(d)) push('Steradian is the unit of','solid angle',['solid angle','plane angle','length','time']);
+ if(/spacing/i.test(t)&&/space/i.test(d)) push('What is placed between a numerical value and its unit symbol?','A space',['A space','A comma','A full stop','Nothing']);
+ if(/capitalization/i.test(t)&&/metre.*m.*kelvin.*K/i.test(d)) push('The symbol for kelvin is','K',['K','k','Ke','°K']);
+ if(/unit symbols/i.test(t)&&/full stop/i.test(d)) push('A unit symbol normally ends with','No full stop',['No full stop','A comma','A full stop','A semicolon']);
+ if(/names of units/i.test(t)&&/lowercase/i.test(d)) push('Unit names are generally written in','lowercase',['lowercase','uppercase','Roman numerals','italics only']);
+ if(/random errors/i.test(t)) push('Random errors can be reduced by','Averaging repeated readings',['Averaging repeated readings','Changing the unit','Ignoring measurements','Using larger symbols']);
+ if(/systematic error/i.test(t)) push('A zero error is an example of','Systematic error',['Systematic error','Random error','Human reaction only','A derived unit']);
+ if(/uncertainty/i.test(t)&&/doubt/i.test(d)) push('Uncertainty indicates the','Possible range or doubt in a measurement',['Possible range or doubt in a measurement','Exact true value','Unit symbol only','Graph scale only']);
+ if(/significant figures/i.test(t)&&/digits/i.test(d)) push('Non-zero digits in a measurement are','Significant',['Significant','Never significant','Always decimal places','Units']);
+ if(/leading zeros/i.test(t)) push('Leading zeros generally','Are not significant figures',['Are not significant figures','Are always significant','Are units','Are errors']);
+ if(/trailing zeros/i.test(t)) push('Trailing zeros can be significant when they','Indicate measurement precision',['Indicate measurement precision','Change the unit','Remove uncertainty','Show a force']);
+ if(/accuracy/i.test(t)&&/true value/i.test(d)) push('Accuracy describes closeness to the','Accepted or true value',['Accepted or true value','Other measurements','Unit symbol','Decimal point']);
+ if(/precision/i.test(t)&&/repeated measurements/i.test(d)) push('Precision describes how close repeated measurements are to','Each other',['Each other','The unit symbol','Zero','A different quantity']);
+ if(/fundamental dimensions/i.test(t)) push('Which three dimensions are fundamental in mechanics?','Mass, length and time',['Mass, length and time','Force, energy and power','Speed, force and work','Temperature, current and charge'],true);
+ if(/dimensional formula/i.test(t)){
+  if(/velocity.*LT⁻¹/i.test(d)) push('The dimensional formula of velocity is','[LT⁻¹]',['[LT⁻¹]','[LT⁻²]','[MLT⁻²]','[MLT⁻¹]'],true);
+  if(/acceleration.*LT⁻²/i.test(d)) push('The dimensional formula of acceleration is','[LT⁻²]',['[LT⁻¹]','[LT⁻²]','[MLT⁻²]','[M⁰L⁰T⁰]'],true);
+  if(/force.*MLT⁻²/i.test(d)) push('The dimensional formula of force is','[MLT⁻²]',['[MLT⁻²]','[LT⁻²]','[MLT⁻¹]','[M⁰L⁰T⁰]'],true);
+ }
+ if(/dimensional homogeneity/i.test(t)) push('Both sides of a physically meaningful equation must have','The same dimensions',['The same dimensions','The same numerical value only','Different units','No units']);
+ if(/measurement fundamentals|physical quantities/i.test(t)||/measurable quantities/i.test(d)){
+  const opts=['Physics','Chemistry','Biology','Cardiology'];
+  if(/physical quantities/i.test(t)) push('Physical quantities are described using measurable','Quantities',['Quantities','Colours','Opinions','Names']);
+ }
+ if(/observation and experiment/i.test(t)) push('Physics tests hypotheses through','Observations and experiments',['Observations and experiments','Guesswork only','Unit symbols','Names of scientists']);
+ if(/physics in daily life/i.test(t)) push('Physics is widely used in','Technology and engineering',['Technology and engineering','Only literature','Only history','Only language']);
+ return facts;
 }
 function getHitCeilingQuestionBank(pool){
- const bank=[];
- pool.forEach((item,i)=>{
-  for(let v=0;v<3;v++)bank.push({...item,variant:v,sourceIndex:i});
- });
+ const facts=[];
+ pool.forEach(item=>htcExtractFacts(item,pool).forEach(f=>{
+  const q=htcText(f.question);
+  if(q.split(/\s+/).filter(Boolean).length>=3)facts.push({...f,source:item});
+ }));
+ if(!facts.length){
+  pool.forEach(item=>{
+   const title=htcStripSerial(item.subtopic), ans=htcShortAnswer(item.answer);
+   const q=title?`What is ${title}?`:'';
+   if(title&&ans&&q.split(/\s+/).filter(Boolean).length>=3)facts.push({question:q,answer:ans,options:[ans,'Not stated in the academic content.','Another physical quantity.','None of these'],numeric:false,source:item});
+  });
+ }
+ const numeric=facts.filter(x=>x.numeric), conceptual=facts.filter(x=>!x.numeric), bank=[];
+ let ni=0,ci=0;
+ const total=facts.length;
+ for(let i=0;i<total;i++){
+  const wantNumeric=i%2===0;
+  let f=wantNumeric&&numeric.length?numeric[ni++%numeric.length]:(conceptual.length?conceptual[ci++%conceptual.length]:facts[i%facts.length]);
+  bank.push({...f,sourceIndex:i});
+ }
  return bank;
 }
 function htcBuildOptions(bank,correctIndex){
- const correct=htcShortAnswer(bank[correctIndex].answer);
- const candidates=[];
- for(let d=1;d<=bank.length;d++){
-  const idx=(correctIndex+d)%bank.length;
-  const txt=htcShortAnswer(bank[idx].answer);
-  if(txt&&txt!==correct&&!candidates.includes(txt))candidates.push(txt);
-  if(candidates.length===3)break;
- }
- while(candidates.length<3)candidates.push('Not stated in the supplied academic content.');
- const positions=[0,2,1,3,2,3,0,1,3,1,2,0];
- const qn=Math.max(1,hitCeilingState.questionNumber||1);
- const pos=positions[(qn-1)%positions.length];
- const out=candidates.slice(0,3);out.splice(pos,0,correct);
+ const item=bank[correctIndex];
+ const opts=[...new Set((item?.options||[]).map(htcText).filter(Boolean))];
+ const answer=htcText(item?.answer);
+ if(!opts.includes(answer))opts.unshift(answer);
+ while(opts.length<4)opts.push('None of these');
+ const positions=[0,2,1,3,2,3,0,1];
+ const pos=positions[(Math.max(1,hitCeilingState.questionNumber||1)-1)%positions.length];
+ const out=opts.slice(0,4);
+ const ai=out.indexOf(answer);
+ if(ai>=0){const tmp=out[pos];out[pos]=out[ai];out[ai]=tmp;}
+ else out[pos]=answer;
  return {options:out,correctIndex:pos};
 }
 function htcSelectOption(optionIndex,correctIndex){
  const labels=document.querySelectorAll('#htcCard .htc-option');
- labels.forEach((el,i)=>{el.classList.remove('htc-correct','htc-wrong');const input=el.querySelector('input');if(input)input.disabled=true;});
+ labels.forEach(el=>{el.classList.remove('htc-correct','htc-wrong');el.dataset.locked='true';});
  const feedback=document.getElementById('htcFeedback');
  const chosen=labels[optionIndex];
  if(optionIndex===correctIndex){chosen?.classList.add('htc-correct');if(feedback)feedback.textContent='✓ Correct answer';document.getElementById('htcFlame')?.style.setProperty('opacity','.95');}
@@ -1320,8 +1534,8 @@ function renderHitCeilingContent(level=1){
  hitCeilingState.questionNumber=qn;
  const built=htcBuildOptions(bank,index);
  info.textContent="";
- card.innerHTML=`<div class="htc-question"><strong>Question</strong><div>${htcEsc(htcQuestion(item))}</div></div><div class="htc-options" role="radiogroup" aria-label="Answer options">${built.options.map((o,j)=>`<label class="htc-option"><input type="radio" name="htc-answer-${qn}" value="${j}" data-correct-index="${built.correctIndex}"><span><b>${String.fromCharCode(65+j)}.</b> ${htcEsc(o)}</span></label>`).join('')}</div><div class="htc-feedback" id="htcFeedback" aria-live="polite"></div>`;
- card.querySelectorAll('.htc-option input').forEach(input=>input.addEventListener('change',()=>htcSelectOption(Number(input.value),Number(input.dataset.correctIndex))));
+ card.innerHTML=`<div class="htc-question"><strong>Question</strong><div>${htcEsc(htcQuestion(item))}</div></div><div class="htc-options" role="radiogroup" aria-label="Answer options">${built.options.map((o,j)=>`<div class="htc-option" role="radio" aria-checked="false" tabindex="0" data-option-index="${j}" data-correct-index="${built.correctIndex}"><span><b>${String.fromCharCode(65+j)}.</b> ${htcEsc(o)}</span></div>`).join('')}</div><div class="htc-feedback" id="htcFeedback" aria-live="polite"></div>`;
+ card.querySelectorAll('.htc-option').forEach(option=>{const choose=()=>{if(option.dataset.locked==='true')return;card.querySelectorAll('.htc-option').forEach(el=>el.setAttribute('aria-checked','false'));option.setAttribute('aria-checked','true');htcSelectOption(Number(option.dataset.optionIndex),Number(option.dataset.correctIndex));card.querySelectorAll('.htc-option').forEach(el=>el.dataset.locked='true');};option.addEventListener('click',choose);option.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}});});
 }
 function resetHitCeiling(){
  hitCeilingState.level=1;
@@ -1352,6 +1566,7 @@ function initHitCeiling(){
  }
  renderHitCeilingContent(1);
 }
+window.addEventListener('resize',()=>{if(document.getElementById('topicsPage')?.classList.contains('active'))requestAnimationFrame(syncAllTopicPageTabHeights);});
 initHitCeiling();renderChapterAcademic();renderTopics();
 
 let globalNavScrollHandler=null; let globalNavStopTimer=null; let globalNavPageId=null;
@@ -1400,7 +1615,6 @@ function globalNavStep(scroller,back){
 }
 </script>
 
-
 <div id="masteryTTSPanel" class="mastery-tts-panel" aria-live="polite"><span class="mastery-tts-status" id="masteryTTSStatus">Select language</span><button type="button" onclick="academicTTSPausePlay()">Ⅱ/▶</button><button type="button" onclick="academicTTSStop()">■ Stop</button><button type="button" onclick="academicTTSHide()">×</button></div>
 <script>
 
@@ -1448,13 +1662,20 @@ function academicTTSHighlightChunk(element){
 }
 function academicTTSClearHighlight(){if(academicTTSHighlight)academicTTSHighlight.classList.remove('mastery-tts-reading-highlight');academicTTSHighlight=null;}
 
-/* This is intentionally modelled on the Pashto voice configuration:
-   SpeechSynthesisUtterance + lang=ps-PK, without forcing an English voice. */
+function academicTTSSpeechText(text){
+ let t=String(text).replace(/مخالف/g,'مُخالِف');
+ t=t.replace(/\b(x-axis|y-axis|z-axis|Cartesian Coordinate System|Vector Representation|Vector Addition|Vector Subtraction|Scalar Multiplication|Unit Vector|Null Vector|Position Vector|Component of a Vector|Rectangular Components|Dot Product|Cross Product|Torque|Moment of Force|Equilibrium of Concurrent Forces|Conditions of Equilibrium|Axes and Origin|Coordinates of a Point|Quadrants|Position and Direction|Vector Representation and Types|Head to Tail Rule|Scalar|Vector|Component|Resultant|Right-Hand Rule|Free-Body Diagram|Moment Arm|Clockwise|Counterclockwise|Applications|Work|Beam|Bridge|Support|Ladder|Lever|Engine|Wheel|Door)\b(?=\s+(?:and|او|یا|or|[A-Za-z]|یا$))/gi,'$1،');
+ t=t.replace(/(یونټ ویکټر)\s+(نال ویکټر)\s+(پوزېشن ویکټر)\s+او\s+(ده ویکټر جز)/g,'$1، $2، $3، او $4');
+ t=t.replace(/(اسکیلر\s*\/\s*ډاټ پروډکټ)\s+او\s+(ویکټر\s*\/\s*کراس پروډکټ)/g,'$1، او $2');
+ t=t.replace(/(اسکیلر|ډاټ پروډکټ|ویکټر|کراس پروډکټ|Right-Hand Rule|Free-Body Diagram|Moment Arm|Torque|Resultant Force|Concurrent Forces|Condition for Equilibrium|Component Form|First Condition of Equilibrium|Second Condition of Equilibrium|Translational and Rotational Balance|Choice of Reference Point|Applications)\s+او\s+(?=(?:اسکیلر|ډاټ پروډکټ|ویکټر|کراس پروډکټ|Right-Hand Rule|Free-Body Diagram|Moment Arm|Torque|Resultant Force|Concurrent Forces|Condition for Equilibrium|Component Form|First Condition of Equilibrium|Second Condition of Equilibrium|Translational and Rotational Balance|Choice of Reference Point|Applications)\b)/g,'$1، او ');
+ return t;
+}
+
 function academicTTSPlayBrowser(text,cfg){
- currentUtteranceReference=new SpeechSynthesisUtterance(text);
+ currentUtteranceReference=new SpeechSynthesisUtterance(academicTTSSpeechText(text));
  const u=currentUtteranceReference;
  u.lang=cfg.lang;
- u.rate=cfg.lang==='ps-PK'?.85:.9;
+ u.rate=cfg.lang==='ps-PK'?.65:.88;
  u.pitch=1;
  u.volume=1;
 
@@ -1547,9 +1768,9 @@ function executePashtoMasterTTS(elementId) {
     var secureStreamUrl = "https://google.com" + encodeURIComponent(textContent);
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        var utterance = new SpeechSynthesisUtterance(textContent);
+        var utterance = new SpeechSynthesisUtterance(academicTTSSpeechText(textContent));
         utterance.lang = 'ps-PK';
-        utterance.rate = 0.85;
+        utterance.rate = 0.65;
         var isSpeaking = false;
         utterance.onstart = function() { isSpeaking = true; };
         window.speechSynthesis.speak(utterance);
