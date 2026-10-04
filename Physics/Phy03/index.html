@@ -574,66 +574,50 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   text-align:right;
 }
 </style>
-<style id="visual-area-final-standard">
-/* Final visual-area rule: VA provides 68% to the visual; LM provides 100%. */
-.visual-atlas-visual-area {
-  flex: 0 0 68%;
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+<style id="academic-contents-visual-standard">
+/* Academic Contents visual fit: keep the complete SVG viewport inside its
+   content box, matching the Visual Atlas reference geometry. SVG drawing
+   coordinates are intentionally untouched. */
+.guided-content .physics-visual-render{
+  box-sizing:border-box;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  margin:12px 0 2px;
+  padding:3px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  direction:ltr;
+  flex:0 1 auto;
 }
-.visual-atlas-visual-area .physics-visual-render {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  direction: ltr;
-  overflow: hidden;
-  box-sizing: border-box;
+.guided-content .physics-drawing{
+  box-sizing:border-box;
+  display:block;
+  width:100%;
+  height:auto;
+  min-width:0;
+  min-height:0;
+  max-width:100%;
+  max-height:100%;
+  aspect-ratio:960/420;
+  object-fit:contain;
+  object-position:center center;
+  flex:0 1 auto;
 }
-.visual-atlas-visual-area .physics-drawing {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  min-width: 0;
-  display: block;
-  object-fit: contain;
-  direction: ltr;
-}
-.mastery-document .mastery-topic-overview .physics-visual-render {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  margin: 12px 0 2px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  direction: ltr;
-  text-align: left;
-  overflow: hidden;
-  box-sizing: border-box;
-  clear: both;
-}
-.mastery-document .mastery-topic-overview .physics-drawing {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  display: block;
-  margin: 0;
-  padding: 0;
-  direction: ltr;
-  box-sizing: border-box;
+@media(max-width:760px){
+  .guided-content .physics-visual-render{
+    margin:8px 0 0;
+    padding:3px;
+  }
+  .guided-content .physics-drawing{
+    width:100%;
+    height:auto;
+  }
 }
 </style>
+
 </head>
 <body>
 <div class="wrap">
