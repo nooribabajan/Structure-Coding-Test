@@ -663,6 +663,10 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   }
 }
 </style>
+<style id="phy06-chapter-language-title">
+.chapter-title{font-size:22px;font-weight:900;line-height:1.45;margin:0 0 10px;text-align:center}
+.chapter-language-switcher{margin:0 auto 2px}
+</style>
 
 </head>
 <body>
@@ -886,7 +890,7 @@ function topicPageEnglishHeading(v){
  return masteryEnglishHeading(raw).replace(/^\s*\d+(?:\.\d+)*\s*[-—–:]?\s*/u,'').trim();
 }
 function openTopic(n){
- window.__activeTopicNumber=n; activeAcademicLanguage=localStorage.getItem('phy05AcademicLanguageV1')||'en'; renderTopicLanguage(n); showPage('topicPage'); scheduleGlobalAcademicTextDirection();
+ window.__activeTopicNumber=n; activeAcademicLanguage=localStorage.getItem('phy06AcademicLanguageV1')||'en'; renderTopicLanguage(n); showPage('topicPage'); scheduleGlobalAcademicTextDirection();
 }
 function renderChapterAcademic(){
  const h=document.getElementById('chapterHeadingContent'),d=document.getElementById('chapterDefinitionContent'),o=document.getElementById('learningOutcomesContent');
@@ -931,10 +935,11 @@ function dedupeMasterySubtopicHeadings(root=document){
   for(let i=1;i<heads.length;i++){ if(heads[i].textContent.trim()===heads[0].textContent.trim()) heads[i].remove(); }
  });
 }
-let activeAcademicLanguage='en';
+let activeAcademicLanguage=(function(){try{const v=localStorage.getItem('phy06AcademicLanguageV1');return ['en','ur','ps'].includes(v)?v:'en';}catch(e){return 'en';}})();
 function setAcademicLanguage(lang){
  activeAcademicLanguage=['en','ur','ps'].includes(lang)?lang:'en';
- localStorage.setItem('phy05AcademicLanguageV1',activeAcademicLanguage);
+ try{localStorage.setItem('phy06AcademicLanguageV1',activeAcademicLanguage);}catch(e){}
+ renderChapterAcademic();
  renderActiveAcademicLanguage();
 }
 function getAcademicLanguage(){return activeAcademicLanguage;}
@@ -1149,7 +1154,7 @@ function openFunctional(k){
  if(k==='hit'){showPage('hitCeilingPage');return;}
  const labels={dictionary:'Dictionary',practice:'Practice & Test Strategies',readiness:'Readiness Test',search:'Search',revision:'Revision',practical:'Practical Work',exam:'Examination',visual:'Visual Atlas',mastery:'Lecture Mastery'};
  if(k==='mastery'){
-  document.getElementById('functionalContentView').innerHTML=`<div class="mastery-document"></div>`; activeAcademicLanguage=localStorage.getItem('phy05AcademicLanguageV1')||'en'; renderActiveAcademicLanguage();
+  document.getElementById('functionalContentView').innerHTML=`<div class="mastery-document"></div>`; activeAcademicLanguage=localStorage.getItem('phy06AcademicLanguageV1')||'en'; renderActiveAcademicLanguage();
   renderMasteryState();
   dedupeMasterySubtopicHeadings(document.getElementById('functionalContentView'));
   dictionaryBuildAndLinkOnce();
@@ -1904,9 +1909,10 @@ window.addEventListener('resize',()=>{if(document.getElementById('topicsPage')?.
 
 function renderChapterAcademic(){
  const h=document.getElementById('chapterHeadingContent'),d=document.getElementById('chapterDefinitionContent'),o=document.getElementById('learningOutcomesContent');
- if(h)h.textContent='Fluid Dynamics';
- if(d)d.textContent='Chapter 6 develops the classification of fluid flow, conservation of mass through the continuity equation, Bernoulli’s effect and equation, practical applications, viscosity, fluid friction, terminal velocity, superfluidity, and the limits of idealized fluid models.';
- if(o)o.textContent='By the end of this chapter, students should be able to classify fluid flows; apply continuity and Bernoulli equations; explain pressure, speed, and height relationships; analyse viscosity, drag, and terminal velocity; describe superfluidity; and evaluate the assumptions and limitations of ideal fluid models.';
+ const pack={title:'Fluid Dynamics',definition:'Chapter 6 develops the classification of fluid flow, conservation of mass through the continuity equation, Bernoulli’s effect and equation, practical applications, viscosity, fluid friction, terminal velocity, superfluidity, and the limits of idealized fluid models.',outcomes:'By the end of this chapter, students should be able to classify fluid flows; apply continuity and Bernoulli equations; explain pressure, speed, and height relationships; analyse viscosity, drag, and terminal velocity; describe superfluidity; and evaluate the assumptions and limitations of ideal fluid models.'};
+ if(h){h.innerHTML=`<div class="chapter-title" dir="ltr">${academicEsc(pack.title)}</div>`;h.style.direction='ltr';h.style.textAlign='center';}
+ if(d){d.textContent=pack.definition;d.dir='ltr';d.style.textAlign='left';}
+ if(o){o.textContent=pack.outcomes;o.dir='ltr';o.style.textAlign='left';}
 }
 
 function validatePhysicsVisualPipeline(){
