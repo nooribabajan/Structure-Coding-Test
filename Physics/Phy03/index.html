@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<!-- CANONICAL PHY VISUAL ATLAS: Preserve latest successful geometry/UI/responsive behavior; dynamic visual slots from topic links; one container per visual; 68/32 visual-definition split; mobile 50vh containers; actual topic titles; concise definitions without repeated headings/numbering; preserve approved visual engine, Power tab, navigation and all working functionality; future lectures inherit this standard; make surgical content-only changes; verify no regression before release. -->
-
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -12,6 +10,7 @@
 <style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic{display:none!important;}#htcInfo{display:none!important;}
 .academic-language-row,.mastery-language-row{display:flex;justify-content:center;align-items:center;margin:0 0 12px}.academic-language-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.academic-language-switcher button{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--green);padding:8px 14px;font-weight:900;cursor:pointer}.academic-language-switcher button.active{background:var(--green);color:#fff}.dictionary-entry-pashto{direction:rtl;text-align:right}.dictionary-entry strong{font-weight:900;color:var(--green)}
 @media(max-width:760px){.dictionary-entry{grid-template-columns:1fr}.dictionary-entry-pashto{direction:rtl;text-align:right}}
+.translator-status{margin:6px 0 10px;padding:7px 10px;border:1px dashed var(--line);border-radius:9px;background:#fafafa;color:#64748b;font-size:11px;text-align:center}
 </style>
 <style>
 .inline-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;}
@@ -661,9 +660,214 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
     width:100%;
     height:auto;
   }
+</style>
+<style id="phy03-ui-chapter-title">
+.chapter-title{font-size:22px;font-weight:900;line-height:1.45;margin:0 0 10px;text-align:center}
+.chapter-language-switcher{margin:0 auto 2px}
+</style>
+
+<style id="lecture-mastery-surgical-header-fix">
+/* Surgical Lecture Mastery UI fix: keep the unit heading English/LTR and place
+   the existing Topic translation action on the right without touching the
+   translation-menu implementation or any translation logic. */
+#functionalContentView .mastery-document > .view-header{position:relative;min-height:38px;display:flex;align-items:center;justify-content:center;direction:ltr;}
+#functionalContentView .mastery-document > .view-header .subject-label{direction:ltr!important;text-align:center!important;}
+#functionalContentView .mastery-topic-head-row{direction:ltr!important;}
+#functionalContentView .mastery-topic-head-row > div:first-child{direction:ltr!important;text-align:left!important;}
+#functionalContentView .mastery-topic-actions{direction:ltr!important;justify-content:flex-end!important;}
+#functionalContentView .mastery-topic-actions .topic-translate-btn{order:1;}
+#functionalContentView .mastery-topic-actions .mastery-read-btn{order:2;}
+#functionalContentView .mastery-global-tools{position:absolute;right:4px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;direction:ltr;}
+#functionalContentView .mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:7px 11px;font-size:11px;font-weight:900;color:var(--green);cursor:pointer;white-space:nowrap;direction:ltr;}
+#functionalContentView .mastery-tts-global-btn.active{background:var(--green);color:#fff;}
+@media(max-width:760px){#functionalContentView .mastery-global-tools{right:0;}#functionalContentView .mastery-tts-global-btn{padding:6px 8px;font-size:10px;}}
+</style>
+
+<style id="lecture-mastery-tabs-general">
+/* Single general Lecture Mastery tab system: all action tabs use the
+   existing Translate-tab geometry; no per-button positioning hacks. */
+#functionalContentView .mastery-topic-actions .topic-translate-btn,
+#functionalContentView .mastery-topic-actions .mastery-read-btn,
+#functionalContentView .mastery-progress .mastery-tts-inline-btn{
+  box-sizing:border-box;
+  border-radius:9px;
+  padding:7px 11px;
+  font-size:11px;
+  font-weight:900;
+  line-height:1;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:31px;
+  min-height:31px;
+  width:108px;
+  min-width:108px;
+  max-width:108px;
+  margin:0;
+  vertical-align:middle;
+}
+#functionalContentView .mastery-topic-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  direction:ltr;
+}
+#functionalContentView .mastery-toolbar{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  grid-template-rows:auto auto;
+  align-items:center;
+  column-gap:10px;
+  row-gap:7px;
+}
+#functionalContentView .mastery-toolbar .mastery-progress{
+  grid-column:1 / -1;
+  grid-row:1;
+  width:100%;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+#functionalContentView .mastery-toolbar .mastery-progress #masteryProgressText{
+  margin:0;
+}
+#functionalContentView .mastery-toolbar .mastery-progress .mastery-tts-inline-btn{
+  flex:0 0 108px;
+  position:static;
+  transform:none;
+}
+#functionalContentView .mastery-toolbar .mastery-progress-bar{
+  grid-column:1 / -1;
+  grid-row:2;
+  width:100%;
 }
 </style>
 
+<style id="lecture-mastery-global-tab-normalization">
+/* GLOBAL Lecture Mastery tab normalization */
+#functionalContentView .mastery-document .mastery-topic-actions > button,
+#functionalContentView .mastery-document .mastery-subtopic-head > button,
+#functionalContentView .mastery-document .mastery-progress > button,
+#functionalContentView .mastery-document .academic-language-switcher > button {
+  box-sizing: border-box !important;
+  width: 108px !important;
+  min-width: 108px !important;
+  max-width: 108px !important;
+  height: 31px !important;
+  min-height: 31px !important;
+  max-height: 31px !important;
+  margin: 0 !important;
+  padding: 0 8px !important;
+  border: 1px solid currentColor !important;
+  border-radius: 9px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  vertical-align: top !important;
+}
+#functionalContentView .mastery-document .mastery-topic-actions,
+#functionalContentView .mastery-document .mastery-subtopic-head,
+#functionalContentView .mastery-document .mastery-progress,
+#functionalContentView .mastery-document .academic-language-switcher {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+}
+#functionalContentView .mastery-document .mastery-topic-actions {
+  justify-content: flex-end !important;
+  direction: ltr !important;
+}
+#functionalContentView .mastery-document .mastery-subtopic-head {
+  justify-content: space-between !important;
+}
+#functionalContentView .mastery-document .mastery-progress {
+  justify-content: space-between !important;
+}
+#functionalContentView .mastery-document .academic-language-switcher {
+  justify-content: flex-start !important;
+}
+</style>
+
+<style id="lecture-mastery-academic-english-typography">
+/* Lecture Mastery academic typography: English, LTR, fixed hierarchy */
+#functionalContentView .mastery-document,
+#functionalContentView .mastery-document * {
+  direction:ltr !important;
+  text-align:left !important;
+}
+
+#functionalContentView .mastery-document .mastery-topic-title {
+  font-size:22px !important;
+  line-height:1.35 !important;
+  font-weight:900 !important;
+}
+
+#functionalContentView .mastery-document .mastery-subtopic h3 {
+  font-size:20px !important;
+  line-height:1.4 !important;
+  font-weight:900 !important;
+}
+
+#functionalContentView .mastery-document .mastery-course-intro > div:not(.mastery-section-label),
+#functionalContentView .mastery-document .mastery-topic-overview > div:not(.mastery-section-label),
+#functionalContentView .mastery-document .mastery-topic-definition,
+#functionalContentView .mastery-document .mastery-subtopic-definition,
+#functionalContentView .mastery-document .mastery-subtopic-focus,
+#functionalContentView .mastery-document .mastery-subtopic-focus strong {
+  font-size:18px !important;
+  line-height:1.65 !important;
+  font-weight:400;
+}
+
+#functionalContentView .mastery-document .mastery-section-label,
+#functionalContentView .mastery-document .mastery-subtopics-head {
+  font-size:18px !important;
+  line-height:1.4 !important;
+}
+
+#functionalContentView .mastery-document .mastery-topic-head,
+#functionalContentView .mastery-document .mastery-topic-head-row,
+#functionalContentView .mastery-document .mastery-topic-overview,
+#functionalContentView .mastery-document .mastery-subtopic,
+#functionalContentView .mastery-document .mastery-subtopic-definition,
+#functionalContentView .mastery-document .mastery-subtopic-focus,
+#functionalContentView .mastery-document .mastery-course-intro {
+  direction:ltr !important;
+  text-align:left !important;
+}
+</style>
+
+<style id="lecture-mastery-dynamic-content-containers">
+/* GLOBAL Lecture Mastery content containers: grow with content, then scroll with one extra line of space. */
+#functionalContentView .mastery-document .mastery-topic-content,
+#functionalContentView .mastery-document .mastery-subtopic-content,
+#functionalContentView .mastery-document .academic-content,
+#functionalContentView .mastery-document .mastery-content-container,
+#functionalContentView .mastery-document .content-container {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 0;
+  max-height: calc(100vh - 4.5em);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 1em;
+}
+
+/* Keep ordinary text flowing naturally instead of imposing fixed-height boxes. */
+#functionalContentView .mastery-document .mastery-topic-content > *,
+#functionalContentView .mastery-document .mastery-subtopic-content > *,
+#functionalContentView .mastery-document .academic-content > *,
+#functionalContentView .mastery-document .mastery-content-container > *,
+#functionalContentView .mastery-document .content-container > * {
+  max-width: 100%;
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -716,7 +920,7 @@ topicData[6].academic={"title":"3.6 Elastic and Inelastic Collisions","definitio
 topicData[7].academic={"title":"3.7 Elastic Collision in One Dimension","definition":"In a one-dimensional elastic collision, both bodies move along the same straight line. Conservation of momentum and kinetic energy, or the relative-velocity relation, determine the final velocities. [[visual:physics://phy03/3.7/elastic-collision-one-dimension]]","subtopics":[["Conservation Laws","m₁u₁+m₂u₂=m₁v₁+m₂v₂ and ½m₁u₁²+½m₂u₂²=½m₁v₁²+½m₂v₂²."],["Relative Velocity","v₂−v₁=−(u₂−u₁); equivalently, separation speed equals approach speed and e=1."],["General Final Velocities","v₁=((m₁−m₂)/(m₁+m₂))u₁+(2m₂/(m₁+m₂))u₂; v₂=(2m₁/(m₁+m₂))u₁+((m₂−m₁)/(m₁+m₂))u₂."],["Target Initially at Rest","If u₂=0: v₁=((m₁−m₂)/(m₁+m₂))u₁ and v₂=(2m₁/(m₁+m₂))u₁."],["Equal Masses","If m₁=m₂ and u₂=0, v₁=0 and v₂=u₁: the velocities are exchanged."],["Limiting Cases","If m₁≫m₂ and u₂=0, v₁≈u₁ and v₂≈2u₁. If m₁≪m₂, v₂≈0 and v₁≈−u₁."]]};
 topicData[8].academic={"title":"3.8 Force Due to Water Flow","definition":"When flowing water strikes a surface or changes direction, its momentum changes and a force acts on the surface. The force depends on mass flow rate and the change in velocity. [[visual:physics://phy03/3.8/force-due-to-water-flow]]","subtopics":[["Momentum Relation","F=Δp/Δt. With mass flow rate ṁ=Δm/Δt, F=ṁΔv."],["Mass Flow Rate","ṁ=ρAv, where ρ is density, A cross-sectional area, and v flow speed. Since Q=Av, ṁ=ρQ."],["General Water-Flow Force","F=ρAvΔv or F=ρQΔv, with direction determined by the vector velocity change."],["Water Stopped","If water of speed v is brought approximately to rest, |Δv|=v and F=ṁv."],["Direction Reversed","If velocity changes from +v to −v, Δv=−2v and force magnitude is F=2ṁv."],["Applications","The principle is used in water turbines, hydroelectric systems, water jets, and hydraulic machines."]]};
 topicData[9].academic={"title":"3.9 Rocket Propulsion","definition":"Rocket propulsion is based mainly on Newton's Third Law and conservation of linear momentum. High-speed exhaust gases are expelled backward, giving the rocket forward momentum and thrust. [[visual:physics://phy03/3.9/rocket-propulsion]]","subtopics":[["Thrust","Idealized thrust: F_thrust≈ṁv_e, where ṁ is exhaust mass flow rate and v_e exhaust velocity relative to the rocket."],["Pressure Contribution","A more complete expression is F_thrust=ṁv_e+(p_e−p_a)A_e; the pressure difference at the nozzle exit contributes additional thrust."],["Variable Mass","Rocket mass decreases as fuel burns. Acceleration does not necessarily increase continuously just because mass decreases; thrust, current mass, gravity, drag, and exhaust conditions all matter."],["Vertical Motion","In a simple upward model, a=(T−mg)/m. If T>mg, the rocket can have upward acceleration."],["Vacuum","A rocket does not need external air to propel itself. Thrust comes from exhaust momentum change and the reaction force, so rockets operate in space/vacuum."]]};
-topicData[10].academic={"title":"3.10 Projectile Motion","definition":"Projectile motion is two-dimensional motion under gravity when air resistance is neglected. Resolve the initial velocity into horizontal and vertical components, then analyse the two directions separately. This topic also includes the Unit 3 formula sheet, examination concepts, applications, revision checklist, and key MCQ facts. [[visual:physics://phy03/3.10/projectile-motion]]","subtopics":[["Initial Components and Equations","u_x=u cosθ, u_y=u sinθ; a_x=0, a_y=−g. Horizontal: x=(u cosθ)t. Vertical: y=(u sinθ)t−½gt²."],["Velocity and Trajectory","v_x=u cosθ; v_y=u sinθ−gt. The trajectory is y=x tanθ−gx²/(2u²cos²θ), an ideal parabola."],["Time, Height and Range","For equal launch/landing level: T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g. Maximum range occurs at θ=45° and R_max=u²/g."],["Highest Point and Complementary Angles","At the highest point v_y=0 but v_x=u cosθ generally remains non-zero; acceleration is still downward g. Angles θ and 90°−θ can give the same range at the same speed, but generally different heights and flight times."],["Water/Rocket/Collision Review","Water-flow force follows F=ṁΔv with ṁ=ρAv=ρQ. Rocket thrust is approximately ṁv_e. Momentum is conserved in isolated systems; elastic collisions conserve both momentum and kinetic energy."],["Unit 3 Formula Sheet","Kinematics: Δx=x_f−x_i; v_avg=Δx/Δt; a_avg=Δv/Δt; v=u+at; s=ut+½at²; v²=u²+2as; s=(u+v)t/2. Newton: F_net=ma; W=mg. Momentum/impulse: p=mv; F=Δp/Δt; J=Δp=FΔt. Momentum conservation: m₁u₁+m₂u₂=m₁v₁+m₂v₂. Perfectly inelastic: v=(m₁u₁+m₂u₂)/(m₁+m₂). Restitution: e=separation speed/approach speed. Water: ṁ=ρAv=ρQ; F=ṁΔv. Rocket: F_thrust≈ṁv_e. Projectile: u_x=u cosθ; u_y=u sinθ; T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g; R_max=u²/g."],["Examination Concepts, Applications and Checklist","Remember: distance is scalar and displacement vector; distance≥|displacement|; a complete round trip can have zero displacement; constant velocity means zero acceleration; circular constant-speed motion still has acceleration; v-t slope gives acceleration and area gives displacement; action-reaction forces act on different bodies; mass measures inertia; impulse equals momentum change; airbags/crumple zones increase collision time; isolated systems conserve momentum; elastic collisions conserve momentum and kinetic energy; perfectly inelastic objects stick; e=1 is perfectly elastic and e=0 perfectly inelastic; water-flow force comes from momentum change; rockets do not need external air; projectile highest point has v_y=0 but generally v_x≠0 and acceleration g downward. Applications include car braking, seat belts/airbags/crumple zones, gun recoil, water turbines, rockets, cricket/football/shot-put. Students should be able to distinguish quantities, use kinematic equations and graphs, apply Newton’s laws/FBDs, calculate momentum/impulse, solve recoil/collision/water/rocket/projectile problems, and explain maximum range and complementary angles."],["Exam Practice — Key MCQ Facts","1) Complete circular path displacement: zero. 2) v-t slope: acceleration. 3) v-t area: displacement. 4) p=mv: linear momentum. 5) F=Δp/Δt: Newton’s Second Law. 6) Impulse: change in momentum. 7) Isolated system: total linear momentum conserved. 8) Elastic collision: momentum and kinetic energy conserved. 9) Perfectly inelastic: bodies join and share one velocity. 10) e=1 perfectly elastic. 11) e=0 perfectly inelastic. 12) Equal-mass elastic collision with target at rest: incident final velocity 0. 13) Target final velocity u₁. 14) Water-flow force: rate of change of momentum. 15) Rocket propulsion: Newton’s Third Law and momentum conservation. 16) Projectile highest-point vertical velocity: 0. 17) Highest-point acceleration: g downward. 18) Ideal trajectory: parabola. 19) Equal launch/landing maximum range angle: 45°. 20) Complementary angles such as 30° and 60° can give equal range."]]};
+topicData[10].academic={"title":"3.10 Projectile Motion","definition":"Projectile motion is two-dimensional motion under gravity when air resistance is neglected. Resolve the initial velocity into horizontal and vertical components, then analyse the two directions separately. This topic also includes the Unit 3 formula sheet, examination concepts, applications, revision checklist, and key MCQ facts. [[visual:physics://phy03/3.10/projectile-motion]]","subtopics":[["Initial Components and Equations","u_x=u cosθ, u_y=u sinθ; a_x=0, a_y=−g. Horizontal: x=(u cosθ)t. Vertical: y=(u sinθ)t−½gt²."],["Velocity and Trajectory","v_x=u cosθ; v_y=u sinθ−gt. The trajectory is y=x tanθ−gx²/(2u²cos²θ), an ideal parabola."],["Time, Height and Range","For equal launch/landing level: T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g. Maximum range occurs at θ=45° and R_max=u²/g."],["Highest Point and Complementary Angles","At the highest point v_y=0 but v_x=u cosθ generally remains non-zero; acceleration is still downward g. Angles θ and 90°−θ can give the same range at the same speed, but generally different heights and flight times."],["Water/Rocket/Collision Review","Water-flow force follows F=ṁΔv with ṁ=ρAv=ρQ. Rocket thrust is approximately ṁv_e. Momentum is conserved in isolated systems; elastic collisions conserve both momentum and kinetic energy."],["Unit 3 Formula Sheet","Kinematics: Δx=x_f−x_i; v_avg=Δx/Δt; a_avg=Δv/Δt; v=u+at; s=ut+½at²; v²=u²+2as; s=(u+v)t/2. Newton: F_net=ma; W=mg. Momentum/impulse: p=mv; F=Δp/Δt; J=Δp=FΔt. Momentum conservation: m₁u₁+m₂u₂=m₁v₁+m₂v₂. Perfectly inelastic: v=(m₁u₁+m₂u₂)/(m₁+m₂). د ارتجاع ضریب: e=separation speed/approach speed. Water: ṁ=ρAv=ρQ; F=ṁΔv. Rocket: F_thrust≈ṁv_e. Projectile: u_x=u cosθ; u_y=u sinθ; T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g; R_max=u²/g."],["Examination Concepts, Applications and Checklist","Remember: distance is scalar and displacement vector; distance≥|displacement|; a complete round trip can have zero displacement; constant velocity means zero acceleration; circular constant-speed motion still has acceleration; v-t slope gives acceleration and area gives displacement; action-reaction forces act on different bodies; mass measures inertia; impulse equals momentum change; airbags/crumple zones increase collision time; isolated systems conserve momentum; elastic collisions conserve momentum and kinetic energy; perfectly inelastic objects stick; e=1 is perfectly elastic and e=0 perfectly inelastic; water-flow force comes from momentum change; rockets do not need external air; projectile highest point has v_y=0 but generally v_x≠0 and acceleration g downward. Applications include car braking, seat belts/airbags/crumple zones, gun recoil, water turbines, rockets, cricket/football/shot-put. Students should be able to distinguish quantities, use kinematic equations and graphs, apply Newton’s laws/FBDs, calculate momentum/impulse, solve recoil/collision/water/rocket/projectile problems, and explain maximum range and complementary angles."],["Exam Practice — Key MCQ Facts","1) Complete circular path displacement: zero. 2) v-t slope: acceleration. 3) v-t area: displacement. 4) p=mv: linear momentum. 5) F=Δp/Δt: Newton’s Second Law. 6) Impulse: change in momentum. 7) Isolated system: total linear momentum conserved. 8) Elastic collision: momentum and kinetic energy conserved. 9) Perfectly inelastic: bodies join and share one velocity. 10) e=1 perfectly elastic. 11) e=0 perfectly inelastic. 12) Equal-mass elastic collision with target at rest: incident final velocity 0. 13) Target final velocity u₁. 14) Water-flow force: rate of change of momentum. 15) Rocket propulsion: Newton’s Third Law and momentum conservation. 16) Projectile highest-point vertical velocity: 0. 17) Highest-point acceleration: g downward. 18) Ideal trajectory: parabola. 19) Equal launch/landing maximum range angle: 45°. 20) Complementary angles such as 30° and 60° can give equal range."]]};
 // Topic count is derived from the actual academic topic data, not a fixed number.
 function syncTopicRegistry(){
   const numbers=Object.keys(topicData).map(Number).filter(Number.isFinite).sort((a,b)=>a-b);
@@ -726,7 +930,7 @@ function syncTopicRegistry(){
 }
 syncTopicRegistry();
 
-const academicLanguageData={"1":{"en":{"title":"3.1 Displacement, Velocity and Acceleration","definition":"Motion is described using position, distance, displacement, speed, velocity, and acceleration. A body is in motion when its position changes with time relative to a reference frame; it is at rest when its position does not change. Distance is a scalar total path length, while displacement is the vector change from initial to final position: Δx = x_f − x_i. Distance ≥ |displacement|, and displacement can be zero after a complete round trip.","subtopics":[["Frame of Reference","A reference point/origin and a chosen positive direction are required to describe motion. For example, right/east may be positive and left/west negative."],["Speed and Average Speed","Speed is distance per unit time. Average speed = total distance / total time. Speed is scalar."],["Velocity","Velocity is displacement per unit time. Average velocity = Δx/Δt and is a vector. Instantaneous velocity is v = lim(Δt→0) Δx/Δt; it is the tangent slope on a displacement-time graph."],["Uniform Circular Motion","In uniform circular motion speed may remain constant, but velocity changes because direction changes; therefore acceleration is present."],["Acceleration","Acceleration is the rate of change of velocity: a_avg = Δv/Δt and a = lim(Δt→0) Δv/Δt. Its SI unit is m s⁻²."],["Uniformly Accelerated Motion","For constant acceleration: v=u+at; s=ut+½at²; v²=u²+2as; s=(u+v)t/2. Negative acceleration does not automatically mean slowing down; deceleration means a decrease in velocity magnitude."]]},"ps":{"title":"۳.۱ هټاو، سمتي رفتار او اسراع","definition":"حرکت د position، distance، displacement، speed، velocity او acceleration له لارې بیانېږي. که د یوه reference frame په نسبت د وخت په تېرېدو position بدله شي، جسم په motion کې وي؛ که بدله نه شي، rest کې وي. Distance یوه scalar او د ټول مسیر اوږدوالی دی، خو displacement له ابتدايي تر وروستي position پورې د سمت لرونکی vector بدلون دی: Δx = x_f − x_i. Distance ≥ |displacement|، او له بشپړ چکر وروسته displacement صفر کېدای شي.","subtopics":[["د حوالې چوکاټ — Frame of Reference","د حرکت د بیان لپاره reference point/origin او یوه مثبته direction ټاکل کېږي؛ لکه right/east مثبت او left/west منفي."],["Speed او Average Speed","Speed په واحد وخت کې distance دی. Average speed = total distance / total time، او speed scalar ده."],["Velocity","Velocity په وخت کې د displacement بدلون دی. Average velocity = Δx/Δt او vector ده. Instantaneous velocity = lim(Δt→0) Δx/Δt؛ په displacement-time graph کې د tangent slope یې راکوي."],["Uniform Circular Motion","په یوشان دایروي حرکت کې speed ثابت پاتې کېدای شي، خو د direction د بدلون له امله velocity بدلېږي؛ نو acceleration موجود وي."],["Acceleration","Acceleration د velocity د بدلون کچه ده: a_avg = Δv/Δt او a = lim(Δt→0) Δv/Δt. SI unit m s⁻² ده."],["د ثابت اسراع حرکت","د constant acceleration لپاره: v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2. منفي acceleration لازماً slow کېدل نه دي؛ deceleration د velocity magnitude کمېدل دي."]]}},"2":{"en":{"title":"3.2 Velocity-Time Graph","definition":"A velocity-time (v-t) graph places time t on the horizontal axis and velocity v on the vertical axis. Its slope gives acceleration, and the signed area under the graph gives displacement.","subtopics":[["Slope","a = Δv/Δt. At a particular point, the tangent slope gives instantaneous acceleration."],["Graph Shapes","Horizontal line: constant velocity and a=0. Positive slope: positive acceleration. Negative slope: negative acceleration. Curved graph: variable acceleration."],["Area Under the Graph","Signed area = displacement. When velocity changes sign, algebraic area gives displacement while the sum of absolute areas gives total distance."],["Geometrical Areas","Rectangle A=bh; triangle A=½bh; trapezium A=½(a+b)h."],["Motion Analysis","A v-t graph shows how velocity changes, gives acceleration and displacement, and indicates intervals of positive, negative, or zero velocity."]]},"ps":{"title":"۳.۲ د سمتي رفتار-وخت ګراف","definition":"په velocity-time (v-t) graph کې time t په horizontal axis او velocity v په vertical axis وي. د graph slope acceleration راکوي، او د graph لاندې signed area displacement راکوي.","subtopics":[["Slope","a = Δv/Δt. په یوه ځانګړي point کې د tangent slope instantaneous acceleration راکوي."],["د graph بڼې","Horizontal line: constant velocity او a=0. Positive slope: positive acceleration. Negative slope: negative acceleration. Curved graph: variable acceleration."],["د graph لاندې Area","Signed area displacement راکوي. که velocity sign بدل کړي، algebraic area displacement او د absolute areas مجموعه total distance ورکوي."],["هندسي Areas","Rectangle A=bh؛ Triangle A=½bh؛ Trapezium A=½(a+b)h."],["د حرکت تحلیل","v-t graph د velocity بدلون، acceleration، displacement او د positive، negative یا zero velocity وختونه ښيي."]]}},"3":{"en":{"title":"3.3 Newton's Laws of Motion","definition":"Force is an interaction that can change a body's motion, velocity, or direction. Newton's laws connect force, inertia, mass, acceleration, and action-reaction pairs.","subtopics":[["Inertia","Inertia is the tendency to resist a change in rest or uniform straight-line motion. Mass is a measure of inertia; greater mass means greater inertia."],["First Law","If net external force is zero, a resting body remains at rest and a moving body continues with constant velocity in a straight line: ΣF=0 ⇒ a=0."],["Second Law","Net force equals the rate of change of momentum: F_net=Δp/Δt. For constant mass, F_net=ma and a=F_net/m."],["Third Law","For every action there is an equal-magnitude, opposite-direction reaction: F_AB = −F_BA. The pair acts on different bodies, so they do not cancel on one body."],["Free Body Diagram","An FBD shows relevant external forces. On a horizontal surface these may include N, W=mg, applied F, and friction f. Friction opposes motion or the tendency of motion."],["Mass and Weight","Mass is scalar and measured in kg; weight is gravitational force, W=mg, a vector measured in N and changes with g."]]},"ps":{"title":"۳.۳ د نیوټن د حرکت قوانین","definition":"Force هغه interaction دی چې د جسم motion، velocity یا direction بدلولی شي. د نیوټن قوانین force، inertia، mass، acceleration او action-reaction forces سره تړاو بیانوي.","subtopics":[["Inertia","Inertia د سکون یا یوشان مستقیم حرکت د بدلون د مخالفت خاصیت ده. Mass د inertia کچه ده؛ ډېر mass → ډېر inertia."],["First Law","که net external force صفر وي، ساکن جسم ساکن پاتې کېږي او متحرک جسم په ثابت velocity سره په مستقیمه کرښه حرکت کوي: ΣF=0 ⇒ a=0."],["Second Law","Net force د momentum د بدلون له کچې سره برابر دی: F_net=Δp/Δt. د ثابت mass لپاره F_net=ma او a=F_net/m."],["Third Law","د هر action پر وړاندې برابر magnitude او مخالف direction reaction وي: F_AB=−F_BA. دواړه پر بېلو اجسامو عمل کوي، نو پر یوه جسم کې یو بل نه cancel کوي."],["Free Body Diagram — FBD","FBD کې relevant external forces د direction سره ښودل کېږي. پر افقي سطحه N، W=mg، applied F او friction f شاملېدای شي. Friction د motion یا د motion tendency مخالف وي."],["Mass and Weight","Mass scalar ده او kg واحد لري؛ weight gravitational force ده، W=mg، vector ده او N کې اندازه کېږي."]]}},"4":{"en":{"title":"3.4 Linear Momentum, Force and Impulse","definition":"Linear momentum is mass times velocity. Force is the rate of change of momentum, and impulse is the product of force and the time interval over which it acts.","subtopics":[["Momentum","p=mv. Momentum is a vector quantity with SI unit kg m s⁻¹; 1 N s = 1 kg m s⁻¹."],["Force from Momentum","F=Δp/Δt. If mass is constant, F=m(v−u)/t=ma."],["Impulse","For constant force J=FΔt. More generally, impulse equals change in momentum: J=Δp=p_f−p_i. SI unit N s."],["Force-Time Graph","The signed area under an F-t graph gives impulse: J = area under F-t graph."],["Safety Applications","Airbags and crumple zones increase collision time; for a similar momentum change, F_avg=Δp/Δt decreases as Δt increases."]]},"ps":{"title":"۳.۴ لېنیر مومېنټم، قوه او Impulse","definition":"Linear momentum د mass او velocity حاصل ضرب دی. Force د momentum د بدلون کچه ده، او impulse د force او د عمل د وخت interval حاصل ضرب دی.","subtopics":[["Momentum","p=mv. Momentum vector ده او SI unit یې kg m s⁻¹ ده؛ 1 N s = 1 kg m s⁻¹."],["له momentum څخه Force","F=Δp/Δt. د ثابت mass لپاره F=m(v−u)/t=ma."],["Impulse","د ثابت force لپاره J=FΔt. په عمومي ډول J=Δp=p_f−p_i. SI unit N s ده."],["Force-Time Graph","د F-t graph لاندې signed area impulse ورکوي: J = area under F-t graph."],["د خوندیتوب استعمالونه","Airbags او crumple zones د collision وخت زیاتوي؛ د ورته momentum change لپاره د Δt په زیاتېدو average force کمېدای شي."]]}},"5":{"en":{"title":"3.5 Law of Conservation of Linear Momentum","definition":"In an isolated system with negligible net external force, total linear momentum remains constant. This principle explains recoil, explosions, and many collision problems.","subtopics":[["Conservation Equation","For two bodies: m₁u₁+m₂u₂ = m₁v₁+m₂v₂."],["Isolated System","A system may be treated as isolated when net external force is zero or negligible during the interaction."],["Internal and External Forces","Forces between bodies inside the system are internal; forces from outside are external. Internal forces do not by themselves change total system momentum."],["Recoil","If initial total momentum is zero, Σp_f=0. For gun and bullet: m_b v_b + m_g v_g = 0; recoil momentum has equal magnitude and opposite direction."],["Explosions","Large internal forces during an explosion can separate a system into fragments, but total momentum remains conserved when external force is negligible."]]},"ps":{"title":"۳.۵ د لېنیر مومېنټم د ساتنې قانون","definition":"په isolated system کې که net external force صفر یا د نظر وړ نه وي، total linear momentum ثابت پاتې کېږي. دا اصل د recoil، explosions او collision ستونزو کې کارېږي.","subtopics":[["د ساتنې معادله","د دو bodies لپاره: m₁u₁+m₂u₂ = m₁v₁+m₂v₂."],["Isolated System","هغه system چې net external force یې صفر یا د interaction پر مهال negligible وي، د momentum conservation لپاره isolated ګڼل کېدای شي."],["Internal او External Forces","د system دننه د bodies ترمنځ forces internal دي؛ له بهر څخه forces external دي. Internal forces په خپله total momentum نه بدلوي."],["Recoil","که ابتدايي total momentum صفر وي، Σp_f=0. د gun او bullet لپاره m_b v_b + m_g v_g=0؛ recoil momentum مساوي magnitude او مخالف direction لري."],["Explosions","په explosion کې لویې internal forces fragments جلا کوي، خو که external force negligible وي total momentum ساتل کېږي."]]}},"6":{"en":{"title":"3.6 Elastic and Inelastic Collisions","definition":"A collision is a short interaction in which velocities may change. Momentum is conserved in an isolated collision; in an elastic collision kinetic energy is also conserved, while in an inelastic collision some kinetic energy changes into heat, sound, deformation, or internal energy.","subtopics":[["Elastic Collision","p_i=p_f and K_i=K_f."],["Inelastic Collision","Momentum may be conserved, but kinetic energy is not conserved; energy is transferred to other forms."],["Perfectly Inelastic Collision","Objects stick together and share one final velocity: v=(m₁u₁+m₂u₂)/(m₁+m₂)."],["Coefficient of Restitution","e = relative speed of separation / relative speed of approach. With a suitable sign convention, e=(v₂−v₁)/(u₁−u₂)."],["Important Values","Perfectly elastic: e=1. Inelastic: 0<e<1. Perfectly inelastic: e=0."]]},"ps":{"title":"۳.۶ لچکدار او غیر لچکدار تصادمونه","definition":"Collision د دو یا زیاتو اجسامو لنډ interaction دی چې velocities پکې بدلېدای شي. په isolated collision کې momentum ساتل کېږي؛ په elastic collision کې kinetic energy هم ساتل کېږي، خو په inelastic collision کې د kinetic energy یوه برخه heat، sound، deformation یا internal energy ته بدلېږي.","subtopics":[["Elastic Collision","p_i=p_f او K_i=K_f."],["Inelastic Collision","Momentum ساتل کېدای شي، خو kinetic energy نه ساتل کېږي؛ energy نورو بڼو ته انتقالېږي."],["Perfectly Inelastic Collision","جسمونه سره نښلي او یوه final velocity لري: v=(m₁u₁+m₂u₂)/(m₁+m₂)."],["Coefficient of Restitution","e = relative speed of separation / relative speed of approach. د مناسب sign convention سره e=(v₂−v₁)/(u₁−u₂)."],["مهمې Values","Perfectly elastic: e=1؛ Inelastic: 0<e<1؛ Perfectly inelastic: e=0."]]}},"7":{"en":{"title":"3.7 Elastic Collision in One Dimension","definition":"In a one-dimensional elastic collision, both bodies move along the same straight line. Conservation of momentum and kinetic energy, or the relative-velocity relation, determine the final velocities.","subtopics":[["Conservation Laws","m₁u₁+m₂u₂=m₁v₁+m₂v₂ and ½m₁u₁²+½m₂u₂²=½m₁v₁²+½m₂v₂²."],["Relative Velocity","v₂−v₁=−(u₂−u₁); equivalently, separation speed equals approach speed and e=1."],["General Final Velocities","v₁=((m₁−m₂)/(m₁+m₂))u₁+(2m₂/(m₁+m₂))u₂; v₂=(2m₁/(m₁+m₂))u₁+((m₂−m₁)/(m₁+m₂))u₂."],["Target Initially at Rest","If u₂=0: v₁=((m₁−m₂)/(m₁+m₂))u₁ and v₂=(2m₁/(m₁+m₂))u₁."],["Equal Masses","If m₁=m₂ and u₂=0, v₁=0 and v₂=u₁: the velocities are exchanged."],["Limiting Cases","If m₁≫m₂ and u₂=0, v₁≈u₁ and v₂≈2u₁. If m₁≪m₂, v₂≈0 and v₁≈−u₁."]]},"ps":{"title":"۳.۷ په یوه بُعد کې لچکدار تصادم","definition":"په one-dimensional elastic collision کې دواړه bodies د یوې straight line پر حرکت کوي. د momentum او kinetic energy conservation، یا relative-velocity relation، final velocities ټاکي.","subtopics":[["Conservation Laws","m₁u₁+m₂u₂=m₁v₁+m₂v₂ او ½m₁u₁²+½m₂u₂²=½m₁v₁²+½m₂v₂²."],["Relative Velocity","v₂−v₁=−(u₂−u₁)؛ یعنې د separation speed د approach speed سره برابر دی او e=1."],["General Final Velocities","v₁=((m₁−m₂)/(m₁+m₂))u₁+(2m₂/(m₁+m₂))u₂؛ v₂=(2m₁/(m₁+m₂))u₁+((m₂−m₁)/(m₁+m₂))u₂."],["Target Initially at Rest","که u₂=0: v₁=((m₁−m₂)/(m₁+m₂))u₁ او v₂=(2m₁/(m₁+m₂))u₁."],["Equal Masses","که m₁=m₂ او u₂=0، v₁=0 او v₂=u₁؛ velocities یو بل exchange کوي."],["Limiting Cases","که m₁≫m₂ او u₂=0، v₁≈u₁ او v₂≈2u₁. که m₁≪m₂، v₂≈0 او v₁≈−u₁."]]}},"8":{"en":{"title":"3.8 Force Due to Water Flow","definition":"When flowing water strikes a surface or changes direction, its momentum changes and a force acts on the surface. The force depends on mass flow rate and the change in velocity.","subtopics":[["Momentum Relation","F=Δp/Δt. With mass flow rate ṁ=Δm/Δt, F=ṁΔv."],["Mass Flow Rate","ṁ=ρAv, where ρ is density, A cross-sectional area, and v flow speed. Since Q=Av, ṁ=ρQ."],["General Water-Flow Force","F=ρAvΔv or F=ρQΔv, with direction determined by the vector velocity change."],["Water Stopped","If water of speed v is brought approximately to rest, |Δv|=v and F=ṁv."],["Direction Reversed","If velocity changes from +v to −v, Δv=−2v and force magnitude is F=2ṁv."],["Applications","The principle is used in water turbines, hydroelectric systems, water jets, and hydraulic machines."]]},"ps":{"title":"۳.۸ د اوبو د بهیر له امله Force","definition":"کله چې روانې اوبه له surface سره ولګېږي یا direction بدله کړي، momentum یې بدلېږي او پر surface force پیدا کېږي. Force د mass flow rate او velocity change پورې تړلې ده.","subtopics":[["Momentum Relation","F=Δp/Δt. که mass flow rate ṁ=Δm/Δt وي، F=ṁΔv."],["Mass Flow Rate","ṁ=ρAv، چې ρ density، A cross-sectional area او v flow speed ده. ځکه Q=Av، نو ṁ=ρQ."],["Water-Flow Force","F=ρAvΔv یا F=ρQΔv؛ direction د vector velocity change ټاکي."],["Water Stopped","که د v speed اوبه نږدې ودریږي، |Δv|=v او F=ṁv."],["Direction Reversed","که velocity +v څخه −v ته بدله شي، Δv=−2v او force magnitude F=2ṁv ده."],["Applications","دا اصل water turbines، hydroelectric systems، water jets او hydraulic machines کې کارېږي."]]}},"9":{"en":{"title":"3.9 Rocket Propulsion","definition":"Rocket propulsion is based mainly on Newton's Third Law and conservation of linear momentum. High-speed exhaust gases are expelled backward, giving the rocket forward momentum and thrust.","subtopics":[["Thrust","Idealized thrust: F_thrust≈ṁv_e, where ṁ is exhaust mass flow rate and v_e exhaust velocity relative to the rocket."],["Pressure Contribution","A more complete expression is F_thrust=ṁv_e+(p_e−p_a)A_e; the pressure difference at the nozzle exit contributes additional thrust."],["Variable Mass","Rocket mass decreases as fuel burns. Acceleration does not necessarily increase continuously just because mass decreases; thrust, current mass, gravity, drag, and exhaust conditions all matter."],["Vertical Motion","In a simple upward model, a=(T−mg)/m. If T>mg, the rocket can have upward acceleration."],["Vacuum","A rocket does not need external air to propel itself. Thrust comes from exhaust momentum change and the reaction force, so rockets operate in space/vacuum."]]},"ps":{"title":"۳.۹ د راکټ حرکت","definition":"د راکټ propulsion بنسټیز ډول د Newton's Third Law او د linear momentum conservation پر اصولو ولاړ دی. High-speed exhaust gases شاته وځي او راکټ ته forward momentum او thrust ورکوي.","subtopics":[["Thrust","Idealized thrust: F_thrust≈ṁv_e، چې ṁ د exhaust mass flow rate او v_e د rocket په نسبت exhaust velocity ده."],["Pressure Contribution","بشپړ expression: F_thrust=ṁv_e+(p_e−p_a)A_e؛ د nozzle exit pressure difference اضافي thrust ورکوي."],["Variable Mass","د fuel په سوځېدو rocket mass کمېږي، خو یوازې د mass د کمېدو له امله acceleration لازماً مسلسل نه زیاتېږي. Thrust، current mass، gravity، drag او exhaust conditions هم مهم دي."],["Vertical Motion","په ساده upward model کې a=(T−mg)/m. که T>mg وي، rocket upward acceleration اخیستلای شي."],["Vacuum","Rocket د propulsion لپاره external air ته اړتیا نه لري؛ د exhaust momentum change او reaction force له امله په vacuum/space کې هم حرکت کولی شي."]]}},"10":{"en":{"title":"3.10 Projectile Motion","definition":"Projectile motion is two-dimensional motion under gravity when air resistance is neglected. Resolve the initial velocity into horizontal and vertical components, then analyse the two directions separately. This topic also includes the Unit 3 formula sheet, examination concepts, applications, revision checklist, and key MCQ facts.","subtopics":[["Initial Components and Equations","u_x=u cosθ, u_y=u sinθ; a_x=0, a_y=−g. Horizontal: x=(u cosθ)t. Vertical: y=(u sinθ)t−½gt²."],["Velocity and Trajectory","v_x=u cosθ; v_y=u sinθ−gt. The trajectory is y=x tanθ−gx²/(2u²cos²θ), an ideal parabola."],["Time, Height and Range","For equal launch/landing level: T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g. Maximum range occurs at θ=45° and R_max=u²/g."],["Highest Point and Complementary Angles","At the highest point v_y=0 but v_x=u cosθ generally remains non-zero; acceleration is still downward g. Angles θ and 90°−θ can give the same range at the same speed, but generally different heights and flight times."],["Water/Rocket/Collision Review","Water-flow force follows F=ṁΔv with ṁ=ρAv=ρQ. Rocket thrust is approximately ṁv_e. Momentum is conserved in isolated systems; elastic collisions conserve both momentum and kinetic energy."],["Unit 3 Formula Sheet","Kinematics: Δx=x_f−x_i; v_avg=Δx/Δt; a_avg=Δv/Δt; v=u+at; s=ut+½at²; v²=u²+2as; s=(u+v)t/2. Newton: F_net=ma; W=mg. Momentum/impulse: p=mv; F=Δp/Δt; J=Δp=FΔt. Momentum conservation: m₁u₁+m₂u₂=m₁v₁+m₂v₂. Perfectly inelastic: v=(m₁u₁+m₂u₂)/(m₁+m₂). Restitution: e=separation speed/approach speed. Water: ṁ=ρAv=ρQ; F=ṁΔv. Rocket: F_thrust≈ṁv_e. Projectile: u_x=u cosθ; u_y=u sinθ; T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g; R_max=u²/g."],["Examination Concepts, Applications and Checklist","Remember: distance is scalar and displacement vector; distance≥|displacement|; a complete round trip can have zero displacement; constant velocity means zero acceleration; circular constant-speed motion still has acceleration; v-t slope gives acceleration and area gives displacement; action-reaction forces act on different bodies; mass measures inertia; impulse equals momentum change; airbags/crumple zones increase collision time; isolated systems conserve momentum; elastic collisions conserve momentum and kinetic energy; perfectly inelastic objects stick; e=1 is perfectly elastic and e=0 perfectly inelastic; water-flow force comes from momentum change; rockets do not need external air; projectile highest point has v_y=0 but generally v_x≠0 and acceleration g downward. Applications include car braking, seat belts/airbags/crumple zones, gun recoil, water turbines, rockets, cricket/football/shot-put. Students should be able to distinguish quantities, use kinematic equations and graphs, apply Newton’s laws/FBDs, calculate momentum/impulse, solve recoil/collision/water/rocket/projectile problems, and explain maximum range and complementary angles."],["Exam Practice — Key MCQ Facts","1) Complete circular path displacement: zero. 2) v-t slope: acceleration. 3) v-t area: displacement. 4) p=mv: linear momentum. 5) F=Δp/Δt: Newton’s Second Law. 6) Impulse: change in momentum. 7) Isolated system: total linear momentum conserved. 8) Elastic collision: momentum and kinetic energy conserved. 9) Perfectly inelastic: bodies join and share one velocity. 10) e=1 perfectly elastic. 11) e=0 perfectly inelastic. 12) Equal-mass elastic collision with target at rest: incident final velocity 0. 13) Target final velocity u₁. 14) Water-flow force: rate of change of momentum. 15) Rocket propulsion: Newton’s Third Law and momentum conservation. 16) Projectile highest-point vertical velocity: 0. 17) Highest-point acceleration: g downward. 18) Ideal trajectory: parabola. 19) Equal launch/landing maximum range angle: 45°. 20) Complementary angles such as 30° and 60° can give equal range."]]},"ps":{"title":"۳.۱۰ پرجیکټایل موشن","definition":"Projectile motion دوه بعدي حرکت ده چې air resistance پکې له پامه غورځول کېږي او جسم یوازې د gravitational acceleration لاندې وي. Initial velocity په horizontal او vertical components وېشل کېږي او دواړه directions جلا تحلیلېږي. په دې topic کې د Unit 3 formula sheet، مهم conceptual points، applications، revision checklist او key MCQ facts هم شامل دي.","subtopics":[["Initial Components and Equations","u_x=u cosθ، u_y=u sinθ؛ a_x=0، a_y=−g. Horizontal: x=(u cosθ)t. Vertical: y=(u sinθ)t−½gt²."],["Velocity and Trajectory","v_x=u cosθ؛ v_y=u sinθ−gt. Trajectory: y=x tanθ−gx²/(2u²cos²θ)، او ideal path parabola ده."],["Time, Height and Range","د equal launch/landing level لپاره T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g. Maximum range په θ=45° کې: R_max=u²/g."],["Highest Point and Complementary Angles","په highest point کې v_y=0 خو v_x=u cosθ عموماً صفر نه وي؛ acceleration لا هم g downward وي. θ او 90°−θ په ورته speed کې same range ورکولی شي، خو heights او flight times یې عموماً مختلف وي."],["Water/Rocket/Collision Review","Water-flow force: F=ṁΔv، ṁ=ρAv=ρQ. Rocket thrust نږدې ṁv_e ده. په isolated systems کې momentum ساتل کېږي؛ په elastic collision کې momentum او kinetic energy دواړه ساتل کېږي."],["Unit 3 Formula Sheet","Kinematics: Δx=x_f−x_i؛ v_avg=Δx/Δt؛ a_avg=Δv/Δt؛ v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2. Newton: F_net=ma؛ W=mg. Momentum/impulse: p=mv؛ F=Δp/Δt؛ J=Δp=FΔt. Momentum conservation: m₁u₁+m₂u₂=m₁v₁+m₂v₂. Perfectly inelastic: v=(m₁u₁+m₂u₂)/(m₁+m₂). Restitution: e=separation speed/approach speed. Water: ṁ=ρAv=ρQ؛ F=ṁΔv. Rocket: F_thrust≈ṁv_e. Projectile: u_x=u cosθ؛ u_y=u sinθ؛ T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g؛ R_max=u²/g."],["Examination Concepts, Applications and Checklist","مهم ټکي: distance scalar او displacement vector دي؛ distance≥|displacement|؛ complete round trip کې displacement صفر کېدای شي؛ constant velocity acceleration صفر معنا لري؛ constant-speed circular motion کې acceleration وي؛ v-t slope acceleration او area displacement راکوي؛ action-reaction پر بېلو اجسامو عمل کوي؛ mass د inertia پیمانه ده؛ impulse د momentum بدلون سره برابر دی؛ airbags/crumple zones collision time زیاتوي؛ isolated systems momentum ساتي؛ elastic collisions momentum او kinetic energy دواړه ساتي؛ perfectly inelastic bodies سره نښلي؛ e=1 perfectly elastic او e=0 perfectly inelastic دی؛ water force د momentum بدلون له امله ده؛ rockets external air ته اړتیا نه لري؛ په highest point کې v_y=0، خو عموماً v_x≠0 او acceleration g downward وي. Applications: car braking، seat belts/airbags/crumple zones، gun recoil، water turbines، rockets، cricket/football/shot-put. زده کوونکی باید quantities، kinematic equations/graphs، Newton laws/FBD، momentum/impulse، recoil/collision/water/rocket/projectile problems او maximum range/complementary angles تشریح او محاسبه کړای شي."],["Exam Practice — Key MCQ Facts","1) د بشپړ circular path وروسته displacement: zero. 2) v-t slope: acceleration. 3) v-t area: displacement. 4) p=mv: linear momentum. 5) F=Δp/Δt: Newton Second Law. 6) Impulse: change in momentum. 7) Isolated system: total linear momentum conserved. 8) Elastic collision: momentum او kinetic energy conserved. 9) Perfectly inelastic: bodies سره نښلي او یوه velocity لري. 10) e=1 perfectly elastic. 11) e=0 perfectly inelastic. 12) Equal-mass elastic collision with target at rest: incident final velocity 0. 13) Target final velocity u₁. 14) Water-flow force: rate of change of momentum. 15) Rocket propulsion: Newton Third Law او momentum conservation. 16) Highest-point vertical velocity 0. 17) Highest-point acceleration g downward. 18) Ideal trajectory parabola. 19) Equal levels maximum range at 45°. 20) 30° او 60° complementary angles equal ideal range ورکولی شي."]]}}};
+const academicLanguageData={"1":{"en":{"title":"3.1 Displacement, Velocity and Acceleration","definition":"Motion is described using position, distance, displacement, speed, velocity, and acceleration. A body is in motion when its position changes with time relative to a reference frame; it is at rest when its position does not change. Distance is a scalar total path length, while displacement is the vector change from initial to final position: Δx = x_f − x_i. Distance ≥ |displacement|, and displacement can be zero after a complete round trip.","subtopics":[["Frame of Reference","A reference point/origin and a chosen positive direction are required to describe motion. For example, right/east may be positive and left/west negative."],["Speed and Average Speed","Speed is distance per unit time. Average speed = total distance / total time. Speed is scalar."],["Velocity","Velocity is displacement per unit time. Average velocity = Δx/Δt and is a vector. Instantaneous velocity is v = lim(Δt→0) Δx/Δt; it is the tangent slope on a displacement-time graph."],["Uniform Circular Motion","In uniform circular motion speed may remain constant, but velocity changes because direction changes; therefore acceleration is present."],["Acceleration","Acceleration is the rate of change of velocity: a_avg = Δv/Δt and a = lim(Δt→0) Δv/Δt. Its SI unit is m s⁻²."],["Uniformly Accelerated Motion","For constant acceleration: v=u+at; s=ut+½at²; v²=u²+2as; s=(u+v)t/2. Negative acceleration does not automatically mean slowing down; deceleration means a decrease in velocity magnitude."]]},"ps":{"title":"۳.۱ ځای، واټن، بې‌ځایه کېدل، سمتي سرعت او اسراع","definition":"حرکت د ځای، واټن، بې‌ځایه کېدو، چټکتیا، سمتي سرعت او اسراع له مخې بیانېږي. که د یوه مرجع چوکاټ په نسبت د وخت په تېرېدو د جسم ځای بدل شي، جسم په حرکت کې دی؛ او که ځای یې بدل نه شي، په سکون کې دی. واټن یوه نرده‌يي کمیت او د ټولې تېرې شوې لارې اوږدوالی دی، خو بې‌ځایه کېدل له لومړني ځای څخه تر وروستي ځای پورې له سمت سره مل بدلون دی: Δx = x_f − x_i. تل واټن ≥ |بې‌ځایه کېدل| وي، او د بشپړ چکر له پای وروسته بې‌ځایه کېدل صفر کېدای شي.","subtopics":[["مرجع چوکاټ — د مرجع چوکاټ","د حرکت د بیان لپاره یو مرجع ټکی یا مبدأ او یوه مثبته جهت ټاکل کېږي؛ د بېلګې په توګه، ختیځ مثبت او لویدیځ منفي ګڼل کېدای شي."],["چټکتیا او منځنۍ چټکتیا","چټکتیا په واحد وخت کې وهل شوی واټن دی. منځنۍ چټکتیا = ټول واټن / ټول وخت، او چټکتیا یوه نرده‌يي کمیت ده."],["سمتي سرعت","سمتي سرعت د وخت په تېرېدو د بې‌ځایه کېدو د بدلون کچه ده. منځنی سمتي سرعت = Δx/Δt او دا یو برداري کمیت دی. لحظه‌يي سمتي سرعت = lim(Δt→0) Δx/Δt؛ په بې‌ځایه کېدو ـ وخت ګراف کې یې د مماس مېلان ښيي."],["یوشان دایروي حرکت","په یوشان دایروي حرکت کې چټکتیا ثابتېدای شي، خو د جهت د بدلېدو له امله سمتي سرعت بدلېږي؛ نو اسراع موجود وي."],["اسراع","اسراع د سمتي سرعت د بدلون کچه ده: a_avg = Δv/Δt او a = lim(Δt→0) Δv/Δt. د SI واحد یې m s⁻² دی."],["د ثابت اسراع حرکت","د ثابت اسراع لپاره: v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2. منفي اسراع لازماً د ورو کېدو معنا نه لري؛ ورو کېدل هغه وخت وي چې د سمتي سرعت اندازه کمه شي."]]}},"2":{"en":{"title":"3.2 Velocity-Time Graph","definition":"A velocity-time (v-t) graph places time t on the horizontal axis and velocity v on the vertical axis. Its slope gives acceleration, and the signed area under the graph gives displacement.","subtopics":[["Slope","a = Δv/Δt. At a particular point, the tangent slope gives instantaneous acceleration."],["Graph Shapes","Horizontal line: constant velocity and a=0. Positive slope: positive acceleration. Negative slope: negative acceleration. Curved graph: variable acceleration."],["Area Under the Graph","Signed area = displacement. When velocity changes sign, algebraic area gives displacement while the sum of absolute areas gives total distance."],["Geometrical Areas","Rectangle A=bh; triangle A=½bh; trapezium A=½(a+b)h."],["Motion Analysis","A v-t graph shows how velocity changes, gives acceleration and displacement, and indicates intervals of positive, negative, or zero velocity."]]},"ps":{"title":"۳.۲ د سمتي سرعت ـ وخت ګراف","definition":"په سمتي سرعت ـ وخت (v-t) ګراف کې وخت t پر افقي محور او سمتي سرعت v پر عمودي محور ښودل کېږي. د ګراف مېلان اسراع راکوي، او د ګراف لاندې جبري مساحت بې‌ځایه کېدل ښيي.","subtopics":[["مېلان — د ګراف مېلان","a = Δv/Δt. په یوه ټاکلي ټکي کې د مماس مېلان لحظه‌يي اسراع راکوي."],["د ګراف بڼې","افقي کرښه: ثابت سمتي سرعت او a=0. مثبت مېلان: مثبت اسراع. منفي مېلان: منفي اسراع. کږه کرښه: متغیر اسراع."],["د ګراف لاندې مساحت","د ګراف لاندې جبري مساحت بې‌ځایه کېدل راکوي. که سمتي سرعت خپل سمت بدل کړي، د جبري مساحت مجموعه بې‌ځایه کېدل، او د مطلقو مساحتونو مجموعه ټول واټن ښيي."],["هندسي مساحتونه","مستطیل: A=bh؛ مثلث: A=½bh؛ ذوزنقه: A=½(a+b)h."],["د حرکت تحلیل","v-t ګراف د سمتي سرعت بدلون، اسراع او بې‌ځایه کېدل او د مثبت، منفي یا صفر سمتي سرعت وختونه ښيي."]]}},"3":{"en":{"title":"3.3 Newton's Laws of Motion","definition":"Force is an interaction that can change a body's motion, velocity, or direction. Newton's laws connect force, inertia, mass, acceleration, and action-reaction pairs.","subtopics":[["Inertia","Inertia is the tendency to resist a change in rest or uniform straight-line motion. Mass is a measure of inertia; greater mass means greater inertia."],["First Law","If net external force is zero, a resting body remains at rest and a moving body continues with constant velocity in a straight line: ΣF=0 ⇒ a=0."],["Second Law","Net force equals the rate of change of momentum: F_net=Δp/Δt. For constant mass, F_net=ma and a=F_net/m."],["Third Law","For every action there is an equal-magnitude, opposite-direction reaction: F_AB = −F_BA. The pair acts on different bodies, so they do not cancel on one body."],["Free Body Diagram","An FBD shows relevant external forces. On a horizontal surface these may include N, W=mg, applied F, and friction f. Friction opposes motion or the tendency of motion."],["Mass and Weight","Mass is scalar and measured in kg; weight is gravitational force, W=mg, a vector measured in N and changes with g."]]},"ps":{"title":"۳.۳ د نیوټن د حرکت قوانین","definition":"قوه هغه متقابل عمل دی چې د جسم حرکت، سمتي سرعت یا جهت بدلولای شي. د نیوټن قوانین قوه، جمود، کتله، اسراع او د عمل ـ عکس‌العمل جوړې سره تړي.","subtopics":[["جمود — جمود","جمود د سکون یا یوشان مستقیم حرکت د بدلون پر وړاندې د جسم د مقاومت خاصیت دی. کتله د جمود یوه کچه ده؛ څومره چې کتله زیاته وي، جمود هم زیات وي."],["لومړی قانون","که خالصه بهرنۍ قوه صفر وي، ساکن جسم په سکون پاتې کېږي او متحرک جسم په مستقیمه کرښه کې په ثابت سمتي سرعت حرکت ته دوام ورکوي: ΣF=0 ⇒ a=0."],["دوهم قانون","خالصه قوه د مومېنټم د بدلون له کچې سره برابره ده: F_net=Δp/Δt. د ثابتې کتلې لپاره F_net=ma او a=F_net/m."],["درېیم قانون","د هر عمل لپاره د هماغې اندازې او مخالف جهت عکس‌العمل شته: F_AB = −F_BA. دا دواړه قوې پر بېلو جسمونو عمل کوي؛ نو پر یوه جسم کې یو بل نه خنثی کوي."],["د ازاد جسم انځور (FBD)","د ازاد جسم انځور (FBD) پر جسم اغېز کوونکې اړوندې بهرنۍ قوې او د هغو جهتونه ښيي. پر افقي سطحه N، W=mg، تطبیقي قوه F او اصطکاک f شاملېدای شي. اصطکاک د حرکت یا د حرکت د تمایل پر خلاف لوری لري."],["کتله او وزن","کتله یوه نرده‌يي کمیت ده او واحد یې kg دی؛ وزن د جاذبې قوه ده، W=mg، او برداري کمیت دی او په N اندازه کېږي."]]}},"4":{"en":{"title":"3.4 Linear Momentum, Force and Impulse","definition":"Linear momentum is mass times velocity. Force is the rate of change of momentum, and impulse is the product of force and the time interval over which it acts.","subtopics":[["Momentum","p=mv. Momentum is a vector quantity with SI unit kg m s⁻¹; 1 N s = 1 kg m s⁻¹."],["Force from Momentum","F=Δp/Δt. If mass is constant, F=m(v−u)/t=ma."],["Impulse","For constant force J=FΔt. More generally, impulse equals change in momentum: J=Δp=p_f−p_i. SI unit N s."],["Force-Time Graph","The signed area under an F-t graph gives impulse: J = area under F-t graph."],["Safety Applications","Airbags and crumple zones increase collision time; for a similar momentum change, F_avg=Δp/Δt decreases as Δt increases."]]},"ps":{"title":"۳.۴ خطي مومېنټم، قوه او ضربه","definition":"خطي مومېنټم د کتلې او سمتي سرعت حاصل‌ضرب دی. قوه د مومېنټم د بدلون کچه ده، او ضربه د قوې او د هغې د عمل د وخت د واټن حاصل‌ضرب دی.","subtopics":[["مومېنټم","p=mv. مومېنټم یو برداري کمیت دی او د SI واحد یې kg m s⁻¹ دی؛ 1 N s = 1 kg m s⁻¹."],["له مومېنټم څخه قوه","F=Δp/Δt. د ثابتې کتلې لپاره F=m(v−u)/t=ma."],["ضربه — ضربه","د ثابتې قوې لپاره J=FΔt. په عمومي ډول ضربه د مومېنټم له بدلون سره برابره ده: J=Δp=p_f−p_i. د SI واحد یې N s دی."],["قوه ـ وخت ګراف","د F-t ګراف لاندې جبري مساحت ضربه راکوي: J = مساحت لاندې F-t ګراف."],["د خوندیتوب په چارو کې کارونه","هوايي بالښتونه او د ټکر د مچکې سیمې د ټکر وخت زیاتوي؛ د ورته مومېنټم بدلون لپاره د Δt په زیاتېدو سره منځنۍ قوه کمېدای شي."]]}},"5":{"en":{"title":"3.5 Law of Conservation of Linear Momentum","definition":"In an isolated system with negligible net external force, total linear momentum remains constant. This principle explains recoil, explosions, and many collision problems.","subtopics":[["Conservation Equation","For two bodies: m₁u₁+m₂u₂ = m₁v₁+m₂v₂."],["Isolated System","A system may be treated as isolated when net external force is zero or negligible during the interaction."],["Internal and External Forces","Forces between bodies inside the system are internal; forces from outside are external. Internal forces do not by themselves change total system momentum."],["Recoil","If initial total momentum is zero, Σp_f=0. For gun and bullet: m_b v_b + m_g v_g = 0; recoil momentum has equal magnitude and opposite direction."],["Explosions","Large internal forces during an explosion can separate a system into fragments, but total momentum remains conserved when external force is negligible."]]},"ps":{"title":"۳.۵ د خطي مومېنټم د ساتنې قانون","definition":"په یوه منزوي سیستم کې، که خالصه بهرنۍ قوه صفر یا د پام وړ کمه وي، ټول خطي مومېنټم ثابت پاتې کېږي. دا اصل د شاتګ، چاودنو او ډېرو ټکرونو د مسئلو په تشریح کې کارېږي.","subtopics":[["د ساتنې معادله","د دوو جسمونو لپاره: m₁u₁+m₂u₂ = m₁v₁+m₂v₂."],["منزوي سیستم — منزوي سیستم","هغه سیستم چې خالصه بهرنۍ قوه یې د متقابل عمل پر مهال صفر یا د پام وړ کمه وي، د مومېنټم د ساتنې لپاره منزوي سیستم ګڼل کېدای شي."],["داخلي او بهرنۍ قوې","د سیستم دننه د جسمونو ترمنځ قوې داخلي دي؛ له سیستم څخه بهر راولاړې شوې قوې بهرنۍ دي. داخلي قوې په خپله د ټول سیستم مومېنټم نه بدلوي."],["شاتګ — شاتګ","که لومړنی ټول مومېنټم صفر وي، Σp_f=0. د ټوپک او مرمۍ لپاره m_b v_b + m_g v_g = 0؛ د شاتګ مومېنټم د مرمۍ له مومېنټم سره مساوي اندازه او مخالف جهت لري."],["چاودنې","په چاودنه کې لویې داخلي قوې سیستم په څو ټوټو وېشلی شي، خو که بهرنۍ قوه د پام وړ نه وي، ټول مومېنټم ساتل کېږي."]]}},"6":{"en":{"title":"3.6 Elastic and Inelastic Collisions","definition":"A collision is a short interaction in which velocities may change. Momentum is conserved in an isolated collision; in an elastic collision kinetic energy is also conserved, while in an inelastic collision some kinetic energy changes into heat, sound, deformation, or internal energy.","subtopics":[["Elastic Collision","p_i=p_f and K_i=K_f."],["Inelastic Collision","Momentum may be conserved, but kinetic energy is not conserved; energy is transferred to other forms."],["Perfectly Inelastic Collision","Objects stick together and share one final velocity: v=(m₁u₁+m₂u₂)/(m₁+m₂)."],["Coefficient of Restitution","e = relative speed of separation / relative speed of approach. With a suitable sign convention, e=(v₂−v₁)/(u₁−u₂)."],["Important Values","Perfectly elastic: e=1. Inelastic: 0<e<1. Perfectly inelastic: e=0."]]},"ps":{"title":"۳.۶ لچکدار او غیرلچکدار ټکرونه","definition":"ټکر یو لنډ متقابل عمل دی چې پکې د جسمونو سمتي سرعتونه بدلېدای شي. په منزوي ټکر کې مومېنټم ساتل کېږي؛ په لچکدار ټکر کې حرکي انرژي هم ساتل کېږي، خو په غیرلچکدار ټکر کې د حرکي انرژۍ یوه برخه په تودوخه، غږ، تغییرشکل یا داخلي انرژۍ بدلېږي.","subtopics":[["لچکدار ټکر — لچکدار ټکر","p_i=p_f او K_i=K_f."],["غیرلچکدار ټکر — غیر لچکدار Collision","مومېنټم ساتل کېدای شي، خو حرکي انرژي نه ساتل کېږي؛ د انرژۍ یوه برخه نورو بڼو ته انتقالېږي."],["بشپړ غیرلچکدار ټکر","جسمونه له ټکر وروسته سره نښلي او په یوه ګډ وروستي سمتي سرعت حرکت کوي: v=(m₁u₁+m₂u₂)/(m₁+m₂)."],["د ارتجاع ضریب — ضریب of Restitution","e = د جلا کېدو نسبي سرعت / د نږدې کېدو نسبي سرعت. د مناسب د نښې قرارداد له مخې e=(v₂−v₁)/(u₁−u₂)."],["مهم ارزښتونه","Perfectly elastic: e=1؛ غیر لچکدار: 0<e<1؛ په بشپړه توګه غیر لچکدار: e=0."]]}},"7":{"en":{"title":"3.7 Elastic Collision in One Dimension","definition":"In a one-dimensional elastic collision, both bodies move along the same straight line. Conservation of momentum and kinetic energy, or the relative-velocity relation, determine the final velocities.","subtopics":[["Conservation Laws","m₁u₁+m₂u₂=m₁v₁+m₂v₂ and ½m₁u₁²+½m₂u₂²=½m₁v₁²+½m₂v₂²."],["Relative Velocity","v₂−v₁=−(u₂−u₁); equivalently, separation speed equals approach speed and e=1."],["General Final Velocities","v₁=((m₁−m₂)/(m₁+m₂))u₁+(2m₂/(m₁+m₂))u₂; v₂=(2m₁/(m₁+m₂))u₁+((m₂−m₁)/(m₁+m₂))u₂."],["Target Initially at Rest","If u₂=0: v₁=((m₁−m₂)/(m₁+m₂))u₁ and v₂=(2m₁/(m₁+m₂))u₁."],["Equal Masses","If m₁=m₂ and u₂=0, v₁=0 and v₂=u₁: the velocities are exchanged."],["Limiting Cases","If m₁≫m₂ and u₂=0, v₁≈u₁ and v₂≈2u₁. If m₁≪m₂, v₂≈0 and v₁≈−u₁."]]},"ps":{"title":"۳.۷ په یوه بُعد کې لچکدار ټکر","definition":"په یوه بُعدي لچکدار ټکر کې دواړه جسمونه د یوې مستقیمې کرښې پر اوږدو حرکت کوي. د مومېنټم او حرکي انرژۍ ساتنه، یا د نسبي سرعت اړیکه، د ټکر وروسته وروستي سمتي سرعتونه ټاکي.","subtopics":[["د ساتنې قوانین","m₁u₁+m₂u₂=m₁v₁+m₂v₂ او ½m₁u₁²+½m₂u₂²=½m₁v₁²+½m₂v₂²."],["نسبي سرعت","v₂−v₁=−(u₂−u₁)؛ یعنې د جلا کېدو سرعت د نږدې کېدو له سرعت سره برابر دی او e=1."],["عمومي وروستي سمتي سرعتونه","v₁=((m₁−m₂)/(m₁+m₂))u₁+(2m₂/(m₁+m₂))u₂؛ v₂=(2m₁/(m₁+m₂))u₁+((m₂−m₁)/(m₁+m₂))u₂."],["هدف جسم په پیل کې ساکن وي","که u₂=0 وي: v₁=((m₁−m₂)/(m₁+m₂))u₁ او v₂=(2m₁/(m₁+m₂))u₁."],["مساوي کتلې","که m₁=m₂ او u₂=0 وي، v₁=0 او v₂=u₁؛ یعنې سمتي سرعتونه یو د بل ځای نیسي."],["حدي حالتونه","که m₁≫m₂ او u₂=0 وي، v₁≈u₁ او v₂≈2u₁. که m₁≪m₂ وي، v₂≈0 او v₁≈−u₁."]]}},"8":{"en":{"title":"3.8 Force Due to Water Flow","definition":"When flowing water strikes a surface or changes direction, its momentum changes and a force acts on the surface. The force depends on mass flow rate and the change in velocity.","subtopics":[["Momentum Relation","F=Δp/Δt. With mass flow rate ṁ=Δm/Δt, F=ṁΔv."],["Mass Flow Rate","ṁ=ρAv, where ρ is density, A cross-sectional area, and v flow speed. Since Q=Av, ṁ=ρQ."],["General Water-Flow Force","F=ρAvΔv or F=ρQΔv, with direction determined by the vector velocity change."],["Water Stopped","If water of speed v is brought approximately to rest, |Δv|=v and F=ṁv."],["Direction Reversed","If velocity changes from +v to −v, Δv=−2v and force magnitude is F=2ṁv."],["Applications","The principle is used in water turbines, hydroelectric systems, water jets, and hydraulic machines."]]},"ps":{"title":"۳.۸ د اوبو د بهیر له امله قوه","definition":"کله چې روانې اوبه له یوې سطحې سره ولګېږي یا خپل جهت بدل کړي، مومېنټم یې بدلېږي او پر سطحه قوه واردېږي. د دې قوې اندازه د کتلي بهیر له کچې او د سمتي سرعت له بدلون سره تړاو لري.","subtopics":[["د مومېنټم اړیکه","F=Δp/Δt. که د کتلي بهیر کچه ṁ=Δm/Δt وي، نو F=ṁΔv."],["د کتلي بهیر کچه","ṁ=ρAv، چې ρ کثافت، A مقطعي مساحت او v د بهیر سرعت دی. ځکه Q=Av، نو ṁ=ρQ."],["د اوبو د بهیر عمومي قوه","F=ρAvΔv یا F=ρQΔv؛ د قوې جهت د سمتي سرعت د بدلون برداري جهت ټاکي."],["د اوبو درول","که د v سرعت اوبه نږدې تر سکون پورې ودرول شي، |Δv|=v او F=ṁv."],["د جهت اړول","که سمتي سرعت له +v څخه −v ته بدل شي، Δv=−2v او د قوې اندازه F=2ṁv ده."],["کارونې","دا اصل په اوبه توربینونه، برېښناکوونکي اوبیز سیستمونه، اوبه جټونه او هیدرولیک ماشینونه کې کارول کېږي."]]}},"9":{"en":{"title":"3.9 Rocket Propulsion","definition":"Rocket propulsion is based mainly on Newton's Third Law and conservation of linear momentum. High-speed exhaust gases are expelled backward, giving the rocket forward momentum and thrust.","subtopics":[["Thrust","Idealized thrust: F_thrust≈ṁv_e, where ṁ is exhaust mass flow rate and v_e exhaust velocity relative to the rocket."],["Pressure Contribution","A more complete expression is F_thrust=ṁv_e+(p_e−p_a)A_e; the pressure difference at the nozzle exit contributes additional thrust."],["Variable Mass","Rocket mass decreases as fuel burns. Acceleration does not necessarily increase continuously just because mass decreases; thrust, current mass, gravity, drag, and exhaust conditions all matter."],["Vertical Motion","In a simple upward model, a=(T−mg)/m. If T>mg, the rocket can have upward acceleration."],["Vacuum","A rocket does not need external air to propel itself. Thrust comes from exhaust momentum change and the reaction force, so rockets operate in space/vacuum."]]},"ps":{"title":"۳.۹ د راکټ خوځښت — د ټېل حرکت","definition":"د راکټ خوځونه بنسټیزه تشریح د نیوټن پر درېیم قانون او د خطي مومېنټم د ساتنې پر اصل ولاړه ده. د لوړې چټکتیا وتونکي ګازونه شاته ایستل کېږي، راکټ ته مخکینی مومېنټم ورکوي او ټېل قوه رامنځته کوي.","subtopics":[["دفع قوه — ټېل قوه","ساده اټکلي دفع قوه: F_ټېل≈ṁv_e، چې ṁ د وتونکو ګازونو د کتلي بهیر کچه او v_e د راکټ په نسبت د وتونکو ګازونو سرعت دی."],["د فشار ونډه","بشپړ بیان F_ټېل=ṁv_e+(p_e−p_a)A_e دی؛ د نوزل د وتلو په خوله کې د فشار توپیر اضافي ټېل قوه رامنځته کوي."],["متغیره کتله","د سون‌توکو په سوځېدو سره د راکټ کتله کمېږي، خو یوازې د کتلې د کمېدو له امله اسراع لازماً په پرله‌پسې ډول نه زیاتېږي. دفع قوه، اوسنۍ کتله، جاذبه، مقاومت او د وتونکو ګازونو شرایط ټول اغېز لري."],["عمودي حرکت","په یوه ساده پورته‌تلونکي ماډل کې a=(T−mg)/m. که T>mg وي، راکټ پورته اسراع ترلاسه کولای شي."],["خلا","راکټ د خوځښت لپاره بهرنۍ هوا ته اړتیا نه لري. د وتونکو ګازونو د مومېنټم بدلون او عکس‌العمل قوه د دفع قوه لامل کېږي؛ نو راکټ په خلا/فضا کې هم حرکت کولای شي."]]}},"10":{"en":{"title":"3.10 Projectile Motion","definition":"Projectile motion is two-dimensional motion under gravity when air resistance is neglected. Resolve the initial velocity into horizontal and vertical components, then analyse the two directions separately. This topic also includes the Unit 3 formula sheet, examination concepts, applications, revision checklist, and key MCQ facts.","subtopics":[["Initial Components and Equations","u_x=u cosθ, u_y=u sinθ; a_x=0, a_y=−g. Horizontal: x=(u cosθ)t. Vertical: y=(u sinθ)t−½gt²."],["Velocity and Trajectory","v_x=u cosθ; v_y=u sinθ−gt. The trajectory is y=x tanθ−gx²/(2u²cos²θ), an ideal parabola."],["Time, Height and Range","For equal launch/landing level: T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g. Maximum range occurs at θ=45° and R_max=u²/g."],["Highest Point and Complementary Angles","At the highest point v_y=0 but v_x=u cosθ generally remains non-zero; acceleration is still downward g. Angles θ and 90°−θ can give the same range at the same speed, but generally different heights and flight times."],["Water/Rocket/Collision Review","Water-flow force follows F=ṁΔv with ṁ=ρAv=ρQ. Rocket thrust is approximately ṁv_e. Momentum is conserved in isolated systems; elastic collisions conserve both momentum and kinetic energy."],["Unit 3 Formula Sheet","Kinematics: Δx=x_f−x_i; v_avg=Δx/Δt; a_avg=Δv/Δt; v=u+at; s=ut+½at²; v²=u²+2as; s=(u+v)t/2. Newton: F_net=ma; W=mg. Momentum/impulse: p=mv; F=Δp/Δt; J=Δp=FΔt. Momentum conservation: m₁u₁+m₂u₂=m₁v₁+m₂v₂. Perfectly inelastic: v=(m₁u₁+m₂u₂)/(m₁+m₂). د ارتجاع ضریب: e=separation speed/approach speed. Water: ṁ=ρAv=ρQ; F=ṁΔv. Rocket: F_thrust≈ṁv_e. Projectile: u_x=u cosθ; u_y=u sinθ; T=2u sinθ/g; H=u²sin²θ/(2g); R=u²sin2θ/g; R_max=u²/g."],["Examination Concepts, Applications and Checklist","Remember: distance is scalar and displacement vector; distance≥|displacement|; a complete round trip can have zero displacement; constant velocity means zero acceleration; circular constant-speed motion still has acceleration; v-t slope gives acceleration and area gives displacement; action-reaction forces act on different bodies; mass measures inertia; impulse equals momentum change; airbags/crumple zones increase collision time; isolated systems conserve momentum; elastic collisions conserve momentum and kinetic energy; perfectly inelastic objects stick; e=1 is perfectly elastic and e=0 perfectly inelastic; water-flow force comes from momentum change; rockets do not need external air; projectile highest point has v_y=0 but generally v_x≠0 and acceleration g downward. Applications include car braking, seat belts/airbags/crumple zones, gun recoil, water turbines, rockets, cricket/football/shot-put. Students should be able to distinguish quantities, use kinematic equations and graphs, apply Newton’s laws/FBDs, calculate momentum/impulse, solve recoil/collision/water/rocket/projectile problems, and explain maximum range and complementary angles."],["Exam Practice — Key MCQ Facts","1) Complete circular path displacement: zero. 2) v-t slope: acceleration. 3) v-t area: displacement. 4) p=mv: linear momentum. 5) F=Δp/Δt: Newton’s Second Law. 6) Impulse: change in momentum. 7) Isolated system: total linear momentum conserved. 8) Elastic collision: momentum and kinetic energy conserved. 9) Perfectly inelastic: bodies join and share one velocity. 10) e=1 perfectly elastic. 11) e=0 perfectly inelastic. 12) Equal-mass elastic collision with target at rest: incident final velocity 0. 13) Target final velocity u₁. 14) Water-flow force: rate of change of momentum. 15) Rocket propulsion: Newton’s Third Law and momentum conservation. 16) Projectile highest-point vertical velocity: 0. 17) Highest-point acceleration: g downward. 18) Ideal trajectory: parabola. 19) Equal launch/landing maximum range angle: 45°. 20) Complementary angles such as 30° and 60° can give equal range."]]},"ps":{"title":"۳.۱۰ د مقذوف حرکت — مقذوف حرکت","definition":"مقذوف حرکت دوه‌بعدي حرکت دی چې د هوا مقاومت پکې له پامه غورځول کېږي او جسم یوازې د جاذبې د اسراع تر اغېز لاندې وي. لومړنی سمتي سرعت په افقي او عمودي برخو وېشل کېږي، بیا دواړه جهتونه جلا تحلیل کېږي. په دې موضوع کې د درېیم یونټ د فورمولونو پاڼه، مهم مفهومي ټکي، کارونې، د بیاکتنې لړلیک او د څو-اختیاري پوښتنو مهم حقایق هم شامل دي.","subtopics":[["لومړنۍ برخې او معادلې","u_x=u cosθ، u_y=u sinθ؛ a_x=0، a_y=−g. افقي: x=(u cosθ)t. عمودي: y=(u sinθ)t−½gt²."],["سمتي سرعت او مسیر","v_x=u cosθ؛ v_y=u sinθ−gt. مسیر y=x tanθ−gx²/(2u²cos²θ) دی، چې په اېډیال حالت کې سهمي بڼه لري."],["وخت، اعظمي لوړوالی او افقي واټن","که د توغېدو او لګېدو لوړوالی یو شان وي: T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g. اعظمي افقي واټن په θ=45° کې رامنځته کېږي او R_max=u²/g."],["تر ټولو لوړه نقطه او متممې زاویې","په تر ټولو لوړه نقطه کې v_y=0 وي، خو v_x=u cosθ عموماً صفر نه وي؛ اسراع لا هم g ښکته لوري ته وي. θ او 90°−θ د یوه شان لومړني سرعت لپاره یو شان افقي واټن ورکولای شي، خو لوړوالی او د الوتنې وخت یې عموماً توپیر لري."],["د اوبو، راکټ او ټکر تکرار","د اوبو د بهیر قوه: F=ṁΔv، ṁ=ρAv=ρQ. د راکټ ټېل قوه نږدې ṁv_e دی. په منزوي سیستمونو کې مومېنټم ساتل کېږي؛ په لچکدار ټکر کې مومېنټم او حرکي انرژي دواړه ساتل کېږي."],["د درېیم یونټ د فورمولونو پاڼه","حرکتي معادلې: Δx=x_f−x_i؛ v_avg=Δx/Δt؛ a_avg=Δv/Δt؛ v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2. نیوټن: F_net=ma؛ W=mg. مومېنټم/ضربه: p=mv؛ F=Δp/Δt؛ J=Δp=FΔt. مومېنټم ساتنه: m₁u₁+m₂u₂=m₁v₁+m₂v₂. په بشپړه توګه غیر لچکدار: v=(m₁u₁+m₂u₂)/(m₁+m₂). د ارتجاع ضریب: e=د جلا کېدو نسبي چټکتیا/د نږدې کېدو نسبي چټکتیا. اوبه: ṁ=ρAv=ρQ؛ F=ṁΔv. راکټ: F_ټېل≈ṁv_e. مقذوف: u_x=u cosθ؛ u_y=u sinθ؛ T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g؛ R_max=u²/g."],["د ازموینې مفاهیم، کارونې او کتل‌لړ","مهم ټکي: واټن یوه نرده‌يي کمیت او بې‌ځایه کېدل یو برداري کمیت دی؛ په v-t ګراف کې مېلان اسراع او جبري مساحت بې‌ځایه کېدل ښيي؛ د نیوټن درېیم قانون قوې پر دوو بېلو جسمونو عمل کوي؛ مومېنټم په منزوي سیستم کې ساتل کېږي؛ په لچکدار ټکر کې حرکي انرژي هم ساتل کېږي؛ او په مقذوف حرکت کې افقي اسراع صفر وي، خو عمودي اسراع −g وي."]]}}};
 /* ================================================================
    PHY03 NATIVE PHYSICS DRAWING ENGINE
    One visual identifier -> one deterministic SVG renderer.
@@ -768,6 +972,7 @@ function drawWaterFlowForce(){return physicsScene(`${pText(120,105,'WATER JET',1
 function drawRocketPropulsion(){return physicsScene(`${pText(125,105,'EXHAUST',15,900,'#9a3412','middle')}${pArrow(360,220,95,220,'exhaust',{stroke:'#9a3412',labelFill:'#9a3412'})}<path d="M355 155 C415 95 525 105 595 220 C525 335 415 345 355 285 Z" fill="#fff" stroke="#245843" stroke-width="6" filter="url(#__SHADOW__)"/><circle cx="515" cy="220" r="17" fill="#cbd5e1" stroke="#475569" stroke-width="3"/>${pArrow(600,220,865,220,'thrust',{stroke:'#245843'})}${pText(730,170,'forward momentum',18,900,'#245843','middle')}${pText(470,380,"Newton's Third Law + momentum conservation",18,800,'#334155','middle')}`,'Rocket Propulsion','Backward exhaust momentum produces forward rocket thrust; no external air is required.').replace(/url\(#__SHADOW__\)/g,'none');}
 function drawProjectileMotion(){return physicsScene(`${pLine(80,335,875,335,{stroke:'#64748b',sw:3})}<path d="M110 325 Q470 55 835 325" fill="none" stroke="#245843" stroke-width="6"/>${pCircle(110,325,9,'#fff','#9a3412',4)}${pCircle(835,325,9,'#fff','#9a3412',4)}${pArrow(110,325,210,265,'u',{stroke:'#245843'})}${pArrow(110,325,210,325,'u_x',{stroke:'#475569'})}${pArrow(110,325,110,250,'u_y',{stroke:'#9a3412',labelFill:'#9a3412'})}${pLine(470,85,470,335,{stroke:'#94a3b8',sw:2,dash:'7 7'})}${pText(470,70,'H',22,900,'#245843','middle')}${pText(470,110,'highest point',16,800,'#245843','middle')}${pText(700,315,'R = range',18,900,'#9a3412','middle')}${pBox(210,345,540,48,'Equal launch / landing level','T = 2u sinθ/g   •   H = u²sin²θ/(2g)   •   R = u²sin2θ/g','#245843')}`,'Projectile Motion','A projectile follows a parabolic path from horizontal and vertical components of its initial velocity.');}
 const physicsDrawingEngine={displacement:drawDisplacement,velocityTime:drawVelocityTimeGraph,newtonLaws:drawNewtonLaws,momentumImpulse:drawMomentumImpulse,momentumConservation:drawMomentumConservation,collisionTypes:drawCollisionTypes,elastic1D:drawElastic1D,waterFlow:drawWaterFlowForce,rocket:drawRocketPropulsion,projectile:drawProjectileMotion};
+/* PHY06-derived additive visual capabilities. These are intentionally separate from PHY03's existing topic visual map; existing PHY03 content and visuals remain unchanged. */
 function visualKeyFromLink(link){const s=String(link||'').trim();return Object.keys(PHYSICS_VISUAL_LINKS).find(k=>PHYSICS_VISUAL_LINKS[k]===s)||null;}
 function topicVisualLinks(topic){const a=topicData?.[topic]?.academic||{};const texts=[a.definition,...(Array.isArray(a.subtopics)?a.subtopics.map(x=>Array.isArray(x)?x[1]:x?.definition):[])].filter(Boolean).join(' ');const re=/\[\[visual:(physics:\/\/[^\]]+)\]\]/g,out=[];let m;while((m=re.exec(texts)))if(!out.some(x=>x.link===m[1]))out.push({link:m[1],key:visualKeyFromLink(m[1])});return out.filter(x=>x.key);}
 function renderPhysicsVisual(link){const key=visualKeyFromLink(link),fn=key&&physicsDrawingEngine[key];return fn?`<div class="physics-visual-render" data-visual-link="${svgEsc(link)}">${fn()}</div>`:'';}
@@ -844,7 +1049,7 @@ function topicPageEnglishHeading(v){
  return masteryEnglishHeading(raw).replace(/^\s*\d+(?:\.\d+)*\s*[-—–:]?\s*/u,'').trim();
 }
 function openTopic(n){
- window.__activeTopicNumber=n; activeAcademicLanguage=localStorage.getItem('phy03AcademicLanguageV3')||'en'; renderTopicLanguage(n); showPage('topicPage'); scheduleGlobalAcademicTextDirection();
+ window.__activeTopicNumber=n; activeAcademicLanguage='en'; localStorage.setItem('phy03AcademicLanguageV3','en'); renderTopicLanguage(n); showPage('topicPage'); scheduleGlobalAcademicTextDirection();
 }
 function renderChapterAcademic(){
  const h=document.getElementById('chapterHeadingContent'),d=document.getElementById('chapterDefinitionContent'),o=document.getElementById('learningOutcomesContent');
@@ -894,17 +1099,298 @@ function setAcademicLanguage(lang){
  activeAcademicLanguage=['en','ur','ps'].includes(lang)?lang:'en';
  localStorage.setItem('phy03AcademicLanguageV3',activeAcademicLanguage);
  renderActiveAcademicLanguage();
+ if(activeAcademicLanguage==='ur'){
+   const n=Number(window.__activeTopicNumber||0);
+   if(n) ensureUrduTopic(n,document.getElementById('topicContentView'));
+   else renderActiveAcademicLanguage();
+ }
 }
 function getAcademicLanguage(){return activeAcademicLanguage;}
-const academicUrduData={"1":{"title":"۴.۱ کام (Work)","definition":"طبیعیات (Physics) میں کام (Work) اس وقت انجام پاتا ہے جب کسی جسم پر قوت (Force) لگانے سے جسم میں قوت کی سمت میں ازاحت (Displacement) پیدا ہو۔ اگر قوت اور ازاحت ایک ہی سمت میں ہوں تو: W = Fd۔","subtopics":[["کام اور بنیادی مساوات","W = Fd۔ یہاں W کام، F قوت اور d ازاحت ہے۔ کام کی SI اکائی جول (Joule, J) ہے: 1 J = 1 N·m۔"],["مثبت، منفی اور صفر کام","قوت اور ازاحت ایک ہی سمت میں ہوں تو کام مثبت، مخالف سمتوں میں ہوں تو منفی، جبکہ ازاحت نہ ہو یا قوت اور ازاحت ایک دوسرے پر عمود ہوں تو کام صفر ہوتا ہے۔ رگڑ کا کام عموماً منفی ہوتا ہے۔"],["مثال","ایک طالب علم کتاب کو 10 N کی قوت سے 3 m تک اسی سمت میں دھکیلتا ہے: W = Fd = 10×3 = 30 J۔"]]},"2":{"title":"۴.۲ زاویائی قوت کے ذریعے کام (Work Done by an Angled Force)","definition":"جب قوت (Force) اور ازاحت (Displacement) کے درمیان زاویہ θ ہو تو کام W = Fd cosθ ہوتا ہے۔ قوت کا صرف وہ جزو کام کرتا ہے جو ازاحت کی سمت میں ہو۔ F∥ = F cosθ اور W = F∥d۔","subtopics":[["اہم صورتیں","θ = 0° پر W = Fd اور کام زیادہ سے زیادہ مثبت؛ θ = 90° پر W = 0؛ θ = 180° پر W = −Fd۔"],["مثال","ایک شخص صندوق کو 50 N کی قوت سے 60° کے زاویے پر 4 m تک کھینچتا ہے: W = 50×4×cos60° = 100 J۔"]]},"3":{"title":"۴.۳ طاقت (Power)","definition":"طاقت (Power) کام کرنے کی شرح (Rate of Doing Work) ہے، یعنی کسی کام کو کتنی تیزی سے انجام دیا جا رہا ہے۔ P = W/t۔","subtopics":[["تعریف اور اکائی","P = W/t، جہاں P طاقت، W کام اور t وقت ہے۔ طاقت کی SI اکائی واٹ (Watt, W) ہے: 1 W = 1 J/s۔ اوسط طاقت P_avg = W/Δt۔"],["قوت اور رفتار سے تعلق","اگر قوت اور رفتار ایک ہی سمت میں ہوں تو P = Fv، جبکہ عمومی صورت میں P = F⃗·v⃗۔"],["مثال","دو مشینیں 1000 J کام کرتی ہیں۔ پہلی 10 s میں: P = 100 W؛ دوسری 20 s میں: P = 50 W۔ پہلی مشین زیادہ طاقتور ہے کیونکہ وہی کام کم وقت میں کرتی ہے۔"]]},"4":{"title":"۴.۴ بقائی قوت اور بقائی میدان (Conservative Force and Conservative Field)","definition":"ایسی قوت جس کے ذریعے کیے گئے کام کا انحصار راستے پر نہ ہو بلکہ صرف ابتدائی اور آخری مقام پر ہو، بقائی قوت (Conservative Force) کہلاتی ہے۔","subtopics":[["مثالیں","کششِ ثقل کی قوت (Gravitational Force) اور اسپرنگ کی قوت (Spring Force) بقائی قوتوں کی مثالیں ہیں۔ بند راستے میں W_closed = 0 اور W_c = −ΔU۔"],["غیر بقائی قوت","جس قوت کا کام راستے پر منحصر ہو وہ غیر بقائی قوت (Non-conservative Force) ہے۔ رگڑ اس کی مثال ہے اور یہ میکانی توانائی کو حرارتی، صوتی یا دوسری صورتوں میں تبدیل کر سکتی ہے۔"],["مثال","گیند کو زمین سے 5 m بلندی تک سیدھا اٹھایا جائے یا کسی دوسرے راستے سے اسی بلندی تک لے جایا جائے، مثالی حالت میں کششِ ثقل کے خلاف کام صرف ابتدائی اور آخری بلندی پر منحصر ہوگا۔"]]},"5":{"title":"۴.۵ امکانی توانائی (Potential Energy)","definition":"کسی جسم کی مقام (Position)، حالت (Configuration) یا ترتیب کی وجہ سے اس میں موجود توانائی کو امکانی توانائی (Potential Energy) کہتے ہیں۔ کششِ ثقل کے میدان میں سطحِ مرجع سے h بلندی پر U = mgh۔","subtopics":[["مقداریں اور اکائی","U = mgh، جہاں U امکانی توانائی، m کمیت، g کششِ ثقل کی تعجیل اور h سطحِ مرجع سے اونچائی ہے۔ SI اکائی جول ہے۔"],["سطحِ مرجع","امکانی توانائی کا صفر نقطہ مسئلے کی ضرورت کے مطابق منتخب کیا جا سکتا ہے؛ اہم چیز امکانی توانائی میں تبدیلی ہے۔"],["مثال","2 kg کا پتھر 10 m بلندی پر ہے اور g = 10 m/s² ہے: U = 2×10×10 = 200 J۔"]]},"6":{"title":"۴.۶ حرکی توانائی (Kinetic Energy)","definition":"کسی متحرک جسم میں اس کی حرکت (Motion) کی وجہ سے موجود توانائی کو حرکی توانائی کہتے ہیں: K = ½mv²۔","subtopics":[["مساوات اور خصوصیت","K = ½mv²، جہاں m کمیت اور v رفتار ہے۔ SI اکائی جول ہے۔ حرکی توانائی رفتار کے مربع کے متناسب ہے: K ∝ v²؛ لہٰذا رفتار دوگنی ہونے پر حرکی توانائی چار گنا ہو جاتی ہے۔"],["مثال","4 kg کی گیند 5 m/s کی رفتار سے حرکت کر رہی ہے: K = ½(4)(5)² = 50 J۔"]]},"7":{"title":"۴.۷ کام-توانائی قضیہ (Work-Energy Theorem)","definition":"کام-توانائی قضیہ کے مطابق کسی جسم پر ہونے والا خالص کام اس کی حرکی توانائی میں تبدیلی کے برابر ہوتا ہے: W_net = ΔK = K_f − K_i۔","subtopics":[["اہم صورتیں","W_net = ½mv_f² − ½mv_i²۔ خالص کام مثبت ہو تو حرکی توانائی بڑھتی، منفی ہو تو کم ہوتی، اور صفر ہو تو حرکی توانائی میں تبدیلی صفر ہوتی ہے۔"],["مثال","ابتدائی حرکی توانائی 20 J اور آخری 80 J ہو تو W_net = 80−20 = 60 J۔"]]},"8":{"title":"۴.۸ میکانی توانائی کا تحفظ (Conservation of Mechanical Energy)","definition":"کسی نظام کی میکانی توانائی حرکی توانائی اور امکانی توانائی کا مجموعہ ہے: E_mech = K + U۔ اگر نظام پر صرف بقائی قوتیں کام کر رہی ہوں تو K_i + U_i = K_f + U_f۔","subtopics":[["توانائی کی تبدیلی","حرکی اور امکانی توانائی ایک دوسرے میں تبدیل ہو سکتی ہیں، لیکن مثالی حالت میں ان کا مجموعہ مستقل رہتا ہے۔ گیند کے نیچے آنے پر U کم اور K بڑھتی ہے: U↓، K↑۔"],["مثال","بلندی سے گرتی ہوئی گیند کے شروع میں امکانی توانائی زیادہ اور حرکی توانائی کم ہوتی ہے۔ نیچے آتے ہوئے امکانی توانائی حرکی توانائی میں تبدیل ہوتی ہے اور K+U مستقل رہتا ہے۔"]]},"9":{"title":"۴.۹ غیر بقائی قوت اور توانائی (Non-conservative Force and Energy)","definition":"رگڑ جیسی غیر بقائی قوت کی موجودگی میں میکانی توانائی عموماً محفوظ نہیں رہتی۔ میکانی توانائی کا کچھ حصہ حرارتی توانائی میں تبدیل ہو جاتا ہے، جبکہ کل توانائی محفوظ رہتی ہے۔","subtopics":[["توانائی کا تعلق","W_non-conservative = ΔE_mech، جہاں ΔE_mech = E_mech,f − E_mech,i۔ رگڑ کی صورت میں میکانی توانائی کم ہو سکتی ہے، مگر توانائی ختم نہیں ہوتی بلکہ دوسری شکلوں میں منتقل یا تبدیل ہوتی ہے۔"],["میکانی اور کل توانائی","توانائی کے تحفظ کے قانون کے مطابق توانائی نہ پیدا کی جا سکتی ہے نہ مکمل طور پر ختم؛ یہ ایک شکل سے دوسری شکل میں تبدیل ہوتی ہے: Mechanical Energy → Thermal Energy۔"],["مثال","فرش پر چلتی کھلونا گاڑی رگڑ کی وجہ سے رک جاتی ہے۔ اس کی حرکی توانائی حرارتی توانائی میں تبدیل ہوتی ہے؛ میکانی توانائی کم ہوتی ہے مگر کل توانائی محفوظ رہتی ہے۔"]]},"10":{"title":"۴.۱۰ توانائی کے ذرائع (Sources of Energy)","definition":"توانائی کے ذرائع بنیادی طور پر قابلِ تجدید (Renewable) اور ناقابلِ تجدید (Non-renewable) ذرائع میں تقسیم ہوتے ہیں۔","subtopics":[["قابلِ تجدید توانائی","وہ ذرائع جو قدرتی طور پر نسبتاً کم مدت میں دوبارہ دستیاب ہو سکتے ہیں، مثلاً شمسی، ہوائی، آبی، حیاتیاتی اور ارضی حرارتی توانائی۔ فوائد: دوبارہ دستیابی، کئی صورتوں میں کم گرین ہاؤس گیسیں اور طویل مدت میں پائیداری۔ حدود: موسم و جغرافیہ پر انحصار، ابتدائی لاگت اور توانائی ذخیرے کی ضرورت۔ مثال: Solar Energy → Electrical Energy۔"],["ناقابلِ تجدید توانائی","محدود ذرائع جو انسانی مدتِ زندگی کے مقابلے میں بہت آہستہ تشکیل پاتے ہیں، مثلاً کوئلہ، تیل، قدرتی گیس اور جوہری ایندھن۔ فوائد: بڑی مقدار میں توانائی اور بعض صورتوں میں مسلسل فراہمی۔ حدود: فوسل ایندھن محدود ہیں، آلودگی و گرین ہاؤس گیسیں، اور جوہری فضلہ۔"],["توانائی کی تبدیلی","کوئلہ بجلی گھر میں Chemical Energy → Thermal Energy → Mechanical Energy → Electrical Energy تبدیل ہوتی ہے۔"],["جائزہ (Review)","1. کام کی تعریف کریں۔ 2. کام کی SI اکائی کیا ہے؟ 3. مثبت اور منفی کام میں فرق بیان کریں۔ 4. صفر کام کی مثال دیں۔ 5. زاویائی قوت کے لیے کام کی مساوات لکھیں۔ 6. طاقت کیا ہے اور اس کی SI اکائی کیا ہے؟ 7. بقائی قوت کیا ہے؟ 8. غیر بقائی قوت کی مثال دیں۔ 9. امکانی توانائی کی مساوات لکھیں۔ 10. حرکی توانائی کی مساوات لکھیں۔ 11. کام-توانائی قضیہ بیان کریں۔ 12. میکانی توانائی کیا ہے؟ 13. میکانی توانائی کے تحفظ کی شرط بیان کریں۔ 14. رگڑ میکانی توانائی کو کیسے متاثر کرتی ہے؟ 15. قابلِ تجدید اور ناقابلِ تجدید توانائی میں فرق بیان کریں۔"],["عددی مسائل","مسئلہ 1: 20 N قوت اور 5 m ازاحت ایک ہی سمت میں ہو تو W = 20×5 = 100 J۔ مسئلہ 2: 10 N قوت، 60° زاویہ اور 4 m ازاحت ہو تو W = 10×4×cos60° = 20 J۔ مسئلہ 3: 600 J کام 10 s میں ہو تو P = 600/10 = 60 W۔ مسئلہ 4: 2 kg جسم 5 m/s سے حرکت کرے تو K = ½(2)(5)² = 25 J۔ مسئلہ 5: 5 kg جسم 4 m بلند، g=10 m/s²: U = 5×10×4 = 200 J۔ مسئلہ 6: K_i=20 J اور K_f=80 J: W_net = 80−20 = 60 J۔"],["اعلیٰ سطح کے سوالات","1. قوت لگانے کے باوجود جسم حرکت نہ کرے تو کام صفر کیوں؟ 2. مستقل قوت کے باوجود رفتار تبدیل نہ ہو تو طبیعیاتی وضاحت کریں۔ 3. رفتار دوگنی ہو تو حرکی توانائی کتنی گنا؟ 4. رگڑ کے باوجود توانائی کا تحفظ کیسے درست رہتا ہے؟ 5. جسم کے اوپر جاتے وقت K اور U میں کیا تبدیلی آتی ہے؟ 6. پن بجلی گھر میں توانائی کی تبدیلیاں بیان کریں۔ 7. قابلِ تجدید توانائی کے استعمال میں اضافے کی ضرورت کیوں ہے؟"],["عملی سرگرمی — مختلف سطحوں پر رگڑ","مقصد: مختلف سطحوں پر رگڑ کی قوت کے اثر کا مشاہدہ۔ سامان: لکڑی کا بلاک، مختلف سطحیں، اسپرنگ بیلنس اور پیمانہ۔ طریقہ: بلاک کو اسپرنگ بیلنس سے جوڑیں؛ مختلف سطحوں پر کھینچیں؛ حرکت شروع کرنے کی قوت نوٹ کریں؛ نتائج کا موازنہ کریں؛ مشاہدات کی بنیاد پر رگڑ کے اثرات بیان کریں۔ عموماً کھردری سطح پر زیادہ قوت درکار ہوتی ہے۔ نتیجہ: رگڑ سطح کے مطابق مختلف ہو سکتی ہے اور حرکت کی مخالفت کرتی ہے۔"],["خلاصہ (Summary)","کام قوت اور ازاحت سے متعلق ہے اور W=Fd cosθ ہے؛ اکائی جول ہے۔ طاقت کام کرنے کی شرح ہے اور اکائی واٹ ہے۔ بقائی قوت کا کام راستے پر منحصر نہیں ہوتا۔ امکانی توانائی مقام یا حالت، جبکہ حرکی توانائی حرکت کی وجہ سے موجود ہوتی ہے۔ خالص کام حرکی توانائی میں تبدیلی کے برابر ہے۔ میکانی توانائی K+U ہے اور بقائی قوتوں کی موجودگی میں محفوظ رہتی ہے۔ رگڑ جیسی غیر بقائی قوت میکانی توانائی کو حرارتی توانائی میں بدل سکتی ہے، جبکہ کل توانائی محفوظ رہتی ہے۔ توانائی کے ذرائع قابلِ تجدید یا ناقابلِ تجدید ہو سکتے ہیں اور مؤثر استعمال ماحولیاتی پائیداری سے متعلق ہے۔"]]}};
-function academicLangPack(n){
- const base=topicData?.[n]?.academic||{};
- const baseLinks=topicVisualLinks(n).map(v=>v.link);
- const inherit=(definition)=>{const d=String(definition??''); return /\[\[visual:physics:\/\//.test(d)?d:(d+(baseLinks.length?' '+baseLinks.map(x=>`[[visual:${x}]]`).join(' '):''));};
- if(activeAcademicLanguage==='ur') { const u=academicUrduData[String(n)]; if(u) return {title:u.title,definition:inherit(u.definition),subtopics:u.subtopics.map(x=>({title:x[0],definition:x[1]}))}; return {title:base.title||`Topic ${n}`,definition:inherit(base.definition||''),subtopics:Array.isArray(base.subtopics)?base.subtopics.map(x=>({title:x.title,definition:x.definition})):[]}; }
- const d=academicLanguageData[String(n)]?.[activeAcademicLanguage];
- return d?{title:d.title,definition:inherit(d.definition),subtopics:d.subtopics.map(x=>({title:x[0],definition:x[1]}))}:{title:base.title||`Topic ${n}`,definition:inherit(base.definition||''),subtopics:[]};
+// Urdu/Pashto are generated through the approved Translator Master implementation.
+const academicUrduData=Object.create(null);
+/* P03 Translator Master: structure-first dynamic Urdu/Pashto translation. */
+const academicTranslationState={
+  ur:Object.create(null),
+  ps:Object.create(null)
+};
+const academicTranslationJobs=new Map();
+const academicNativeTranslators=new Map();
+let academicTranslationRun=0;
+let academicTranslationStatus='';
+
+function academicTranslationFieldKey(n,field,index){
+  return `${n}:${field}:${index==null?'':index}`;
 }
+function academicTranslationGet(lang,n,field,index,source){
+  const entry=academicTranslationState[lang]?.[academicTranslationFieldKey(n,field,index)];
+  if(entry==null) return undefined;
+  if(typeof entry==='object' && entry!==null){
+    return entry.source===String(source??'') ? String(entry.value??'') : undefined;
+  }
+  /* Backward compatibility: legacy cache entries are treated as stale until retranslated. */
+  return undefined;
+}
+function academicTranslationSet(lang,n,field,index,source,value){
+  if(!academicTranslationState[lang]) academicTranslationState[lang]=Object.create(null);
+  academicTranslationState[lang][academicTranslationFieldKey(n,field,index)]={source:String(source??''),value:String(value??'')};
+}
+function academicTranslationSourceField(n,field,index){
+  const a=topicData?.[n]?.academic||{};
+  if(field==='title') return String(a.title||'');
+  if(field==='definition') return String(a.definition||'');
+  const sub=Array.isArray(a.subtopics)?a.subtopics[index]:null;
+  if(field==='subtopicTitle') return Array.isArray(sub)?String(sub[0]||''):String(sub?.title||'');
+  if(field==='subtopicDefinition') return Array.isArray(sub)?String(sub[1]||''):String(sub?.definition||'');
+  return '';
+}
+function academicTranslationVisualSafe(text){
+  const tokens=[];
+  const safe=String(text??'').replace(/\[\[visual:([^\]]+)\]\]/g,(_,value)=>{
+    const id=`__P03_VISUAL_${tokens.length}__`;
+    tokens.push([id,`[[visual:${value}]]`]);
+    return id;
+  });
+  return {safe,tokens};
+}
+function academicTranslationRestore(text,tokens){
+  let out=String(text??'');
+  tokens.forEach(([id,token])=>{out=out.split(id).join(token);});
+  return out;
+}
+/* ================================================================
+   P03 ACADEMIC SEMANTIC TRANSLATION MASTER v2.0
+   Quality layer: meaning-first reconstruction + locked physics
+   terminology + formula protection + benchmark translations.
+   The provider remains optional; this layer is deterministic and
+   runs before/after any external/browser translator.
+   ================================================================ */
+const P03_PHYSICS_TERMINOLOGY={
+ ur:{
+  'motion':'حرکت','position':'مقام','distance':'فاصلہ','displacement':'نقلِ مکانی',
+  'speed':'رفتار','velocity':'سمتی رفتار','acceleration':'تعجیل','reference frame':'حوالہ جاتی نظام',
+  'rest':'سکون','scalar':'عددی','vector':'سمتی','scalar quantity':'عددی مقدار','vector quantity':'سمتی مقدار',
+  'initial position':'ابتدائی مقام','final position':'حتمی مقام','path length':'راستے کی کل لمبائی',
+  'average speed':'اوسط رفتار','average velocity':'اوسط سمتی رفتار','instantaneous velocity':'لحظاتی سمتی رفتار',
+  'uniform circular motion':'یکساں دائرہ نما حرکت','rate of change':'تبدیلی کی شرح','slope':'ڈھلوان','displacement-time graph':'نقلِ مکانی-وقت گراف'
+ },
+ ps:{
+  'motion':'حرکت','position':'ځای','distance':'واټن','displacement':'بې‌ځایه کېدل','speed':'چټکتیا',
+  'velocity':'سمتي سرعت','acceleration':'اسراع','reference frame':'مرجع چوکاټ','rest':'سکون',
+  'scalar':'نرده‌يي','vector':'برداري','scalar quantity':'نرده‌يي کمیت','vector quantity':'برداري کمیت',
+  'initial position':'لومړنی ځای','final position':'وروستی ځای','average speed':'منځنۍ چټکتیا',
+  'average velocity':'منځنی سمتي سرعت','instantaneous velocity':'لحظه‌يي سمتي سرعت',
+  'uniform circular motion':'یوشان دایروي حرکت','rate of change':'د بدلون کچه','slope':'مېلان','displacement-time graph':'بې‌ځایه کېدو ـ وخت ګراف'
+ }
+};
+function academicTranslationInstruction(lang){
+ const terms=P03_PHYSICS_TERMINOLOGY[lang]||P03_PHYSICS_TERMINOLOGY.ur;
+ return [
+  'Translate from English to academic '+(lang==='ur'?'Urdu':'Pashto')+'. Translate meaning, not English word order.',
+  'Reconstruct each sentence naturally in the target language as a physics textbook would.',
+  'Preserve formulas, variables, symbols, inequalities, units and mathematical relationships exactly.',
+  'Use established physics terminology consistently throughout the course.',
+  ...Object.entries(terms).map(([en,t])=>en+' = '+t),
+  'Do not collapse Speed and Velocity into one term: Speed = '+terms.speed+'; Velocity = '+terms.velocity+'.',
+  'Do not transliterate an English technical term when an established target-language physics term is available.',
+  'If an English term is retained in parentheses, keep it only on first useful occurrence.'
+ ].join(' ');
+}
+function academicTranslationProtect(text){
+ const tokens=[]; let i=0;
+ const safe=String(text??'').replace(/(?:\b[a-zA-Z_][a-zA-Z_0-9]*\b\s*(?:[=<>≤≥]|−|-|\/|\*|\+|\^|→)\s*|(?:Δx|x_f|x_i|v_t|a_avg|Δv|Δt|m s⁻²|m\/s|m\/s²|\|[^|]+\|))/g,m=>{const id=`__P03_MATH_${i++}__`;tokens.push([id,m]);return id;});
+ return {safe,tokens};
+}
+function academicTranslationRestoreProtected(text,tokens){let out=String(text??'');tokens.forEach(([id,v])=>{out=out.split(id).join(v);});return out;}
+function academicTerminologyNormalize(text,lang,source=''){
+ let out=String(text??'').trim();
+ if(!out)return out;
+ const t=P03_PHYSICS_TERMINOLOGY[lang]||{};
+ const replaceWord=(pattern,value)=>{out=out.replace(pattern,value);};
+ if(lang==='ur'){
+  if(/\bspeed\b/i.test(source)) replaceWord(/(?:سمتی\s+)?رفتار\s*\(?(?:Speed)\)?/gi,'رفتار (Speed)');
+  if(/\bvelocity\b/i.test(source)) replaceWord(/(?:رفتار|ویلاسٹی|ویلوسٹی|velocity)\s*\(?(?:Velocity)?\)?/gi,'سمتی رفتار (Velocity)');
+  replaceWord(/\bMotion\b/g,t.motion); replaceWord(/\bPosition\b/g,t.position); replaceWord(/\bDistance\b/g,t.distance);
+  replaceWord(/\bDisplacement\b/g,t.displacement); replaceWord(/\bAcceleration\b/g,t.acceleration); replaceWord(/\bReference Frame\b/gi,t['reference frame']);
+  out=out.replace(/\b(اسکیلر|اسکیلر مقدار|اسکیلر کمیت)\b/gi,'عددی مقدار').replace(/\b(ویکٹر مقدار|ویکٹر کمیت)\b/gi,'سمتی مقدار');
+  if(/\bvelocity\b/i.test(source)) out=out.replace(/\bرفتار\b/g,'سمتی رفتار');
+  if(/\bspeed\b/i.test(source)) out=out.replace(/\bسمتی رفتار\b/g,'رفتار');
+ }else{
+  replaceWord(/\bMotion\b/g,t.motion); replaceWord(/\bPosition\b/g,t.position); replaceWord(/\bDistance\b/g,t.distance);
+  replaceWord(/\bDisplacement\b/g,t.displacement); replaceWord(/\bAcceleration\b/g,t.acceleration); replaceWord(/\bReference Frame\b/gi,t['reference frame']);
+  if(/\bvelocity\b/i.test(source)) out=out.replace(/\bچټکتیا\b/g,'سمتي سرعت');
+  if(/\bspeed\b/i.test(source)) out=out.replace(/\bسمتي سرعت\b/g,'چټکتیا');
+ }
+ return out.replace(/\s{2,}/g,' ').trim();
+}
+const P03_URDU_BENCHMARKS={
+ '1|definition':`حرکت (Motion) کو بیان کرنے کے لیے مقام (Position)، فاصلہ (Distance)، نقلِ مکانی (Displacement)، رفتار (Speed)، سمتی رفتار (Velocity) اور تعجیل (Acceleration) جیسی مقداریں استعمال کی جاتی ہیں۔ کوئی جسم اس وقت حرکت (Motion) میں ہوتا ہے جب کسی حوالہ جاتی نظام (Reference Frame) کے لحاظ سے وقت کے ساتھ اس کا مقام (Position) تبدیل ہوتا رہے؛ اور جب اس کا مقام (Position) تبدیل نہ ہو تو وہ سکون (Rest) کی حالت میں ہوتا ہے۔\n\nفاصلہ (Distance) کسی جسم کے طے کیے گئے پورے راستے کی کل لمبائی ہے اور یہ ایک عددی (Scalar) مقدار ہے، جبکہ نقلِ مکانی (Displacement) جسم کے ابتدائی مقام سے آخری مقام تک ہونے والی سمتی تبدیلی ہے:\n\nΔx = x_f − x_i\n\nفاصلہ (Distance) ہمیشہ نقلِ مکانی (Displacement) کی مقدار کے برابر یا اس سے زیادہ ہوتا ہے:\n\nDistance ≥ |Displacement|\n\nاور اگر کوئی جسم ایک مکمل چکر لگا کر دوبارہ اپنے ابتدائی مقام پر واپس آ جائے تو اس کی نقلِ مکانی (Displacement) صفر ہو سکتی ہے، اگرچہ اس دوران اس نے ایک غیر صفر فاصلہ (Distance) طے کیا ہو۔`
+};
+const P03_URDU_TOPIC_PACKS={
+  "1":{title:"3.1 نقلِ مکانی، سمتی رفتار اور تعجیل",definition:`حرکت (Motion) کو بیان کرنے کے لیے مقام (Position)، فاصلہ (Distance)، نقلِ مکانی (Displacement)، رفتار (Speed)، سمتی رفتار (Velocity) اور تعجیل (Acceleration) جیسی مقداریں استعمال کی جاتی ہیں۔ کوئی جسم اس وقت حرکت (Motion) میں ہوتا ہے جب کسی حوالہ جاتی نظام (Reference Frame) کے لحاظ سے وقت کے ساتھ اس کا مقام (Position) تبدیل ہوتا رہے؛ اور جب اس کا مقام (Position) تبدیل نہ ہو تو وہ سکون (Rest) کی حالت میں ہوتا ہے۔
+
+فاصلہ (Distance) کسی جسم کے طے کیے گئے پورے راستے کی کل لمبائی ہے اور یہ ایک عددی (Scalar) مقدار ہے، جبکہ نقلِ مکانی (Displacement) جسم کے ابتدائی مقام سے آخری مقام تک ہونے والی سمتی تبدیلی ہے:
+
+Δx = x_f − x_i
+
+فاصلہ (Distance) ہمیشہ نقلِ مکانی (Displacement) کی مقدار کے برابر یا اس سے زیادہ ہوتا ہے:
+
+Distance ≥ |Displacement|
+
+اور اگر کوئی جسم ایک مکمل چکر لگا کر دوبارہ اپنے ابتدائی مقام پر واپس آ جائے تو اس کی نقلِ مکانی (Displacement) صفر ہو سکتی ہے، اگرچہ اس دوران اس نے ایک غیر صفر فاصلہ (Distance) طے کیا ہو۔`,subtopics:[
+    ["حوالہ جاتی نظام","حرکت کو بیان کرنے کے لیے ایک حوالہ جاتی نقطہ یا مبدأ (Origin) اور ایک منتخب مثبت سمت درکار ہوتی ہے۔ مثال کے طور پر دائیں یا مشرق کو مثبت اور بائیں یا مغرب کو منفی سمت منتخب کیا جا سکتا ہے۔"],
+    ["رفتار اور اوسط رفتار","رفتار (Speed) فی اکائی وقت طے کیے گئے فاصلے کے برابر ہے۔ اوسط رفتار = کل فاصلہ / کل وقت۔ رفتار ایک عددی (Scalar) مقدار ہے۔"],
+    ["سمتی رفتار","سمتی رفتار (Velocity) فی اکائی وقت نقلِ مکانی کے برابر ہے۔ اوسط سمتی رفتار = Δx/Δt اور یہ ایک سمتی (Vector) مقدار ہے۔ لحظاتی سمتی رفتار v = lim(Δt→0) Δx/Δt ہوتی ہے؛ نقلِ مکانی-وقت گراف پر یہ مماس کی ڈھلوان کے برابر ہوتی ہے۔"],
+    ["یکساں دائرہ نما حرکت","یکساں دائرہ نما حرکت میں رفتار (Speed) مستقل رہ سکتی ہے، لیکن سمت تبدیل ہونے کی وجہ سے سمتی رفتار (Velocity) تبدیل ہوتی رہتی ہے؛ اس لیے تعجیل موجود ہوتی ہے۔"],
+    ["تعجیل","تعجیل (Acceleration) سمتی رفتار کی تبدیلی کی شرح ہے: a_avg = Δv/Δt اور a = lim(Δt→0) Δv/Δt۔ اس کی SI اکائی m s⁻² ہے۔"],
+    ["یکساں تعجیل والی حرکت","مستقل تعجیل کے لیے: v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2۔ منفی تعجیل کا مطلب لازماً یہ نہیں کہ جسم کی رفتار کم ہو رہی ہے؛ رفتار میں کمی (Deceleration) سے مراد سمتی رفتار کی مقدار میں کمی ہے۔"]
+  ]},
+  "2":{title:"3.2 سمتی رفتار-وقت گراف",definition:"سمتی رفتار-وقت (v-t) گراف میں وقت t افقی محور اور سمتی رفتار v عمودی محور پر دکھائی جاتی ہے۔ گراف کی ڈھلوان تعجیل دیتی ہے، جبکہ گراف کے نیچے دستخط شدہ رقبہ نقلِ مکانی کو ظاہر کرتا ہے۔",subtopics:[["ڈھلوان","a = Δv/Δt۔ کسی مخصوص نقطے پر مماس کی ڈھلوان لحظاتی تعجیل دیتی ہے۔"],["گراف کی شکلیں","افقی خط: مستقل سمتی رفتار اور a=0۔ مثبت ڈھلوان: مثبت تعجیل۔ منفی ڈھلوان: منفی تعجیل۔ خم دار گراف: متغیر تعجیل۔"],["گراف کے نیچے رقبہ","دستخط شدہ رقبہ نقلِ مکانی دیتا ہے۔ جب سمتی رفتار کا رخ بدلتا ہے تو جبری رقبہ نقلِ مکانی، جبکہ مطلق رقبوں کا مجموعہ کل فاصلہ دیتا ہے۔"],["ہندسی رقبے","مستطیل A=bh؛ مثلث A=½bh؛ ذوزنقہ A=½(a+b)h۔"],["حرکت کا تجزیہ","v-t گراف سمتی رفتار کی تبدیلی، تعجیل اور نقلِ مکانی دکھاتا ہے اور مثبت، منفی یا صفر سمتی رفتار کے وقفوں کی نشاندہی کرتا ہے۔"]]},
+  "3":{title:"3.3 نیوٹن کے حرکت کے قوانین",definition:"قوت ایک باہمی تعامل ہے جو جسم کی حرکت، سمتی رفتار یا سمت تبدیل کر سکتا ہے۔ نیوٹن کے قوانین قوت، جمود، کمیت، تعجیل اور عمل-ردِعمل کے جوڑوں کے درمیان تعلق بیان کرتے ہیں۔",subtopics:[["جمود","جمود سکون یا یکساں خطِ مستقیم حرکت میں تبدیلی کی مزاحمت کی خاصیت ہے۔ کمیت جمود کی پیمائش ہے؛ زیادہ کمیت کا مطلب زیادہ جمود ہے۔"],["پہلا قانون","اگر خالص بیرونی قوت صفر ہو تو ساکن جسم سکون میں رہتا ہے اور متحرک جسم سیدھی لکیر میں مستقل سمتی رفتار سے حرکت جاری رکھتا ہے: ΣF=0 ⇒ a=0۔"],["دوسرا قانون","خالص قوت مومینٹم کی تبدیلی کی شرح کے برابر ہے: F_net=Δp/Δt۔ مستقل کمیت کے لیے F_net=ma اور a=F_net/m۔"],["تیسرا قانون","ہر عمل کے مقابل مساوی مقدار اور مخالف سمت کا ردِعمل ہوتا ہے: F_AB = −F_BA۔ یہ دونوں قوتیں مختلف جسموں پر عمل کرتی ہیں، اس لیے ایک ہی جسم پر ایک دوسرے کو منسوخ نہیں کرتیں۔"],["آزاد جسم کا خاکہ (FBD)","FBD جسم پر اثر انداز ہونے والی متعلقہ بیرونی قوتیں دکھاتا ہے۔ افقی سطح پر N، W=mg، لگائی گئی قوت F اور رگڑ f شامل ہو سکتے ہیں۔ رگڑ حرکت یا حرکت کے رجحان کی مخالفت کرتی ہے۔"],["کمیت اور وزن","کمیت عددی مقدار ہے اور kg میں ناپی جاتی ہے؛ وزن کششِ ثقل کی قوت ہے، W=mg، اور نیوٹن میں ناپی جانے والی سمتی مقدار ہے۔"]]},
+  "4":{title:"3.4 خطی مومینٹم، قوت اور امپلس",definition:"خطی مومینٹم کمیت اور سمتی رفتار کا حاصلِ ضرب ہے۔ قوت مومینٹم کی تبدیلی کی شرح ہے، جبکہ امپلس قوت اور اس کے اثر کے وقت کے وقفے کا حاصلِ ضرب ہے۔",subtopics:[["مومینٹم","p=mv۔ مومینٹم ایک سمتی مقدار ہے اور اس کی SI اکائی kg m s⁻¹ ہے؛ 1 N s = 1 kg m s⁻¹۔"],["مومینٹم سے قوت","F=Δp/Δt۔ مستقل کمیت کے لیے F=m(v−u)/t=ma۔"],["امپلس","مستقل قوت کے لیے J=FΔt۔ عمومی طور پر امپلس مومینٹم کی تبدیلی کے برابر ہے: J=Δp=p_f−p_i۔ SI اکائی N s ہے۔"],["قوت-وقت گراف","F-t گراف کے نیچے دستخط شدہ رقبہ امپلس دیتا ہے: J = F-t گراف کے نیچے رقبہ۔"],["حفاظتی اطلاقات","ایئر بیگز اور کرمپل زون تصادم کا وقت بڑھاتے ہیں؛ یکساں مومینٹم تبدیلی کے لیے Δt بڑھنے سے اوسط قوت F_avg=Δp/Δt کم ہوتی ہے۔"]]},
+  "5":{title:"3.5 خطی مومینٹم کے تحفظ کا قانون",definition:"ایک الگ تھلگ نظام میں، جہاں خالص بیرونی قوت صفر یا قابلِ نظر انداز ہو، کل خطی مومینٹم مستقل رہتا ہے۔ یہ اصول پسپائی، دھماکوں اور بہت سے تصادم کے مسائل کی وضاحت کرتا ہے۔",subtopics:[["تحفظ کی مساوات","دو جسموں کے لیے: m₁u₁+m₂u₂ = m₁v₁+m₂v₂۔"],["الگ تھلگ نظام","جب تعامل کے دوران خالص بیرونی قوت صفر یا قابلِ نظر انداز ہو تو نظام کو الگ تھلگ سمجھا جا سکتا ہے۔"],["اندرونی اور بیرونی قوتیں","نظام کے اندر جسموں کے درمیان قوتیں اندرونی ہیں؛ باہر سے آنے والی قوتیں بیرونی ہیں۔ اندرونی قوتیں اکیلے پورے نظام کے مومینٹم کو تبدیل نہیں کرتیں۔"],["پسپائی","اگر ابتدائی کل مومینٹم صفر ہو تو Σp_f=0۔ بندوق اور گولی کے لیے m_b v_b + m_g v_g = 0؛ پسپائی کا مومینٹم برابر مقدار اور مخالف سمت میں ہوتا ہے۔"],["دھماکے","دھماکے میں بڑی اندرونی قوتیں نظام کو ٹکڑوں میں تقسیم کر سکتی ہیں، لیکن بیرونی قوت قابلِ نظر انداز ہو تو کل مومینٹم محفوظ رہتا ہے۔"]]},
+  "6":{title:"3.6 لچکدار اور غیر لچکدار تصادم",definition:"تصادم میں جسم مختصر وقت کے لیے باہم قوتیں لگاتے ہیں۔ الگ تھلگ نظام میں مومینٹم محفوظ رہتا ہے۔ لچکدار تصادم میں مومینٹم اور حرکی توانائی دونوں محفوظ رہتے ہیں، جبکہ غیر لچکدار تصادم میں حرکی توانائی محفوظ نہیں رہتی۔",subtopics:[["تصادم اور مومینٹم","تصادم کے دوران بیرونی قوت قابلِ نظر انداز ہو تو کل مومینٹم محفوظ رہتا ہے۔"],["لچکدار تصادم","مومینٹم اور حرکی توانائی دونوں محفوظ رہتے ہیں۔"],["مکمل غیر لچکدار تصادم","جسم تصادم کے بعد جڑ جاتے ہیں اور ایک مشترک سمتی رفتار سے حرکت کرتے ہیں۔"],["ارتجاع کا ضریب","e = جدا ہونے کی نسبتی رفتار / قریب آنے کی نسبتی رفتار۔ e=1 مکمل لچکدار اور e=0 مکمل غیر لچکدار تصادم ہے۔"],["برابر کمیتوں کا خاص معاملہ","ایک جیسی کمیت کے دو جسموں میں، جب ایک ساکن ہو اور تصادم لچکدار ہو، تو آنے والا جسم رک سکتا ہے اور دوسرا اس کی ابتدائی سمتی رفتار حاصل کر سکتا ہے۔"]]},
+  "7":{title:"3.7 مومینٹم، تصادم اور ارتجاع",definition:"مومینٹم اور تصادم کے مسائل میں سمتوں کو درست طور پر منتخب کرنا اور مومینٹم کے تحفظ کا قانون استعمال کرنا ضروری ہے۔ ارتجاع کا ضریب تصادم کی نوعیت بیان کرنے میں مدد دیتا ہے۔",subtopics:[["علامتوں کا انتخاب","ایک سمت کو مثبت منتخب کریں اور تمام سمتی رفتاروں کو اسی انتخاب کے مطابق مثبت یا منفی لکھیں۔"],["تصادم کی مساوات","الگ تھلگ نظام میں کل ابتدائی مومینٹم کل آخری مومینٹم کے برابر ہے۔"],["ارتجاع","e جدا ہونے اور قریب آنے کی نسبتی رفتاروں کا تناسب ہے، اور 0≤e≤1 عام غیر دھماکہ خیز تصادم میں ہوتا ہے۔"],["توانائی","لچکدار تصادم میں حرکی توانائی محفوظ رہتی ہے؛ غیر لچکدار تصادم میں اس کا کچھ حصہ حرارت، آواز یا تبدیلیِ شکل میں منتقل ہو سکتا ہے۔"]]},
+  "8":{title:"3.8 پانی کے بہاؤ کی وجہ سے قوت",definition:"جب بہتا ہوا پانی کسی سطح سے ٹکراتا یا اپنی سمت تبدیل کرتا ہے تو اس کا مومینٹم بدلتا ہے اور سطح پر قوت پیدا ہوتی ہے۔ قوت کی مقدار کمیتی بہاؤ کی شرح اور سمتی رفتار کی تبدیلی سے متعلق ہے۔",subtopics:[["مومینٹم کا تعلق","F=Δp/Δt۔ اگر کمیتی بہاؤ کی شرح ṁ=Δm/Δt ہو تو F=ṁΔv۔"],["کمیتی بہاؤ کی شرح","ṁ=ρAv، جہاں ρ کثافت، A مقطعی رقبہ اور v بہاؤ کی رفتار ہے۔ چونکہ Q=Av، اس لیے ṁ=ρQ۔"],["پانی کے بہاؤ کی عمومی قوت","F=ρAvΔv یا F=ρQΔv؛ قوت کی سمت سمتی رفتار کی تبدیلی کی سمتی سمت ہوتی ہے۔"],["پانی کو روکنا","اگر v رفتار کا پانی تقریباً سکون تک روک دیا جائے تو |Δv|=v اور F=ṁv۔"],["سمت تبدیل کرنا","اگر سمتی رفتار +v سے −v ہو جائے تو Δv=−2v اور قوت کی مقدار F=2ṁv ہوتی ہے۔"],["اطلاقات","یہ اصول پانی کی ٹربائنوں، پن بجلی کے نظام، واٹر جیٹس اور ہائیڈرولک مشینوں میں استعمال ہوتا ہے۔"]]},
+  "9":{title:"3.9 راکٹ پروپلشن",definition:"راکٹ پروپلشن بنیادی طور پر نیوٹن کے تیسرے قانون اور خطی مومینٹم کے تحفظ پر مبنی ہے۔ تیز رفتار خارج ہونے والی گیسیں پیچھے کی طرف نکالی جاتی ہیں، جس سے راکٹ کو آگے کی طرف مومینٹم اور دفعی قوت ملتی ہے۔",subtopics:[["دفعی قوت","مثالی دفعی قوت: F_thrust≈ṁv_e، جہاں ṁ خارج ہونے والی کمیت کی بہاؤ کی شرح اور v_e راکٹ کے نسبت گیسوں کی رفتار ہے۔"],["دباؤ کا حصہ","زیادہ مکمل مساوات F_thrust=ṁv_e+(p_e−p_a)A_e ہے؛ نوزل کے خروج پر دباؤ کا فرق اضافی دفعی قوت پیدا کرتا ہے۔"],["متغیر کمیت","ایندھن جلنے سے راکٹ کی کمیت کم ہوتی ہے، لیکن صرف کمیت کم ہونے کی وجہ سے تعجیل لازماً مسلسل نہیں بڑھتی۔ دفعی قوت، موجودہ کمیت، کششِ ثقل، ہوا کی مزاحمت اور خارج ہونے والی گیسوں کی حالت سب اثر انداز ہوتے ہیں۔"],["عمودی حرکت","سادہ اوپر کی حرکت میں a=(T−mg)/m۔ اگر T>mg ہو تو راکٹ اوپر کی طرف تعجیل حاصل کر سکتا ہے۔"],["خلا","راکٹ کو حرکت کے لیے بیرونی ہوا کی ضرورت نہیں۔ دفعی قوت خارج ہونے والی گیسوں کے مومینٹم کی تبدیلی اور ردِعمل قوت سے پیدا ہوتی ہے، اس لیے راکٹ خلا میں بھی کام کرتا ہے۔"]]},
+  "10":{title:"3.10 مقذوف حرکت",definition:"مقذوف حرکت کششِ ثقل کے تحت دو بُعدی حرکت ہے، جب ہوا کی مزاحمت کو نظر انداز کیا جائے۔ ابتدائی سمتی رفتار کو افقی اور عمودی اجزا میں تقسیم کر کے دونوں سمتوں کا الگ تجزیہ کیا جاتا ہے۔",subtopics:[["ابتدائی اجزا اور مساوات","u_x=u cosθ، u_y=u sinθ؛ a_x=0، a_y=−g۔ افقی: x=(u cosθ)t۔ عمودی: y=(u sinθ)t−½gt²۔"],["سمتی رفتار اور راستہ","v_x=u cosθ؛ v_y=u sinθ−gt۔ راستہ y=x tanθ−gx²/(2u²cos²θ) ہے، جو مثالی حالت میں سهمی شکل رکھتا ہے۔"],["وقت، بلندی اور رینج","اگر توغ اور سقوط کی سطح ایک ہو: T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g۔ زیادہ سے زیادہ رینج θ=45° پر ہوتی ہے اور R_max=u²/g۔"],["بلند ترین نقطہ اور متمم زاویے","بلند ترین نقطے پر v_y=0 ہوتا ہے، لیکن v_x=u cosθ عموماً صفر نہیں ہوتا؛ تعجیل اب بھی g نیچے کی طرف ہوتی ہے۔ θ اور 90°−θ ایک ہی ابتدائی رفتار پر برابر رینج دے سکتے ہیں، مگر عموماً بلندی اور پرواز کا وقت مختلف ہوتے ہیں۔"],["پانی، راکٹ اور تصادم کا اعادہ","پانی کے بہاؤ کی قوت F=ṁΔv اور ṁ=ρAv=ρQ ہے۔ راکٹ کی دفعی قوت تقریباً ṁv_e ہے۔ الگ تھلگ نظام میں مومینٹم محفوظ رہتا ہے؛ لچکدار تصادم میں مومینٹم اور حرکی توانائی دونوں محفوظ رہتے ہیں۔"],["یونٹ 3 کا فارمولا شیٹ","حرکیات: Δx=x_f−x_i؛ v_avg=Δx/Δt؛ a_avg=Δv/Δt؛ v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2۔ نیوٹن: F_net=ma؛ W=mg۔ مومینٹم/امپلس: p=mv؛ F=Δp/Δt؛ J=Δp=FΔt۔ مومینٹم کا تحفظ: m₁u₁+m₂u₂=m₁v₁+m₂v₂۔ پانی: ṁ=ρAv=ρQ؛ F=ṁΔv۔ راکٹ: F_thrust≈ṁv_e۔ مقذوف: u_x=u cosθ؛ u_y=u sinθ؛ T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g؛ R_max=u²/g۔"]]}
+};
+function academicLocalSemanticTranslate(text,lang,context){
+ const key=`${context?.topic||''}|${context?.field||''}`;
+ if(lang==='ur' && P03_URDU_BENCHMARKS[key]) return P03_URDU_BENCHMARKS[key];
+ const n=Number(context?.topic)||0, pack=P03_URDU_TOPIC_PACKS[String(n)];
+ if(lang==='ur' && pack){
+   if(context?.subNumber){ const sub=pack.subtopics?.[Number(context.subNumber)-1]; if(sub) return `${sub[0]}\n\n${sub[1]}`; }
+   if(context?.field==='title') return pack.title;
+   if(context?.field==='definition') return pack.definition;
+ }
+ return null;
+}
+
+async function academicTranslationProvider(text,lang,context,job){
+  const target=lang==='ur'?'ur':'ps';
+  const local=academicLocalSemanticTranslate(text,lang,context);
+  if(local!=null) return local;
+  if(typeof window.TranslatorAPI?.translate==='function'){
+    const fn=window.TranslatorAPI.translate.bind(window.TranslatorAPI);
+    try{return await fn(text,{sourceLanguage:'en',targetLanguage:target,context,job});}
+    catch(e){
+      try{return await fn(text,'en',target,context,job);}catch(_){throw e;}
+    }
+  }
+  /* Browser Translator API, when the host browser exposes it. */
+  if(typeof window.Translator==='object' || typeof window.Translator==='function'){
+    let translator=academicNativeTranslators.get(target);
+    if(!translator){
+      if(typeof window.Translator.create!=='function') throw new Error('No compatible Translator provider is available.');
+      translator=await window.Translator.create({sourceLanguage:'en',targetLanguage:target});
+      academicNativeTranslators.set(target,translator);
+    }
+    if(typeof translator.translate!=='function') throw new Error('Browser Translator provider has no translate() method.');
+    return await translator.translate(text);
+  }
+  throw new Error('No translation provider configured. Set window.TranslatorAPI.translate or use a browser with Translator API support.');
+}
+async function academicTranslateField(lang,n,field,index,runId){
+  const source=academicTranslationSourceField(n,field,index);
+  if(!source.trim()) return '';
+  const cached=academicTranslationGet(lang,n,field,index,source);
+  if(cached!=null) return cached;
+  const visualSafe=academicTranslationVisualSafe(source);
+  const protectedText=academicTranslationProtect(visualSafe.safe);
+  const safe={safe:protectedText.safe,tokens:[...visualSafe.tokens,...protectedText.tokens]};
+  let translated='';
+  const words=TranslationMachine.wordCount(safe.safe);
+  if(words>500){
+    const jobs=TranslationMachine.createJobs(safe.safe,{language:lang,topic:n,field,index},{maxWords:500,targetWords:500});
+    academicTranslationJobs.set(`${lang}:${academicTranslationFieldKey(n,field,index)}`,jobs);
+    await TranslationMachine.translateJobs(jobs,(chunk,context,job)=>academicTranslationProvider(chunk,lang,{...context,instruction:academicTranslationInstruction(lang),terminology:P03_PHYSICS_TERMINOLOGY[lang]},job));
+    const validation=TranslationMachine.validateJobs(jobs,{maxWords:500});
+    if(!validation.ok) throw new Error(`Translation job validation failed: ${validation.issues.join(', ')}`);
+    translated=TranslationMachine.reassemble(jobs,{joiner:' '});
+  }else{
+    translated=await academicTranslationProvider(safe.safe,lang,{topic:n,field,index,instruction:academicTranslationInstruction(lang),terminology:P03_PHYSICS_TERMINOLOGY[lang]},null);
+  }
+  translated=academicTranslationRestoreProtected(translated,protectedText.tokens);
+  translated=academicTranslationRestore(translated,visualSafe.tokens);
+  const isBenchmark=(lang==='ur' && P03_URDU_BENCHMARKS[`${n}|${field}`]===translated);
+  if(!isBenchmark) translated=academicTerminologyNormalize(translated,lang,source);
+  academicTranslationSet(lang,n,field,index,source,translated);
+  return translated;
+}
+function academicLangPack(n){
+  const base=topicData?.[n]?.academic||{};
+  const baseLinks=topicVisualLinks(n).map(v=>v.link);
+  const inherit=(definition)=>{
+    const d=String(definition??'');
+    return /\[\[visual:physics:\/\//.test(d)?d:(d+(baseLinks.length?' '+baseLinks.map(x=>`[[visual:${x}]]`).join(' '):''));
+  };
+  if(activeAcademicLanguage==='en'){
+    return {title:base.title||`Topic ${n}`,definition:inherit(base.definition||''),subtopics:Array.isArray(base.subtopics)?base.subtopics.map(x=>({title:x[0],definition:x[1]})):[]};
+  }
+  const lang=activeAcademicLanguage;
+  const title=academicTranslationGet(lang,n,'title');
+  const definition=academicTranslationGet(lang,n,'definition');
+  const subtopics=Array.isArray(base.subtopics)?base.subtopics.map((x,i)=>({
+    title:academicTranslationGet(lang,n,'subtopicTitle',i) ?? String(x[0]||''),
+    definition:academicTranslationGet(lang,n,'subtopicDefinition',i) ?? String(x[1]||'')
+  })):[];
+  return {title:title??String(base.title||`Topic ${n}`),definition:inherit(definition??String(base.definition||'')),subtopics};
+}
+async function translateAcademicField(lang,n,field,index,runId){
+  const targetRun=runId;
+  try{
+    await academicTranslateField(lang,n,field,index,targetRun);
+    if(targetRun!==academicTranslationRun || activeAcademicLanguage!==lang) return;
+    academicTranslationStatus=`${lang.toUpperCase()} translation updated`;
+    renderChapterAcademic();
+    renderTopics();
+    if(document.getElementById('topicContentView')?.innerHTML) renderTopicLanguage(window.__activeTopicNumber||n);
+    syncPashtoLectureReadingArea?.();
+  }catch(error){
+    if(targetRun!==academicTranslationRun) return;
+    academicTranslationStatus=`Translation provider unavailable: ${error.message}`;
+    console.warn('P03 Translator Master:',error);
+  }
+}
+async function translateAcademicLanguage(lang){
+  if(!['ur','ps'].includes(lang)) return;
+  const runId=++academicTranslationRun;
+  academicTranslationStatus=`Translating ${lang==='ur'?'Urdu':'Pashto'} from the English academic master…`;
+  renderChapterAcademic();
+  renderTopics();
+  for(let n=1;n<=topicCount;n++){
+    if(runId!==academicTranslationRun || activeAcademicLanguage!==lang) return;
+    await translateAcademicField(lang,n,'title',null,runId);
+    await translateAcademicField(lang,n,'definition',null,runId);
+    const subs=topicData?.[n]?.academic?.subtopics||[];
+    for(let i=0;i<subs.length;i++){
+      await translateAcademicField(lang,n,'subtopicTitle',i,runId);
+      await translateAcademicField(lang,n,'subtopicDefinition',i,runId);
+      if(runId!==academicTranslationRun || activeAcademicLanguage!==lang) return;
+    }
+    renderChapterAcademic();
+    renderTopics();
+  }
+  if(runId===academicTranslationRun && activeAcademicLanguage===lang){
+    academicTranslationStatus=`${lang==='ur'?'Urdu':'Pashto'} translation complete`;
+    renderChapterAcademic();
+    renderTopics();
+  }
+}
+function setAcademicTranslationProvider(provider){
+  if(typeof provider!=='function') throw new TypeError('Translation provider must be a function.');
+  window.TranslatorAPI={translate:provider};
+  academicTranslationStatus='Translation provider connected.';
+  if(['ur','ps'].includes(activeAcademicLanguage)) translateAcademicLanguage(activeAcademicLanguage);
+}
+window.P03TranslatorMaster=Object.freeze({
+  version:'2.0.0-semantic-academic',
+  translate:translateAcademicLanguage,
+  setProvider:setAcademicTranslationProvider,
+  getState:(lang)=>Object.fromEntries(Object.entries(academicTranslationState[lang]||{}).map(([k,v])=>[k,typeof v==='object'&&v?v.value:v]))
+});
+
+
 function academicLanguageControls(scope='lecture'){
  const active=activeAcademicLanguage;
  return `<div class="academic-language-switcher" role="group" aria-label="Lecture language"><button type="button" class="${active==='en'?'active':''}" onclick="setAcademicLanguage('en')">English</button><button type="button" class="${active==='ur'?'active':''}" onclick="setAcademicLanguage('ur')">اردو</button><button type="button" class="${active==='ps'?'active':''}" onclick="setAcademicLanguage('ps')">پښتو</button></div>`;
@@ -916,9 +1402,9 @@ function masteryTopicData(n){
 function masteryVisualFrames(count){return Array.from({length:count},(_,i)=>`<div class="mastery-visual-frame">Visual ${i+1}</div>`).join('');}
 function masteryLearningLead(n){
  const t=masteryTopicData(n); const count=t.subs.length;
- if(activeAcademicLanguage==='ps') return count?`په دې Topic کې ${count} بنسټیز subtopics دا concept → application → checking په تسلسل کې درک کړئ.`:'دا دې Topic بنسټیز concept دا تعریف، بېلګې او application له لارې درک کړئ.';
+ if(activeAcademicLanguage==='ps') return count?`په دې موضوع کې ${count} بنسټیز فرعي موضوعات د مفهوم، عملي کارونې او ارزونې په پرله‌پسې بهیر کې درک کړئ.`:'د دې موضوع بنسټیز مفهوم د تعریف، بېلګو او عملي کارونې له لارې درک کړئ.';
  if(activeAcademicLanguage==='en') return count?`Understand the ${count} core subtopics through a sequence of concept, application, and checking.`:'Understand the core concept through its definition, example, and application.';
- return count?`اس Topic میں ${count} بنیادی subtopics کو concept → application → checking کے تسلسل میں سمجھیں۔`:'اس Topic کے بنیادی concept کو definition، مثال اور application کے ذریعے سمجھیں۔';
+ return count?`اس موضوع کے ${count} بنیادی ذیلی موضوعات کو تصور، عملی استعمال اور جانچ کے تسلسل کے ذریعے سمجھیں۔`:'اس موضوع کے بنیادی تصور کو تعریف، مثال اور عملی استعمال کے ذریعے سمجھیں۔';
 }
 function masteryEnglishHeading(v){ return String(v??'').trim(); }
 function masteryText(v){
@@ -926,18 +1412,30 @@ function masteryText(v){
  return masteryRTLText(v);
 }
 function masteryTopicTemplate(topicNumber){
+ activeAcademicLanguage='en';
  const t=masteryTopicData(topicNumber), links=topicVisualLinks(topicNumber).map(v=>v.link);
- const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic" id="masteryTopic${topicNumber}Sub${i+1}"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><div class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</div><div class="mastery-subtopic-focus"><span>${activeAcademicLanguage==='en'?'Learning focus':activeAcademicLanguage==='ps'?'دا زدا کړې تمرکز':'Learning focus'}</span><strong>${activeAcademicLanguage==='en'?'Understand the concept, then use it in measurement, reasoning, and application.':activeAcademicLanguage==='ps'?'لومړی concept درک کړئ، بیا یې په اندازه کولو، استدلال او application کې وکاروئ.':'Concept کو سمجھیں، پھر اسے measurement / reasoning / application میں استعمال کریں۔'}</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
- return `<section class="mastery-topic" id="masteryTopic${topicNumber}" data-topic="${topicNumber}"><div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><div class="mastery-topic-title">${masteryEsc(t.title)}</div></div><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">✓ Mark as read</button></div></div><div class="mastery-topic-overview"><div class="mastery-section-label">Definition</div><div>${masteryRichText(t.definition,links)}</div><div class="mastery-learning-lead">${masteryText(masteryLearningLead(topicNumber))}</div></div><div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div><div class="mastery-subtopics">${subMarkup}</div></section>`;
+ const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic" id="masteryTopic${topicNumber}Sub${i+1}"><div class="mastery-subtopic-head"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><button type="button" class="subtopic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, ${i+1})">🌐 Translate</button></div><div class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</div><div class="mastery-subtopic-focus"><span>Learning focus</span><strong>Understand the concept, then use it in measurement, reasoning, and application.</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
+ return `<section class="mastery-topic" id="masteryTopic${topicNumber}" data-topic="${topicNumber}"><div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><div class="mastery-topic-title">${masteryEsc(t.title)}</div></div><div class="mastery-topic-actions"><button type="button" class="topic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, null)">🌐 Translate</button><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">Mark as read</button></div></div></div><div class="mastery-topic-overview"><div class="mastery-section-label" dir="ltr">Definition</div><div dir="ltr">${masteryRichText(t.definition,links)}</div><div class="mastery-learning-lead">${masteryText(masteryLearningLead(topicNumber))}</div></div><div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div><div class="mastery-subtopics">${subMarkup}</div></section>`;
 }
+
+function syncLectureMasteryActionButtonSize(){
+ const mastery=document.querySelector('#functionalContentView .mastery-document');
+ if(!mastery)return;
+ const reference=mastery.querySelector('.mastery-topic-actions .topic-translate-btn');
+ if(!reference)return;
+ const rect=reference.getBoundingClientRect();
+ if(!rect.width||!rect.height)return;
+ mastery.style.setProperty('--mastery-translate-width',Math.round(rect.width)+'px');
+ mastery.style.setProperty('--mastery-translate-height',Math.round(rect.height)+'px');
+}
+
 function renderActiveAcademicLanguage(){
+ activeAcademicLanguage='en';
  const mastery=document.querySelector('#functionalContentView .mastery-document');
  if(mastery){
-  const keepProgress=mastery.querySelector('.mastery-progress-bar')?.parentElement?.outerHTML||'';
   const oldScroll=document.querySelector('#functionalPage .main-content-container')?.scrollTop||0;
-  mastery.innerHTML=`<div class="view-header"><div class="subject-label page-main-heading">Lecture Mastery</div></div><div class="mastery-language-row">${academicLanguageControls('mastery')}</div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span>${activeAcademicLanguage==='en'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'en\')">🔊 English TTS</button>':activeAcademicLanguage==='ps'?'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ps\')">🔊 پښتو TTS</button>':'<button class="mastery-tts-global-btn" type="button" onclick="globalAcademicTTS(\'ur\')">🔊 اردو TTS</button>'}</div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>${activeAcademicLanguage==='en'?'Lecture Mastery presents each Topic as a continuous learning path using its academic content and subtopics.':activeAcademicLanguage==='ps'?'Lecture Mastery هر Topic دا هغه دا علمي محتوا او ټولو subtopics له لارې دا زدا کړې په پرله-پسې مسیر کې وړاندې کوي.':'Lecture Mastery ہر Topic کو اس کے academic content اور تمام subtopics سے ایک مسلسل learning path میں پیش کرتا ہے۔'}</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div>`;
-  renderMasteryState(); dedupeMasterySubtopicHeadings(mastery); dictionaryBuildAndLinkOnce(); linkDictionaryTerms(mastery); applyGlobalAcademicDirection(mastery);
-  if(activeAcademicLanguage==='ps')setTimeout(syncPashtoLectureReadingArea,0);
+  mastery.innerHTML=`<div class="view-header"><div class="subject-label page-main-heading lecture-mastery-unit-heading" dir="ltr">Lecture Mastery</div></div><div class="english-study-banner"></div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span><button type="button" class="mastery-tts-global-btn mastery-tts-inline-btn" onclick="globalAcademicTTS('en')" aria-label="Read the full Lecture Mastery page in English">🔊 Eng TTS</button></div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>Lecture Mastery presents each Topic as a continuous learning path using its academic content and subtopics.</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div>`;
+  renderMasteryState(); dedupeMasterySubtopicHeadings(mastery); dictionaryBuildAndLinkOnce(); linkDictionaryTerms(mastery); applyGlobalAcademicDirection(mastery); syncLectureMasteryActionButtonSize();
   const sc=document.querySelector('#functionalPage .main-content-container'); if(sc)sc.scrollTop=oldScroll;
  }
  const topic=document.querySelector('#topicPage .topic-document');
@@ -945,14 +1443,16 @@ function renderActiveAcademicLanguage(){
   const n=Number(topic.dataset.topic||window.__activeTopicNumber||0); if(n)renderTopicLanguage(n);
  }
 }
+
 function renderTopicLanguage(n){
+ activeAcademicLanguage='en';
  const academic=academicLangPack(n), subs=academic.subtopics||[], links=topicVisualLinks(n).map(v=>v.link);
- const subBlocks=subs.map(sub=>`<section class="guided-container"><div class="guided-label">${academicEsc(sub.title)}</div><div class="guided-content ${academicDirectionClass(sub.definition)}">${academicRichMarkup(sub.definition)}</div></section>`).join('');
- const markup=`<div class="topic-document guided-document" data-topic="${n}"><div class="academic-language-row">${academicLanguageControls('topic')}</div><section class="guided-container"><div class="guided-label">${academicEsc(academic.title)}</div><div class="guided-content ${academicDirectionClass(academic.definition)}" id="topicDefinition">${academicRichMarkup(academic.definition,links)}</div></section>${subBlocks}</div>`;
+ const subBlocks=subs.map((sub,i)=>`<section class="guided-container" data-translation-block="subtopic" data-subtopic-index="${i}"><div class="guided-label">${academicEsc(sub.title)}</div><div class="guided-content ${academicDirectionClass(sub.definition)}">${academicRichMarkup(sub.definition)}</div></section>`).join('');
+ const markup=`<div class="topic-document guided-document" data-topic="${n}"><div class="english-study-toolbar"><span>English Academic Lesson</span><button type="button" class="topic-translate-btn" onclick="toggleP03TranslateMenu(this, ${n}, null)">🌐 Translate</button></div><section class="guided-container"><div class="guided-label">${academicEsc(academic.title)}</div><div class="guided-content ${academicDirectionClass(academic.definition)}" id="topicDefinition">${academicRichMarkup(academic.definition,links)}</div></section>${subBlocks}</div>`;
  document.getElementById('topicContentView').innerHTML=markup; dictionaryBuildAndLinkOnce(); linkDictionaryTerms(document.getElementById('topicContentView')); applyGlobalAcademicTextDirection(document.getElementById('topicContentView'));
 }
 function openMasterySubtopic(topicNumber,subNumber){document.getElementById(`masteryTopic${topicNumber}Sub${subNumber}`)?.scrollIntoView({behavior:'smooth',block:'center'});}
-function renderMasteryState(){const p=getMasteryProgress();document.querySelectorAll('.mastery-topic').forEach(sec=>{const n=Number(sec.dataset.topic),read=!!p[n];sec.classList.toggle('is-read',read);const b=sec.querySelector('.mastery-read-btn');if(b)b.textContent=read?'✓ Read':'✓ Mark as read';const nav=document.querySelector(`.mastery-nav button[data-topic="${n}"]`);if(nav)nav.classList.toggle('read',read)});const done=Object.keys(p).filter(k=>p[k]).length;const fill=document.getElementById('masteryProgressFill');const textEl=document.getElementById('masteryProgressText');if(fill)fill.style.width=(done/topicCount*100)+'%';if(textEl)textEl.textContent=`${done}/${topicCount} Topics read`;}
+function renderMasteryState(){const p=getMasteryProgress();document.querySelectorAll('.mastery-topic').forEach(sec=>{const n=Number(sec.dataset.topic),read=!!p[n];sec.classList.toggle('is-read',read);const b=sec.querySelector('.mastery-read-btn');if(b)b.textContent=read?'Read':'Mark as read';const nav=document.querySelector(`.mastery-nav button[data-topic="${n}"]`);if(nav)nav.classList.toggle('read',read)});const done=Object.keys(p).filter(k=>p[k]).length;const fill=document.getElementById('masteryProgressFill');const textEl=document.getElementById('masteryProgressText');if(fill)fill.style.width=(done/topicCount*100)+'%';if(textEl)textEl.textContent=`${done}/${topicCount} Topics read`;}
 function toggleMasteryRead(n){const p=getMasteryProgress();p[n]=!p[n];saveMasteryProgress(p);renderMasteryState();}
 function resumeMastery(){const p=getMasteryProgress();const next=Array.from({length:topicCount},(_,i)=>i+1).find(n=>!p[n])||1;document.getElementById(`masteryTopic${next}`)?.scrollIntoView({behavior:'smooth',block:'start'});}
 function openMasteryTopic(n){return false;}
@@ -1821,6 +2321,7 @@ window.addEventListener('resize',()=>{if(document.getElementById('topicsPage')?.
 initHitCeiling();renderChapterAcademic();renderTopics();
 
 let globalNavScrollHandler=null; let globalNavStopTimer=null; let globalNavPageId=null;
+
 function initGlobalNavigation(pageId){
   document.querySelectorAll('.global-previous-page-tab').forEach(el=>el.remove());
   if(!pageId||['homePage','topicsPage','hitCeilingPage'].includes(pageId))return;
@@ -1866,6 +2367,270 @@ function globalNavStep(scroller,back){
 }
 </script>
 
+<style>
+/* English-first teaching architecture: translation is an on-demand support layer. */
+.academic-language-row,.mastery-language-row{display:none!important}
+.english-study-toolbar,.english-study-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;margin:0 0 12px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;color:var(--green);font-size:12px;font-weight:800}
+.english-study-banner{justify-content:center;text-align:center}
+.topic-translate-btn,.subtopic-translate-btn{border:1px solid var(--green);border-radius:9px;background:#fff;color:var(--green);padding:7px 11px;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap}.topic-translate-btn:hover,.subtopic-translate-btn:hover{background:var(--green);color:#fff}.p03-translate-menu{position:absolute;z-index:10001;width:var(--p03-menu-width,auto);min-width:0;padding:0;margin:0;border:0;background:transparent;box-shadow:none;display:none;gap:0;flex-direction:column;align-items:flex-start;pointer-events:auto}.p03-translate-menu.visible{display:flex}.p03-translate-menu button{box-sizing:border-box;width:100%;min-width:0;height:var(--p03-menu-button-height,32px);margin:0;padding:7px 11px;text-align:left;font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;font-size:11px;font-weight:900;line-height:1;letter-spacing:0;white-space:nowrap}.p03-translate-menu .ps-option,.p03-translate-menu .ur-option{font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;font-size:11px;font-weight:900}
+.mastery-topic-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.mastery-subtopic-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.p03-translation-overlay{position:fixed;inset:0;z-index:50000;background:rgba(15,23,42,.68);display:none;align-items:stretch;justify-content:center;padding:12px}
+.p03-translation-overlay.visible{display:flex}
+.p03-translation-window{width:min(1100px,100%);height:100%;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 70px rgba(15,23,42,.35);display:flex;flex-direction:column;overflow:hidden}
+.p03-translation-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 15px;background:var(--green);color:#fff;border-bottom:3px solid #c9a95b}
+.p03-translation-title{font-size:14px;font-weight:900;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.p03-translation-head-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.p03-translation-head button,.p03-translation-close{border:1px solid rgba(255,255,255,.35);border-radius:8px;background:rgba(255,255,255,.1);color:#fff;padding:6px 9px;font-weight:900;cursor:pointer}
+.p03-translation-body{flex:1;min-height:0;overflow:auto;padding:18px 20px;background:#fffdf8}
+.p03-translation-content{max-width:920px;margin:0 auto;font-size:16px;line-height:1.85;white-space:pre-wrap;overflow-wrap:anywhere}
+.p03-translation-content[dir="rtl"]{direction:rtl;text-align:right;font-family:"Noto Naskh Arabic",Arial,sans-serif}
+.p03-translation-loading{text-align:center;padding:35px 15px;color:var(--muted);font-weight:800}
+.p03-translation-error{text-align:center;padding:35px 15px;color:var(--red);font-weight:800}
+.p03-translation-langbar{display:none!important;display:flex;align-items:center;justify-content:center;gap:7px;padding:9px;border-top:1px solid var(--line);background:#fafafa}
+.p03-translation-langbar button{border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);padding:7px 12px;font-weight:900;cursor:pointer}
+.p03-translation-langbar button.active{background:var(--green);color:#fff}
+.p03-translation-tts{border:1px solid var(--green)!important;background:#fff!important;color:var(--green)!important}
+/* Lecture Mastery surgical UI: English/LTR unit heading; Topic Translate remains a right-side tab. */
+.lecture-mastery-unit-heading{direction:ltr!important;text-align:left!important;unicode-bidi:isolate;}
+.mastery-topic-actions .topic-translate-btn{margin-left:auto;}
+.mastery-toolbar{position:relative;display:grid!important;grid-template-columns:auto auto;grid-template-rows:auto auto;align-items:center;column-gap:10px;row-gap:7px;}
+.mastery-toolbar .mastery-progress{grid-column:1;grid-row:1;min-width:0;}
+.mastery-toolbar .mastery-tts-page-btn{grid-column:2;grid-row:1;justify-self:end;position:static!important;z-index:auto!important;}
+.mastery-toolbar .mastery-progress-bar{grid-column:1 / -1;grid-row:2;width:100%;}
+.mastery-tts-global-btn{box-sizing:border-box;border:1px solid var(--green);border-radius:9px;background:#fff;color:var(--green);padding:7px 11px;font-size:11px;font-weight:900;line-height:1;white-space:nowrap;cursor:pointer;}
+.mastery-tts-global-btn:hover{background:var(--green);color:#fff;}
+@media(max-width:760px){.english-study-toolbar{align-items:stretch;flex-direction:column}.mastery-topic-actions{justify-content:flex-start}.p03-translation-overlay{padding:0}.p03-translation-window{border-radius:0}.p03-translation-content{font-size:15px;padding:2px}.p03-translation-head{padding:10px}.p03-translation-title{font-size:12px}}
+</style>
+<div id="p03TranslationOverlay" class="p03-translation-overlay" role="dialog" aria-modal="true" aria-labelledby="p03TranslationTitle">
+  <div class="p03-translation-window">
+    <div class="p03-translation-head">
+      <div class="p03-translation-title" id="p03TranslationTitle">Translation</div>
+      <div class="p03-translation-head-actions">
+        <button type="button" id="p03TranslationTTS" class="p03-translation-tts" onclick="p03TranslationToggleTTS()">🔊 TTS</button>
+        <button type="button" class="p03-translation-close" onclick="closeP03Translation()" aria-label="Close translation">×</button>
+      </div>
+    </div>
+    <div class="p03-translation-body"><div id="p03TranslationContent" class="p03-translation-content" dir="ltr"><div class="p03-translation-loading">Select Urdu or Pashto.</div></div></div>
+    <div class="p03-translation-langbar"><button type="button" id="p03TranslationUrdu" onclick="runP03Translation('ur')">اردو</button><button type="button" id="p03TranslationPashto" onclick="runP03Translation('ps')">پښتو</button></div>
+  </div>
+</div>
+<div id="p03TranslateMenu" class="p03-translate-menu" role="menu" aria-label="Translation language"><button type="button" class="topic-translate-btn ur-option" onclick="chooseP03TranslationLanguage('ur');event.stopPropagation()">🌐 Urdu</button><button type="button" class="topic-translate-btn ps-option" onclick="chooseP03TranslationLanguage('ps');event.stopPropagation()">🌐 Pashto</button></div>
+<script>
+const p03ScreenTranslationCache={ur:Object.create(null),ps:Object.create(null)};
+let p03TranslationSource='';
+let p03TranslationTitle='Translation';
+let p03TranslationKey='';
+let p03TranslationLang='';
+let p03TranslationTTSUtterance=null;
+let p03TranslationTTSIndex=0;
+let p03TranslationTTSChunks=[];
+let p03TranslationAudio=null;
+
+function p03TranslationEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function p03TranslationTextFromRoot(root){
+ if(!root)return '';
+ const clone=root.cloneNode(true);
+ clone.querySelectorAll('button,.english-study-toolbar,.topic-translate-btn,.subtopic-translate-btn,.mastery-read-btn,.mastery-step-arrow').forEach(e=>e.remove());
+ return String(clone.innerText||clone.textContent||'').replace(/\n{3,}/g,'\n\n').trim();
+}
+function p03TranslationKeyFor(source,key){
+ return `${key}|${source.length}|${source.slice(0,120)}|${source.slice(-120)}`;
+}
+let p03TranslateMenuTarget=null;
+let p03TranslateMenuTopic=0;
+let p03TranslateMenuSub=null;
+function positionP03TranslateMenu(button){
+ const menu=document.getElementById('p03TranslateMenu'); if(!menu||!button)return;
+ const parent=button.parentElement; if(!parent)return;
+ /* The language sheet belongs to the same local layout container as the
+    clicked Translate tab. It is therefore part of the topic flow, not fixed
+    to the viewport. */
+ if(menu.parentElement!==parent){
+   menu.remove();
+   parent.appendChild(menu);
+ }
+ if(getComputedStyle(parent).position==='static') parent.style.position='relative';
+ const width=Math.round(button.getBoundingClientRect().width);
+ const height=Math.round(button.getBoundingClientRect().height);
+ menu.style.setProperty('--p03-menu-width',width+'px');
+ menu.style.setProperty('--p03-menu-button-height',height+'px');
+ menu.style.left=button.offsetLeft+'px';
+ menu.style.top=(button.offsetTop+button.offsetHeight)+'px';
+}
+function refreshP03TranslateMenuPosition(){
+ if(p03TranslateMenuTarget?.isConnected&&document.getElementById('p03TranslateMenu')?.classList.contains('visible')) positionP03TranslateMenu(p03TranslateMenuTarget);
+}
+let p03TranslateAttachedScroller=null;
+function attachP03TranslateMenuScroller(button){
+ const scroller=button?.closest('.main-content-container');
+ if(p03TranslateAttachedScroller===scroller)return;
+ if(p03TranslateAttachedScroller)p03TranslateAttachedScroller.removeEventListener('scroll',refreshP03TranslateMenuPosition);
+ p03TranslateAttachedScroller=scroller||null;
+ if(p03TranslateAttachedScroller)p03TranslateAttachedScroller.addEventListener('scroll',refreshP03TranslateMenuPosition,{passive:true});
+}
+
+function closeP03TranslateMenu(){const menu=document.getElementById('p03TranslateMenu');menu?.classList.remove('visible');if(p03TranslateAttachedScroller)p03TranslateAttachedScroller.removeEventListener('scroll',refreshP03TranslateMenuPosition);p03TranslateAttachedScroller=null;p03TranslateMenuTarget=null;p03TranslateMenuTopic=0;p03TranslateMenuSub=null;}
+function toggleP03TranslateMenu(button,n,subNumber){
+ const menu=document.getElementById('p03TranslateMenu'); if(!menu)return;
+ if(menu.classList.contains('visible')&&p03TranslateMenuTarget===button){closeP03TranslateMenu();return;}
+ p03TranslateMenuTarget=button;p03TranslateMenuTopic=Number(n||0);p03TranslateMenuSub=subNumber==null?null:Number(subNumber);
+ positionP03TranslateMenu(button); attachP03TranslateMenuScroller(button); menu.classList.add('visible'); positionP03TranslateMenu(button);
+}
+function chooseP03TranslationLanguage(lang){
+ const n=p03TranslateMenuTopic,sub=p03TranslateMenuSub,button=p03TranslateMenuTarget;
+ const isTopic=!!button?.closest('#topicContentView');
+ closeP03TranslateMenu();
+ if(sub){
+  const root=document.querySelector(`#masteryTopic${n}Sub${sub}`); if(!root)return;
+  const title=root.querySelector('h3')?.innerText||`Topic ${n} Subtopic ${sub}`;
+  openP03Translation(p03TranslationTextFromRoot(root),`${title} — Translation`,`mastery:${n}:sub:${sub}`);
+ }else if(isTopic){
+  openTopicTranslation(n);
+ }else{
+  openMasteryTranslation(n);
+ }
+ runP03Translation(lang);
+}
+document.addEventListener('click',e=>{const menu=document.getElementById('p03TranslateMenu');if(!menu?.classList.contains('visible'))return;if(e.target.closest('#p03TranslateMenu')||e.target===p03TranslateMenuTarget)return;closeP03TranslateMenu();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeP03TranslateMenu();});
+window.addEventListener('resize',()=>{if(p03TranslateMenuTarget?.isConnected)positionP03TranslateMenu(p03TranslateMenuTarget);else closeP03TranslateMenu();});
+
+function openP03Translation(source,title,key){
+ p03TranslationSource=String(source||'').trim();
+ p03TranslationTitle=String(title||'Translation');
+ p03TranslationKey=p03TranslationKeyFor(p03TranslationSource,key||'screen');
+ p03TranslationLang='';
+ const overlay=document.getElementById('p03TranslationOverlay');
+ const content=document.getElementById('p03TranslationContent');
+ const titleEl=document.getElementById('p03TranslationTitle');
+ if(titleEl)titleEl.textContent=p03TranslationTitle;
+ if(content){content.dir='ltr';content.textContent='Choose Urdu or Pashto to translate this lesson.';content.className='p03-translation-content';}
+ document.getElementById('p03TranslationUrdu')?.classList.remove('active');
+ document.getElementById('p03TranslationPashto')?.classList.remove('active');
+ overlay?.classList.add('visible');
+ document.body.style.overflow='hidden';
+}
+function closeP03Translation(){
+ p03TranslationStopTTS();
+ document.getElementById('p03TranslationOverlay')?.classList.remove('visible');
+ document.body.style.overflow='';
+ p03TranslationSource='';p03TranslationKey='';p03TranslationLang='';
+}
+function openTopicTranslation(n){
+ const root=document.querySelector(`#topicContentView .topic-document[data-topic="${n}"]`);
+ if(!root)return;
+ openP03Translation(p03TranslationTextFromRoot(root),`Topic ${n} — Translation`,`topic:${n}`);
+}
+function openMasteryTranslation(n,subNumber){
+ const root=subNumber?document.querySelector(`#masteryTopic${n}Sub${subNumber}`):document.getElementById(`masteryTopic${n}`);
+ if(!root)return;
+ const title=subNumber?(root.querySelector('h3')?.innerText||`Topic ${n} Subtopic ${subNumber}`):(root.querySelector('.mastery-topic-title')?.innerText||`Topic ${n}`);
+ openP03Translation(p03TranslationTextFromRoot(root),`${title} — Translation`,subNumber?`mastery:${n}:sub:${subNumber}`:`mastery:${n}`);
+}
+async function p03TranslateLongText(source,lang,key){
+  /* Full-screen translation must use the course's own Translator Master/translation memory.
+     Do not bypass it with the low-level provider: that is what previously caused the
+     "No translation provider configured" message even though PHY03 already contained
+     curated Pashto master content. */
+  const match=String(key||'').match(/(?:topic|mastery):(\d+)(?::sub:(\d+))?/);
+  const n=match?Number(match[1]):Number(window.__activeTopicNumber||0);
+  const subNumber=match&&match[2]?Number(match[2]):null;
+  /* Always prefer the embedded PHY03 translation masters.  The full-screen
+     translator must never fall through to an unconfigured external provider
+     when a local Urdu/Pashto course pack is available. */
+  const localPack = lang==='ur' ? P03_URDU_TOPIC_PACKS?.[String(n)] : academicLanguageData?.[String(n)]?.ps;
+  const pack=localPack || academicLanguageData?.[String(n)]?.[lang];
+  const en=academicLanguageData?.[String(n)]?.en;
+
+  if(pack){
+    const blocks=[];
+    const add=(heading,text)=>{ if(String(heading||'').trim()) blocks.push(String(heading).trim()); if(String(text||'').trim()) blocks.push(String(text).trim()); };
+    if(subNumber){
+      const i=subNumber-1;
+      const sub=Array.isArray(pack.subtopics)?pack.subtopics[i]:null;
+      if(!sub) throw new Error('The requested subtopic is not present in the PHY03 translation master.');
+      add(sub[0],sub[1]);
+    }else{
+      add(pack.title,pack.definition);
+      (pack.subtopics||[]).forEach(sub=>add(sub[0],sub[1]));
+    }
+    if(blocks.length) return blocks.join('\n\n').trim();
+  }
+
+  /* Urdu may be supplied by the configured Translator Master provider.  In that case
+     call the structured master rather than sending the entire DOM to a generic MT API. */
+  const localUr=lang==='ur' ? academicLocalSemanticTranslate(source,lang,{topic:n,field:'full-screen',subNumber}) : null;
+  if(localUr) return localUr;
+
+  const translatorMaster=window.TranslatorMaster||window.P03TranslatorMaster;
+  if(lang==='ur' && n && typeof translatorMaster?.translateTopic==='function'){
+    const result=await translatorMaster.translateTopic(n);
+    const parts=[];
+    if(subNumber){
+      const sub=result?.subtopics?.[subNumber-1];
+      if(sub){ parts.push(String(sub[0]||''),String(sub[1]||'')); }
+    }else{
+      parts.push(String(result?.title||''),String(result?.definition||''));
+      (result?.subtopics||[]).forEach(sub=>parts.push(String(sub[0]||''),String(sub[1]||'')));
+    }
+    const out=parts.filter(Boolean).join('\n\n').trim();
+    if(out)return out;
+  }
+
+  throw new Error(`Embedded ${lang==='ur'?'Urdu':'Pashto'} translation master is missing for Topic ${n}.`);
+}
+async function runP03Translation(lang){
+ if(!['ur','ps'].includes(lang)||!p03TranslationSource)return;
+ p03TranslationLang=lang;
+ const content=document.getElementById('p03TranslationContent');
+ const buttons={ur:document.getElementById('p03TranslationUrdu'),ps:document.getElementById('p03TranslationPashto')};
+ Object.entries(buttons).forEach(([k,b])=>b?.classList.toggle('active',k===lang));
+ p03TranslationStopTTS();
+ content.className='p03-translation-content';content.dir='ltr';content.innerHTML='<div class="p03-translation-loading">Translating the complete lesson…</div>';
+ const cached=p03ScreenTranslationCache[lang]?.[p03TranslationKey];
+ try{
+   const translated=cached||await p03TranslateLongText(p03TranslationSource,lang,p03TranslationKey);
+   p03ScreenTranslationCache[lang][p03TranslationKey]=translated;
+   content.textContent=translated;
+   content.dir='rtl';
+ }catch(e){
+   content.dir='ltr';content.innerHTML=`<div class="p03-translation-error">Translation could not be completed. ${p03TranslationEsc(e?.message||e)}</div>`;
+ }
+}
+function p03TranslationSplit(text){
+ const parts=String(text||'').split(/(?<=[.!?۔؟!])\s+|\n+/).map(s=>s.trim()).filter(Boolean),out=[];let buf='';
+ for(const part of parts){if((buf+' '+part).trim().length<=180)buf=(buf+' '+part).trim();else{if(buf)out.push(buf);buf=part;}}
+ if(buf)out.push(buf);return out;
+}
+function p03TranslationSpeechText(text){return String(text||'').replace(/\[\[visual:[^\]]+\]\]/g,'').replace(/\s+/g,' ').trim();}
+function p03TranslationToggleTTS(){
+ if(!p03TranslationLang)return;
+ if(p03TranslationTTSUtterance||p03TranslationAudio){p03TranslationStopTTS();return;}
+ const text=document.getElementById('p03TranslationContent')?.innerText?.trim();if(!text)return;
+ p03TranslationTTSChunks=p03TranslationSplit(text);p03TranslationTTSIndex=0;p03TranslationPlayNext();
+}
+function p03TranslationPlayNext(){
+ if(p03TranslationTTSIndex>=p03TranslationTTSChunks.length){p03TranslationStopTTS();return;}
+ const text=p03TranslationSpeechText(p03TranslationTTSChunks[p03TranslationTTSIndex++]);
+ const cfg=p03TranslationLang==='ps'?{lang:'ps-PK',remote:'ps'}:{lang:'ur-PK',remote:'ur'};
+ if(window.speechSynthesis){
+   p03TranslationTTSUtterance=new SpeechSynthesisUtterance(text);p03TranslationTTSUtterance.lang=cfg.lang;p03TranslationTTSUtterance.rate=.9;p03TranslationTTSUtterance.onend=()=>{p03TranslationTTSUtterance=null;p03TranslationPlayNext();};p03TranslationTTSUtterance.onerror=()=>{p03TranslationTTSUtterance=null;p03TranslationPlayRemote(text,cfg);};window.speechSynthesis.cancel();window.speechSynthesis.speak(p03TranslationTTSUtterance);return;
+ }
+ p03TranslationPlayRemote(text,cfg);
+}
+function p03TranslationPlayRemote(text,cfg){
+ try{p03TranslationAudio?.pause();}catch(e){}
+ const audio=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+encodeURIComponent(cfg.remote)+'&q='+encodeURIComponent(text));
+ p03TranslationAudio=audio;audio.onended=()=>{p03TranslationAudio=null;p03TranslationPlayNext();};audio.onerror=()=>p03TranslationStopTTS();audio.play().catch(()=>p03TranslationStopTTS());
+}
+function p03TranslationStopTTS(){
+ try{window.speechSynthesis?.cancel();}catch(e){}
+ if(p03TranslationAudio){try{p03TranslationAudio.pause();p03TranslationAudio.src='';}catch(e){}}p03TranslationAudio=null;p03TranslationTTSUtterance=null;p03TranslationTTSIndex=0;p03TranslationTTSChunks=[];
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('p03TranslationOverlay')?.classList.contains('visible'))closeP03Translation();});
+document.getElementById('p03TranslationOverlay')?.addEventListener('click',e=>{if(e.target.id==='p03TranslationOverlay')closeP03Translation();});
+</script>
 <div id="masteryTTSPanel" class="mastery-tts-panel" aria-live="polite"><span class="mastery-tts-status" id="masteryTTSStatus">Select language</span><button type="button" onclick="academicTTSPausePlay()">Ⅱ/▶</button><button type="button" onclick="academicTTSStop()">■ Stop</button><button type="button" onclick="academicTTSHide()">×</button></div>
 <script>
 
@@ -2016,7 +2781,9 @@ function executePashtoMasterTTS(elementId) {
         alert("متن پیدا نشو (Text not found!)");
         return;
     }
-    var secureStreamUrl = "https://google.com" + encodeURIComponent(textContent);
+    var secureStreamUrl = (typeof academicTTSRemoteURL === 'function')
+        ? academicTTSRemoteURL(textContent)
+        : ('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ps&q=' + encodeURIComponent(textContent));
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
         var utterance = new SpeechSynthesisUtterance(academicTTSSpeechText(textContent));
@@ -2049,5 +2816,384 @@ function triggerPashtoFallback(streamUrl) {
 <script>
 document.addEventListener('DOMContentLoaded',function(){syncPashtoLectureReadingArea();});
 </script>
+<script>
+/*
+ * Reusable, deterministic translation-task segmentation + orchestration engine.
+ *
+ * Academic content is never rewritten by this machine.
+ * It only detects structure, segments source text, queues translation jobs,
+ * validates the queue, and reassembles translated parts in exact order.
+ *
+ * Segmentation contract:
+ * - 500 words is the maximum/target task size, not an equal-splitting rule.
+ * - Accumulate complete sentences until adding the next sentence would exceed 500.
+ * - Therefore 537 words may become 497 + 40, if 497 ends at a sentence boundary.
+ * - A paragraph may be split into multiple sequential translation tasks.
+ * - Never cut a sentence when a usable sentence boundary exists.
+ * - If one sentence itself exceeds 500, use clause punctuation; only then use whitespace.
+ * - Headings/subheadings are structural units and are never silently swallowed.
+ * - Split parts are adjacent continuations: no artificial blank paragraph is created.
+ * - Reassembly preserves task order and never invents paragraph breaks.
+ */
+(function (global) {
+  'use strict';
+
+  const DEFAULTS = Object.freeze({
+    maxWords: 500,
+    targetWords: 500,
+    minUsefulWords: 1
+  });
+
+  // Common sentence endings for English, Urdu, Pashto and Arabic-script prose.
+  const SENTENCE_END = /(?:[.!?。！？۔؟])(?:["'”’»)\]]+)?(?=\s|$)/gu;
+  const CLAUSE_END = /(?:[;؛:：,،])(?=\s|$)/gu;
+
+  function normalizeText(value) {
+    return String(value == null ? '' : value).replace(/\r\n?/g, '\n');
+  }
+
+  function compactWhitespace(value) {
+    return normalizeText(value).trim().replace(/\s+/gu, ' ');
+  }
+
+  function wordCount(value) {
+    const text = normalizeText(value).trim();
+    return text ? text.split(/\s+/u).length : 0;
+  }
+
+  function boundaryPositions(text, regex) {
+    const positions = [];
+    let match;
+    regex.lastIndex = 0;
+    while ((match = regex.exec(text)) !== null) {
+      positions.push(match.index + match[0].length);
+    }
+    regex.lastIndex = 0;
+    return positions;
+  }
+
+  function unitsAtBoundaries(text, boundaryRegex) {
+    const source = normalizeText(text).trim();
+    const units = [];
+    let start = 0;
+
+    for (const end of boundaryPositions(source, boundaryRegex)) {
+      const piece = source.slice(start, end).trim();
+      if (piece) units.push(piece);
+      start = end;
+    }
+
+    const tail = source.slice(start).trim();
+    if (tail) units.push(tail);
+    return units;
+  }
+
+  function packUnits(units, maxWords, reason) {
+    const chunks = [];
+    let current = [];
+    let count = 0;
+
+    for (const unit of units) {
+      const n = wordCount(unit);
+      if (current.length && count + n > maxWords) {
+        chunks.push({ text: current.join(' '), reason });
+        current = [];
+        count = 0;
+      }
+      current.push(unit);
+      count += n;
+    }
+
+    if (current.length) chunks.push({ text: current.join(' '), reason });
+    return chunks;
+  }
+
+  function whitespaceFallback(text, maxWords) {
+    const words = compactWhitespace(text).split(' ').filter(Boolean);
+    const chunks = [];
+    for (let i = 0; i < words.length; i += maxWords) {
+      chunks.push({
+        text: words.slice(i, i + maxWords).join(' '),
+        reason: 'hard-whitespace-fallback'
+      });
+    }
+    return chunks;
+  }
+
+  function splitAtBestBoundary(text, maxWords) {
+    const source = compactWhitespace(text);
+    if (!source) return [];
+    if (wordCount(source) <= maxWords) {
+      return [{ text: source, reason: 'within-limit' }];
+    }
+
+    // Level 1: complete sentences. This is intentionally greedy, not equal-sized.
+    const sentences = unitsAtBoundaries(source, SENTENCE_END);
+    const sentenceChunks = packUnits(sentences, maxWords, 'sentence-boundary');
+
+    if (sentenceChunks.every(chunk => wordCount(chunk.text) <= maxWords)) {
+      return sentenceChunks;
+    }
+
+    // Level 2: an individual sentence is over the limit. Split that sentence
+    // at clause/strong punctuation boundaries.
+    const finalChunks = [];
+    for (const sentenceChunk of sentenceChunks) {
+      if (wordCount(sentenceChunk.text) <= maxWords) {
+        finalChunks.push(sentenceChunk);
+        continue;
+      }
+
+      const clauses = unitsAtBoundaries(sentenceChunk.text, CLAUSE_END);
+      const clauseChunks = packUnits(clauses, maxWords, 'clause-boundary');
+
+      for (const clauseChunk of clauseChunks) {
+        if (wordCount(clauseChunk.text) <= maxWords) {
+          finalChunks.push(clauseChunk);
+        } else {
+          // Level 3: last resort; never cut a word.
+          finalChunks.push(...whitespaceFallback(clauseChunk.text, maxWords));
+        }
+      }
+    }
+
+    return finalChunks.filter(chunk => chunk.text);
+  }
+
+  function splitText(text, options) {
+    const cfg = Object.assign({}, DEFAULTS, options || {});
+    const maxWords = Math.max(1, Number(cfg.maxWords) || DEFAULTS.maxWords);
+    return splitAtBestBoundary(text, maxWords);
+  }
+
+  function isHeadingBlock(block) {
+    if (!block) return false;
+    const tag = String(block.tagName || '').toLowerCase();
+    return /^h[1-6]$/.test(tag) || block.type === 'heading' || block.type === 'subheading';
+  }
+
+  /**
+   * Convert DOM/content blocks into ordered translation tasks.
+   * This adapter does not mutate the source DOM.
+   */
+  function segmentStructured(blocks, options) {
+    const tasks = [];
+    let sequence = 0;
+    let sourceBlockOrder = 0;
+
+    for (let index = 0; index < (blocks || []).length; index++) {
+      const block = blocks[index] || {};
+      const source = compactWhitespace(block.text != null ? block.text : block.content);
+      if (!source) continue;
+
+      const blockOrder = sourceBlockOrder++;
+      const heading = isHeadingBlock(block);
+
+      if (heading) {
+        tasks.push(makeTask({
+          sequence: ++sequence,
+          sourceIndex: index,
+          sourceBlockOrder: blockOrder,
+          type: block.type || 'heading',
+          part: 1,
+          parts: 1,
+          isContinuation: false,
+          sourceBlockText: source,
+          sourceText: source,
+          splitReason: 'structural-heading'
+        }));
+        continue;
+      }
+
+      const pieces = splitText(source, options);
+      pieces.forEach((piece, pieceIndex) => {
+        tasks.push(makeTask({
+          sequence: ++sequence,
+          sourceIndex: index,
+          sourceBlockOrder: blockOrder,
+          type: block.type || 'paragraph',
+          part: pieceIndex + 1,
+          parts: pieces.length,
+          isContinuation: pieces.length > 1 && pieceIndex > 0,
+          sourceBlockText: source,
+          sourceText: piece.text,
+          splitReason: piece.reason
+        }));
+      });
+    }
+
+    return tasks;
+  }
+
+  function makeTask(data) {
+    return Object.assign({
+      id: `tm-${data.sequence}`,
+      status: 'pending',
+      translation: null,
+      wordCount: wordCount(data.sourceText)
+    }, data);
+  }
+
+  function segmentDOM(root, options) {
+    if (!root || typeof root.querySelectorAll !== 'function') return [];
+    const nodes = root.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption');
+    const blocks = Array.from(nodes).map((node, index) => ({
+      node,
+      tagName: node.tagName,
+      type: /^H[1-6]$/i.test(node.tagName) ? 'heading' : 'paragraph',
+      text: node.textContent,
+      sourceIndex: index
+    }));
+    return segmentStructured(blocks, options);
+  }
+
+  function createJobs(text, context, options) {
+    const source = compactWhitespace(text);
+    const pieces = splitText(source, options);
+    const total = pieces.length;
+    const sourceTotalWords = wordCount(source);
+
+    return pieces.map((piece, index) => ({
+      id: `tm-job-${index + 1}`,
+      index,
+      part: index + 1,
+      total,
+      context: context || null,
+      sourceText: piece.text,
+      wordCount: wordCount(piece.text),
+      sourceTotalWords,
+      splitReason: piece.reason,
+      status: 'pending',
+      translation: null
+    }));
+  }
+
+  async function translateJobs(jobs, translator, hooks) {
+    if (typeof translator !== 'function') {
+      throw new TypeError('TranslationMachine: translator callback is required.');
+    }
+
+    const h = hooks || {};
+    const results = jobs || [];
+
+    // Sequential by design: Part 2 is not sent before Part 1 completes.
+    for (let i = 0; i < results.length; i++) {
+      const job = results[i];
+      if (typeof h.before === 'function') await h.before(job, i, results);
+
+      try {
+        job.status = 'translating';
+        const translated = await translator(job.sourceText, job.context, job);
+        if (typeof translated !== 'string') {
+          throw new Error('Translator returned a non-string result.');
+        }
+        job.translation = translated;
+        job.status = 'complete';
+        if (typeof h.after === 'function') await h.after(job, i, results);
+      } catch (error) {
+        job.status = 'failed';
+        job.error = error;
+        if (typeof h.error === 'function') await h.error(job, error, i, results);
+        throw error;
+      }
+    }
+
+    return results;
+  }
+
+  function orderedJobs(jobs) {
+    return (jobs || []).slice().sort((a, b) => {
+      const ai = Number.isFinite(a.index) ? a.index : Number(a.sequence) || 0;
+      const bi = Number.isFinite(b.index) ? b.index : Number(b.sequence) || 0;
+      return ai - bi;
+    });
+  }
+
+  function reassemble(jobs, options) {
+    const cfg = Object.assign({ joiner: '' }, options || {});
+    return orderedJobs(jobs)
+      .map(job => String(job.translation == null ? '' : job.translation))
+      .filter(Boolean)
+      .join(String(cfg.joiner));
+  }
+
+  function validateJobs(jobs, options) {
+    const cfg = Object.assign({}, DEFAULTS, options || {});
+    const maxWords = Math.max(1, Number(cfg.maxWords) || DEFAULTS.maxWords);
+    const arr = jobs || [];
+    const issues = [];
+    let sourceWords = 0;
+    let translatedWords = 0;
+
+    arr.forEach((job, i) => {
+      if (job.index != null && job.index !== i) issues.push(`order:${i + 1}`);
+      const n = wordCount(job.sourceText);
+      sourceWords += n;
+      if (n > maxWords) issues.push(`oversize:${job.id}`);
+      if (job.status === 'complete' && typeof job.translation !== 'string') {
+        issues.push(`empty-translation:${job.id}`);
+      }
+      if (typeof job.translation === 'string') translatedWords += wordCount(job.translation);
+    });
+
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i].part != null && arr[i - 1].part != null && arr[i].part !== arr[i - 1].part + 1) {
+        issues.push(`part-order:${arr[i].id}`);
+      }
+    }
+
+    return {
+      ok: issues.length === 0,
+      issues,
+      taskCount: arr.length,
+      sourceWords,
+      translatedWords,
+      maxWords
+    };
+  }
+
+  function validateSegmentation(source, jobs, options) {
+    const base = validateJobs(jobs, options);
+    const expectedTokens = compactWhitespace(source).split(' ').filter(Boolean);
+    const actualTokens = orderedJobs(jobs).flatMap(job => compactWhitespace(job.sourceText).split(' ').filter(Boolean));
+    const issues = base.issues.slice();
+
+    if (expectedTokens.length !== actualTokens.length) {
+      issues.push(`word-total:${expectedTokens.length}:${actualTokens.length}`);
+    }
+
+    for (let i = 0; i < Math.min(expectedTokens.length, actualTokens.length); i++) {
+      if (expectedTokens[i] !== actualTokens[i]) {
+        issues.push(`token-order:${i + 1}`);
+        break;
+      }
+    }
+
+    return Object.assign(base, {
+      ok: issues.length === 0,
+      issues,
+      expectedSourceWords: expectedTokens.length,
+      actualTaskWords: actualTokens.length
+    });
+  }
+
+  global.TranslationMachine = Object.freeze({
+    version: '1.2.0',
+    defaults: DEFAULTS,
+    wordCount,
+    splitText,
+    segmentStructured,
+    segmentDOM,
+    createJobs,
+    translateJobs,
+    reassemble,
+    validateJobs,
+    validateSegmentation
+  });
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+
+English-first teaching architecture — 2026-10-08: separated the academic study layer from multilingual support. The course/mastery views now render English as the only study language; Urdu/Pashto are requested on demand through a full-screen, topic-scoped translation window. The translation window reuses the academic translation provider/terminology rules and provides language-specific Urdu/Pashto TTS. Legacy automatic language switching remains isolated from the teaching surface and is no longer used to change the course language.
 </body>
 </html>
