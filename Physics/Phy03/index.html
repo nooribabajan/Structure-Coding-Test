@@ -860,6 +860,65 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 }
 /* Never reduce academic font sizes at smaller widths. Let text wrap instead. */
 </style>
+
+<style id="academic-topic-action-tabs-match-lecture-mastery">
+/* Keep every academic topic's existing translation action at the upper-right,
+   using the exact 108 x 31 px action-tab geometry used by Lecture Mastery. */
+#topicContentView .english-study-toolbar{
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  direction:ltr !important;
+  gap:6px;
+  width:100%;
+}
+#topicContentView .english-study-toolbar > span{
+  margin-right:auto;
+  text-align:left;
+  direction:ltr;
+}
+#topicContentView .english-study-toolbar .topic-translate-btn{
+  box-sizing:border-box;
+  display:inline-flex;
+  flex:0 0 108px;
+  align-items:center;
+  justify-content:center;
+  width:108px !important;
+  min-width:108px !important;
+  max-width:108px !important;
+  height:31px !important;
+  min-height:31px !important;
+  max-height:31px !important;
+  margin:0 !important;
+  padding:7px 11px !important;
+  border-radius:9px;
+  font-size:11px !important;
+  font-weight:900;
+  line-height:1 !important;
+  white-space:nowrap;
+  vertical-align:middle;
+}
+@media(max-width:760px){
+  #topicContentView .english-study-toolbar{
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:6px;
+  }
+  #topicContentView .english-study-toolbar > span{
+    min-width:0;
+    flex:1 1 auto;
+  }
+  #topicContentView .english-study-toolbar .topic-translate-btn{
+    flex:0 0 108px;
+    width:108px !important;
+    min-width:108px !important;
+    max-width:108px !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -1296,6 +1355,8 @@ async function academicTranslateField(lang,n,field,index,runId){
   translated=academicTranslationRestore(translated,visualSafe.tokens);
   const isBenchmark=(lang==='ur' && P03_URDU_BENCHMARKS[`${n}|${field}`]===translated);
   if(!isBenchmark) translated=academicTerminologyNormalize(translated,lang,source);
+  // Keep the Pashto translation itself corrected, not just the spoken TTS copy.
+  if(lang==='ps') translated=pashtoTTSPronunciationText(translated);
   academicTranslationSet(lang,n,field,index,source,translated);
   return translated;
 }
@@ -2389,6 +2450,32 @@ function globalNavStep(scroller,back){
   .p03-translation-content{padding:22px 18px;font-size:22px;line-height:1.95;border-radius:16px}
   .p03-translation-content[dir="rtl"]{font-size:25px;line-height:2.05}
 }
+/* Translation-window controls: match the established translation-tab geometry. */
+.p03-translation-head-actions .p03-translation-tts,
+.p03-translation-head-actions .p03-translation-close{
+  box-sizing:border-box;
+  width:108px;
+  min-width:108px;
+  max-width:108px;
+  height:31px;
+  min-height:31px;
+  max-height:31px;
+  padding:0 8px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  font-size:11px;
+  line-height:1;
+}
+.p03-translation-head-actions .p03-translation-close{font-size:20px;}
+@media(max-width:760px){
+  .p03-translation-head-actions .p03-translation-tts,
+  .p03-translation-head-actions .p03-translation-close{
+    width:108px;min-width:108px;max-width:108px;
+    height:31px;min-height:31px;max-height:31px;padding:0 8px;
+  }
+}
 </style>
 <div aria-labelledby="p03TranslationTitle" aria-modal="true" class="p03-translation-overlay" id="p03TranslationOverlay" role="dialog">
 <div class="p03-translation-window">
@@ -2582,18 +2669,43 @@ async function runP03Translation(lang){
  try{
    const translated=cached||await p03TranslateLongText(p03TranslationSource,lang,p03TranslationKey);
    p03ScreenTranslationCache[lang][p03TranslationKey]=translated;
-   content.textContent=translated;
+   content.textContent=p03TranslationNormalizeText(translated,lang);
    content.dir='rtl';
  }catch(e){
    content.dir='ltr';content.innerHTML=`<div class="p03-translation-error">Translation could not be completed. ${p03TranslationEsc(e?.message||e)}</div>`;
  }
+}
+function p03TranslationNormalizeText(text,lang){
+ // Apply standalone-daal rule to visible Pashto translation text as well as TTS.
+ text=String(text||'');
+ if(lang==='ps') text=pashtoTTSPronunciationText(text);
+ const lines=text.split('\n');
+ if(lines.length && (lang==='ps'||lang==='ur')){
+  const first=lines[0].trim();
+  const match=first.match(/^(.*?)[\u2014\u2013](.+)$/);
+  if(match){
+   const left=match[1].trim(),right=match[2].trim();
+   if(left && right && left.endsWith(right)) lines[0]=left;
+  }
+ }
+ return lines.join('\n');
 }
 function p03TranslationSplit(text){
  const parts=String(text||'').split(/(?<=[.!?۔؟!])\s+|\n+/).map(s=>s.trim()).filter(Boolean),out=[];let buf='';
  for(const part of parts){if((buf+' '+part).trim().length<=180)buf=(buf+' '+part).trim();else{if(buf)out.push(buf);buf=part;}}
  if(buf)out.push(buf);return out;
 }
-function p03TranslationSpeechText(text){return String(text||'').replace(/\[\[visual:[^\]]+\]\]/g,'').replace(/\s+/g,' ').trim();}
+function pashtoTTSPronunciationText(text){
+ // TTS-only pronunciation aid: add zabar only to a standalone Pashto preposition د.
+ // Keep letters inside words untouched and do not add a second zabar to دَ.
+ // Capture the left boundary instead of relying on lookbehind support.
+ return String(text||'').replace(/(^|[^\p{L}\p{M}\u200c\u200d\u200b\ufeff])د(?![\p{L}\p{M}\u200c\u200d\u200b\ufeff])/gu,'$1دَ');
+}
+function p03TranslationSpeechText(text){
+ let speech=String(text||'').replace(/\[\[visual:[^\]]+\]\]/g,'').replace(/\s+/g,' ').trim();
+ if(p03TranslationLang==='ps')speech=pashtoTTSPronunciationText(speech);
+ return speech;
+}
 function p03TranslationToggleTTS(){
  if(!p03TranslationLang)return;
  if(p03TranslationTTSUtterance||p03TranslationAudio){p03TranslationStopTTS();return;}
@@ -2683,6 +2795,7 @@ function academicTTSClearHighlight(){if(academicTTSHighlight)academicTTSHighligh
 
 function academicTTSSpeechText(text){
  let t=String(text).replace(/مخالف/g,'مُخالِف');
+ if(academicTTSLanguage==='ps')t=pashtoTTSPronunciationText(t);
  t=t.replace(/\b(x-axis|y-axis|z-axis|Cartesian Coordinate System|Vector Representation|Vector Addition|Vector Subtraction|Scalar Multiplication|Unit Vector|Null Vector|Position Vector|Component of a Vector|Rectangular Components|Dot Product|Cross Product|Torque|Moment of Force|Equilibrium of Concurrent Forces|Conditions of Equilibrium|Axes and Origin|Coordinates of a Point|Quadrants|Position and Direction|Vector Representation and Types|Head to Tail Rule|Scalar|Vector|Component|Resultant|Right-Hand Rule|Free-Body Diagram|Moment Arm|Clockwise|Counterclockwise|Applications|Work|Beam|Bridge|Support|Ladder|Lever|Engine|Wheel|Door)\b(?=\s+(?:and|او|یا|or|[A-Za-z]|یا$))/gi,'$1،');
  t=t.replace(/(یونټ ویکټر)\s+(نال ویکټر)\s+(پوزېشن ویکټر)\s+او\s+(ده ویکټر جز)/g,'$1، $2، $3، او $4');
  t=t.replace(/(اسکیلر\s*\/\s*ډاټ پروډکټ)\s+او\s+(ویکټر\s*\/\s*کراس پروډکټ)/g,'$1، او $2');
