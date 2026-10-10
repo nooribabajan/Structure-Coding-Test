@@ -919,6 +919,26 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   }
 }
 </style>
+<style id="phy03-tts-tab-final-horizontal-alignment">
+/* Fine adjustment requested: horizontal positioning only; preserve vertical coordinates. */
+#functionalContentView .mastery-toolbar .mastery-progress .mastery-tts-inline-btn{
+  transform:translateX(-8px) !important;
+}
+#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts{
+  box-sizing:border-box !important;
+  right:20px !important;
+  width:108px !important;
+  min-width:108px !important;
+  max-width:108px !important;
+  height:31px !important;
+  min-height:31px !important;
+  max-height:31px !important;
+  padding:0 8px !important;
+  border-radius:9px !important;
+  font-size:11px !important;
+  line-height:1 !important;
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -2477,17 +2497,45 @@ function globalNavStep(scroller,back){
   }
 }
 </style>
+<style id="p03-translation-global-theme">
+/* Translation pages inherit the established global page palette and layout.
+   Keep translation-specific typography only; neutralize the former bespoke skin. */
+#p03TranslationOverlay.p03-translation-overlay{position:fixed;inset:0;z-index:50000;background:var(--cream);display:none;align-items:stretch;justify-content:center;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+#p03TranslationOverlay.p03-translation-overlay.visible{display:flex}
+#p03TranslationOverlay .p03-translation-window{position:relative;width:100%;height:100%;max-width:none;display:flex;flex-direction:column;overflow:hidden;border:0;border-radius:0;background:var(--paper);box-shadow:none}
+#p03TranslationOverlay .p03-translation-head{position:relative;display:flex;align-items:center;justify-content:flex-start;gap:12px;min-height:80px;box-sizing:border-box;padding:10px 18px 14px;background:var(--green);color:#fff;border:0;border-bottom:4px solid #c9a95b;box-shadow:none;flex-shrink:0}
+#p03TranslationOverlay .p03-academy-brand{width:100%;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:18px;direction:ltr}
+#p03TranslationOverlay .p03-academy-brand-text{min-width:0;text-align:left}
+#p03TranslationOverlay .p03-academy-name{margin:0;font-size:22px;font-weight:800;line-height:1.25;color:#fff}
+#p03TranslationOverlay .p03-academy-subtitle{margin-top:3px;font-size:12px;line-height:1.3;color:#fff;opacity:.85}
+#p03TranslationOverlay .p03-academy-logo img{display:block;width:58px;height:58px;object-fit:contain}
+#p03TranslationOverlay .p03-translation-title{margin-top:3px;font-size:14px;font-weight:800;line-height:1.3;color:#fff;text-align:left}
+#p03TranslationOverlay .p03-translation-head-actions{position:static;display:flex;align-items:center;gap:8px;flex-shrink:0}
+#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts{position:absolute;top:calc(100% + 10px);right:12px;z-index:3;width:auto;min-width:0;max-width:none;height:32px;min-height:32px;max-height:32px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);font-size:11px;font-weight:900;line-height:1;box-shadow:0 2px 7px rgba(15,23,42,.12);transition:background .18s,border-color .18s,transform .18s}#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts:hover{background:#f7faf8;border-color:var(--green);transform:translateY(-1px)}
+#p03TranslationOverlay .p03-translation-head-actions .p03-translation-close{box-sizing:border-box;width:38px;min-width:38px;max-width:38px;height:31px;min-height:31px;max-height:31px;padding:0;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--green);font-size:20px;line-height:1;box-shadow:none}
+#p03TranslationOverlay .p03-translation-body{flex:1;min-height:0;overflow:auto;box-sizing:border-box;padding:42px 8px 24px;background:var(--paper);border:1px solid var(--line);border-top:0}
+#p03TranslationOverlay .p03-translation-content{width:100%;max-width:none;box-sizing:border-box;margin:0;padding:4px 8px 34px;border:0;border-radius:0;background:transparent;color:var(--ink);box-shadow:none;font-size:var(--academic-body);line-height:1.9;letter-spacing:normal;white-space:pre-wrap;overflow-wrap:anywhere}
+#p03TranslationOverlay .p03-translation-content[dir="rtl"]{direction:rtl;text-align:right;unicode-bidi:plaintext;font-family:"Noto Naskh Arabic",Arial,sans-serif;font-size:var(--academic-body);line-height:1.9;font-weight:600;word-spacing:normal}
+#p03TranslationOverlay .p03-translation-langbar{position:relative;display:flex;align-items:center;justify-content:center;gap:6px;flex-shrink:0;padding:8px;border-top:1px solid var(--line);background:var(--paper)}
+#p03TranslationOverlay .p03-translation-language-options{display:flex;align-items:center;justify-content:center;gap:6px}
+#p03TranslationOverlay .p03-translation-langbar .p03-translation-close{position:absolute;right:8px;top:50%;transform:translateY(-50%);box-sizing:border-box;width:38px;min-width:38px;max-width:38px;height:31px;min-height:31px;max-height:31px;padding:0;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--green);font-size:20px;line-height:1;box-shadow:none}
+#p03TranslationOverlay .p03-translation-langbar button{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--green);padding:8px 14px;font-size:12px;font-weight:900;cursor:pointer}
+#p03TranslationOverlay .p03-translation-langbar button.active{background:var(--green);color:#fff}
+#p03TranslationOverlay .p03-translation-loading{padding:16px 8px;color:var(--muted);font-weight:800;text-align:center}
+#p03TranslationOverlay .p03-translation-error{padding:16px 8px;color:var(--red);font-weight:800;text-align:center}
+#p03TranslationOverlay .global-previous-page-tab{z-index:50010}
+@media(max-width:760px){#p03TranslationOverlay .p03-translation-head{min-height:72px;padding:8px 10px 12px}#p03TranslationOverlay .p03-academy-name{font-size:18px}#p03TranslationOverlay .p03-academy-subtitle{font-size:11px}#p03TranslationOverlay .p03-academy-logo img{width:48px;height:48px}#p03TranslationOverlay .p03-translation-title{font-size:13px}#p03TranslationOverlay .p03-translation-body{padding:42px 4px 18px}#p03TranslationOverlay .p03-translation-content{padding:4px 8px 28px}#p03TranslationOverlay .p03-translation-content[dir="rtl"]{font-size:var(--academic-body);line-height:1.9}}
+</style>
 <div aria-labelledby="p03TranslationTitle" aria-modal="true" class="p03-translation-overlay" id="p03TranslationOverlay" role="dialog">
 <div class="p03-translation-window">
 <div class="p03-translation-head">
-<div class="p03-translation-title" id="p03TranslationTitle">Translation</div>
+<div class="p03-academy-brand"><div class="p03-academy-brand-text"><div class="p03-academy-name">Imperial Academy of Education</div><div class="p03-academy-subtitle">Interactive Academic Learning System</div><div class="p03-translation-title" id="p03TranslationTitle">Translation</div></div><div class="p03-academy-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div>
 <div class="p03-translation-head-actions">
 <button class="p03-translation-tts" id="p03TranslationTTS" onclick="p03TranslationToggleTTS()" type="button">🔊 TTS</button>
-<button aria-label="Close translation" class="p03-translation-close" onclick="closeP03Translation()" type="button">×</button>
 </div>
 </div>
 <div class="p03-translation-body"><div class="p03-translation-content" dir="ltr" id="p03TranslationContent"><div class="p03-translation-loading">Select Urdu or Pashto.</div></div></div>
-<div class="p03-translation-langbar"><button id="p03TranslationUrdu" onclick="runP03Translation('ur')" type="button">اردو</button><button id="p03TranslationPashto" onclick="runP03Translation('ps')" type="button">پښتو</button></div>
+<div class="p03-translation-langbar"><div class="p03-translation-language-options"><button id="p03TranslationUrdu" onclick="runP03Translation('ur')" type="button">اردو</button><button id="p03TranslationPashto" onclick="runP03Translation('ps')" type="button">پښتو</button></div></div>
 </div>
 </div>
 <div aria-label="Translation language" class="p03-translate-menu" id="p03TranslateMenu" role="menu"><button class="topic-translate-btn ur-option" onclick="chooseP03TranslationLanguage('ur');event.stopPropagation()" type="button">🌐 Urdu</button><button class="topic-translate-btn ps-option" onclick="chooseP03TranslationLanguage('ps');event.stopPropagation()" type="button">🌐 Pashto</button></div>
@@ -2501,6 +2549,27 @@ let p03TranslationTTSUtterance=null;
 let p03TranslationTTSIndex=0;
 let p03TranslationTTSChunks=[];
 let p03TranslationAudio=null;
+
+let p03TranslationNavHandler=null;let p03TranslationNavTimer=null;let p03TranslationNavObserver=null;
+function updateP03TranslationNavigation(){
+ const overlay=document.getElementById('p03TranslationOverlay'),scroller=overlay?.querySelector('.p03-translation-body');
+ if(!overlay||!scroller)return;
+ let back=overlay.querySelector('.global-previous-page-tab');
+ const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);
+ if(!back){back=document.createElement('button');back.type='button';back.className='global-previous-page-tab hidden';back.setAttribute('aria-label','Previous Page');back.innerHTML='<span class="global-nav-arrow-symbol" aria-hidden="true">↓</span><span class="global-nav-label"><span aria-hidden="true">←</span><span>Previous Page</span></span>';back.addEventListener('click',()=>{if(back.classList.contains('scrolling')){globalNavStep(scroller,back);}else{closeP03Translation();}});overlay.appendChild(back);}
+ const needed=max>8;back.classList.toggle('hidden',!needed);
+ if(!needed){back.classList.remove('scrolling');back.setAttribute('aria-label','Previous Page');}
+}
+function initP03TranslationNavigation(){
+ const overlay=document.getElementById('p03TranslationOverlay'),scroller=overlay?.querySelector('.p03-translation-body');if(!overlay||!scroller)return;
+ if(p03TranslationNavHandler)scroller.removeEventListener('scroll',p03TranslationNavHandler);if(p03TranslationNavTimer)clearTimeout(p03TranslationNavTimer);
+ let lastY=scroller.scrollTop;
+ const showStopped=()=>{const back=overlay.querySelector('.global-previous-page-tab');if(back){back.classList.remove('scrolling');back.setAttribute('aria-label','Previous Page');}};
+ p03TranslationNavHandler=()=>{const back=overlay.querySelector('.global-previous-page-tab');if(!back)return;const y=scroller.scrollTop,max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);if(max<=8){back.classList.add('hidden');back.classList.remove('scrolling');lastY=y;return;}back.classList.remove('hidden');if(y<=8&&y<=lastY){back.classList.remove('scrolling');}else if(y>=max-8&&y>=lastY){back.classList.remove('scrolling');}else{const up=y<lastY;back.querySelector('.global-nav-arrow-symbol').textContent=up?'↑':'↓';back.setAttribute('aria-label',up?'Scroll up':'Scroll down');back.classList.add('scrolling');}lastY=y;if(p03TranslationNavTimer)clearTimeout(p03TranslationNavTimer);p03TranslationNavTimer=setTimeout(showStopped,3000);};
+ scroller.addEventListener('scroll',p03TranslationNavHandler,{passive:true});
+ if(p03TranslationNavObserver)p03TranslationNavObserver.disconnect();p03TranslationNavObserver=new MutationObserver(()=>requestAnimationFrame(updateP03TranslationNavigation));p03TranslationNavObserver.observe(document.getElementById('p03TranslationContent'),{childList:true,subtree:true,characterData:true});
+ requestAnimationFrame(updateP03TranslationNavigation);window.addEventListener('resize',updateP03TranslationNavigation);
+}
 
 function p03TranslationEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function p03TranslationTextFromRoot(root){
@@ -2587,11 +2656,14 @@ function openP03Translation(source,title,key){
  document.getElementById('p03TranslationPashto')?.classList.remove('active');
  overlay?.classList.add('visible');
  document.body.style.overflow='hidden';
+ initP03TranslationNavigation();
 }
 function closeP03Translation(){
  p03TranslationStopTTS();
  document.getElementById('p03TranslationOverlay')?.classList.remove('visible');
  document.body.style.overflow='';
+ if(p03TranslationNavTimer)clearTimeout(p03TranslationNavTimer);
+ document.getElementById('p03TranslationOverlay')?.querySelector('.global-previous-page-tab')?.classList.add('hidden');
  p03TranslationSource='';p03TranslationKey='';p03TranslationLang='';
 }
 function openTopicTranslation(n){
@@ -2660,6 +2732,8 @@ async function p03TranslateLongText(source,lang,key){
 async function runP03Translation(lang){
  if(!['ur','ps'].includes(lang)||!p03TranslationSource)return;
  p03TranslationLang=lang;
+ const ttsButton=document.getElementById('p03TranslationTTS');
+ if(ttsButton){ttsButton.disabled=false;ttsButton.style.display=(lang==='ps'?'none':'');ttsButton.textContent='🔊 TTS';}
  const content=document.getElementById('p03TranslationContent');
  const buttons={ur:document.getElementById('p03TranslationUrdu'),ps:document.getElementById('p03TranslationPashto')};
  Object.entries(buttons).forEach(([k,b])=>b?.classList.toggle('active',k===lang));
@@ -2674,6 +2748,7 @@ async function runP03Translation(lang){
  }catch(e){
    content.dir='ltr';content.innerHTML=`<div class="p03-translation-error">Translation could not be completed. ${p03TranslationEsc(e?.message||e)}</div>`;
  }
+ requestAnimationFrame(updateP03TranslationNavigation);
 }
 function p03TranslationNormalizeText(text,lang){
  // Apply standalone-daal rule to visible Pashto translation text as well as TTS.
@@ -2702,29 +2777,45 @@ function pashtoTTSPronunciationText(text){
  return String(text||'').replace(/(^|[^\p{L}\p{M}\u200c\u200d\u200b\ufeff])د(?![\p{L}\p{M}\u200c\u200d\u200b\ufeff])/gu,'$1دَ');
 }
 function p03TranslationSpeechText(text){
- let speech=String(text||'').replace(/\[\[visual:[^\]]+\]\]/g,'').replace(/\s+/g,' ').trim();
- if(p03TranslationLang==='ps')speech=pashtoTTSPronunciationText(speech);
- return speech;
+ return String(text||'').replace(/\[\[visual:[^\]]+\]\]/g,'').replace(/\s+/g,' ').trim();
 }
 function p03TranslationToggleTTS(){
  if(!p03TranslationLang)return;
+ if(p03TranslationLang==='ps')return;
  if(p03TranslationTTSUtterance||p03TranslationAudio){p03TranslationStopTTS();return;}
+ // Keep the translation reader from competing with the academic reader.
+ try{if(typeof academicTTSStop==='function')academicTTSStop();}catch(e){}
  const text=document.getElementById('p03TranslationContent')?.innerText?.trim();if(!text)return;
  p03TranslationTTSChunks=p03TranslationSplit(text);p03TranslationTTSIndex=0;p03TranslationPlayNext();
 }
 function p03TranslationPlayNext(){
  if(p03TranslationTTSIndex>=p03TranslationTTSChunks.length){p03TranslationStopTTS();return;}
  const text=p03TranslationSpeechText(p03TranslationTTSChunks[p03TranslationTTSIndex++]);
- const cfg=p03TranslationLang==='ps'?{lang:'ps-PK',remote:'ps'}:{lang:'ur-PK',remote:'ur'};
- if(window.speechSynthesis){
-   p03TranslationTTSUtterance=new SpeechSynthesisUtterance(text);p03TranslationTTSUtterance.lang=cfg.lang;p03TranslationTTSUtterance.rate=.1;p03TranslationTTSUtterance.onend=()=>{p03TranslationTTSUtterance=null;p03TranslationPlayNext();};p03TranslationTTSUtterance.onerror=()=>{p03TranslationTTSUtterance=null;p03TranslationPlayRemote(text,cfg);};window.speechSynthesis.cancel();window.speechSynthesis.speak(p03TranslationTTSUtterance);return;
+ const cfg={lang:'ur-PK',remote:'ur'};
+ if(window.speechSynthesis && typeof SpeechSynthesisUtterance!=='undefined'){
+   p03TranslationTTSUtterance=new SpeechSynthesisUtterance(text);
+   p03TranslationTTSUtterance.lang=cfg.lang;
+   p03TranslationTTSUtterance.rate=.93;
+   p03TranslationTTSUtterance.onend=()=>{p03TranslationTTSUtterance=null;p03TranslationPlayNext();};
+   p03TranslationTTSUtterance.onerror=()=>{p03TranslationTTSUtterance=null;p03TranslationPlayRemote(text,cfg);};
+   window.speechSynthesis.cancel();window.speechSynthesis.speak(p03TranslationTTSUtterance);return;
  }
  p03TranslationPlayRemote(text,cfg);
 }
 function p03TranslationPlayRemote(text,cfg){
  try{p03TranslationAudio?.pause();}catch(e){}
  const audio=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+encodeURIComponent(cfg.remote)+'&q='+encodeURIComponent(text));
- p03TranslationAudio=audio;audio.onended=()=>{p03TranslationAudio=null;p03TranslationPlayNext();};audio.onerror=()=>p03TranslationStopTTS();audio.play().catch(()=>p03TranslationStopTTS());
+ audio.playbackRate=1.05;
+ p03TranslationAudio=audio;audio.onended=()=>{p03TranslationAudio=null;p03TranslationPlayNext();};audio.onerror=()=>{if(cfg.remote==='ur'&&window.speechSynthesis&&typeof SpeechSynthesisUtterance!=='undefined'){p03TranslationPlayBrowserFallback(text,cfg);return;}p03TranslationStopTTS();};audio.play().catch(()=>{if(cfg.remote==='ur'&&window.speechSynthesis&&typeof SpeechSynthesisUtterance!=='undefined'){p03TranslationPlayBrowserFallback(text,cfg);return;}p03TranslationStopTTS();});
+}
+function p03TranslationPlayBrowserFallback(text,cfg){
+ try{p03TranslationAudio?.pause();}catch(e){}
+ p03TranslationAudio=null;
+ const u=new SpeechSynthesisUtterance(text);u.lang=cfg.lang;u.rate=.93;
+ p03TranslationTTSUtterance=u;
+ u.onend=()=>{if(p03TranslationTTSUtterance!==u)return;p03TranslationTTSUtterance=null;p03TranslationPlayNext();};
+ u.onerror=()=>{if(p03TranslationTTSUtterance!==u)return;p03TranslationTTSUtterance=null;p03TranslationStopTTS();};
+ window.speechSynthesis.cancel();window.speechSynthesis.speak(u);
 }
 function p03TranslationStopTTS(){
  try{window.speechSynthesis?.cancel();}catch(e){}
@@ -2736,7 +2827,7 @@ document.getElementById('p03TranslationOverlay')?.addEventListener('click',e=>{i
 <div aria-live="polite" class="mastery-tts-panel" id="masteryTTSPanel"><span class="mastery-tts-status" id="masteryTTSStatus">Select language</span><button onclick="academicTTSPausePlay()" type="button">Ⅱ/▶</button><button onclick="academicTTSStop()" type="button">■ Stop</button><button onclick="academicTTSHide()" type="button">×</button></div>
 <script>
 
-const ACADEMIC_TTS_LANGS={en:{lang:'en-GB',remote:'en',label:'English UK'},ps:{lang:'ps-PK',remote:'ps',label:'پښتو'},ur:{lang:'ur-PK',remote:'ur',label:'اردو'}};
+const ACADEMIC_TTS_LANGS={en:{lang:'en-GB',remote:'en',label:'English UK'},ur:{lang:'ur-PK',remote:'ur',label:'اردو'}};
 const ACADEMIC_TTS_MAX_CHARS=180;
 let academicTTSChunks=[],academicTTSIndex=0,academicTTSPlaying=false,academicTTSPaused=false,academicTTSVoice=null,academicTTSAudio=null,academicTTSMode='',academicTTSLanguage='en',currentUtteranceReference=null,academicTTSHighlight=null;
 
@@ -2795,7 +2886,6 @@ function academicTTSClearHighlight(){if(academicTTSHighlight)academicTTSHighligh
 
 function academicTTSSpeechText(text){
  let t=String(text).replace(/مخالف/g,'مُخالِف');
- if(academicTTSLanguage==='ps')t=pashtoTTSPronunciationText(t);
  t=t.replace(/\b(x-axis|y-axis|z-axis|Cartesian Coordinate System|Vector Representation|Vector Addition|Vector Subtraction|Scalar Multiplication|Unit Vector|Null Vector|Position Vector|Component of a Vector|Rectangular Components|Dot Product|Cross Product|Torque|Moment of Force|Equilibrium of Concurrent Forces|Conditions of Equilibrium|Axes and Origin|Coordinates of a Point|Quadrants|Position and Direction|Vector Representation and Types|Head to Tail Rule|Scalar|Vector|Component|Resultant|Right-Hand Rule|Free-Body Diagram|Moment Arm|Clockwise|Counterclockwise|Applications|Work|Beam|Bridge|Support|Ladder|Lever|Engine|Wheel|Door)\b(?=\s+(?:and|او|یا|or|[A-Za-z]|یا$))/gi,'$1،');
  t=t.replace(/(یونټ ویکټر)\s+(نال ویکټر)\s+(پوزېشن ویکټر)\s+او\s+(ده ویکټر جز)/g,'$1، $2، $3، او $4');
  t=t.replace(/(اسکیلر\s*\/\s*ډاټ پروډکټ)\s+او\s+(ویکټر\s*\/\s*کراس پروډکټ)/g,'$1، او $2');
@@ -2807,20 +2897,15 @@ function academicTTSPlayBrowser(text,cfg){
  currentUtteranceReference=new SpeechSynthesisUtterance(academicTTSSpeechText(text));
  const u=currentUtteranceReference;
  u.lang=cfg.lang;
- u.rate=cfg.lang==='ps-PK'?.65:(cfg.lang==='en-GB'?.50:.88);
+ u.rate=cfg.lang==='en-GB'?.50:.93;
  u.pitch=1;
  u.volume=1;
 
- if(academicTTSLanguage!=='ps')u.voice=academicTTSVoice;
+ u.voice=academicTTSVoice;
  u.onstart=()=>academicTTSStatus(cfg.label+' TTS جاري دی');
- u.onend=()=>{currentUtteranceReference=null;setTimeout(academicTTSPlayNext,60);};
+ u.onend=()=>{if(currentUtteranceReference!==u)return;currentUtteranceReference=null;setTimeout(academicTTSPlayNext,60);};
  u.onerror=()=>{
   currentUtteranceReference=null;
-  if(academicTTSLanguage==='ps'){
-   academicTTSStatus('Pashto voice could not be started');
-   academicTTSStop();
-   return;
-  }
   academicTTSVoice=null;academicTTSMode='remote';academicTTSIndex=Math.max(0,academicTTSIndex-1);setTimeout(academicTTSPlayNext,80);
  };
  window.speechSynthesis.speak(u);
@@ -2828,14 +2913,17 @@ function academicTTSPlayBrowser(text,cfg){
 function academicTTSPlayRemote(text,cfg){
  if(academicTTSAudio){try{academicTTSAudio.pause();}catch(e){}}
  const audio=new Audio(academicTTSRemoteURL(text));
+ audio.playbackRate=academicTTSLanguage==='ur'?1.05:1;
  academicTTSAudio=audio;audio.preload='auto';audio.volume=1;
  audio.onplay=()=>academicTTSStatus(cfg.label+' TTS جاري دی');
- audio.onended=()=>setTimeout(academicTTSPlayNext,80);
- audio.onerror=()=>{academicTTSStatus(cfg.label+' audio could not be loaded');academicTTSStop();};
+ audio.onended=()=>{if(academicTTSAudio!==audio)return;academicTTSAudio=null;setTimeout(academicTTSPlayNext,80);};
+ audio.onerror=()=>{if(academicTTSAudio!==audio)return;academicTTSStatus(cfg.label+' audio could not be loaded');academicTTSStop();};
  audio.play().catch(()=>{academicTTSStatus(cfg.label+' audio could not be started');academicTTSStop();});
 }
 function globalAcademicTTS(langKey){
  const cfg=ACADEMIC_TTS_LANGS[langKey];if(!cfg)return;
+ // One reader at a time: starting academic speech stops translation speech first.
+ try{if(typeof p03TranslationStopTTS==='function')p03TranslationStopTTS();}catch(e){}
  const text=academicTTSText();
  if(!text){academicTTSStatus('Academic content unavailable');document.getElementById('masteryTTSPanel')?.classList.add('visible');return;}
  academicTTSStop();
@@ -2845,8 +2933,8 @@ function globalAcademicTTS(langKey){
  academicTTSStatus(cfg.label+' TTS starting…');
  academicTTSWaitForVoices(()=>{
   if(!academicTTSPlaying||academicTTSLanguage!==langKey)return;
-  academicTTSVoice=langKey==='ps'?null:academicTTSVoiceFor(langKey);
-  academicTTSMode=(langKey==='ps'||academicTTSVoice)?'browser':'remote';
+  academicTTSVoice=academicTTSVoiceFor(langKey);
+  academicTTSMode=academicTTSVoice?'browser':'remote';
   academicTTSPlayNext();
  });
 }
@@ -2860,13 +2948,17 @@ function academicTTSPlayNext(){
 }
 function academicTTSPausePlay(){
  if(!academicTTSPlaying)return;
- if(academicTTSMode==='remote'&&academicTTSAudio){
-  if(!academicTTSAudio.paused){academicTTSAudio.pause();academicTTSPaused=true;}
-  else{academicTTSAudio.play().then(()=>academicTTSPaused=false).catch(()=>{});}return;
+ if(!academicTTSPaused){
+  // Restart the current English/Urdu sentence from its beginning when ▶ is pressed.
+  academicTTSPaused=true;
+  academicTTSIndex=Math.max(0,academicTTSIndex-1);
+  if(currentUtteranceReference){currentUtteranceReference=null;try{window.speechSynthesis?.cancel();}catch(e){}}
+  if(academicTTSAudio){const oldAudio=academicTTSAudio;academicTTSAudio=null;oldAudio.onended=null;oldAudio.onerror=null;try{oldAudio.pause();oldAudio.currentTime=0;}catch(e){}}
+  academicTTSStatus('Paused — resume starts this sentence from the beginning');
+  return;
  }
- if(window.speechSynthesis?.speaking&&!window.speechSynthesis.paused){window.speechSynthesis.pause();academicTTSPaused=true;}
- else if(window.speechSynthesis?.paused){window.speechSynthesis.resume();academicTTSPaused=false;}
- else academicTTSPlayNext();
+ academicTTSPaused=false;
+ academicTTSPlayNext();
 }
 function academicTTSStop(){
  academicTTSPlaying=false;academicTTSPaused=false;
@@ -2876,7 +2968,7 @@ function academicTTSStop(){
  academicTTSAudio=null;academicTTSIndex=0;academicTTSChunks=[];academicTTSMode='';academicTTSButton(false);academicTTSStatus('Select language');
 }
 function academicTTSHide(){academicTTSStop();document.getElementById('masteryTTSPanel')?.classList.remove('visible');}
-window.speechSynthesis?.addEventListener?.('voiceschanged',()=>{if(academicTTSLanguage!=='ps')academicTTSVoice=academicTTSVoiceFor(academicTTSLanguage);});
+window.speechSynthesis?.addEventListener?.('voiceschanged',()=>{academicTTSVoice=academicTTSVoiceFor(academicTTSLanguage);});
 function p03StopAllTTS(){
  try{p03TranslationStopTTS?.();}catch(e){}
  try{academicTTSStop?.();}catch(e){}
