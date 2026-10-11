@@ -499,14 +499,45 @@ jobs:
                   '#p03TranslationOverlay.visible'
                 ).waitFor({ state: 'attached' });
 
-                await waitForUI();
+                // Wait for the actual asynchronous translation to finish.
+                // Finish successfully or expose the translation error.
+                await page.waitForFunction(() => {
+                  const content = document.querySelector(
+                    '#p03TranslationContent'
+                  );
+
+                  if (!content) return false;
+
+                  const errorElement = content.querySelector(
+                    '.p03-translation-error'
+                  );
+
+                  const loadingElement = content.querySelector(
+                    '.p03-translation-loading'
+                  );
+
+                  const characters = (
+                    content.innerText || ''
+                  ).trim().length;
+
+                  return !!errorElement || (
+                    content.getAttribute('dir') === 'rtl' &&
+                    characters > 0 &&
+                    !loadingElement
+                  );
+                }, null, { timeout: 30000 });
 
                 const translationState = await page.evaluate(() => {
                   const overlay = document.querySelector(
                     '#p03TranslationOverlay'
                   );
+
                   const content = document.querySelector(
                     '#p03TranslationContent'
+                  );
+
+                  const errorElement = content?.querySelector(
+                    '.p03-translation-error'
                   );
 
                   return {
@@ -514,7 +545,12 @@ jobs:
                       !!overlay?.classList.contains('visible'),
                     direction: content?.getAttribute('dir') || null,
                     contentCharacters:
-                      (content?.innerText || '').trim().length
+                      (content?.innerText || '').trim().length,
+                    loading: !!content?.querySelector(
+                      '.p03-translation-loading'
+                    ),
+                    error: !!errorElement,
+                    errorMessage: errorElement?.innerText || null
                   };
                 });
 
@@ -523,6 +559,18 @@ jobs:
                 assert(
                   translationState.overlayVisible,
                   'Translation overlay failed for ' + language
+                );
+
+                assert(
+                  !translationState.error,
+                  'Translation failed for ' + language + ': ' +
+                    (translationState.errorMessage ||
+                     'unknown translation error')
+                );
+
+                assert(
+                  !translationState.loading,
+                  'Translation remained in loading state for ' + language
                 );
 
                 assert(
