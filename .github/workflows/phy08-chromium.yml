@@ -28,15 +28,9 @@ jobs:
           set -euo pipefail
 
           FILE="Physics/Phy08/index.html"
-          test -f "$FILE" || {
-            echo "FAIL: $FILE not found"
-            exit 1
-          }
+          test -f "$FILE"
 
-          grep -Fq '<title>PHY08</title>' "$FILE" || {
-            echo "FAIL: PHY08 title missing"
-            exit 1
-          }
+          grep -Fq '<title>PHY08</title>' "$FILE"
 
           for FUNCTION in \
             'function showPage' \
@@ -109,6 +103,8 @@ jobs:
               browserVersion: null,
               checks: {},
               topics: [],
+              scrollTests: {},
+              translationTests: {},
               pageErrors: []
             };
 
@@ -121,29 +117,38 @@ jobs:
               evidence.pageErrors.push(error.message);
             });
 
+            const waitForUI = () =>
+              page.waitForTimeout(300);
+
+            const visible = async selector =>
+              page.locator(selector).isVisible().catch(() => false);
+
+            const assert = (condition, message) => {
+              if (!condition) throw new Error(message);
+            };
+
             try {
-              // 1. Load the actual PHY08 page.
+              // 1. Load the real PHY08 page.
               const response = await page.goto(url, {
                 waitUntil: 'domcontentloaded'
               });
 
-              if (!response || !response.ok()) {
-                throw new Error(
-                  'PHY08 returned HTTP ' +
-                  (response ? response.status() : 'no response')
-                );
-              }
+              assert(
+                response && response.ok(),
+                'PHY08 did not return a successful HTTP response'
+              );
 
               await page.waitForLoadState('networkidle')
                 .catch(() => {});
 
-              if (await page.title() !== 'PHY08') {
-                throw new Error('Incorrect page title');
-              }
+              assert(
+                await page.title() === 'PHY08',
+                'Incorrect page title'
+              );
 
               evidence.checks.pageLoad = 'PASS';
 
-              // 2. Check PHY08 JavaScript entry points.
+              // 2. Check JavaScript entry points.
               const names = [
                 'showPage',
                 'renderTopics',
@@ -164,14 +169,13 @@ jobs:
 
               const missing = functions.filter(x => !x.exists);
 
-              if (missing.length) {
-                throw new Error(
-                  'Missing functions: ' +
+              assert(
+                missing.length === 0,
+                'Missing functions: ' +
                   missing.map(x => x.name).join(', ')
-                );
-              }
+              );
 
-              // 3. Check the main page sections.
+              // 3. Check main page sections.
               const pageIds = [
                 'homePage',
                 'topicsPage',
@@ -181,9 +185,10 @@ jobs:
               ];
 
               for (const id of pageIds) {
-                if (!(await page.locator('#' + id).count())) {
-                  throw new Error('Missing page section: ' + id);
-                }
+                assert(
+                  await page.locator('#' + id).count() > 0,
+                  'Missing page section: ' + id
+                );
               }
 
               evidence.checks.pageSections = 'PASS';
@@ -193,20 +198,19 @@ jobs:
                 window.showPage('topicsPage');
               });
 
-              const topicTabs =
-                page.locator('#topicsPage .topic-grid .main-topic-large');
+              const topicTabs = page.locator(
+                '#topicsPage .topic-grid .main-topic-large'
+              );
 
               await topicTabs.first().waitFor({ state: 'visible' });
 
               const count = await topicTabs.count();
 
-              if (count < 1) {
-                throw new Error('No topic tabs were rendered');
-              }
+              assert(count > 0, 'No topic tabs were rendered');
 
               evidence.checks.topicTabCount = count;
 
-              // 5. Open each rendered topic and check its content.
+              // 5. Open every topic and verify its content.
               for (let n = 1; n <= count; n++) {
                 await page.evaluate(n => {
                   window.openTopic(n);
@@ -218,13 +222,14 @@ jobs:
 
                 await topicDocument.waitFor({ state: 'attached' });
 
-                const content = (await topicDocument.innerText()).trim();
+                const content = (
+                  await topicDocument.innerText()
+                ).trim();
 
-                if (!content) {
-                  throw new Error(
-                    'Topic ' + n + ' rendered empty content'
-                  );
-                }
+                assert(
+                  content.length > 0,
+                  'Topic ' + n + ' rendered empty content'
+                );
 
                 evidence.topics.push({
                   topic: n,
@@ -235,7 +240,7 @@ jobs:
 
               evidence.checks.topicNavigation = 'PASS';
 
-              // 6. Open the Visual Atlas.
+              // 6. Verify the Visual Atlas.
               await page.evaluate(() => {
                 window.openFunctional('visual');
               });
@@ -248,25 +253,24 @@ jobs:
                 '#functionalContentView .visual-atlas-topic'
               ).count();
 
+              assert(
+                visualSections > 0,
+                'Visual Atlas has no topic sections'
+              );
+
               evidence.checks.visualAtlas = {
-                status: visualSections > 0 ? 'PASS' : 'FAIL',
+                status: 'PASS',
                 topicSections: visualSections
               };
 
-              if (visualSections < 1) {
-                throw new Error('Visual Atlas has no topic sections');
-              }
-
-              // 7. Open Hit The Ceiling.
+              // 7. Verify Hit The Ceiling navigation.
               await page.evaluate(() => {
                 window.showPage('topicsPage');
               });
 
-              const hitTab = page.locator(
-                '#topicsPage .tab'
-              ).filter({
-                hasText: /Hit The Ceiling/i
-              }).first();
+              const hitTab = page.locator('#topicsPage .tab')
+                .filter({ hasText: /Hit The Ceiling/i })
+                .first();
 
               await hitTab.waitFor({ state: 'visible' });
               await hitTab.click();
@@ -277,44 +281,270 @@ jobs:
 
               evidence.checks.hitTheCeiling = 'PASS';
 
-              // 8. Open and close the topic translation interface.
+              // 8. Test global scroll controls on a real topic.
               await page.evaluate(() => {
                 window.openTopic(1);
               });
 
-              await page.evaluate(() => {
-                window.openTopicTranslation(1);
-              });
-
               await page.locator(
-                '#p03TranslationOverlay.visible'
-              ).waitFor({ state: 'attached' });
+                '#topicPage.active .main-content-container'
+              ).waitFor({ state: 'visible' });
 
-              const languageButtons = await page.locator(
-                '#p03TranslateMenu button'
-              ).count();
+              await waitForUI();
 
-              const translationContent = await page.locator(
-                '#p03TranslationContent'
-              ).count();
+              const scroller = page.locator(
+                '#topicPage.active .main-content-container'
+              );
 
-              evidence.checks.translation = {
-                overlay: 'PASS',
-                languageButtons,
-                contentElementFound: translationContent === 1
-              };
+              const scrollMetrics = await scroller.evaluate(el => ({
+                scrollHeight: el.scrollHeight,
+                clientHeight: el.clientHeight,
+                maxScroll: Math.max(
+                  0, el.scrollHeight - el.clientHeight
+                )
+              }));
 
-              if (languageButtons < 2 || translationContent !== 1) {
-                throw new Error(
-                  'Translation interface is incomplete'
+              evidence.scrollTests.metrics = scrollMetrics;
+
+              if (scrollMetrics.maxScroll <= 8) {
+                // A page without scrolling space should only show
+                // the Previous Page control.
+                await scroller.evaluate(el => {
+                  el.scrollTop = 0;
+                  el.dispatchEvent(new Event('scroll'));
+                });
+
+                await waitForUI();
+
+                const state = {
+                  system: await visible('#globalScrollSystem'),
+                  arrow: await visible('#globalScrollArrow'),
+                  previous: await visible('#globalScrollPrevious')
+                };
+
+                evidence.scrollTests.noScroll = state;
+
+                assert(
+                  !state.system && !state.arrow && state.previous,
+                  'No-scroll state must show Previous Page only'
                 );
+
+                evidence.scrollTests.status = 'PASS';
+              } else {
+                // Test the top of the scrollable page.
+                await scroller.evaluate(el => {
+                  el.scrollTop = 0;
+                  el.dispatchEvent(new Event('scroll'));
+                });
+
+                await waitForUI();
+
+                const topState = {
+                  system: await visible('#globalScrollSystem'),
+                  arrow: await visible('#globalScrollArrow'),
+                  previous: await visible('#globalScrollPrevious')
+                };
+
+                evidence.scrollTests.top = topState;
+
+                assert(
+                  !topState.previous,
+                  'Previous Page must not appear at the top'
+                );
+
+                assert(
+                  topState.system || topState.arrow,
+                  'No scroll control appeared at the top'
+                );
+
+                // Test the speed selector.
+                if (topState.system) {
+                  await page.locator(
+                    '#globalScrollSpeedButton'
+                  ).click();
+
+                  await page.locator(
+                    '#globalScrollSpeed .global-scroll-speed-menu ' +
+                    'button[data-speed="2"]'
+                  ).click();
+
+                  const speedText = await page.locator(
+                    '#globalScrollSpeedButton'
+                  ).innerText();
+
+                  evidence.scrollTests.speed = speedText;
+
+                  assert(
+                    speedText.trim() === '2x',
+                    'Selecting speed 2 did not set the 2x label'
+                  );
+
+                  // Test auto-scroll ON and OFF.
+                  await page.locator('#globalScrollAction').click();
+                  await waitForUI();
+
+                  const runningText = (
+                    await page.locator('#globalScrollAction').innerText()
+                  ).trim();
+
+                  evidence.scrollTests.autoScrollStarted = runningText;
+
+                  assert(
+                    runningText === 'Off',
+                    'Auto-scroll did not change the button to Off'
+                  );
+
+                  await page.locator('#globalScrollAction').click();
+                  await waitForUI();
+
+                  const stoppedText = (
+                    await page.locator('#globalScrollAction').innerText()
+                  ).trim();
+
+                  evidence.scrollTests.autoScrollStopped = stoppedText;
+
+                  assert(
+                    stoppedText === 'On',
+                    'Auto-scroll did not stop correctly'
+                  );
+                }
+
+                // Test the middle of the page.
+                await scroller.evaluate(el => {
+                  el.scrollTop = Math.floor(
+                    (el.scrollHeight - el.clientHeight) / 2
+                  );
+                  el.dispatchEvent(new Event('scroll'));
+                });
+
+                await waitForUI();
+
+                const middleState = {
+                  system: await visible('#globalScrollSystem'),
+                  arrow: await visible('#globalScrollArrow'),
+                  previous: await visible('#globalScrollPrevious')
+                };
+
+                evidence.scrollTests.middle = middleState;
+
+                assert(
+                  !middleState.previous,
+                  'Previous Page appeared in the middle of the page'
+                );
+
+                assert(
+                  middleState.system || middleState.arrow,
+                  'No scroll control appeared in the middle'
+                );
+
+                // Test the bottom of the page.
+                await scroller.evaluate(el => {
+                  el.scrollTop = el.scrollHeight;
+                  el.dispatchEvent(new Event('scroll'));
+                });
+
+                await waitForUI();
+
+                const bottomState = {
+                  system: await visible('#globalScrollSystem'),
+                  arrow: await visible('#globalScrollArrow'),
+                  previous: await visible('#globalScrollPrevious')
+                };
+
+                evidence.scrollTests.bottom = bottomState;
+
+                assert(
+                  !bottomState.system &&
+                  !bottomState.arrow &&
+                  bottomState.previous,
+                  'At the bottom, Previous Page must be the only control'
+                );
+
+                // Verify Previous Page returns to topic selection.
+                await page.locator('#globalScrollPrevious').click();
+
+                await page.locator(
+                  '#topicsPage.active'
+                ).waitFor({ state: 'attached' });
+
+                evidence.scrollTests.previousPageNavigation = 'PASS';
+                evidence.scrollTests.status = 'PASS';
               }
 
+              // 9. Test Urdu and Pashto translation selection.
               await page.evaluate(() => {
-                window.closeP03Translation();
+                window.openTopic(1);
               });
 
-              // 9. Fail on uncaught browser JavaScript errors.
+              const translateButton = page.locator(
+                '#topicContentView .english-study-toolbar ' +
+                '.topic-translate-btn'
+              ).first();
+
+              await translateButton.waitFor({ state: 'visible' });
+
+              for (const language of ['ur', 'ps']) {
+                // Open the topic's translation-language menu.
+                await translateButton.click();
+
+                const languageButton = page.locator(
+                  '#p03TranslateMenu .' +
+                  (language === 'ur' ? 'ur-option' : 'ps-option')
+                );
+
+                await languageButton.waitFor({ state: 'visible' });
+                await languageButton.click();
+
+                await page.locator(
+                  '#p03TranslationOverlay.visible'
+                ).waitFor({ state: 'attached' });
+
+                await waitForUI();
+
+                const translationState = await page.evaluate(() => {
+                  const overlay = document.querySelector(
+                    '#p03TranslationOverlay'
+                  );
+                  const content = document.querySelector(
+                    '#p03TranslationContent'
+                  );
+
+                  return {
+                    overlayVisible:
+                      !!overlay?.classList.contains('visible'),
+                    direction: content?.getAttribute('dir') || null,
+                    contentCharacters:
+                      (content?.innerText || '').trim().length
+                  };
+                });
+
+                evidence.translationTests[language] = translationState;
+
+                assert(
+                  translationState.overlayVisible,
+                  'Translation overlay failed for ' + language
+                );
+
+                assert(
+                  translationState.direction === 'rtl',
+                  'Translation direction is not RTL for ' + language
+                );
+
+                assert(
+                  translationState.contentCharacters > 0,
+                  'Translation content is empty for ' + language
+                );
+
+                await page.evaluate(() => {
+                  window.closeP03Translation();
+                });
+
+                await waitForUI();
+              }
+
+              evidence.checks.translationLanguages = 'PASS';
+
+              // 10. Fail if the browser reported uncaught JS errors.
               if (evidence.pageErrors.length) {
                 throw new Error(
                   'Uncaught browser errors: ' +
@@ -336,9 +566,7 @@ jobs:
                 JSON.stringify(evidence, null, 2)
               );
 
-              console.log(
-                JSON.stringify(evidence, null, 2)
-              );
+              console.log(JSON.stringify(evidence, null, 2));
 
               await browser.close();
             }
