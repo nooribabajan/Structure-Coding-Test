@@ -1,12 +1,12 @@
 
-name: PHY08 Chromium Runtime Diagnostic
+name: PHY03 Chromium Runtime Diagnostic
 
 on:
   push:
     branches: [main]
     paths:
-      - 'Physics/Phy08/**'
-      - '.github/workflows/phy08-chromium.yml'
+      - 'Physics/Phy03/**'
+      - '.github/workflows/phy03-chromium.yml'
   workflow_dispatch:
 
 permissions:
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   chromium:
-    name: PHY08 — Chromium Runtime Diagnostic
+    name: PHY03 — Chromium Runtime Diagnostic
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -22,15 +22,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Validate PHY08 file
+      - name: Validate PHY03 file
         shell: bash
         run: |
           set -euo pipefail
 
-          FILE="Physics/Phy08/index.html"
+          FILE="Physics/Phy03/index.html"
           test -f "$FILE"
-
-          grep -Fq '<title>PHY08</title>' "$FILE"
+          grep -Fq '<title>PHY03</title>' "$FILE"
 
           for FUNCTION in \
             'function showPage' \
@@ -45,7 +44,7 @@ jobs:
             }
           done
 
-          echo "PASS: PHY08 file and required functions found"
+          echo "PASS: PHY03 file and required functions found"
 
       - name: Setup Node.js 24
         uses: actions/setup-node@v6
@@ -70,19 +69,19 @@ jobs:
 
           for i in {1..30}; do
             if curl -fsS \
-              "http://127.0.0.1:4173/Physics/Phy08/index.html" \
+              "http://127.0.0.1:4173/Physics/Phy03/index.html" \
               >/dev/null; then
-              echo "PASS: PHY08 server responds"
+              echo "PASS: PHY03 server responds"
               exit 0
             fi
             sleep 1
           done
 
           cat server.log
-          echo "FAIL: PHY08 server did not start"
+          echo "FAIL: PHY03 server did not start"
           exit 1
 
-      - name: Run PHY08 Chromium diagnostics
+      - name: Run PHY03 Chromium diagnostics
         shell: bash
         run: |
           set -euo pipefail
@@ -94,10 +93,10 @@ jobs:
 
           (async () => {
             const url =
-              'http://127.0.0.1:4173/Physics/Phy08/index.html';
+              'http://127.0.0.1:4173/Physics/Phy03/index.html';
 
             const evidence = {
-              target: 'PHY08',
+              target: 'PHY03',
               url,
               testedAt: new Date().toISOString(),
               browserVersion: null,
@@ -128,21 +127,21 @@ jobs:
             };
 
             try {
-              // 1. Load the real PHY08 page.
+              // 1. Load the real PHY03 page.
               const response = await page.goto(url, {
                 waitUntil: 'domcontentloaded'
               });
 
               assert(
                 response && response.ok(),
-                'PHY08 did not return a successful HTTP response'
+                'PHY03 did not return a successful HTTP response'
               );
 
               await page.waitForLoadState('networkidle')
                 .catch(() => {});
 
               assert(
-                await page.title() === 'PHY08',
+                await page.title() === 'PHY03',
                 'Incorrect page title'
               );
 
@@ -484,7 +483,6 @@ jobs:
               await translateButton.waitFor({ state: 'visible' });
 
               for (const language of ['ur', 'ps']) {
-                // Open the topic's translation-language menu.
                 await translateButton.click();
 
                 const languageButton = page.locator(
@@ -499,8 +497,8 @@ jobs:
                   '#p03TranslationOverlay.visible'
                 ).waitFor({ state: 'attached' });
 
-                // Wait for the actual asynchronous translation to finish.
-                // Finish successfully or expose the translation error.
+                // Wait up to 30 seconds for translation completion
+                // or a visible error.
                 await page.waitForFunction(() => {
                   const content = document.querySelector(
                     '#p03TranslationContent'
@@ -610,7 +608,7 @@ jobs:
 
             } finally {
               fs.writeFileSync(
-                'ccsv4-evidence/lecture-PHY08.json',
+                'ccsv4-evidence/lecture-PHY03.json',
                 JSON.stringify(evidence, null, 2)
               );
 
@@ -624,11 +622,11 @@ jobs:
           });
           NODE
 
-      - name: Upload PHY08 diagnostic evidence
+      - name: Upload PHY03 diagnostic evidence
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: PHY08-chromium-runtime-evidence
+          name: PHY03-chromium-runtime-evidence
           path: |
             ccsv4-evidence/
             server.log
