@@ -1,0 +1,358 @@
+name: PHY08 Chromium Runtime Diagnostic
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Physics/Phy08/**'
+      - '.github/workflows/phy08-chromium.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chromium:
+    name: PHY08 — Chromium Runtime Diagnostic
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate PHY08 file
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FILE="Physics/Phy08/index.html"
+          test -f "$FILE" || {
+            echo "FAIL: $FILE not found"
+            exit 1
+          }
+
+          grep -Fq '<title>PHY08</title>' "$FILE" || {
+            echo "FAIL: PHY08 title missing"
+            exit 1
+          }
+
+          for FUNCTION in \
+            'function showPage' \
+            'function renderTopics' \
+            'function openTopic' \
+            'function openFunctional' \
+            'function openVisualAtlas' \
+            'function openTopicTranslation'; do
+            grep -Fq "$FUNCTION" "$FILE" || {
+              echo "FAIL: Missing $FUNCTION"
+              exit 1
+            }
+          done
+
+          echo "PASS: PHY08 file and required functions found"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright and Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm init -y
+          npm install --save-dev playwright http-server
+          npx playwright install --with-deps chromium
+
+      - name: Start local web server
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          npx http-server . -p 4173 > server.log 2>&1 &
+          echo $! > server.pid
+
+          for i in {1..30}; do
+            if curl -fsS \
+              "http://127.0.0.1:4173/Physics/Phy08/index.html" \
+              >/dev/null; then
+              echo "PASS: PHY08 server responds"
+              exit 0
+            fi
+            sleep 1
+          done
+
+          cat server.log
+          echo "FAIL: PHY08 server did not start"
+          exit 1
+
+      - name: Run PHY08 Chromium diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ccsv4-evidence
+
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          (async () => {
+            const url =
+              'http://127.0.0.1:4173/Physics/Phy08/index.html';
+
+            const evidence = {
+              target: 'PHY08',
+              url,
+              testedAt: new Date().toISOString(),
+              browserVersion: null,
+              checks: {},
+              topics: [],
+              pageErrors: []
+            };
+
+            const browser = await chromium.launch({ headless: true });
+            evidence.browserVersion = browser.version();
+
+            const page = await browser.newPage();
+
+            page.on('pageerror', error => {
+              evidence.pageErrors.push(error.message);
+            });
+
+            try {
+              // 1. Load the actual PHY08 page.
+              const response = await page.goto(url, {
+                waitUntil: 'domcontentloaded'
+              });
+
+              if (!response || !response.ok()) {
+                throw new Error(
+                  'PHY08 returned HTTP ' +
+                  (response ? response.status() : 'no response')
+                );
+              }
+
+              await page.waitForLoadState('networkidle')
+                .catch(() => {});
+
+              if (await page.title() !== 'PHY08') {
+                throw new Error('Incorrect page title');
+              }
+
+              evidence.checks.pageLoad = 'PASS';
+
+              // 2. Check PHY08 JavaScript entry points.
+              const names = [
+                'showPage',
+                'renderTopics',
+                'openTopic',
+                'openFunctional',
+                'openVisualAtlas',
+                'openTopicTranslation',
+                'closeP03Translation'
+              ];
+
+              const functions = await page.evaluate(names =>
+                names.map(name => ({
+                  name,
+                  exists: typeof window[name] === 'function'
+                })), names);
+
+              evidence.checks.functions = functions;
+
+              const missing = functions.filter(x => !x.exists);
+
+              if (missing.length) {
+                throw new Error(
+                  'Missing functions: ' +
+                  missing.map(x => x.name).join(', ')
+                );
+              }
+
+              // 3. Check the main page sections.
+              const pageIds = [
+                'homePage',
+                'topicsPage',
+                'topicPage',
+                'functionalPage',
+                'hitCeilingPage'
+              ];
+
+              for (const id of pageIds) {
+                if (!(await page.locator('#' + id).count())) {
+                  throw new Error('Missing page section: ' + id);
+                }
+              }
+
+              evidence.checks.pageSections = 'PASS';
+
+              // 4. Open the topic selection page.
+              await page.evaluate(() => {
+                window.showPage('topicsPage');
+              });
+
+              const topicTabs =
+                page.locator('#topicsPage .topic-grid .main-topic-large');
+
+              await topicTabs.first().waitFor({ state: 'visible' });
+
+              const count = await topicTabs.count();
+
+              if (count < 1) {
+                throw new Error('No topic tabs were rendered');
+              }
+
+              evidence.checks.topicTabCount = count;
+
+              // 5. Open each rendered topic and check its content.
+              for (let n = 1; n <= count; n++) {
+                await page.evaluate(n => {
+                  window.openTopic(n);
+                }, n);
+
+                const topicDocument = page.locator(
+                  `#topicContentView .topic-document[data-topic="${n}"]`
+                );
+
+                await topicDocument.waitFor({ state: 'attached' });
+
+                const content = (await topicDocument.innerText()).trim();
+
+                if (!content) {
+                  throw new Error(
+                    'Topic ' + n + ' rendered empty content'
+                  );
+                }
+
+                evidence.topics.push({
+                  topic: n,
+                  contentCharacters: content.length,
+                  status: 'PASS'
+                });
+              }
+
+              evidence.checks.topicNavigation = 'PASS';
+
+              // 6. Open the Visual Atlas.
+              await page.evaluate(() => {
+                window.openFunctional('visual');
+              });
+
+              await page.locator(
+                '#functionalContentView .visual-atlas-document'
+              ).waitFor({ state: 'attached' });
+
+              const visualSections = await page.locator(
+                '#functionalContentView .visual-atlas-topic'
+              ).count();
+
+              evidence.checks.visualAtlas = {
+                status: visualSections > 0 ? 'PASS' : 'FAIL',
+                topicSections: visualSections
+              };
+
+              if (visualSections < 1) {
+                throw new Error('Visual Atlas has no topic sections');
+              }
+
+              // 7. Open Hit The Ceiling.
+              await page.evaluate(() => {
+                window.showPage('topicsPage');
+              });
+
+              const hitTab = page.locator(
+                '#topicsPage .tab'
+              ).filter({
+                hasText: /Hit The Ceiling/i
+              }).first();
+
+              await hitTab.waitFor({ state: 'visible' });
+              await hitTab.click();
+
+              await page.locator(
+                '#hitCeilingPage.active'
+              ).waitFor({ state: 'attached' });
+
+              evidence.checks.hitTheCeiling = 'PASS';
+
+              // 8. Open and close the topic translation interface.
+              await page.evaluate(() => {
+                window.openTopic(1);
+              });
+
+              await page.evaluate(() => {
+                window.openTopicTranslation(1);
+              });
+
+              await page.locator(
+                '#p03TranslationOverlay.visible'
+              ).waitFor({ state: 'attached' });
+
+              const languageButtons = await page.locator(
+                '#p03TranslateMenu button'
+              ).count();
+
+              const translationContent = await page.locator(
+                '#p03TranslationContent'
+              ).count();
+
+              evidence.checks.translation = {
+                overlay: 'PASS',
+                languageButtons,
+                contentElementFound: translationContent === 1
+              };
+
+              if (languageButtons < 2 || translationContent !== 1) {
+                throw new Error(
+                  'Translation interface is incomplete'
+                );
+              }
+
+              await page.evaluate(() => {
+                window.closeP03Translation();
+              });
+
+              // 9. Fail on uncaught browser JavaScript errors.
+              if (evidence.pageErrors.length) {
+                throw new Error(
+                  'Uncaught browser errors: ' +
+                  evidence.pageErrors.join(' | ')
+                );
+              }
+
+              evidence.checks.uncaughtPageErrors = 'PASS';
+              evidence.result = 'PASS';
+
+            } catch (error) {
+              evidence.result = 'FAIL';
+              evidence.failure = error.stack || String(error);
+              throw error;
+
+            } finally {
+              fs.writeFileSync(
+                'ccsv4-evidence/lecture-PHY08.json',
+                JSON.stringify(evidence, null, 2)
+              );
+
+              console.log(
+                JSON.stringify(evidence, null, 2)
+              );
+
+              await browser.close();
+            }
+          })().catch(error => {
+            console.error(error.stack || String(error));
+            process.exitCode = 1;
+          });
+          NODE
+
+      - name: Upload PHY08 diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: PHY08-chromium-runtime-evidence
+          path: |
+            ccsv4-evidence/
+            server.log
+          if-no-files-found: warn
