@@ -1,3 +1,4 @@
+
 name: PHY08 Chromium Runtime Diagnostic
 
 on:
@@ -19,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Validate PHY08 file
         shell: bash
@@ -52,10 +53,10 @@ jobs:
 
           echo "PASS: PHY08 file and required functions found"
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Install Playwright and Chromium
         shell: bash
@@ -349,7 +350,7 @@ jobs:
 
       - name: Upload PHY08 diagnostic evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: PHY08-chromium-runtime-evidence
           path: |
