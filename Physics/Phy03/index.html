@@ -15,47 +15,26 @@
 .inline-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;}
 </style>
 <style>
-:root{--green:#173e34;--green2:#285b4b;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#64748b;--line:#d7dedb;--red:#b83b3b}
+:root{--green:#173e34;--green2:#285b4b;--cream:#f3f0e7;--paper:#fffdf8;--ink:#202522;--muted:#64748b;--line:#d7dedb;--red:#b83b3b;}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;color:var(--ink);background:var(--cream)}
 body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page.active{display:block}.academy-global-header{background:var(--green);color:#fff;border-bottom:4px solid #c9a95b}.academy-global-header-inner{min-height:76px;max-width:1240px;margin:auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px;direction:ltr}.academy-global-brand{text-align:left;order:1}.academy-global-logo{order:2}.academy-global-brand h1{margin:0;font-size:22px}.academy-global-subtitle{font-size:12px;opacity:.85;margin-top:3px}.academy-global-logo img{display:block;width:58px;height:58px;object-fit:contain}
-.main-content-container{height:calc(100% - 80px);width:100%;max-width:none;margin:0;padding:6px 2px;background:var(--paper);border:1px solid var(--line);overflow:auto}.content-view{min-height:100%;padding:4px 8px 34px}.view-header{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.subject-label{font-weight:800;color:var(--green);font-size:14px} .page-main-heading{text-align:center}
+.main-content-container{height:calc(100% - 80px);width:100%;max-width:none;margin:0;padding:6px 2px;background:var(--paper);border:1px solid var(--line);overflow:auto}.content-view{min-height:100%;padding:4px 8px 34px}.view-header{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.subject-label{font-weight:800;color:var(--green);font-size:14px} .page-main-heading{text-align:center;}
 
-#topicPage .guided-container .guided-label,
-#topicPage #topicHeading,
-#topicPage .guided-content > strong { text-align:center; direction:ltr; }
+#topicPage .guided-container .guided-label,#topicPage .guided-content >#topicPage #topicHeading{ text-align:center; direction:ltr; }
 #topicPage #topicHeading { font-weight:900; }
 
-.mastery-topic-head,
-.mastery-subtopics-head,
-.mastery-subtopic h3 { text-align:center; direction:ltr; }
+.mastery-topic-head-row >
+.mastery-topic-number,.mastery-subtopic-kicker{ display:none; }
 
-.mastery-topic-definition,
-.mastery-subtopic-definition,
-.mastery-topic-overview { direction:rtl; text-align:right; unicode-bidi:plaintext; }
-.mastery-topic-overview .mastery-section-label { direction:ltr; text-align:right; }
-.mastery-topic-overview .mastery-learning-lead { direction:rtl; text-align:right; }
-
-.mastery-topic-head-row > div { text-align:center; }
-.mastery-topic-number,
-.mastery-subtopic-kicker { display:none; }
-
-.guided-container .guided-content,
-.mastery-topic-definition,
-.mastery-subtopic-definition { direction:rtl; text-align:right; unicode-bidi:plaintext; }
-.guided-container .guided-content:has([dir="rtl"]),
-.guided-container .guided-content.urdu-medium,
-.mastery-topic-definition.urdu-medium,
-.mastery-subtopic-definition.urdu-medium { direction:rtl; text-align:right; }
-
-.revision-head{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.revision-title{font-weight:800;color:var(--green);font-size:18px}.revision-sheet{display:flex;flex-direction:column;gap:8px;padding:0;margin:0 0 8px;border:0;border-radius:0;background:transparent;overflow:visible;scroll-margin-top:8px}.revision-sheet-grid{display:flex;flex-direction:column;gap:8px}.revision-card{width:100%;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:9px 14px;border:1px solid #d9e1de;border-radius:10px;box-shadow:0 1px 5px rgba(15,23,42,.05);overflow:hidden;min-height:70px}.revision-card:nth-child(9n/**/+1){background:#f3f7fb;border-color:#d5e1ee}.revision-card:nth-child(9n/**/+2){background:#f7f3fb;border-color:#e1d6ef}.revision-card:nth-child(9n/**/+3){background:#f3f8f5;border-color:#d4e5da}.revision-card:nth-child(9n/**/+4){background:#fbf6ef;border-color:#eadfce}.revision-card:nth-child(9n/**/+5){background:#f4f5fb;border-color:#dcdfee}.revision-card:nth-child(9n/**/+6){background:#f8f3f6;border-color:#e6d8df}.revision-card:nth-child(9n/**/+7){background:#f2f7f8;border-color:#d4e5e8}.revision-card:nth-child(9n/**/+8){background:#faf6f1;border-color:#e8dfd4}.revision-card:nth-child(9n/**/+9){background:#f4f7f3;border-color:#d9e4d7}.revision-card-type{font-size:10px;font-weight:800;color:var(--red);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.revision-card-title{font-size:14px;font-weight:900;color:var(--green);line-height:1.3;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.revision-card-definition{font-size:12px;line-height:1.45;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;color:#334155;white-space:normal;word-break:normal;overflow-wrap:anywhere}.revision-empty{min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed #cbd5e1;border-radius:14px;background:#fff;color:#64748b;font-weight:800;padding:24px}@media(max-width:760px){.revision-sheet-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.revision-card{height:auto;min-height:82px}.revision-card-title{font-size:12px}.revision-card-definition{font-size:10.5px;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;white-space:normal;word-break:normal;overflow-wrap:anywhere}}
-.guided-document{max-width:1180px;margin:auto}.guided-container{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.guided-label{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);font-weight:800;color:var(--green);text-align:right}.guided-content{min-height:55px;padding:14px;line-height:1.8}.chapter-heading-container .guided-content,.chapter-definition-container .guided-content,.learning-outcomes-container .guided-content{min-height:90px}
-.guided-forward{text-align:center;margin:10px 0 14px}.guided-forward button,.functional{border:1px solid var(--green);border-radius:12px;background:#fff;color:var(--green);font-weight:800;cursor:pointer;box-sizing:border-box}.guided-forward button{padding:11px 28px;background:var(--green);color:#fff}.guided-forward button:hover,.tab:hover{transform:translateY(-1px)}
-.topic-template-page{max-width:1180px;margin:auto}.topic-feature-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-bottom:2px}.tab .num{font-weight:900;min-width:30px;text-align:center;font-size:clamp(54px,9vw,96px);line-height:1;padding:20px 0;box-sizing:border-box}.feature-visual{border-color:#c8ddd4}.feature-master{border-color:#cbd8e8}
+.revision-head{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.revision-title{color:var(--green);}.revision-document{box-sizing:border-box;padding:8px 12px 90px}.revision-sheet{display:flex;flex-direction:column;gap:8px;padding:0;margin:0 0 8px;border:0;border-radius:0;background:transparent;overflow:visible;scroll-margin-top:8px}.revision-sheet-grid{display:flex;flex-direction:column;gap:8px}.revision-card{width:100%;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:9px 14px;border:1px solid #d9e1de;border-radius:10px;box-shadow:0 1px 5px rgba(15,23,42,.05);overflow:hidden;min-height:70px}.revision-card:nth-child(9n/**/+1){background:#f3f7fb;border-color:#d5e1ee}.revision-card:nth-child(9n/**/+2){background:#f7f3fb;border-color:#e1d6ef}.revision-card:nth-child(9n/**/+3){background:#f3f8f5;border-color:#d4e5da}.revision-card:nth-child(9n/**/+4){background:#fbf6ef;border-color:#eadfce}.revision-card:nth-child(9n/**/+5){background:#f4f5fb;border-color:#dcdfee}.revision-card:nth-child(9n/**/+6){background:#f8f3f6;border-color:#e6d8df}.revision-card:nth-child(9n/**/+7){background:#f2f7f8;border-color:#d4e5e8}.revision-card:nth-child(9n/**/+8){background:#faf6f1;border-color:#e8dfd4}.revision-card:nth-child(9n/**/+9){background:#f4f7f3;border-color:#d9e4d7}.revision-card-type{color:var(--red);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;}.revision-card-title{color:var(--green);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;}.revision-card-definition{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;color:#334155;}.revision-empty{min-height:180px;display:flex;align-items:center;justify-content:center;border:1px dashed #cbd5e1;border-radius:14px;background:#fff;color:#64748b;padding:24px}@media(max-width:760px){.revision-sheet-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.revision-card{height:auto;min-height:82px}.revision-card-definition{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;}}
+.guided-document{margin:auto}.guided-container{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.guided-label{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);color:var(--green);}.guided-content{min-height:55px;padding:14px;}.chapter-heading-container .guided-content,.chapter-definition-container .guided-content,.learning-outcomes-container .guided-content{min-height:90px;}
+.guided-forward{margin:10px 0 14px}.guided-forward button,.functional{border:1px solid var(--green);border-radius:12px;background:#fff;color:var(--green);cursor:pointer;box-sizing:border-box}.guided-forward button{padding:11px 28px;background:var(--green);color:#fff}.guided-forward button:hover,.tab:hover{transform:translateY(-1px)}
+.topic-template-page{margin:auto}.topic-feature-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-bottom:2px}.tab .num{font-weight:900;min-width:30px;text-align:center;font-size:clamp(54px,9vw,96px);line-height:1;padding:20px 0;box-sizing:border-box}.feature-visual{border-color:#c8ddd4}.feature-master{border-color:#cbd8e8}
 .topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;align-items:stretch}
 #topicsPage .topic-grid > .column{margin:0;padding:0;width:100%;box-sizing:border-box;align-self:stretch;}.topic-grid > .odd-last-tab{grid-column:1 / -1;width:100%;box-sizing:border-box}.column{display:flex;flex-direction:column;gap:2px;min-width:0}.main-topic-large{width:100%;min-height:54px}
 .functional-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-top:2px}.functional{min-height:54px;height:54px}.functional .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 clamp(54px,9vw,96px)/1 Inter,sans-serif;color:var(--red);opacity:.9;min-width:0;z-index:0;padding:20px 0;box-sizing:border-box}.functional-row .functional{width:100%;box-sizing:border-box}
-.topic-document{max-width:1180px;margin:auto}.topic-return-top{position:fixed;left:50%;bottom:62px;transform:translate(-50%,10px);z-index:20;width:40px;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid #800000;border-radius:50%;background:#fff;color:#800000;font-size:22px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.topic-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.topic-return-top:hover{transform:translate(-50%,-1px)}.topic-document .visual-container{height:33vh;min-height:170px}.topic-document .visual-container .guided-content{height:calc(33vh - 48px);display:flex;align-items:center;justify-content:center;border:0}.visual-placeholder{width:100%;height:100%;border:2px dashed #cbd5e1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800;font-size:20px;background:#fafafa}.topic-document .guided-content{min-height:60px}
-.mastery-document{padding-bottom:24px} .mastery-course-intro,.mastery-topic-overview{margin:0 0 10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;line-height:1.8}.mastery-section-label{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:4px}.mastery-learning-lead{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);font-weight:700;color:var(--green)}.mastery-topic-number{font-size:9px;letter-spacing:.08em;opacity:.72}.mastery-topic-title{font-size:15px;line-height:1.5}.mastery-subtopics-head{display:flex;justify-content:space-between;gap:8px;padding:9px 14px;background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:11px;font-weight:900;color:var(--green)}.mastery-subtopics{padding:10px 0}.mastery-subtopic{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;margin-bottom:9px}.mastery-subtopic:last-child{margin-bottom:0}.mastery-subtopic-kicker{font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:2px}.mastery-subtopic h3{margin:0 0 6px;font-size:14px;color:var(--green);line-height:1.5}.mastery-subtopic-definition{line-height:1.8}.mastery-subtopic-focus{margin-top:8px;padding:7px 9px;border-radius:8px;background:#f7f9f8;line-height:1.65}.mastery-subtopic-focus span{display:block;font-size:9px;font-weight:900;text-transform:uppercase;color:var(--red);margin-bottom:2px}.mastery-subtopic-focus strong{font-size:11px}.mastery-visual-container:empty{display:none}.mastery-toolbar{position:sticky;top:0;z-index:5;margin-bottom:10px;padding:8px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 2px 8px rgba(15,23,42,.06)}.mastery-progress{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;color:var(--green)}.mastery-progress-bar{height:7px;margin-top:6px;border-radius:99px;background:#e8ecea;overflow:hidden}.mastery-progress-fill{height:100%;width:0;background:var(--green2);transition:width .2s}.mastery-nav{display:none!important}.mastery-nav button:nth-child(1){background:#f3f7fb;border-color:#d5e1ee}.mastery-nav button:nth-child(2){background:#f7f3fb;border-color:#e1d6ef}.mastery-nav button:nth-child(3){background:#f3f8f5;border-color:#d4e5da}.mastery-nav button:nth-child(4){background:#fbf6ef;border-color:#eadfce}.mastery-nav button:nth-child(5){background:#f4f5fb;border-color:#dcdfee}.mastery-nav button:nth-child(6){background:#f8f3f6;border-color:#e6d8df}.mastery-nav button:nth-child(7){background:#f2f7f8;border-color:#d4e5e8}.mastery-nav button:nth-child(8){background:#faf6f1;border-color:#e8dfd4}.mastery-nav button:nth-child(9){background:#f4f7f3;border-color:#d9e4d7}.mastery-nav button.read{background:#edf5ef;border-color:#b9d3c4}.mastery-topic{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;scroll-margin-top:90px}.mastery-topic-head{padding:9px 14px;border-bottom:1px solid var(--line);font-weight:800;color:var(--green);text-align:right}.mastery-topic:nth-of-type(1) .mastery-topic-head{background:#f3f7fb}.mastery-topic:nth-of-type(2) .mastery-topic-head{background:#f7f3fb}.mastery-topic:nth-of-type(3) .mastery-topic-head{background:#f3f8f5}.mastery-topic:nth-of-type(4) .mastery-topic-head{background:#fbf6ef}.mastery-topic:nth-of-type(5) .mastery-topic-head{background:#f4f5fb}.mastery-topic:nth-of-type(6) .mastery-topic-head{background:#f8f3f6}.mastery-topic:nth-of-type(7) .mastery-topic-head{background:#f2f7f8}.mastery-topic:nth-of-type(8) .mastery-topic-head{background:#faf6f1}.mastery-topic:nth-of-type(9) .mastery-topic-head{background:#f4f7f3}.mastery-topic.is-read .mastery-topic-head{box-shadow:inset 5px 0 0 var(--green2)}.mastery-topic-head-row{justify-content:space-between;;display:flex;;align-items:center;;gap:8px;}.mastery-read-btn{border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:4px 8px;font-size:11px;font-weight:800;color:var(--green);cursor:pointer}.mastery-topic.is-read .mastery-read-btn{background:#eaf3ed;border-color:#a9c9b6}.mastery-visual-container{height:30vh;min-height:1.8in;width:100%;display:flex;align-items:center;justify-content:center;padding:10px;overflow:hidden}.mastery-visual-grid{width:100%;height:100%;display:grid;gap:8px;align-items:center;justify-items:center}.mastery-visual-grid.visuals-1{grid-template-columns:1fr}.mastery-visual-grid.visuals-2{grid-template-columns:repeat(2,minmax(0,1fr))}.mastery-visual-grid.visuals-3{grid-template-columns:repeat(3,minmax(0,1fr))}.mastery-visual-grid.visuals-4{grid-template-columns:repeat(4,minmax(0,1fr))}.mastery-visual-frame{width:min(2.6in,100%);height:1.8in;max-height:100%;border:2px dashed #cbd5e1;border-radius:12px;background:#fafafa;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800;text-align:center;overflow:hidden}.mastery-topic-definition{min-height:70px;padding:14px;line-height:1.8}.mastery-templates{display:none}.mastery-return-top{display:none!important;position:fixed;left:50%;bottom:14px;transform:translate(-50%,10px);z-index:20;width:52px;height:52px;min-height:0;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);font-size:26px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.mastery-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.mastery-return-top:hover{transform:translate(-50%,-1px)} .mastery-step-arrow{display:none!important}
+.topic-document{margin:auto}.topic-return-top{position:fixed;left:50%;bottom:62px;transform:translate(-50%,10px);z-index:20;width:40px;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid #800000;border-radius:50%;background:#fff;color:#800000;font-size:22px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.topic-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.topic-return-top:hover{transform:translate(-50%,-1px)}.topic-document .visual-container{height:33vh;min-height:170px}.topic-document .visual-container .guided-content{height:calc(33vh - 48px);display:flex;align-items:center;justify-content:center;border:0;}.visual-placeholder{width:100%;height:100%;border:2px dashed #cbd5e1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800;font-size:20px;background:#fafafa}.topic-document .guided-content{min-height:60px;}
+.mastery-document{padding-bottom:24px} .mastery-course-intro,.mastery-topic-overview{margin:0 0 10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;}.mastery-section-label{text-transform:uppercase;color:var(--red);margin-bottom:4px;}.mastery-learning-lead{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);color:var(--green)}.mastery-topic-number{opacity:.72;}.mastery-subtopics-head{display:flex;justify-content:space-between;gap:8px;padding:9px 14px;background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--green);}.mastery-subtopics{padding:10px 12px}.mastery-subtopic{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;margin-bottom:9px;}.mastery-subtopic:last-child{margin-bottom:0;}.mastery-subtopic-kicker{text-transform:uppercase;color:var(--red);margin-bottom:2px;}.mastery-subtopic h3{margin:0 0 6px;color:var(--green);}.mastery-subtopic-focus{margin-top:8px;padding:7px 9px;border-radius:8px;background:#f7f9f8;}.mastery-subtopic-focus span{display:block;text-transform:uppercase;color:var(--red);margin-bottom:2px;}.mastery-visual-container:empty{display:none}.mastery-toolbar{position:sticky;top:0;z-index:5;margin-bottom:10px;padding:8px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 2px 8px rgba(15,23,42,.06)}.mastery-progress{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--green)}.mastery-progress-bar{height:7px;margin-top:6px;border-radius:99px;background:#e8ecea;overflow:hidden}.mastery-progress-fill{height:100%;width:0;background:var(--green2);transition:width .2s}.mastery-nav{display:none!important}.mastery-nav button:nth-child(1){background:#f3f7fb;border-color:#d5e1ee}.mastery-nav button:nth-child(2){background:#f7f3fb;border-color:#e1d6ef}.mastery-nav button:nth-child(3){background:#f3f8f5;border-color:#d4e5da}.mastery-nav button:nth-child(4){background:#fbf6ef;border-color:#eadfce}.mastery-nav button:nth-child(5){background:#f4f5fb;border-color:#dcdfee}.mastery-nav button:nth-child(6){background:#f8f3f6;border-color:#e6d8df}.mastery-nav button:nth-child(7){background:#f2f7f8;border-color:#d4e5e8}.mastery-nav button:nth-child(8){background:#faf6f1;border-color:#e8dfd4}.mastery-nav button:nth-child(9){background:#f4f7f3;border-color:#d9e4d7}.mastery-nav button.read{background:#edf5ef;border-color:#b9d3c4}.mastery-topic{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;scroll-margin-top:90px}.mastery-topic-head{padding:9px 14px;border-bottom:1px solid var(--line);color:var(--green);}.mastery-topic:nth-of-type(1) .mastery-topic-head{background:#f3f7fb;}.mastery-topic:nth-of-type(2) .mastery-topic-head{background:#f7f3fb;}.mastery-topic:nth-of-type(3) .mastery-topic-head{background:#f3f8f5;}.mastery-topic:nth-of-type(4) .mastery-topic-head{background:#fbf6ef;}.mastery-topic:nth-of-type(5) .mastery-topic-head{background:#f4f5fb;}.mastery-topic:nth-of-type(6) .mastery-topic-head{background:#f8f3f6;}.mastery-topic:nth-of-type(7) .mastery-topic-head{background:#f2f7f8;}.mastery-topic:nth-of-type(8) .mastery-topic-head{background:#faf6f1;}.mastery-topic:nth-of-type(9) .mastery-topic-head{background:#f4f7f3;}.mastery-topic.is-read .mastery-topic-head{box-shadow:inset 5px 0 0 var(--green2);}.mastery-topic-head-row{justify-content:space-between;;display:flex;;align-items:center;;gap:8px;}.mastery-read-btn{border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:4px 8px;color:var(--green);cursor:pointer}.mastery-topic.is-read .mastery-read-btn{background:#eaf3ed;border-color:#a9c9b6}.mastery-visual-container{height:30vh;min-height:1.8in;width:100%;display:flex;align-items:center;justify-content:center;padding:10px;overflow:hidden}.mastery-visual-grid{width:100%;height:100%;display:grid;gap:8px;align-items:center;justify-items:center}.mastery-visual-grid.visuals-1{grid-template-columns:1fr}.mastery-visual-grid.visuals-2{grid-template-columns:repeat(2,minmax(0,1fr))}.mastery-visual-grid.visuals-3{grid-template-columns:repeat(3,minmax(0,1fr))}.mastery-visual-grid.visuals-4{grid-template-columns:repeat(4,minmax(0,1fr))}.mastery-visual-frame{width:min(2.6in,100%);height:1.8in;max-height:100%;border:2px dashed #cbd5e1;border-radius:12px;background:#fafafa;display:flex;align-items:center;justify-content:center;color:#64748b;overflow:hidden}.mastery-topic-definition{min-height:70px;padding:14px;}.mastery-templates{display:none}.mastery-return-top{display:none!important;position:fixed;left:50%;bottom:14px;transform:translate(-50%,10px);z-index:20;width:52px;height:52px;min-height:0;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.mastery-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.mastery-return-top:hover{transform:translate(-50%,-1px)} .mastery-step-arrow{display:none!important}
 
 .linked-visual-grid{width:100%;height:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:center;justify-items:center}.visual-atlas-container:has(.visual-atlas-visual){background:#fff}.linked-visual-grid .visual-atlas-container{width:100%;height:100%;min-height:1.8in}.linked-visual-grid .visual-atlas-container[data-position="1"]{grid-column:1}.linked-visual-grid .visual-atlas-container[data-position="2"]{grid-column:2}.physics-visual-render{width:100%;max-width:960px;min-width:0;margin:12px auto 2px;display:flex;justify-content:center;align-items:center;overflow:visible}.physics-drawing{display:block;width:100%;max-width:100%;height:auto;min-width:0;aspect-ratio:960/420;font-family:Arial,sans-serif;overflow:visible;shape-rendering:geometricPrecision;text-rendering:geometricPrecision;vector-effect:non-scaling-stroke}.physics-scene{preserveAspectRatio:xMidYMid meet}@media(max-width:760px){.physics-visual-render{margin:8px auto 0}.physics-drawing{width:100%;height:auto}}
 
@@ -75,7 +54,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .visual-atlas-return-top:hover{transform:translate(-50%,-1px)}
 
 @media(max-width:760px){.visual-atlas-grid{grid-template-columns:1fr;gap:6px;padding:6px}.visual-atlas-container{min-height:50vh;height:50vh;max-height:50vh;box-sizing:border-box}.visual-atlas-visual-area{flex-basis:var(--va-visual-share,68%)}.visual-atlas-briefing{flex-basis:var(--va-briefing-share,32%);font-size:clamp(11px,2.5vw,14px)}}
-#hitCeilingPage{background:linear-gradient(#f8f2e5,#eef5f0);padding:0;overflow:hidden}.htc-shell{width:100%;height:calc(100% - 100px);max-width:1100px;margin:auto;border:1px solid #cbd5e1;border-radius:22px;background:linear-gradient(#fffdf8,#f3ead7);display:flex;flex-direction:column;overflow:hidden}.htc-levels{display:flex;gap:10px;justify-content:center;align-items:center;padding:8px 12px;border-top:1px solid #dfcf9d;border-bottom:1px solid #dfcf9d;overflow-x:auto}.htc-level{width:42px;height:42px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;color:var(--green);font-weight:900;cursor:pointer}.htc-level.active{background:var(--green);color:#fff;border-color:var(--green2)}.htc-play{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:8px 10px 62px}.htc-tower{position:relative;width:210px;height:175px;margin-top:20px}.htc-dome{position:absolute;top:0;left:65px;width:80px;height:45px;border:2px solid #64748b;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e2e8f0}.htc-torch{position:absolute;top:-42px;left:78px;width:55px;height:52px;display:grid;place-items:center}.htc-flame{width:24px;height:34px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #94a3b8;opacity:.5}.htc-body{position:absolute;bottom:12px;left:30px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}.htc-seg{height:25px;border:1px solid #94a3b8;background:#e2e8f0;opacity:.35}.htc-base{position:absolute;bottom:0;left:10px;width:190px;height:17px;border:1px solid #64748b;border-radius:7px;background:#cbd5e1}.htc-info{text-align:center;color:var(--green);font-weight:900}.htc-card{width:min(790px,95%);min-height:78px;border:1px solid var(--line);border-radius:16px;background:#fffdf8;padding:12px;text-align:center;color:#64748b;margin-bottom:0}.htc-question{margin-bottom:10px}.htc-question strong{display:block;color:var(--green);font-size:12px;margin-bottom:5px}.htc-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.5px;margin-top:9px;direction:ltr}.htc-option{width:100%;box-sizing:border-box;position:relative;display:flex;align-items:flex-start;gap:7px;min-height:78px;padding:10px 8px;border:1px solid var(--line);border-radius:10px;cursor:pointer;text-align:left;font-size:11px;font-weight:800;line-height:1.25;transition:.12s;overflow-wrap:anywhere;white-space:normal}.htc-option:nth-child(1){background:#f3f7fb;border-color:#b9cfe3}.htc-option:nth-child(2){background:#f7f3fb;border-color:#d1c0e2}.htc-option:nth-child(3){background:#f3f8f5;border-color:#b9d4c3}.htc-option:nth-child(4){background:#fbf6ef;border-color:#dfc9a8}.htc-option:hover{transform:translateY(-1px)}.htc-option:focus-visible{outline:2px solid var(--green2);outline-offset:1px}.htc-option.htc-correct{outline:2px solid var(--green2);background:#eaf3ed!important}.htc-option.htc-wrong{outline:2px solid var(--red);background:#fceeee!important}.htc-feedback{min-height:18px;margin-top:8px;font-size:11px;font-weight:900}.htc-source{margin-top:8px;font-size:10px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.htc-actions{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;justify-content:center;gap:8px;padding:0;margin:0}.htc-btn{width:155px;height:47px;border:1px solid var(--line);border-radius:10px;padding:9px 16px;background:#fff;color:var(--green);font-weight:900;cursor:pointer;box-sizing:border-box}
+#hitCeilingPage{background:linear-gradient(#f8f2e5,#eef5f0);padding:0;overflow:hidden}.htc-shell{width:100%;height:calc(100% - 100px);max-width:1100px;margin:auto;border:1px solid #cbd5e1;border-radius:22px;background:linear-gradient(#fffdf8,#f3ead7);display:flex;flex-direction:column;overflow:hidden}.htc-levels{display:flex;gap:10px;justify-content:center;align-items:center;padding:8px 12px;border-top:1px solid #dfcf9d;border-bottom:1px solid #dfcf9d;overflow-x:auto}.htc-level{width:42px;height:42px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;color:var(--green);font-weight:900;cursor:pointer}.htc-level.active{background:var(--green);color:#fff;border-color:var(--green2)}.htc-play{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:8px 10px 62px}.htc-tower{position:relative;width:210px;height:175px;margin-top:20px}.htc-dome{position:absolute;top:0;left:65px;width:80px;height:45px;border:2px solid #64748b;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e2e8f0}.htc-torch{position:absolute;top:-42px;left:78px;width:55px;height:52px;display:grid;place-items:center}.htc-flame{width:24px;height:34px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #94a3b8;opacity:.5}.htc-body{position:absolute;bottom:12px;left:30px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}.htc-seg{height:25px;border:1px solid #94a3b8;background:#e2e8f0;opacity:.35}.htc-base{position:absolute;bottom:0;left:10px;width:190px;height:17px;border:1px solid #64748b;border-radius:7px;background:#cbd5e1}.htc-info{text-align:center;color:var(--green);font-weight:900}.htc-card{width:min(790px,95%);min-height:78px;border:1px solid var(--line);border-radius:16px;background:#fffdf8;padding:12px;text-align:center;color:#64748b;margin-bottom:0}.htc-question{margin-bottom:10px;}.htc-question strong{display:block;color:var(--green);margin-bottom:5px;}.htc-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.5px;margin-top:9px;direction:ltr}.htc-option{width:100%;box-sizing:border-box;position:relative;display:flex;align-items:flex-start;gap:7px;min-height:78px;padding:10px 8px;border:1px solid var(--line);border-radius:10px;cursor:pointer;text-align:left;font-weight:800;line-height:1.25;transition:.12s;overflow-wrap:anywhere;white-space:normal;}.htc-option:nth-child(1){background:#f3f7fb;border-color:#b9cfe3;}.htc-option:nth-child(2){background:#f7f3fb;border-color:#d1c0e2;}.htc-option:nth-child(3){background:#f3f8f5;border-color:#b9d4c3;}.htc-option:nth-child(4){background:#fbf6ef;border-color:#dfc9a8;}.htc-option:hover{transform:translateY(-1px);}.htc-option:focus-visible{outline:2px solid var(--green2);outline-offset:1px;}.htc-option.htc-correct{outline:2px solid var(--green2);background:#eaf3ed!important;}.htc-option.htc-wrong{outline:2px solid var(--red);background:#fceeee!important;}.htc-feedback{min-height:18px;margin-top:8px;font-weight:900;}.htc-source{margin-top:8px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.htc-actions{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;justify-content:center;gap:8px;padding:0;margin:0}.htc-btn{width:155px;height:47px;border:1px solid var(--line);border-radius:10px;padding:9px 16px;background:#fff;color:var(--green);font-weight:900;cursor:pointer;box-sizing:border-box}
 .tab{display:flex;;align-items:center;;justify-content:center;;gap:10px;;min-height:54px;;padding:10px 12px;;border:1px solid var(--line);;border-radius:12px;;background:#fff;;cursor:pointer;;user-select:none;;box-shadow:0 2px 8px rgba(15,23,42,.05);;transition:.12s;;position:relative;;overflow:hidden;}.tab.main-topic-large{border:1px solid #8bb8d8}.tab.functional{border-color:var(--red)}.tab.functional .num{color:#a8d5b5 !important}.tab.main-topic-large .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 clamp(48px,7vw,88px)/1 Inter,sans-serif;color:#8bb8d8;opacity:.9;min-width:0;z-index:0;padding:10px 0;box-sizing:border-box}.tab .label{font-weight:800;;text-align:center;;position:relative;;z-index:2;}
 @media(max-width:760px){.academy-global-header-inner{min-height:68px;padding:8px 10px}.academy-global-brand h1{font-size:18px}.academy-global-logo img{width:48px;height:48px}.main-content-container{height:calc(100% - 72px);padding:4px}.topic-grid,.topic-feature-row,.functional-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.tab{min-height:52px;padding:8px 6px}.tab .label{font-size:13px}.topic-document .visual-container{height:33vh;min-height:150px}.htc-shell{height:calc(100% - 88px)}.htc-tower{transform:scale(.8);transform-origin:bottom center}.htc-level{width:36px;height:36px}}
 
@@ -103,22 +82,22 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .dictionary-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--green);font-weight:900}
 .dictionary-card-close{border:1px solid #cbd5e1;border-radius:9px;background:#fff;color:var(--red);font-weight:900;padding:6px 10px;cursor:pointer;position:absolute;right:12px;bottom:12px}
 .dictionary-card-term{font-size:24px;font-weight:900;color:var(--green);margin:14px 0 8px}
-.dictionary-card-definition{line-height:1.7;color:#334155}
+.dictionary-card-definition{color:#334155}
 .dictionary-card-source{margin-top:12px;font-size:11px;color:#64748b}
 .dictionary-term-link{border:0;background:transparent;padding:0;color:var(--green);font:inherit;font-weight:800;text-decoration:underline;text-decoration-style:dotted;cursor:pointer}.linked-word{color:var(--green2);background:transparent;border:0;box-shadow:none;padding:0;margin:0;text-decoration:none;cursor:pointer;font:inherit;font-weight:700;border-radius:0}.linked-word:hover,.linked-word:focus{color:#b42318;background:transparent;outline:none}.linked-word:focus-visible{outline:2px solid var(--line);outline-offset:2px}
 @media(max-width:760px){.dictionary-entry{grid-template-columns:1fr;gap:5px;padding:9px}.dictionary-entry-meta{grid-column:auto}.dictionary-entry-urdu{text-align:right}.dictionary-modal{padding:8px}.dictionary-card{max-height:68vh}}
 
 
-.practice-tier3{max-width:1180px;margin:auto;padding-bottom:28px}.practice-tier3 .practice-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practice-tier3 .practice-title{font-weight:900;color:var(--green);font-size:20px}.practice-tier3 .practice-note{margin-top:3px;color:var(--muted);font-size:12px}.practice-tier3 .practice-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;font-size:12px}.practice-tier3 .practice-source .ok{font-weight:800;color:var(--green2)}.practice-tier3 .practice-source .count{color:var(--muted)}.practice-tier3 .practice-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.practice-tier3 .practice-topic{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}.practice-tier3 .practice-topic-head{width:100%;border:0;border-bottom:1px solid var(--line);background:#f8faf9;color:var(--green);padding:9px 11px;text-align:right;font-weight:900;cursor:pointer}.practice-tier3 .practice-topic-head.active{background:#edf5ef}.practice-tier3 .practice-topic-body{padding:9px;display:none}.practice-tier3 .practice-topic-body.open{display:block}.practice-tier3 .practice-subtopic{border:1px solid var(--line);border-radius:9px;padding:8px;margin:0 0 7px;background:#fffdf8}.practice-tier3 .practice-subtopic-title{font-weight:800;color:var(--green)}.practice-tier3 .practice-question{margin-top:7px;padding:8px;border-radius:8px;background:#f7f8f8;color:var(--ink);font-size:12px;line-height:1.55}.practice-tier3 .practice-answer{margin-top:5px;padding:7px;border-left:3px solid var(--green2);background:#f1f5f3;font-size:12px;line-height:1.5}.practice-tier3 .practice-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:8px}.practice-tier3 .practice-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);font-weight:800;cursor:pointer}.practice-tier3 .practice-empty{padding:12px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);text-align:center}@media(max-width:760px){.practice-tier3 .practice-topics{grid-template-columns:1fr}}
+.practice-tier3{margin:auto;padding-bottom:28px}.practice-tier3 .practice-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practice-tier3 .practice-title{color:var(--green);}.practice-tier3 .practice-note{margin-top:3px;color:var(--muted);}.practice-tier3 .practice-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;}.practice-tier3 .practice-source .ok{color:var(--green2)}.practice-tier3 .practice-source .count{color:var(--muted)}.practice-tier3 .practice-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.practice-tier3 .practice-topic{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}.practice-tier3 .practice-topic-head{width:100%;border:0;border-bottom:1px solid var(--line);background:#f8faf9;color:var(--green);padding:9px 11px;cursor:pointer}.practice-tier3 .practice-topic-head.active{background:#edf5ef}.practice-tier3 .practice-topic-body{padding:9px;display:none}.practice-tier3 .practice-topic-body.open{display:block}.practice-tier3 .practice-subtopic{border:1px solid var(--line);border-radius:9px;padding:8px;margin:0 0 7px;background:#fffdf8}.practice-tier3 .practice-subtopic-title{color:var(--green);}.practice-tier3 .practice-question{margin-top:7px;padding:8px;border-radius:8px;background:#f7f8f8;color:var(--ink);}.practice-tier3 .practice-answer{margin-top:5px;padding:7px;border-left:3px solid var(--green2);background:#f1f5f3;}.practice-tier3 .practice-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:8px}.practice-tier3 .practice-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);cursor:pointer}.practice-tier3 .practice-empty{padding:12px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);}@media(max-width:760px){.practice-tier3 .practice-topics{grid-template-columns:1fr}}
 
-.practical-tier3{max-width:900px;margin:auto;padding-bottom:28px}.practical-tier3 .practical-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practical-tier3 .practical-title{font-weight:900;color:var(--green);font-size:20px}.practical-tier3 .practical-note{display:none}.practical-tier3 .practical-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin-bottom:10px}.practical-tier3 .practical-card-head{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);font-weight:900;color:var(--green)}.practical-tier3 .practical-card-body{padding:14px;line-height:1.8;color:var(--ink)}.practical-tier3 .practical-meta{font-size:11px;color:var(--muted);margin-bottom:8px}.practical-tier3 .practical-step{margin:7px 0;padding:8px 10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8}.practical-tier3 .practical-fallback{text-align:center}.practical-tier3 .practical-fallback .breath-title{font-size:18px;font-weight:900;color:var(--green);margin-bottom:8px}.practical-tier3 .practical-fallback .breath-line{margin:6px 0}
+.practical-tier3{margin:auto;padding-bottom:28px}.practical-tier3 .practical-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practical-tier3 .practical-title{font-weight:900;color:var(--green);font-size:20px}.practical-tier3 .practical-note{display:none}.practical-tier3 .practical-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin-bottom:10px}.practical-tier3 .practical-card-head{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);font-weight:900;color:var(--green)}.practical-tier3 .practical-card-body{padding:14px;line-height:1.8;color:var(--ink)}.practical-tier3 .practical-meta{font-size:11px;color:var(--muted);margin-bottom:8px}.practical-tier3 .practical-step{margin:7px 0;padding:8px 10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8}.practical-tier3 .practical-fallback{text-align:center}.practical-tier3 .practical-fallback .breath-title{font-size:18px;font-weight:900;color:var(--green);margin-bottom:8px}.practical-tier3 .practical-fallback .breath-line{margin:6px 0}
 
 
-.readiness-tier3{max-width:1180px;margin:auto;padding-bottom:28px}.readiness-tier3 .readiness-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.readiness-tier3 .readiness-title{font-weight:900;color:var(--green);font-size:20px}.readiness-tier3 .readiness-note{margin-top:3px;color:var(--muted);font-size:12px}.readiness-tier3 .readiness-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;font-size:12px}.readiness-tier3 .ok{font-weight:800;color:var(--green2)}.readiness-tier3 .count{color:var(--muted)}.readiness-tier3 .readiness-list{display:grid;gap:8px}.readiness-tier3 .readiness-item{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}.readiness-tier3 .readiness-q{font-weight:800;color:var(--ink);line-height:1.5}.readiness-tier3 .readiness-meta{font-size:11px;color:var(--muted);margin-bottom:5px}.readiness-tier3 .readiness-answer{display:none;margin-top:7px;padding:7px 9px;border-left:3px solid var(--green2);background:#f1f5f3;font-size:12px;line-height:1.5}.readiness-tier3.show-answers .readiness-answer{display:block}.readiness-tier3 .readiness-actions{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;margin-top:9px;text-align:center}.readiness-tier3 .readiness-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);font-weight:800;cursor:pointer}.readiness-tier3 .readiness-empty{padding:16px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);text-align:center}
+.readiness-tier3{margin:auto;padding-bottom:28px}.readiness-tier3 .readiness-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px;}.readiness-tier3 .readiness-title{color:var(--green);}.readiness-tier3 .readiness-note{margin-top:3px;color:var(--muted);}.readiness-tier3 .readiness-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;}.readiness-tier3 .ok{color:var(--green2)}.readiness-tier3 .count{color:var(--muted)}.readiness-tier3 .readiness-list{display:grid;gap:8px}.readiness-tier3 .readiness-item{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}.readiness-tier3 .readiness-q{color:var(--ink);}.readiness-tier3 .readiness-meta{color:var(--muted);margin-bottom:5px;}.readiness-tier3 .readiness-answer{display:none;margin-top:7px;padding:7px 9px;border-left:3px solid var(--green2);background:#f1f5f3;}.readiness-tier3.show-answers .readiness-answer{display:block;}.readiness-tier3 .readiness-actions{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;margin-top:9px;}.readiness-tier3 .readiness-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);cursor:pointer}.readiness-tier3 .readiness-empty{padding:16px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);}
 
-.readiness-tier3 .readiness-flow{border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px;margin-bottom:10px}.readiness-tier3 .readiness-progress{font-size:12px;color:var(--muted);margin-bottom:7px}.readiness-tier3 .readiness-live-q{font-weight:900;line-height:1.55;font-size:15px}.readiness-tier3 .readiness-live-meta{font-size:11px;color:var(--muted);margin-bottom:5px}.readiness-tier3 .readiness-user-answer{width:100%;min-height:72px;box-sizing:border-box;margin-top:8px;border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit;resize:vertical}.readiness-tier3 .readiness-feedback{display:none;margin-top:8px;padding:8px 9px;border-left:3px solid var(--green2);background:#f1f5f3;font-size:12px;line-height:1.5}.readiness-tier3 .readiness-flow.checked .readiness-feedback{display:block}.readiness-tier3 .readiness-flow.checked .readiness-user-answer{background:#fafafa}.readiness-tier3 .readiness-flow.done .readiness-live-q{opacity:.75}.readiness-tier3 .readiness-result{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;line-height:1.6}.readiness-tier3 .readiness-result strong{color:var(--green)}
+.readiness-tier3 .readiness-flow{border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px;margin-bottom:10px}.readiness-tier3 .readiness-progress{color:var(--muted);margin-bottom:7px}.readiness-tier3 .readiness-live-meta{color:var(--muted);margin-bottom:5px;}.readiness-tier3 .readiness-user-answer{width:100%;min-height:72px;box-sizing:border-box;margin-top:8px;border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit;resize:vertical}.readiness-tier3 .readiness-feedback{display:none;margin-top:8px;padding:8px 9px;border-left:3px solid var(--green2);background:#f1f5f3;}.readiness-tier3 .readiness-flow.checked .readiness-feedback{display:block;}.readiness-tier3 .readiness-flow.checked .readiness-user-answer{background:#fafafa}.readiness-tier3 .readiness-flow.done .readiness-live-q{opacity:.75;}.readiness-tier3 .readiness-result{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;}.readiness-tier3 .readiness-result strong{color:var(--green);}
 
-.search-tier3{max-width:1180px;margin:auto;padding-bottom:26px}.search-head{padding:4px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.search-tier3{margin:auto;padding-bottom:26px}.search-head{padding:4px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}
 .search-acronym{display:flex;flex-direction:column;gap:9px;margin:28px auto 24px;max-width:520px;width:auto}.search-acronym-row{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:20px}.search-acronym-letter{font-weight:900;font-size:38px;line-height:1.1;color:var(--green);text-align:right}.search-acronym-meaning{font-size:19px;font-weight:800;color:#334155;text-align:left}.search-title{font-size:18px;font-weight:900;color:var(--green)}.search-subtitle{display:none}.search-note{margin-top:4px;font-size:12px;color:#64748b;line-height:1.6}.search-scope{display:none;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:10px}.search-scope button{min-height:40px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--green);font-weight:800;cursor:pointer;font-size:11px}.search-scope button.active{border:2px solid var(--red);background:#fff7f7;color:var(--red)}.search-scope button[disabled]{opacity:.48;cursor:not-allowed}.search-box{position:relative;display:flex;align-items:center;gap:7px;margin-bottom:10px}.search-input-wrap{position:relative;flex:1;min-width:0}.search-input{width:100%;height:48px;border:1px solid var(--line);border-radius:12px;padding:0 44px 0 14px;font-size:16px;color:#334155;outline:none;background:#fff;direction:ltr}.search-input:focus{border-color:var(--green2);box-shadow:0 0 0 2px rgba(36,88,67,.10)}.search-clear{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:var(--red);font-size:21px;font-weight:900;cursor:pointer;display:none}.search-input-wrap.has-value .search-clear{display:block}.search-submit{height:48px;border:1px solid var(--green);border-radius:12px;background:var(--green);color:#fff;font-weight:900;padding:0 18px;cursor:pointer}.search-status{display:none;font-size:12px;color:#64748b;margin:5px 2px 10px;min-height:18px}.search-results{display:flex;flex-direction:column;gap:9px}.search-result{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.search-result-head{padding:9px 13px;background:#f3f7f4;border-bottom:1px solid var(--line);font-weight:900;color:var(--green)}.search-result-meta{font-size:11px;color:#64748b;font-weight:700;margin-top:3px}.search-result-body{padding:13px;line-height:1.8}.search-result-definition{padding:10px 12px;border:1px solid #e3e9e6;border-radius:10px;background:#fbfdfb;margin-bottom:9px}.search-match{background:#fff0a8;border-radius:3px;padding:0 2px}.search-subtopics{display:grid;gap:6px}.search-subtopic{padding:8px 10px;border:1px solid #e4e9e7;border-radius:9px;background:#fff}.search-subtopic-title{font-weight:900;color:var(--green)}.search-subtopic-text{margin-top:3px;font-size:13px}.search-empty{padding:24px 14px;border:1px dashed #cbd5e1;border-radius:14px;background:#fff;text-align:center;color:#64748b;line-height:1.8}
 .search-step-arrow{position:fixed;left:50%;bottom:66px;transform:translateX(-50%);z-index:20;width:40px;height:40px;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);font-size:22px;font-weight:800;cursor:pointer;display:none}.search-step-arrow.visible{display:flex;align-items:center;justify-content:center}@media(max-width:760px){.search-scope{grid-template-columns:repeat(4,minmax(0,1fr))}.search-box{gap:5px}.search-submit{padding:0 12px}}
 
@@ -127,8 +106,8 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 #topicsPage .topic-grid .tab,#topicsPage .functional-row .tab{width:100%;height:auto;min-height:54px;padding:10px 12px;border-width:1px;box-sizing:border-box}
 #topicsPage .topic-grid .main-topic-large .label{color:#166534;font-weight:900;text-shadow:none;filter:none;line-height:1.35;white-space:normal;overflow:visible}
 
-.exam-tier3{max-width:900px;margin:auto;padding:8px 0 80px;direction:ltr;text-align:left}.exam-head{padding:8px 4px 12px;border-bottom:1px solid var(--line);margin-bottom:12px}.exam-title{font-weight:900;color:var(--red);font-size:20px}.exam-note{margin-top:4px;color:var(--muted);font-size:12px;text-align:left}.exam-source{display:flex;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin:10px 0}.exam-source span{padding:6px 9px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:12px}.exam-source .ok{font-weight:800;color:var(--green)}.exam-section{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin:12px 0;text-align:left}.exam-section-head{padding:10px 14px;background:#f7eeee;border-bottom:1px solid var(--line);font-weight:900;color:var(--red);text-align:left}.exam-question{padding:12px 14px;border-bottom:1px solid #edf0ef;line-height:1.7;text-align:left}.exam-question:last-child{border-bottom:0}.exam-qtype{display:inline-block;font-size:11px;font-weight:900;color:var(--muted);margin-bottom:5px}.exam-qtext{font-weight:700;text-align:left}.exam-options li{margin:4px 0}.exam-answer{margin-top:8px;padding:8px 10px;border-left:3px solid var(--green);background:#f6faf7;text-align:left}.exam-passage{margin:8px 0;padding:10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8;font-weight:600;text-align:left}.exam-actions{display:flex;justify-content:flex-start;gap:8px;flex-wrap:wrap;margin:12px 0}.exam-btn{border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);padding:9px 14px;font-weight:800;cursor:pointer}.exam-options{margin:12px 0;;padding:0 0 0 18px;;display:flex;;flex-direction:column;;gap:8px;}.exam-option{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}.exam-option input{margin-top:3px;accent-color:var(--red)}.exam-option:has(input:checked){border-color:var(--red);box-shadow:0 0 0 1px var(--red)}.exam-question-status{font-size:12px;font-weight:700;color:var(--muted);margin-top:5px}.exam-progress-line{font-weight:800;min-width:120px}.exam-result{margin-top:14px}.exam-result-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;line-height:1.8}.exam-result-note{margin-top:6px;color:var(--muted)}
-.exam-empty{padding:16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:left}
+.exam-tier3{margin:auto;padding:8px 0 80px;}.exam-head{padding:8px 4px 12px;border-bottom:1px solid var(--line);margin-bottom:12px}.exam-title{color:var(--red);}.exam-note{margin-top:4px;color:var(--muted);}.exam-source{display:flex;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin:10px 0}.exam-source span{padding:6px 9px;border:1px solid var(--line);border-radius:9px;background:#fff;}.exam-source .ok{color:var(--green)}.exam-section{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin:12px 0;}.exam-section-head{padding:10px 14px;background:#f7eeee;border-bottom:1px solid var(--line);color:var(--red);}.exam-question{padding:12px 14px;border-bottom:1px solid #edf0ef;}.exam-question:last-child{border-bottom:0;}.exam-qtype{display:inline-block;color:var(--muted);margin-bottom:5px;}.exam-options li{margin:4px 0}.exam-answer{margin-top:8px;padding:8px 10px;border-left:3px solid var(--green);background:#f6faf7;}.exam-passage{margin:8px 0;padding:10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8;}.exam-actions{display:flex;justify-content:flex-start;gap:8px;flex-wrap:wrap;margin:12px 0}.exam-btn{border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);padding:9px 14px;cursor:pointer}.exam-options{margin:12px 0;;padding:0 0 0 18px;;display:flex;;flex-direction:column;;gap:8px;}.exam-option{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}.exam-option input{margin-top:3px;accent-color:var(--red)}.exam-option:has(input:checked){border-color:var(--red);box-shadow:0 0 0 1px var(--red)}.exam-question-status{color:var(--muted);margin-top:5px}.exam-progress-line{min-width:120px}.exam-result{margin-top:14px}.exam-result-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;}.exam-result-note{margin-top:6px;color:var(--muted)}
+.exam-empty{padding:16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);}
 
 
 /* One global Previous Page tab: visible only when the active scroller has no further downward scroll. */
@@ -139,193 +118,49 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 @media(max-width:760px){.global-previous-page-tab{width:150px;height:42px;bottom:10px;font-size:13px}}
 
 
-.mastery-topic-overview,
-.mastery-topic-overview > div:not(.mastery-section-label),
-.mastery-subtopic-definition,
-.mastery-subtopic-focus,
-.guided-content.urdu-medium,
-.guided-container .guided-content.urdu-medium {
-  direction: rtl !important;
-  text-align: right !important;
-  unicode-bidi: plaintext;
-}
+.mastery-topic-overview,.mastery-topic-overview >
 
-.mastery-topic-overview > div:not(.mastery-section-label),
-.mastery-topic-definition,
-.mastery-subtopic-definition,
-.mastery-subtopic-focus,
-.guided-content.urdu-medium {
-  direction: rtl !important;
-  text-align: right !important;
-  unicode-bidi: plaintext;
-  line-height: 1.9;
-}
-.mastery-rtl-text {
-  direction: rtl;
-  text-align: right;
-  unicode-bidi: plaintext;
-  white-space: normal;
-}
+.mastery-topic-overview >
 .mastery-rtl-text .ltr-run {
-  direction: ltr;
-  unicode-bidi: isolate;
+  
+  
   display: inline;
-  white-space: nowrap;
+  
 }
-
-.mastery-topic-title,
-.mastery-subtopic h3,
-.guided-label {
-  direction: ltr;
-  text-align: center;
-}
-
-.academic-content, .guided-content, .mastery-topic-definition, .mastery-subtopic-definition, .topic-definition, .subtopic-definition, .definition, .definition-text, .academic-definition { unicode-bidi: plaintext; }
-.academic-content[dir="rtl"], .guided-content[dir="rtl"], .mastery-topic-definition[dir="rtl"], .mastery-subtopic-definition[dir="rtl"], .topic-definition[dir="rtl"], .subtopic-definition[dir="rtl"], .definition[dir="rtl"], .definition-text[dir="rtl"], .academic-definition[dir="rtl"] { direction:rtl; text-align:right; }
-.academic-content[dir="ltr"], .guided-content[dir="ltr"], .mastery-topic-definition[dir="ltr"], .mastery-subtopic-definition[dir="ltr"], .topic-definition[dir="ltr"], .subtopic-definition[dir="ltr"], .definition[dir="ltr"], .definition-text[dir="ltr"], .academic-definition[dir="ltr"] { direction:ltr; text-align:left; }
-.mastery-text-flow.mixed-rtl { direction:rtl; text-align:right; unicode-bidi:plaintext; }
-.mastery-text-flow.english-only { direction:ltr; text-align:left; unicode-bidi:plaintext; }
-.mastery-text-flow .ltr-run { direction:ltr; unicode-bidi:isolate; display:inline; white-space:nowrap; }
-.academic-content bdi, .guided-content bdi, .mastery-topic-definition bdi, .mastery-subtopic-definition bdi, .topic-definition bdi, .subtopic-definition bdi, .definition bdi, .definition-text bdi, .academic-definition bdi { unicode-bidi:isolate; }
+.mastery-text-flow .ltr-run{   display:inline;  }
 </style>
 <style>
-.guided-content[dir="rtl"],.mastery-topic-definition[dir="rtl"],.mastery-subtopic-definition[dir="rtl"],.mastery-subtopic-focus[dir="rtl"],.academic-definition[dir="rtl"],.definition-text[dir="rtl"]{direction:rtl!important;text-align:right!important;unicode-bidi:plaintext}
-.guided-content[dir="ltr"],.mastery-topic-definition[dir="ltr"],.mastery-subtopic-definition[dir="ltr"],.mastery-subtopic-focus[dir="ltr"],.academic-definition[dir="ltr"],.definition-text[dir="ltr"]{direction:ltr!important;text-align:left!important;unicode-bidi:plaintext}
 .inline-ltr{direction:ltr;unicode-bidi:isolate;display:inline;white-space:nowrap}
-.academic-ltr-run{direction:ltr;unicode-bidi:isolate;display:inline;white-space:nowrap}
+.academic-ltr-run{display:inline;}
 </style>
 <style>
-#homePage .guided-label.sr-only{display:none!important}
+#homePage .guided-label.sr-only{display:none!important;}
 #homePage .guided-forward{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9999;margin:0;width:150px;height:42px;display:flex;align-items:center;justify-content:center}
 #homePage .guided-forward button{width:150px;height:42px;box-sizing:border-box;margin:0}
 </style>
 <style>
 
-.mastery-course-intro,.mastery-topic-number,.mastery-subtopic-kicker,.mastery-subtopic-focus{display:none!important}
-.mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:6px 10px;font-size:11px;font-weight:900;color:var(--green);cursor:pointer;direction:rtl}
+.mastery-course-intro,.mastery-topic-number,.mastery-subtopic-kicker,.mastery-subtopic-focus{display:none!important;}
+.mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:6px 10px;color:var(--green);cursor:pointer;}
 .mastery-tts-global-btn.active{background:var(--green);color:#fff}
-.mastery-tts-panel{position:fixed;left:50%;right:auto;bottom:72px;transform:translateX(-50%);z-index:10000;display:none;align-items:center;gap:6px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.18);font-size:11px;direction:rtl}
-.mastery-tts-panel.visible{display:flex}.mastery-tts-panel button{border:1px solid var(--line);border-radius:7px;background:#fafafa;padding:5px 8px;font-size:10px;font-weight:800;cursor:pointer;width:44px;height:30px;min-width:44px;min-height:30px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}.mastery-tts-status{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--green);font-weight:800}
+.mastery-tts-panel{position:fixed;left:50%;right:auto;bottom:72px;transform:translateX(-50%);z-index:10000;display:none;align-items:center;gap:6px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.18);}
+.mastery-tts-panel.visible{display:flex}.mastery-tts-panel button{border:1px solid var(--line);border-radius:7px;background:#fafafa;padding:5px 8px;cursor:pointer;width:44px;height:30px;min-width:44px;min-height:30px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}.mastery-tts-status{max-width:180px;overflow:hidden;text-overflow:ellipsis;color:var(--green);}
 .mastery-tts-reading-highlight{background:#dff3df !important;box-shadow:inset 4px 0 0 #2e7d32;border-radius:5px;padding-left:4px!important;transition:background .15s ease;}
 </style>
 <style>
 
-#hitCeilingPage .htc-question,#hitCeilingPage .htc-answer{display:block;margin:0 0 8px;line-height:1.55}
-#hitCeilingPage .htc-question strong,#hitCeilingPage .htc-answer strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px}
-#hitCeilingPage .htc-source{font-size:11px;color:#64748b;font-weight:800;margin-top:6px}
+#hitCeilingPage .htc-question{display:block;margin:0 0 8px;line-height:1.55;}#hitCeilingPage .htc-answer{display:block;margin:0 0 8px;line-height:1.55;}
+#hitCeilingPage .htc-question strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}#hitCeilingPage .htc-answer strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}
+#hitCeilingPage .htc-source{color:#64748b;font-weight:800;margin-top:6px;}
 </style>
-<style>#hitCeilingPage .htc-source,#hitCeilingPage .htc-question-meta,#hitCeilingPage .htc-question-number,#hitCeilingPage .htc-topic-meta,#hitCeilingPage .htc-question-topic{display:none!important}</style>
+<style>#hitCeilingPage .htc-source,#hitCeilingPage .htc-question-meta,#hitCeilingPage .htc-question-number,#hitCeilingPage .htc-question-topic{display:none!important;}#hitCeilingPage .htc-topic-meta{display:none!important;}</style>
 <style>
 
-#topicPage .guided-content,
-#topicPage .topic-document .guided-content,
-#topicPage .mastery-topic-definition,
-#topicPage .mastery-subtopic-definition,
-#topicPage .mastery-topic-overview,
-#functionalContentView .mastery-course-intro > div:not(.mastery-section-label),
-#functionalContentView .mastery-topic-overview > div:not(.mastery-section-label),
-#functionalContentView .mastery-topic-definition,
-#functionalContentView .mastery-subtopic-definition,
-#functionalContentView .mastery-subtopic-focus,
-#functionalContentView .revision-card-definition,
-#functionalContentView .exam-question,
-#functionalContentView .exam-passage,
-#functionalContentView .readiness-live-q,
-#functionalContentView .readiness-user-answer,
-#functionalContentView .readiness-feedback,
-#functionalContentView .practice-question,
-#functionalContentView .practice-answer,
-#functionalContentView .practice-subtopic-title,
-#functionalContentView .exam-answer {
-  font-size:13px;
-  font-weight:600;
-}
-
-#topicPage .chapter-definition-container .guided-content,
-#topicPage .learning-outcomes-container .guided-content,
-#topicPage .mastery-topic-definition,
-#functionalContentView .mastery-topic-definition,
-#functionalContentView .mastery-subtopic-definition,
-#functionalContentView .revision-card-definition,
-#functionalContentView .exam-answer,
-#functionalContentView .exam-passage,
-#functionalContentView .practice-answer,
-#functionalContentView .readiness-feedback {
-  font-size:13px;
-  font-weight:700;
-}
+#topicPage .guided-content,#topicPage .topic-document .guided-content,#topicPage .mastery-topic-definition,#topicPage .mastery-subtopic-definition,#topicPage .mastery-topic-overview,#functionalContentView .mastery-course-intro > div:not(.mastery-section-label),#functionalContentView .mastery-topic-overview >
 
 </style>
 <style>
-
-#topicPage .guided-label,
-#functionalContentView .mastery-topic-title,
-#functionalContentView .revision-title,
-#functionalContentView .exam-title,
-#functionalContentView .practice-title,
-#functionalContentView .readiness-title {
-  font-size:22px !important;
-  line-height:1.45 !important;
-}
-
-#functionalContentView .mastery-subtopic h3,
-#functionalContentView .mastery-topic-head,
-#functionalContentView .mastery-subtopics-head,
-#functionalContentView .revision-card-title,
-#functionalContentView .exam-section-head,
-#functionalContentView .exam-qtype,
-#functionalContentView .practice-subtopic-title,
-#functionalContentView .readiness-head,
-#functionalContentView .readiness-source {
-  font-size:20px !important;
-  line-height:1.5 !important;
-}
-
-#topicPage .guided-content,
-#functionalContentView .mastery-course-intro,
-#functionalContentView .mastery-topic-overview,
-#functionalContentView .mastery-topic-definition,
-#functionalContentView .mastery-subtopic-definition,
-#functionalContentView .mastery-subtopic-focus,
-#functionalContentView .revision-card-definition,
-#functionalContentView .exam-question,
-#functionalContentView .exam-answer,
-#functionalContentView .exam-passage,
-#functionalContentView .exam-result-card,
-#functionalContentView .practice-question,
-#functionalContentView .practice-answer,
-#functionalContentView .readiness-note,
-#functionalContentView .readiness-q,
-#functionalContentView .readiness-answer,
-#functionalContentView .readiness-live-q,
-#functionalContentView .readiness-feedback,
-#functionalContentView .readiness-result {
-  font-size:18px !important;
-  line-height:1.75 !important;
-}
-
-#functionalContentView .mastery-section-label,
-#functionalContentView .mastery-topic-number,
-#functionalContentView .mastery-subtopic-kicker,
-#functionalContentView .mastery-subtopic-focus span,
-#functionalContentView .revision-card-type,
-#functionalContentView .exam-note,
-#functionalContentView .exam-qtype,
-#functionalContentView .readiness-meta,
-#functionalContentView .readiness-live-meta {
-  font-size:11px !important;
-}
-
-#functionalContentView .mastery-nav,
-#functionalContentView .mastery-nav button,
-#functionalContentView .mastery-read-btn,
-#functionalContentView .practice-btn,
-#functionalContentView .readiness-btn,
-#functionalContentView .exam-btn,
-#functionalContentView .exam-option,
-#functionalContentView [role="tab"] {
-  font-size:initial;
-}
+#functionalContentView .mastery-nav,#functionalContentView .mastery-nav button,#functionalContentView .mastery-read-btn,#functionalContentView .practice-btn,#functionalContentView .readiness-btn,#functionalContentView .exam-btn,#functionalContentView .exam-option,#functionalContentView [role="tab"]{font-size:initial}
 </style>
 <style id="tab-symbol-font">
 
@@ -354,11 +189,11 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 </style>
 <style id="full-width-dynamic-content">
 .main-content-container{width:100%;max-width:none;box-sizing:border-box;padding-left:2px;padding-right:2px;}
-.content-view,.guided-document,.topic-document,.mastery-document,.visual-atlas-document{max-width:none;width:100%;box-sizing:border-box;}
-.guided-container,.guided-content,.mastery-course-intro,.mastery-topic-overview,.mastery-topic,.mastery-subtopic,.mastery-topic-definition{box-sizing:border-box;}
-.guided-container,.mastery-course-intro,.mastery-topic-overview,.mastery-topic,.mastery-subtopic{height:auto;min-height:0;}
+.content-view{max-width:none;width:100%;box-sizing:border-box;} /* Academic document widths are governed only by .academic-content-container. */
+.guided-content,.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic,.mastery-topic-definition{box-sizing:border-box;}.guided-container,.mastery-topic{box-sizing:border-box;}
+.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic{height:auto;min-height:0;}.guided-container,.mastery-topic{height:auto;min-height:0;}
 .guided-content,.mastery-topic-definition{height:auto;min-height:0;overflow:visible;}
-.topic-document .visual-container,.topic-document .visual-container .guided-content,.mastery-visual-container{height:auto;min-height:0;}
+.topic-document .visual-container .guided-content{height:auto;min-height:0;}.topic-document .visual-container,.mastery-visual-container{height:auto;min-height:0;}
 </style>
 <style id="all-true-content-width-dynamic">
 #topicPage .main-content-container,
@@ -368,44 +203,27 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 }
 #topicPage .content-view,
 #functionalContentView .content-view,
-#topicPage .topic-document,
-#functionalContentView .mastery-document{
+#topicPage .topic-document{
   width:100% !important; max-width:none !important; box-sizing:border-box !important;
   margin-left:0 !important; margin-right:0 !important;
   padding-left:0 !important; padding-right:0 !important;
 }
-#topicPage .guided-document,
-#topicPage .guided-container,
-#topicPage .guided-content,
-#topicPage .chapter-heading-container,
-#topicPage .chapter-definition-container,
-#topicPage .learning-outcomes-container,
-#functionalContentView .mastery-course-intro,
-#functionalContentView .mastery-topic-overview,
-#functionalContentView .mastery-topic,
-#functionalContentView .mastery-subtopic,
-#functionalContentView .mastery-topic-definition,
-#functionalContentView .mastery-subtopic-definition,
-#functionalContentView .mastery-subtopic-focus,
-#functionalContentView .revision-card-definition,
-#functionalContentView .exam-question,
-#functionalContentView .exam-passage,
-#functionalContentView .readiness-live-q,
-#functionalContentView .readiness-user-answer,
-#functionalContentView .readiness-feedback,
-#functionalContentView .practice-question,
-#functionalContentView .practice-answer,
-#functionalContentView .exam-answer{
+#topicPage .guided-content,#functionalContentView .revision-card-definition,#functionalContentView .exam-question,#functionalContentView .exam-passage,#functionalContentView .readiness-live-q,#functionalContentView .readiness-feedback,#functionalContentView .practice-question,#functionalContentView .practice-answer,#functionalContentView .exam-answer{
+  width:100% !important; max-width:none !important;
+  box-sizing:border-box !important;
+  height:auto !important; min-height:0 !important; max-height:none !important;
+  overflow:visible !important;
+}#topicPage .guided-document,#topicPage .guided-container,#topicPage .chapter-heading-container,#topicPage .chapter-definition-container,#topicPage .learning-outcomes-container,#functionalContentView .readiness-user-answer{
   width:100% !important; max-width:none !important;
   box-sizing:border-box !important;
   height:auto !important; min-height:0 !important; max-height:none !important;
   overflow:visible !important;
 }
-#topicPage .guided-content p,
-#topicPage .topic-document p,
-#functionalContentView .mastery-document p,
-#functionalContentView .mastery-document .mastery-topic-definition *,
-#functionalContentView .mastery-document .mastery-subtopic-definition *{
+#topicPage .guided-content p,#functionalContentView .mastery-document p,#functionalContentView .mastery-document .mastery-topic-definition *,#functionalContentView .mastery-document .mastery-subtopic-definition *{
+  box-sizing:border-box;
+  max-width:100%;
+  height:auto !important; min-height:0 !important; max-height:none !important;
+}#topicPage .topic-document p{
   box-sizing:border-box;
   max-width:100%;
   height:auto !important; min-height:0 !important; max-height:none !important;
@@ -426,7 +244,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  direction:ltr;
+  
   flex:0 1 auto;
 }
 .guided-content .physics-drawing{
@@ -470,7 +288,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  direction:ltr;
+  
   flex:0 1 auto;
 }
 #functionalContentView .mastery-topic-overview .physics-drawing{
@@ -486,7 +304,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   object-fit:contain;
   object-position:center center;
   flex:0 1 auto;
-  direction:ltr;
+  
 }
 @media(max-width:760px){
   #functionalContentView .mastery-topic-overview .physics-visual-render{
@@ -499,24 +317,23 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   }
 }</style>
 <style id="phy03-ui-chapter-title">
-.chapter-title{font-size:22px;font-weight:900;line-height:1.45;margin:0 0 10px;text-align:center}
+.chapter-title{margin:0 0 10px;}
 .chapter-language-switcher{margin:0 auto 2px}
 </style>
 <style id="lecture-mastery-header-layout">
 /* Lecture Mastery header layout: keep the unit heading English/LTR and place
    the existing Topic translation action on the right without touching the
    translation-menu implementation or any translation logic. */
-#functionalContentView .mastery-document > .view-header{position:relative;min-height:38px;display:flex;align-items:center;justify-content:center;direction:ltr;}
-#functionalContentView .mastery-document > .view-header .subject-label{direction:ltr!important;text-align:center!important;}
-#functionalContentView .mastery-topic-head-row{direction:ltr!important;}
-#functionalContentView .mastery-topic-head-row > div:first-child{direction:ltr!important;text-align:left!important;}
-#functionalContentView .mastery-topic-actions{direction:ltr!important;justify-content:flex-end!important;}
+#functionalContentView .mastery-document > .view-header{position:relative;min-height:38px;display:flex;align-items:center;justify-content:center;}
+#functionalContentView .mastery-document >
+#functionalContentView .mastery-topic-head-row >
+#functionalContentView .mastery-topic-actions{justify-content:flex-end!important;}
 #functionalContentView .mastery-topic-actions .topic-translate-btn{order:1;}
 #functionalContentView .mastery-topic-actions .mastery-read-btn{order:2;}
-#functionalContentView .mastery-global-tools{position:absolute;right:4px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;direction:ltr;}
-#functionalContentView .mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:7px 11px;font-size:11px;font-weight:900;color:var(--green);cursor:pointer;white-space:nowrap;direction:ltr;}
+#functionalContentView .mastery-global-tools{position:absolute;right:4px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;}
+#functionalContentView .mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:7px 11px;color:var(--green);cursor:pointer;}
 #functionalContentView .mastery-tts-global-btn.active{background:var(--green);color:#fff;}
-@media(max-width:760px){#functionalContentView .mastery-global-tools{right:0;}#functionalContentView .mastery-tts-global-btn{padding:6px 8px;font-size:10px;}}
+@media(max-width:760px){#functionalContentView .mastery-global-tools{right:0;}#functionalContentView .mastery-tts-global-btn{padding:6px 8px;}}
 </style>
 <style id="lecture-mastery-tabs-general">
 /* Single general Lecture Mastery tab system: all action tabs use the
@@ -547,7 +364,7 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   align-items:center;
   justify-content:flex-end;
   gap:6px;
-  direction:ltr;
+  
 }
 #functionalContentView .mastery-toolbar{
   display:grid;
@@ -605,259 +422,32 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   white-space: nowrap !important;
   vertical-align: top !important;
 }
-#functionalContentView .mastery-document .mastery-topic-actions,
-#functionalContentView .mastery-document .mastery-subtopic-head,
-#functionalContentView .mastery-document .mastery-progress,
-#functionalContentView .mastery-document .academic-language-switcher {
+#functionalContentView .mastery-document .mastery-topic-actions,#functionalContentView .mastery-document .mastery-subtopic-head,#functionalContentView .mastery-document .academic-language-switcher{
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+}#functionalContentView .mastery-document .mastery-progress{
   display: flex !important;
   align-items: flex-start !important;
   gap: 6px !important;
 }
-#functionalContentView .mastery-document .mastery-topic-actions {
+#functionalContentView .mastery-document .mastery-topic-actions{
   justify-content: flex-end !important;
-  direction: ltr !important;
+  
 }
-#functionalContentView .mastery-document .mastery-subtopic-head {
+#functionalContentView .mastery-document .mastery-subtopic-head{
   justify-content: space-between !important;
 }
 #functionalContentView .mastery-document .mastery-progress {
   justify-content: space-between !important;
 }
-#functionalContentView .mastery-document .academic-language-switcher {
+#functionalContentView .mastery-document .academic-language-switcher{
   justify-content: flex-start !important;
 }
 </style>
-<style id="lecture-mastery-dynamic-content-containers">
-/* GLOBAL Lecture Mastery content containers: grow with content, then scroll with one extra line of space. */
-#functionalContentView .mastery-document .mastery-topic-content,
-#functionalContentView .mastery-document .mastery-subtopic-content,
-#functionalContentView .mastery-document .academic-content,
-#functionalContentView .mastery-document .mastery-content-container,
-#functionalContentView .mastery-document .content-container {
-  box-sizing: border-box;
-  height: auto;
-  min-height: 0;
-  max-height: calc(100vh - 4.5em);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 1em;
-}
 
-/* Keep ordinary text flowing naturally instead of imposing fixed-height boxes. */
-#functionalContentView .mastery-document .mastery-topic-content > *,
-#functionalContentView .mastery-document .mastery-subtopic-content > *,
-#functionalContentView .mastery-document .academic-content > *,
-#functionalContentView .mastery-document .mastery-content-container > *,
-#functionalContentView .mastery-document .content-container > * {
-  max-width: 100%;
-}
-</style>
-<style id="global-academic-typography">
-/* =========================================================
-   GLOBAL ACADEMIC TYPOGRAPHY STANDARD
-   Fixed sizes; minimum weight 600; English LTR; left aligned;
-   natural wrapping; no typography shrinking.
-   ========================================================= */
-:root {
-  --academic-h1: 28px;
-  --academic-h2: 22px;
-  --academic-h3: 20px;
-  --academic-h4: 18px;
-  --academic-body: 18px;
-  --academic-small: 16px;
-}
 
-#homeContentView, #topicContentView, #functionalContentView,
-#hitCeilingPage .htc-shell,
-#homeContentView *, #topicContentView *, #functionalContentView *,
-#hitCeilingPage .htc-shell * {
-  box-sizing: border-box;
-}
 
-#homeContentView, #topicContentView, #functionalContentView,
-#hitCeilingPage .htc-shell {
-  direction: ltr !important;
-  text-align: left !important;
-  min-width: 0;
-  width: 100%;
-}
-
-#homeContentView h1, #topicContentView h1, #functionalContentView h1,
-#homeContentView .page-main-heading, #topicContentView .page-main-heading, #functionalContentView .page-main-heading {
-  font-size: var(--academic-h1) !important;
-  font-weight: 700 !important;
-  line-height: 1.3 !important;
-  direction: ltr !important;
-  text-align: left !important;
-  white-space: normal !important;
-  overflow-wrap: break-word !important;
-  word-break: normal !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-#homeContentView h2, #topicContentView h2, #functionalContentView h2 {
-  font-size: var(--academic-h2) !important;
-  font-weight: 700 !important;
-  line-height: 1.3 !important;
-}
-
-#homeContentView h3, #topicContentView h3, #functionalContentView h3 {
-  font-size: var(--academic-h3) !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-}
-
-#homeContentView h4, #topicContentView h4, #functionalContentView h4 {
-  font-size: var(--academic-h4) !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
-}
-
-#homeContentView p, #topicContentView p, #functionalContentView p,
-#homeContentView li, #topicContentView li, #functionalContentView li,
-#homeContentView .academic-definition, #topicContentView .academic-definition,
-#functionalContentView .mastery-topic-definition,
-#functionalContentView .mastery-subtopic-definition,
-#functionalContentView .mastery-subtopic-focus {
-  font-size: var(--academic-body) !important;
-  font-weight: 600 !important;
-  line-height: 1.65 !important;
-  direction: ltr !important;
-  text-align: left !important;
-  white-space: normal !important;
-  overflow-wrap: break-word !important;
-  word-break: normal !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-#topicPage .guided-label, #functionalContentView .mastery-topic-title,
-#functionalContentView .mastery-subtopic h3,
-#functionalContentView .revision-title, #functionalContentView .practice-title,
-#functionalContentView .readiness-title {
-  direction: ltr !important;
-  text-align: left !important;
-  white-space: normal !important;
-  overflow-wrap: break-word !important;
-  word-break: normal !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-#topicPage .guided-label, #functionalContentView .mastery-topic-title,
-#functionalContentView .revision-title, #functionalContentView .practice-title,
-#functionalContentView .readiness-title {
-  font-size: var(--academic-h2) !important;
-  font-weight: 700 !important;
-  line-height: 1.3 !important;
-}
-
-#functionalContentView .mastery-subtopic h3 {
-  font-size: var(--academic-h3) !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-}
-
-/* Never shrink academic typography at narrower widths. */
-#homeContentView, #topicContentView, #functionalContentView,
-#homeContentView *, #topicContentView *, #functionalContentView * {
-  -webkit-text-size-adjust: 100%;
-}
-
-@media (max-width: 700px) {
-  #homeContentView h1, #topicContentView h1, #functionalContentView h1,
-  #homeContentView .page-main-heading, #topicContentView .page-main-heading, #functionalContentView .page-main-heading { font-size: 28px !important; }
-  #homeContentView h2, #topicContentView h2, #functionalContentView h2,
-  #topicPage .guided-label, #functionalContentView .mastery-topic-title,
-  #functionalContentView .revision-title, #functionalContentView .practice-title, #functionalContentView .readiness-title { font-size: 22px !important; }
-  #homeContentView h3, #topicContentView h3, #functionalContentView h3, #functionalContentView .mastery-subtopic h3 { font-size: 20px !important; }
-  #homeContentView p, #topicContentView p, #functionalContentView p,
-  #homeContentView li, #topicContentView li, #functionalContentView li,
-  #functionalContentView .mastery-topic-definition, #functionalContentView .mastery-subtopic-definition { font-size: 18px !important; }
-}
-</style>
-<style id="lecture-mastery-academic-typography-canonical">
-/* CANONICAL ACADEMIC TYPOGRAPHY — Lecture Mastery
-   The academic data hierarchy is expressed semantically in the markup:
-   topic = h2, subtopic = h3, academic reading = p/li. */
-.academic-typography{
-  direction:ltr !important;
-  text-align:left !important;
-  font-family:Inter,"Noto Sans",Arial,sans-serif !important;
-}
-.academic-typography h2,
-.academic-typography h3,
-.academic-typography p,
-.academic-typography li,
-.academic-typography strong{
-  direction:ltr !important;
-  text-align:left !important;
-  white-space:normal !important;
-  word-break:normal !important;
-  overflow-wrap:break-word !important;
-  max-width:100% !important;
-  min-width:0 !important;
-}
-.academic-typography h2{
-  font-size:22px !important;
-  line-height:1.35 !important;
-  font-weight:700 !important;
-  margin:0 !important;
-}
-.academic-typography h3{
-  font-size:20px !important;
-  line-height:1.4 !important;
-  font-weight:600 !important;
-  margin:0 !important;
-}
-
-/* A heading is one semantic unit: every word inside it shares the same size and weight. */
-.academic-typography h2 *,
-.academic-typography h3 *{
-  font-size:inherit !important;
-  line-height:inherit !important;
-  font-weight:inherit !important;
-}
-.academic-typography p,
-.academic-typography li,
-.academic-typography .mastery-text-flow,
-.academic-typography .mastery-subtopic-focus,
-.academic-typography .mastery-subtopic-focus strong{
-  font-size:18px !important;
-  line-height:1.65 !important;
-  font-weight:600 !important;
-  margin-top:0;
-}
-.academic-typography .mastery-topic-number,
-.academic-typography .mastery-section-label{
-  font-size:16px !important;
-  line-height:1.4 !important;
-  font-weight:600 !important;
-  direction:ltr !important;
-  text-align:left !important;
-}
-.academic-typography .mastery-topic-head,
-.academic-typography .mastery-topic-head-row,
-.academic-typography .mastery-topic-overview,
-.academic-typography .mastery-subtopic,
-.academic-typography .mastery-subtopic-head,
-.academic-typography .mastery-subtopic-definition,
-.academic-typography .mastery-subtopic-focus{
-  direction:ltr !important;
-  text-align:left !important;
-}
-.academic-typography .mastery-topic-overview > p{
-  margin:6px 0 0 !important;
-}
-.academic-typography .mastery-subtopic-definition{
-  margin:6px 0 0 !important;
-}
-.academic-typography .mastery-subtopic-focus{
-  margin-top:8px !important;
-}
-/* Never reduce academic font sizes at smaller widths. Let text wrap instead. */
-</style>
 
 <style id="academic-topic-action-tabs-match-lecture-mastery">
 /* Keep every academic topic's existing translation action at the upper-right,
@@ -933,8 +523,8 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
   max-height:31px !important;
   padding:0 8px !important;
   border-radius:9px !important;
-  font-size:11px !important;
-  line-height:1 !important;
+  
+  
 }
 </style>
 <style id="global-screen-bottom-border-css">
@@ -957,8 +547,172 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:5px;backgro
 .global-scroll-previous{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:2147483000;display:flex;align-items:center;justify-content:center;width:150px;height:42px;border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);box-shadow:0 2px 8px rgba(15,23,42,.10);font:800 14px/1 inherit;cursor:pointer}
 /* Legacy previous-page tabs are retained in the DOM only for compatibility; the global system owns visibility. */
 .global-previous-page-tab{display:none!important}
-#readinessReturn,#readinessStopBack,#visualAtlasReturnTop,#visualAtlasStopBack,#practiceReturn,#practiceStopBack,#examinationReturn,#examinationStopBack{display:none!important}
 @media(max-width:760px){.global-scroll-system{bottom:10px;min-height:40px}.global-scroll-arrow{width:42px;height:42px}.global-scroll-previous{width:150px;height:40px;font-size:13px}}
+</style>
+
+<style id="global-academic-content-container-width">
+/* One width policy for every academic page and Lecture Mastery topic/subtopic container.
+   Content determines the natural width; the viewport caps it. Height remains content-driven. */
+#homePage .academic-content-container,
+#topicPage .academic-content-container,
+#topicsPage .academic-content-container,
+#functionalPage .academic-content-container,
+#functionalContentView .academic-content-container {
+  width: fit-content !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+/* Inner reading content fills its owning academic container and grows vertically with text. */
+.academic-content-container > .guided-content,.academic-content-container > .mastery-topic-definition,.academic-content-container > .mastery-subtopic-definition{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+}.academic-content-container .mastery-topic-content,.academic-content-container .mastery-subtopic-content,.academic-content-container .academic-content,.academic-content-container .mastery-content-container,.academic-content-container .content-container{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+}
+</style>
+<style>
+/* Canonical academic typography and natural reflow. Tab labels/buttons are intentionally excluded. */
+:root {
+  --academic-main-heading: 22px;
+  --academic-subheading: 20px;
+  --academic-body: 18px;
+}
+/* Reading surfaces: these are the actual content-view IDs in this document. */
+#homeContentView, #topicContentView, #functionalContentView,
+#homePage .academic-content-container, #topicPage .academic-content-container,
+#functionalPage .academic-content-container {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+/* Body copy in opened academic content; do not apply to navigation/tab controls. */
+#homeContentView .guided-content,
+#topicContentView .guided-content,
+#functionalContentView .guided-content,
+#functionalContentView .mastery-course-intro,
+#functionalContentView .mastery-topic-overview,
+#functionalContentView .mastery-topic-definition,
+#functionalContentView .mastery-subtopic-definition,
+#functionalContentView .mastery-subtopic-focus,
+#functionalContentView .mastery-text-flow,
+#functionalContentView .revision-card-definition,
+#functionalContentView .exam-question,
+#functionalContentView .exam-answer,
+#functionalContentView .exam-passage,
+#functionalContentView .practice-question,
+#functionalContentView .practice-answer,
+#functionalContentView .readiness-note,
+#functionalContentView .readiness-q,
+#functionalContentView .readiness-answer,
+#functionalContentView .readiness-live-q,
+#functionalContentView .readiness-feedback,
+#functionalContentView .readiness-result,
+#p03TranslationOverlay .p03-translation-content {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  font-size: var(--academic-body);
+  font-weight: 600;
+  line-height: 1.65;
+  opacity: 1;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+/* Remove height/overflow constraints only from academic text-flow containers. */
+#homeContentView .guided-content,
+#topicContentView .guided-content,
+#functionalContentView .guided-content,
+#functionalContentView .mastery-topic-content,
+#functionalContentView .mastery-subtopic-content,
+#functionalContentView .academic-content,
+#functionalContentView .mastery-content-container,
+#functionalContentView .content-container,
+#homePage .academic-content-container,
+#topicPage .academic-content-container,
+#functionalPage .academic-content-container,
+#p03TranslationOverlay .p03-translation-content {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+}
+/* Chapter/topic/main headings. */
+#chapterHeadingContent,
+#topicHeading,
+#homeContentView .page-main-heading,
+#topicContentView .page-main-heading,
+#functionalContentView .page-main-heading,
+#functionalContentView .mastery-topic-title,
+#functionalContentView .mastery-topic-head h2,
+#functionalContentView .revision-title,
+#functionalContentView .exam-title,
+#functionalContentView .practice-title,
+#functionalContentView .readiness-title,
+#homeContentView h1, #homeContentView h2,
+#topicContentView h1, #topicContentView h2,
+#functionalContentView h1, #functionalContentView h2,
+#p03TranslationOverlay .p03-translation-content h1,
+#p03TranslationOverlay .p03-translation-content h2 {
+  min-width: 0;
+  max-width: 100%;
+  font-size: var(--academic-main-heading);
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+/* Academic subheadings only; do not select tab labels or toolbar text. */
+#chapterDefinitionContent + .guided-label,
+#learningOutcomesContent + .guided-label,
+#topicContentView .guided-container > .guided-label,
+#functionalContentView .mastery-subtopic h3,
+#functionalContentView .mastery-subtopics-head,
+#functionalContentView h3,
+#functionalContentView h4,
+#homeContentView h3, #homeContentView h4,
+#topicContentView h3, #topicContentView h4,
+#p03TranslationOverlay .p03-translation-content h3,
+#p03TranslationOverlay .p03-translation-content h4 {
+  min-width: 0;
+  max-width: 100%;
+  font-size: var(--academic-subheading);
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+/* Keep language direction data-driven. Do not force every page to LTR or RTL. */
+#chapterHeadingContent[dir="ltr"],
+#learningOutcomesContent[dir="ltr"] { direction: ltr; text-align: left; }
+#p03TranslationOverlay .p03-translation-content[dir="rtl"] { direction: rtl; text-align: right; }
+#p03TranslationOverlay .p03-translation-content[dir="ltr"] { direction: ltr; text-align: left; }
+/* Long definitions must not be truncated to three lines. */
+#functionalContentView .revision-card-definition {
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
+  overflow: visible;
+  text-overflow: clip;
+}
 </style>
 </head>
 <body>
@@ -966,17 +720,17 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:5px;backgro
 <section class="page active" id="homePage">
 <header class="academy-global-header"><div class="academy-global-header-inner"><div class="academy-global-brand"><h1>Imperial Academy of Education</h1><div class="academy-global-subtitle">Interactive Academy Learning System</div></div><div class="academy-global-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header>
 <div class="main-content-container" id="homeContentContainer"><div class="content-view" id="homeContentView">
-<div class="guided-document">
-<section class="guided-container"><div class="guided-label sr-only">Chapter Heading</div><div class="guided-content" id="chapterHeadingContent"></div></section>
-<section class="guided-container"><div class="guided-label">Definition</div><div class="guided-content" id="chapterDefinitionContent"></div></section>
-<section class="guided-container"><div class="guided-label">Measurement Outcomes</div><div class="guided-content" id="learningOutcomesContent"></div></section>
+<div class="guided-document academic-content-container">
+<section class="guided-container academic-content-container"><div class="guided-label sr-only">Chapter Heading</div><div class="guided-content" id="chapterHeadingContent"></div></section>
+<section class="guided-container academic-content-container"><div class="guided-label">Definition</div><div class="guided-content" id="chapterDefinitionContent"></div></section>
+<section class="guided-container academic-content-container"><div class="guided-label">Measurement Outcomes</div><div class="guided-content" id="learningOutcomesContent"></div></section>
 <div class="guided-forward"><button onclick="showPage('topicsPage')" type="button">Forward →</button></div>
 </div></div></div>
 </section>
 <section class="page" id="topicsPage">
 <header class="academy-global-header"><div class="academy-global-header-inner"><div class="academy-global-brand"><h1>Imperial Academy of Education</h1><div class="academy-global-subtitle">Interactive Academy Learning System</div></div><div class="academy-global-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header>
 <div class="main-content-container"><div class="content-view">
-<div class="topic-template-page">
+<div class="topic-template-page academic-content-container">
 <div class="topic-grid"><div class="column" id="topicColumnLeft"></div><div class="column" id="topicColumnRight"></div></div>
 <div class="functional-row" id="functionalRow"></div>
 </div></div></div>
@@ -1142,7 +896,7 @@ function renderChapterAcademic(){
  const h=document.getElementById('chapterHeadingContent'),d=document.getElementById('chapterDefinitionContent'),o=document.getElementById('learningOutcomesContent');
  if(h)h.textContent='Forces and Motion';
  if(d){d.textContent='Unit 3 develops the concepts of displacement, velocity, acceleration, velocity-time graphs, Newton’s laws, linear momentum, impulse, conservation of momentum, collisions, force due to water flow, rocket propulsion, and projectile motion.';d.classList.remove('urdu-medium');}
- if(o){o.textContent='By the end of this unit, students should be able to analyse motion with equations and graphs; apply Newton’s laws and free-body diagrams; calculate momentum and impulse; solve conservation-of-momentum and collision problems; analyse water-flow force and rocket thrust; and calculate projectile time of flight, maximum height, range, and trajectory.';o.classList.add('urdu-medium');}
+ if(o){o.textContent='By the end of this unit, students should be able to analyse motion with equations and graphs; apply Newton’s laws and free-body diagrams; calculate momentum and impulse; solve conservation-of-momentum and collision problems; analyse water-flow force and rocket thrust; and calculate projectile time of flight, maximum height, range, and trajectory.';o.classList.remove('urdu-medium');}
 }
 let topicScrollHandler=null;
 const masteryProgressKey='physicsLecture3MasteryProgress';
@@ -1161,15 +915,17 @@ function masteryRTLText(v){
  return `<span class="mastery-text-flow mixed-rtl" dir="rtl">${mixed}</span>`;
 }
 function applyGlobalAcademicDirection(root=document){
- const selectors='.academic-content,.guided-content,.mastery-topic-definition,.mastery-subtopic-definition,.topic-definition,.subtopic-definition,.definition,.definition-text,.academic-definition';
+ const lang=activeAcademicLanguage;
+ const base=lang==='ur'||lang==='ps'?'rtl':'ltr';
+ const view=root.matches?.('#homeContentView,#topicContentView,#functionalContentView')?root:root.closest?.('#homeContentView,#topicContentView,#functionalContentView');
+ if(view){view.dir=base;view.style.direction=base;view.style.textAlign=base==='rtl'?'right':'left';}
+ const selectors='.academic-content-container,.guided-content,.mastery-topic-definition,.mastery-subtopic-definition,.topic-definition,.subtopic-definition,.definition,.definition-text,.academic-definition';
  root.querySelectorAll?.(selectors).forEach(el=>{
-  if(el.closest('.mastery-topic-title,.mastery-subtopic h3,.guided-label')) return;
+  if(el.closest('.tab,.tabs,.english-study-toolbar,.topic-translate-btn,.academic-language-switcher')) return;
   const text=el.textContent||'';
   const hasUrdu=masteryHasUrdu(text);
-  el.dir=hasUrdu?'rtl':'ltr';
-  el.style.direction=hasUrdu?'rtl':'ltr';
-  el.style.textAlign=hasUrdu?'right':'left';
-  el.style.unicodeBidi='plaintext';
+  const dir=lang==='ur'||lang==='ps'||hasUrdu?'rtl':'ltr';
+  el.dir=dir;el.style.direction=dir;el.style.textAlign=dir==='rtl'?'right':'left';el.style.unicodeBidi='plaintext';
  });
 }
 function dedupeMasterySubtopicHeadings(root=document){
@@ -1493,8 +1249,8 @@ function masteryText(v){
 function masteryTopicTemplate(topicNumber){
  activeAcademicLanguage='en';
  const t=masteryTopicData(topicNumber), links=topicVisualLinks(topicNumber).map(v=>v.link);
- const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic" id="masteryTopic${topicNumber}Sub${i+1}"><div class="mastery-subtopic-head"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><button type="button" class="subtopic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, ${i+1})">🌐 Translate</button></div><p class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</p><div class="mastery-subtopic-focus"><span>Learning focus</span><strong>Understand the concept, then use it in measurement, reasoning, and application.</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
- return `<section class="mastery-topic" id="masteryTopic${topicNumber}" data-topic="${topicNumber}"><div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><h2 class="mastery-topic-title">${masteryEsc(t.title)}</h2></div><div class="mastery-topic-actions"><button type="button" class="topic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, null)">🌐 Translate</button><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">Mark as read</button></div></div></div><div class="mastery-topic-overview"><div class="mastery-section-label" dir="ltr">Definition</div><p>${masteryRichText(t.definition,links)}</p><p class="mastery-learning-lead">${masteryText(masteryLearningLead(topicNumber))}</p></div><div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div><div class="mastery-subtopics">${subMarkup}</div></section>`;
+ const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic academic-content-container" id="masteryTopic${topicNumber}Sub${i+1}"><div class="mastery-subtopic-head"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><button type="button" class="subtopic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, ${i+1})">🌐 Translate</button></div><p class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</p><div class="mastery-subtopic-focus"><span>Learning focus</span><strong>Understand the concept, then use it in measurement, reasoning, and application.</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
+ return `<section class="mastery-topic academic-content-container" id="masteryTopic${topicNumber}" data-topic="${topicNumber}"><div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><h2 class="mastery-topic-title">${masteryEsc(t.title)}</h2></div><div class="mastery-topic-actions"><button type="button" class="topic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, null)">🌐 Translate</button><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">Mark as read</button></div></div></div><div class="mastery-topic-overview"><div class="mastery-section-label" dir="ltr">Definition</div><p>${masteryRichText(t.definition,links)}</p><p class="mastery-learning-lead">${masteryText(masteryLearningLead(topicNumber))}</p></div><div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div><div class="mastery-subtopics">${subMarkup}</div></section>`;
 }
 
 function syncLectureMasteryActionButtonSize(){
@@ -1526,15 +1282,13 @@ function renderActiveAcademicLanguage(){
 function renderTopicLanguage(n){
  activeAcademicLanguage='en';
  const academic=academicLangPack(n), subs=academic.subtopics||[], links=topicVisualLinks(n).map(v=>v.link);
- const subBlocks=subs.map((sub,i)=>`<section class="guided-container" data-translation-block="subtopic" data-subtopic-index="${i}"><div class="guided-label">${academicEsc(sub.title)}</div><div class="guided-content ${academicDirectionClass(sub.definition)}">${academicRichMarkup(sub.definition)}</div></section>`).join('');
- const markup=`<div class="topic-document guided-document" data-topic="${n}"><div class="english-study-toolbar"><span>English Academic Lesson</span><button type="button" class="topic-translate-btn" onclick="toggleP03TranslateMenu(this, ${n}, null)">🌐 Translate</button></div><section class="guided-container"><div class="guided-label">${academicEsc(academic.title)}</div><div class="guided-content ${academicDirectionClass(academic.definition)}" id="topicDefinition">${academicRichMarkup(academic.definition,links)}</div></section>${subBlocks}</div>`;
+ const subBlocks=subs.map((sub,i)=>`<section class="guided-container academic-content-container" data-translation-block="subtopic" data-subtopic-index="${i}"><div class="guided-label">${academicEsc(sub.title)}</div><div class="guided-content ${academicDirectionClass(sub.definition)}">${academicRichMarkup(sub.definition)}</div></section>`).join('');
+ const markup=`<div class="topic-document guided-document academic-content-container" data-topic="${n}"><div class="english-study-toolbar"><span>English Academic Lesson</span><button type="button" class="topic-translate-btn" onclick="toggleP03TranslateMenu(this, ${n}, null)">🌐 Translate</button></div><section class="guided-container academic-content-container"><div class="guided-label">${academicEsc(academic.title)}</div><div class="guided-content ${academicDirectionClass(academic.definition)}" id="topicDefinition">${academicRichMarkup(academic.definition,links)}</div></section>${subBlocks}</div>`;
  document.getElementById('topicContentView').innerHTML=markup; dictionaryBuildAndLinkOnce(); linkDictionaryTerms(document.getElementById('topicContentView')); applyGlobalAcademicTextDirection(document.getElementById('topicContentView'));
 }
 function openMasterySubtopic(topicNumber,subNumber){document.getElementById(`masteryTopic${topicNumber}Sub${subNumber}`)?.scrollIntoView({behavior:'smooth',block:'center'});}
 function renderMasteryState(){const p=getMasteryProgress();document.querySelectorAll('.mastery-topic').forEach(sec=>{const n=Number(sec.dataset.topic),read=!!p[n];sec.classList.toggle('is-read',read);const b=sec.querySelector('.mastery-read-btn');if(b)b.textContent=read?'Read':'Mark as read';const nav=document.querySelector(`.mastery-nav button[data-topic="${n}"]`);if(nav)nav.classList.toggle('read',read)});const done=Object.keys(p).filter(k=>p[k]).length;const fill=document.getElementById('masteryProgressFill');const textEl=document.getElementById('masteryProgressText');if(fill)fill.style.width=(done/topicCount*100)+'%';if(textEl)textEl.textContent=`${done}/${topicCount} Topics read`;}
 function toggleMasteryRead(n){const p=getMasteryProgress();p[n]=!p[n];saveMasteryProgress(p);renderMasteryState();}
-let masteryScrollHandler=null;
-function initMasteryReturnTop(){return;}
 function readinessBuildQuestions(){
  const topics=getPracticeAcademicSource(),out=[];
  topics.forEach(t=>{(Array.isArray(t.subtopics)?t.subtopics:[]).forEach(sub=>{
@@ -1561,9 +1315,9 @@ function readinessRender(){
  const root=document.getElementById('functionalContentView'); if(!root)return;
  const questions=readinessBuildQuestions(); const topics=getPracticeAcademicSource(); const subCount=topics.reduce((a,t)=>a+t.subtopics.length,0);
  readinessState={index:-1,checked:false,results:[],questions};
- root.innerHTML=`<div class="readiness-tier3"><div class="readiness-head"><div class="readiness-title page-main-heading">Readiness Test</div></div><div class="readiness-source"><span class="ok">✓ Automatic academic-source connection active</span><span class="count">${topics.length} Topics · ${subCount} Subtopics · ${questions.length} Questions</span></div><div id="readinessFlow"></div><div class="readiness-actions"><button class="readiness-btn" type="button" onclick="readinessStart()">Start / Restart Test</button><button class="readiness-btn" type="button" onclick="readinessShowAllAnswers()">Show All Answers</button></div><div class="readiness-footer"></div></div>`;
+ root.innerHTML=`<div class="readiness-tier3 academic-content-container"><div class="readiness-head"><div class="readiness-title page-main-heading">Readiness Test</div></div><div class="readiness-source"><span class="ok">✓ Automatic academic-source connection active</span><span class="count">${topics.length} Topics · ${subCount} Subtopics · ${questions.length} Questions</span></div><div id="readinessFlow"></div><div class="readiness-actions"><button class="readiness-btn" type="button" onclick="readinessStart()">Start / Restart Test</button><button class="readiness-btn" type="button" onclick="readinessShowAllAnswers()">Show All Answers</button></div><div class="readiness-footer"></div></div>`;
  if(questions.length) readinessStart(); else readinessRenderEmpty();
- initReadinessNavigation();
+
 }
 function readinessRenderEmpty(){const f=document.getElementById('readinessFlow');if(f)f.innerHTML=`<div class="readiness-empty">No academic Topic/Subtopic question source is available yet. The complete test mechanism is already installed; when academic content is placed in Topics/Subtopics, questions and answers will populate automatically. No academic content is invented or duplicated.</div>`;}
 function readinessStart(){
@@ -1589,8 +1343,6 @@ function readinessShowAllAnswers(){
  const qs=readinessState.questions;if(!qs.length){readinessRenderEmpty();return;}
  readinessState.index=0;readinessState.checked=true;readinessRenderCurrent();
 }
-let readinessScrollHandler=null;
-function initReadinessNavigation(){const scroller=document.querySelector('#functionalPage .main-content-container'),btn=document.getElementById('readinessReturn'),back=document.getElementById('readinessStopBack');if(!scroller||!btn||!back)return;if(readinessScrollHandler)scroller.removeEventListener('scroll',readinessScrollHandler);let lastY=scroller.scrollTop,stopTimer=null;const stopped=()=>{btn.classList.remove('visible');back.classList.add('visible');};btn.classList.remove('visible');readinessScrollHandler=()=>{const y=scroller.scrollTop,max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);back.classList.remove('visible');if(stopTimer)clearTimeout(stopTimer);if(y<=20||y>=max-8){btn.classList.remove('visible');}else{btn.classList.add('visible');btn.querySelector('.nav-arrow').textContent=y<lastY?'↑':'↓';btn.setAttribute('aria-label',y<lastY?'Scroll up':'Scroll down');}lastY=y;stopTimer=setTimeout(stopped,2000);};scroller.addEventListener('scroll',readinessScrollHandler,{passive:true});}
 function searchEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function searchText(v){return String(v??'').replace(/\s+/g,' ').trim();}
 function searchHighlight(v,q){const text=searchEsc(v);if(!q)return text;const safe=q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');try{return text.replace(new RegExp('('+safe+')','ig'),'<mark class="search-match">$1</mark>')}catch(e){return text;}}
@@ -1681,7 +1433,7 @@ function openFunctional(k){
  if(k==='hit'){showPage('hitCeilingPage');return;}
  const labels={dictionary:'Dictionary',practice:'Practice & Test Strategies',readiness:'Readiness Test',search:'Search',revision:'Revision',practical:'Practical Work',exam:'Examination',visual:'Visual Atlas',mastery:'Lecture Mastery'};
  if(k==='mastery'){
-  document.getElementById('functionalContentView').innerHTML=`<div class="mastery-document academic-typography"></div>`; activeAcademicLanguage=localStorage.getItem('phy03AcademicLanguageV3')||'en'; renderActiveAcademicLanguage();
+  document.getElementById('functionalContentView').innerHTML=`<div class="mastery-document academic-typography academic-content-container"></div>`; activeAcademicLanguage=localStorage.getItem('phy03AcademicLanguageV3')||'en'; renderActiveAcademicLanguage();
   renderMasteryState();
   dedupeMasterySubtopicHeadings(document.getElementById('functionalContentView'));
   dictionaryBuildAndLinkOnce();
@@ -1693,20 +1445,20 @@ function openFunctional(k){
   openDictionary();
  }else if(k==='search'){
   const scopes=searchDirectoryConfig();
-  document.getElementById('functionalContentView').innerHTML=`<div class="search-tier3"><div class="search-head"><div class="search-title page-main-heading">Search</div></div><div class="search-scope">${scopes.map((x,i)=>`<button type="button" data-scope="${searchEsc(x.id)}" class="${i===0?'active':''}" ${x.active?'':'disabled'} onclick="searchSetScope('${searchEsc(x.id)}')">${searchEsc(x.label)}</button>`).join('')}</div><div class="search-box"><div class="search-input-wrap" id="searchInputWrap"><input id="searchInput" class="search-input" type="text" placeholder="Search Topics or Subtopics…" aria-label="Search Physics directory"><button id="searchClear" class="search-clear" type="button" aria-label="Clear search" onclick="searchClear()">×</button></div><button class="search-submit" type="button" onclick="searchRun()">Search</button></div><div id="searchStatus" class="search-status" aria-live="polite">Type a word or phrase to search.</div><div id="searchResults" class="search-results"></div><div class="search-footer"></div></div>`;searchInit();
+  document.getElementById('functionalContentView').innerHTML=`<div class="search-tier3 academic-content-container"><div class="search-head"><div class="search-title page-main-heading">Search</div></div><div class="search-scope">${scopes.map((x,i)=>`<button type="button" data-scope="${searchEsc(x.id)}" class="${i===0?'active':''}" ${x.active?'':'disabled'} onclick="searchSetScope('${searchEsc(x.id)}')">${searchEsc(x.label)}</button>`).join('')}</div><div class="search-box"><div class="search-input-wrap" id="searchInputWrap"><input id="searchInput" class="search-input" type="text" placeholder="Search Topics or Subtopics…" aria-label="Search Physics directory"><button id="searchClear" class="search-clear" type="button" aria-label="Clear search" onclick="searchClear()">×</button></div><button class="search-submit" type="button" onclick="searchRun()">Search</button></div><div id="searchStatus" class="search-status" aria-live="polite">Type a word or phrase to search.</div><div id="searchResults" class="search-results"></div><div class="search-footer"></div></div>`;searchInit();
  }else if(k==='practice'){
   practiceRender();
  }else if(k==='readiness'){
   readinessRender();
  }else if(k==='revision'){
-  document.getElementById('functionalContentView').innerHTML=`<div id="revisionDocument"><div class="revision-head"><div class="revision-title page-main-heading">Revision</div></div></div>`;
+  document.getElementById('functionalContentView').innerHTML=`<div class="revision-document academic-content-container" id="revisionDocument"><div class="revision-head"><div class="revision-title page-main-heading">Revision</div></div></div>`;
   renderRevisionDefinitions();
  }else if(k==='practical'){
   practicalRender();
  }else if(k==='exam'){
   examinationRender();
  }else{
-  document.getElementById('functionalContentView').innerHTML=`<div class="guided-document"><section class="guided-container"><div class="guided-label">${labels[k]||'Functional Area'}</div><div class="guided-content"></div></section></div>`;
+  document.getElementById('functionalContentView').innerHTML=`<div class="guided-document academic-content-container"><section class="guided-container academic-content-container"><div class="guided-label">${labels[k]||'Functional Area'}</div><div class="guided-content"></div></section></div>`;
  }
  showPage('functionalPage');
 }
@@ -1718,7 +1470,7 @@ function practicalNormalizeSubs(raw){if(Array.isArray(raw))return raw.map((x,i)=
 function practicalValue(v){if(v===undefined||v===null)return '';if(typeof v==='string')return practicalText(v);if(Array.isArray(v))return v.map(practicalValue).filter(Boolean).join('\n');if(typeof v==='object'){for(const k of ['procedure','method','steps','activity','experiment','description','definition','content','explanation','practicalWork','practical']){const x=practicalValue(v[k]);if(x)return x;}return '';}return practicalText(v);}
 function practicalFromObject(o){if(!o||typeof o!=='object')return '';for(const k of ['practical','practicalWork','experiment','activity']){if(o[k]!==undefined&&o[k]!==null){const x=practicalValue(o[k]);if(x)return x;}}return '';}
 function getPracticalAcademicSource(){const out=[];for(let n=1;n<=topicCount;n++){const base=topicData?.[n]||{},reg=topicRegistry?.[n]||{},academic=base.academic||reg.academic||{};const title=practicalFirst(academic,['title','name','heading'])||practicalFirst(base,['title','name','heading','topicTitle'])||practicalFirst(reg,['title','name','heading'])||`Topic ${n}`;const rawSubs=academic.subtopics??base.subtopics??reg.subtopics??base.subTopics??reg.subTopics??[];const topicPractical=practicalFromObject(academic)||practicalFromObject(base)||practicalFromObject(reg);const subtopics=practicalNormalizeSubs(rawSubs).map(sub=>({title:sub.title,practical:practicalFromObject(sub.practical)})).filter(x=>x.practical);if(topicPractical||subtopics.length)out.push({number:n,title,practical:topicPractical,subtopics});}return out;}
-function practicalRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticalAcademicSource();if(topics.length){root.innerHTML=`<div class="practical-tier3"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">Practical content is read automatically from Topics and their corresponding Subtopics.</div></div>${topics.map(t=>`<article class="practical-card"><div class="practical-card-head">Topic ${t.number} — ${practicalEsc(t.title)}</div><div class="practical-card-body">${t.practical?`<div class="practical-meta">Topic Practical</div><div>${practicalEsc(t.practical).replace(/\n/g,'<br>')}</div>`:''}${t.subtopics.map(s=>`<div class="practical-step"><strong>${practicalEsc(s.title)}</strong><div>${practicalEsc(s.practical).replace(/\n/g,'<br>')}</div></div>`).join('')}</div></article>`).join('')}<div class="practical-footer"></div></div>`;return;}root.innerHTML=`<div class="practical-tier3"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">No Practical was found in the current Topics/Subtopics, so the student exercise below is shown as the fallback.</div></div><article class="practical-card practical-fallback"><div class="practical-card-body"><div class="breath-title">🌿 ذرا ریلیکس ہو جائیں!</div><div class="breath-line">آرام سے ایک لمبی، گہری سانس لیں…</div><div class="breath-line">چندا لمحے روکیں…</div><div class="breath-line">اور پھر آہستہ آہستہ سانس باہر چھوڑ دیں۔</div><div class="breath-line">ایک بار پھر… 🌱</div><div class="breath-line">سانس اندر — تھوڑا توقف — سانس باہر۔</div><div class="breath-line">اب ذہن تازہ، توجہ حاضر ✨</div><div class="breath-line">اگر آپ کو بہتر محسوس ہوا تو پورا مشق دوبارہ کیجئے۔ 🌿</div></div></article><div class="practical-footer"></div></div>`;}
+function practicalRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticalAcademicSource();if(topics.length){root.innerHTML=`<div class="practical-tier3 academic-content-container"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">Practical content is read automatically from Topics and their corresponding Subtopics.</div></div>${topics.map(t=>`<article class="practical-card"><div class="practical-card-head">Topic ${t.number} — ${practicalEsc(t.title)}</div><div class="practical-card-body">${t.practical?`<div class="practical-meta">Topic Practical</div><div>${practicalEsc(t.practical).replace(/\n/g,'<br>')}</div>`:''}${t.subtopics.map(s=>`<div class="practical-step"><strong>${practicalEsc(s.title)}</strong><div>${practicalEsc(s.practical).replace(/\n/g,'<br>')}</div></div>`).join('')}</div></article>`).join('')}<div class="practical-footer"></div></div>`;return;}root.innerHTML=`<div class="practical-tier3 academic-content-container"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">No Practical was found in the current Topics/Subtopics, so the student exercise below is shown as the fallback.</div></div><article class="practical-card practical-fallback"><div class="practical-card-body"><div class="breath-title">🌿 ذرا ریلیکس ہو جائیں!</div><div class="breath-line">آرام سے ایک لمبی، گہری سانس لیں…</div><div class="breath-line">چندا لمحے روکیں…</div><div class="breath-line">اور پھر آہستہ آہستہ سانس باہر چھوڑ دیں۔</div><div class="breath-line">ایک بار پھر… 🌱</div><div class="breath-line">سانس اندر — تھوڑا توقف — سانس باہر۔</div><div class="breath-line">اب ذہن تازہ، توجہ حاضر ✨</div><div class="breath-line">اگر آپ کو بہتر محسوس ہوا تو پورا مشق دوبارہ کیجئے۔ 🌿</div></div></article><div class="practical-footer"></div></div>`;}
 
 function revisionText(v){return String(v??'').replace(/\s+/g,' ').trim();}
 function revisionFirst(obj,keys){for(const k of keys){const v=revisionText(obj?.[k]);if(v)return v;}return '';}
@@ -2054,7 +1806,6 @@ function initDictionaryNavigation(){const btn=document.getElementById('dictionar
 function moveDictionaryStep(){const scroller=document.querySelector('#functionalPage .main-content-container');const btn=document.getElementById('dictionaryReturn');if(!scroller||!btn)return;const y=scroller.scrollTop,max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);const up=btn.querySelector('.nav-arrow').textContent==='↑';scroller.scrollTo({top:up?0:max,behavior:'smooth'});}
 const visualAtlasData=topicData;
 const visualAtlasTopics=()=>syncTopicRegistry().map(topic=>({topic}));
-let visualAtlasScrollHandler=null;
 const visualAtlasSmartDefinitions={
   1:"Displacement is the change in position; velocity is the rate of displacement; acceleration is the rate of change of velocity.",
   2:"A velocity–time graph shows how velocity changes with time: its slope gives acceleration and its area gives displacement.",
@@ -2068,11 +1819,8 @@ const visualAtlasSmartDefinitions={
   10:"Projectile motion is two-dimensional motion under gravity: horizontal motion is uniform while vertical motion accelerates downward."
 };
 function visualAtlasContainer(v){const academic=getAcademicTopic(v.topic);const title=academic.title||`Topic ${v.topic}`;const fallback=String(academic.definition||"").replace(/\[\[visual:[^\]]+\]\]/g,"").trim();const definition=visualAtlasSmartDefinitions[String(v.topic)]||fallback;return `<div class="visual-atlas-container" data-visual-id="${v.id}" data-visual-link="${svgEsc(v.link)}" data-position="${v.position}"><div class="visual-atlas-visual-area"><div class="visual-atlas-slot-mark">IAE</div>${renderPhysicsVisual(v.link)}</div><div class="visual-atlas-briefing"><p class="visual-atlas-briefing-text">${academicEsc(definition)}</p></div></div>`;}
-function openVisualAtlas(){document.getElementById('functionalContentView').innerHTML=`<div class="visual-atlas-document visual-atlas-standard"><div class="view-header"><div class="subject-label page-main-heading">Visual Atlas</div></div>${visualAtlasTopics().map(t=>{const slots=getTopicVisualSlots(t.topic).map(v=>({...v,topic:t.topic}));const title=getAcademicTopic(t.topic).title||`Topic ${t.topic}`;return `<section class="visual-atlas-topic" id="visualAtlasTopic${t.topic}"><div class="visual-atlas-topic-head">${academicEsc(title)}</div><div class="visual-atlas-grid">${slots.map(visualAtlasContainer).join('')}</div></section>`;}).join('')}<div class="visual-atlas-footer"></div></div>`;initVisualAtlasReturnTop();showPage('functionalPage');}
-function initVisualAtlasReturnTop(){const btn=document.getElementById('visualAtlasReturnTop');const back=document.getElementById('visualAtlasStopBack');const scroller=document.querySelector('#functionalPage .main-content-container');if(!btn||!back||!scroller)return;if(visualAtlasScrollHandler)scroller.removeEventListener('scroll',visualAtlasScrollHandler);let lastY=scroller.scrollTop;let stopTimer=null;const showStopped=()=>{btn.classList.remove('visible');back.classList.add('visible');};back.classList.add('visible');btn.classList.remove('visible');visualAtlasScrollHandler=()=>{const y=scroller.scrollTop;const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);const atTop=y<=20,atBottom=y>=max-8;back.classList.remove('visible');if(stopTimer)clearTimeout(stopTimer);if(atTop||atBottom){btn.classList.remove('visible');}else{btn.classList.add('visible');btn.querySelector('.nav-arrow').textContent=y<lastY?'↑':'↓';btn.setAttribute('aria-label',y<lastY?'Scroll up':'Scroll down');}lastY=y;stopTimer=setTimeout(showStopped,2000);};scroller.addEventListener('scroll',visualAtlasScrollHandler,{passive:true});}
+function openVisualAtlas(){document.getElementById('functionalContentView').innerHTML=`<div class="visual-atlas-document visual-atlas-standard academic-content-container"><div class="view-header"><div class="subject-label page-main-heading">Visual Atlas</div></div>${visualAtlasTopics().map(t=>{const slots=getTopicVisualSlots(t.topic).map(v=>({...v,topic:t.topic}));const title=getAcademicTopic(t.topic).title||`Topic ${t.topic}`;return `<section class="visual-atlas-topic" id="visualAtlasTopic${t.topic}"><div class="visual-atlas-topic-head">${academicEsc(title)}</div><div class="visual-atlas-grid">${slots.map(visualAtlasContainer).join('')}</div></section>`;}).join('')}<div class="visual-atlas-footer"></div></div>`;showPage('functionalPage');}
 let practiceTier3State={openTopic:null,showAnswers:false};
-let practiceScrollHandler=null;
-function initPracticeNavigation(){const btn=document.getElementById('practiceReturn');const back=document.getElementById('practiceStopBack');const scroller=document.querySelector('#functionalPage .main-content-container');if(!btn||!back||!scroller)return;if(practiceScrollHandler)scroller.removeEventListener('scroll',practiceScrollHandler);let lastY=scroller.scrollTop;let stopTimer=null;const showStopped=()=>{btn.classList.remove('visible');back.classList.add('visible');};back.classList.add('visible');btn.classList.remove('visible');practiceScrollHandler=()=>{const y=scroller.scrollTop;const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);back.classList.remove('visible');if(stopTimer)clearTimeout(stopTimer);if(y<=20||y>=max-8){btn.classList.remove('visible');}else{btn.classList.add('visible');btn.querySelector('.nav-arrow').textContent=y<lastY?'↑':'↓';btn.setAttribute('aria-label',y<lastY?'Scroll up':'Scroll down');}lastY=y;stopTimer=setTimeout(showStopped,2000);};scroller.addEventListener('scroll',practiceScrollHandler,{passive:true});}
 function practiceEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function practiceFirst(o,keys){for(const k of keys){const v=o?.[k];if(v!==undefined&&v!==null&&String(v).trim()!=='')return String(v).trim();}return '';}
 function practiceNormalizeSubtopics(raw){if(Array.isArray(raw))return raw.map((x,i)=>{if(typeof x==='string')return {title:x,definition:'',questions:[]};return {title:practiceFirst(x,['title','name','heading','subtopic','label'])||`Subtopic ${i+1}`,definition:practiceFirst(x,['definition','content','explanation','description']),questions:Array.isArray(x?.questions)?x.questions:[]};});if(raw&&typeof raw==='object')return Object.entries(raw).map(([id,x],i)=>{if(typeof x==='string')return {id,title:x,definition:'',questions:[]};return {id,title:practiceFirst(x,['title','name','heading','subtopic','label'])||id||`Subtopic ${i+1}`,definition:practiceFirst(x,['definition','content','explanation','description']),questions:Array.isArray(x?.questions)?x.questions:[]};});return [];}
@@ -2092,14 +1840,13 @@ function practiceMakeQuestions(topic,sub){
  return strategies.map(x=>({q:x.name,a:`${x.explain} ${x.activity}`}));
 }
 
-function practiceRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticeAcademicSource(),subCount=topics.reduce((a,t)=>a+t.subtopics.length,0);root.innerHTML=`<div class="practice-tier3"><div class="practice-head"><div class="practice-title page-main-heading">Practice & Test Strategies</div></div><div class="practice-source"><span class="ok">✓ Academic content is used as the practice source</span><span class="count">${topics.length} Topics · ${subCount} Subtopics</span></div><div class="practice-intro"><strong>اس حصے کا مقصد:</strong> بچے کو یہ مشق کرانا کہ academic سوال کو کیسے سمجھنا ہے، متعلقہ concept کیسے پہچاننا ہے، جواب تک کیسے پہنچنا ہے اور آخر میں جواب کو کیسے check کرنا ہے۔ یہاں نیا academic syllabus نہیں بنایا جاتا؛ موجودا lecture content ہی practice کا source ہے۔</div><div class="practice-topics">${topics.map(t=>`<article class="practice-topic"><button class="practice-topic-head" type="button" onclick="practiceOpenTopic(${t.number})">Topic ${t.number} — ${practiceEsc(t.title)}</button><div class="practice-topic-body" id="practiceTopicBody${t.number}">${t.definition?`<div class="practice-question"><strong>Academic source:</strong> ${practiceEsc(t.definition)}</div>`:''}${t.subtopics.length?t.subtopics.map(sub=>{const qs=practiceMakeQuestions(t,sub);return `<div class="practice-subtopic"><div class="practice-subtopic-title">${practiceEsc(sub.title)}</div>${sub.definition?`<div class="practice-question"><strong>Academic content:</strong> ${practiceEsc(sub.definition)}</div>`:''}<div class="practice-strategy-list">${qs.map((x,k)=>`<div class="practice-question"><strong>${practiceEsc(x.q)}</strong>${practiceTier3State.showAnswers&&x.a?`<div class="practice-answer"><strong>بچے کے لیے طریقہ:</strong> ${practiceEsc(x.a)}</div>`:''}</div>`).join('')}</div></div>`;}).join(''):`<div class="practice-empty">This Topic has no academic Subtopic data in the current source yet.</div>`}</div></article>`).join('')}</div><div class="practice-actions"><button class="practice-btn" type="button" onclick="practiceToggleAnswers()">Show / Hide Strategy Guidance</button><button class="practice-btn" type="button" onclick="practiceOpenFirst()">Open First Topic</button></div><div class="practice-footer"></div></div>`;initPracticeNavigation();}
+function practiceRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticeAcademicSource(),subCount=topics.reduce((a,t)=>a+t.subtopics.length,0);root.innerHTML=`<div class="practice-tier3 academic-content-container"><div class="practice-head"><div class="practice-title page-main-heading">Practice & Test Strategies</div></div><div class="practice-source"><span class="ok">✓ Academic content is used as the practice source</span><span class="count">${topics.length} Topics · ${subCount} Subtopics</span></div><div class="practice-intro"><strong>اس حصے کا مقصد:</strong> بچے کو یہ مشق کرانا کہ academic سوال کو کیسے سمجھنا ہے، متعلقہ concept کیسے پہچاننا ہے، جواب تک کیسے پہنچنا ہے اور آخر میں جواب کو کیسے check کرنا ہے۔ یہاں نیا academic syllabus نہیں بنایا جاتا؛ موجودا lecture content ہی practice کا source ہے۔</div><div class="practice-topics">${topics.map(t=>`<article class="practice-topic"><button class="practice-topic-head" type="button" onclick="practiceOpenTopic(${t.number})">Topic ${t.number} — ${practiceEsc(t.title)}</button><div class="practice-topic-body" id="practiceTopicBody${t.number}">${t.definition?`<div class="practice-question"><strong>Academic source:</strong> ${practiceEsc(t.definition)}</div>`:''}${t.subtopics.length?t.subtopics.map(sub=>{const qs=practiceMakeQuestions(t,sub);return `<div class="practice-subtopic"><div class="practice-subtopic-title">${practiceEsc(sub.title)}</div>${sub.definition?`<div class="practice-question"><strong>Academic content:</strong> ${practiceEsc(sub.definition)}</div>`:''}<div class="practice-strategy-list">${qs.map((x,k)=>`<div class="practice-question"><strong>${practiceEsc(x.q)}</strong>${practiceTier3State.showAnswers&&x.a?`<div class="practice-answer"><strong>بچے کے لیے طریقہ:</strong> ${practiceEsc(x.a)}</div>`:''}</div>`).join('')}</div></div>`;}).join(''):`<div class="practice-empty">This Topic has no academic Subtopic data in the current source yet.</div>`}</div></article>`).join('')}</div><div class="practice-actions"><button class="practice-btn" type="button" onclick="practiceToggleAnswers()">Show / Hide Strategy Guidance</button><button class="practice-btn" type="button" onclick="practiceOpenFirst()">Open First Topic</button></div><div class="practice-footer"></div></div>`;}
 
 function practiceOpenTopic(n){document.querySelectorAll('.practice-topic-body').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.practice-topic-head').forEach(x=>x.classList.remove('active'));const body=document.getElementById(`practiceTopicBody${n}`);if(body){body.classList.add('open');body.previousElementSibling?.classList.add('active');practiceTier3State.openTopic=n;}}
 function practiceOpenFirst(){document.querySelector('.practice-topic-head')?.click();}
 function practiceToggleAnswers(){practiceTier3State.showAnswers=!practiceTier3State.showAnswers;const n=practiceTier3State.openTopic;practiceRender();if(n)practiceOpenTopic(n);}
 
 let examinationState={showAnswers:false};
-let examinationScrollHandler=null;
 function examText(v){return String(v??'').replace(/\s+/g,' ').trim();}
 function examEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function examFirst(o,keys){for(const k of keys){const v=examText(o?.[k]);if(v)return v;}return '';}
@@ -2157,22 +1904,21 @@ function examShortAnswer(x){return `Explain the central idea of <strong>${examEs
 function examLongAnswer(x){return `Using the academic description below, explain the concept clearly and state the main relationship or meaning it communicates.`;}
 function examinationRender(){
  const root=document.getElementById('functionalContentView');if(!root)return;
- root.innerHTML=`<div class="exam-tier3"><div class="exam-head"><div class="exam-title page-main-heading">Examination</div><div class="exam-note">Questions assess understanding, interpretation and application of the supplied academic content.</div></div><div id="examinationBody" class="exam-source"><span class="ok">✓ Automatic academic-source connection active</span><span>Preparing examination…</span></div><div class="exam-footer"></div></div>`;
- initExaminationNavigation();
+ root.innerHTML=`<div class="exam-tier3 academic-content-container"><div class="exam-head"><div class="exam-title page-main-heading">Examination</div><div class="exam-note">Questions assess understanding, interpretation and application of the supplied academic content.</div></div><div id="examinationBody" class="exam-source"><span class="ok">✓ Automatic academic-source connection active</span><span>Preparing examination…</span></div><div class="exam-footer"></div></div>`;
+
  const build=()=>{
   const body=document.getElementById('examinationBody');if(!body)return;
   const items=getExaminationItems();
   if(!items.length){body.innerHTML=`<div class="exam-empty">No academic Topic/Subtopic content is available yet, so no questions have been invented.</div>`;return;}
   const mcqs=examMakeMCQs(items),shorts=items,longs=items;
   body.outerHTML=`<div class="exam-source"><span class="ok">✓ Automatic academic-source connection active</span><span>${getExaminationSource().length} Topics · ${items.filter(x=>x.kind==='Subtopic').length} Subtopics</span><span>${mcqs.length} MCQs</span></div><section class="exam-section"><div class="exam-section-head">MCQs</div>${mcqs.map((m,i)=>`<div class="exam-question" data-exam-index="${i}"><div class="exam-qtype">MCQ ${i+1}</div><div class="exam-qtext">${m.q}</div><div class="exam-passage">${examEsc(m.passage||m.item.definition)}</div><div class="exam-options">${m.options.map((o,j)=>`<label class="exam-option"><input type="radio" name="exam-mcq-${i}" value="${j}" onchange="updateExaminationProgress()"><span><b>${String.fromCharCode(65+j)}.</b> ${examEsc(o)}</span></label>`).join('')}</div><div class="exam-question-status" id="exam-status-${i}">Unanswered</div></div>`).join('')}</section><section class="exam-section"><div class="exam-section-head">Short Question Answers</div>${shorts.map((x,i)=>`<div class="exam-question"><div class="exam-qtype">Short Question ${i+1}</div><div class="exam-qtext">${examShortAnswer(x)}</div>${examinationState.showAnswers?`<div class="exam-answer"><strong>Answer:</strong> ${examEsc(x.definition)}</div>`:''}</div>`).join('')}</section><section class="exam-section"><div class="exam-section-head">Long Question Answers</div>${longs.map((x,i)=>`<div class="exam-question"><div class="exam-qtype">Long Question ${i+1}</div><div class="exam-qtext">${examLongAnswer(x)}</div><div class="exam-passage">${examEsc(x.definition)}</div>${examinationState.showAnswers?`<div class="exam-answer"><strong>Answer:</strong> ${examEsc(x.definition)}</div>`:''}</div>`).join('')}</section><div class="exam-actions"><div class="exam-progress-line" id="exam-progress-line">0 / ${mcqs.length} answered</div><button class="exam-btn" type="button" onclick="submitExamination()">Submit Answers</button><button class="exam-btn" type="button" onclick="examinationToggleAnswers()">${examinationState.showAnswers?'Hide Answers':'Show Answers'}</button></div><div id="examinationResult" class="exam-result" aria-live="polite"></div>`;
-  initExaminationNavigation();
+ 
  };
  if('requestIdleCallback' in window)requestIdleCallback(build,{timeout:120});else setTimeout(build,0);
 }
 function updateExaminationProgress(){const total=examMakeMCQs(getExaminationItems()).length;let answered=0;for(let i=0;i<total;i++)if(document.querySelector(`input[name="exam-mcq-${i}"]:checked`))answered++;const line=document.getElementById('exam-progress-line');if(line)line.textContent=`${answered} / ${total} answered`;for(let i=0;i<total;i++){const st=document.getElementById(`exam-status-${i}`);if(st)st.textContent=document.querySelector(`input[name="exam-mcq-${i}"]:checked`)?'Answered':'Unanswered';}}
 function submitExamination(){const mcqs=examMakeMCQs(getExaminationItems());let answered=0,correct=0;mcqs.forEach((m,i)=>{const selected=document.querySelector(`input[name="exam-mcq-${i}"]:checked`);if(selected){answered++;if(Number(selected.value)===m.correctIndex)correct++;}});const result=document.getElementById('examinationResult');if(!result)return;const total=mcqs.length,percent=total?Math.round(correct/total*100):0;result.innerHTML=`<div class="exam-result-card"><strong>Examination Result</strong><div>Answered: ${answered} / ${total}</div><div>Correct: ${correct} / ${total}</div><div>Score: ${percent}%</div><div class="exam-result-note">${answered<total?'Unanswered questions are counted as 0. You may review your selected answers above.':'Your answers have been submitted. You may review them above.'}</div></div>`;result.scrollIntoView({behavior:'smooth',block:'center'});}
 function examinationToggleAnswers(){examinationState.showAnswers=!examinationState.showAnswers;examinationRender();}
-function initExaminationNavigation(){const btn=document.getElementById('examinationReturn');const back=document.getElementById('examinationStopBack');const scroller=document.querySelector('#functionalPage .main-content-container');if(!btn||!back||!scroller)return;if(examinationScrollHandler)scroller.removeEventListener('scroll',examinationScrollHandler);let lastY=scroller.scrollTop;let stopTimer=null;const showStopped=()=>{btn.classList.remove('visible');back.classList.add('visible');};back.classList.add('visible');btn.classList.remove('visible');examinationScrollHandler=()=>{const y=scroller.scrollTop;const max=Math.max(0,scroller.scrollHeight-scroller.clientHeight);back.classList.remove('visible');if(stopTimer)clearTimeout(stopTimer);if(y<=20||y>=max-8){btn.classList.remove('visible');}else{btn.classList.add('visible');btn.querySelector('.nav-arrow').textContent=y<lastY?'↑':'↓';btn.setAttribute('aria-label',y<lastY?'Scroll up':'Scroll down');}lastY=y;stopTimer=setTimeout(showStopped,2000);};scroller.addEventListener('scroll',examinationScrollHandler,{passive:true});}
 let hitCeilingState={level:1,pool:[],questionNumber:1};
 let htcQAState={index:0,showAnswer:false,bank:[]};
 function htcText(v){return String(v??'').replace(/\s+/g,' ').trim();}
@@ -2425,22 +2171,20 @@ function initGlobalNavigation(pageId){
 
 
 
-.p03-translation-loading{text-align:center;padding:35px 15px;color:var(--muted);font-weight:800}
-.p03-translation-error{text-align:center;padding:35px 15px;color:var(--red);font-weight:800}
+.p03-translation-loading{padding:35px 15px;color:var(--muted);}
+.p03-translation-error{padding:35px 15px;color:var(--red);}
 
 
 
 .p03-translation-tts{border:1px solid var(--green)!important;background:#fff!important;color:var(--green)!important}
-/* Lecture Mastery header layout: English/LTR unit heading; Topic Translate remains a right-side tab. */
-.lecture-mastery-unit-heading{direction:ltr!important;text-align:left!important;unicode-bidi:isolate;}
 .mastery-topic-actions .topic-translate-btn{margin-left:auto;}
 .mastery-toolbar{position:relative;display:grid!important;grid-template-columns:auto auto;grid-template-rows:auto auto;align-items:center;column-gap:10px;row-gap:7px;}
 .mastery-toolbar .mastery-progress{grid-column:1;grid-row:1;min-width:0;}
 .mastery-toolbar .mastery-tts-page-btn{grid-column:2;grid-row:1;justify-self:end;position:static!important;z-index:auto!important;}
 .mastery-toolbar .mastery-progress-bar{grid-column:1 / -1;grid-row:2;width:100%;}
-.mastery-tts-global-btn{box-sizing:border-box;border:1px solid var(--green);border-radius:9px;background:#fff;color:var(--green);padding:7px 11px;font-size:11px;font-weight:900;line-height:1;white-space:nowrap;cursor:pointer;}
+.mastery-tts-global-btn{box-sizing:border-box;border:1px solid var(--green);border-radius:9px;background:#fff;color:var(--green);padding:7px 11px;cursor:pointer;}
 .mastery-tts-global-btn:hover{background:var(--green);color:#fff;}
-@media(max-width:760px){.english-study-toolbar{align-items:stretch;flex-direction:column}.mastery-topic-actions{justify-content:flex-start}.p03-translation-overlay{padding:0}.p03-translation-window{border-radius:0}.p03-translation-content{font-size:22px;line-height:1.95;padding:8px 4px}.p03-translation-content[dir="rtl"]{font-size:24px;line-height:2.0;padding:8px 4px}}
+@media(max-width:760px){.english-study-toolbar{align-items:stretch;flex-direction:column}.mastery-topic-actions{justify-content:flex-start}.p03-translation-overlay{padding:0}.p03-translation-window{border-radius:0}.p03-translation-content{padding:8px 4px;}.p03-translation-content[dir="rtl"]{padding:8px 4px;}}
 
 /* ===== PHY03 Beautiful Urdu / Pashto Translation Design ===== */
 .p03-translation-overlay{position:fixed;;inset:0;;z-index:50000;;background:linear-gradient(135deg,rgba(7,34,28,.82),rgba(20,35,58,.76));;display:none;;align-items:stretch;;justify-content:center;;padding:24px;;backdrop-filter:blur(6px);;-webkit-backdrop-filter:blur(6px);}
@@ -2454,9 +2198,8 @@ function initGlobalNavigation(pageId){
     radial-gradient(circle at 10% 5%,rgba(201,169,91,.10),transparent 28%),
     radial-gradient(circle at 90% 95%,rgba(11,93,75,.08),transparent 30%),
     #fffdf8;}
-.p03-translation-content{max-width:1000px;;margin:0 auto;;font-size:25px;;line-height:2.0;;white-space:pre-wrap;;overflow-wrap:anywhere;;padding:30px 38px;;border:1px solid #eadfca;;border-radius:20px;;background:rgba(255,255,255,.94);;box-shadow:0 10px 32px rgba(70,55,25,.10);;letter-spacing:.01em;}
-.p03-translation-content[dir="rtl"]{direction:rtl;;text-align:right;;unicode-bidi:plaintext;;font-family:"Noto Naskh Arabic",Arial,sans-serif;;font-size:28px;;line-height:2.12;;font-weight:500;;word-spacing:.05em;;text-align-last:auto;}
-.p03-translation-content[dir="rtl"]::selection{background:rgba(11,93,75,.22)}
+.p03-translation-content{max-width:1000px;margin:0 auto;padding:30px 38px;border:1px solid #eadfca;border-radius:20px;background:rgba(255,255,255,.94);box-shadow:0 10px 32px rgba(70,55,25,.10);}
+.p03-translation-content[dir="rtl"]::selection{background:rgba(11,93,75,.22);}
 .p03-translation-body::-webkit-scrollbar{width:12px}
 .p03-translation-body::-webkit-scrollbar-track{background:#eee8dc;border-radius:12px}
 .p03-translation-body::-webkit-scrollbar-thumb{background:#9b9b8b;border-radius:12px;border:3px solid #eee8dc}
@@ -2476,8 +2219,7 @@ function initGlobalNavigation(pageId){
   
   
   .p03-translation-body{padding:16px 10px 24px}
-  .p03-translation-content{padding:22px 18px;font-size:22px;line-height:1.95;border-radius:16px}
-  .p03-translation-content[dir="rtl"]{font-size:25px;line-height:2.05}
+  .p03-translation-content{padding:22px 18px;border-radius:16px;}
 }
 /* Translation-window controls: match the established translation-tab geometry. */
 .p03-translation-head-actions .p03-translation-tts{
@@ -2493,8 +2235,8 @@ function initGlobalNavigation(pageId){
   align-items:center;
   justify-content:center;
   border-radius:9px;
-  font-size:11px;
-  line-height:1;
+  
+  
 }
 @media(max-width:760px){
   .p03-translation-head-actions .p03-translation-tts{
@@ -2510,13 +2252,12 @@ function initGlobalNavigation(pageId){
 #p03TranslationOverlay.p03-translation-overlay.visible{display:flex}
 #p03TranslationOverlay .p03-translation-window{position:relative;width:100%;height:100%;max-width:none;display:flex;flex-direction:column;overflow:hidden;border:0;border-radius:0;background:var(--paper);box-shadow:none}
 #p03TranslationOverlay .p03-translation-head-actions{position:static;display:flex;align-items:center;gap:8px;flex-shrink:0}
-#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts{position:absolute;top:calc(100% + 10px);right:12px;z-index:3;width:auto;min-width:0;max-width:none;height:32px;min-height:32px;max-height:32px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);font-size:11px;font-weight:900;line-height:1;box-shadow:0 2px 7px rgba(15,23,42,.12);transition:background .18s,border-color .18s,transform .18s}#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts:hover{background:#f7faf8;border-color:var(--green);transform:translateY(-1px)}
+#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts{position:absolute;top:calc(100% + 10px);right:12px;z-index:3;width:auto;min-width:0;max-width:none;height:32px;min-height:32px;max-height:32px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);box-shadow:0 2px 7px rgba(15,23,42,.12);transition:background .18s,border-color .18s,transform .18s}#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts:hover{background:#f7faf8;border-color:var(--green);transform:translateY(-1px)}
 #p03TranslationOverlay .p03-translation-body{flex:1;min-height:0;overflow:auto;box-sizing:border-box;padding:42px 8px 24px;background:var(--paper);border:1px solid var(--line);border-top:0}
-#p03TranslationOverlay .p03-translation-content{width:100%;max-width:none;box-sizing:border-box;margin:0;padding:4px 8px 34px;border:0;border-radius:0;background:transparent;color:var(--ink);box-shadow:none;font-size:var(--academic-body);line-height:1.9;letter-spacing:normal;white-space:pre-wrap;overflow-wrap:anywhere}
-#p03TranslationOverlay .p03-translation-content[dir="rtl"]{direction:rtl;text-align:right;unicode-bidi:plaintext;font-family:"Noto Naskh Arabic",Arial,sans-serif;font-size:var(--academic-body);line-height:1.9;font-weight:600;word-spacing:normal}
+#p03TranslationOverlay .p03-translation-content{width:100%;max-width:none;box-sizing:border-box;margin:0;padding:4px 8px 34px;border:0;border-radius:0;background:transparent;color:var(--ink);box-shadow:none;}
 
-#p03TranslationOverlay .p03-translation-loading{padding:16px 8px;color:var(--muted);font-weight:800;text-align:center}
-#p03TranslationOverlay .p03-translation-error{padding:16px 8px;color:var(--red);font-weight:800;text-align:center}
+#p03TranslationOverlay .p03-translation-loading{padding:16px 8px;color:var(--muted);}
+#p03TranslationOverlay .p03-translation-error{padding:16px 8px;color:var(--red);}
 /* Translation Previous Page uses the shared global positioning rule. */
 
 </style>
@@ -3554,5 +3295,62 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
   observer.observe(document.documentElement,{childList:true,subtree:true});
 })();
 </script>
+<script id="reading-content-pinch-reflow">
+(function(){
+  'use strict';
+  var zoom = 1, gesture = null;
+  var maxZoom = 2.5, minZoom = 1;
+  var contentSelector = '#homeContentView, #topicContentView, #functionalContentView';
+  var textSelector = 'h1,h2,h3,h4,p,li,blockquote,td,th,.guided-content,.mastery-course-intro,.mastery-topic-overview,.mastery-topic-definition,.mastery-subtopic-definition,.mastery-subtopic-focus,.mastery-text-flow,.revision-card-definition,.exam-question,.exam-answer,.exam-passage,.practice-question,.practice-answer,.readiness-note,.readiness-q,.readiness-answer,.readiness-live-q,.readiness-feedback,.readiness-result,.mastery-topic-content,.mastery-subtopic-content,.academic-content,.mastery-content-container,.content-container';
+  var style = document.createElement('style');
+  style.textContent = '#homeContentView,#topicContentView,#functionalContentView,#p03TranslationOverlay .p03-translation-content{min-width:0;max-width:100%;box-sizing:border-box}#p03TranslationOverlay .p03-translation-content{font-size:var(--academic-body,18px);white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;touch-action:pan-y;}#p03TranslationOverlay .p03-translation-content h1,#p03TranslationOverlay .p03-translation-content h2{font-size:var(--academic-main-heading,22px)}#p03TranslationOverlay .p03-translation-content h3,#p03TranslationOverlay .p03-translation-content h4{font-size:var(--academic-subheading,20px)}#homeContentView,#topicContentView,#functionalContentView{touch-action:pan-y;}';
+  document.head.appendChild(style);
+  function roots(){return Array.from(document.querySelectorAll('#homeContentView,#topicContentView,#functionalContentView,#p03TranslationOverlay .p03-translation-content'));}
+  function applyZoom(value){
+    zoom=Math.max(minZoom,Math.min(maxZoom,value));
+    roots().forEach(function(el){
+      el.style.setProperty('--academic-body',(18*zoom)+'px');
+      el.style.setProperty('--academic-subheading',(20*zoom)+'px');
+      el.style.setProperty('--academic-main-heading',(22*zoom)+'px');
+      el.style.maxWidth='100%';el.style.minWidth='0';el.style.boxSizing='border-box';
+      if(el.matches('#p03TranslationOverlay .p03-translation-content')) el.style.fontSize=(18*zoom)+'px';
+    });
+  }
+  function distance(t){var dx=t[0].clientX-t[1].clientX,dy=t[0].clientY-t[1].clientY;return Math.hypot(dx,dy);}
+  function targetSurface(target){
+    if(!target||!target.closest)return null;
+    var overlay=document.getElementById('p03TranslationOverlay');
+    if(overlay&&overlay.classList.contains('visible')&&target.closest('#p03TranslationOverlay')){
+      return overlay.querySelector('.p03-translation-content');
+    }
+    var node=target.closest(textSelector);
+    if(!node)return null;
+    var root=node.closest(contentSelector);
+    if(!root)return null;
+    var page=root.closest('.page');
+    if(page&&!page.classList.contains('active'))return null;
+    return root;
+  }
+  function onStart(e){
+    if(e.touches.length!==2){if(e.touches.length<2)gesture=null;return;}
+    var surface=targetSurface(e.target);
+    if(!surface){gesture=null;return;}
+    gesture={distance:distance(e.touches),zoom:zoom};
+  }
+  function onMove(e){
+    if(!gesture||e.touches.length!==2)return;
+    var d=distance(e.touches);if(!gesture.distance)return;
+    if(e.cancelable)e.preventDefault();
+    applyZoom(gesture.zoom*(d/gesture.distance));
+  }
+  function onEnd(e){if(e.touches.length<2)gesture=null;}
+  document.addEventListener('touchstart',onStart,{passive:true,capture:true});
+  document.addEventListener('touchmove',onMove,{passive:false,capture:true});
+  document.addEventListener('touchend',onEnd,{passive:true,capture:true});
+  document.addEventListener('touchcancel',onEnd,{passive:true,capture:true});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){applyZoom(zoom);});else applyZoom(zoom);
+})();
+</script>
 </body>
 </html>
+
