@@ -143,9 +143,8 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .mastery-course-intro,.mastery-topic-number,.mastery-subtopic-kicker,.mastery-subtopic-focus{display:none!important;}
 .mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:6px 10px;color:var(--green);cursor:pointer;}
 .mastery-tts-global-btn.active{background:var(--green);color:#fff}
-.mastery-tts-panel{position:fixed;left:50%;right:auto;bottom:72px;transform:translateX(-50%);z-index:10000;display:none;align-items:center;gap:6px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.18);}
-.mastery-tts-panel.visible{display:flex}.mastery-tts-panel button{border:1px solid var(--line);border-radius:7px;background:#fafafa;padding:5px 8px;cursor:pointer;width:44px;height:30px;min-width:44px;min-height:30px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}.mastery-tts-status{max-width:180px;overflow:hidden;text-overflow:ellipsis;color:var(--green);}
-.mastery-tts-reading-highlight{background:#dff3df !important;box-shadow:inset 4px 0 0 #2e7d32;border-radius:5px;padding-left:4px!important;transition:background .15s ease;}
+.mastery-tts-panel{position:fixed;left:8px;top:8px;right:auto;bottom:auto;transform:none;z-index:10000;display:none;align-items:stretch;gap:4px;padding:4px;max-width:calc(100vw - 16px);box-sizing:border-box;border:1px solid var(--line);border-radius:9px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.18);}
+.mastery-tts-panel.visible{display:flex}.mastery-tts-panel button{flex:1 1 50%;border:1px solid var(--line);border-radius:6px;padding:5px 4px;cursor:pointer;width:50%;height:30px;min-width:0;min-height:30px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;font-size:13px;font-weight:600;transition:background-color .15s ease,border-color .15s ease}.mastery-tts-panel #masteryTTSCloseButton{background:#ffe4e6;border-color:#fda4af;color:#9f1239}.mastery-tts-panel #masteryTTSToggleButton.is-play{background:#dcfce7;border-color:#86efac;color:#166534}.mastery-tts-panel #masteryTTSToggleButton.is-pause{background:#e0f2fe;border-color:#7dd3fc;color:#075985}.mastery-tts-status{display:none;}
 </style>
 <style>
 
@@ -324,16 +323,20 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 /* Lecture Mastery header layout: keep the unit heading English/LTR and place
    the existing Topic translation action on the right without touching the
    translation-menu implementation or any translation logic. */
-#functionalContentView .mastery-document > .view-header{position:relative;min-height:38px;display:flex;align-items:center;justify-content:center;}
+#functionalContentView .mastery-document > .view-header{position:relative;min-height:38px;display:flex;align-items:center;justify-content:flex-start;gap:12px;padding-left:4ch;padding-right:4px;box-sizing:border-box;}
+#functionalContentView .lecture-mastery-unit-heading{margin:0!important;text-align:left!important;flex:0 0 auto;}
+#functionalContentView .mastery-tts-control-slot{position:relative;display:inline-flex;align-items:center;justify-content:flex-start;width:108px;height:31px;flex:0 0 108px;margin-left:auto;}
+#functionalContentView .mastery-tts-control-slot>.mastery-tts-global-btn{width:108px;min-width:108px;max-width:108px;height:31px;padding:6px 8px;}
+#functionalContentView .mastery-tts-control-slot>.mastery-tts-panel{position:fixed;left:8px;top:8px;right:auto;bottom:auto;transform:none;width:108px;max-width:108px;margin:0;box-shadow:0 8px 24px rgba(15,23,42,.18);z-index:10000;}
+@media(max-width:420px){#functionalContentView .mastery-document > .view-header{gap:8px;padding-left:2ch;padding-right:4px;}#functionalContentView .lecture-mastery-unit-heading{font-size:clamp(16px,4.5vw,22px);}}
 #functionalContentView .mastery-document >
 #functionalContentView .mastery-topic-head-row >
 #functionalContentView .mastery-topic-actions{justify-content:flex-end!important;}
 #functionalContentView .mastery-topic-actions .topic-translate-btn{order:1;}
 #functionalContentView .mastery-topic-actions .mastery-read-btn{order:2;}
-#functionalContentView .mastery-global-tools{position:absolute;right:4px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;}
 #functionalContentView .mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:7px 11px;color:var(--green);cursor:pointer;}
 #functionalContentView .mastery-tts-global-btn.active{background:var(--green);color:#fff;}
-@media(max-width:760px){#functionalContentView .mastery-global-tools{right:0;}#functionalContentView .mastery-tts-global-btn{padding:6px 8px;}}
+@media(max-width:760px){#functionalContentView .mastery-tts-global-btn{padding:6px 8px;}}
 </style>
 <style id="lecture-mastery-tabs-general">
 /* Single general Lecture Mastery tab system: all action tabs use the
@@ -1269,7 +1272,7 @@ function renderActiveAcademicLanguage(){
  const mastery=document.querySelector('#functionalContentView .mastery-document');
  if(mastery){
   const oldScroll=document.querySelector('#functionalPage .main-content-container')?.scrollTop||0;
-  mastery.innerHTML=`<div class="view-header"><div class="subject-label page-main-heading lecture-mastery-unit-heading" dir="ltr">Lecture Mastery</div></div><div class="english-study-banner"></div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span><button type="button" class="mastery-tts-global-btn mastery-tts-inline-btn" onclick="globalAcademicTTS('en')" aria-label="Read the full Lecture Mastery page in English">🔊 Eng TTS</button></div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>Lecture Mastery presents each Topic as a continuous learning path using its academic content and subtopics.</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div>`;
+  mastery.innerHTML=`<div class="view-header"><div class="subject-label page-main-heading lecture-mastery-unit-heading" dir="ltr">Lecture Mastery</div><span class="mastery-tts-control-slot"><button type="button" class="mastery-tts-global-btn mastery-tts-inline-btn" onclick="globalAcademicTTS('en')" aria-label="Read the full Lecture Mastery page in English">🔊 Eng TTS</button><div aria-label="English TTS controls" class="mastery-tts-panel" id="masteryTTSPanel"><button aria-label="Stop English TTS and close controls" id="masteryTTSCloseButton" onclick="academicTTSHide()" type="button">Stop</button><button aria-label="Pause English TTS" id="masteryTTSToggleButton" class="is-pause" onclick="academicTTSPausePlay()" type="button">Pause</button></div></span></div><div class="english-study-banner"></div><div class="mastery-toolbar"><div class="mastery-progress"><span id="masteryProgressText">0/${topicCount} Topics read</span></div><div class="mastery-progress-bar"><div class="mastery-progress-fill" id="masteryProgressFill"></div></div></div><div class="mastery-course-intro"><div class="mastery-section-label">Course Roadmap</div><div>Lecture Mastery presents each Topic as a continuous learning path using its academic content and subtopics.</div></div>${Array.from({length:topicCount},(_,i)=>masteryTopicTemplate(i+1)).join('')}<div class="mastery-footer"></div>`;
   renderMasteryState(); dedupeMasterySubtopicHeadings(mastery); dictionaryBuildAndLinkOnce(); linkDictionaryTerms(mastery); applyGlobalAcademicDirection(mastery); syncLectureMasteryActionButtonSize();
   const sc=document.querySelector('#functionalPage .main-content-container'); if(sc)sc.scrollTop=oldScroll;
  }
@@ -2180,7 +2183,6 @@ function initGlobalNavigation(pageId){
 .mastery-topic-actions .topic-translate-btn{margin-left:auto;}
 .mastery-toolbar{position:relative;display:grid!important;grid-template-columns:auto auto;grid-template-rows:auto auto;align-items:center;column-gap:10px;row-gap:7px;}
 .mastery-toolbar .mastery-progress{grid-column:1;grid-row:1;min-width:0;}
-.mastery-toolbar .mastery-tts-page-btn{grid-column:2;grid-row:1;justify-self:end;position:static!important;z-index:auto!important;}
 .mastery-toolbar .mastery-progress-bar{grid-column:1 / -1;grid-row:2;width:100%;}
 .mastery-tts-global-btn{box-sizing:border-box;border:1px solid var(--green);border-radius:9px;background:#fff;color:var(--green);padding:7px 11px;cursor:pointer;}
 .mastery-tts-global-btn:hover{background:var(--green);color:#fff;}
@@ -2557,12 +2559,12 @@ function p03TranslationStopTTS(){
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('p03TranslationOverlay')?.classList.contains('visible'))closeP03Translation();});
 document.getElementById('p03TranslationOverlay')?.addEventListener('click',e=>{if(e.target.id==='p03TranslationOverlay')closeP03Translation();});
 </script>
-<div aria-live="polite" class="mastery-tts-panel" id="masteryTTSPanel"><span class="mastery-tts-status" id="masteryTTSStatus">Select language</span><button onclick="academicTTSPausePlay()" type="button">Ⅱ/▶</button><button onclick="academicTTSStop()" type="button">■ Stop</button><button onclick="academicTTSHide()" type="button">×</button></div>
+
 <script>
 
-const ACADEMIC_TTS_LANGS={en:{lang:'en-GB',remote:'en',label:'English UK'},ur:{lang:'ur-PK',remote:'ur',label:'اردو'}};
+const ACADEMIC_TTS_LANGS={en:{lang:'en-GB',remote:'en',label:'English'},ur:{lang:'ur-PK',remote:'ur',label:'اردو'}};
 const ACADEMIC_TTS_MAX_CHARS=180;
-let academicTTSChunks=[],academicTTSIndex=0,academicTTSPlaying=false,academicTTSPaused=false,academicTTSVoice=null,academicTTSAudio=null,academicTTSMode='',academicTTSLanguage='en',currentUtteranceReference=null,academicTTSHighlight=null;
+let academicTTSChunks=[],academicTTSIndex=0,academicTTSPlaying=false,academicTTSPaused=false,academicTTSVoice=null,academicTTSAudio=null,academicTTSMode='',academicTTSLanguage='en',currentUtteranceReference=null;
 
 function academicTTSText(){
  const root=document.querySelector('#functionalContentView .mastery-document');
@@ -2581,9 +2583,11 @@ function academicTTSVoiceFor(langKey){
  const target=cfg.lang.toLowerCase();
  const voices=academicTTSVoices();
  if(langKey==='en'){
-  return voices.find(v=>String(v?.lang||'').toLowerCase()==='en-gb')||
-         voices.find(v=>String(v?.name||'').toLowerCase().includes('uk english'))||
-         voices.find(v=>String(v?.lang||'').toLowerCase().startsWith('en-gb'))||null;
+  // English voice priority: GB first, then PK, then US. Use remote English only if none exists.
+  const localeVoice=locale=>voices.find(v=>String(v?.lang||'').toLowerCase()===locale)||
+                            voices.find(v=>String(v?.lang||'').toLowerCase().startsWith(locale+'-'))||null;
+  return localeVoice('en-gb')||localeVoice('en-pk')||localeVoice('en-us')||
+         voices.find(v=>String(v?.name||'').toLowerCase().includes('uk english'))||null;
  }
  return voices.find(v=>String(v?.lang||'').toLowerCase()===target)||
         voices.find(v=>String(v?.lang||'').toLowerCase().startsWith(target.split('-')[0]+'-'))||null;
@@ -2597,7 +2601,36 @@ function academicTTSWaitForVoices(callback){
  setTimeout(finish,1200);
 }
 function academicTTSStatus(t){const e=document.getElementById('masteryTTSStatus');if(e)e.textContent=t;}
+let academicTTSAnchorButton=null;
+function academicTTSPositionPanel(){
+ const panel=document.getElementById('masteryTTSPanel');
+ if(!panel)return;
+ const anchor=academicTTSAnchorButton||document.querySelector('#functionalContentView .mastery-tts-global-btn');
+ if(!anchor)return;
+ const anchorRect=anchor.getBoundingClientRect();
+ // Align the panel's left edge with the first Translate/Read tab group.
+ const tab= document.querySelector('#functionalContentView .mastery-topic-actions .topic-translate-btn') ||
+            document.querySelector('#functionalContentView .mastery-subtopic-head .subtopic-translate-btn');
+ const tabRect=tab?tab.getBoundingClientRect():null;
+ const panelWidth=108;
+ const panelHeight=40;
+ const leftSource=tabRect?tabRect.left:anchorRect.left;
+ const left=Math.max(4,Math.min(leftSource,window.innerWidth-panelWidth-4));
+ const top=Math.max(4,Math.min(anchorRect.top,window.innerHeight-panelHeight-4));
+ panel.style.left=Math.round(left)+'px';
+ panel.style.top=Math.round(top)+'px';
+ panel.style.width=panelWidth+'px';
+}
+function academicTTSShowPanel(){
+ const panel=document.getElementById('masteryTTSPanel');
+ if(!panel)return;
+ if(!academicTTSAnchorButton||!document.contains(academicTTSAnchorButton))academicTTSAnchorButton=document.querySelector('.mastery-tts-global-btn');
+ if(academicTTSAnchorButton)academicTTSAnchorButton.style.visibility='hidden';
+ panel.classList.add('visible');
+ academicTTSPositionPanel();
+}
 function academicTTSButton(active){document.querySelector('.mastery-tts-global-btn')?.classList.toggle('active',!!active);}
+function academicTTSToggleLabel(paused){const b=document.getElementById('masteryTTSToggleButton');if(!b)return;b.textContent=paused?'Play':'Pause';b.classList.toggle('is-play',!!paused);b.classList.toggle('is-pause',!paused);b.setAttribute('aria-label',(paused?'Play':'Pause')+' English TTS');}
 function academicTTSRemoteURL(text){
  const cfg=ACADEMIC_TTS_LANGS[academicTTSLanguage]||ACADEMIC_TTS_LANGS.en;
  return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+encodeURIComponent(cfg.remote)+'&q='+encodeURIComponent(text);
@@ -2606,17 +2639,10 @@ function academicTTSBuildChunks(){
  const root=document.querySelector('#functionalContentView .mastery-document');if(!root)return [];
  const chunks=[];
  Array.from(root.querySelectorAll('.mastery-topic-title,.mastery-topic-overview,.mastery-subtopic h3,.mastery-subtopic-definition')).forEach(element=>
-  academicTTSSplit(element.innerText.trim()).forEach(text=>{if(String(text).trim())chunks.push({text:String(text).trim(),element});})
+  academicTTSSplit(element.innerText.trim()).forEach(text=>{const clean=String(text).trim();if(clean)chunks.push({text:clean,element,wordCount:clean.split(/\s+/).filter(Boolean).length});})
  );
  return chunks;
 }
-function academicTTSHighlightChunk(element){
- if(academicTTSHighlight)academicTTSHighlight.classList.remove('mastery-tts-reading-highlight');
- academicTTSHighlight=element||null;
- if(academicTTSHighlight){academicTTSHighlight.classList.add('mastery-tts-reading-highlight');academicTTSHighlight.scrollIntoView({behavior:'smooth',block:'center'});}
-}
-function academicTTSClearHighlight(){if(academicTTSHighlight)academicTTSHighlight.classList.remove('mastery-tts-reading-highlight');academicTTSHighlight=null;}
-
 function academicTTSSpeechText(text){
  let t=String(text).replace(/مخالف/g,'مُخالِف');
  t=t.replace(/\b(x-axis|y-axis|z-axis|Cartesian Coordinate System|Vector Representation|Vector Addition|Vector Subtraction|Scalar Multiplication|Unit Vector|Null Vector|Position Vector|Component of a Vector|Rectangular Components|Dot Product|Cross Product|Torque|Moment of Force|Equilibrium of Concurrent Forces|Conditions of Equilibrium|Axes and Origin|Coordinates of a Point|Quadrants|Position and Direction|Vector Representation and Types|Head to Tail Rule|Scalar|Vector|Component|Resultant|Right-Hand Rule|Free-Body Diagram|Moment Arm|Clockwise|Counterclockwise|Applications|Work|Beam|Bridge|Support|Ladder|Lever|Engine|Wheel|Door)\b(?=\s+(?:and|او|یا|or|[A-Za-z]|یا$))/gi,'$1،');
@@ -2629,8 +2655,8 @@ function academicTTSSpeechText(text){
 function academicTTSPlayBrowser(text,cfg){
  currentUtteranceReference=new SpeechSynthesisUtterance(academicTTSSpeechText(text));
  const u=currentUtteranceReference;
- u.lang=cfg.lang;
- u.rate=cfg.lang==='en-GB'?.50:.93;
+ u.lang=(academicTTSLanguage==='en'&&academicTTSVoice?.lang)?academicTTSVoice.lang:cfg.lang;
+ u.rate=academicTTSLanguage==='en'?.50:.93;
  u.pitch=1;
  u.volume=1;
 
@@ -2658,12 +2684,12 @@ function globalAcademicTTS(langKey){
  // One reader at a time: starting academic speech stops translation speech first.
  try{if(typeof p03TranslationStopTTS==='function')p03TranslationStopTTS();}catch(e){}
  const text=academicTTSText();
- if(!text){academicTTSStatus('Academic content unavailable');document.getElementById('masteryTTSPanel')?.classList.add('visible');return;}
+ if(!text){academicTTSStatus('Academic content unavailable');academicTTSShowPanel();return;}
  academicTTSStop();
  academicTTSLanguage=langKey;
  academicTTSChunks=academicTTSBuildChunks();academicTTSIndex=0;academicTTSPlaying=true;academicTTSPaused=false;
- document.getElementById('masteryTTSPanel')?.classList.add('visible');academicTTSButton(true);
- academicTTSStatus(cfg.label+' TTS starting…');
+ academicTTSShowPanel();academicTTSButton(true);academicTTSToggleLabel(false);
+ try{window.startTTSLinkedAutoScroll?.();}catch(e){}
  academicTTSWaitForVoices(()=>{
   if(!academicTTSPlaying||academicTTSLanguage!==langKey)return;
   academicTTSVoice=academicTTSVoiceFor(langKey);
@@ -2673,9 +2699,10 @@ function globalAcademicTTS(langKey){
 }
 function academicTTSPlayNext(){
  if(!academicTTSPlaying||academicTTSPaused)return;
- if(academicTTSIndex>=academicTTSChunks.length){academicTTSStop();return;}
+ if(academicTTSIndex>=academicTTSChunks.length){academicTTSHide();return;}
  const chunk=academicTTSChunks[academicTTSIndex++];const text=chunk.text;const cfg=ACADEMIC_TTS_LANGS[academicTTSLanguage];
- academicTTSHighlightChunk(chunk.element);
+ const nextChunk=academicTTSChunks[academicTTSIndex]||null;
+ try{window.syncTTSLinkedAutoScroll?.(nextChunk?.element||chunk.element,chunk.wordCount||1,academicTTSLanguage==='en'?.50:.93);}catch(e){}
  if(academicTTSMode==='browser'){academicTTSPlayBrowser(text,cfg);return;}
  academicTTSPlayRemote(text,cfg);
 }
@@ -2687,20 +2714,27 @@ function academicTTSPausePlay(){
   academicTTSIndex=Math.max(0,academicTTSIndex-1);
   if(currentUtteranceReference){currentUtteranceReference=null;try{window.speechSynthesis?.cancel();}catch(e){}}
   if(academicTTSAudio){const oldAudio=academicTTSAudio;academicTTSAudio=null;oldAudio.onended=null;oldAudio.onerror=null;try{oldAudio.pause();oldAudio.currentTime=0;}catch(e){}}
-  academicTTSStatus('Paused — resume starts this sentence from the beginning');
+  academicTTSToggleLabel(true);
+  try{window.pauseTTSLinkedAutoScroll?.();}catch(e){}
   return;
  }
  academicTTSPaused=false;
+ academicTTSToggleLabel(false);
+ try{window.resumeTTSLinkedAutoScroll?.();}catch(e){}
  academicTTSPlayNext();
 }
 function academicTTSStop(){
  academicTTSPlaying=false;academicTTSPaused=false;
  try{window.speechSynthesis?.cancel();}catch(e){}
- currentUtteranceReference=null;academicTTSClearHighlight();
+ currentUtteranceReference=null;
  if(academicTTSAudio){try{academicTTSAudio.pause();academicTTSAudio.src='';}catch(e){}}
- academicTTSAudio=null;academicTTSIndex=0;academicTTSChunks=[];academicTTSMode='';academicTTSButton(false);academicTTSStatus('Select language');
+ academicTTSAudio=null;academicTTSIndex=0;academicTTSChunks=[];academicTTSMode='';academicTTSButton(false);academicTTSStatus('English');
+ // Stop only the auto-scroll session linked to this TTS run.
+ try{window.stopTTSLinkedAutoScroll?.();}catch(e){}
 }
-function academicTTSHide(){academicTTSStop();document.getElementById('masteryTTSPanel')?.classList.remove('visible');}
+function academicTTSHide(){academicTTSStop();document.getElementById('masteryTTSPanel')?.classList.remove('visible');academicTTSToggleLabel(false);if(academicTTSAnchorButton){academicTTSAnchorButton.style.visibility='';academicTTSAnchorButton=null;}}
+// Recalculate on resize only; scrolling intentionally does not move the fixed controls.
+window.addEventListener('resize',academicTTSPositionPanel);
 window.speechSynthesis?.addEventListener?.('voiceschanged',()=>{academicTTSVoice=academicTTSVoiceFor(academicTTSLanguage);});
 function p03StopAllTTS(){
  try{p03TranslationStopTTS?.();}catch(e){}
@@ -3091,7 +3125,7 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
 
 <script id="global-scroll-system-js">
 (function(){
-  const state={scroller:null,page:null,auto:false,speed:1,raf:null,lastTs:0,lastY:0,idleTimer:null,overlay:false,arrowCenterX:null};
+  const state={scroller:null,page:null,auto:false,speed:1,raf:null,lastTs:0,lastY:0,idleTimer:null,overlay:false,arrowCenterX:null,ttsLinked:false,ttsPaused:false,ttsRaf:null,ttsTweenToken:0};
   const relevantPage=id=>id==='topicPage'||id==='functionalPage';
   const el=id=>document.getElementById(id);
   function maxScroll(s){return Math.max(0,s.scrollHeight-s.clientHeight)}
@@ -3111,7 +3145,7 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
   function build(){
     if(el('globalScrollSystem'))return;
     const wrap=document.createElement('div');wrap.id='globalScrollSystem';wrap.className='global-scroll-system';wrap.hidden=true;
-    wrap.innerHTML='<span>Scroll</span><button type="button" class="global-scroll-action" id="globalScrollAction">On</button><div class="global-scroll-speed" id="globalScrollSpeed"><button type="button" id="globalScrollSpeedButton">1x</button><div class="global-scroll-speed-menu"><button type="button" data-speed="1">1x</button><button type="button" data-speed="2">2x</button><button type="button" data-speed="3">3x</button></div></div>';
+    wrap.innerHTML='<span>Scroll</span><button type="button" class="global-scroll-action" id="globalScrollAction">On</button><div class="global-scroll-speed" id="globalScrollSpeed"><button type="button" id="globalScrollSpeedButton">1x</button><div class="global-scroll-speed-menu"><button type="button" data-speed="0.5">0.5x</button><button type="button" data-speed="1">1x</button><button type="button" data-speed="2">2x</button><button type="button" data-speed="3">3x</button></div></div>';
     document.body.appendChild(wrap);
     const arrow=document.createElement('button');arrow.type='button';arrow.id='globalScrollArrow';arrow.className='global-scroll-arrow';arrow.setAttribute('aria-label','Scroll down');arrow.textContent='↓';arrow.hidden=true;document.body.appendChild(arrow);
     const prev=document.createElement('button');prev.type='button';prev.id='globalScrollPrevious';prev.className='global-scroll-previous';prev.textContent='Previous Page';prev.hidden=true;document.body.appendChild(prev);
@@ -3175,6 +3209,7 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
       if(!state.auto||!state.scroller)return;
       const current=state.scroller;
       if(atBottom(current)){
+        if(state.ttsLinked){state.auto=false;state.raf=null;showPrevious();return;}
         stopAuto(false);
         showPrevious();
         return;
@@ -3228,6 +3263,7 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
     scheduleIdle();
   }
   function interruptAutoForManualInput(e){
+    if(state.ttsLinked)return;
     if(!state.scroller||!state.auto)return;
     const dir=e&&typeof e.deltaY==='number'?(e.deltaY<0?-1:1):(state.direction||1);
     stopAuto(false);
@@ -3240,10 +3276,94 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
     if(overlay?.classList.contains('visible')){overlay.classList.remove('visible');return;}
     const page=document.querySelector('.page.active');if(page?.id==='topicPage'||page?.id==='functionalPage')showPage('topicsPage');
   }
+  let ttsAutoScrollSession=null;
+  function displaySpeed(speed){return Number.isInteger(speed)?String(speed):String(speed);}
+  function cancelTTSScrollTween(){
+    state.ttsTweenToken++;
+    cancelAnimationFrame(state.ttsRaf);
+    state.ttsRaf=null;
+  }
+  function ttsScrollTarget(element){
+    const s=state.scroller;
+    if(!s||!element||!document.contains(element))return null;
+    const er=element.getBoundingClientRect(),sr=s.getBoundingClientRect();
+    const target=s.scrollTop+(er.top-sr.top)-10;
+    return Math.max(0,Math.min(maxScroll(s),target));
+  }
+  function ttsEstimatedDurationMs(wordCount,rate){
+    const words=Math.max(1,Number(wordCount)||1);
+    const wordsPerMinute=rate<=0.5?92:150;
+    return Math.max(700,Math.min(12000,(words/wordsPerMinute)*60000));
+  }
+  window.startTTSLinkedAutoScroll=function(){
+    refresh();
+    if(!ttsAutoScrollSession)ttsAutoScrollSession={wasAuto:state.auto,previousSpeed:state.speed};
+    state.ttsLinked=true;
+    state.ttsPaused=false;
+    state.speed=0.5;
+    if(el('globalScrollSpeedButton'))el('globalScrollSpeedButton').textContent=displaySpeed(state.speed)+'x';
+    cancelTTSScrollTween();
+    state.auto=true;
+    if(el('globalScrollAction'))el('globalScrollAction').textContent='Off';
+    if(el('globalScrollSystem'))el('globalScrollSystem').hidden=false;
+    el('globalScrollArrow')&&(el('globalScrollArrow').hidden=true);
+    el('globalScrollPrevious')&&(el('globalScrollPrevious').hidden=true);
+    positionArrow();
+  };
+  window.syncTTSLinkedAutoScroll=function(element,wordCount,rate){
+    if(!state.ttsLinked||state.ttsPaused)return;
+    refresh();
+    const s=state.scroller,target=ttsScrollTarget(element);
+    if(!s||target===null)return;
+    cancelTTSScrollTween();
+    const start=s.scrollTop,distance=target-start;
+    if(Math.abs(distance)<1)return;
+    const duration=ttsEstimatedDurationMs(wordCount,rate);
+    const token=state.ttsTweenToken;
+    const begin=performance.now();
+    state.auto=true;
+    const tick=now=>{
+      if(!state.ttsLinked||state.ttsPaused||token!==state.ttsTweenToken)return;
+      const p=Math.min(1,(now-begin)/duration);
+      const eased=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+      s.scrollTop=start+distance*eased;
+      if(p<1){state.ttsRaf=requestAnimationFrame(tick);}else{state.ttsRaf=null;}
+    };
+    state.ttsRaf=requestAnimationFrame(tick);
+  };
+  window.pauseTTSLinkedAutoScroll=function(){
+    if(!state.ttsLinked)return;
+    state.ttsPaused=true;
+    cancelTTSScrollTween();
+  };
+  window.resumeTTSLinkedAutoScroll=function(){
+    if(!state.ttsLinked)return;
+    state.ttsPaused=false;
+    state.auto=true;
+    if(el('globalScrollAction'))el('globalScrollAction').textContent='Off';
+  };
+  window.stopTTSLinkedAutoScroll=function(){
+    if(!ttsAutoScrollSession&&!state.ttsLinked)return;
+    const session=ttsAutoScrollSession;ttsAutoScrollSession=null;
+    state.ttsLinked=false;
+    state.ttsPaused=false;
+    cancelTTSScrollTween();
+    if(session){
+      state.speed=session.previousSpeed;
+      if(el('globalScrollSpeedButton'))el('globalScrollSpeedButton').textContent=displaySpeed(state.speed)+'x';
+      if(session.wasAuto){
+        if(!state.auto)startAuto();
+      }else{
+        stopAuto(true);
+      }
+    }else{
+      stopAuto(true);
+    }
+  };
   function refresh(){
     const target=activeScroller();
     if(state.scroller!==target?.scroller){
-      stopAuto(false);
+      if(state.ttsLinked){cancelTTSScrollTween();state.auto=false;}else stopAuto(false);
       clearTimeout(state.idleTimer);state.idleTimer=null;
       if(state.scroller){state.scroller.removeEventListener('scroll',onScroll);state.scroller.removeEventListener('wheel',interruptAutoForManualInput);state.scroller.removeEventListener('touchstart',interruptAutoForManualInput);}
       state.scroller=target?.scroller||null;state.page=target?.page||null;state.overlay=!!target?.overlay;
@@ -3251,9 +3371,16 @@ document.addEventListener('visibilitychange',()=>{if(document.visibilityState===
     }
     if(!target){stopAuto(false);clearTimeout(state.idleTimer);state.idleTimer=null;hideAll();return;}
     if(!hasScroll(state.scroller)||atBottom(state.scroller)){
-      stopAuto(false);
-      clearTimeout(state.idleTimer);state.idleTimer=null;
-      showPrevious();
+      if(state.ttsLinked){
+        cancelTTSScrollTween();
+        state.auto=false;
+        clearTimeout(state.idleTimer);state.idleTimer=null;
+        showPrevious();
+      }else{
+        stopAuto(false);
+        clearTimeout(state.idleTimer);state.idleTimer=null;
+        showPrevious();
+      }
     }else if(state.auto){
       el('globalScrollSystem').hidden=false;
       el('globalScrollArrow').hidden=true;
