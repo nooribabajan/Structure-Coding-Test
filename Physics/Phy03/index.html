@@ -738,7 +738,7 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:5px;backgro
 <section class="page" id="functionalPage"><header class="academy-global-header"><div class="academy-global-header-inner"><div class="academy-global-brand"><h1>Imperial Academy of Education</h1><div class="academy-global-subtitle">Interactive Academy Learning System</div></div><div class="academy-global-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header><div class="main-content-container"><div class="content-view" id="functionalContentView"></div></div></section>
 <section class="page" id="hitCeilingPage">
 <header class="academy-global-header"><div class="academy-global-header-inner"><div class="academy-global-brand"><h1>Imperial Academy of Education</h1><div class="academy-global-subtitle">Interactive Academy Learning System</div></div><div class="academy-global-logo"><img alt="Imperial Academy logo" src="../IAE-Logo-Transparent.png"/></div></div></header>
-<div class="htc-shell"><div class="htc-levels" id="htcLevels"></div><div class="htc-levels" id="htcLevels"></div><div class="htc-play"><div class="htc-tower"><div class="htc-dome"></div><div class="htc-torch"><div class="htc-flame" id="htcFlame"></div></div><div class="htc-body" id="htcBody"></div><div class="htc-base"></div></div><div class="htc-info" id="htcInfo">Level 01</div><div class="htc-card" id="htcCard">Academic questions will be placed here.</div><div class="htc-actions"><button class="htc-btn" onclick="resetHitCeiling()" type="button">Restart</button><button class="htc-btn" onclick="showPage('topicsPage')" type="button">Previous Page</button></div></div></div>
+<div class="htc-shell"><div class="htc-levels" id="htcLevels"></div><div class="htc-play"><div class="htc-tower"><div class="htc-dome"></div><div class="htc-torch"><div class="htc-flame" id="htcFlame"></div></div><div class="htc-body" id="htcBody"></div><div class="htc-base"></div></div><div class="htc-info" id="htcInfo">Level 01</div><div class="htc-card" id="htcCard">Academic questions will be placed here.</div><div class="htc-actions"><button class="htc-btn" onclick="resetHitCeiling()" type="button">Restart</button><button class="htc-btn" onclick="showPage('topicsPage')" type="button">Previous Page</button></div></div></div>
 </section>
 </div>
 <script>
@@ -3494,22 +3494,13 @@ window.addEventListener('pageshow',()=>{
       const spokenText=pending.element?.innerText||pending.element?.textContent||'';
       const duration=calculateLineScrollTime(spokenText);
       const distance=Math.max(metrics.lineHeight,metrics.lines*metrics.lineHeight);
-      // The measured distance already includes the live line height. Do not
-      // multiply by lineHeightScale again: that double-counts zoom and makes
-      // scrolling accelerate faster than the proportional line-height increase.
-      // Keep the baseline rate distance/duration and let the measured distance
-      // carry the line-height change once.
       if(duration>0)ttsScrollPixelsPerSecond=distance/duration;
     }
-    // Keep one persistent animation loop. Word count and punctuation adjust
-    // its rate; chunk boundaries never cancel or restart the loop.
     runTTSScrollLoop();
   };
   window.endTTSLinkedChunk=function(wordCount,durationMs){
-    /* Actual chunk end does not stop scrolling; TTS pause/stop controls it. */
   };
   window.cancelTTSLinkedChunk=function(){
-    // A failed/ended chunk must not stop the TTS-linked scroll session.
   };
   window.pauseTTSLinkedAutoScroll=function(){
     if(!state.ttsLinked)return;
