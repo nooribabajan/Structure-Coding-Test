@@ -745,8 +745,23 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:5px;backgro
 'use strict';
 let topicRegistry={};
 let topicCount=0;
+/* ================================================================
+   CB — CONTENT BANK
+   The single source of academic content. Components read from CB and
+   render the same data in their existing layouts. Keep course metadata
+   and topic content here; do not maintain parallel academic copies.
+   ================================================================ */
+const CB={
+  course:{
+    title:'Forces and Motion',
+    definition:'Unit 3 develops the concepts of displacement, velocity, acceleration, velocity-time graphs, Newton’s laws, linear momentum, impulse, conservation of momentum, collisions, force due to water flow, rocket propulsion, and projectile motion.',
+    learningOutcomes:'By the end of this unit, students should be able to analyse motion with equations and graphs; apply Newton’s laws and free-body diagrams; calculate momentum and impulse; solve conservation-of-momentum and collision problems; analyse water-flow force and rocket thrust; and calculate projectile time of flight, maximum height, range, and trajectory.'
+  },
+  topics:null
+};
+window.CB=CB;
 const functionalKeys=[['dictionary','D','Dictionary'],['practice','T','Practice & Test Strategies'],['readiness','R','Readiness Test'],['search','S','Search'],['revision','↻','Revision'],['practical','P','Practical Work'],['exam','E','Examination'],['hit','🏆','Hit The Ceiling']];
-const topicData=new Proxy({}, {
+const topicData=CB.topics=new Proxy({}, {
   get(target, prop){
     if(typeof prop==='string' && /^\d+$/.test(prop) && !(prop in target)) target[prop]={};
     return target[prop];
@@ -771,7 +786,7 @@ function syncTopicRegistry(){
 }
 syncTopicRegistry();
 
-const academicLanguageData={"1":{"ps":{"title":"۳.۱ ځای، واټن، بې‌ځایه کېدل، سمتي سرعت او اسراع","definition":"حرکت د ځای، واټن، بې‌ځایه کېدو، چټکتیا، سمتي سرعت او اسراع له مخې بیانېږي. که د یوه مرجع چوکاټ په نسبت د وخت په تېرېدو د جسم ځای بدل شي، جسم په حرکت کې دی؛ او که ځای یې بدل نه شي، په سکون کې دی. واټن یوه نرده‌يي کمیت او د ټولې تېرې شوې لارې اوږدوالی دی، خو بې‌ځایه کېدل له لومړني ځای څخه تر وروستي ځای پورې له سمت سره مل بدلون دی: Δx = x_f − x_i. تل واټن ≥ |بې‌ځایه کېدل| وي، او د بشپړ چکر له پای وروسته بې‌ځایه کېدل صفر کېدای شي.","subtopics":[["مرجع چوکاټ — د مرجع چوکاټ","د حرکت د بیان لپاره یو مرجع ټکی یا مبدأ او یوه مثبته جهت ټاکل کېږي؛ د بېلګې په توګه، ختیځ مثبت او لویدیځ منفي ګڼل کېدای شي."],["چټکتیا او منځنۍ چټکتیا","چټکتیا په واحد وخت کې وهل شوی واټن دی. منځنۍ چټکتیا = ټول واټن / ټول وخت، او چټکتیا یوه نرده‌يي کمیت ده."],["سمتي سرعت","سمتي سرعت د وخت په تېرېدو د بې‌ځایه کېدو د بدلون کچه ده. منځنی سمتي سرعت = Δx/Δt او دا یو برداري کمیت دی. لحظه‌يي سمتي سرعت = lim(Δt→0) Δx/Δt؛ په بې‌ځایه کېدو ـ وخت ګراف کې یې د مماس مېلان ښيي."],["یوشان دایروي حرکت","په یوشان دایروي حرکت کې چټکتیا ثابتېدای شي، خو د جهت د بدلېدو له امله سمتي سرعت بدلېږي؛ نو اسراع موجود وي."],["اسراع","اسراع د سمتي سرعت د بدلون کچه ده: a_avg = Δv/Δt او a = lim(Δt→0) Δv/Δt. د SI واحد یې m s⁻² دی."],["د ثابت اسراع حرکت","د ثابت اسراع لپاره: v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2. منفي اسراع لازماً د ورو کېدو معنا نه لري؛ ورو کېدل هغه وخت وي چې د سمتي سرعت اندازه کمه شي."]]}},"2":{"ps":{"title":"۳.۲ د سمتي سرعت ـ وخت ګراف","definition":"په سمتي سرعت ـ وخت (v-t) ګراف کې وخت t پر افقي محور او سمتي سرعت v پر عمودي محور ښودل کېږي. د ګراف مېلان اسراع راکوي، او د ګراف لاندې جبري مساحت بې‌ځایه کېدل ښيي.","subtopics":[["مېلان — د ګراف مېلان","a = Δv/Δt. په یوه ټاکلي ټکي کې د مماس مېلان لحظه‌يي اسراع راکوي."],["د ګراف بڼې","افقي کرښه: ثابت سمتي سرعت او a=0. مثبت مېلان: مثبت اسراع. منفي مېلان: منفي اسراع. کږه کرښه: متغیر اسراع."],["د ګراف لاندې مساحت","د ګراف لاندې جبري مساحت بې‌ځایه کېدل راکوي. که سمتي سرعت خپل سمت بدل کړي، د جبري مساحت مجموعه بې‌ځایه کېدل، او د مطلقو مساحتونو مجموعه ټول واټن ښيي."],["هندسي مساحتونه","مستطیل: A=bh؛ مثلث: A=½bh؛ ذوزنقه: A=½(a+b)h."],["د حرکت تحلیل","v-t ګراف د سمتي سرعت بدلون، اسراع او بې‌ځایه کېدل او د مثبت، منفي یا صفر سمتي سرعت وختونه ښيي."]]}},"3":{"ps":{"title":"۳.۳ د نیوټن د حرکت قوانین","definition":"قوه هغه متقابل عمل دی چې د جسم حرکت، سمتي سرعت یا جهت بدلولای شي. د نیوټن قوانین قوه، جمود، کتله، اسراع او د عمل ـ عکس‌العمل جوړې سره تړي.","subtopics":[["جمود — جمود","جمود د سکون یا یوشان مستقیم حرکت د بدلون پر وړاندې د جسم د مقاومت خاصیت دی. کتله د جمود یوه کچه ده؛ څومره چې کتله زیاته وي، جمود هم زیات وي."],["لومړی قانون","که خالصه بهرنۍ قوه صفر وي، ساکن جسم په سکون پاتې کېږي او متحرک جسم په مستقیمه کرښه کې په ثابت سمتي سرعت حرکت ته دوام ورکوي: ΣF=0 ⇒ a=0."],["دوهم قانون","خالصه قوه د مومېنټم د بدلون له کچې سره برابره ده: F_net=Δp/Δt. د ثابتې کتلې لپاره F_net=ma او a=F_net/m."],["درېیم قانون","د هر عمل لپاره د هماغې اندازې او مخالف جهت عکس‌العمل شته: F_AB = −F_BA. دا دواړه قوې پر بېلو جسمونو عمل کوي؛ نو پر یوه جسم کې یو بل نه خنثی کوي."],["د ازاد جسم انځور (FBD)","د ازاد جسم انځور (FBD) پر جسم اغېز کوونکې اړوندې بهرنۍ قوې او د هغو جهتونه ښيي. پر افقي سطحه N، W=mg، تطبیقي قوه F او اصطکاک f شاملېدای شي. اصطکاک د حرکت یا د حرکت د تمایل پر خلاف لوری لري."],["کتله او وزن","کتله یوه نرده‌يي کمیت ده او واحد یې kg دی؛ وزن د جاذبې قوه ده، W=mg، او برداري کمیت دی او په N اندازه کېږي."]]}},"4":{"ps":{"title":"۳.۴ خطي مومېنټم، قوه او ضربه","definition":"خطي مومېنټم د کتلې او سمتي سرعت حاصل‌ضرب دی. قوه د مومېنټم د بدلون کچه ده، او ضربه د قوې او د هغې د عمل د وخت د واټن حاصل‌ضرب دی.","subtopics":[["مومېنټم","p=mv. مومېنټم یو برداري کمیت دی او د SI واحد یې kg m s⁻¹ دی؛ 1 N s = 1 kg m s⁻¹."],["له مومېنټم څخه قوه","F=Δp/Δt. د ثابتې کتلې لپاره F=m(v−u)/t=ma."],["ضربه — ضربه","د ثابتې قوې لپاره J=FΔt. په عمومي ډول ضربه د مومېنټم له بدلون سره برابره ده: J=Δp=p_f−p_i. د SI واحد یې N s دی."],["قوه ـ وخت ګراف","د F-t ګراف لاندې جبري مساحت ضربه راکوي: J = مساحت لاندې F-t ګراف."],["د خوندیتوب په چارو کې کارونه","هوايي بالښتونه او د ټکر د مچکې سیمې د ټکر وخت زیاتوي؛ د ورته مومېنټم بدلون لپاره د Δt په زیاتېدو سره منځنۍ قوه کمېدای شي."]]}},"5":{"ps":{"title":"۳.۵ د خطي مومېنټم د ساتنې قانون","definition":"په یوه منزوي سیستم کې، که خالصه بهرنۍ قوه صفر یا د پام وړ کمه وي، ټول خطي مومېنټم ثابت پاتې کېږي. دا اصل د شاتګ، چاودنو او ډېرو ټکرونو د مسئلو په تشریح کې کارېږي.","subtopics":[["د ساتنې معادله","د دوو جسمونو لپاره: m₁u₁+m₂u₂ = m₁v₁+m₂v₂."],["منزوي سیستم — منزوي سیستم","هغه سیستم چې خالصه بهرنۍ قوه یې د متقابل عمل پر مهال صفر یا د پام وړ کمه وي، د مومېنټم د ساتنې لپاره منزوي سیستم ګڼل کېدای شي."],["داخلي او بهرنۍ قوې","د سیستم دننه د جسمونو ترمنځ قوې داخلي دي؛ له سیستم څخه بهر راولاړې شوې قوې بهرنۍ دي. داخلي قوې په خپله د ټول سیستم مومېنټم نه بدلوي."],["شاتګ — شاتګ","که لومړنی ټول مومېنټم صفر وي، Σp_f=0. د ټوپک او مرمۍ لپاره m_b v_b + m_g v_g = 0؛ د شاتګ مومېنټم د مرمۍ له مومېنټم سره مساوي اندازه او مخالف جهت لري."],["چاودنې","په چاودنه کې لویې داخلي قوې سیستم په څو ټوټو وېشلی شي، خو که بهرنۍ قوه د پام وړ نه وي، ټول مومېنټم ساتل کېږي."]]}},"6":{"ps":{"title":"۳.۶ لچکدار او غیرلچکدار ټکرونه","definition":"ټکر یو لنډ متقابل عمل دی چې پکې د جسمونو سمتي سرعتونه بدلېدای شي. په منزوي ټکر کې مومېنټم ساتل کېږي؛ په لچکدار ټکر کې حرکي انرژي هم ساتل کېږي، خو په غیرلچکدار ټکر کې د حرکي انرژۍ یوه برخه په تودوخه، غږ، تغییرشکل یا داخلي انرژۍ بدلېږي.","subtopics":[["لچکدار ټکر — لچکدار ټکر","p_i=p_f او K_i=K_f."],["غیرلچکدار ټکر — غیر لچکدار Collision","مومېنټم ساتل کېدای شي، خو حرکي انرژي نه ساتل کېږي؛ د انرژۍ یوه برخه نورو بڼو ته انتقالېږي."],["بشپړ غیرلچکدار ټکر","جسمونه له ټکر وروسته سره نښلي او په یوه ګډ وروستي سمتي سرعت حرکت کوي: v=(m₁u₁+m₂u₂)/(m₁+m₂)."],["د ارتجاع ضریب — ضریب of Restitution","e = د جلا کېدو نسبي سرعت / د نږدې کېدو نسبي سرعت. د مناسب د نښې قرارداد له مخې e=(v₂−v₁)/(u₁−u₂)."],["مهم ارزښتونه","Perfectly elastic: e=1؛ غیر لچکدار: 0<e<1؛ په بشپړه توګه غیر لچکدار: e=0."]]}},"7":{"ps":{"title":"۳.۷ په یوه بُعد کې لچکدار ټکر","definition":"په یوه بُعدي لچکدار ټکر کې دواړه جسمونه د یوې مستقیمې کرښې پر اوږدو حرکت کوي. د مومېنټم او حرکي انرژۍ ساتنه، یا د نسبي سرعت اړیکه، د ټکر وروسته وروستي سمتي سرعتونه ټاکي.","subtopics":[["د ساتنې قوانین","m₁u₁+m₂u₂=m₁v₁+m₂v₂ او ½m₁u₁²+½m₂u₂²=½m₁v₁²+½m₂v₂²."],["نسبي سرعت","v₂−v₁=−(u₂−u₁)؛ یعنې د جلا کېدو سرعت د نږدې کېدو له سرعت سره برابر دی او e=1."],["عمومي وروستي سمتي سرعتونه","v₁=((m₁−m₂)/(m₁+m₂))u₁+(2m₂/(m₁+m₂))u₂؛ v₂=(2m₁/(m₁+m₂))u₁+((m₂−m₁)/(m₁+m₂))u₂."],["هدف جسم په پیل کې ساکن وي","که u₂=0 وي: v₁=((m₁−m₂)/(m₁+m₂))u₁ او v₂=(2m₁/(m₁+m₂))u₁."],["مساوي کتلې","که m₁=m₂ او u₂=0 وي، v₁=0 او v₂=u₁؛ یعنې سمتي سرعتونه یو د بل ځای نیسي."],["حدي حالتونه","که m₁≫m₂ او u₂=0 وي، v₁≈u₁ او v₂≈2u₁. که m₁≪m₂ وي، v₂≈0 او v₁≈−u₁."]]}},"8":{"ps":{"title":"۳.۸ د اوبو د بهیر له امله قوه","definition":"کله چې روانې اوبه له یوې سطحې سره ولګېږي یا خپل جهت بدل کړي، مومېنټم یې بدلېږي او پر سطحه قوه واردېږي. د دې قوې اندازه د کتلي بهیر له کچې او د سمتي سرعت له بدلون سره تړاو لري.","subtopics":[["د مومېنټم اړیکه","F=Δp/Δt. که د کتلي بهیر کچه ṁ=Δm/Δt وي، نو F=ṁΔv."],["د کتلي بهیر کچه","ṁ=ρAv، چې ρ کثافت، A مقطعي مساحت او v د بهیر سرعت دی. ځکه Q=Av، نو ṁ=ρQ."],["د اوبو د بهیر عمومي قوه","F=ρAvΔv یا F=ρQΔv؛ د قوې جهت د سمتي سرعت د بدلون برداري جهت ټاکي."],["د اوبو درول","که د v سرعت اوبه نږدې تر سکون پورې ودرول شي، |Δv|=v او F=ṁv."],["د جهت اړول","که سمتي سرعت له +v څخه −v ته بدل شي، Δv=−2v او د قوې اندازه F=2ṁv ده."],["کارونې","دا اصل په اوبه توربینونه، برېښناکوونکي اوبیز سیستمونه، اوبه جټونه او هیدرولیک ماشینونه کې کارول کېږي."]]}},"9":{"ps":{"title":"۳.۹ د راکټ خوځښت — د ټېل حرکت","definition":"د راکټ خوځونه بنسټیزه تشریح د نیوټن پر درېیم قانون او د خطي مومېنټم د ساتنې پر اصل ولاړه ده. د لوړې چټکتیا وتونکي ګازونه شاته ایستل کېږي، راکټ ته مخکینی مومېنټم ورکوي او ټېل قوه رامنځته کوي.","subtopics":[["دفع قوه — ټېل قوه","ساده اټکلي دفع قوه: F_ټېل≈ṁv_e، چې ṁ د وتونکو ګازونو د کتلي بهیر کچه او v_e د راکټ په نسبت د وتونکو ګازونو سرعت دی."],["د فشار ونډه","بشپړ بیان F_ټېل=ṁv_e+(p_e−p_a)A_e دی؛ د نوزل د وتلو په خوله کې د فشار توپیر اضافي ټېل قوه رامنځته کوي."],["متغیره کتله","د سون‌توکو په سوځېدو سره د راکټ کتله کمېږي، خو یوازې د کتلې د کمېدو له امله اسراع لازماً په پرله‌پسې ډول نه زیاتېږي. دفع قوه، اوسنۍ کتله، جاذبه، مقاومت او د وتونکو ګازونو شرایط ټول اغېز لري."],["عمودي حرکت","په یوه ساده پورته‌تلونکي ماډل کې a=(T−mg)/m. که T>mg وي، راکټ پورته اسراع ترلاسه کولای شي."],["خلا","راکټ د خوځښت لپاره بهرنۍ هوا ته اړتیا نه لري. د وتونکو ګازونو د مومېنټم بدلون او عکس‌العمل قوه د دفع قوه لامل کېږي؛ نو راکټ په خلا/فضا کې هم حرکت کولای شي."]]}},"10":{"ps":{"title":"۳.۱۰ د مقذوف حرکت — مقذوف حرکت","definition":"مقذوف حرکت دوه‌بعدي حرکت دی چې د هوا مقاومت پکې له پامه غورځول کېږي او جسم یوازې د جاذبې د اسراع تر اغېز لاندې وي. لومړنی سمتي سرعت په افقي او عمودي برخو وېشل کېږي، بیا دواړه جهتونه جلا تحلیل کېږي. په دې موضوع کې د درېیم یونټ د فورمولونو پاڼه، مهم مفهومي ټکي، کارونې، د بیاکتنې لړلیک او د څو-اختیاري پوښتنو مهم حقایق هم شامل دي.","subtopics":[["لومړنۍ برخې او معادلې","u_x=u cosθ، u_y=u sinθ؛ a_x=0، a_y=−g. افقي: x=(u cosθ)t. عمودي: y=(u sinθ)t−½gt²."],["سمتي سرعت او مسیر","v_x=u cosθ؛ v_y=u sinθ−gt. مسیر y=x tanθ−gx²/(2u²cos²θ) دی، چې په اېډیال حالت کې سهمي بڼه لري."],["وخت، اعظمي لوړوالی او افقي واټن","که د توغېدو او لګېدو لوړوالی یو شان وي: T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g. اعظمي افقي واټن په θ=45° کې رامنځته کېږي او R_max=u²/g."],["تر ټولو لوړه نقطه او متممې زاویې","په تر ټولو لوړه نقطه کې v_y=0 وي، خو v_x=u cosθ عموماً صفر نه وي؛ اسراع لا هم g ښکته لوري ته وي. θ او 90°−θ د یوه شان لومړني سرعت لپاره یو شان افقي واټن ورکولای شي، خو لوړوالی او د الوتنې وخت یې عموماً توپیر لري."],["د اوبو، راکټ او ټکر تکرار","د اوبو د بهیر قوه: F=ṁΔv، ṁ=ρAv=ρQ. د راکټ ټېل قوه نږدې ṁv_e دی. په منزوي سیستمونو کې مومېنټم ساتل کېږي؛ په لچکدار ټکر کې مومېنټم او حرکي انرژي دواړه ساتل کېږي."],["د درېیم یونټ د فورمولونو پاڼه","حرکتي معادلې: Δx=x_f−x_i؛ v_avg=Δx/Δt؛ a_avg=Δv/Δt؛ v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2. نیوټن: F_net=ma؛ W=mg. مومېنټم/ضربه: p=mv؛ F=Δp/Δt؛ J=Δp=FΔt. مومېنټم ساتنه: m₁u₁+m₂u₂=m₁v₁+m₂v₂. په بشپړه توګه غیر لچکدار: v=(m₁u₁+m₂u₂)/(m₁+m₂). د ارتجاع ضریب: e=د جلا کېدو نسبي چټکتیا/د نږدې کېدو نسبي چټکتیا. اوبه: ṁ=ρAv=ρQ؛ F=ṁΔv. راکټ: F_ټېل≈ṁv_e. مقذوف: u_x=u cosθ؛ u_y=u sinθ؛ T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g؛ R_max=u²/g."],["د ازموینې مفاهیم، کارونې او کتل‌لړ","مهم ټکي: واټن یوه نرده‌يي کمیت او بې‌ځایه کېدل یو برداري کمیت دی؛ په v-t ګراف کې مېلان اسراع او جبري مساحت بې‌ځایه کېدل ښيي؛ د نیوټن درېیم قانون قوې پر دوو بېلو جسمونو عمل کوي؛ مومېنټم په منزوي سیستم کې ساتل کېږي؛ په لچکدار ټکر کې حرکي انرژي هم ساتل کېږي؛ او په مقذوف حرکت کې افقي اسراع صفر وي، خو عمودي اسراع −g وي."]]}}};
+const academicLanguageData=Object.create(null);
 Object.keys(topicData).forEach(n=>{const a=topicData[n]?.academic||{};const cleanDefinition=String(a.definition||'').replace(/\s*\[\[visual:physics:[^\]]+\]\]/g,'').trim();academicLanguageData[n]={...(academicLanguageData[n]||{}),en:{title:String(a.title||''),definition:cleanDefinition,subtopics:Array.isArray(a.subtopics)?a.subtopics.map(x=>[String(x?.[0]??''),String(x?.[1]??'')]):[]}};});
 /* ================================================================
    PHY03 NATIVE PHYSICS DRAWING ENGINE
@@ -893,9 +908,10 @@ function openTopic(n){
 }
 function renderChapterAcademic(){
  const h=document.getElementById('chapterHeadingContent'),d=document.getElementById('chapterDefinitionContent'),o=document.getElementById('learningOutcomesContent');
- if(h)h.textContent='Forces and Motion';
- if(d){d.textContent='Unit 3 develops the concepts of displacement, velocity, acceleration, velocity-time graphs, Newton’s laws, linear momentum, impulse, conservation of momentum, collisions, force due to water flow, rocket propulsion, and projectile motion.';d.classList.remove('urdu-medium');}
- if(o){o.textContent='By the end of this unit, students should be able to analyse motion with equations and graphs; apply Newton’s laws and free-body diagrams; calculate momentum and impulse; solve conservation-of-momentum and collision problems; analyse water-flow force and rocket thrust; and calculate projectile time of flight, maximum height, range, and trajectory.';o.classList.remove('urdu-medium');}
+ const course=CB.course||{};
+ if(h)h.textContent=String(course.title||'');
+ if(d){d.textContent=String(course.definition||'');d.classList.remove('urdu-medium');}
+ if(o){o.textContent=String(course.learningOutcomes||'');o.classList.remove('urdu-medium');}
 }
 let topicScrollHandler=null;
 const masteryProgressKey='physicsLecture3MasteryProgress';
@@ -1060,49 +1076,9 @@ function academicTerminologyNormalize(text,lang,source=''){
  }
  return out.replace(/\s{2,}/g,' ').trim();
 }
-const P03_URDU_BENCHMARKS={
- '1|definition':`حرکت (Motion) کو بیان کرنے کے لیے مقام (Position)، فاصلہ (Distance)، نقلِ مکانی (Displacement)، رفتار (Speed)، سمتی رفتار (Velocity) اور تعجیل (Acceleration) جیسی مقداریں استعمال کی جاتی ہیں۔ کوئی جسم اس وقت حرکت (Motion) میں ہوتا ہے جب کسی حوالہ جاتی نظام (Reference Frame) کے لحاظ سے وقت کے ساتھ اس کا مقام (Position) تبدیل ہوتا رہے؛ اور جب اس کا مقام (Position) تبدیل نہ ہو تو وہ سکون (Rest) کی حالت میں ہوتا ہے۔\n\nفاصلہ (Distance) کسی جسم کے طے کیے گئے پورے راستے کی کل لمبائی ہے اور یہ ایک عددی (Scalar) مقدار ہے، جبکہ نقلِ مکانی (Displacement) جسم کے ابتدائی مقام سے آخری مقام تک ہونے والی سمتی تبدیلی ہے:\n\nΔx = x_f − x_i\n\nفاصلہ (Distance) ہمیشہ نقلِ مکانی (Displacement) کی مقدار کے برابر یا اس سے زیادہ ہوتا ہے:\n\nDistance ≥ |Displacement|\n\nاور اگر کوئی جسم ایک مکمل چکر لگا کر دوبارہ اپنے ابتدائی مقام پر واپس آ جائے تو اس کی نقلِ مکانی (Displacement) صفر ہو سکتی ہے، اگرچہ اس دوران اس نے ایک غیر صفر فاصلہ (Distance) طے کیا ہو۔`
-};
-const P03_URDU_TOPIC_PACKS={
-  "1":{title:"3.1 نقلِ مکانی، سمتی رفتار اور تعجیل",definition:`حرکت (Motion) کو بیان کرنے کے لیے مقام (Position)، فاصلہ (Distance)، نقلِ مکانی (Displacement)، رفتار (Speed)، سمتی رفتار (Velocity) اور تعجیل (Acceleration) جیسی مقداریں استعمال کی جاتی ہیں۔ کوئی جسم اس وقت حرکت (Motion) میں ہوتا ہے جب کسی حوالہ جاتی نظام (Reference Frame) کے لحاظ سے وقت کے ساتھ اس کا مقام (Position) تبدیل ہوتا رہے؛ اور جب اس کا مقام (Position) تبدیل نہ ہو تو وہ سکون (Rest) کی حالت میں ہوتا ہے۔
-
-فاصلہ (Distance) کسی جسم کے طے کیے گئے پورے راستے کی کل لمبائی ہے اور یہ ایک عددی (Scalar) مقدار ہے، جبکہ نقلِ مکانی (Displacement) جسم کے ابتدائی مقام سے آخری مقام تک ہونے والی سمتی تبدیلی ہے:
-
-Δx = x_f − x_i
-
-فاصلہ (Distance) ہمیشہ نقلِ مکانی (Displacement) کی مقدار کے برابر یا اس سے زیادہ ہوتا ہے:
-
-Distance ≥ |Displacement|
-
-اور اگر کوئی جسم ایک مکمل چکر لگا کر دوبارہ اپنے ابتدائی مقام پر واپس آ جائے تو اس کی نقلِ مکانی (Displacement) صفر ہو سکتی ہے، اگرچہ اس دوران اس نے ایک غیر صفر فاصلہ (Distance) طے کیا ہو۔`,subtopics:[
-    ["حوالہ جاتی نظام","حرکت کو بیان کرنے کے لیے ایک حوالہ جاتی نقطہ یا مبدأ (Origin) اور ایک منتخب مثبت سمت درکار ہوتی ہے۔ مثال کے طور پر دائیں یا مشرق کو مثبت اور بائیں یا مغرب کو منفی سمت منتخب کیا جا سکتا ہے۔"],
-    ["رفتار اور اوسط رفتار","رفتار (Speed) فی اکائی وقت طے کیے گئے فاصلے کے برابر ہے۔ اوسط رفتار = کل فاصلہ / کل وقت۔ رفتار ایک عددی (Scalar) مقدار ہے۔"],
-    ["سمتی رفتار","سمتی رفتار (Velocity) فی اکائی وقت نقلِ مکانی کے برابر ہے۔ اوسط سمتی رفتار = Δx/Δt اور یہ ایک سمتی (Vector) مقدار ہے۔ لحظاتی سمتی رفتار v = lim(Δt→0) Δx/Δt ہوتی ہے؛ نقلِ مکانی-وقت گراف پر یہ مماس کی ڈھلوان کے برابر ہوتی ہے۔"],
-    ["یکساں دائرہ نما حرکت","یکساں دائرہ نما حرکت میں رفتار (Speed) مستقل رہ سکتی ہے، لیکن سمت تبدیل ہونے کی وجہ سے سمتی رفتار (Velocity) تبدیل ہوتی رہتی ہے؛ اس لیے تعجیل موجود ہوتی ہے۔"],
-    ["تعجیل","تعجیل (Acceleration) سمتی رفتار کی تبدیلی کی شرح ہے: a_avg = Δv/Δt اور a = lim(Δt→0) Δv/Δt۔ اس کی SI اکائی m s⁻² ہے۔"],
-    ["یکساں تعجیل والی حرکت","مستقل تعجیل کے لیے: v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2۔ منفی تعجیل کا مطلب لازماً یہ نہیں کہ جسم کی رفتار کم ہو رہی ہے؛ رفتار میں کمی (Deceleration) سے مراد سمتی رفتار کی مقدار میں کمی ہے۔"]
-  ]},
-  "2":{title:"3.2 سمتی رفتار-وقت گراف",definition:"سمتی رفتار-وقت (v-t) گراف میں وقت t افقی محور اور سمتی رفتار v عمودی محور پر دکھائی جاتی ہے۔ گراف کی ڈھلوان تعجیل دیتی ہے، جبکہ گراف کے نیچے دستخط شدہ رقبہ نقلِ مکانی کو ظاہر کرتا ہے۔",subtopics:[["ڈھلوان","a = Δv/Δt۔ کسی مخصوص نقطے پر مماس کی ڈھلوان لحظاتی تعجیل دیتی ہے۔"],["گراف کی شکلیں","افقی خط: مستقل سمتی رفتار اور a=0۔ مثبت ڈھلوان: مثبت تعجیل۔ منفی ڈھلوان: منفی تعجیل۔ خم دار گراف: متغیر تعجیل۔"],["گراف کے نیچے رقبہ","دستخط شدہ رقبہ نقلِ مکانی دیتا ہے۔ جب سمتی رفتار کا رخ بدلتا ہے تو جبری رقبہ نقلِ مکانی، جبکہ مطلق رقبوں کا مجموعہ کل فاصلہ دیتا ہے۔"],["ہندسی رقبے","مستطیل A=bh؛ مثلث A=½bh؛ ذوزنقہ A=½(a+b)h۔"],["حرکت کا تجزیہ","v-t گراف سمتی رفتار کی تبدیلی، تعجیل اور نقلِ مکانی دکھاتا ہے اور مثبت، منفی یا صفر سمتی رفتار کے وقفوں کی نشاندہی کرتا ہے۔"]]},
-  "3":{title:"3.3 نیوٹن کے حرکت کے قوانین",definition:"قوت ایک باہمی تعامل ہے جو جسم کی حرکت، سمتی رفتار یا سمت تبدیل کر سکتا ہے۔ نیوٹن کے قوانین قوت، جمود، کمیت، تعجیل اور عمل-ردِعمل کے جوڑوں کے درمیان تعلق بیان کرتے ہیں۔",subtopics:[["جمود","جمود سکون یا یکساں خطِ مستقیم حرکت میں تبدیلی کی مزاحمت کی خاصیت ہے۔ کمیت جمود کی پیمائش ہے؛ زیادہ کمیت کا مطلب زیادہ جمود ہے۔"],["پہلا قانون","اگر خالص بیرونی قوت صفر ہو تو ساکن جسم سکون میں رہتا ہے اور متحرک جسم سیدھی لکیر میں مستقل سمتی رفتار سے حرکت جاری رکھتا ہے: ΣF=0 ⇒ a=0۔"],["دوسرا قانون","خالص قوت مومینٹم کی تبدیلی کی شرح کے برابر ہے: F_net=Δp/Δt۔ مستقل کمیت کے لیے F_net=ma اور a=F_net/m۔"],["تیسرا قانون","ہر عمل کے مقابل مساوی مقدار اور مخالف سمت کا ردِعمل ہوتا ہے: F_AB = −F_BA۔ یہ دونوں قوتیں مختلف جسموں پر عمل کرتی ہیں، اس لیے ایک ہی جسم پر ایک دوسرے کو منسوخ نہیں کرتیں۔"],["آزاد جسم کا خاکہ (FBD)","FBD جسم پر اثر انداز ہونے والی متعلقہ بیرونی قوتیں دکھاتا ہے۔ افقی سطح پر N، W=mg، لگائی گئی قوت F اور رگڑ f شامل ہو سکتے ہیں۔ رگڑ حرکت یا حرکت کے رجحان کی مخالفت کرتی ہے۔"],["کمیت اور وزن","کمیت عددی مقدار ہے اور kg میں ناپی جاتی ہے؛ وزن کششِ ثقل کی قوت ہے، W=mg، اور نیوٹن میں ناپی جانے والی سمتی مقدار ہے۔"]]},
-  "4":{title:"3.4 خطی مومینٹم، قوت اور امپلس",definition:"خطی مومینٹم کمیت اور سمتی رفتار کا حاصلِ ضرب ہے۔ قوت مومینٹم کی تبدیلی کی شرح ہے، جبکہ امپلس قوت اور اس کے اثر کے وقت کے وقفے کا حاصلِ ضرب ہے۔",subtopics:[["مومینٹم","p=mv۔ مومینٹم ایک سمتی مقدار ہے اور اس کی SI اکائی kg m s⁻¹ ہے؛ 1 N s = 1 kg m s⁻¹۔"],["مومینٹم سے قوت","F=Δp/Δt۔ مستقل کمیت کے لیے F=m(v−u)/t=ma۔"],["امپلس","مستقل قوت کے لیے J=FΔt۔ عمومی طور پر امپلس مومینٹم کی تبدیلی کے برابر ہے: J=Δp=p_f−p_i۔ SI اکائی N s ہے۔"],["قوت-وقت گراف","F-t گراف کے نیچے دستخط شدہ رقبہ امپلس دیتا ہے: J = F-t گراف کے نیچے رقبہ۔"],["حفاظتی اطلاقات","ایئر بیگز اور کرمپل زون تصادم کا وقت بڑھاتے ہیں؛ یکساں مومینٹم تبدیلی کے لیے Δt بڑھنے سے اوسط قوت F_avg=Δp/Δt کم ہوتی ہے۔"]]},
-  "5":{title:"3.5 خطی مومینٹم کے تحفظ کا قانون",definition:"ایک الگ تھلگ نظام میں، جہاں خالص بیرونی قوت صفر یا قابلِ نظر انداز ہو، کل خطی مومینٹم مستقل رہتا ہے۔ یہ اصول پسپائی، دھماکوں اور بہت سے تصادم کے مسائل کی وضاحت کرتا ہے۔",subtopics:[["تحفظ کی مساوات","دو جسموں کے لیے: m₁u₁+m₂u₂ = m₁v₁+m₂v₂۔"],["الگ تھلگ نظام","جب تعامل کے دوران خالص بیرونی قوت صفر یا قابلِ نظر انداز ہو تو نظام کو الگ تھلگ سمجھا جا سکتا ہے۔"],["اندرونی اور بیرونی قوتیں","نظام کے اندر جسموں کے درمیان قوتیں اندرونی ہیں؛ باہر سے آنے والی قوتیں بیرونی ہیں۔ اندرونی قوتیں اکیلے پورے نظام کے مومینٹم کو تبدیل نہیں کرتیں۔"],["پسپائی","اگر ابتدائی کل مومینٹم صفر ہو تو Σp_f=0۔ بندوق اور گولی کے لیے m_b v_b + m_g v_g = 0؛ پسپائی کا مومینٹم برابر مقدار اور مخالف سمت میں ہوتا ہے۔"],["دھماکے","دھماکے میں بڑی اندرونی قوتیں نظام کو ٹکڑوں میں تقسیم کر سکتی ہیں، لیکن بیرونی قوت قابلِ نظر انداز ہو تو کل مومینٹم محفوظ رہتا ہے۔"]]},
-  "6":{title:"3.6 لچکدار اور غیر لچکدار تصادم",definition:"تصادم میں جسم مختصر وقت کے لیے باہم قوتیں لگاتے ہیں۔ الگ تھلگ نظام میں مومینٹم محفوظ رہتا ہے۔ لچکدار تصادم میں مومینٹم اور حرکی توانائی دونوں محفوظ رہتے ہیں، جبکہ غیر لچکدار تصادم میں حرکی توانائی محفوظ نہیں رہتی۔",subtopics:[["تصادم اور مومینٹم","تصادم کے دوران بیرونی قوت قابلِ نظر انداز ہو تو کل مومینٹم محفوظ رہتا ہے۔"],["لچکدار تصادم","مومینٹم اور حرکی توانائی دونوں محفوظ رہتے ہیں۔"],["مکمل غیر لچکدار تصادم","جسم تصادم کے بعد جڑ جاتے ہیں اور ایک مشترک سمتی رفتار سے حرکت کرتے ہیں۔"],["ارتجاع کا ضریب","e = جدا ہونے کی نسبتی رفتار / قریب آنے کی نسبتی رفتار۔ e=1 مکمل لچکدار اور e=0 مکمل غیر لچکدار تصادم ہے۔"],["برابر کمیتوں کا خاص معاملہ","ایک جیسی کمیت کے دو جسموں میں، جب ایک ساکن ہو اور تصادم لچکدار ہو، تو آنے والا جسم رک سکتا ہے اور دوسرا اس کی ابتدائی سمتی رفتار حاصل کر سکتا ہے۔"]]},
-  "7":{title:"3.7 مومینٹم، تصادم اور ارتجاع",definition:"مومینٹم اور تصادم کے مسائل میں سمتوں کو درست طور پر منتخب کرنا اور مومینٹم کے تحفظ کا قانون استعمال کرنا ضروری ہے۔ ارتجاع کا ضریب تصادم کی نوعیت بیان کرنے میں مدد دیتا ہے۔",subtopics:[["علامتوں کا انتخاب","ایک سمت کو مثبت منتخب کریں اور تمام سمتی رفتاروں کو اسی انتخاب کے مطابق مثبت یا منفی لکھیں۔"],["تصادم کی مساوات","الگ تھلگ نظام میں کل ابتدائی مومینٹم کل آخری مومینٹم کے برابر ہے۔"],["ارتجاع","e جدا ہونے اور قریب آنے کی نسبتی رفتاروں کا تناسب ہے، اور 0≤e≤1 عام غیر دھماکہ خیز تصادم میں ہوتا ہے۔"],["توانائی","لچکدار تصادم میں حرکی توانائی محفوظ رہتی ہے؛ غیر لچکدار تصادم میں اس کا کچھ حصہ حرارت، آواز یا تبدیلیِ شکل میں منتقل ہو سکتا ہے۔"]]},
-  "8":{title:"3.8 پانی کے بہاؤ کی وجہ سے قوت",definition:"جب بہتا ہوا پانی کسی سطح سے ٹکراتا یا اپنی سمت تبدیل کرتا ہے تو اس کا مومینٹم بدلتا ہے اور سطح پر قوت پیدا ہوتی ہے۔ قوت کی مقدار کمیتی بہاؤ کی شرح اور سمتی رفتار کی تبدیلی سے متعلق ہے۔",subtopics:[["مومینٹم کا تعلق","F=Δp/Δt۔ اگر کمیتی بہاؤ کی شرح ṁ=Δm/Δt ہو تو F=ṁΔv۔"],["کمیتی بہاؤ کی شرح","ṁ=ρAv، جہاں ρ کثافت، A مقطعی رقبہ اور v بہاؤ کی رفتار ہے۔ چونکہ Q=Av، اس لیے ṁ=ρQ۔"],["پانی کے بہاؤ کی عمومی قوت","F=ρAvΔv یا F=ρQΔv؛ قوت کی سمت سمتی رفتار کی تبدیلی کی سمتی سمت ہوتی ہے۔"],["پانی کو روکنا","اگر v رفتار کا پانی تقریباً سکون تک روک دیا جائے تو |Δv|=v اور F=ṁv۔"],["سمت تبدیل کرنا","اگر سمتی رفتار +v سے −v ہو جائے تو Δv=−2v اور قوت کی مقدار F=2ṁv ہوتی ہے۔"],["اطلاقات","یہ اصول پانی کی ٹربائنوں، پن بجلی کے نظام، واٹر جیٹس اور ہائیڈرولک مشینوں میں استعمال ہوتا ہے۔"]]},
-  "9":{title:"3.9 راکٹ پروپلشن",definition:"راکٹ پروپلشن بنیادی طور پر نیوٹن کے تیسرے قانون اور خطی مومینٹم کے تحفظ پر مبنی ہے۔ تیز رفتار خارج ہونے والی گیسیں پیچھے کی طرف نکالی جاتی ہیں، جس سے راکٹ کو آگے کی طرف مومینٹم اور دفعی قوت ملتی ہے۔",subtopics:[["دفعی قوت","مثالی دفعی قوت: F_thrust≈ṁv_e، جہاں ṁ خارج ہونے والی کمیت کی بہاؤ کی شرح اور v_e راکٹ کے نسبت گیسوں کی رفتار ہے۔"],["دباؤ کا حصہ","زیادہ مکمل مساوات F_thrust=ṁv_e+(p_e−p_a)A_e ہے؛ نوزل کے خروج پر دباؤ کا فرق اضافی دفعی قوت پیدا کرتا ہے۔"],["متغیر کمیت","ایندھن جلنے سے راکٹ کی کمیت کم ہوتی ہے، لیکن صرف کمیت کم ہونے کی وجہ سے تعجیل لازماً مسلسل نہیں بڑھتی۔ دفعی قوت، موجودہ کمیت، کششِ ثقل، ہوا کی مزاحمت اور خارج ہونے والی گیسوں کی حالت سب اثر انداز ہوتے ہیں۔"],["عمودی حرکت","سادہ اوپر کی حرکت میں a=(T−mg)/m۔ اگر T>mg ہو تو راکٹ اوپر کی طرف تعجیل حاصل کر سکتا ہے۔"],["خلا","راکٹ کو حرکت کے لیے بیرونی ہوا کی ضرورت نہیں۔ دفعی قوت خارج ہونے والی گیسوں کے مومینٹم کی تبدیلی اور ردِعمل قوت سے پیدا ہوتی ہے، اس لیے راکٹ خلا میں بھی کام کرتا ہے۔"]]},
-  "10":{title:"3.10 مقذوف حرکت",definition:"مقذوف حرکت کششِ ثقل کے تحت دو بُعدی حرکت ہے، جب ہوا کی مزاحمت کو نظر انداز کیا جائے۔ ابتدائی سمتی رفتار کو افقی اور عمودی اجزا میں تقسیم کر کے دونوں سمتوں کا الگ تجزیہ کیا جاتا ہے۔",subtopics:[["ابتدائی اجزا اور مساوات","u_x=u cosθ، u_y=u sinθ؛ a_x=0، a_y=−g۔ افقی: x=(u cosθ)t۔ عمودی: y=(u sinθ)t−½gt²۔"],["سمتی رفتار اور راستہ","v_x=u cosθ؛ v_y=u sinθ−gt۔ راستہ y=x tanθ−gx²/(2u²cos²θ) ہے، جو مثالی حالت میں سهمی شکل رکھتا ہے۔"],["وقت، بلندی اور رینج","اگر توغ اور سقوط کی سطح ایک ہو: T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g۔ زیادہ سے زیادہ رینج θ=45° پر ہوتی ہے اور R_max=u²/g۔"],["بلند ترین نقطہ اور متمم زاویے","بلند ترین نقطے پر v_y=0 ہوتا ہے، لیکن v_x=u cosθ عموماً صفر نہیں ہوتا؛ تعجیل اب بھی g نیچے کی طرف ہوتی ہے۔ θ اور 90°−θ ایک ہی ابتدائی رفتار پر برابر رینج دے سکتے ہیں، مگر عموماً بلندی اور پرواز کا وقت مختلف ہوتے ہیں۔"],["پانی، راکٹ اور تصادم کا اعادہ","پانی کے بہاؤ کی قوت F=ṁΔv اور ṁ=ρAv=ρQ ہے۔ راکٹ کی دفعی قوت تقریباً ṁv_e ہے۔ الگ تھلگ نظام میں مومینٹم محفوظ رہتا ہے؛ لچکدار تصادم میں مومینٹم اور حرکی توانائی دونوں محفوظ رہتے ہیں۔"],["یونٹ 3 کا فارمولا شیٹ","حرکیات: Δx=x_f−x_i؛ v_avg=Δx/Δt؛ a_avg=Δv/Δt؛ v=u+at؛ s=ut+½at²؛ v²=u²+2as؛ s=(u+v)t/2۔ نیوٹن: F_net=ma؛ W=mg۔ مومینٹم/امپلس: p=mv؛ F=Δp/Δt؛ J=Δp=FΔt۔ مومینٹم کا تحفظ: m₁u₁+m₂u₂=m₁v₁+m₂v₂۔ پانی: ṁ=ρAv=ρQ؛ F=ṁΔv۔ راکٹ: F_thrust≈ṁv_e۔ مقذوف: u_x=u cosθ؛ u_y=u sinθ؛ T=2u sinθ/g؛ H=u²sin²θ/(2g)؛ R=u²sin2θ/g؛ R_max=u²/g۔"]]}
-};
-function academicLocalSemanticTranslate(text,lang,context){
- const key=`${context?.topic||''}|${context?.field||''}`;
- if(lang==='ur' && P03_URDU_BENCHMARKS[key]) return P03_URDU_BENCHMARKS[key];
- const n=Number(context?.topic)||0, pack=P03_URDU_TOPIC_PACKS[String(n)];
- if(lang==='ur' && pack){
-   if(context?.subNumber){ const sub=pack.subtopics?.[Number(context.subNumber)-1]; if(sub) return `${sub[0]}\n\n${sub[1]}`; }
-   if(context?.field==='title') return pack.title;
-   if(context?.field==='definition') return pack.definition;
- }
- return null;
-}
+const P03_URDU_BENCHMARKS=Object.create(null);
+const P03_URDU_TOPIC_PACKS=Object.create(null);
+function academicLocalSemanticTranslate(text,lang,context){ return null; }
 
 async function academicTranslationProvider(text,lang,context,job){
   const target=lang==='ur'?'ur':'ps';
@@ -1126,7 +1102,31 @@ async function academicTranslationProvider(text,lang,context,job){
     if(typeof translator.translate!=='function') throw new Error('Browser Translator provider has no translate() method.');
     return await translator.translate(text);
   }
-  throw new Error('No translation provider configured. Set window.TranslatorAPI.translate or use a browser with Translator API support.');
+  /* Public fallback provider for standalone testing. Requires internet access and may have usage limits. */
+  if(typeof window.fetch==='function'){
+    const pieces=String(text).match(/\S+\s*/g)||[];
+    const chunks=[]; let chunk='';
+    for(const piece of pieces){
+      if(chunk && (chunk.length+piece.length)>420){chunks.push(chunk);chunk='';}
+      chunk+=piece;
+    }
+    if(chunk) chunks.push(chunk);
+    const translated=[];
+    for(const part of chunks){
+      const url='https://api.mymemory.translated.net/get?q='+encodeURIComponent(part)+'&langpair=en%7C'+encodeURIComponent(target);
+      let response;
+      try{ response=await window.fetch(url,{method:'GET',headers:{'Accept':'application/json'}}); }
+      catch(e){ throw new Error('Translation service could not be reached. Check internet access, or configure window.TranslatorAPI.translate.'); }
+      if(!response.ok) throw new Error('Translation service returned HTTP '+response.status+'. Configure window.TranslatorAPI.translate or try again later.');
+      const data=await response.json();
+      if(Number(data.responseStatus)!==200 || !data.responseData || typeof data.responseData.translatedText!=='string'){
+        throw new Error('Translation service did not return a translation. It may be rate-limited; configure window.TranslatorAPI.translate or try again later.');
+      }
+      translated.push(data.responseData.translatedText);
+    }
+    if(translated.length) return translated.join('');
+  }
+  throw new Error('No translation provider available. Check internet access or configure window.TranslatorAPI.translate.');
 }
 async function academicTranslateField(lang,n,field,index,runId){
   const source=academicTranslationSourceField(n,field,index);
@@ -1632,74 +1632,8 @@ function setDictionaryTerms(entries){
  dictionaryTerms.sort((a,b)=>a.term.localeCompare(b.term,undefined,{sensitivity:'base'}));
 }
 
-const dictionaryPashtoMeanings={
- 'Acceleration':'تعجیل دا وخت په تېرېدو سره دا ویلاسټي دا بدلون کچه دا.',
- 'Velocity':'ویلاسټي دا وخت په تېرېدو سره دا ډسپلیسمنټ دا بدلون کچه دا.',
- 'Displacement':'ډسپلیسمنټ له لومړي موقعیت څخه تر وروستي موقعیت پورې له سمت سره مستقیم واټن دی.',
- 'Distance':'فاصله دا دوو موقعیتونو ترمنځ دا واټن اندازه دا.',
- 'Speed':'سرعت دا وخت په واحدا کې دا وهلو شوې فاصلې اندازه دا.',
- 'Force':'فورس هغه اغېز دی چې دا جسم دا حرکت حالت بدلولی شي.',
- 'Motion':'حرکت دا وخت په تېرېدو سره دا جسم دا موقعیت بدلون دی.',
- 'Energy':'انرژي دا کار کولو وړتیا دا.',
- 'Work':'کار هغه وخت ترسره کېږي چې فورس دا جسم دا ځای بدلون سبب شي.',
- 'Power':'پاور دا کار دا ترسره کېدو کچه دا.',
- 'Momentum':'مومنټم دا جسم دا کتلې او ویلاسټي حاصل ضرب دی.',
- 'Vector':'ویکټر هغه کمیت دی چې اندازه او سمت دواړه لري.',
- 'Scalar':'سکیلر هغه کمیت دی چې یوازې اندازه لري او سمت نه لري.',
- 'Measurement':'اندازه کول دا یوې فزیکي کمیت دا ارزښت معلومول دي.',
- 'Mass':'کتله دا مادې دا مقدار اندازه دا.',
- 'Time':'وخت دا پېښو دا ترتیب او مودې اندازه دا.',
- 'Length':'اوږدوالی دا دوو نقطو ترمنځ دا فاصلې اندازه دا.',
- 'Temperature':'تودوخه دا جسم دا حرارتي حالت دا معلومولو اندازه دا.',
- 'Current':'برېښنايي جریان دا برېښنايي چارج دا تېرېدو کچه دا.',
- 'Charge':'چارج دا مادې یوه فزیکي ځانګړنه دا چې برېښنايي تعاملات رامنځته کوي.',
- 'Voltage':'ولټاژ دا برېښنايي پوتنسیال دا توپیر اندازه دا.',
- 'Resistance':'مقاومت دا برېښنايي جریان پر وړاندې دا مدار دا مخالفت اندازه دا.',
- 'Pressure':'فشار پر واحدا مساحت واردا شوی فورس دی.',
- 'Density':'کثافت دا واحدا حجم په هره اندازه کې دا کتلې مقدار دی.',
- 'Volume':'حجم هغه فضا دا چې یو جسم یې نیسي.',
- 'Frequency':'فریکونسي په یوه ثانیه کې دا تکرارونو شمېر دی.',
- 'Wavelength':'څپه-اوږدوالی دا څپې دا دوو پرله-پسې ورته نقطو ترمنځ واټن دی.',
- 'Uncertainty':'ناڅرګندتیا دا یوې میجرمنټ دا ارزښت په اړه دا ممکنه بدلون اندازه دا.',
- 'Error':'خطا دا اندازه شوي ارزښت او حقیقي یا منل شوي ارزښت ترمنځ توپیر دی.',
- 'Accuracy':'درستوالی ښيي چې اندازه شوی ارزښت حقیقي ارزښت ته څومره نږدې دی.',
- 'Precision':'تکراري یکسانیت ښيي چې تکراري میجرمنټونه یو له بل سره څومره نږدې دي.',
- 'Dimension':'ابعادا دا فزیکي کمیت دا بنسټیزو کمیتونو په مرسته دا ښودلو بڼه دا.'
-};
-const dictionaryUrduMeanings={
- 'Acceleration':'اسراع وہ شرح ہے جس سے وقت کے ساتھ رفتار تبدیل ہوتی ہے۔',
- 'Velocity':'سمتی رفتار وقت کے ساتھ نقل مکانی کی تبدیلی کی شرح ہے۔',
- 'Displacement':'نقل مکانی ابتدائی مقام سے آخری مقام تک سمت سمیت براہِ راست فاصلہ ہے۔',
- 'Distance':'فاصلہ دو مقامات کے درمیان طے کیے گئے راستے کی مقدار ہے۔',
- 'Speed':'رفتار وقت کی فی اکائی میں طے کیا گیا فاصلہ ہے۔',
- 'Force':'قوت وہ اثر ہے جو کسی جسم کی حرکت کی حالت تبدیل کر سکتا ہے۔',
- 'Motion':'حرکت وقت کے ساتھ جسم کی پوزیشن میں تبدیلی ہے۔',
- 'Energy':'توانائی کام کرنے کی صلاحیت ہے۔',
- 'Work':'کام اس وقت ہوتا ہے جب قوت جسم میں نقل مکانی پیدا کرے۔',
- 'Power':'قدرتی شرحِ کار یا پاور کام انجام دینے کی شرح ہے۔',
- 'Momentum':'مومینٹم جسم کی کمیت اور سمتی رفتار کا حاصلِ ضرب ہے۔',
- 'Vector':'ویکٹر وہ مقدار ہے جس میں مقدار اور سمت دونوں ہوتی ہیں۔',
- 'Scalar':'اسکیلر وہ مقدار ہے جس میں صرف مقدار ہوتی ہے، سمت نہیں۔',
- 'Measurement':'پیمائش کسی طبعی کمیت کی قدر معلوم کرنے کا عمل ہے۔',
- 'Mass':'کمیت مادے کی مقدار کا پیمانہ ہے۔',
- 'Time':'وقت واقعات کی ترتیب اور مدت کا پیمانہ ہے۔',
- 'Length':'لمبائی دو نقاط کے درمیان فاصلے کا پیمانہ ہے۔',
- 'Temperature':'درجہ حرارت کسی جسم کی حرارتی حالت کا پیمانہ ہے۔',
- 'Current':'برقی رو برقی چارج کے بہاؤ کی شرح ہے۔',
- 'Charge':'چارج مادے کی وہ طبعی خاصیت ہے جو برقی تعاملات پیدا کرتی ہے۔',
- 'Voltage':'وولٹیج برقی پوٹینشل کے فرق کی مقدار ہے۔',
- 'Resistance':'مزاحمت برقی رو کے بہاؤ کے خلاف مزاحمت کی مقدار ہے۔',
- 'Pressure':'دباؤ فی اکائی رقبہ پر لگنے والی قوت ہے۔',
- 'Density':'کثافت فی اکائی حجم کمیت کی مقدار ہے۔',
- 'Volume':'حجم وہ جگہ ہے جس پر کوئی جسم قابض ہوتا ہے۔',
- 'Frequency':'تعددا ایک سیکنڈ میں ہونے والی تکراروں کی تعدادا ہے۔',
- 'Wavelength':'طولِ موج ایک موج کے دو مسلسل یکساں نقاط کے درمیان فاصلہ ہے۔',
- 'Uncertainty':'غیر یقینی پیمائش کی قدر میں ممکنہ تبدیلی کی حدا کو ظاہر کرتی ہے۔',
- 'Error':'غلطی ناپی گئی قدر اور حقیقی یا منظور شدا قدر کے درمیان فرق ہے۔',
- 'Accuracy':'درستگی بتاتی ہے کہ ناپی گئی قدر حقیقی قدر کے کتنی قریب ہے۔',
- 'Precision':'تکراری یکسانیت بتاتی ہے کہ بار بار کی گئی پیمائشیں ایک دوسرے کے کتنی قریب ہیں۔',
- 'Dimension':'ابعادا کسی طبعی کمیت کو بنیادی کمیتوں کی مددا سے ظاہر کرنے کی صورت ہیں۔'
-};
+const dictionaryPashtoMeanings=Object.create(null);
+const dictionaryUrduMeanings=Object.create(null);
 function dictionaryLocalizedMeaning(map,term){const key=String(term||'').trim();if(map[key])return map[key];const hit=Object.keys(map).find(k=>k.toLowerCase()===key.toLowerCase());return hit?map[hit]:'';}
 function getDictionaryTerms(){return [...dictionaryTerms];}
 function dictionaryEscapeRegExp(value){return String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
@@ -2411,57 +2345,21 @@ function openMasteryTranslation(n,subNumber){
  openP03Translation(p03TranslationTextFromRoot(root),`${title} — Translation`,subNumber?`mastery:${n}:sub:${subNumber}`:`mastery:${n}`);
 }
 async function p03TranslateLongText(source,lang,key){
-  /* Full-screen translation must use the course's own Translator Master/translation memory.
-     Do not bypass it with the low-level provider: that is what previously caused the
-     "No translation provider configured" message even though PHY03 already contained
-     curated Pashto master content. */
+  /* Test mode: no embedded Urdu/Pashto translations are shipped. Preserve the
+     Translator Master/provider implementation and request a fresh translation. */
   const match=String(key||'').match(/(?:topic|mastery):(\d+)(?::sub:(\d+))?/);
   const n=match?Number(match[1]):Number(window.__activeTopicNumber||0);
   const subNumber=match&&match[2]?Number(match[2]):null;
-  /* Always prefer the embedded PHY03 translation masters.  The full-screen
-     translator must never fall through to an unconfigured external provider
-     when a local Urdu/Pashto course pack is available. */
-  const localPack = lang==='ur' ? P03_URDU_TOPIC_PACKS?.[String(n)] : academicLanguageData?.[String(n)]?.ps;
-  const pack=localPack || academicLanguageData?.[String(n)]?.[lang];
-  const en=academicLanguageData?.[String(n)]?.en;
-
-  if(pack){
-    const blocks=[];
-    const add=(heading,text)=>{ if(String(heading||'').trim()) blocks.push(String(heading).trim()); if(String(text||'').trim()) blocks.push(String(text).trim()); };
-    if(subNumber){
-      const i=subNumber-1;
-      const sub=Array.isArray(pack.subtopics)?pack.subtopics[i]:null;
-      if(!sub) throw new Error('The requested subtopic is not present in the PHY03 translation master.');
-      add(sub[0],sub[1]);
-    }else{
-      add(pack.title,pack.definition);
-      (pack.subtopics||[]).forEach(sub=>add(sub[0],sub[1]));
-    }
-    if(blocks.length) return blocks.join('\n\n').trim();
-  }
-
-  /* Urdu may be supplied by the configured Translator Master provider.  In that case
-     call the structured master rather than sending the entire DOM to a generic MT API. */
-  const localUr=lang==='ur' ? academicLocalSemanticTranslate(source,lang,{topic:n,field:'full-screen',subNumber}) : null;
-  if(localUr) return localUr;
-
+  const cleanSource=String(source||'').trim();
+  if(!cleanSource) throw new Error('No English source text is available to translate.');
   const translatorMaster=window.TranslatorMaster||window.P03TranslatorMaster;
-  if(lang==='ur' && n && typeof translatorMaster?.translateTopic==='function'){
-    const result=await translatorMaster.translateTopic(n);
-    const parts=[];
-    if(subNumber){
-      const sub=result?.subtopics?.[subNumber-1];
-      if(sub){ parts.push(String(sub[0]||''),String(sub[1]||'')); }
-    }else{
-      parts.push(String(result?.title||''),String(result?.definition||''));
-      (result?.subtopics||[]).forEach(sub=>parts.push(String(sub[0]||''),String(sub[1]||'')));
-    }
-    const out=parts.filter(Boolean).join('\n\n').trim();
-    if(out)return out;
+  if(typeof translatorMaster?.translateText==='function'){
+    const result=await translatorMaster.translateText(cleanSource,{sourceLanguage:'en',targetLanguage:lang,topic:n,subNumber});
+    if(String(result||'').trim()) return String(result).trim();
   }
-
-  throw new Error(`Embedded ${lang==='ur'?'Urdu':'Pashto'} translation master is missing for Topic ${n}.`);
+  return await academicTranslationProvider(cleanSource,lang,{topic:n,field:'full-screen',subNumber});
 }
+
 async function runP03Translation(lang){
  if(!['ur','ps'].includes(lang)||!p03TranslationSource)return;
  p03TranslationLang=lang;
