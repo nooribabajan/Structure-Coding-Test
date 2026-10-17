@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
+
 <html dir="ltr" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
 <title>PHY03 — Academic System Fix 14</title>
-<style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic{display:none!important;}#htcInfo{display:none!important;}
+<style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic, #htcInfo{display:none!important;}
 .academic-language-row,.mastery-language-row{display:flex;justify-content:center;align-items:center;margin:0 0 12px}.academic-language-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.academic-language-switcher button{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--green);padding:8px 14px;font-weight:900;cursor:pointer}.academic-language-switcher button.active{background:var(--green);color:#fff}.dictionary-entry-pashto{direction:rtl;text-align:right}.dictionary-entry strong{font-weight:900;color:var(--green)}
 @media(max-width:760px){.dictionary-entry{grid-template-columns:1fr}.dictionary-entry-pashto{direction:rtl;text-align:right}}
 .translator-status{margin:6px 0 10px;padding:7px 10px;border:1px dashed var(--line);border-radius:9px;background:#fafafa;color:#64748b;font-size:11px;text-align:center}
@@ -17,10 +19,13 @@
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;color:var(--ink);background:var(--cream)}
 body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page.active{display:block}.academy-global-header{background:var(--green);color:#fff;border-bottom:4px solid #c9a95b}.academy-global-header-inner{min-height:76px;max-width:1240px;margin:auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px;direction:ltr}.academy-global-brand{text-align:left;order:1}.academy-global-logo{order:2}.academy-global-brand h1{margin:0;font-size:22px}.academy-global-subtitle{font-size:12px;opacity:.85;margin-top:3px}.academy-global-logo img{display:block;width:58px;height:58px;object-fit:contain}
 .main-content-container{height:calc(100% - 80px);width:100%;max-width:none;margin:0;padding:6px 2px;background:var(--paper);border:1px solid var(--line);overflow:auto}.content-view{min-height:100%;padding:4px 8px 34px}.view-header{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.subject-label{font-weight:800;color:var(--green);font-size:14px} .page-main-heading{text-align:center;}
+
 #topicPage .guided-container .guided-label,#topicPage .guided-content >#topicPage #topicHeading{ text-align:center; direction:ltr; }
 #topicPage #topicHeading { font-weight:900; }
+
 .mastery-topic-head-row >
 .mastery-topic-number,.mastery-subtopic-kicker{ display:none; }
+
 .revision-head{padding:4px 4px 8px;border-bottom:1px solid var(--line);margin-bottom:10px}.revision-title{color:var(--green);}.revision-document{box-sizing:border-box;padding:8px 12px 90px}.revision-sheet{display:flex;flex-direction:column;gap:8px;padding:0;margin:0 0 8px;border:0;border-radius:0;background:transparent;overflow:visible;scroll-margin-top:8px}.revision-sheet-grid{display:flex;flex-direction:column;gap:8px}.revision-card{width:100%;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:9px 14px;border:1px solid #d9e1de;border-radius:10px;box-shadow:0 1px 5px rgba(15,23,42,.05);overflow:hidden;min-height:70px}.revision-card:nth-child(9n/**/+1){background:#f3f7fb;border-color:#d5e1ee}.revision-card:nth-child(9n/**/+2){background:#f7f3fb;border-color:#e1d6ef}.revision-card:nth-child(9n/**/+3){background:#f3f8f5;border-color:#d4e5da}.revision-card:nth-child(9n/**/+4){background:#fbf6ef;border-color:#eadfce}.revision-card:nth-child(9n/**/+5){background:#f4f5fb;border-color:#dcdfee}.revision-card:nth-child(9n/**/+6){background:#f8f3f6;border-color:#e6d8df}.revision-card:nth-child(9n/**/+7){background:#f2f7f8;border-color:#d4e5e8}.revision-card:nth-child(9n/**/+8){background:#faf6f1;border-color:#e8dfd4}.revision-card:nth-child(9n/**/+9){background:#f4f7f3;border-color:#d9e4d7}.revision-card-type{color:var(--red);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;}.revision-card-title{color:var(--green);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;}.revision-card-definition{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;color:#334155;}.revision-empty{min-height:180px;display:flex;align-items:center;justify-content:center;border:1px dashed #cbd5e1;border-radius:14px;background:#fff;color:#64748b;padding:24px}@media(max-width:760px){.revision-sheet-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.revision-card{height:auto;min-height:82px}.revision-card-definition{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;}}
 .guided-document{margin:auto}.guided-container{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.guided-label{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);color:var(--green);}.guided-content{min-height:55px;padding:14px;}.chapter-heading-container .guided-content,.chapter-definition-container .guided-content,.learning-outcomes-container .guided-content{min-height:90px;}
 .guided-forward{margin:10px 0 14px}.guided-forward button,.functional{border:1px solid var(--green);border-radius:12px;background:#fff;color:var(--green);cursor:pointer;box-sizing:border-box}.guided-forward button{padding:11px 28px;background:var(--green);color:#fff}.guided-forward button:hover,.tab:hover{transform:translateY(-1px)}
@@ -30,7 +35,9 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .functional-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-top:2px}.functional{min-height:54px;height:54px}.functional .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:900 clamp(54px,9vw,96px)/1 Inter,sans-serif;color:var(--red);opacity:.9;min-width:0;z-index:0;padding:20px 0;box-sizing:border-box}.functional-row .functional{width:100%;box-sizing:border-box}
 .topic-document{margin:auto}.topic-return-top{position:fixed;left:50%;bottom:62px;transform:translate(-50%,10px);z-index:20;width:40px;height:40px;min-height:40px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid #800000;border-radius:50%;background:#fff;color:#800000;font-size:22px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.topic-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.topic-return-top:hover{transform:translate(-50%,-1px)}.topic-document .visual-container{height:33vh;min-height:170px}.topic-document .visual-container .guided-content{height:calc(33vh - 48px);display:flex;align-items:center;justify-content:center;border:0;}.visual-placeholder{width:100%;height:100%;border:2px dashed #cbd5e1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800;font-size:20px;background:#fafafa}.topic-document .guided-content{min-height:60px;}
 .mastery-document{padding-bottom:24px} .mastery-course-intro,.mastery-topic-overview{margin:0 0 10px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;}.mastery-section-label{text-transform:uppercase;color:var(--red);margin-bottom:4px;}.mastery-learning-lead{margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);color:var(--green)}.mastery-topic-number{opacity:.72;}.mastery-subtopics-head{display:flex;justify-content:space-between;gap:8px;padding:9px 14px;background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--green);}.mastery-subtopics{padding:10px 12px}.mastery-subtopic{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;margin-bottom:9px;}.mastery-subtopic:last-child{margin-bottom:0;}.mastery-subtopic-kicker{text-transform:uppercase;color:var(--red);margin-bottom:2px;}.mastery-subtopic h3{margin:0 0 6px;color:var(--green);}.mastery-subtopic-focus{margin-top:8px;padding:7px 9px;border-radius:8px;background:#f7f9f8;}.mastery-subtopic-focus span{display:block;text-transform:uppercase;color:var(--red);margin-bottom:2px;}.mastery-visual-container:empty{display:none}.mastery-toolbar{position:sticky;top:0;z-index:5;margin-bottom:10px;padding:8px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 2px 8px rgba(15,23,42,.06)}.mastery-progress{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--green)}.mastery-progress-bar{height:7px;margin-top:6px;border-radius:99px;background:#e8ecea;overflow:hidden}.mastery-progress-fill{height:100%;width:0;background:var(--green2);transition:width .2s}.mastery-nav{display:none!important}.mastery-nav button:nth-child(1){background:#f3f7fb;border-color:#d5e1ee}.mastery-nav button:nth-child(2){background:#f7f3fb;border-color:#e1d6ef}.mastery-nav button:nth-child(3){background:#f3f8f5;border-color:#d4e5da}.mastery-nav button:nth-child(4){background:#fbf6ef;border-color:#eadfce}.mastery-nav button:nth-child(5){background:#f4f5fb;border-color:#dcdfee}.mastery-nav button:nth-child(6){background:#f8f3f6;border-color:#e6d8df}.mastery-nav button:nth-child(7){background:#f2f7f8;border-color:#d4e5e8}.mastery-nav button:nth-child(8){background:#faf6f1;border-color:#e8dfd4}.mastery-nav button:nth-child(9){background:#f4f7f3;border-color:#d9e4d7}.mastery-nav button.read{background:#edf5ef;border-color:#b9d3c4}.mastery-topic{margin:0 0 12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;scroll-margin-top:90px}.mastery-topic-head{padding:9px 14px;border-bottom:1px solid var(--line);color:var(--green);}.mastery-topic:nth-of-type(1) .mastery-topic-head{background:#f3f7fb;}.mastery-topic:nth-of-type(2) .mastery-topic-head{background:#f7f3fb;}.mastery-topic:nth-of-type(3) .mastery-topic-head{background:#f3f8f5;}.mastery-topic:nth-of-type(4) .mastery-topic-head{background:#fbf6ef;}.mastery-topic:nth-of-type(5) .mastery-topic-head{background:#f4f5fb;}.mastery-topic:nth-of-type(6) .mastery-topic-head{background:#f8f3f6;}.mastery-topic:nth-of-type(7) .mastery-topic-head{background:#f2f7f8;}.mastery-topic:nth-of-type(8) .mastery-topic-head{background:#faf6f1;}.mastery-topic:nth-of-type(9) .mastery-topic-head{background:#f4f7f3;}.mastery-topic.is-read .mastery-topic-head{box-shadow:inset 5px 0 0 var(--green2);}.mastery-topic-head-row{justify-content:space-between;;display:flex;;align-items:center;;gap:8px;}.mastery-read-btn{border:1px solid #cbd5e1;border-radius:8px;background:#fff;padding:4px 8px;color:var(--green);cursor:pointer}.mastery-topic.is-read .mastery-read-btn{background:#eaf3ed;border-color:#a9c9b6}.mastery-visual-container{height:30vh;min-height:1.8in;width:100%;display:flex;align-items:center;justify-content:center;padding:10px;overflow:hidden}.mastery-visual-grid{width:100%;height:100%;display:grid;gap:8px;align-items:center;justify-items:center}.mastery-visual-grid.visuals-1{grid-template-columns:1fr}.mastery-visual-grid.visuals-2{grid-template-columns:repeat(2,minmax(0,1fr))}.mastery-visual-grid.visuals-3{grid-template-columns:repeat(3,minmax(0,1fr))}.mastery-visual-grid.visuals-4{grid-template-columns:repeat(4,minmax(0,1fr))}.mastery-visual-frame{width:min(2.6in,100%);height:1.8in;max-height:100%;border:2px dashed #cbd5e1;border-radius:12px;background:#fafafa;display:flex;align-items:center;justify-content:center;color:#64748b;overflow:hidden}.mastery-topic-definition{min-height:70px;padding:14px;}.mastery-templates{display:none}.mastery-return-top{display:none!important;position:fixed;left:50%;bottom:14px;transform:translate(-50%,10px);z-index:20;width:52px;height:52px;min-height:0;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}.mastery-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}.mastery-return-top:hover{transform:translate(-50%,-1px)} .mastery-step-arrow{display:none!important}
+
 .linked-visual-grid{width:100%;height:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:center;justify-items:center}.visual-atlas-container:has(.visual-atlas-visual){background:#fff}.linked-visual-grid .visual-atlas-container{width:100%;height:100%;min-height:1.8in}.linked-visual-grid .visual-atlas-container[data-position="1"]{grid-column:1}.linked-visual-grid .visual-atlas-container[data-position="2"]{grid-column:2}.physics-visual-render{width:100%;max-width:960px;min-width:0;margin:12px auto 2px;display:flex;justify-content:center;align-items:center;overflow:visible}.central-visual-render{margin:10px auto 14px}.central-generated-visual{width:100%;max-width:960px}.central-chapter-visual-heading{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:4px 0 8px}.central-chapter-visual-heading h2{margin:0;color:var(--green);font-size:1.25rem;font-weight:900}.central-visual-signature{display:inline-block;border:1px solid #a9c9b6;border-radius:999px;padding:3px 9px;background:#edf7f0;color:#245843;font-size:11px;font-weight:900;letter-spacing:.03em}.central-visual-atlas-status{padding:4px 8px;color:#245843;font-size:12px;font-weight:800}.mastery-subtopic .central-visual-render{max-width:760px}.visual-atlas-container .central-visual-render{width:100%;height:100%;margin:0}.visual-atlas-container .central-generated-visual{height:100%;max-height:100%;object-fit:contain}.physics-drawing{display:block;width:100%;max-width:100%;height:auto;min-width:0;aspect-ratio:960/420;font-family:Arial,sans-serif;overflow:visible;shape-rendering:geometricPrecision;text-rendering:geometricPrecision;vector-effect:non-scaling-stroke}.physics-scene{preserveAspectRatio:xMidYMid meet}@media(max-width:760px){.physics-visual-render{margin:8px auto 0}.physics-drawing{width:100%;height:auto}}
+
 /* CANONICAL VISUAL ATLAS CLASS — single reusable standard for every future Physics lecture */
 .visual-atlas-document.visual-atlas-standard{--va-grid-gap:10px;--va-container-radius:12px;--va-visual-share:68%;--va-briefing-share:32%;--va-mobile-height:50vh;max-width:1180px;margin:auto;padding-bottom:24px}
 .visual-atlas-document.visual-atlas-standard .visual-atlas-grid{gap:var(--va-grid-gap)}
@@ -45,10 +52,12 @@ body{overflow:hidden}.wrap,.page{width:100%;height:100%}.page{display:none}.page
 .visual-atlas-return-top{position:fixed;left:50%;bottom:14px;transform:translate(-50%,10px);z-index:20;width:52px;height:52px;min-height:0;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);font-size:26px;font-weight:800;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s,transform .18s}
 .visual-atlas-return-top.visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
 .visual-atlas-return-top:hover{transform:translate(-50%,-1px)}
+
 @media(max-width:760px){.visual-atlas-grid{grid-template-columns:1fr;gap:6px;padding:6px}.visual-atlas-container{min-height:50vh;height:50vh;max-height:50vh;box-sizing:border-box}.visual-atlas-visual-area{flex-basis:var(--va-visual-share,68%)}.visual-atlas-briefing{flex-basis:var(--va-briefing-share,32%);font-size:clamp(11px,2.5vw,14px)}}
 #hitCeilingPage{background:linear-gradient(#f8f2e5,#eef5f0);padding:0;overflow:hidden}.htc-shell{width:100%;height:calc(100% - 100px);max-width:1100px;margin:auto;border:1px solid #cbd5e1;border-radius:22px;background:linear-gradient(#fffdf8,#f3ead7);display:flex;flex-direction:column;overflow:hidden}.htc-levels{display:flex;gap:10px;justify-content:center;align-items:center;padding:8px 12px;border-top:1px solid #dfcf9d;border-bottom:1px solid #dfcf9d;overflow-x:auto}.htc-level{width:42px;height:42px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;color:var(--green);font-weight:900;cursor:pointer}.htc-level.active{background:var(--green);color:#fff;border-color:var(--green2)}.htc-play{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;padding:8px 10px 62px}.htc-tower{position:relative;width:210px;height:175px;margin-top:20px}.htc-dome{position:absolute;top:0;left:65px;width:80px;height:45px;border:2px solid #64748b;border-bottom:0;border-radius:80px 80px 10px 10px;background:#e2e8f0}.htc-torch{position:absolute;top:-42px;left:78px;width:55px;height:52px;display:grid;place-items:center}.htc-flame{width:24px;height:34px;border-radius:70% 30% 65% 35%;transform:rotate(45deg);background:#d7d2bd;border:2px solid #94a3b8;opacity:.5}.htc-body{position:absolute;bottom:12px;left:30px;width:150px;display:flex;flex-direction:column-reverse;gap:3px}.htc-seg{height:25px;border:1px solid #94a3b8;background:#e2e8f0;opacity:.35}.htc-base{position:absolute;bottom:0;left:10px;width:190px;height:17px;border:1px solid #64748b;border-radius:7px;background:#cbd5e1}.htc-info{text-align:center;color:var(--green);font-weight:900}.htc-card{width:min(790px,95%);min-height:78px;border:1px solid var(--line);border-radius:16px;background:#fffdf8;padding:12px;text-align:center;color:#64748b;margin-bottom:0}.htc-question{margin-bottom:10px;}.htc-question strong{display:block;color:var(--green);margin-bottom:5px;}.htc-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.5px;margin-top:9px;direction:ltr}.htc-option{width:100%;box-sizing:border-box;position:relative;display:flex;align-items:flex-start;gap:7px;min-height:78px;padding:10px 8px;border:1px solid var(--line);border-radius:10px;cursor:pointer;text-align:left;font-weight:800;line-height:1.25;transition:.12s;overflow-wrap:anywhere;white-space:normal;}.htc-option:nth-child(1){background:#f3f7fb;border-color:#b9cfe3;}.htc-option:nth-child(2){background:#f7f3fb;border-color:#d1c0e2;}.htc-option:nth-child(3){background:#f3f8f5;border-color:#b9d4c3;}.htc-option:nth-child(4){background:#fbf6ef;border-color:#dfc9a8;}.htc-option:hover{transform:translateY(-1px);}.htc-option:focus-visible{outline:2px solid var(--green2);outline-offset:1px;}.htc-option.htc-correct{outline:2px solid var(--green2);background:#eaf3ed!important;}.htc-option.htc-wrong{outline:2px solid var(--red);background:#fceeee!important;}.htc-feedback{min-height:18px;margin-top:8px;font-weight:900;}.htc-source{margin-top:8px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.htc-actions{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;justify-content:center;gap:8px;padding:0;margin:0}.htc-btn{width:155px;height:47px;border:1px solid var(--line);border-radius:10px;padding:9px 16px;background:#fff;color:var(--green);font-weight:900;cursor:pointer;box-sizing:border-box}
 .tab{display:flex;;align-items:center;;justify-content:center;;gap:10px;;min-height:54px;;padding:10px 12px;;border:1px solid var(--line);;border-radius:12px;;background:#fff;;cursor:pointer;;user-select:none;;box-shadow:0 2px 8px rgba(15,23,42,.05);;transition:.12s;;position:relative;;overflow:hidden;}.tab.main-topic-large{border:1px solid #8bb8d8}.tab.functional{border-color:var(--red)}.tab.functional .num{color:#a8d5b5 !important}.tab.main-topic-large .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 clamp(48px,7vw,88px)/1 Inter,sans-serif;color:#8bb8d8;opacity:.9;min-width:0;z-index:0;padding:10px 0;box-sizing:border-box}.tab .label{font-weight:800;;text-align:center;;position:relative;;z-index:2;}
 @media(max-width:760px){.academy-global-header-inner{min-height:68px;padding:8px 10px}.academy-global-brand h1{font-size:18px}.academy-global-logo img{width:48px;height:48px}.main-content-container{height:calc(100% - 72px);padding:4px}.topic-grid,.topic-feature-row,.functional-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.tab{min-height:52px;padding:8px 6px}.tab .label{font-size:13px}.topic-document .visual-container{height:33vh;min-height:150px}.htc-shell{height:calc(100% - 88px)}.htc-tower{transform:scale(.8);transform-origin:bottom center}.htc-level{width:36px;height:36px}}
+
 /* Dictionary: layout and typography */
 .dictionary-book {
   max-width: 980px;
@@ -217,29 +226,45 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   .dictionary-modal { padding: 8px; }
   .dictionary-card { max-height: 68vh; }
 }
+
+
 .practice-tier3{margin:auto;padding-bottom:28px}.practice-tier3 .practice-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practice-tier3 .practice-title{color:var(--green);}.practice-tier3 .practice-note{margin-top:3px;color:var(--muted);}.practice-tier3 .practice-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;}.practice-tier3 .practice-source .ok{color:var(--green2)}.practice-tier3 .practice-source .count{color:var(--muted)}.practice-tier3 .practice-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.practice-tier3 .practice-topic{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}.practice-tier3 .practice-topic-head{width:100%;border:0;border-bottom:1px solid var(--line);background:#f8faf9;color:var(--green);padding:9px 11px;cursor:pointer}.practice-tier3 .practice-topic-head.active{background:#edf5ef}.practice-tier3 .practice-topic-body{padding:9px;display:none}.practice-tier3 .practice-topic-body.open{display:block}.practice-tier3 .practice-subtopic{border:1px solid var(--line);border-radius:9px;padding:8px;margin:0 0 7px;background:#fffdf8}.practice-tier3 .practice-subtopic-title{color:var(--green);}.practice-tier3 .practice-question{margin-top:7px;padding:8px;border-radius:8px;background:#f7f8f8;color:var(--ink);}.practice-tier3 .practice-answer{margin-top:5px;padding:7px;border-left:3px solid var(--green2);background:#f1f5f3;}.practice-tier3 .practice-actions{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:8px}.practice-tier3 .practice-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);cursor:pointer}.practice-tier3 .practice-empty{padding:12px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);}@media(max-width:760px){.practice-tier3 .practice-topics{grid-template-columns:1fr}}
+
 .practical-tier3{margin:auto;padding-bottom:28px}.practical-tier3 .practical-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}.practical-tier3 .practical-title{font-weight:900;color:var(--green);font-size:20px}.practical-tier3 .practical-note{display:none}.practical-tier3 .practical-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin-bottom:10px}.practical-tier3 .practical-card-head{padding:10px 14px;background:#eef5f0;border-bottom:1px solid var(--line);font-weight:900;color:var(--green)}.practical-tier3 .practical-card-body{padding:14px;line-height:1.8;color:var(--ink)}.practical-tier3 .practical-meta{font-size:11px;color:var(--muted);margin-bottom:8px}.practical-tier3 .practical-step{margin:7px 0;padding:8px 10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8}.practical-tier3 .practical-fallback{text-align:center}.practical-tier3 .practical-fallback .breath-title{font-size:18px;font-weight:900;color:var(--green);margin-bottom:8px}.practical-tier3 .practical-fallback .breath-line{margin:6px 0}
+
+
 .readiness-tier3{margin:auto;padding-bottom:28px}.readiness-tier3 .readiness-head{padding:8px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px;}.readiness-tier3 .readiness-title{color:var(--green);}.readiness-tier3 .readiness-note{margin-top:3px;color:var(--muted);}.readiness-tier3 .readiness-source{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;margin-bottom:10px;}.readiness-tier3 .ok{color:var(--green2)}.readiness-tier3 .count{color:var(--muted)}.readiness-tier3 .readiness-list{display:grid;gap:8px}.readiness-tier3 .readiness-item{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px}.readiness-tier3 .readiness-q{color:var(--ink);}.readiness-tier3 .readiness-meta{color:var(--muted);margin-bottom:5px;}.readiness-tier3 .readiness-answer{display:none;margin-top:7px;padding:7px 9px;border-left:3px solid var(--green2);background:#f1f5f3;}.readiness-tier3.show-answers .readiness-answer{display:block;}.readiness-tier3 .readiness-actions{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;margin-top:9px;}.readiness-tier3 .readiness-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:6px 10px;color:var(--green);cursor:pointer}.readiness-tier3 .readiness-empty{padding:16px;border:1px dashed #cbd5e1;border-radius:10px;color:var(--muted);}
+
 .readiness-tier3 .readiness-flow{border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px;margin-bottom:10px}.readiness-tier3 .readiness-progress{color:var(--muted);margin-bottom:7px}.readiness-tier3 .readiness-live-meta{color:var(--muted);margin-bottom:5px;}.readiness-tier3 .readiness-user-answer{width:100%;min-height:72px;box-sizing:border-box;margin-top:8px;border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit;resize:vertical}.readiness-tier3 .readiness-feedback{display:none;margin-top:8px;padding:8px 9px;border-left:3px solid var(--green2);background:#f1f5f3;}.readiness-tier3 .readiness-flow.checked .readiness-feedback{display:block;}.readiness-tier3 .readiness-flow.checked .readiness-user-answer{background:#fafafa}.readiness-tier3 .readiness-flow.done .readiness-live-q{opacity:.75;}.readiness-tier3 .readiness-result{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fffdf8;}.readiness-tier3 .readiness-result strong{color:var(--green);}
+
 .search-tier3{margin:auto;padding-bottom:26px}.search-head{padding:4px 4px 10px;border-bottom:1px solid var(--line);margin-bottom:10px}
 .search-acronym{display:flex;flex-direction:column;gap:9px;margin:28px auto 24px;max-width:520px;width:auto}.search-acronym-row{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:20px}.search-acronym-letter{font-weight:900;font-size:38px;line-height:1.1;color:var(--green);text-align:right}.search-acronym-meaning{font-size:19px;font-weight:800;color:#334155;text-align:left}.search-title{font-size:18px;font-weight:900;color:var(--green)}.search-subtitle{display:none}.search-note{margin-top:4px;font-size:12px;color:#64748b;line-height:1.6}.search-scope{display:none;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:10px}.search-scope button{min-height:40px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--green);font-weight:800;cursor:pointer;font-size:11px}.search-scope button.active{border:2px solid var(--red);background:#fff7f7;color:var(--red)}.search-scope button[disabled]{opacity:.48;cursor:not-allowed}.search-box{position:relative;display:flex;align-items:center;gap:7px;margin-bottom:10px}.search-input-wrap{position:relative;flex:1;min-width:0}.search-input{width:100%;height:48px;border:1px solid var(--line);border-radius:12px;padding:0 44px 0 14px;font-size:16px;color:#334155;outline:none;background:#fff;direction:ltr}.search-input:focus{border-color:var(--green2);box-shadow:0 0 0 2px rgba(36,88,67,.10)}.search-clear{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:var(--red);font-size:21px;font-weight:900;cursor:pointer;display:none}.search-input-wrap.has-value .search-clear{display:block}.search-submit{height:48px;border:1px solid var(--green);border-radius:12px;background:var(--green);color:#fff;font-weight:900;padding:0 18px;cursor:pointer}.search-status{display:none;font-size:12px;color:#64748b;margin:5px 2px 10px;min-height:18px}.search-results{display:flex;flex-direction:column;gap:9px}.search-result{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.search-result-head{padding:9px 13px;background:#f3f7f4;border-bottom:1px solid var(--line);font-weight:900;color:var(--green)}.search-result-meta{font-size:11px;color:#64748b;font-weight:700;margin-top:3px}.search-result-body{padding:13px;line-height:1.8}.search-result-definition{padding:10px 12px;border:1px solid #e3e9e6;border-radius:10px;background:#fbfdfb;margin-bottom:9px}.search-match{background:#fff0a8;border-radius:3px;padding:0 2px}.search-subtopics{display:grid;gap:6px}.search-subtopic{padding:8px 10px;border:1px solid #e4e9e7;border-radius:9px;background:#fff}.search-subtopic-title{font-weight:900;color:var(--green)}.search-subtopic-text{margin-top:3px;font-size:13px}.search-empty{padding:24px 14px;border:1px dashed #cbd5e1;border-radius:14px;background:#fff;text-align:center;color:#64748b;line-height:1.8}
 .search-step-arrow{position:fixed;left:50%;bottom:66px;transform:translateX(-50%);z-index:20;width:40px;height:40px;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);font-size:22px;font-weight:800;cursor:pointer;display:none}.search-step-arrow.visible{display:flex;align-items:center;justify-content:center}@media(max-width:760px){.search-scope{grid-template-columns:repeat(4,minmax(0,1fr))}.search-box{gap:5px}.search-submit{padding:0 12px}}
-.topic-grid,.topic-feature-row,.functional-row{gap:2px}
-.topic-grid .column{gap:2px}
+
+.topic-grid,.topic-feature-row,.functional-row, .topic-grid .column{gap:2px}
 #topicsPage .topic-grid .tab,#topicsPage .functional-row .tab{width:100%;height:auto;min-height:54px;padding:10px 12px;border-width:1px;box-sizing:border-box}
 #topicsPage .topic-grid .main-topic-large .label{color:#166534;font-weight:900;text-shadow:none;filter:none;line-height:1.35;white-space:normal;overflow:visible}
+
 .exam-tier3{margin:auto;padding:8px 0 80px;}.exam-head{padding:8px 4px 12px;border-bottom:1px solid var(--line);margin-bottom:12px}.exam-title{color:var(--red);}.exam-note{margin-top:4px;color:var(--muted);}.exam-source{display:flex;justify-content:flex-start;gap:10px;flex-wrap:wrap;margin:10px 0}.exam-source span{padding:6px 9px;border:1px solid var(--line);border-radius:9px;background:#fff;}.exam-source .ok{color:var(--green)}.exam-section{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin:12px 0;}.exam-section-head{padding:10px 14px;background:#f7eeee;border-bottom:1px solid var(--line);color:var(--red);}.exam-question{padding:12px 14px;border-bottom:1px solid #edf0ef;}.exam-question:last-child{border-bottom:0;}.exam-qtype{display:inline-block;color:var(--muted);margin-bottom:5px;}.exam-options li{margin:4px 0}.exam-answer{margin-top:8px;padding:8px 10px;border-left:3px solid var(--green);background:#f6faf7;}.exam-passage{margin:8px 0;padding:10px;border:1px solid #e5ebe8;border-radius:9px;background:#fffdf8;}.exam-actions{display:flex;justify-content:flex-start;gap:8px;flex-wrap:wrap;margin:12px 0}.exam-btn{border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);padding:9px 14px;cursor:pointer}.exam-options{margin:12px 0;;padding:0 0 0 18px;;display:flex;;flex-direction:column;;gap:8px;}.exam-option{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}.exam-option input{margin-top:3px;accent-color:var(--red)}.exam-option:has(input:checked){border-color:var(--red);box-shadow:0 0 0 1px var(--red)}.exam-question-status{color:var(--muted);margin-top:5px}.exam-progress-line{min-width:120px}.exam-result{margin-top:14px}.exam-result-card{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;}.exam-result-note{margin-top:6px;color:var(--muted)}
 .exam-empty{padding:16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);}
+
+
 /* One global Previous Page tab: visible only when the active scroller has no further downward scroll. */
 .global-previous-page-tab{display:flex;position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9999;align-items:center;justify-content:center;gap:7px;width:150px;height:42px;box-sizing:border-box;margin:0;padding:0 14px;border:1px solid var(--red);border-radius:10px;background:#fff;color:var(--red);font-size:14px;font-weight:800;line-height:1;white-space:nowrap;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.10);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s}
 .global-previous-page-tab .global-nav-arrow-symbol{display:none}
 .global-previous-page-tab .global-nav-label{display:inline}
 .global-previous-page-tab.at-end{opacity:1;visibility:visible;pointer-events:auto}
 @media(max-width:760px){.global-previous-page-tab{width:150px;height:42px;bottom:10px;font-size:13px}}
+
+
 .mastery-topic-overview,.mastery-topic-overview >
+
 .mastery-topic-overview >
 .mastery-rtl-text .ltr-run {
+
+
   display: inline;
+
 }
 .mastery-text-flow .ltr-run{   display:inline;  }
 </style>
@@ -253,6 +278,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
 #homePage .guided-forward button{width:150px;height:42px;box-sizing:border-box;margin:0}
 </style>
 <style>
+
 .mastery-course-intro,.mastery-topic-number,.mastery-subtopic-kicker,.mastery-subtopic-focus{display:none!important;}
 .mastery-tts-global-btn{border:1px solid var(--line);border-radius:9px;background:#fff;padding:6px 10px;color:var(--green);cursor:pointer;}
 .mastery-tts-global-btn.active{background:var(--green);color:#fff}
@@ -260,21 +286,26 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
 .mastery-tts-panel.visible{display:flex}.mastery-tts-panel button{flex:1 1 50%;border:1px solid var(--line);border-radius:6px;padding:5px 4px;cursor:pointer;width:50%;height:30px;min-width:0;min-height:30px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;font-size:13px;font-weight:600;transition:background-color .15s ease,border-color .15s ease}.mastery-tts-panel #masteryTTSCloseButton{background:#ffe4e6;border-color:#fda4af;color:#9f1239}.mastery-tts-panel #masteryTTSToggleButton.is-play{background:#dcfce7;border-color:#86efac;color:#166534}.mastery-tts-panel #masteryTTSToggleButton.is-pause{background:#e0f2fe;border-color:#7dd3fc;color:#075985}.mastery-tts-status{display:none;}
 </style>
 <style>
-#hitCeilingPage .htc-question{display:block;margin:0 0 8px;line-height:1.55;}#hitCeilingPage .htc-answer{display:block;margin:0 0 8px;line-height:1.55;}
-#hitCeilingPage .htc-question strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}#hitCeilingPage .htc-answer strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}
+
+#hitCeilingPage .htc-question, #hitCeilingPage .htc-answer{display:block;margin:0 0 8px;line-height:1.55;}
+#hitCeilingPage .htc-question strong, #hitCeilingPage .htc-answer strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}
 #hitCeilingPage .htc-source{color:#64748b;font-weight:800;margin-top:6px;}
 </style>
-<style>#hitCeilingPage .htc-source,#hitCeilingPage .htc-question-meta,#hitCeilingPage .htc-question-number,#hitCeilingPage .htc-question-topic{display:none!important;}#hitCeilingPage .htc-topic-meta{display:none!important;}</style>
+<style>#hitCeilingPage .htc-source,#hitCeilingPage .htc-question-meta,#hitCeilingPage .htc-question-number,#hitCeilingPage .htc-question-topic, #hitCeilingPage .htc-topic-meta{display:none!important;}</style>
 <style>
+
 #topicPage .guided-content,#topicPage .topic-document .guided-content,#topicPage .mastery-topic-definition,#topicPage .mastery-subtopic-definition,#topicPage .mastery-topic-overview,#functionalContentView .mastery-course-intro > div:not(.mastery-section-label),#functionalContentView .mastery-topic-overview >
+
 </style>
 <style>
 #functionalContentView .mastery-nav,#functionalContentView .mastery-nav button,#functionalContentView .mastery-read-btn,#functionalContentView .practice-btn,#functionalContentView .readiness-btn,#functionalContentView .exam-btn,#functionalContentView .exam-option,#functionalContentView [role="tab"]{font-size:initial}
 </style>
 <style id="tab-symbol-font">
+
 .tab .num { font-size:54px !important; line-height:1 !important; padding-top:20px !important; padding-bottom:20px !important; }
 </style>
 <style id="multilingual-language-tabs-equal-width">
+
 .academic-language-switcher{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:nowrap;}
 .academic-language-switcher > button{
   flex:0 0 96px !important;
@@ -298,9 +329,9 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
 .main-content-container{width:100%;max-width:none;box-sizing:border-box;padding-left:2px;padding-right:2px;}
 .content-view{max-width:none;width:100%;box-sizing:border-box;} /* Academic document widths are governed only by .academic-content-container. */
 .guided-content,.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic,.mastery-topic-definition{box-sizing:border-box;}.guided-container,.mastery-topic{box-sizing:border-box;}
-.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic{height:auto;min-height:0;}.guided-container,.mastery-topic{height:auto;min-height:0;}
+.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic, .guided-container,.mastery-topic{height:auto;min-height:0;}
 .guided-content,.mastery-topic-definition{height:auto;min-height:0;overflow:visible;}
-.topic-document .visual-container .guided-content{height:auto;min-height:0;}.topic-document .visual-container,.mastery-visual-container{height:auto;min-height:0;}
+.topic-document .visual-container .guided-content, .topic-document .visual-container,.mastery-visual-container{height:auto;min-height:0;}
 </style>
 <style id="all-true-content-width-dynamic">
 #topicPage .main-content-container,
@@ -315,22 +346,13 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   margin-left:0 !important; margin-right:0 !important;
   padding-left:0 !important; padding-right:0 !important;
 }
-#topicPage .guided-content,#functionalContentView .revision-card-definition,#functionalContentView .exam-question,#functionalContentView .exam-passage,#functionalContentView .readiness-live-q,#functionalContentView .readiness-feedback,#functionalContentView .practice-question,#functionalContentView .practice-answer,#functionalContentView .exam-answer{
-  width:100% !important; max-width:none !important;
-  box-sizing:border-box !important;
-  height:auto !important; min-height:0 !important; max-height:none !important;
-  overflow:visible !important;
-}#topicPage .guided-document,#topicPage .guided-container,#topicPage .chapter-heading-container,#topicPage .chapter-definition-container,#topicPage .learning-outcomes-container,#functionalContentView .readiness-user-answer{
+#topicPage .guided-content,#functionalContentView .revision-card-definition,#functionalContentView .exam-question,#functionalContentView .exam-passage,#functionalContentView .readiness-live-q,#functionalContentView .readiness-feedback,#functionalContentView .practice-question,#functionalContentView .practice-answer,#functionalContentView .exam-answer, #topicPage .guided-document,#topicPage .guided-container,#topicPage .chapter-heading-container,#topicPage .chapter-definition-container,#topicPage .learning-outcomes-container,#functionalContentView .readiness-user-answer{
   width:100% !important; max-width:none !important;
   box-sizing:border-box !important;
   height:auto !important; min-height:0 !important; max-height:none !important;
   overflow:visible !important;
 }
-#topicPage .guided-content p,#functionalContentView .mastery-document p,#functionalContentView .mastery-document .mastery-topic-definition *,#functionalContentView .mastery-document .mastery-subtopic-definition *{
-  box-sizing:border-box;
-  max-width:100%;
-  height:auto !important; min-height:0 !important; max-height:none !important;
-}#topicPage .topic-document p{
+#topicPage .guided-content p,#functionalContentView .mastery-document p,#functionalContentView .mastery-document .mastery-topic-definition *,#functionalContentView .mastery-document .mastery-subtopic-definition *, #topicPage .topic-document p{
   box-sizing:border-box;
   max-width:100%;
   height:auto !important; min-height:0 !important; max-height:none !important;
@@ -351,6 +373,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   align-items:center;
   justify-content:center;
   overflow:hidden;
+
   flex:0 1 auto;
 }
 .guided-content .physics-drawing{
@@ -394,6 +417,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   align-items:center;
   justify-content:center;
   overflow:hidden;
+
   flex:0 1 auto;
 }
 #functionalContentView .mastery-topic-overview .physics-drawing{
@@ -409,6 +433,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   object-fit:contain;
   object-position:center center;
   flex:0 1 auto;
+
 }
 @media(max-width:760px){
   #functionalContentView .mastery-topic-overview .physics-visual-render{
@@ -472,6 +497,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   align-items:center;
   justify-content:flex-end;
   gap:6px;
+
 }
 #functionalContentView .mastery-toolbar{
   display:grid;
@@ -529,28 +555,24 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   white-space: nowrap !important;
   vertical-align: top !important;
 }
-#functionalContentView .mastery-document .mastery-topic-actions,#functionalContentView .mastery-document .mastery-subtopic-head,#functionalContentView .mastery-document .academic-language-switcher{
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 6px !important;
-}#functionalContentView .mastery-document .mastery-progress{
+#functionalContentView .mastery-document .mastery-topic-actions,#functionalContentView .mastery-document .mastery-subtopic-head,#functionalContentView .mastery-document .academic-language-switcher, #functionalContentView .mastery-document .mastery-progress{
   display: flex !important;
   align-items: flex-start !important;
   gap: 6px !important;
 }
 #functionalContentView .mastery-document .mastery-topic-actions{
   justify-content: flex-end !important;
+
 }
-#functionalContentView .mastery-document .mastery-subtopic-head{
-  justify-content: space-between !important;
-}
-#functionalContentView .mastery-document .mastery-progress {
+#functionalContentView .mastery-document .mastery-subtopic-head, #functionalContentView .mastery-document .mastery-progress{
   justify-content: space-between !important;
 }
 #functionalContentView .mastery-document .academic-language-switcher{
   justify-content: flex-start !important;
 }
 </style>
+
+
 <style id="academic-topic-action-tabs-match-lecture-mastery">
 /* Keep every academic topic's existing translation action at the upper-right,
    using the exact 108 x 31 px action-tab geometry used by Lecture Mastery. */
@@ -625,12 +647,15 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   max-height:31px !important;
   padding:0 8px !important;
   border-radius:9px !important;
+
+
 }
 </style>
 <style id="global-screen-bottom-border-css">
 /* One shared viewport-bottom border for every page and translation view. */
 body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:5px;background:#c9a95b;z-index:2147483647;pointer-events:none;}
 </style>
+
 <style id="global-scroll-system-css">
 /* Global scroll system: one shared control for manual arrows, auto-scroll and previous-page state. */
 .global-scroll-system{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:2147483000;display:flex;align-items:center;gap:8px;min-height:42px;padding:5px 8px;border:1px solid var(--red);border-radius:11px;background:#fff;color:var(--red);box-shadow:0 2px 8px rgba(15,23,42,.12);font-size:13px;font-weight:800;line-height:1;box-sizing:border-box;user-select:none}
@@ -644,6 +669,7 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:5px;backgro
 .global-previous-page-tab{display:none!important}
 @media(max-width:760px){.global-scroll-system{bottom:10px;min-height:40px}.global-scroll-arrow{width:42px;height:42px}.global-scroll-previous{width:150px;height:40px;font-size:13px}}
 </style>
+
 <style id="global-academic-content-container-width">
 /* One width policy for every academic page and Lecture Mastery topic/subtopic container.
    Content determines the natural width; the viewport caps it. Height remains content-driven. */
@@ -807,6 +833,7 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:5px;backgro
   overflow: visible;
   text-overflow: clip;
 }
+
 #homeContentView .course-overview-intro{margin:0 0 10px;line-height:1.45;}
 #homeContentView .course-overview-key-label{font-weight:700;margin:0 0 5px;}
 #homeContentView .course-overview-key-points{margin:0;padding-inline-start:22px;}
@@ -883,6 +910,7 @@ function syncTopicRegistry(){
   return numbers;
 }
 syncTopicRegistry();
+
 const academicLanguageData=Object.create(null);
 Object.keys(topicData).forEach(n=>{const a=topicData[n]?.academic||{};const cleanDefinition=String(a.definition||'').replace(/\s*\[\[visual:physics:[^\]]+\]\]/g,'').trim();academicLanguageData[n]={...(academicLanguageData[n]||{}),en:{title:String(a.title||''),definition:cleanDefinition,subtopics:Array.isArray(a.subtopics)?a.subtopics.map(x=>[String(x?.[0]??''),String(x?.[1]??'')]):[]}};});
 /* ================================================================
@@ -891,6 +919,7 @@ Object.keys(topicData).forEach(n=>{const a=topicData[n]?.academic||{};const clea
    SVG is vector-native, responsive and reused by Lecture, Mastery
    and Visual Atlas. No raster assets or external drawing library.
    ================================================================ */
+
 const PHYSICS_VISUAL_LINKS={
  displacement:'physics://phy03/3.1/displacement-velocity-acceleration',
  velocityTime:'physics://phy03/3.2/velocity-time-graph',
@@ -1002,6 +1031,7 @@ function renderPhysicsVisual(link){const key=visualKeyFromLink(link),fn=key&&phy
 function getTopicVisualSlots(topic){return topicVisualLinks(topic).map((v,i)=>({id:`T${topic}-V${String(i+1).padStart(2,'0')}`,position:i+1,link:v.link,key:v.key,alt:v.key}));}
 function academicRichMarkup(v,extraLinks=[]){let text=String(v??''),links=[];const re=/\[\[visual:(physics:\/\/[^\]]+)\]\]/g;let m;while((m=re.exec(text)))links.push(m[1]);if(!links.length)links.push(...extraLinks);text=text.replace(re,'');return academicEsc(text).trim()+[...new Set(links)].map(renderPhysicsVisual).join('');}
 function masteryRichText(v,extraLinks=[]){const text=String(v??''),re=/\[\[visual:(physics:\/\/[^\]]+)\]\]/g,links=[];let m;while((m=re.exec(text)))links.push(m[1]);if(!links.length)links.push(...extraLinks);return `<span class="mastery-text-flow english-only" dir="ltr">${masteryEsc(text.replace(re,''))}</span>${[...new Set(links)].map(renderPhysicsVisual).join('')}`;}
+
 function showPage(id){if(typeof academicTTSHide==='function')academicTTSHide();document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const page=document.getElementById(id);if(page)page.classList.add('active');if(id==='homePage'&&typeof renderChapterAcademic==='function')renderChapterAcademic();if(id==='topicsPage')renderTopics();if(typeof initGlobalNavigation==='function')initGlobalNavigation(id);}
 function renderTopics(){
  const left=document.getElementById('topicColumnLeft'),right=document.getElementById('topicColumnRight'),fr=document.getElementById('functionalRow');
@@ -1031,6 +1061,7 @@ function renderTopics(){
 function syncAllTopicPageTabHeights(){equalizeTopicTabs();}
 function equalizeTopicTabs(){const page=document.getElementById('topicsPage');if(!page||!page.classList.contains('active'))return;const tabs=Array.from(page.querySelectorAll('.tab'));if(!tabs.length)return;tabs.forEach(t=>{t.style.width='100%';t.style.height='auto';});const maxH=Math.max(...tabs.map(t=>Math.ceil(t.getBoundingClientRect().height)));tabs.forEach(t=>{t.style.width='100%';t.style.height=maxH+'px';t.style.boxSizing='border-box';});}
 window.addEventListener('resize',()=>requestAnimationFrame(equalizeTopicTabs));
+
 function academicEsc(v){
  const escaped=String(v??'').replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
  return escaped.replace(/(\([A-Za-z][A-Za-z0-9 .,+\-\/]*\)|[A-Za-z][A-Za-z0-9.+\-\/]*)/g,'<bdi class="academic-ltr-run" dir="ltr">$1</bdi>');
@@ -1095,10 +1126,11 @@ function renderChapterAcademic(){
  if(h)h.textContent=heading;
  if(d){d.innerHTML=`<div class="central-chapter-visual-heading"><h2>${masteryEsc(CB.course?.title||'Chapter')}</h2>${centralVisualStatusMarkup()}</div>${centralVisualMarkup('chapter')}<p class="course-overview-intro">${masteryEsc(intro)}</p><div class="course-overview-key-label">${masteryEsc(label)}</div><ul class="course-overview-key-points">${points}</ul>`;d.classList.remove('urdu-medium');}
 }
-let topicScrollHandler=null;
+
 const masteryProgressKey='physicsLecture3MasteryProgress';
 function getMasteryProgress(){try{return JSON.parse(localStorage.getItem(masteryProgressKey)||'{}')}catch(e){return {}}}
 function saveMasteryProgress(p){try{localStorage.setItem(masteryProgressKey,JSON.stringify(p))}catch(e){}}
+
 function masteryEsc(v){return String(v??'').replace(/[&<>\\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\\"':'&quot;',"'":'&#39;'}[m]));}
 function masteryHasUrdu(v){
  return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(String(v??''));
@@ -1152,6 +1184,7 @@ const academicTranslationJobs=new Map();
 const academicNativeTranslators=new Map();
 let academicTranslationRun=0;
 let academicTranslationStatus='';
+
 function academicTranslationFieldKey(n,field,index){
   return `${n}:${field}:${index==null?'':index}`;
 }
@@ -1280,6 +1313,7 @@ function academicTerminologyNormalize(text,lang,source=''){
 const P03_URDU_BENCHMARKS=Object.create(null);
 const P03_URDU_TOPIC_PACKS=Object.create(null);
 function academicLocalSemanticTranslate(text,lang,context){ return null; }
+
 async function academicTranslationPublicFallback(text,target){
   if(typeof window.fetch!=='function') throw new Error('Fetch is unavailable in this browser.');
   const pieces=String(text??'').match(/\S+\s*/g)||[];
@@ -1454,6 +1488,8 @@ window.P03TranslatorMaster=Object.freeze({
   setProvider:setAcademicTranslationProvider,
   getState:(lang)=>Object.fromEntries(Object.entries(academicTranslationState[lang]||{}).map(([k,v])=>[k,typeof v==='object'&&v?v.value:v]))
 });
+
+
 function masteryTopicData(n){
  const pack=academicLangPack(n);
  return {n,title:pack.title,definition:pack.definition,subs:pack.subtopics};
@@ -1475,6 +1511,7 @@ function masteryTopicTemplate(topicNumber){
  const subMarkup=t.subs.map((sub,i)=>`<article class="mastery-subtopic academic-content-container" id="masteryTopic${topicNumber}Sub${i+1}"><div class="mastery-subtopic-head"><h3>${masteryEsc(sub.title||`Subtopic ${i+1}`)}</h3><button type="button" class="subtopic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, ${i+1})">🌐 Translate</button></div>${centralVisualMarkup(`subtopic-${topicNumber}-${i+1}`)}<p class="mastery-subtopic-definition">${masteryText(sub.definition||'')}</p><div class="mastery-subtopic-focus"><span>Learning focus</span><strong>Understand the concept, then use it in measurement, reasoning, and application.</strong></div>${i<t.subs.length-1?`<button class="mastery-step-arrow" type="button" onclick="openMasterySubtopic(${topicNumber},${i+2})" aria-label="Next subtopic">↓</button>`:''}</article>`).join('');
  return `<section class="mastery-topic academic-content-container" id="masteryTopic${topicNumber}" data-topic="${topicNumber}"><div class="mastery-topic-head"><div class="mastery-topic-head-row"><div><div class="mastery-topic-number">TOPIC ${topicNumber}</div><h2 class="mastery-topic-title">${masteryEsc(t.title)}</h2></div><div class="mastery-topic-actions"><button type="button" class="topic-translate-btn" onclick="toggleP03TranslateMenu(this, ${topicNumber}, null)">🌐 Translate</button><button class="mastery-read-btn" type="button" onclick="toggleMasteryRead(${topicNumber})">Mark as read</button></div></div></div>${centralVisualMarkup(`topic-${topicNumber}`)}<div class="mastery-topic-overview"><div class="mastery-section-label" dir="ltr">Definition</div><p>${masteryRichText(t.definition)}</p><p class="mastery-learning-lead">${masteryText(masteryLearningLead(topicNumber))}</p></div><div class="mastery-subtopics-head"><span>Learning Path</span><span>${t.subs.length} Subtopics</span></div><div class="mastery-subtopics">${subMarkup}</div></section>`;
 }
+
 function syncLectureMasteryActionButtonSize(){
  const mastery=document.querySelector('#functionalContentView .mastery-document');
  if(!mastery)return;
@@ -1485,6 +1522,7 @@ function syncLectureMasteryActionButtonSize(){
  mastery.style.setProperty('--mastery-translate-width',Math.round(rect.width)+'px');
  mastery.style.setProperty('--mastery-translate-height',Math.round(rect.height)+'px');
 }
+
 function renderActiveAcademicLanguage(){
  activeAcademicLanguage='en';
  const mastery=document.querySelector('#functionalContentView .mastery-document');
@@ -1499,6 +1537,7 @@ function renderActiveAcademicLanguage(){
   const n=Number(topic.dataset.topic||window.__activeTopicNumber||0); if(n)renderTopicLanguage(n);
  }
 }
+
 function renderTopicLanguage(n){
  activeAcademicLanguage='en';
  const academic=academicLangPack(n), subs=academic.subtopics||[], links=topicVisualLinks(n).map(v=>v.link);
@@ -1537,6 +1576,7 @@ function readinessRender(){
  readinessState={index:-1,checked:false,results:[],questions};
  root.innerHTML=`<div class="readiness-tier3 academic-content-container"><div class="readiness-head"><div class="readiness-title page-main-heading">Readiness Test</div></div><div class="readiness-source"><span class="ok">✓ Automatic academic-source connection active</span><span class="count">${topics.length} Topics · ${subCount} Subtopics · ${questions.length} Questions</span></div><div id="readinessFlow"></div><div class="readiness-actions"><button class="readiness-btn" type="button" onclick="readinessStart()">Start / Restart Test</button><button class="readiness-btn" type="button" onclick="readinessShowAllAnswers()">Show All Answers</button></div><div class="readiness-footer"></div></div>`;
  if(questions.length) readinessStart(); else readinessRenderEmpty();
+
 }
 function readinessRenderEmpty(){const f=document.getElementById('readinessFlow');if(f)f.innerHTML=`<div class="readiness-empty">No academic Topic/Subtopic question source is available yet. The complete test mechanism is already installed; when academic content is placed in Topics/Subtopics, questions and answers will populate automatically. No academic content is invented or duplicated.</div>`;}
 function readinessStart(){
@@ -1681,6 +1721,7 @@ function openFunctional(k){
  }
  showPage('functionalPage');
 }
+
 function practicalText(v){return String(v??'').replace(/\s+/g,' ').trim();}
 function practicalEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function practicalFirst(o,keys){for(const k of keys){const v=practicalText(o?.[k]);if(v)return v;}return '';}
@@ -1689,6 +1730,7 @@ function practicalValue(v){if(v===undefined||v===null)return '';if(typeof v==='s
 function practicalFromObject(o){if(!o||typeof o!=='object')return '';for(const k of ['practical','practicalWork','experiment','activity']){if(o[k]!==undefined&&o[k]!==null){const x=practicalValue(o[k]);if(x)return x;}}return '';}
 function getPracticalAcademicSource(){const out=[];for(let n=1;n<=topicCount;n++){const base=topicData?.[n]||{},reg=topicRegistry?.[n]||{},academic=base.academic||reg.academic||{};const title=practicalFirst(academic,['title','name','heading'])||practicalFirst(base,['title','name','heading','topicTitle'])||practicalFirst(reg,['title','name','heading'])||`Topic ${n}`;const rawSubs=academic.subtopics??base.subtopics??reg.subtopics??base.subTopics??reg.subTopics??[];const topicPractical=practicalFromObject(academic)||practicalFromObject(base)||practicalFromObject(reg);const subtopics=practicalNormalizeSubs(rawSubs).map(sub=>({title:sub.title,practical:practicalFromObject(sub.practical)})).filter(x=>x.practical);if(topicPractical||subtopics.length)out.push({number:n,title,practical:topicPractical,subtopics});}return out;}
 function practicalRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticalAcademicSource();if(topics.length){root.innerHTML=`<div class="practical-tier3 academic-content-container"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">Practical content is read automatically from Topics and their corresponding Subtopics.</div></div>${topics.map(t=>`<article class="practical-card"><div class="practical-card-head">Topic ${t.number} — ${practicalEsc(t.title)}</div><div class="practical-card-body">${t.practical?`<div class="practical-meta">Topic Practical</div><div>${practicalEsc(t.practical).replace(/\n/g,'<br>')}</div>`:''}${t.subtopics.map(s=>`<div class="practical-step"><strong>${practicalEsc(s.title)}</strong><div>${practicalEsc(s.practical).replace(/\n/g,'<br>')}</div></div>`).join('')}</div></article>`).join('')}<div class="practical-footer"></div></div>`;return;}root.innerHTML=`<div class="practical-tier3 academic-content-container"><div class="practical-head"><div class="practical-title page-main-heading">Practical Work</div><div class="practical-note">No Practical was found in the current Topics/Subtopics, so the student exercise below is shown as the fallback.</div></div><article class="practical-card practical-fallback"><div class="practical-card-body"><div class="breath-title">🌿 ذرا ریلیکس ہو جائیں!</div><div class="breath-line">آرام سے ایک لمبی، گہری سانس لیں…</div><div class="breath-line">چندا لمحے روکیں…</div><div class="breath-line">اور پھر آہستہ آہستہ سانس باہر چھوڑ دیں۔</div><div class="breath-line">ایک بار پھر… 🌱</div><div class="breath-line">سانس اندر — تھوڑا توقف — سانس باہر۔</div><div class="breath-line">اب ذہن تازہ، توجہ حاضر ✨</div><div class="breath-line">اگر آپ کو بہتر محسوس ہوا تو پورا مشق دوبارہ کیجئے۔ 🌿</div></div></article><div class="practical-footer"></div></div>`;}
+
 const dictionaryTerms=[];
 let dictionaryKeyboardCleanup = null;
 const dictionaryTranslationCacheKey='academicDictionaryTranslationsV1';
@@ -1709,6 +1751,7 @@ function setDictionaryTerms(entries){
  });
  dictionaryTerms.sort((a,b)=>a.term.localeCompare(b.term,undefined,{sensitivity:'base'}));
 }
+
 const dictionaryPashtoMeanings=Object.create(null);
 const dictionaryUrduMeanings=Object.create(null);
 // Learner-friendly Urdu and Pashto meanings for terminology extracted from lessons.
@@ -1730,6 +1773,41 @@ function dictionaryPronunciation(term){const hit=dictionaryPronunciationMap[Stri
 function dictionaryLocalizedMeaning(map,term){const key=String(term||'').trim();if(map[key])return map[key];const hit=Object.keys(map).find(k=>k.toLowerCase()===key.toLowerCase());return hit?map[hit]:'';}
 function getDictionaryTerms(){return [...dictionaryTerms];}
 function dictionaryEscapeRegExp(value){return String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function buildAutomaticDictionaryTerms(){
+ if(window.__dictionaryBuildComplete)return;
+ const entries=[];
+ const common=new Set('a an the and or but if then than so because as at by for from in into on onto of off to with without within through during before after above below between under over near is are was were be been being am do does did doing have has had having can could may might must shall should will would this that these those it its they them their there here what which who whom when where why how all any some each every both either neither other another same more most less least very just only also not no nor yes one two three four five first second third new used use using make made get gets give gives show shows such own our your their about against across toward towards per via while'.split(/\s+/));
+ const technical=new Set('velocity acceleration displacement distance speed time mass force momentum energy power work pressure density volume area length temperature current charge voltage resistance potential frequency wavelength amplitude motion vector scalar quantity quantities unit units measurement error uncertainty dimension dimensions equation equations gravity friction momentum impulse torque energy kinetic potential thermal electric magnetic field wave wavelength frequency circuit atom molecule atomic molecular ion ionic chemical reaction oxidation reduction concentration equilibrium electrode electrolyte catalyst spectrum optics lens mirror refraction reflection'.split(/\s+/));
+ const add=(term,definition,subtopic='',topic='')=>{
+  let t=String(term||'').replace(/^[\s•·–—-]+|[\s•·–—-]+$/g,'').trim().replace(/^(the|a|an)\s+/i,'').trim();
+  const d=String(definition||'').trim();
+  if(!t||!d||!/^[A-Za-z][A-Za-z -]*$/.test(t))return;
+  entries.push({term:t,definition:d,urduMeaning:'',synonyms:[],topic,subtopic});
+ };
+ const scan=(text,topic,subtopic,definition)=>{
+  const words=String(text||'').match(/[A-Za-z][A-Za-z'’-]*/g)||[];
+  for(const w of words){
+   const low=w.toLowerCase().replace(/[’']/g,'');
+   if(technical.has(low)) add(w,definition,subtopic,topic);
+  }
+ };
+ Object.entries(topicData||{}).forEach(([topicNo,data])=>{
+  const a=data?.academic;if(!a)return;
+  const topic=String(a.title||`Topic ${topicNo}`).trim();
+  const td=String(a.definition||'').trim();
+  add(topic,td,'',topic);
+  scan(topic,topic,'',td); scan(td,topic,'',td);
+  (Array.isArray(a.subtopics)?a.subtopics:[]).forEach(sub=>{
+   const st=String(sub?.title||'').trim(); const d=String(sub?.definition||'').trim();
+   add(st,d,st,topic); scan(st,topic,st,d); scan(d,topic,st,d);
+  });
+ });
+ const unique=new Map();
+ entries.forEach(e=>{const key=e.term.toLowerCase();if(!unique.has(key))unique.set(key,e);});
+ setDictionaryTerms([...unique.values()]);
+ window.__dictionaryBuildComplete=true;
+}
+
 function dictionaryLinkTextNode(node,terms){
  const text=node.nodeValue;if(!text||!text.trim())return;
  const sorted=terms.filter(e=>e.term.length>1).sort((a,b)=>b.term.length-a.term.length);
@@ -1758,6 +1836,7 @@ function linkDictionaryTerms(root){
 }
 function dictionaryLinkClickHandler(e){const word=e.target.closest?.('.linked-word');if(!word)return;const term=word.getAttribute('data-term')||word.textContent.trim();openDictionaryTerm(term);e.preventDefault();e.stopImmediatePropagation();}
 if(!window.__dictionaryLinkHandlerInstalled){document.addEventListener('click',dictionaryLinkClickHandler,true);window.__dictionaryLinkHandlerInstalled=true;}
+
 function dictionaryBuildAndLinkOnce(){
  if(window.__dictionaryBuildComplete)return;
  buildAutomaticDictionaryTerms();
@@ -1858,11 +1937,14 @@ function escapeDictionaryHtml(value){return String(value||'').replace(/[&<>"']/g
 function ensureDictionaryModal(){let modal=document.getElementById('dictionaryModal');if(modal)return modal;modal=document.createElement('div');modal.id='dictionaryModal';modal.className='dictionary-modal';modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');modal.setAttribute('aria-label','Dictionary definition');modal.addEventListener('click',e=>{if(e.target===modal)closeDictionaryTerm();});modal.innerHTML=`<div class="dictionary-card"><div class="dictionary-card-head"><span>Dictionary</span><button class="dictionary-card-close" type="button" onclick="closeDictionaryTerm()">×</button></div><div class="dictionary-card-term" data-dictionary-modal-term></div><div class="dictionary-card-definition" data-dictionary-modal-definition></div><div class="dictionary-card-source" data-dictionary-modal-source></div></div>`;document.body.appendChild(modal);modal.querySelector('[data-dictionary-modal-term]').id='dictionaryModalTerm';modal.querySelector('[data-dictionary-modal-definition]').id='dictionaryModalDefinition';modal.querySelector('[data-dictionary-modal-source]').id='dictionaryModalSource';return modal;}
 function openDictionaryTerm(term){const e=getDictionaryTerms().find(x=>x.term.toLowerCase()===String(term).toLowerCase());if(!e)return;ensureDictionaryModal();const title=document.getElementById('dictionaryModalTerm'),def=document.getElementById('dictionaryModalDefinition'),src=document.getElementById('dictionaryModalSource');if(!title||!def||!src)return;title.textContent=e.term;def.innerHTML=`<div><strong>English:</strong> ${escapeDictionaryHtml(e.englishDefinition||e.definition)}</div><div style="margin-top:10px;direction:ltr;text-align:left"><strong>IPA:</strong> ${escapeDictionaryHtml(e.pronunciationIPA||'—')}</div><div style="margin-top:10px;direction:rtl;text-align:right"><strong>تلفظ:</strong> ${escapeDictionaryHtml(e.pronunciationUrdu||'—')}</div><div style="margin-top:10px;direction:rtl;text-align:right"><strong>اردو معنی:</strong> ${escapeDictionaryHtml(e.urduMeaning||'ترجمہ ہو رہا ہے…')}</div><div style="margin-top:10px;direction:rtl;text-align:right"><strong>پښتو معنی:</strong> ${escapeDictionaryHtml(e.pashtoMeaning||'ترجمه روانه ده…')}</div>`;src.textContent=[e.topic,e.subtopic].filter(Boolean).join(' · ');ensureDictionaryModal().classList.add('open');}
 function closeDictionaryTerm(){document.getElementById('dictionaryModal')?.classList.remove('open');}
+
 function initDictionaryNavigation() {
   const input = document.getElementById('dictionarySearchInput');
   if (!input) return;
+
   // Reopening Dictionary must not stack duplicate listeners.
   if (typeof dictionaryKeyboardCleanup === 'function') dictionaryKeyboardCleanup();
+
   const viewport = window.visualViewport;
   const initialViewportHeight = viewport ? viewport.height : window.innerHeight;
   const keyboardIsOpen = () => {
@@ -1881,6 +1963,7 @@ function initDictionaryNavigation() {
   const onBlur = () => window.setTimeout(() => {
     if (document.activeElement !== input) setKeyboardState(false);
   }, 120);
+
   input.addEventListener('focus', onFocus);
   input.addEventListener('blur', onBlur);
   viewport?.addEventListener('resize', syncKeyboardState);
@@ -1923,10 +2006,13 @@ function practiceMakeQuestions(topic,sub){
  ];
  return strategies.map(x=>({q:x.name,a:`${x.explain} ${x.activity}`}));
 }
+
 function practiceRender(){const root=document.getElementById('functionalContentView');if(!root)return;const topics=getPracticeAcademicSource(),subCount=topics.reduce((a,t)=>a+t.subtopics.length,0);root.innerHTML=`<div class="practice-tier3 academic-content-container"><div class="practice-head"><div class="practice-title page-main-heading">Practice & Test Strategies</div></div><div class="practice-source"><span class="ok">✓ Academic content is used as the practice source</span><span class="count">${topics.length} Topics · ${subCount} Subtopics</span></div><div class="practice-intro"><strong>اس حصے کا مقصد:</strong> بچے کو یہ مشق کرانا کہ academic سوال کو کیسے سمجھنا ہے، متعلقہ concept کیسے پہچاننا ہے، جواب تک کیسے پہنچنا ہے اور آخر میں جواب کو کیسے check کرنا ہے۔ یہاں نیا academic syllabus نہیں بنایا جاتا؛ موجودا lecture content ہی practice کا source ہے۔</div><div class="practice-topics">${topics.map(t=>`<article class="practice-topic"><button class="practice-topic-head" type="button" onclick="practiceOpenTopic(${t.number})">Topic ${t.number} — ${practiceEsc(t.title)}</button><div class="practice-topic-body" id="practiceTopicBody${t.number}">${t.definition?`<div class="practice-question"><strong>Academic source:</strong> ${practiceEsc(t.definition)}</div>`:''}${t.subtopics.length?t.subtopics.map(sub=>{const qs=practiceMakeQuestions(t,sub);return `<div class="practice-subtopic"><div class="practice-subtopic-title">${practiceEsc(sub.title)}</div>${sub.definition?`<div class="practice-question"><strong>Academic content:</strong> ${practiceEsc(sub.definition)}</div>`:''}<div class="practice-strategy-list">${qs.map((x,k)=>`<div class="practice-question"><strong>${practiceEsc(x.q)}</strong>${practiceTier3State.showAnswers&&x.a?`<div class="practice-answer"><strong>بچے کے لیے طریقہ:</strong> ${practiceEsc(x.a)}</div>`:''}</div>`).join('')}</div></div>`;}).join(''):`<div class="practice-empty">This Topic has no academic Subtopic data in the current source yet.</div>`}</div></article>`).join('')}</div><div class="practice-actions"><button class="practice-btn" type="button" onclick="practiceToggleAnswers()">Show / Hide Strategy Guidance</button><button class="practice-btn" type="button" onclick="practiceOpenFirst()">Open First Topic</button></div><div class="practice-footer"></div></div>`;}
+
 function practiceOpenTopic(n){document.querySelectorAll('.practice-topic-body').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.practice-topic-head').forEach(x=>x.classList.remove('active'));const body=document.getElementById(`practiceTopicBody${n}`);if(body){body.classList.add('open');body.previousElementSibling?.classList.add('active');practiceTier3State.openTopic=n;}}
 function practiceOpenFirst(){document.querySelector('.practice-topic-head')?.click();}
 function practiceToggleAnswers(){practiceTier3State.showAnswers=!practiceTier3State.showAnswers;const n=practiceTier3State.openTopic;practiceRender();if(n)practiceOpenTopic(n);}
+
 let examinationState={showAnswers:false};
 function examText(v){return String(v??'').replace(/\s+/g,' ').trim();}
 function examEsc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
@@ -1986,12 +2072,14 @@ function examLongAnswer(x){return `Using the academic description below, explain
 function examinationRender(){
  const root=document.getElementById('functionalContentView');if(!root)return;
  root.innerHTML=`<div class="exam-tier3 academic-content-container"><div class="exam-head"><div class="exam-title page-main-heading">Examination</div><div class="exam-note">Questions assess understanding, interpretation and application of the supplied academic content.</div></div><div id="examinationBody" class="exam-source"><span class="ok">✓ Automatic academic-source connection active</span><span>Preparing examination…</span></div><div class="exam-footer"></div></div>`;
+
  const build=()=>{
   const body=document.getElementById('examinationBody');if(!body)return;
   const items=getExaminationItems();
   if(!items.length){body.innerHTML=`<div class="exam-empty">No academic Topic/Subtopic content is available yet, so no questions have been invented.</div>`;return;}
   const mcqs=examMakeMCQs(items),shorts=items,longs=items;
   body.outerHTML=`<div class="exam-source"><span class="ok">✓ Automatic academic-source connection active</span><span>${getExaminationSource().length} Topics · ${items.filter(x=>x.kind==='Subtopic').length} Subtopics</span><span>${mcqs.length} MCQs</span></div><section class="exam-section"><div class="exam-section-head">MCQs</div>${mcqs.map((m,i)=>`<div class="exam-question" data-exam-index="${i}"><div class="exam-qtype">MCQ ${i+1}</div><div class="exam-qtext">${m.q}</div><div class="exam-passage">${examEsc(m.passage||m.item.definition)}</div><div class="exam-options">${m.options.map((o,j)=>`<label class="exam-option"><input type="radio" name="exam-mcq-${i}" value="${j}" onchange="updateExaminationProgress()"><span><b>${String.fromCharCode(65+j)}.</b> ${examEsc(o)}</span></label>`).join('')}</div><div class="exam-question-status" id="exam-status-${i}">Unanswered</div></div>`).join('')}</section><section class="exam-section"><div class="exam-section-head">Short Question Answers</div>${shorts.map((x,i)=>`<div class="exam-question"><div class="exam-qtype">Short Question ${i+1}</div><div class="exam-qtext">${examShortAnswer(x)}</div>${examinationState.showAnswers?`<div class="exam-answer"><strong>Answer:</strong> ${examEsc(x.definition)}</div>`:''}</div>`).join('')}</section><section class="exam-section"><div class="exam-section-head">Long Question Answers</div>${longs.map((x,i)=>`<div class="exam-question"><div class="exam-qtype">Long Question ${i+1}</div><div class="exam-qtext">${examLongAnswer(x)}</div><div class="exam-passage">${examEsc(x.definition)}</div>${examinationState.showAnswers?`<div class="exam-answer"><strong>Answer:</strong> ${examEsc(x.definition)}</div>`:''}</div>`).join('')}</section><div class="exam-actions"><div class="exam-progress-line" id="exam-progress-line">0 / ${mcqs.length} answered</div><button class="exam-btn" type="button" onclick="submitExamination()">Submit Answers</button><button class="exam-btn" type="button" onclick="examinationToggleAnswers()">${examinationState.showAnswers?'Hide Answers':'Show Answers'}</button></div><div id="examinationResult" class="exam-result" aria-live="polite"></div>`;
+
  };
  if('requestIdleCallback' in window)requestIdleCallback(build,{timeout:120});else setTimeout(build,0);
 }
@@ -2195,6 +2283,7 @@ function initHitCeiling(){
 }
 window.addEventListener('resize',()=>{if(document.getElementById('topicsPage')?.classList.contains('active'))requestAnimationFrame(syncAllTopicPageTabHeights);});
 initHitCeiling();renderChapterAcademic();renderTopics();
+
 let globalNavScrollHandler=null; let globalNavPageId=null; let globalNavResizeHandler=null; let globalNavMutationObserver=null;
 function initGlobalNavigation(pageId){
   document.querySelectorAll('.global-previous-page-tab:not(#p03TranslationOverlay .global-previous-page-tab)').forEach(el=>el.remove());
@@ -2239,9 +2328,14 @@ function initGlobalNavigation(pageId){
 .topic-translate-btn,.subtopic-translate-btn{border:1px solid var(--green);border-radius:9px;background:#fff;color:var(--green);padding:7px 11px;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap}.topic-translate-btn:hover,.subtopic-translate-btn:hover{background:var(--green);color:#fff}.p03-translate-menu{position:absolute;z-index:10001;width:var(--p03-menu-width,auto);min-width:0;padding:0;margin:0;border:0;background:transparent;box-shadow:none;display:none;gap:0;flex-direction:column;align-items:flex-start;pointer-events:auto}.p03-translate-menu.visible{display:flex}.p03-translate-menu button{box-sizing:border-box;width:100%;min-width:0;height:var(--p03-menu-button-height,32px);margin:0;padding:7px 11px;text-align:left;font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;font-size:11px;font-weight:900;line-height:1;letter-spacing:0;white-space:nowrap}.p03-translate-menu .ps-option,.p03-translate-menu .ur-option{font-family:Inter,"Noto Naskh Arabic",Arial,sans-serif;font-size:11px;font-weight:900}
 .mastery-topic-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}
 .mastery-subtopic-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+
 .p03-translation-overlay.visible{display:flex}
+
+
 .p03-translation-loading{padding:35px 15px;color:var(--muted);}
 .p03-translation-error{padding:35px 15px;color:var(--red);}
+
+
 .p03-translation-tts{border:1px solid var(--green)!important;background:#fff!important;color:var(--green)!important}
 .mastery-topic-actions .topic-translate-btn{margin-left:auto;}
 .mastery-toolbar{position:relative;display:grid!important;grid-template-columns:auto auto;grid-template-rows:auto auto;align-items:center;column-gap:10px;row-gap:7px;}
@@ -2250,10 +2344,15 @@ function initGlobalNavigation(pageId){
 .mastery-tts-global-btn{box-sizing:border-box;border:1px solid var(--green);border-radius:9px;background:#fff;color:var(--green);padding:7px 11px;cursor:pointer;}
 .mastery-tts-global-btn:hover{background:var(--green);color:#fff;}
 @media(max-width:760px){.english-study-toolbar{align-items:stretch;flex-direction:column}.mastery-topic-actions{justify-content:flex-start}.p03-translation-overlay{padding:0}.p03-translation-window{border-radius:0}.p03-translation-content{padding:8px 4px;}.p03-translation-content[dir="rtl"]{padding:8px 4px;}}
+
 /* ===== PHY03 Beautiful Urdu / Pashto Translation Design ===== */
 .p03-translation-overlay{position:fixed;;inset:0;;z-index:50000;;background:linear-gradient(135deg,rgba(7,34,28,.82),rgba(20,35,58,.76));;display:none;;align-items:stretch;;justify-content:center;;padding:24px;;backdrop-filter:blur(6px);;-webkit-backdrop-filter:blur(6px);}
 .p03-translation-window{width:min(1120px,100%);;height:min(92vh,980px);;background:#fffdf8;;border:1px solid rgba(255,255,255,.7);;border-radius:24px;;box-shadow:0 28px 90px rgba(0,0,0,.42),0 4px 18px rgba(0,0,0,.18);;display:flex;;flex-direction:column;;overflow:hidden;}
+
+
 .p03-translation-head-actions{display:flex;;align-items:center;;gap:8px;;flex-shrink:0;}
+
+
 .p03-translation-body{flex:1;;min-height:0;;overflow:auto;;padding:30px 34px 38px;;background:
     radial-gradient(circle at 10% 5%,rgba(201,169,91,.10),transparent 28%),
     radial-gradient(circle at 90% 95%,rgba(11,93,75,.08),transparent 30%),
@@ -2275,6 +2374,8 @@ function initGlobalNavigation(pageId){
 @media(max-width:760px){
   .p03-translation-overlay{padding:0}
   .p03-translation-window{width:100%;height:100%;border-radius:0;border:0}
+
+
   .p03-translation-body{padding:16px 10px 24px}
   .p03-translation-content{padding:22px 18px;border-radius:16px;}
 }
@@ -2292,6 +2393,8 @@ function initGlobalNavigation(pageId){
   align-items:center;
   justify-content:center;
   border-radius:9px;
+
+
 }
 @media(max-width:760px){
   .p03-translation-head-actions .p03-translation-tts{
@@ -2310,9 +2413,11 @@ function initGlobalNavigation(pageId){
 #p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts{position:absolute;top:calc(100% + 10px);right:12px;z-index:3;width:auto;min-width:0;max-width:none;height:32px;min-height:32px;max-height:32px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);box-shadow:0 2px 7px rgba(15,23,42,.12);transition:background .18s,border-color .18s,transform .18s}#p03TranslationOverlay .p03-translation-head-actions .p03-translation-tts:hover{background:#f7faf8;border-color:var(--green);transform:translateY(-1px)}
 #p03TranslationOverlay .p03-translation-body{flex:1;min-height:0;overflow:auto;box-sizing:border-box;padding:42px 8px 24px;background:var(--paper);border:1px solid var(--line);border-top:0}
 #p03TranslationOverlay .p03-translation-content{width:100%;max-width:none;box-sizing:border-box;margin:0;padding:4px 8px 34px;border:0;border-radius:0;background:transparent;color:var(--ink);box-shadow:none;}
+
 #p03TranslationOverlay .p03-translation-loading{padding:16px 8px;color:var(--muted);}
 #p03TranslationOverlay .p03-translation-error{padding:16px 8px;color:var(--red);}
 /* Translation Previous Page uses the shared global positioning rule. */
+
 </style>
 <div aria-label="Academy translation" aria-modal="true" class="p03-translation-overlay" id="p03TranslationOverlay" role="dialog">
 <div class="p03-translation-window">
@@ -2323,6 +2428,7 @@ function initGlobalNavigation(pageId){
 </div>
 </header>
 <div class="p03-translation-body"><div class="p03-translation-content" dir="ltr" id="p03TranslationContent"><div class="p03-translation-loading">Translation will appear here.</div></div></div>
+
 </div>
 </div>
 <div aria-label="Translation language" class="p03-translate-menu" id="p03TranslateMenu" role="menu"><button class="topic-translate-btn ur-option" onclick="chooseP03TranslationLanguage('ur');event.stopPropagation()" type="button">🌐 Urdu</button><button class="topic-translate-btn ps-option" onclick="chooseP03TranslationLanguage('ps');event.stopPropagation()" type="button">🌐 Pashto</button></div>
@@ -2336,6 +2442,7 @@ let p03TranslationTTSUtterance=null;
 let p03TranslationTTSIndex=0;
 let p03TranslationTTSChunks=[];
 let p03TranslationAudio=null;
+
 let p03TranslationNavHandler=null;let p03TranslationNavObserver=null;
 function updateP03TranslationNavigation(){
  const overlay=document.getElementById('p03TranslationOverlay'),scroller=overlay?.querySelector('.p03-translation-body');
@@ -2404,6 +2511,7 @@ function attachP03TranslateMenuScroller(button){
  p03TranslateAttachedScroller=scroller||null;
  if(p03TranslateAttachedScroller)p03TranslateAttachedScroller.addEventListener('scroll',refreshP03TranslateMenuPosition,{passive:true});
 }
+
 function closeP03TranslateMenu(){const menu=document.getElementById('p03TranslateMenu');menu?.classList.remove('visible');if(p03TranslateAttachedScroller)p03TranslateAttachedScroller.removeEventListener('scroll',refreshP03TranslateMenuPosition);p03TranslateAttachedScroller=null;p03TranslateMenuTarget=null;p03TranslateMenuTopic=0;p03TranslateMenuSub=null;}
 function toggleP03TranslateMenu(button,n,subNumber){
  const menu=document.getElementById('p03TranslateMenu'); if(!menu)return;
@@ -2429,6 +2537,7 @@ function chooseP03TranslationLanguage(lang){
 document.addEventListener('click',e=>{const menu=document.getElementById('p03TranslateMenu');if(!menu?.classList.contains('visible'))return;if(e.target.closest('#p03TranslateMenu')||e.target===p03TranslateMenuTarget)return;closeP03TranslateMenu();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeP03TranslateMenu();});
 window.addEventListener('resize',()=>{if(p03TranslateMenuTarget?.isConnected)positionP03TranslateMenu(p03TranslateMenuTarget);else closeP03TranslateMenu();});
+
 function openP03Translation(source,title,key){
  p03TranslationSource=String(source||'').trim();
  p03TranslationTitle=String(title||'Translation');
@@ -2476,6 +2585,7 @@ async function p03TranslateLongText(source,lang,key){
   }
   return await academicTranslationProvider(cleanSource,lang,{topic:n,field:'full-screen',subNumber});
 }
+
 async function runP03Translation(lang){
  if(!['ur','ps'].includes(lang)||!p03TranslationSource)return;
  p03TranslationLang=lang;
@@ -2569,10 +2679,13 @@ function p03TranslationStopTTS(){
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('p03TranslationOverlay')?.classList.contains('visible'))closeP03Translation();});
 document.getElementById('p03TranslationOverlay')?.addEventListener('click',e=>{if(e.target.id==='p03TranslationOverlay')closeP03Translation();});
 </script>
+
 <script>
+
 const ACADEMIC_TTS_LANGS={en:{lang:'en-GB',remote:'en',label:'English'},ur:{lang:'ur-PK',remote:'ur',label:'اردو'}};
 const ACADEMIC_TTS_MAX_CHARS=180;
 let academicTTSChunks=[],academicTTSIndex=0,academicTTSPlaying=false,academicTTSPaused=false,academicTTSVoice=null,academicTTSAudio=null,academicTTSMode='',academicTTSLanguage='en',currentUtteranceReference=null,academicTTSCurrentChunk=null;
+
 function academicTTSText(){
  const root=document.querySelector('#functionalContentView .mastery-document');
  if(!root)return '';
@@ -2684,6 +2797,7 @@ function academicTTSSpeechText(text){
  t=t.replace(/(اسکیلر|ډاټ پروډکټ|ویکټر|کراس پروډکټ|Right-Hand Rule|Free-Body Diagram|Moment Arm|Torque|Resultant Force|Concurrent Forces|Condition for Equilibrium|Component Form|First Condition of Equilibrium|Second Condition of Equilibrium|Translational and Rotational Balance|Choice of Reference Point|Applications)\s+او\s+(?=(?:اسکیلر|ډاټ پروډکټ|ویکټر|کراس پروډکټ|Right-Hand Rule|Free-Body Diagram|Moment Arm|Torque|Resultant Force|Concurrent Forces|Condition for Equilibrium|Component Form|First Condition of Equilibrium|Second Condition of Equilibrium|Translational and Rotational Balance|Choice of Reference Point|Applications)\b)/g,'$1، او ');
  return t;
 }
+
 function academicTTSPlayBrowser(text,cfg){
  const synth=window.speechSynthesis;
  if(!synth||typeof synth.speak!=='function'||typeof SpeechSynthesisUtterance==='undefined'){
@@ -2901,24 +3015,30 @@ window.addEventListener('pageshow',()=>{
  */
 (function (global) {
   'use strict';
+
   const DEFAULTS = Object.freeze({
     maxWords: 500,
     targetWords: 500,
     minUsefulWords: 1
   });
+
   // Common sentence endings for English, Urdu, Pashto and Arabic-script prose.
   const SENTENCE_END = /(?:[.!?。！？۔؟])(?:["'”’»)\]]+)?(?=\s|$)/gu;
   const CLAUSE_END = /(?:[;؛:：,،])(?=\s|$)/gu;
+
   function normalizeText(value) {
     return String(value == null ? '' : value).replace(/\r\n?/g, '\n');
   }
+
   function compactWhitespace(value) {
     return normalizeText(value).trim().replace(/\s+/gu, ' ');
   }
+
   function wordCount(value) {
     const text = normalizeText(value).trim();
     return text ? text.split(/\s+/u).length : 0;
   }
+
   function boundaryPositions(text, regex) {
     const positions = [];
     let match;
@@ -2929,23 +3049,28 @@ window.addEventListener('pageshow',()=>{
     regex.lastIndex = 0;
     return positions;
   }
+
   function unitsAtBoundaries(text, boundaryRegex) {
     const source = normalizeText(text).trim();
     const units = [];
     let start = 0;
+
     for (const end of boundaryPositions(source, boundaryRegex)) {
       const piece = source.slice(start, end).trim();
       if (piece) units.push(piece);
       start = end;
     }
+
     const tail = source.slice(start).trim();
     if (tail) units.push(tail);
     return units;
   }
+
   function packUnits(units, maxWords, reason) {
     const chunks = [];
     let current = [];
     let count = 0;
+
     for (const unit of units) {
       const n = wordCount(unit);
       if (current.length && count + n > maxWords) {
@@ -2956,9 +3081,11 @@ window.addEventListener('pageshow',()=>{
       current.push(unit);
       count += n;
     }
+
     if (current.length) chunks.push({ text: current.join(' '), reason });
     return chunks;
   }
+
   function whitespaceFallback(text, maxWords) {
     const words = compactWhitespace(text).split(' ').filter(Boolean);
     const chunks = [];
@@ -2970,18 +3097,22 @@ window.addEventListener('pageshow',()=>{
     }
     return chunks;
   }
+
   function splitAtBestBoundary(text, maxWords) {
     const source = compactWhitespace(text);
     if (!source) return [];
     if (wordCount(source) <= maxWords) {
       return [{ text: source, reason: 'within-limit' }];
     }
+
     // Level 1: complete sentences. This is intentionally greedy, not equal-sized.
     const sentences = unitsAtBoundaries(source, SENTENCE_END);
     const sentenceChunks = packUnits(sentences, maxWords, 'sentence-boundary');
+
     if (sentenceChunks.every(chunk => wordCount(chunk.text) <= maxWords)) {
       return sentenceChunks;
     }
+
     // Level 2: an individual sentence is over the limit. Split that sentence
     // at clause/strong punctuation boundaries.
     const finalChunks = [];
@@ -2990,8 +3121,10 @@ window.addEventListener('pageshow',()=>{
         finalChunks.push(sentenceChunk);
         continue;
       }
+
       const clauses = unitsAtBoundaries(sentenceChunk.text, CLAUSE_END);
       const clauseChunks = packUnits(clauses, maxWords, 'clause-boundary');
+
       for (const clauseChunk of clauseChunks) {
         if (wordCount(clauseChunk.text) <= maxWords) {
           finalChunks.push(clauseChunk);
@@ -3001,18 +3134,22 @@ window.addEventListener('pageshow',()=>{
         }
       }
     }
+
     return finalChunks.filter(chunk => chunk.text);
   }
+
   function splitText(text, options) {
     const cfg = Object.assign({}, DEFAULTS, options || {});
     const maxWords = Math.max(1, Number(cfg.maxWords) || DEFAULTS.maxWords);
     return splitAtBestBoundary(text, maxWords);
   }
+
   function isHeadingBlock(block) {
     if (!block) return false;
     const tag = String(block.tagName || '').toLowerCase();
     return /^h[1-6]$/.test(tag) || block.type === 'heading' || block.type === 'subheading';
   }
+
   /**
    * Convert DOM/content blocks into ordered translation tasks.
    * This adapter does not mutate the source DOM.
@@ -3021,12 +3158,15 @@ window.addEventListener('pageshow',()=>{
     const tasks = [];
     let sequence = 0;
     let sourceBlockOrder = 0;
+
     for (let index = 0; index < (blocks || []).length; index++) {
       const block = blocks[index] || {};
       const source = compactWhitespace(block.text != null ? block.text : block.content);
       if (!source) continue;
+
       const blockOrder = sourceBlockOrder++;
       const heading = isHeadingBlock(block);
+
       if (heading) {
         tasks.push(makeTask({
           sequence: ++sequence,
@@ -3042,6 +3182,7 @@ window.addEventListener('pageshow',()=>{
         }));
         continue;
       }
+
       const pieces = splitText(source, options);
       pieces.forEach((piece, pieceIndex) => {
         tasks.push(makeTask({
@@ -3058,8 +3199,10 @@ window.addEventListener('pageshow',()=>{
         }));
       });
     }
+
     return tasks;
   }
+
   function makeTask(data) {
     return Object.assign({
       id: `tm-${data.sequence}`,
@@ -3068,6 +3211,7 @@ window.addEventListener('pageshow',()=>{
       wordCount: wordCount(data.sourceText)
     }, data);
   }
+
   function segmentDOM(root, options) {
     if (!root || typeof root.querySelectorAll !== 'function') return [];
     const nodes = root.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption');
@@ -3080,11 +3224,13 @@ window.addEventListener('pageshow',()=>{
     }));
     return segmentStructured(blocks, options);
   }
+
   function createJobs(text, context, options) {
     const source = compactWhitespace(text);
     const pieces = splitText(source, options);
     const total = pieces.length;
     const sourceTotalWords = wordCount(source);
+
     return pieces.map((piece, index) => ({
       id: `tm-job-${index + 1}`,
       index,
@@ -3099,16 +3245,20 @@ window.addEventListener('pageshow',()=>{
       translation: null
     }));
   }
+
   async function translateJobs(jobs, translator, hooks) {
     if (typeof translator !== 'function') {
       throw new TypeError('TranslationMachine: translator callback is required.');
     }
+
     const h = hooks || {};
     const results = jobs || [];
+
     // Sequential by design: Part 2 is not sent before Part 1 completes.
     for (let i = 0; i < results.length; i++) {
       const job = results[i];
       if (typeof h.before === 'function') await h.before(job, i, results);
+
       try {
         job.status = 'translating';
         const translated = await translator(job.sourceText, job.context, job);
@@ -3125,8 +3275,10 @@ window.addEventListener('pageshow',()=>{
         throw error;
       }
     }
+
     return results;
   }
+
   function orderedJobs(jobs) {
     return (jobs || []).slice().sort((a, b) => {
       const ai = Number.isFinite(a.index) ? a.index : Number(a.sequence) || 0;
@@ -3134,6 +3286,7 @@ window.addEventListener('pageshow',()=>{
       return ai - bi;
     });
   }
+
   function reassemble(jobs, options) {
     const cfg = Object.assign({ joiner: '' }, options || {});
     return orderedJobs(jobs)
@@ -3141,6 +3294,7 @@ window.addEventListener('pageshow',()=>{
       .filter(Boolean)
       .join(String(cfg.joiner));
   }
+
   function validateJobs(jobs, options) {
     const cfg = Object.assign({}, DEFAULTS, options || {});
     const maxWords = Math.max(1, Number(cfg.maxWords) || DEFAULTS.maxWords);
@@ -3148,6 +3302,7 @@ window.addEventListener('pageshow',()=>{
     const issues = [];
     let sourceWords = 0;
     let translatedWords = 0;
+
     arr.forEach((job, i) => {
       if (job.index != null && job.index !== i) issues.push(`order:${i + 1}`);
       const n = wordCount(job.sourceText);
@@ -3158,11 +3313,13 @@ window.addEventListener('pageshow',()=>{
       }
       if (typeof job.translation === 'string') translatedWords += wordCount(job.translation);
     });
+
     for (let i = 1; i < arr.length; i++) {
       if (arr[i].part != null && arr[i - 1].part != null && arr[i].part !== arr[i - 1].part + 1) {
         issues.push(`part-order:${arr[i].id}`);
       }
     }
+
     return {
       ok: issues.length === 0,
       issues,
@@ -3172,20 +3329,24 @@ window.addEventListener('pageshow',()=>{
       maxWords
     };
   }
+
   function validateSegmentation(source, jobs, options) {
     const base = validateJobs(jobs, options);
     const expectedTokens = compactWhitespace(source).split(' ').filter(Boolean);
     const actualTokens = orderedJobs(jobs).flatMap(job => compactWhitespace(job.sourceText).split(' ').filter(Boolean));
     const issues = base.issues.slice();
+
     if (expectedTokens.length !== actualTokens.length) {
       issues.push(`word-total:${expectedTokens.length}:${actualTokens.length}`);
     }
+
     for (let i = 0; i < Math.min(expectedTokens.length, actualTokens.length); i++) {
       if (expectedTokens[i] !== actualTokens[i]) {
         issues.push(`token-order:${i + 1}`);
         break;
       }
     }
+
     return Object.assign(base, {
       ok: issues.length === 0,
       issues,
@@ -3193,6 +3354,7 @@ window.addEventListener('pageshow',()=>{
       actualTaskWords: actualTokens.length
     });
   }
+
   global.TranslationMachine = Object.freeze({
     version: '1.2.0',
     defaults: DEFAULTS,
@@ -3207,7 +3369,9 @@ window.addEventListener('pageshow',()=>{
     validateSegmentation
   });
 })(typeof window !== 'undefined' ? window : globalThis);
+
 </script>
+
 <script id="global-scroll-system-js">
 (function(){
   const state={scroller:null,page:null,auto:false,speed:1,raf:null,lastTs:0,lastY:0,idleTimer:null,overlay:false,arrowCenterX:null,ttsLinked:false,ttsPaused:false,ttsRaf:null,ttsTweenToken:0};
@@ -3378,7 +3542,7 @@ window.addEventListener('pageshow',()=>{
   }
   let ttsAutoScrollSession=null;
   let ttsPendingChunk=null;
-  const TTS_BASE_FONT_SIZE_PX=18;
+
   const TTS_BASE_LINE_HEIGHT_PX=27;
   const TTS_WORDS_PER_MINUTE=150;
   const TTS_SPEED_MULTIPLIER=0.65;
@@ -3546,8 +3710,8 @@ window.addEventListener('pageshow',()=>{
   setTimeout(refresh,0);
 })();
 </script>
-<!-- Redundant global English/Pashto/Urdu academic tabs are intentionally removed.
-     Keep the per-topic Translate menu, which is the only translation control. -->
+
+
 <style id="remove-redundant-academic-language-tabs">
   .academic-language-row, .mastery-language-row, .academic-language-switcher,
   [data-academic-language-tabs], [data-mastery-language-tabs] { display:none !important; }
@@ -3672,7 +3836,6 @@ function buildAutomaticDictionaryTerms(){
  const unique=new Map();entries.forEach(e=>{const key=e.term.toLowerCase();if(!unique.has(key))unique.set(key,e);});
  setDictionaryTerms([...unique.values()]);window.__dictionaryBuildComplete=true;
 }
-const fix10OriginalOpenDictionaryTerm=openDictionaryTerm;
 openDictionaryTerm=function(term){
  const e=getDictionaryTerms().find(x=>x.term.toLowerCase()===String(term).toLowerCase());if(!e)return;
  ensureDictionaryModal();const title=document.getElementById('dictionaryModalTerm'),def=document.getElementById('dictionaryModalDefinition'),src=document.getElementById('dictionaryModalSource');if(!title||!def||!src)return;
@@ -3692,3 +3855,4 @@ openDictionaryTerm=function(term){
 </script>
 </body>
 </html>
+
