@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
 <title>PHY03 — Academic System Fix 14</title>
-<style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic, #htcInfo{display:none!important;}
+<style>#htcCard .htc-question-meta,#htcCard .htc-question-number,#htcCard .htc-topic-meta,#htcCard .htc-question-topic{display:none!important;}#htcInfo{display:none!important;}
 .academic-language-row,.mastery-language-row{display:flex;justify-content:center;align-items:center;margin:0 0 12px}.academic-language-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.academic-language-switcher button{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--green);padding:8px 14px;font-weight:900;cursor:pointer}.academic-language-switcher button.active{background:var(--green);color:#fff}.dictionary-entry-pashto{direction:rtl;text-align:right}.dictionary-entry strong{font-weight:900;color:var(--green)}
 @media(max-width:760px){.dictionary-entry{grid-template-columns:1fr}.dictionary-entry-pashto{direction:rtl;text-align:right}}
 .translator-status{margin:6px 0 10px;padding:7px 10px;border:1px dashed var(--line);border-radius:9px;background:#fafafa;color:#64748b;font-size:11px;text-align:center}
@@ -241,7 +241,8 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
 .search-acronym{display:flex;flex-direction:column;gap:9px;margin:28px auto 24px;max-width:520px;width:auto}.search-acronym-row{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:20px}.search-acronym-letter{font-weight:900;font-size:38px;line-height:1.1;color:var(--green);text-align:right}.search-acronym-meaning{font-size:19px;font-weight:800;color:#334155;text-align:left}.search-title{font-size:18px;font-weight:900;color:var(--green)}.search-subtitle{display:none}.search-note{margin-top:4px;font-size:12px;color:#64748b;line-height:1.6}.search-scope{display:none;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:10px}.search-scope button{min-height:40px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--green);font-weight:800;cursor:pointer;font-size:11px}.search-scope button.active{border:2px solid var(--red);background:#fff7f7;color:var(--red)}.search-scope button[disabled]{opacity:.48;cursor:not-allowed}.search-box{position:relative;display:flex;align-items:center;gap:7px;margin-bottom:10px}.search-input-wrap{position:relative;flex:1;min-width:0}.search-input{width:100%;height:48px;border:1px solid var(--line);border-radius:12px;padding:0 44px 0 14px;font-size:16px;color:#334155;outline:none;background:#fff;direction:ltr}.search-input:focus{border-color:var(--green2);box-shadow:0 0 0 2px rgba(36,88,67,.10)}.search-clear{position:absolute;right:9px;top:50%;transform:translateY(-50%);width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:var(--red);font-size:21px;font-weight:900;cursor:pointer;display:none}.search-input-wrap.has-value .search-clear{display:block}.search-submit{height:48px;border:1px solid var(--green);border-radius:12px;background:var(--green);color:#fff;font-weight:900;padding:0 18px;cursor:pointer}.search-status{display:none;font-size:12px;color:#64748b;margin:5px 2px 10px;min-height:18px}.search-results{display:flex;flex-direction:column;gap:9px}.search-result{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.search-result-head{padding:9px 13px;background:#f3f7f4;border-bottom:1px solid var(--line);font-weight:900;color:var(--green)}.search-result-meta{font-size:11px;color:#64748b;font-weight:700;margin-top:3px}.search-result-body{padding:13px;line-height:1.8}.search-result-definition{padding:10px 12px;border:1px solid #e3e9e6;border-radius:10px;background:#fbfdfb;margin-bottom:9px}.search-match{background:#fff0a8;border-radius:3px;padding:0 2px}.search-subtopics{display:grid;gap:6px}.search-subtopic{padding:8px 10px;border:1px solid #e4e9e7;border-radius:9px;background:#fff}.search-subtopic-title{font-weight:900;color:var(--green)}.search-subtopic-text{margin-top:3px;font-size:13px}.search-empty{padding:24px 14px;border:1px dashed #cbd5e1;border-radius:14px;background:#fff;text-align:center;color:#64748b;line-height:1.8}
 .search-step-arrow{position:fixed;left:50%;bottom:66px;transform:translateX(-50%);z-index:20;width:40px;height:40px;border:1px solid var(--red);border-radius:50%;background:#fff;color:var(--red);font-size:22px;font-weight:800;cursor:pointer;display:none}.search-step-arrow.visible{display:flex;align-items:center;justify-content:center}@media(max-width:760px){.search-scope{grid-template-columns:repeat(4,minmax(0,1fr))}.search-box{gap:5px}.search-submit{padding:0 12px}}
 
-.topic-grid,.topic-feature-row,.functional-row, .topic-grid .column{gap:2px}
+.topic-grid,.topic-feature-row,.functional-row{gap:2px}
+.topic-grid .column{gap:2px}
 #topicsPage .topic-grid .tab,#topicsPage .functional-row .tab{width:100%;height:auto;min-height:54px;padding:10px 12px;border-width:1px;box-sizing:border-box}
 #topicsPage .topic-grid .main-topic-large .label{color:#166534;font-weight:900;text-shadow:none;filter:none;line-height:1.35;white-space:normal;overflow:visible}
 
@@ -261,10 +262,10 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
 
 .mastery-topic-overview >
 .mastery-rtl-text .ltr-run {
-
-
+  
+  
   display: inline;
-
+  
 }
 .mastery-text-flow .ltr-run{   display:inline;  }
 </style>
@@ -287,11 +288,11 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
 </style>
 <style>
 
-#hitCeilingPage .htc-question, #hitCeilingPage .htc-answer{display:block;margin:0 0 8px;line-height:1.55;}
-#hitCeilingPage .htc-question strong, #hitCeilingPage .htc-answer strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}
+#hitCeilingPage .htc-question{display:block;margin:0 0 8px;line-height:1.55;}#hitCeilingPage .htc-answer{display:block;margin:0 0 8px;line-height:1.55;}
+#hitCeilingPage .htc-question strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}#hitCeilingPage .htc-answer strong{display:block;color:var(--green);font-weight:900;margin-bottom:2px;}
 #hitCeilingPage .htc-source{color:#64748b;font-weight:800;margin-top:6px;}
 </style>
-<style>#hitCeilingPage .htc-source,#hitCeilingPage .htc-question-meta,#hitCeilingPage .htc-question-number,#hitCeilingPage .htc-question-topic, #hitCeilingPage .htc-topic-meta{display:none!important;}</style>
+<style>#hitCeilingPage .htc-source,#hitCeilingPage .htc-question-meta,#hitCeilingPage .htc-question-number,#hitCeilingPage .htc-question-topic{display:none!important;}#hitCeilingPage .htc-topic-meta{display:none!important;}</style>
 <style>
 
 #topicPage .guided-content,#topicPage .topic-document .guided-content,#topicPage .mastery-topic-definition,#topicPage .mastery-subtopic-definition,#topicPage .mastery-topic-overview,#functionalContentView .mastery-course-intro > div:not(.mastery-section-label),#functionalContentView .mastery-topic-overview >
@@ -329,9 +330,9 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
 .main-content-container{width:100%;max-width:none;box-sizing:border-box;padding-left:2px;padding-right:2px;}
 .content-view{max-width:none;width:100%;box-sizing:border-box;} /* Academic document widths are governed only by .academic-content-container. */
 .guided-content,.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic,.mastery-topic-definition{box-sizing:border-box;}.guided-container,.mastery-topic{box-sizing:border-box;}
-.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic, .guided-container,.mastery-topic{height:auto;min-height:0;}
+.mastery-course-intro,.mastery-topic-overview,.mastery-subtopic{height:auto;min-height:0;}.guided-container,.mastery-topic{height:auto;min-height:0;}
 .guided-content,.mastery-topic-definition{height:auto;min-height:0;overflow:visible;}
-.topic-document .visual-container .guided-content, .topic-document .visual-container,.mastery-visual-container{height:auto;min-height:0;}
+.topic-document .visual-container .guided-content{height:auto;min-height:0;}.topic-document .visual-container,.mastery-visual-container{height:auto;min-height:0;}
 </style>
 <style id="all-true-content-width-dynamic">
 #topicPage .main-content-container,
@@ -346,13 +347,22 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   margin-left:0 !important; margin-right:0 !important;
   padding-left:0 !important; padding-right:0 !important;
 }
-#topicPage .guided-content,#functionalContentView .revision-card-definition,#functionalContentView .exam-question,#functionalContentView .exam-passage,#functionalContentView .readiness-live-q,#functionalContentView .readiness-feedback,#functionalContentView .practice-question,#functionalContentView .practice-answer,#functionalContentView .exam-answer, #topicPage .guided-document,#topicPage .guided-container,#topicPage .chapter-heading-container,#topicPage .chapter-definition-container,#topicPage .learning-outcomes-container,#functionalContentView .readiness-user-answer{
+#topicPage .guided-content,#functionalContentView .revision-card-definition,#functionalContentView .exam-question,#functionalContentView .exam-passage,#functionalContentView .readiness-live-q,#functionalContentView .readiness-feedback,#functionalContentView .practice-question,#functionalContentView .practice-answer,#functionalContentView .exam-answer{
+  width:100% !important; max-width:none !important;
+  box-sizing:border-box !important;
+  height:auto !important; min-height:0 !important; max-height:none !important;
+  overflow:visible !important;
+}#topicPage .guided-document,#topicPage .guided-container,#topicPage .chapter-heading-container,#topicPage .chapter-definition-container,#topicPage .learning-outcomes-container,#functionalContentView .readiness-user-answer{
   width:100% !important; max-width:none !important;
   box-sizing:border-box !important;
   height:auto !important; min-height:0 !important; max-height:none !important;
   overflow:visible !important;
 }
-#topicPage .guided-content p,#functionalContentView .mastery-document p,#functionalContentView .mastery-document .mastery-topic-definition *,#functionalContentView .mastery-document .mastery-subtopic-definition *, #topicPage .topic-document p{
+#topicPage .guided-content p,#functionalContentView .mastery-document p,#functionalContentView .mastery-document .mastery-topic-definition *,#functionalContentView .mastery-document .mastery-subtopic-definition *{
+  box-sizing:border-box;
+  max-width:100%;
+  height:auto !important; min-height:0 !important; max-height:none !important;
+}#topicPage .topic-document p{
   box-sizing:border-box;
   max-width:100%;
   height:auto !important; min-height:0 !important; max-height:none !important;
@@ -373,7 +383,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   align-items:center;
   justify-content:center;
   overflow:hidden;
-
+  
   flex:0 1 auto;
 }
 .guided-content .physics-drawing{
@@ -417,7 +427,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   align-items:center;
   justify-content:center;
   overflow:hidden;
-
+  
   flex:0 1 auto;
 }
 #functionalContentView .mastery-topic-overview .physics-drawing{
@@ -433,7 +443,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   object-fit:contain;
   object-position:center center;
   flex:0 1 auto;
-
+  
 }
 @media(max-width:760px){
   #functionalContentView .mastery-topic-overview .physics-visual-render{
@@ -497,7 +507,7 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   align-items:center;
   justify-content:flex-end;
   gap:6px;
-
+  
 }
 #functionalContentView .mastery-toolbar{
   display:grid;
@@ -555,22 +565,31 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   white-space: nowrap !important;
   vertical-align: top !important;
 }
-#functionalContentView .mastery-document .mastery-topic-actions,#functionalContentView .mastery-document .mastery-subtopic-head,#functionalContentView .mastery-document .academic-language-switcher, #functionalContentView .mastery-document .mastery-progress{
+#functionalContentView .mastery-document .mastery-topic-actions,#functionalContentView .mastery-document .mastery-subtopic-head,#functionalContentView .mastery-document .academic-language-switcher{
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+}#functionalContentView .mastery-document .mastery-progress{
   display: flex !important;
   align-items: flex-start !important;
   gap: 6px !important;
 }
 #functionalContentView .mastery-document .mastery-topic-actions{
   justify-content: flex-end !important;
-
+  
 }
-#functionalContentView .mastery-document .mastery-subtopic-head, #functionalContentView .mastery-document .mastery-progress{
+#functionalContentView .mastery-document .mastery-subtopic-head{
+  justify-content: space-between !important;
+}
+#functionalContentView .mastery-document .mastery-progress {
   justify-content: space-between !important;
 }
 #functionalContentView .mastery-document .academic-language-switcher{
   justify-content: flex-start !important;
 }
 </style>
+
+
 
 
 <style id="academic-topic-action-tabs-match-lecture-mastery">
@@ -647,8 +666,8 @@ body.dictionary-keyboard-active #globalScrollSystem { display: none !important; 
   max-height:31px !important;
   padding:0 8px !important;
   border-radius:9px !important;
-
-
+  
+  
 }
 </style>
 <style id="global-screen-bottom-border-css">
@@ -944,7 +963,36 @@ function centralVisualSource(){
 }
 function centralVisualHash(text){let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16);}
 function centralVisualRecords(){const src=centralVisualSource(),out=[{key:'chapter',type:'chapter',topic:0,title:src.course.title,definition:src.course.definition}];src.topics.forEach(t=>{out.push({key:`topic-${t.number}`,type:'topic',topic:t.number,title:t.title,definition:t.definition});t.subtopics.forEach(sub=>out.push({key:`subtopic-${t.number}-${sub.index+1}`,type:'subtopic',topic:t.number,subtopic:sub.index+1,title:sub.title,definition:sub.definition}));});return out;}
-function centralVisualCategory(title,definition){const s=(String(title)+' '+String(definition)).toLowerCase();if(/measurement|measuring|metre|meter|length|ruler|scale|unit|uncertaint|error|precision|accuracy|significant|dimension|barometer|thermometer|telescope|balance|stopwatch|mass|time|temperature/.test(s))return 'measurement';if(/angle|radian|steradian|circle|sphere/.test(s))return 'angle';if(/graph|velocity|acceleration|motion|displacement/.test(s))return 'graph';if(/force|newton|momentum|collision|rocket|projectile/.test(s))return 'motion';if(/light|optics|lens|mirror|telescope/.test(s))return 'optics';if(/electric|current|voltage|circuit|magnetic/.test(s))return 'electricity';if(/heat|thermal|temperature/.test(s))return 'thermal';return 'science';}
+/* Discipline detection uses the current Content Bank, never a hard-coded file title. */
+let centralVisualDisciplineCacheSignature='',centralVisualDisciplineCacheValue='';
+function centralVisualDiscipline(record){
+ const explicit=String(CB?.course?.subject||CB?.course?.discipline||CB?.subject||'').toLowerCase();
+ if(/biology|biological|life science/.test(explicit))return 'biology';
+ if(/chemistry|chemical science/.test(explicit))return 'chemistry';
+ if(/physics|physical science/.test(explicit))return 'physics';
+ const courseHead=String(CB?.course?.title||'').toLowerCase();
+ if(/\bbiology\b|\blife science\b/.test(courseHead))return 'biology';
+ if(/\bchemistry\b|\bchemical science\b/.test(courseHead))return 'chemistry';
+ if(/\bphysics\b|\bphysical science\b/.test(courseHead))return 'physics';
+ const corpus=[CB?.course?.title,CB?.course?.definition,...centralVisualRecords().map(r=>r.title+' '+r.definition)].filter(Boolean).join(' ').toLowerCase();
+ const signature=centralVisualHash(corpus);
+ let detected=centralVisualDisciplineCacheSignature===signature?centralVisualDisciplineCacheValue:'';
+ if(!detected){
+  const score=(patterns)=>patterns.reduce((n,re)=>n+Math.min((corpus.match(re)||[]).length,4),0);
+  const bio=score([/\bbiology\b/g,/\bbiological\b/g,/\bcell(?:s|ular)?\b/g,/\bphotosynth(?:esis|etic)\b/g,/\bchloroplasts?\b/g,/\bmitochondri\w*\b/g,/\bDNA\b/gi,/\bRNA\b/gi,/\borgan(?:ism|s|elles?)\b/g,/\btissue(?:s)?\b/g,/\becosystem(?:s)?\b/g,/\benzyme(?:s)?\b/g,/\bgenetic(?:s)?\b/g,/\bplant(?:s)?\b/g,/\banimal(?:s)?\b/g,/\banatomy\b/g]);
+  const chem=score([/\bchemistry\b/g,/\bchemical(?:s|ly)?\b/g,/\batom(?:s|ic)?\b/g,/\bmolecule(?:s|ar)?\b/g,/\breact(?:ion|ant|s|ing)\w*\b/g,/\bacid(?:s|ic)?\b/g,/\balkali(?:s|ne)?\b/g,/\bperiodic table\b/g,/\bcovalent\b/g,/\bionic bond(?:s)?\b/g,/\bcompound(?:s)?\b/g,/\bvalence\b/g,/\boxidation\b/g,/\breduction\b/g,/\bsolution(?:s)?\b/g,/\bpH\b/gi,/\borganic chemistry\b/g]);
+  const phys=score([/\bphysics\b/g,/\bforce(?:s)?\b/g,/\bvelocity\b/g,/\bacceleration\b/g,/\bdisplacement\b/g,/\bmomentum\b/g,/\bmeasurement\b/g,/\bSI units?\b/g,/\bnewton(?:s)?\b/g,/\bprojectile\b/g,/\bcurrent\b/g,/\bvoltage\b/g,/\bcircuit(?:s)?\b/g,/\bwave(?:s)?\b/g,/\boptics\b/g,/\bthermodynamics\b/g,/\bpressure\b/g,/\bkinetic energy\b/g]);
+  detected=bio>chem&&bio>phys?'biology':chem>bio&&chem>phys?'chemistry':phys>bio&&phys>chem?'physics':'';
+  if(detected){centralVisualDisciplineCacheSignature=signature;centralVisualDisciplineCacheValue=detected;}
+ }
+ if(detected)return detected;
+ /* Content title/definition is the tie-breaker; do not trust stale document titles. */
+ const local=(String(record?.title||'')+' '+String(record?.definition||'')).toLowerCase();
+ if(/\b(cell|photosynthesis|chloroplast|mitochondri|dna|rna|ecosystem|enzyme|tissue|organism|genetic|plant cell)\b/.test(local))return 'biology';
+ if(/\b(chemical|atom|molecule|reaction|acid|alkali|periodic table|covalent|ionic|compound|oxidation|reduction|ph)\b/.test(local))return 'chemistry';
+ return 'physics';
+}
+function centralVisualCategory(title,definition){const s=(String(title)+' '+String(definition)).toLowerCase();if(/photosynth|chloroplast|mitochondri|dna|rna|cell|organell|tissue|ecosystem|enzyme|organism|genetic/.test(s))return 'biology';if(/chemical|atom|molecule|reaction|acid|alkali|periodic table|covalent|ionic|compound|oxidation|reduction|\bph\b/.test(s))return 'chemistry';if(/measurement|measuring|metre|meter|length|ruler|scale|unit|uncertaint|error|precision|accuracy|significant|dimension|barometer|thermometer|telescope|balance|stopwatch|mass|time|temperature/.test(s))return 'measurement';if(/angle|radian|steradian|circle|sphere/.test(s))return 'angle';if(/graph|velocity|acceleration|motion|displacement/.test(s))return 'graph';if(/force|newton|momentum|collision|rocket|projectile/.test(s))return 'motion';if(/light|optics|lens|mirror|telescope/.test(s))return 'optics';if(/electric|current|voltage|circuit|magnetic/.test(s))return 'electricity';if(/heat|thermal|temperature/.test(s))return 'thermal';return 'science';}
 function centralVisualIcon(kind,x,y,scale=1){
  const tr=`translate(${x} ${y}) scale(${scale})`;
  if(kind==='ruler')return `<g transform="${tr}"><rect x="-78" y="-18" width="156" height="36" rx="5" fill="#f4d79b" stroke="#8a5a24" stroke-width="3"/><path d="M-62 -17v15 M-46 -17v9 M-30 -17v15 M-14 -17v9 M2 -17v15 M18 -17v9 M34 -17v15 M50 -17v9 M66 -17v15" stroke="#8a5a24" stroke-width="2"/>${pText(0,7,'cm',13,900,'#704214','middle')}</g>`;
@@ -962,9 +1010,115 @@ function centralVisualIcon(kind,x,y,scale=1){
  if(kind==='sphere')return `<g transform="${tr}"><circle cx="0" cy="0" r="48" fill="#e6f2ec" stroke="#245843" stroke-width="4"/><ellipse cx="0" cy="0" rx="20" ry="48" fill="none" stroke="#245843" stroke-width="2"/><ellipse cx="0" cy="0" rx="48" ry="17" fill="none" stroke="#245843" stroke-width="2"/><path d="M0 0L46 -17" stroke="#9a3412" stroke-width="4"/></g>`;
  return `<g transform="${tr}"><path d="M-45 30L-45 -15L0 -45L45 -15L45 30Z" fill="#e7f1eb" stroke="#245843" stroke-width="4"/><path d="M-22 30V0H22V30" fill="#fff" stroke="#245843" stroke-width="3"/><circle cx="0" cy="-17" r="8" fill="#9a3412"/></g>`;
 }
+function centralVisualFrame(record,discipline,body,caption){
+ const title=String(record.title||'Concept Visual'),short=title.length>66?title.slice(0,63)+'…':title,id='cv'+centralVisualHash(record.key+'|'+title+'|'+discipline);
+ const palette=discipline==='biology'?{a:'#287a58',b:'#79b96a',p:'#e8f5e9',t:'#163f2b'}:discipline==='chemistry'?{a:'#245fa6',b:'#e29a36',p:'#edf5ff',t:'#17385f'}:{a:'#245843',b:'#c28b2c',p:'#eef6f1',t:'#173e34'};
+ body=body.replace(/url\(#arrow\)/g,`url(#${id}arrow)`);
+ return `<svg class="physics-drawing physics-scene central-generated-visual" data-central-visual="${svgEsc(record.key)}" data-discipline="${discipline}" viewBox="0 0 960 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${svgEsc(short)} — ${discipline} educational diagram" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="${palette.p}"/></linearGradient><marker id="${id}arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="${palette.a}"/></marker></defs><rect x="2" y="2" width="956" height="416" rx="22" fill="url(#${id}bg)" stroke="${palette.a}" stroke-opacity=".35" stroke-width="3"/><rect x="22" y="18" width="916" height="66" rx="14" fill="#fff" stroke="${palette.a}" stroke-opacity=".2"/><rect x="22" y="18" width="8" height="66" rx="4" fill="${palette.a}"/>${pText(48,43,short,22,900,palette.t)}${pText(48,66,(discipline+' • '+(record.type==='chapter'?'CHAPTER OVERVIEW':record.type==='subtopic'?'SUBTOPIC DIAGRAM':'TOPIC DIAGRAM')).toUpperCase(),10,900,palette.a)}${body}<path d="M40 375H920" stroke="${palette.a}" stroke-opacity=".22" stroke-width="2"/>${pText(48,397,caption||'Conceptual teaching diagram — labels identify the main relationships.',12,700,'#526477')}${pText(910,397,'IAE • SVG',10,800,palette.a,'end')}</svg>`;
+}
+function centralBiologySVG(record,s){
+ const green='#287a58',leaf='#79b96a',purple='#9876c6',blue='#69a9d6',orange='#e3a34c';
+ // The supplied topic/title has priority over related terms inside its explanation.
+ // DNA mentioned inside a Nucleus lesson must not hijack the Nucleus visual.
+ const topic=String(record.title||'').toLowerCase();
+ const topicClearlyDNA=/\b(dna|genetic material|chromosome|nucleic acid|double helix)\b/.test(topic);
+ const topicClearlyNucleus=/\b(nucleus|nuclear)\b/.test(topic);
+ const topicClearlyCell=/\bcell\b/.test(topic)&&! /\b(cell membrane|cell wall|cellular dna)\b/.test(topic);
+ if((topicClearlyDNA || (!topic.trim() && /dna|genetic|chromosom|nucleic acid|double helix/.test(s)))){
+  const left=[],right=[];for(let i=0;i<=16;i++){const y=125+i*13,x=390+Math.sin(i*Math.PI/4)*58;left.push([x,y]);right.push([780-x,y]);}
+  const path=pts=>'M'+pts.map(q=>q.join(' ')).join(' L');
+  let rungs='';for(let i=0;i<=16;i+=2){rungs+=pLine(left[i][0],left[i][1],right[i][0],right[i][1],{stroke:i%4===0?blue:orange,sw:3});}
+  const helix=`<path d="${path(left)}" fill="none" stroke="${green}" stroke-width="6" stroke-linecap="round"/><path d="${path(right)}" fill="none" stroke="${purple}" stroke-width="6" stroke-linecap="round"/>${rungs}`;
+  return centralVisualFrame(record,'biology',`${helix}${pText(220,150,'DNA strand',16,900,green)}${pLine(290,155,355,155,{stroke:green,sw:2})}${pText(650,150,'Complementary strand',16,900,purple)}${pLine(640,155,615,155,{stroke:purple,sw:2})}${pBox(280,310,400,60,'Base pairs','A pairs with T  •  G pairs with C',green)}`,'DNA stores hereditary information in a double-stranded helix.');
+ }
+ if(topicClearlyNucleus){
+  const body=`<ellipse cx="390" cy="220" rx="170" ry="125" fill="#dcecff" stroke="${blue}" stroke-width="8"/><ellipse cx="390" cy="220" rx="156" ry="111" fill="#f3f8ff" stroke="#7ca9d8" stroke-width="3"/><path d="M285 175q30 -35 58 0t58 0t58 0 M270 220q30 -35 58 0t58 0t58 0 M300 265q30 -35 58 0t58 0t58 0 M350 150q-20 20 0 40t0 40t0 40" fill="none" stroke="${purple}" stroke-width="5" stroke-linecap="round"/><circle cx="420" cy="230" r="35" fill="#b79bdc" stroke="#7952a8" stroke-width="4"/><circle cx="410" cy="220" r="9" fill="#7952a8"/><circle cx="390" cy="94" r="7" fill="${blue}" stroke="#245fa6" stroke-width="2"/><circle cx="475" cy="106" r="7" fill="${blue}" stroke="#245fa6" stroke-width="2"/><circle cx="530" cy="155" r="7" fill="${blue}" stroke="#245fa6" stroke-width="2"/><circle cx="548" cy="250" r="7" fill="${blue}" stroke="#245fa6" stroke-width="2"/><circle cx="470" cy="328" r="7" fill="${blue}" stroke="#245fa6" stroke-width="2"/>${pText(650,125,'Nuclear envelope',16,900,blue)}${pLine(635,130,535,151,{stroke:blue,sw:2})}${pText(650,185,'Nuclear pores',16,900,green)}${pLine(635,190,548,250,{stroke:green,sw:2})}${pText(650,245,'Chromatin (DNA)',16,900,purple)}${pLine(635,250,475,265,{stroke:purple,sw:2})}${pText(650,305,'Nucleolus',16,900,'#7952a8')}${pLine(635,310,447,235,{stroke:'#7952a8',sw:2})}${pText(390,370,'Nucleus of a eukaryotic cell',16,800,'#526477','middle')}`;
+  return centralVisualFrame(record,'biology',body,'Simplified nucleus cutaway showing the nuclear envelope, pores, chromatin and nucleolus; not to scale.');
+ }
+ if(/photosynth|plant nutrition/.test(topic)||(!topic.trim()&&/photosynth/.test(s)&&!/plant cell|cell wall/.test(s))){
+  return centralVisualFrame(record,'biology',`${pCircle(120,170,35,'#fff5c4',orange,4)}${pLine(150,170,205,170,{stroke:orange,sw:4})}${pLine(145,145,180,120,{stroke:orange,sw:3})}${pLine(145,195,180,220,{stroke:orange,sw:3})}${pBox(205,125,220,100,'Inputs','Light • water • carbon dioxide',green)}${pArrow(425,175,515,175,'', {stroke:green})}<rect x="515" y="125" width="150" height="100" rx="22" fill="#e5f5d8" stroke="${green}" stroke-width="4"/><ellipse cx="590" cy="175" rx="50" ry="28" fill="#a6d681" stroke="${green}" stroke-width="3"/>${pText(590,175,'Chloroplast',15,900,green,'middle')}${pArrow(665,175,745,175,'',{stroke:green})}${pBox(745,125,165,100,'Outputs','Sugar • oxygen',orange)}${pText(480,280,'Photosynthesis converts light energy into chemical energy.',17,800,'#355446','middle')}`,'Simplified overview: light energy supports the conversion of water and carbon dioxide into sugars and oxygen.');
+ }
+ if(/\bmitochondri(?:a|on|al)\b/.test(topic)){
+  const detailText=String(record.definition||'').toLowerCase();
+  const labels=[];
+  if(/outer membrane/.test(detailText))labels.push('Outer membrane');else labels.push('Outer membrane');
+  if(/inner membrane|cristae/.test(detailText))labels.push('Inner membrane');else labels.push('Inner membrane');
+  if(/cristae/.test(detailText))labels.push('Cristae');
+  if(/matrix/.test(detailText))labels.push('Matrix');
+  const body=`<path d="M145 215 C125 150 190 112 260 135 C330 155 380 120 450 145 C525 170 560 220 520 270 C475 325 395 295 330 315 C250 340 175 300 145 215Z" fill="#f8d9b9" stroke="#b85d3d" stroke-width="7"/><path d="M170 215 C155 170 205 145 260 160 C325 180 380 145 440 170 C495 190 530 225 495 260 C455 295 390 275 330 292 C255 312 190 275 170 215Z" fill="#fff0df" stroke="#d97745" stroke-width="4"/><path d="M190 200 Q215 165 240 200 T290 200 T340 200 T390 200 T440 200 M185 235 Q210 200 235 235 T285 235 T335 235 T385 235 T435 235 M210 265 Q235 230 260 265 T310 265 T360 265 T410 265" fill="none" stroke="#b85d3d" stroke-width="7" stroke-linecap="round"/>${pText(340,225,'Matrix',17,900,'#8f3f2d','middle')}${pText(665,140,'Outer membrane',16,900,green)}${pLine(650,145,520,165,{stroke:green,sw:2})}${pText(665,190,'Inner membrane',16,900,purple)}${pLine(650,195,500,205,{stroke:purple,sw:2})}${pText(665,240,'Cristae',16,900,'#b85d3d')}${pLine(650,245,445,235,{stroke:orange,sw:2})}${pBox(590,275,280,58,'Energy conversion','ATP production',green)}${pText(350,345,'Folded inner membrane increases surface area.',15,800,'#526477','middle')}`;
+  return centralVisualFrame(record,'biology',body,'Simplified mitochondrion cutaway showing membranes, cristae and matrix; not to scale. ATP production is associated with the inner membrane.');
+ }
+ if(/\bcytoplasm\b/.test(topic)){
+  const body=`<rect x="130" y="115" width="520" height="225" rx="34" fill="#e8f5e9" stroke="${green}" stroke-width="5"/><rect x="150" y="135" width="480" height="185" rx="24" fill="#f7fcf7" stroke="#79b96a" stroke-width="2"/>${pText(385,160,'CYTOPLASM',19,900,green,'middle')}${pText(385,185,'Cytosol + suspended structures',14,700,'#526477','middle')}${pCircle(270,240,28,'#d8c8f0',purple,3)}${pText(270,245,'N',15,900,purple,'middle')}<ellipse cx="385" cy="235" rx="48" ry="22" fill="#f7c5a2" stroke="${orange}" stroke-width="3"/><path d="M350 235q12 -15 24 0t24 0t24 0" fill="none" stroke="#b85d3d" stroke-width="3"/>${pCircle(500,270,12,'#b9d7f0',blue,2)}${pCircle(540,220,8,'#b9d7f0',blue,2)}${pBox(690,135,190,58,'Cytosol','Fluid component',green)}${pBox(690,215,190,58,'Organelles','Suspended in cytoplasm',purple)}${pText(475,310,'Many cellular chemical reactions occur here.',14,700,'#526477','middle')}`;
+  return centralVisualFrame(record,'biology',body,'Simplified cytoplasm view: cytosol and structures within the cell membrane; not to scale.');
+ }
+ if(/\bcell wall\b/.test(topic)){
+  const body=`<rect x="160" y="105" width="440" height="240" rx="28" fill="#c8e6b8" stroke="${green}" stroke-width="12"/><rect x="182" y="127" width="396" height="196" rx="20" fill="#f7fcf2" stroke="#79b96a" stroke-width="4"/><path d="M160 150H600 M160 190H600 M160 230H600 M160 270H600 M160 310H600 M205 105V345 M250 105V345 M295 105V345 M340 105V345 M385 105V345 M430 105V345 M475 105V345 M520 105V345" stroke="#79b96a" stroke-opacity=".45" stroke-width="2"/>${pText(390,220,'Cell interior',19,800,green,'middle')}${pText(675,145,'Cell wall',18,900,green)}${pLine(655,150,600,150,{stroke:green,sw:2})}${pBox(660,190,220,58,'Support','Helps maintain cell shape',green)}${pBox(660,265,220,58,'Protection','Rigid outer layer',purple)}`;
+  return centralVisualFrame(record,'biology',body,'Simplified cell-wall cross-section; wall lies outside the cell membrane in cells that possess one.');
+ }
+ if(/plant cell|chloroplast|vacuole/.test(s)){
+  const body=`<rect x="160" y="118" width="470" height="220" rx="36" fill="#e5f5d8" stroke="${green}" stroke-width="9"/><rect x="174" y="132" width="442" height="192" rx="28" fill="#f4fbe9" stroke="#6baf65" stroke-width="3"/><rect x="290" y="165" width="185" height="125" rx="22" fill="#d3eaf7" stroke="${blue}" stroke-width="3"/>${pText(382,225,'Large vacuole',16,900,'#245b7c','middle')}${pCircle(245,205,35,'#cbb8e8',purple,4)}${pCircle(245,205,13,'#9876c6',purple,2)}<ellipse cx="535" cy="170" rx="32" ry="15" fill="#b8e59a" stroke="${green}" stroke-width="3"/><path d="M514 170q10 -12 20 0t20 0" fill="none" stroke="${green}" stroke-width="3"/><ellipse cx="525" cy="280" rx="32" ry="15" fill="#b8e59a" stroke="${green}" stroke-width="3"/><path d="M505 280q10 -12 20 0t20 0" fill="none" stroke="${green}" stroke-width="3"/>${pText(700,145,'Cell wall',16,900,green)}${pLine(680,150,625,150,{stroke:green,sw:2})}${pText(700,205,'Nucleus',16,900,purple)}${pLine(680,205,278,205,{stroke:purple,sw:2})}${pText(700,265,'Chloroplasts',16,900,green)}${pLine(680,265,557,280,{stroke:green,sw:2})}`;
+  return centralVisualFrame(record,'biology',body,'Plant-cell schematic; organelle shape and placement are simplified for learning.');
+ }
+ if(/\bcell membrane\b|\bplasma membrane\b/.test(topic)){
+  const membrane=`<rect x="125" y="105" width="510" height="225" rx="30" fill="#e8f5e9" stroke="${green}" stroke-width="5"/><rect x="145" y="125" width="470" height="185" rx="22" fill="#f8fcf7" stroke="#79b96a" stroke-width="3"/><path d="M125 155H635 M125 168H635" stroke="${purple}" stroke-width="5" stroke-dasharray="7 5"/><path d="M125 268H635 M125 281H635" stroke="${purple}" stroke-width="5" stroke-dasharray="7 5"/>${pText(380,215,'Cell interior',20,900,green,'middle')}${pText(730,145,'Cell membrane',17,900,purple)}${pLine(710,150,635,160,{stroke:purple,sw:2})}${pBox(675,190,210,58,'Selective barrier','Controls substance movement',green)}${pArrow(65,205,135,205,'in',{stroke:blue})}${pArrow(625,245,700,245,'out',{stroke:orange})}`;
+  return centralVisualFrame(record,'biology',membrane,'Simplified membrane boundary; arrows illustrate movement in and out, not specific transport mechanisms.');
+ }
+ if(/cell|organel|membrane|cytoplasm|nucleus/.test(s)||record.type==='chapter'){
+  const body=`<ellipse cx="430" cy="235" rx="220" ry="116" fill="#e8f5e9" stroke="${green}" stroke-width="7"/><ellipse cx="430" cy="235" rx="209" ry="105" fill="none" stroke="#79b96a" stroke-width="2"/>${pCircle(405,225,48,'#d8c8f0',purple,4)}${pCircle(405,225,18,purple,purple,2)}<ellipse cx="330" cy="195" rx="36" ry="17" fill="#f7c5a2" stroke="${orange}" stroke-width="3"/><path d="M304 195q12 -18 24 0t24 0" fill="none" stroke="#b85d3d" stroke-width="3"/><ellipse cx="500" cy="275" rx="38" ry="20" fill="#f7c5a2" stroke="${orange}" stroke-width="3"/><path d="M470 275q12 -18 24 0t24 0" fill="none" stroke="#b85d3d" stroke-width="3"/><path d="M470 180q18 -20 36 0t36 0" fill="none" stroke="${blue}" stroke-width="6" stroke-linecap="round"/><circle cx="350" cy="270" r="5" fill="${green}"/><circle cx="535" cy="215" r="5" fill="${green}"/>${pText(700,140,'Cell membrane',16,900,green)}${pLine(680,145,605,165,{stroke:green,sw:2})}${pText(700,200,'Nucleus',16,900,purple)}${pLine(680,205,452,225,{stroke:purple,sw:2})}${pText(700,260,'Mitochondrion',16,900,'#b85d3d')}${pLine(680,265,538,275,{stroke:orange,sw:2})}${pText(700,315,'Cytoplasm',16,900,'#526477')}${pLine(680,315,590,300,{stroke:'#526477',sw:2})}`;
+  return centralVisualFrame(record,'biology',body,'Schematic cell overview; organelles are illustrative, not to scale.');
+ }
+ return centralVisualFrame(record,'biology',`${pCircle(300,220,68,'#e8f5e9',green,4)}${pCircle(300,220,28,'#d8c8f0',purple,3)}${pBox(420,135,380,65,'Biological structure','Cells form tissues; tissues form organs.',green)}${pBox(420,225,380,65,'Biological function','Structures support specialised life processes.',blue)}${pArrow(370,220,415,220,'',{stroke:green})}${pText(480,330,'Structure → function → living system',18,900,green,'middle')}`,'Conceptual biology overview; specific structures are shown when identified by the content.');
+}
+function centralChemistrySVG(record,s){
+ const blue='#245fa6',orange='#e29a36',red='#d95d59',green='#287a58';
+ if(/ph scale|acidity|alkalin|acid.?base|\bph\b/.test(s)){
+  const colors=['#d64a4a','#e36a45','#ed9850','#f1c66b','#b8ce76','#70b98a','#4ca7a0','#4c8ac7','#5969b6'];
+  const cells=colors.map((c,i)=>`<rect x="${100+i*85}" y="180" width="85" height="58" fill="${c}" stroke="#fff" stroke-width="2"/>${pText(142+i*85,209,String(i+1),18,900,'#fff','middle')}`).join('');
+  return centralVisualFrame(record,'chemistry',`${cells}${pText(100,145,'More acidic',15,900,red)}${pText(865,145,'More alkaline',15,900,blue,'end')}${pLine(105,260,865,260,{stroke:'#334155',sw:3})}${pText(480,300,'pH 7 is neutral at 25 °C for ordinary aqueous solutions.',16,800,'#334155','middle')}${pBox(270,310,420,60,'Interpretation','Lower pH = more acidic; higher pH = more alkaline.',blue)}`,'Illustrative pH scale; indicator colours are schematic, not measurement data.');
+ }
+ if(/water molecule|\bh2o\b/.test(s)){
+  return centralVisualFrame(record,'chemistry',`${pLine(430,225,330,165,{stroke:'#64748b',sw:9})}${pLine(430,225,535,165,{stroke:'#64748b',sw:9})}${pCircle(430,225,49,red,'#a83b38',4)}${pCircle(330,165,31,'#d8eaff',blue,4)}${pCircle(535,165,31,'#d8eaff',blue,4)}${pText(430,225,'O',26,900,'#fff','middle')}${pText(330,165,'H',19,900,blue,'middle')}${pText(535,165,'H',19,900,blue,'middle')}${pText(430,315,'H₂O • bent molecular geometry',20,900,blue,'middle')}${pText(430,345,'One oxygen atom bonded to two hydrogen atoms',15,700,'#526477','middle')}`,'Water molecule schematic; geometry is simplified and not to scale.');
+ }
+ if(/periodic table|element|atomic number|electron shell|atomic structure|\batom\b/.test(s)){
+  const shell1=Array.from({length:2},(_,i)=>{const a=i*Math.PI;return pCircle(480+52*Math.cos(a),220+52*Math.sin(a),8,'#e29a36','#a56b20',2)}).join('');
+  const shell2=Array.from({length:6},(_,i)=>{const a=i*Math.PI/3;return pCircle(480+100*Math.cos(a),220+100*Math.sin(a),7,'#5d9bd3','#245fa6',2)}).join('');
+  return centralVisualFrame(record,'chemistry',`${pCircle(480,220,25,'#e9a2a0','#b64040',3)}${pCircle(468,215,7,'#d95d59','#b64040',1)}${pCircle(490,226,7,'#d95d59','#b64040',1)}<circle cx="480" cy="220" r="52" fill="none" stroke="#94a3b8" stroke-width="2"/><circle cx="480" cy="220" r="100" fill="none" stroke="#94a3b8" stroke-width="2"/>${shell1}${shell2}${pText(650,150,'Electron shell',16,900,blue)}${pLine(635,155,565,160,{stroke:blue,sw:2})}${pText(650,215,'Nucleus',16,900,red)}${pLine(635,220,510,220,{stroke:red,sw:2})}${pText(650,280,'Electrons',16,900,'#356f9e')}${pLine(635,285,574,290,{stroke:'#356f9e',sw:2})}${pText(480,345,'Simplified Bohr-style model',16,800,'#526477','middle')}`,'Atomic model is schematic; electron positions do not represent fixed planetary orbits.');
+ }
+ if(/reaction|reactant|product|chemical equation|combustion|neutralis|oxidation|reduction/.test(s)){
+  return centralVisualFrame(record,'chemistry',`${pBox(85,150,260,95,'Reactants','Starting substances',blue)}${pArrow(350,198,600,198,'reaction conditions',{stroke:orange})}${pBox(605,150,260,95,'Products','Substances formed',green)}${pText(480,285,'Atoms are rearranged; they are not created or destroyed.',17,800,'#334155','middle')}${pBox(260,300,440,60,'Check','Balance atoms and charge where applicable.',orange)}`,'General reaction pathway; no specific equation is assumed without source data.');
+ }
+ if(/bond|molecule|covalent|ionic|compound|formula/.test(s)){
+  return centralVisualFrame(record,'chemistry',`${pCircle(300,215,42,'#d8eaff',blue,4)}${pCircle(430,215,42,'#f8d6a5',orange,4)}${pCircle(560,215,42,'#d8eaff',blue,4)}${pLine(342,215,388,215,{stroke:'#64748b',sw:9})}${pLine(472,215,518,215,{stroke:'#64748b',sw:9})}${pText(300,215,'A',24,900,blue,'middle')}${pText(430,215,'B',24,900,'#925d16','middle')}${pText(560,215,'C',24,900,blue,'middle')}${pText(430,300,'Atoms • bonds • molecular structure',19,900,blue,'middle')}${pText(430,330,'Schematic only; actual geometry depends on the substance.',14,700,'#526477','middle')}`,'Conceptual molecular structure; do not infer a real formula from this generic model.');
+ }
+ return centralVisualFrame(record,'chemistry',`${pBox(90,145,220,85,'Matter','Atoms and molecules',blue)}${pArrow(310,185,385,185,'',{stroke:orange})}${pBox(385,145,220,85,'Change','Physical or chemical',orange)}${pArrow(605,185,680,185,'',{stroke:green})}${pBox(680,145,200,85,'Evidence','Properties and results',green)}${pText(480,295,'Use the topic definition to identify the specific chemical idea.',17,800,'#334155','middle')}`,'Conceptual chemistry overview; a specific reaction or structure is drawn when the content identifies it.');
+}
+function centralPhysicsSVG(record,s){
+ if(/circuit|electric current|voltage|resistance|ohm/.test(s)){
+  return centralVisualFrame(record,'physics',`${pLine(260,145,650,145,{stroke:'#245843',sw:5})}${pLine(260,145,260,205,{stroke:'#245843',sw:5})}${pLine(260,255,260,315,{stroke:'#245843',sw:5})}${pLine(260,315,650,315,{stroke:'#245843',sw:5})}${pLine(650,145,650,205,{stroke:'#245843',sw:5})}${pLine(650,255,650,315,{stroke:'#245843',sw:5})}${pLine(242,205,278,205,{stroke:'#245843',sw:5})}${pLine(250,220,270,220,{stroke:'#245843',sw:2})}${pLine(235,238,285,238,{stroke:'#245843',sw:5})}${pCircle(650,230,25,'#fff','#c28b2c',4)}${pText(650,230,'R',17,900,'#245843','middle')}${pText(260,180,'+',16,900,'#245843','middle')}${pText(260,275,'−',18,900,'#245843','middle')}${pArrow(355,130,475,130,'I',{stroke:'#c28b2c'})}${pText(480,355,'Closed circuit • current • resistance',18,900,'#173e34','middle')}`,'Schematic circuit; component values are not specified by the source content.');
+ }
+ if(/wave|frequency|wavelength|sound|transverse|longitudinal/.test(s)){
+  const pts=[];for(let x=100;x<=860;x+=8)pts.push(`${x} ${220-58*Math.sin((x-100)/760*4*Math.PI)}`);
+  return centralVisualFrame(record,'physics',`${pLine(95,220,875,220,{stroke:'#94a3b8',sw:2})}<path d="M${pts.join(' L')}" fill="none" stroke="#245843" stroke-width="5" stroke-linejoin="round"/>${pLine(195,220,195,162,{stroke:'#c28b2c',sw:3})}${pLine(195,162,475,162,{stroke:'#c28b2c',sw:3})}${pLine(475,162,475,220,{stroke:'#c28b2c',sw:3})}${pText(335,145,'wavelength λ',16,900,'#8b651c','middle')}${pText(480,315,'Amplitude = maximum displacement from equilibrium',16,800,'#334155','middle')}`,'Illustrative wave; wavelength and amplitude are labelled schematically.');
+ }
+ if(/force|newton|free.?body|weight|friction|equilibrium/.test(s)){
+  return centralVisualFrame(record,'physics',`${pBox(385,175,190,90,'Object','Mass m','#245843')}${pArrow(480,175,480,112,'Normal force N',{stroke:'#245843'})}${pArrow(480,265,480,335,'Weight mg',{stroke:'#c28b2c',labelFill:'#8b651c'})}${pArrow(385,220,285,220,'Applied force',{stroke:'#245843'})}${pArrow(575,220,675,220,'Friction',{stroke:'#c28b2c',labelFill:'#8b651c'})}${pText(480,365,'Free-body diagram: include only forces acting on the object.',15,800,'#334155','middle')}`,'Force directions are illustrative; the correct set depends on the physical situation.');
+ }
+ if(/graph|velocity|acceleration|displacement|motion/.test(s)){
+  return centralVisualFrame(record,'physics',`${pLine(150,320,150,125,{stroke:'#334155',sw:3})}${pLine(150,320,825,320,{stroke:'#334155',sw:3})}<path d="M165 300 L300 270 L435 230 L570 200 L705 155 L805 125" fill="none" stroke="#245843" stroke-width="5" stroke-linejoin="round"/>${pText(160,115,'Quantity',13,800,'#334155')}${pText(820,345,'time',14,800,'#334155','end')}${pText(480,370,'Read axis labels, gradient and area according to the graph type.',15,800,'#334155','middle')}`,'Generic trend sketch only; the exact curve must be determined by the supplied concept or data.');
+ }
+ if(/measurement|ruler|significant figure|uncertaint|precision|accuracy|si unit|dimension/.test(s)){
+  const ticks=Array.from({length:21},(_,i)=>{const x=160+i*31;return pLine(x,205,x, i%5===0?155:180,{stroke:'#8a5a24',sw:i%5===0?3:2})}).join('');
+  return centralVisualFrame(record,'physics',`<rect x="145" y="185" width="650" height="52" rx="8" fill="#f4d79b" stroke="#8a5a24" stroke-width="3"/>${ticks}${Array.from({length:5},(_,i)=>pText(160+i*155,255,String(i*5),14,800,'#704214','middle')).join('')}${pLine(615,145,615,285,{stroke:'#c0392b',sw:3})}${pText(635,285,'Reading',15,900,'#9a3412')}${pBox(260,300,440,60,'Measurement','Read scale, unit and uncertainty together.','#245843')}`,'Measurement schematic; tick spacing is illustrative, not a calibrated instrument.');
+ }
+ return null;
+}
+/* Shared subject-aware drawing dispatch. Physics keeps its specialised engine; Biology and Chemistry get native SVG renderers too. */
+const SCIENCE_DRAWING_ENGINE={biology:centralBiologySVG,chemistry:centralChemistrySVG,physics:centralPhysicsSVG};
 function centralVisualSVG(record){
- const title=String(record.title||'Concept Visual'),def=String(record.definition||''),category=centralVisualCategory(title,def),s=(title+' '+def).toLowerCase();
- let kinds;
+ const title=String(record.title||'Concept Visual'),def=String(record.definition||''),s=(title+' '+def).toLowerCase(),discipline=centralVisualDiscipline(record);
+ const subjectDrawing=SCIENCE_DRAWING_ENGINE[discipline]?.(record,s);if(subjectDrawing)return subjectDrawing;
+ const category=centralVisualCategory(title,def);let kinds;
  if(record.type==='chapter')kinds=['ruler','thermometer','telescope','barometer','balance','clock'];
  else if(/thermometer|temperature|thermal/.test(s))kinds=['thermometer','clock','target'];
  else if(/barometer|pressure/.test(s))kinds=['barometer','ruler','units'];
@@ -983,11 +1137,11 @@ function centralVisualSVG(record){
  const icons=kinds.map((kind,i)=>centralVisualIcon(kind,480+(i-(kinds.length-1)/2)*145,238,i===0?0.92:0.76)).join('');
  const chipMarkup=chips.map((x,i)=>`<g><rect x="${525+i*128}" y="328" width="116" height="34" rx="17" fill="#f4f8f6" stroke="#c8d9d0"/>${pText(583+i*128,345,x.length>16?x.slice(0,14)+'…':x,12,800,'#245843','middle')}</g>`).join('');
  const id='cv'+centralVisualHash(record.key+title);
- return `<svg class="physics-drawing physics-scene central-generated-visual" data-central-visual="${svgEsc(record.key)}" viewBox="0 0 960 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${svgEsc(titleShort)} visual" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fbf9"/><stop offset="1" stop-color="#e8f2ed"/></linearGradient></defs><rect x="2" y="2" width="956" height="416" rx="22" fill="url(#${id}bg)" stroke="#c9dcd2" stroke-width="3"/><rect x="24" y="22" width="912" height="76" rx="16" fill="#fff" stroke="#dce8e2"/><circle cx="58" cy="60" r="18" fill="#245843"/><path d="M49 60h18M58 51v18" stroke="#fff" stroke-width="3" stroke-linecap="round"/>${pText(91,53,titleShort,22,900,'#173e34')}${pText(91,78,record.type==='chapter'?'CHAPTER VISUAL COLLECTION':record.type==='subtopic'?'SUBTOPIC VISUAL':'TOPIC VISUAL',11,900,'#718579')}${icons}<path d="M60 316H900" stroke="#d4e2da" stroke-width="2" stroke-dasharray="5 7"/>${pText(58,346,'VISUAL SUMMARY',12,900,'#64786d')}${chipMarkup}${pText(900,393,'IAE • SVG',11,800,'#718579','end')}</svg>`;
+ return `<svg class="physics-drawing physics-scene central-generated-visual" data-central-visual="${svgEsc(record.key)}" data-discipline="physics" viewBox="0 0 960 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${svgEsc(titleShort)} visual" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fbf9"/><stop offset="1" stop-color="#e8f2ed"/></linearGradient></defs><rect x="2" y="2" width="956" height="416" rx="22" fill="url(#${id}bg)" stroke="#c9dcd2" stroke-width="3"/><rect x="24" y="22" width="912" height="76" rx="16" fill="#fff" stroke="#dce8e2"/><circle cx="58" cy="60" r="18" fill="#245843"/><path d="M49 60h18M58 51v18" stroke="#fff" stroke-width="3" stroke-linecap="round"/>${pText(91,53,titleShort,22,900,'#173e34')}${pText(91,78,record.type==='chapter'?'CHAPTER VISUAL COLLECTION':record.type==='subtopic'?'SUBTOPIC VISUAL':'TOPIC VISUAL',11,900,'#718579')}${icons}<path d="M60 316H900" stroke="#d4e2da" stroke-width="2" stroke-dasharray="5 7"/>${pText(58,346,'VISUAL SUMMARY',12,900,'#64786d')}${chipMarkup}${pText(900,393,'IAE • SVG',11,800,'#718579','end')}</svg>`;
 }
 function initializeVisualRenderingMachine(){
  CENTRAL_VISUAL_SIGNAL=1;
- const records=centralVisualRecords(),source=JSON.stringify({course:{title:CB.course?.title,definition:CB.course?.definition},topics:records.map(r=>({key:r.key,title:r.title,definition:r.definition}))}),signature=centralVisualHash(source);
+ const records=centralVisualRecords(),source=JSON.stringify({subject:CB.subject,course:{title:CB.course?.title,definition:CB.course?.definition,subject:CB.course?.subject,discipline:CB.course?.discipline},topics:records.map(r=>({key:r.key,title:r.title,definition:r.definition}))}),signature=centralVisualHash(source);
  let cached=null;try{cached=JSON.parse(localStorage.getItem(CENTRAL_VISUAL_CACHE_KEY)||'null')}catch(e){}
  centralVisualRegistry=Object.create(null);
  if(cached&&cached.signature===signature&&cached.visuals&&typeof cached.visuals==='object')centralVisualRegistry=cached.visuals;
@@ -1126,7 +1280,7 @@ function renderChapterAcademic(){
  if(h)h.textContent=heading;
  if(d){d.innerHTML=`<div class="central-chapter-visual-heading"><h2>${masteryEsc(CB.course?.title||'Chapter')}</h2>${centralVisualStatusMarkup()}</div>${centralVisualMarkup('chapter')}<p class="course-overview-intro">${masteryEsc(intro)}</p><div class="course-overview-key-label">${masteryEsc(label)}</div><ul class="course-overview-key-points">${points}</ul>`;d.classList.remove('urdu-medium');}
 }
-
+let topicScrollHandler=null;
 const masteryProgressKey='physicsLecture3MasteryProgress';
 function getMasteryProgress(){try{return JSON.parse(localStorage.getItem(masteryProgressKey)||'{}')}catch(e){return {}}}
 function saveMasteryProgress(p){try{localStorage.setItem(masteryProgressKey,JSON.stringify(p))}catch(e){}}
@@ -2079,7 +2233,7 @@ function examinationRender(){
   if(!items.length){body.innerHTML=`<div class="exam-empty">No academic Topic/Subtopic content is available yet, so no questions have been invented.</div>`;return;}
   const mcqs=examMakeMCQs(items),shorts=items,longs=items;
   body.outerHTML=`<div class="exam-source"><span class="ok">✓ Automatic academic-source connection active</span><span>${getExaminationSource().length} Topics · ${items.filter(x=>x.kind==='Subtopic').length} Subtopics</span><span>${mcqs.length} MCQs</span></div><section class="exam-section"><div class="exam-section-head">MCQs</div>${mcqs.map((m,i)=>`<div class="exam-question" data-exam-index="${i}"><div class="exam-qtype">MCQ ${i+1}</div><div class="exam-qtext">${m.q}</div><div class="exam-passage">${examEsc(m.passage||m.item.definition)}</div><div class="exam-options">${m.options.map((o,j)=>`<label class="exam-option"><input type="radio" name="exam-mcq-${i}" value="${j}" onchange="updateExaminationProgress()"><span><b>${String.fromCharCode(65+j)}.</b> ${examEsc(o)}</span></label>`).join('')}</div><div class="exam-question-status" id="exam-status-${i}">Unanswered</div></div>`).join('')}</section><section class="exam-section"><div class="exam-section-head">Short Question Answers</div>${shorts.map((x,i)=>`<div class="exam-question"><div class="exam-qtype">Short Question ${i+1}</div><div class="exam-qtext">${examShortAnswer(x)}</div>${examinationState.showAnswers?`<div class="exam-answer"><strong>Answer:</strong> ${examEsc(x.definition)}</div>`:''}</div>`).join('')}</section><section class="exam-section"><div class="exam-section-head">Long Question Answers</div>${longs.map((x,i)=>`<div class="exam-question"><div class="exam-qtype">Long Question ${i+1}</div><div class="exam-qtext">${examLongAnswer(x)}</div><div class="exam-passage">${examEsc(x.definition)}</div>${examinationState.showAnswers?`<div class="exam-answer"><strong>Answer:</strong> ${examEsc(x.definition)}</div>`:''}</div>`).join('')}</section><div class="exam-actions"><div class="exam-progress-line" id="exam-progress-line">0 / ${mcqs.length} answered</div><button class="exam-btn" type="button" onclick="submitExamination()">Submit Answers</button><button class="exam-btn" type="button" onclick="examinationToggleAnswers()">${examinationState.showAnswers?'Hide Answers':'Show Answers'}</button></div><div id="examinationResult" class="exam-result" aria-live="polite"></div>`;
-
+ 
  };
  if('requestIdleCallback' in window)requestIdleCallback(build,{timeout:120});else setTimeout(build,0);
 }
@@ -2332,8 +2486,15 @@ function initGlobalNavigation(pageId){
 .p03-translation-overlay.visible{display:flex}
 
 
+
+
+
+
+
+
 .p03-translation-loading{padding:35px 15px;color:var(--muted);}
 .p03-translation-error{padding:35px 15px;color:var(--red);}
+
 
 
 .p03-translation-tts{border:1px solid var(--green)!important;background:#fff!important;color:var(--green)!important}
@@ -2374,8 +2535,9 @@ function initGlobalNavigation(pageId){
 @media(max-width:760px){
   .p03-translation-overlay{padding:0}
   .p03-translation-window{width:100%;height:100%;border-radius:0;border:0}
-
-
+  
+  
+  
   .p03-translation-body{padding:16px 10px 24px}
   .p03-translation-content{padding:22px 18px;border-radius:16px;}
 }
@@ -2393,8 +2555,8 @@ function initGlobalNavigation(pageId){
   align-items:center;
   justify-content:center;
   border-radius:9px;
-
-
+  
+  
 }
 @media(max-width:760px){
   .p03-translation-head-actions .p03-translation-tts{
@@ -3542,7 +3704,7 @@ window.addEventListener('pageshow',()=>{
   }
   let ttsAutoScrollSession=null;
   let ttsPendingChunk=null;
-
+  const TTS_BASE_FONT_SIZE_PX=18;
   const TTS_BASE_LINE_HEIGHT_PX=27;
   const TTS_WORDS_PER_MINUTE=150;
   const TTS_SPEED_MULTIPLIER=0.65;
@@ -3711,7 +3873,8 @@ window.addEventListener('pageshow',()=>{
 })();
 </script>
 
-
+<!-- Redundant global English/Pashto/Urdu academic tabs are intentionally removed.
+     Keep the per-topic Translate menu, which is the only translation control. -->
 <style id="remove-redundant-academic-language-tabs">
   .academic-language-row, .mastery-language-row, .academic-language-switcher,
   [data-academic-language-tabs], [data-mastery-language-tabs] { display:none !important; }
